@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repo Risk Pipeline — Report</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- A) HEADER / METADATA                                          -->
+<!-- ============================================================ -->
+<header>
+  <h1>Repo Risk Pipeline Report</h1>
+  <p class="meta">Generated: <strong>{{GENERATED_AT}}</strong></p>
+</header>
+
+<!-- ============================================================ -->
+<!-- B) EXECUTIVE SUMMARY                                          -->
+<!-- ============================================================ -->
+<section id="summary">
+  <h2>Executive Summary</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="big-number">{{REPO_COUNT}}</div>
+      <div class="label">Repos Scanned</div>
+    </div>
+    <div class="card warn">
+      <div class="big-number">{{REPOS_WITH_VULNS}}</div>
+      <div class="label">Repos with Vulnerabilities</div>
+    </div>
+    <div class="card">
+      <div class="big-number">{{UNIQUE_DEP_COUNT}}</div>
+      <div class="label">Unique Dependencies</div>
+    </div>
+    <div class="card warn">
+      <div class="big-number">{{VULN_UNIQUE_DEP_COUNT}}</div>
+      <div class="label">Vulnerable Dependencies</div>
+    </div>
+    <div class="card warn">
+      <div class="big-number">{{UNIQUE_VULN_COUNT}}</div>
+      <div class="label">Unique Vulnerabilities</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- C) REPO TABLE                                                 -->
+<!-- ============================================================ -->
+<section id="repos">
+  <h2>Repository Overview</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Repository</th>
+          <th>Type</th>
+          <th>Language</th>
+          <th>Stars</th>
+          <th>Last Push</th>
+          <th>Deps</th>
+          <th>Vuln Deps</th>
+          <th>Vuln IDs</th>
+          <th>Scorecard</th>
+          <th>Hygiene</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+{{REPO_TABLE_ROWS}}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- D) TOP DEPENDENCIES                                           -->
+<!-- ============================================================ -->
+<section id="top-deps">
+  <h2>Top 15 Dependencies (by Occurrence)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Dependency (purl)</th>
+          <th>Occurrences</th>
+          <th>Vulnerable?</th>
+          <th>Vuln Count</th>
+          <th>Vuln IDs</th>
+        </tr>
+      </thead>
+      <tbody>
+{{TOP_DEPS_ROWS}}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="top-vuln-deps">
+  <h2>Top 15 Vulnerable Dependencies</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Dependency (purl)</th>
+          <th>Occurrences</th>
+          <th>Vulnerable?</th>
+          <th>Vuln Count</th>
+          <th>Vuln IDs</th>
+        </tr>
+      </thead>
+      <tbody>
+{{TOP_VULN_DEPS_ROWS}}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- E) BY-TYPE SUMMARY                                            -->
+<!-- ============================================================ -->
+<section id="by-type">
+  <h2>Summary by Project Type</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Repos</th>
+          <th>Unique Deps</th>
+          <th>Vulnerable Deps</th>
+          <th>Unique Vulns</th>
+        </tr>
+      </thead>
+      <tbody>
+{{BY_TYPE_ROWS}}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- F) VULNERABILITY SUMMARY                                      -->
+<!-- ============================================================ -->
+<section id="vulns">
+  <h2>Top Vulnerabilities (by Affected Repos)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Vulnerability ID</th>
+          <th>Affected Repos</th>
+          <th>Affected Deps</th>
+          <th>Types</th>
+          <th>Repos</th>
+        </tr>
+      </thead>
+      <tbody>
+{{TOP_VULNS_ROWS}}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- G) METHODOLOGY                                                -->
+<!-- ============================================================ -->
+<section id="methodology">
+  <h2>Methodology &amp; Limitations</h2>
+  <p>
+    <strong>Dependency extraction</strong> uses the
+    <a href="https://docs.github.com/en/rest/dependency-graph/sboms" target="_blank">GitHub Dependency Graph SBOM export</a>
+    endpoint, which returns an SPDX JSON document. Dependencies are identified by their
+    <em>purl</em> (Package URL) from the SBOM's <code>externalRefs</code>.
+  </p>
+  <p>
+    <strong>Vulnerability scanning</strong> uses the
+    <a href="https://osv.dev/docs/#tag/api/post/v1/querybatch" target="_blank">OSV.dev querybatch API</a>,
+    querying each dependency by purl. Results are aligned 1-to-1 with the input ordering.
+  </p>
+  <p>
+    <strong>OpenSSF Scorecard</strong> results come from the public REST API. If a project has not been
+    scored (404), the value is recorded as "N/A" and the pipeline continues without error.
+  </p>
+  <p>
+    <strong>RepoReaper-lite</strong> is a lightweight engineering-hygiene heuristic (0–100) based on
+    easily-checkable signals (README, LICENSE, CI, tests, docs, recent activity, stars).
+    It is <em>not</em> the original GHTorrent-backed RepoReapers tool.
+  </p>
+  <p>
+    <strong>Limitations:</strong> SBOM completeness depends on GitHub's dependency detection for
+    each language ecosystem. Some repos may have no SBOM or incomplete dependency graphs.
+    OSV coverage varies by ecosystem. Scorecard availability depends on whether the project
+    has been indexed.
+  </p>
+</section>
+
+<footer>
+  <p>Repo Risk Pipeline &mdash; generated {{GENERATED_AT}}</p>
+</footer>
+
+</body>
+</html>

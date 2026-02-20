@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repo Risk Pipeline — Report</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- A) HEADER / METADATA                                          -->
+<!-- ============================================================ -->
+<header>
+  <h1>Repo Risk Pipeline Report</h1>
+  <p class="meta">Generated: <strong>2026-02-20T16:29:23.194409+00:00</strong></p>
+</header>
+
+<!-- ============================================================ -->
+<!-- B) EXECUTIVE SUMMARY                                          -->
+<!-- ============================================================ -->
+<section id="summary">
+  <h2>Executive Summary</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="big-number">37</div>
+      <div class="label">Repos Scanned</div>
+    </div>
+    <div class="card warn">
+      <div class="big-number">23</div>
+      <div class="label">Repos with Vulnerabilities</div>
+    </div>
+    <div class="card">
+      <div class="big-number">7,649</div>
+      <div class="label">Unique Dependencies</div>
+    </div>
+    <div class="card warn">
+      <div class="big-number">377</div>
+      <div class="label">Vulnerable Dependencies</div>
+    </div>
+    <div class="card warn">
+      <div class="big-number">852</div>
+      <div class="label">Unique Vulnerabilities</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- C) REPO TABLE                                                 -->
+<!-- ============================================================ -->
+<section id="repos">
+  <h2>Repository Overview</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Repository</th>
+          <th>Type</th>
+          <th>Language</th>
+          <th>Stars</th>
+          <th>Last Push</th>
+          <th>Deps</th>
+          <th>Vuln Deps</th>
+          <th>Vuln IDs</th>
+          <th>Scorecard</th>
+          <th>Hygiene</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr class="vuln-highlight"><td><a href="https://github.com/ekylibre/ekylibre" target="_blank">ekylibre/ekylibre</a></td><td>Cloud-hosted backends and dashboard</td><td>Ruby</td><td class="num">466</td><td>2024-03-11</td><td class="num">1678</td><td class="num">123</td><td class="num">247</td><td>4.9</td><td>83.35</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/OpenATK/FieldWorkApp" target="_blank">OpenATK/FieldWorkApp</a></td><td>Cloud-hosted backends and dashboard</td><td>JavaScript</td><td class="num">1</td><td>2021-05-06</td><td class="num">1742</td><td class="num">117</td><td class="num">220</td><td>N/A</td><td>16.51</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/LiteFarmOrg/LiteFarm" target="_blank">LiteFarmOrg/LiteFarm</a></td><td>Domain-specific agricultural platform</td><td>JavaScript</td><td class="num">196</td><td>2026-02-20</td><td class="num">3358</td><td class="num">54</td><td class="num">74</td><td>N/A</td><td>86.47</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/oats-center/isoblue" target="_blank">oats-center/isoblue</a></td><td>Edge and Gateway software</td><td>Python</td><td class="num">23</td><td>2023-10-03</td><td class="num">497</td><td class="num">39</td><td class="num">89</td><td>N/A</td><td>51.9</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/microsoft/farmvibes-ai" target="_blank">microsoft/farmvibes-ai</a></td><td>Cloud-hosted backends and dashboard</td><td>Jupyter Notebook</td><td class="num">834</td><td>2025-07-28</td><td class="num">117</td><td class="num">31</td><td class="num">334</td><td>N/A</td><td>69.61</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/PeaPodTechnologies/PeaPod" target="_blank">PeaPodTechnologies/PeaPod</a></td><td>Cloud-hosted backends and dashboard</td><td>C++</td><td class="num">11</td><td>2026-01-22</td><td class="num">257</td><td class="num">19</td><td class="num">29</td><td>N/A</td><td>50.4</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/usetania/tania-core" target="_blank">usetania/tania-core</a></td><td>Domain-specific agricultural platform</td><td>Go</td><td class="num">813</td><td>2024-06-13</td><td class="num">332</td><td class="num">17</td><td class="num">54</td><td>N/A</td><td>59.55</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/OpenDroneMap/WebODM" target="_blank">OpenDroneMap/WebODM</a></td><td>Cloud-hosted backends and dashboard</td><td>Python</td><td class="num">3,688</td><td>2026-02-20</td><td class="num">576</td><td class="num">15</td><td class="num">45</td><td>4.8</td><td>95.0</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/APSIMInitiative/ApsimX" target="_blank">APSIMInitiative/ApsimX</a></td><td>Domain-specific agricultural platform</td><td>Jupyter Notebook</td><td class="num">183</td><td>2026-02-20</td><td class="num">775</td><td class="num">12</td><td class="num">12</td><td>N/A</td><td>61.32</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/GrowCab/SpeedSeed3" target="_blank">GrowCab/SpeedSeed3</a></td><td>Edge and Gateway software</td><td>JavaScript</td><td class="num">15</td><td>2021-08-19</td><td class="num">86</td><td class="num">11</td><td class="num">21</td><td>N/A</td><td>31.02</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/Sen2Agri/Sen2Agri-System" target="_blank">Sen2Agri/Sen2Agri-System</a></td><td>Cloud-hosted backends and dashboard</td><td>HTML</td><td class="num">126</td><td>2020-11-23</td><td class="num">43</td><td class="num">10</td><td class="num">23</td><td>N/A</td><td>50.52</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/FarmBot/Farmbot-Web-App" target="_blank">FarmBot/Farmbot-Web-App</a></td><td>Cloud-hosted backends and dashboard</td><td>TypeScript</td><td class="num">960</td><td>2026-02-17</td><td class="num">244</td><td class="num">9</td><td class="num">10</td><td>4</td><td>84.91</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/FreeRTOS/FreeRTOS" target="_blank">FreeRTOS/FreeRTOS</a></td><td>Embedded OS substrate</td><td>C</td><td class="num">6,998</td><td>2026-02-12</td><td class="num">34</td><td class="num">7</td><td class="num">71</td><td>4.7</td><td>70.0</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/OpenAgricultureFoundation/openag-brain-balena" target="_blank">OpenAgricultureFoundation/openag-brain-balena</a></td><td>Edge and Gateway software</td><td>Shell</td><td class="num">2</td><td>2022-06-22</td><td class="num">25</td><td class="num">7</td><td class="num">65</td><td>N/A</td><td>12.39</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/Digital-Naturalism-Laboratories/Mothbox" target="_blank">Digital-Naturalism-Laboratories/Mothbox</a></td><td>Field-Deployed Sensor</td><td>Perl</td><td class="num">92</td><td>2026-02-19</td><td class="num">43</td><td class="num">6</td><td class="num">145</td><td>N/A</td><td>59.84</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/farmOS/farmOS" target="_blank">farmOS/farmOS</a></td><td>Domain-specific agricultural platform</td><td>PHP</td><td class="num">1,214</td><td>2026-02-15</td><td class="num">49</td><td class="num">6</td><td class="num">6</td><td>4.9</td><td>80.0</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/geezacoleman/OpenWeedLocator" target="_blank">geezacoleman/OpenWeedLocator</a></td><td>Field-Deployed Sensor</td><td>Python</td><td class="num">441</td><td>2026-02-13</td><td class="num">15</td><td class="num">5</td><td class="num">134</td><td>N/A</td><td>68.23</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/OpenDroneMap/ODM" target="_blank">OpenDroneMap/ODM</a></td><td>Cloud-hosted backends and dashboard</td><td>Python</td><td class="num">5,853</td><td>2026-02-05</td><td class="num">45</td><td class="num">2</td><td class="num">57</td><td>4.7</td><td>95.0</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/maxsitt/insect-detect" target="_blank">maxsitt/insect-detect</a></td><td>Field-Deployed Sensor</td><td>Python</td><td class="num">58</td><td>2025-10-15</td><td class="num">12</td><td class="num">2</td><td class="num">12</td><td>N/A</td><td>48.85</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/OpenDroneMap/NodeODM" target="_blank">OpenDroneMap/NodeODM</a></td><td>Messaging and data transport layers</td><td>JavaScript</td><td class="num">269</td><td>2025-12-15</td><td class="num">41</td><td class="num">1</td><td class="num">11</td><td>N/A</td><td>92.16</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/Open-Agriculture/AgIsoStack-plus-plus" target="_blank">Open-Agriculture/AgIsoStack-plus-plus</a></td><td>Messaging and data transport layers</td><td>C++</td><td class="num">332</td><td>2026-02-04</td><td class="num">15</td><td class="num">1</td><td class="num">10</td><td>N/A</td><td>87.61</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/Laudando-Associates-LLC/LASER" target="_blank">Laudando-Associates-LLC/LASER</a></td><td>Field-Deployed Sensor</td><td>C</td><td class="num">59</td><td>2025-08-21</td><td class="num">3</td><td class="num">1</td><td class="num">7</td><td>N/A</td><td>43.89</td><td class="status-ok">ok</td></tr>
+<tr class="vuln-highlight"><td><a href="https://github.com/APSIMInitiative/APSIM710" target="_blank">APSIMInitiative/APSIM710</a></td><td>Domain-specific agricultural platform</td><td>C#</td><td class="num">42</td><td>2024-02-14</td><td class="num">6</td><td class="num">1</td><td class="num">2</td><td>N/A</td><td>18.17</td><td class="status-ok">ok</td></tr>
+<tr class=""><td><a href="https://github.com/AgOpenGPS-Official/AgOpenGPS" target="_blank">AgOpenGPS-Official/AgOpenGPS</a></td><td>Field-Deployed Sensor</td><td>C#</td><td class="num">847</td><td>2026-02-20</td><td class="num">25</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>69.64</td><td class="status-ok">ok</td></tr>
+<tr class=""><td><a href="https://github.com/CSU-Agricultural-Water-Quality-Program/low-cost-iot-water-sampler" target="_blank">CSU-Agricultural-Water-Quality-Program/low-cost-iot-water-sampler</a></td><td>Field-Deployed Sensor</td><td>C++</td><td class="num">4</td><td>2025-06-09</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>43.49</td><td class="status-partial">partial</td></tr>
+<tr class=""><td><a href="https://github.com/FarmBot/farmbot-arduino-firmware" target="_blank">FarmBot/farmbot-arduino-firmware</a></td><td>Embedded OS substrate</td><td>C++</td><td class="num">441</td><td>2025-04-30</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>73.23</td><td class="status-ok">ok</td></tr>
+<tr class=""><td><a href="https://github.com/FarmBot/farmbot_os" target="_blank">FarmBot/farmbot_os</a></td><td>Edge and Gateway software</td><td>Elixir</td><td class="num">1,148</td><td>2025-09-03</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td>3.7</td><td>100.0</td><td class="status-ok">ok</td></tr>
+<tr class=""><td><a href="https://github.com/Fields2Cover/Fields2Cover" target="_blank">Fields2Cover/Fields2Cover</a></td><td>Edge and Gateway software</td><td>C++</td><td class="num">756</td><td>2026-01-09</td><td class="num">13</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>94.4</td><td class="status-ok">ok</td></tr>
+<tr class=""><td><a href="https://github.com/STEMinds/Eduponics-Mini" target="_blank">STEMinds/Eduponics-Mini</a></td><td>Field-Deployed Sensor</td><td>—</td><td class="num">73</td><td>2023-09-15</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>29.35</td><td class="status-partial">partial</td></tr>
+<tr class=""><td><a href="https://github.com/STEMinds/micropython-eduponics" target="_blank">STEMinds/micropython-eduponics</a></td><td>Edge and Gateway software</td><td>Python</td><td class="num">10</td><td>2023-09-15</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>35.21</td><td class="status-ok">ok</td></tr>
+<tr class=""><td><a href="https://github.com/autogrow/openminder" target="_blank">autogrow/openminder</a></td><td>Field-Deployed Sensor</td><td>Go</td><td class="num">45</td><td>2018-06-14</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>2.5</td><td>28.31</td><td class="status-partial">partial</td></tr>
+<tr class=""><td><a href="https://github.com/ersha-os/ersha-os" target="_blank">ersha-os/ersha-os</a></td><td>Edge and Gateway software</td><td>Rust</td><td class="num">296</td><td>2026-02-02</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>67.36</td><td class="status-partial">partial</td></tr>
+<tr class=""><td><a href="https://github.com/matmis/simplesteer" target="_blank">matmis/simplesteer</a></td><td>Edge and Gateway software</td><td>JavaScript</td><td class="num">5</td><td>2025-07-13</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>48.89</td><td class="status-ok">ok</td></tr>
+<tr class=""><td><a href="https://github.com/sticky-pi/sticky-pi-api" target="_blank">sticky-pi/sticky-pi-api</a></td><td>Cloud-hosted backends and dashboard</td><td>Python</td><td class="num">1</td><td>2023-07-31</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>26.51</td><td class="status-partial">partial</td></tr>
+<tr class=""><td><a href="https://github.com/sticky-pi/sticky-pi-device" target="_blank">sticky-pi/sticky-pi-device</a></td><td>Field-Deployed Sensor</td><td>C</td><td class="num">3</td><td>2022-11-17</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>13.01</td><td class="status-partial">partial</td></tr>
+<tr class=""><td><a href="https://github.com/sticky-pi/sticky-pi-ml" target="_blank">sticky-pi/sticky-pi-ml</a></td><td>Edge and Gateway software</td><td>Python</td><td class="num">0</td><td>2022-07-06</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>25.0</td><td class="status-partial">partial</td></tr>
+<tr class=""><td><a href="https://github.com/timmbogner/Farm-Data-Relay-System" target="_blank">timmbogner/Farm-Data-Relay-System</a></td><td>Edge and Gateway software</td><td>C</td><td class="num">590</td><td>2026-01-29</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td>N/A</td><td>43.86</td><td class="status-ok">ok</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- D) TOP DEPENDENCIES                                           -->
+<!-- ============================================================ -->
+<section id="top-deps">
+  <h2>Top 15 Dependencies (by Occurrence)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Dependency (purl)</th>
+          <th>Occurrences</th>
+          <th>Vulnerable?</th>
+          <th>Vuln Count</th>
+          <th>Vuln IDs</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr><td class="num">1</td><td class="purl">pkg:githubactions/actions/checkout@4.%2A.%2A</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">2</td><td class="purl">pkg:githubactions/actions/upload-artifact@4.%2A.%2A</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">3</td><td class="purl">pkg:npm/ansi-regex@5.0.1</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">4</td><td class="purl">pkg:npm/brace-expansion@1.1.11</td><td class="num">7</td><td>Yes</td><td class="num">1</td><td>GHSA-v6h2-p8h4-qcjw</td></tr>
+<tr><td class="num">5</td><td class="purl">pkg:npm/color-convert@2.0.1</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">6</td><td class="purl">pkg:npm/color-name@1.1.4</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">7</td><td class="purl">pkg:npm/concat-map@0.0.1</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">8</td><td class="purl">pkg:npm/fs.realpath@1.0.0</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">9</td><td class="purl">pkg:npm/has-flag@4.0.0</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">10</td><td class="purl">pkg:npm/inflight@1.0.6</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">11</td><td class="purl">pkg:npm/inherits@2.0.4</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">12</td><td class="purl">pkg:npm/once@1.4.0</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">13</td><td class="purl">pkg:npm/path-is-absolute@1.0.1</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">14</td><td class="purl">pkg:npm/util-deprecate@1.0.2</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+<tr><td class="num">15</td><td class="purl">pkg:npm/wrappy@1.0.2</td><td class="num">7</td><td>No</td><td class="num">0</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="top-vuln-deps">
+  <h2>Top 15 Vulnerable Dependencies</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Dependency (purl)</th>
+          <th>Occurrences</th>
+          <th>Vulnerable?</th>
+          <th>Vuln Count</th>
+          <th>Vuln IDs</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr><td class="num">1</td><td class="purl">pkg:pypi/pillow</td><td class="num">3</td><td>Yes</td><td class="num">112</td><td>GHSA-3c5c-7235-994j, GHSA-3f63-hfp8-52jq, GHSA-3wvg-mj6g-m9cv, GHSA-3xv8-3j54-hgrp, GHSA-43fq-w8qq-v88h, GHSA-44wm-f244-xhp3, GHSA-4fx9-vc88-q2xc, GHSA-57h3-9rgr-c24m, GHSA-5gm3-px64-rw72, GHSA-7534-mm45-c74v (+102 more)</td></tr>
+<tr><td class="num">2</td><td class="purl">pkg:pypi/pillow@8.0.1</td><td class="num">1</td><td>Yes</td><td class="num">56</td><td>GHSA-3f63-hfp8-52jq, GHSA-3wvg-mj6g-m9cv, GHSA-44wm-f244-xhp3, GHSA-4fx9-vc88-q2xc, GHSA-57h3-9rgr-c24m, GHSA-7534-mm45-c74v, GHSA-77gc-v2xv-rvvh, GHSA-7r7m-5h27-29hp, GHSA-8ghj-p4vj-mr35, GHSA-8vj2-vxx3-667w (+46 more)</td></tr>
+<tr><td class="num">3</td><td class="purl">pkg:pypi/aiohttp</td><td class="num">2</td><td>Yes</td><td class="num">31</td><td>GHSA-27mf-ghqm-j3j8, GHSA-45c4-8wx5-qw6w, GHSA-54jq-c3m8-4m76, GHSA-5h86-8mv2-jq9f, GHSA-5m98-qgg9-wh84, GHSA-69f9-5gxw-wvc2, GHSA-6jhg-hg63-jvvf, GHSA-6mq8-rvhq-8wgg, GHSA-7gpw-8wmc-pm8g, GHSA-8495-4g3g-x7pr (+21 more)</td></tr>
+<tr><td class="num">4</td><td class="purl">pkg:pypi/urllib3</td><td class="num">2</td><td>Yes</td><td class="num">28</td><td>GHSA-2xpw-w6gg-jr37, GHSA-34jh-p97f-mpxf, GHSA-38jv-5279-wg99, GHSA-48p4-8xcf-vxj5, GHSA-5phf-pp7p-vc2r, GHSA-g4mx-q9vg-27p4, GHSA-gm62-xv2j-4w53, GHSA-gwvm-45gx-3cf8, GHSA-hmv2-79q8-fv6g, GHSA-mh33-7rrq-662w (+18 more)</td></tr>
+<tr><td class="num">5</td><td class="purl">pkg:pypi/django@1.11.20</td><td class="num">1</td><td>Yes</td><td class="num">26</td><td>GHSA-3gh2-xw74-jmcw, GHSA-68w8-qjq3-2gfm, GHSA-6c7v-2f49-8h26, GHSA-6r97-cj55-9hrq, GHSA-6w2r-r2m5-xq5w, GHSA-7rp2-fm2h-wchj, GHSA-7xr5-9hcq-chf9, GHSA-8x94-hmjh-97hq, GHSA-c4qh-4vgv-qc6g, GHSA-frmv-pr5f-9mcr (+16 more)</td></tr>
+<tr><td class="num">6</td><td class="purl">pkg:pypi/cryptography</td><td class="num">1</td><td>Yes</td><td class="num">25</td><td>GHSA-39hc-v87j-747x, GHSA-3ww4-gg4f-jr7f, GHSA-5cpq-8wj7-hf2v, GHSA-6vqw-3v5j-54x4, GHSA-79v4-65xg-pq4g, GHSA-9v9h-cgj8-h64p, GHSA-cf7p-gm2m-833m, GHSA-fcf9-3qw3-gxmj, GHSA-h4gh-qq45-vh27, GHSA-hggm-jpg3-v476 (+15 more)</td></tr>
+<tr><td class="num">7</td><td class="purl">pkg:npm/electron@8.2.0</td><td class="num">1</td><td>Yes</td><td class="num">18</td><td>GHSA-2q4g-w47c-4674, GHSA-3p22-ghq8-v749, GHSA-56pc-6jqp-xqj8, GHSA-6r2x-8pq8-9489, GHSA-6vrv-94jv-crrg, GHSA-77xc-hjv8-ww97, GHSA-7m48-wc93-9g85, GHSA-7x97-j373-85x5, GHSA-f9mq-jph6-9mhm, GHSA-h9jc-284h-533g (+8 more)</td></tr>
+<tr><td class="num">8</td><td class="purl">pkg:pypi/numpy</td><td class="num">3</td><td>Yes</td><td class="num">16</td><td>GHSA-2fc2-6r4j-p65h, GHSA-5545-2q6w-2gh6, GHSA-6p56-wp2h-9hxr, GHSA-9fq2-x9r6-wfmf, GHSA-cw6w-4rcx-xphc, GHSA-f7c7-j99h-c22f, GHSA-fpfv-jqm9-f5jm, GHSA-frgw-fgh6-9g52, PYSEC-2017-1, PYSEC-2018-33 (+6 more)</td></tr>
+<tr><td class="num">9</td><td class="purl">pkg:gem/rack@2.2.8</td><td class="num">1</td><td>Yes</td><td class="num">16</td><td>GHSA-22f2-v57c-j9cx, GHSA-54rr-7fvw-6x8f, GHSA-625h-95r8-8xpm, GHSA-6xw4-3v39-52mm, GHSA-7g2v-jj9q-g3rg, GHSA-7wqh-767x-r66v, GHSA-8cgq-6mh2-7j6v, GHSA-gjh7-p2fx-99vx, GHSA-mxw3-3hh2-x2mh, GHSA-p543-xpfm-54cp (+6 more)</td></tr>
+<tr><td class="num">10</td><td class="purl">pkg:golang/golang.org/x/net@0.5.0</td><td class="num">1</td><td>Yes</td><td class="num">16</td><td>GHSA-2wrh-6pvc-2jm9, GHSA-4374-p667-p6c8, GHSA-4v7x-pqxf-cx7m, GHSA-qppj-fm5r-hxr3, GHSA-qxp5-gwg8-xv66, GHSA-vvgc-356p-c3xw, GHSA-vvpx-j8f3-3w6h, GO-2023-1571, GO-2023-1988, GO-2023-2102 (+6 more)</td></tr>
+<tr><td class="num">11</td><td class="purl">pkg:pypi/ipython</td><td class="num">1</td><td>Yes</td><td class="num">15</td><td>GHSA-29gw-9793-fvw7, GHSA-4vwq-x64q-j4cj, GHSA-66gw-5xpf-gfp5, GHSA-75cw-5cgv-g853, GHSA-7fc2-rm35-2pp7, GHSA-92mr-v722-f48m, GHSA-pq7m-3gw7-gq5x, GHSA-q326-jhw3-699g, PYSEC-2014-21, PYSEC-2015-24 (+5 more)</td></tr>
+<tr><td class="num">12</td><td class="purl">pkg:pypi/jinja2</td><td class="num">1</td><td>Yes</td><td class="num">15</td><td>GHSA-462w-v97r-4m45, GHSA-8r7q-cvjq-x353, GHSA-cpwx-vrp4-4pq7, GHSA-fqh9-2qgg-h84h, GHSA-g3rq-g295-4j3m, GHSA-gmj6-6f8f-6699, GHSA-h5c8-rqwp-cp95, GHSA-h75v-3vvj-5mfj, GHSA-hj2j-77xm-mc5v, GHSA-q2x7-8rv6-6q7h (+5 more)</td></tr>
+<tr><td class="num">13</td><td class="purl">pkg:pypi/django@1.11.23</td><td class="num">1</td><td>Yes</td><td class="num">14</td><td>GHSA-3gh2-xw74-jmcw, GHSA-68w8-qjq3-2gfm, GHSA-6w2r-r2m5-xq5w, GHSA-7xr5-9hcq-chf9, GHSA-8x94-hmjh-97hq, GHSA-frmv-pr5f-9mcr, GHSA-hmr4-m2h5-33qx, GHSA-qw25-v68c-qjf3, GHSA-rrqc-c2jx-6jgv, GHSA-vfq6-hq5r-27r6 (+4 more)</td></tr>
+<tr><td class="num">14</td><td class="purl">pkg:pypi/requests</td><td class="num">3</td><td>Yes</td><td class="num">12</td><td>GHSA-652x-xj99-gmcc, GHSA-9hjg-9r4m-mvj7, GHSA-9wx4-h78v-vm56, GHSA-cfj3-7x9c-4p3h, GHSA-j8r2-6x86-q33q, GHSA-pg2w-x9wp-vw92, GHSA-x84v-xcm2-53pg, PYSEC-2014-13, PYSEC-2014-14, PYSEC-2015-17 (+2 more)</td></tr>
+<tr><td class="num">15</td><td class="purl">pkg:npm/next@13.1.1</td><td class="num">1</td><td>Yes</td><td class="num">12</td><td>GHSA-3h52-269p-cp9r, GHSA-4342-x723-ch2f, GHSA-7gfc-8cq8-jh5f, GHSA-7m27-7ghc-44w9, GHSA-9g9p-9gw9-jx7f, GHSA-c59h-r6p8-q9wc, GHSA-f82v-jwr5-mffw, GHSA-g5qg-72qw-gw5v, GHSA-g77x-44xx-532m, GHSA-h25m-26qc-wcjf (+2 more)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- E) BY-TYPE SUMMARY                                            -->
+<!-- ============================================================ -->
+<section id="by-type">
+  <h2>Summary by Project Type</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Repos</th>
+          <th>Unique Deps</th>
+          <th>Vulnerable Deps</th>
+          <th>Unique Vulns</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr><td>Cloud-hosted backends and dashboard</td><td class="num">9</td><td class="num">3802</td><td class="num">259</td><td class="num">649</td></tr>
+<tr><td>Domain-specific agricultural platform</td><td class="num">5</td><td class="num">3954</td><td class="num">80</td><td class="num">103</td></tr>
+<tr><td>Edge and Gateway software</td><td class="num">10</td><td class="num">627</td><td class="num">57</td><td class="num">155</td></tr>
+<tr><td>Embedded OS substrate</td><td class="num">2</td><td class="num">35</td><td class="num">7</td><td class="num">71</td></tr>
+<tr><td>Field-Deployed Sensor</td><td class="num">9</td><td class="num">94</td><td class="num">11</td><td class="num">164</td></tr>
+<tr><td>Messaging and data transport layers</td><td class="num">2</td><td class="num">56</td><td class="num">2</td><td class="num">21</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- F) VULNERABILITY SUMMARY                                      -->
+<!-- ============================================================ -->
+<section id="vulns">
+  <h2>Top Vulnerabilities (by Affected Repos)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Vulnerability ID</th>
+          <th>Affected Repos</th>
+          <th>Affected Deps</th>
+          <th>Types</th>
+          <th>Repos</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr><td class="vuln-id">GHSA-xxjr-mmjv-4gpg</td><td class="num">7</td><td class="num">5</td><td>Cloud-hosted backends and dashboard, Domain-specific agricultural platform, Edge and Gateway software</td><td>FarmBot/Farmbot-Web-App, GrowCab/SpeedSeed3, LiteFarmOrg/LiteFarm, OpenATK/FieldWorkApp, PeaPodTechnologies/PeaPod (+2 more)</td></tr>
+<tr><td class="vuln-id">GHSA-v6h2-p8h4-qcjw</td><td class="num">7</td><td class="num">2</td><td>Cloud-hosted backends and dashboard, Domain-specific agricultural platform, Edge and Gateway software</td><td>APSIMInitiative/ApsimX, LiteFarmOrg/LiteFarm, OpenATK/FieldWorkApp, PeaPodTechnologies/PeaPod, ekylibre/ekylibre (+2 more)</td></tr>
+<tr><td class="vuln-id">GHSA-2g4f-4pwh-qvx6</td><td class="num">6</td><td class="num">6</td><td>Cloud-hosted backends and dashboard, Domain-specific agricultural platform, Edge and Gateway software</td><td>APSIMInitiative/ApsimX, LiteFarmOrg/LiteFarm, OpenATK/FieldWorkApp, ekylibre/ekylibre, oats-center/isoblue (+1 more)</td></tr>
+<tr><td class="vuln-id">GHSA-43fc-jf86-j433</td><td class="num">6</td><td class="num">6</td><td>Cloud-hosted backends and dashboard, Domain-specific agricultural platform, Edge and Gateway software</td><td>FarmBot/Farmbot-Web-App, LiteFarmOrg/LiteFarm, OpenATK/FieldWorkApp, PeaPodTechnologies/PeaPod, ekylibre/ekylibre (+1 more)</td></tr>
+<tr><td class="vuln-id">GHSA-3xgq-45jj-v275</td><td class="num">6</td><td class="num">5</td><td>Cloud-hosted backends and dashboard, Domain-specific agricultural platform, Edge and Gateway software</td><td>APSIMInitiative/ApsimX, LiteFarmOrg/LiteFarm, OpenATK/FieldWorkApp, ekylibre/ekylibre, oats-center/isoblue (+1 more)</td></tr>
+<tr><td class="vuln-id">GHSA-952p-6rrq-rcjv</td><td class="num">6</td><td class="num">4</td><td>Cloud-hosted backends and dashboard, Domain-specific agricultural platform, Edge and Gateway software</td><td>APSIMInitiative/ApsimX, LiteFarmOrg/LiteFarm, OpenATK/FieldWorkApp, ekylibre/ekylibre, oats-center/isoblue (+1 more)</td></tr>
+<tr><td class="vuln-id">GHSA-mh29-5h37-fv8m</td><td class="num">6</td><td class="num">4</td><td>Cloud-hosted backends and dashboard, Domain-specific agricultural platform, Edge and Gateway software</td><td>LiteFarmOrg/LiteFarm, OpenATK/FieldWorkApp, OpenDroneMap/WebODM, ekylibre/ekylibre, oats-center/isoblue (+1 more)</td></tr>
+<tr><td class="vuln-id">GHSA-968p-4wvh-cqc8</td><td class="num">5</td><td class="num">14</td><td>Cloud-hosted backends and dashboard, Domain-specific agricultural platform</td><td>APSIMInitiative/ApsimX, LiteFarmOrg/LiteFarm, OpenATK/FieldWorkApp, ekylibre/ekylibre, usetania/tania-core</td></tr>
+<tr><td class="vuln-id">GHSA-c2qf-rxjj-qqgw</td><td class="num">5</td><td class="num">9</td><td>Cloud-hosted backends and dashboard, Domain-specific agricultural platform, Edge and Gateway software</td><td>GrowCab/SpeedSeed3, OpenATK/FieldWorkApp, PeaPodTechnologies/PeaPod, ekylibre/ekylibre, usetania/tania-core</td></tr>
+<tr><td class="vuln-id">GHSA-jr5f-v2jv-69x6</td><td class="num">5</td><td class="num">4</td><td>Cloud-hosted backends and dashboard, Domain-specific agricultural platform, Edge and Gateway software</td><td>LiteFarmOrg/LiteFarm, OpenATK/FieldWorkApp, PeaPodTechnologies/PeaPod, ekylibre/ekylibre, oats-center/isoblue</td></tr>
+<tr><td class="vuln-id">GHSA-wf5p-g6vw-rhxx</td><td class="num">5</td><td class="num">4</td><td>Cloud-hosted backends and dashboard, Domain-specific agricultural platform, Edge and Gateway software</td><td>LiteFarmOrg/LiteFarm, OpenATK/FieldWorkApp, PeaPodTechnologies/PeaPod, ekylibre/ekylibre, oats-center/isoblue</td></tr>
+<tr><td class="vuln-id">GHSA-3f63-hfp8-52jq</td><td class="num">5</td><td class="num">3</td><td>Cloud-hosted backends and dashboard, Field-Deployed Sensor, Messaging and data transport layers</td><td>Digital-Naturalism-Laboratories/Mothbox, Open-Agriculture/AgIsoStack-plus-plus, OpenDroneMap/ODM, geezacoleman/OpenWeedLocator, microsoft/farmvibes-ai</td></tr>
+<tr><td class="vuln-id">GHSA-44wm-f244-xhp3</td><td class="num">5</td><td class="num">3</td><td>Cloud-hosted backends and dashboard, Field-Deployed Sensor, Messaging and data transport layers</td><td>Digital-Naturalism-Laboratories/Mothbox, Open-Agriculture/AgIsoStack-plus-plus, OpenDroneMap/ODM, geezacoleman/OpenWeedLocator, microsoft/farmvibes-ai</td></tr>
+<tr><td class="vuln-id">GHSA-8ghj-p4vj-mr35</td><td class="num">5</td><td class="num">3</td><td>Cloud-hosted backends and dashboard, Field-Deployed Sensor, Messaging and data transport layers</td><td>Digital-Naturalism-Laboratories/Mothbox, Open-Agriculture/AgIsoStack-plus-plus, OpenDroneMap/ODM, geezacoleman/OpenWeedLocator, microsoft/farmvibes-ai</td></tr>
+<tr><td class="vuln-id">GHSA-j7hp-h8jx-5ppr</td><td class="num">5</td><td class="num">3</td><td>Cloud-hosted backends and dashboard, Field-Deployed Sensor, Messaging and data transport layers</td><td>Digital-Naturalism-Laboratories/Mothbox, Open-Agriculture/AgIsoStack-plus-plus, OpenDroneMap/ODM, geezacoleman/OpenWeedLocator, microsoft/farmvibes-ai</td></tr>
+<tr><td class="vuln-id">GHSA-m2vv-5vj5-2hm7</td><td class="num">5</td><td class="num">3</td><td>Cloud-hosted backends and dashboard, Field-Deployed Sensor, Messaging and data transport layers</td><td>Digital-Naturalism-Laboratories/Mothbox, Open-Agriculture/AgIsoStack-plus-plus, OpenDroneMap/ODM, geezacoleman/OpenWeedLocator, microsoft/farmvibes-ai</td></tr>
+<tr><td class="vuln-id">PYSEC-2022-42979</td><td class="num">5</td><td class="num">3</td><td>Cloud-hosted backends and dashboard, Field-Deployed Sensor, Messaging and data transport layers</td><td>Digital-Naturalism-Laboratories/Mothbox, Open-Agriculture/AgIsoStack-plus-plus, OpenDroneMap/ODM, geezacoleman/OpenWeedLocator, microsoft/farmvibes-ai</td></tr>
+<tr><td class="vuln-id">PYSEC-2023-175</td><td class="num">5</td><td class="num">3</td><td>Cloud-hosted backends and dashboard, Field-Deployed Sensor, Messaging and data transport layers</td><td>Digital-Naturalism-Laboratories/Mothbox, Open-Agriculture/AgIsoStack-plus-plus, OpenDroneMap/ODM, geezacoleman/OpenWeedLocator, microsoft/farmvibes-ai</td></tr>
+<tr><td class="vuln-id">PYSEC-2023-227</td><td class="num">5</td><td class="num">3</td><td>Cloud-hosted backends and dashboard, Field-Deployed Sensor, Messaging and data transport layers</td><td>Digital-Naturalism-Laboratories/Mothbox, Open-Agriculture/AgIsoStack-plus-plus, OpenDroneMap/ODM, geezacoleman/OpenWeedLocator, microsoft/farmvibes-ai</td></tr>
+<tr><td class="vuln-id">GHSA-cfh3-3jmp-rvhc</td><td class="num">5</td><td class="num">2</td><td>Cloud-hosted backends and dashboard, Field-Deployed Sensor</td><td>Digital-Naturalism-Laboratories/Mothbox, OpenDroneMap/ODM, OpenDroneMap/WebODM, geezacoleman/OpenWeedLocator, microsoft/farmvibes-ai</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- G) METHODOLOGY                                                -->
+<!-- ============================================================ -->
+<section id="methodology">
+  <h2>Methodology &amp; Limitations</h2>
+  <p>
+    <strong>Dependency extraction</strong> uses the
+    <a href="https://docs.github.com/en/rest/dependency-graph/sboms" target="_blank">GitHub Dependency Graph SBOM export</a>
+    endpoint, which returns an SPDX JSON document. Dependencies are identified by their
+    <em>purl</em> (Package URL) from the SBOM's <code>externalRefs</code>.
+  </p>
+  <p>
+    <strong>Vulnerability scanning</strong> uses the
+    <a href="https://osv.dev/docs/#tag/api/post/v1/querybatch" target="_blank">OSV.dev querybatch API</a>,
+    querying each dependency by purl. Results are aligned 1-to-1 with the input ordering.
+  </p>
+  <p>
+    <strong>OpenSSF Scorecard</strong> results come from the public REST API. If a project has not been
+    scored (404), the value is recorded as "N/A" and the pipeline continues without error.
+  </p>
+  <p>
+    <strong>RepoReaper-lite</strong> is a lightweight engineering-hygiene heuristic (0–100) based on
+    easily-checkable signals (README, LICENSE, CI, tests, docs, recent activity, stars).
+    It is <em>not</em> the original GHTorrent-backed RepoReapers tool.
+  </p>
+  <p>
+    <strong>Limitations:</strong> SBOM completeness depends on GitHub's dependency detection for
+    each language ecosystem. Some repos may have no SBOM or incomplete dependency graphs.
+    OSV coverage varies by ecosystem. Scorecard availability depends on whether the project
+    has been indexed.
+  </p>
+</section>
+
+<footer>
+  <p>Repo Risk Pipeline &mdash; generated 2026-02-20T16:29:23.194409+00:00</p>
+</footer>
+
+</body>
+</html>
