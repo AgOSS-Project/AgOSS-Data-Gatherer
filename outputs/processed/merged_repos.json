@@ -1,0 +1,137 @@
+[
+  {
+    "repo_url": "https://github.com/farmOS/farmOS",
+    "owner": "farmOS",
+    "repo_name": "farmOS",
+    "category": "Domain-specific agricultural platform",
+    "collection_timestamp": "2026-03-12T08:50:46.021674+00:00",
+    "scorecard_collected": true,
+    "scorecard_error": "",
+    "scorecard_overall": 4.2,
+    "scorecard_checks": {
+      "Binary-Artifacts": {
+        "score": 10,
+        "reason": "no binaries found in the repo",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#binary-artifacts"
+      },
+      "Branch-Protection": {
+        "score": 1,
+        "reason": "branch protection is not maximal on development and all release branches",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#branch-protection"
+      },
+      "CI-Tests": {
+        "score": 8,
+        "reason": "4 out of 5 merged PRs checked by a CI test -- score normalized to 8",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#ci-tests"
+      },
+      "CII-Best-Practices": {
+        "score": 0,
+        "reason": "no effort to earn an OpenSSF best practices badge detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#cii-best-practices"
+      },
+      "Code-Review": {
+        "score": 0,
+        "reason": "Found 0/25 approved changesets -- score normalized to 0",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#code-review"
+      },
+      "Contributors": {
+        "score": 10,
+        "reason": "project has 13 contributing companies or organizations",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#contributors"
+      },
+      "Dangerous-Workflow": {
+        "score": -1,
+        "reason": "no workflows found",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dangerous-workflow"
+      },
+      "Dependency-Update-Tool": {
+        "score": 0,
+        "reason": "no update tool detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dependency-update-tool"
+      },
+      "Fuzzing": {
+        "score": 0,
+        "reason": "project is not fuzzed",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#fuzzing"
+      },
+      "License": {
+        "score": 10,
+        "reason": "license file detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#license"
+      },
+      "Maintained": {
+        "score": 10,
+        "reason": "30 commit(s) and 7 issue activity found in the last 90 days -- score normalized to 10",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#maintained"
+      },
+      "Packaging": {
+        "score": -1,
+        "reason": "packaging workflow not detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#packaging"
+      },
+      "Pinned-Dependencies": {
+        "score": 0,
+        "reason": "dependency not pinned by hash detected -- score normalized to 0",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#pinned-dependencies"
+      },
+      "SAST": {
+        "score": 0,
+        "reason": "SAST tool is not run on all commits -- score normalized to 0",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#sast"
+      },
+      "Security-Policy": {
+        "score": 9,
+        "reason": "security policy file detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#security-policy"
+      },
+      "Signed-Releases": {
+        "score": 0,
+        "reason": "Project has not signed or included provenance with any releases.",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#signed-releases"
+      },
+      "Token-Permissions": {
+        "score": -1,
+        "reason": "No tokens found",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#token-permissions"
+      },
+      "Vulnerabilities": {
+        "score": 10,
+        "reason": "0 existing vulnerabilities detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#vulnerabilities"
+      }
+    },
+    "scorecard_status": "success",
+    "scorecard_exit_code": null,
+    "scorecard_runtime": 0.0,
+    "augur_collected": true,
+    "augur_error": "",
+    "augur_repo_id": 25481,
+    "augur_metrics": {
+      "contributor_count": 0,
+      "new_contributor_count": 0,
+      "committer_count": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "issues_active": 0,
+      "prs_opened": 0,
+      "release_count": 0,
+      "languages": [
+        "{'repo_name': 'farmOS', 'primary_language': None}"
+      ],
+      "aggregate_summary": [
+        {
+          "watcher_count": null,
+          "stars_count": null,
+          "fork_count": null,
+          "merged_count": 0,
+          "committer_count": 0,
+          "commit_count": null
+        }
+      ]
+    },
+    "augur_status": "ready",
+    "augur_registered": true,
+    "augur_ready": true,
+    "overall_status": "complete"
+  }
+]

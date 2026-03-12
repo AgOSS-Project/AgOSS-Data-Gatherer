@@ -1,0 +1,17 @@
+{
+  "run_start": "2026-03-12T08:50:46.021674+00:00",
+  "run_end": "2026-03-12T08:50:46.040543+00:00",
+  "total_repos": 1,
+  "scorecard_success": 1,
+  "scorecard_partial": 0,
+  "scorecard_fail": 0,
+  "augur_success": 1,
+  "augur_registered": 1,
+  "augur_ready": 1,
+  "augur_timed_out": 0,
+  "augur_fail": 0,
+  "categories": [
+    "Domain-specific agricultural platform"
+  ],
+  "notes": []
+}

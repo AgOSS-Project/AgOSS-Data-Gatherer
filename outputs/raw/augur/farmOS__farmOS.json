@@ -1,0 +1,63 @@
+{
+  "repo_id": 25481,
+  "status": "ready",
+  "metrics_raw": {
+    "contributors": [],
+    "contributors_new": [],
+    "committers": [],
+    "top_committers": [],
+    "issues_new": [],
+    "issues_closed": [],
+    "issues_active": [],
+    "issue_backlog": [],
+    "avg_issue_resolution_time": [],
+    "pull_requests_new": [],
+    "pr_merge_contributor_new": [],
+    "pr_acceptance_rate": [],
+    "releases": [],
+    "stars_count": [],
+    "fork_count": [],
+    "watchers_count": [],
+    "languages": [
+      {
+        "repo_name": "farmOS",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": null,
+        "stars_count": null,
+        "fork_count": null,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ]
+  },
+  "metrics_summary": {
+    "contributor_count": 0,
+    "new_contributor_count": 0,
+    "committer_count": 0,
+    "issues_opened": 0,
+    "issues_closed": 0,
+    "issues_active": 0,
+    "prs_opened": 0,
+    "release_count": 0,
+    "languages": [
+      "{'repo_name': 'farmOS', 'primary_language': None}"
+    ],
+    "aggregate_summary": [
+      {
+        "watcher_count": null,
+        "stars_count": null,
+        "fork_count": null,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ]
+  }
+}

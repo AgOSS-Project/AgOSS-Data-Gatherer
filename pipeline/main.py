@@ -1,279 +1,190 @@
-"""
-main.py – Single entrypoint for the repo-risk pipeline.
+"""AgOSS Repository Analysis Pipeline — CLI entry point.
 
 Usage:
-    python -m pipeline.main --input input.txt --output output
-
-    or
-
-    python pipeline/main.py --input input.txt --output output
-
-Environment variables (read from .env via python-dotenv):
-    GITHUB_TOKEN          – GitHub PAT (recommended; needed for SBOM export
-                            and higher rate limits)
-    SCORECARD_API_BASE    – Override the OpenSSF Scorecard API base URL
-                            (optional)
-
-Config knobs are in the CONFIG dict below.
+    python -m pipeline.main [--force] [--verbose] [--skip-scorecard] [--skip-augur]
+                            [--sync-augur] [--register-augur] [--wait-for-augur]
+                            [--augur-wait-mode MODE] [--augur-timeout N]
 """
+
 from __future__ import annotations
 
 import argparse
-import datetime as dt
-import json
-import logging
-import os
 import sys
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from pathlib import Path
-from typing import Any, Dict, List
+import time
+from datetime import datetime, timezone
 
-# Load .env *before* any imports that read env vars
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    pass  # python-dotenv not installed; rely on real env vars
-
-from .models import RepoTarget, RepoResult, DepResult, parse_input_line
-from .github_client import GitHubClient, extract_purls_from_spdx
-from .osv_client import osv_querybatch, build_dep_results
-from .scorecard_client import fetch_scorecard, summarize_scorecard
-from .aggregate import build_dep_aggregate, build_vuln_aggregate, build_report_data
-from .report.render import render_report
-
-# -------------------------------------------------------------------
-# Configuration
-# -------------------------------------------------------------------
-
-CONFIG: Dict[str, Any] = {
-    "max_workers": 4,
-    "http_timeout": 30,
-    "osv_chunk_size": 500,
-    "max_osv_items_html": 200,
-    "top_deps_n": 15,
-    "top_vuln_deps_n": 15,
-    "top_vulns_n": 20,
-}
-
-# -------------------------------------------------------------------
-# Logging
-# -------------------------------------------------------------------
-
-logger = logging.getLogger("pipeline")
+from pipeline import config
+from pipeline.logger_setup import setup_logging
 
 
-def _setup_logging(output_dir: str) -> None:
-    os.makedirs(output_dir, exist_ok=True)
-    fmt = logging.Formatter("%(asctime)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S")
-
-    sh = logging.StreamHandler(sys.stdout)
-    sh.setLevel(logging.INFO)
-    sh.setFormatter(fmt)
-    logger.addHandler(sh)
-
-    fh = logging.FileHandler(os.path.join(output_dir, "errors.log"), mode="w", encoding="utf-8")
-    fh.setLevel(logging.WARNING)
-    fh.setFormatter(fmt)
-    logger.addHandler(fh)
-
-    logger.setLevel(logging.DEBUG)
-
-
-# -------------------------------------------------------------------
-# Per-repo scanning
-# -------------------------------------------------------------------
-
-def scan_one(target: RepoTarget, gh: GitHubClient) -> RepoResult:
-    """Run all checks for a single repo and return a :class:`RepoResult`."""
-    r = RepoResult(
-        owner=target.owner,
-        repo=target.repo,
-        slug=target.slug,
-        repo_type=target.repo_type,
-        original_input=target.original,
+def parse_args() -> argparse.Namespace:
+    p = argparse.ArgumentParser(
+        description="Run the AgOSS repo analysis pipeline.",
+    )
+    p.add_argument(
+        "--force", "--force-refresh", action="store_true",
+        help="Re-collect data even if cached results exist.",
+    )
+    p.add_argument(
+        "--verbose", "-v", action="store_true",
+        help="Enable debug-level console output.",
+    )
+    p.add_argument(
+        "--skip-scorecard", action="store_true",
+        help="Skip Scorecard collection (use cached or empty).",
+    )
+    p.add_argument(
+        "--skip-augur", action="store_true",
+        help="Skip Augur collection (use cached or empty).",
+    )
+    p.add_argument(
+        "--input", type=str, default=None,
+        help="Path to input.txt (default: pipeline/input.txt).",
     )
 
-    if not target.owner or not target.repo:
-        r.status = "failed"
-        r.errors.append("parse_failed: could not extract owner/repo")
-        return r
-
-    # 1) GitHub metadata
-    meta, meta_errs = gh.repo_metadata(target.owner, target.repo)
-    r.errors.extend(meta_errs)
-    if meta is None:
-        r.status = "failed"
-        return r
-
-    r.gh_description = meta.get("description") or ""
-    r.gh_language = meta.get("language") or ""
-    r.gh_stars = int(meta.get("stargazers_count") or 0)
-    r.gh_forks = int(meta.get("forks_count") or 0)
-    r.gh_open_issues = int(meta.get("open_issues_count") or 0)
-    r.gh_pushed_at = meta.get("pushed_at") or ""
-    lic = meta.get("license")
-    r.gh_license = (lic.get("spdx_id") or lic.get("name") or "") if isinstance(lic, dict) else ""
-    r.gh_archived = bool(meta.get("archived"))
-    r.gh_full_meta = meta
-
-    # 2) RepoReaper-lite
-    r.reporeaper_lite = gh.reporeaper_lite(target.owner, target.repo, meta)
-
-    # 3) Scorecard (optional – never fails the run)
-    sc_raw, sc_err = fetch_scorecard(target.owner, target.repo)
-    if sc_err:
-        logger.info("Scorecard not available for %s: %s", target.slug, sc_err)
-    r.scorecard = summarize_scorecard(sc_raw)
-
-    # 4) SBOM export
-    sbom, sbom_errs = gh.export_sbom(target.owner, target.repo)
-    r.errors.extend(sbom_errs)
-    if sbom is None:
-        r.status = "partial"
-        return r
-
-    purls = extract_purls_from_spdx(sbom)
-    r.dep_count = len(purls)
-
-    # 5) OSV querybatch
-    osv_results, osv_err = osv_querybatch(purls, chunk_size=CONFIG["osv_chunk_size"])
-    if osv_results is None:
-        r.status = "partial"
-        if osv_err:
-            r.errors.append(osv_err)
-        # Still store deps without vuln info
-        r.dependencies = [DepResult(purl=p) for p in purls]
-        return r
-
-    r.dependencies = build_dep_results(purls, osv_results)
-    r.vulnerable_dep_count = sum(1 for d in r.dependencies if d.vulnerable)
-    r.vuln_id_count = sum(d.vuln_count for d in r.dependencies)
-
-    return r
-
-
-# -------------------------------------------------------------------
-# Main orchestrator
-# -------------------------------------------------------------------
-
-def run_pipeline(input_path: str, output_dir: str, workers: int) -> None:
-    _setup_logging(output_dir)
-    logger.info("Pipeline started  input=%s  output=%s  workers=%d", input_path, output_dir, workers)
-
-    # 0) Parse input
-    targets: List[RepoTarget] = []
-    with open(input_path, "r", encoding="utf-8") as fh:
-        for line in fh:
-            t = parse_input_line(line)
-            if t is not None:
-                targets.append(t)
-    logger.info("Parsed %d repo targets from %s", len(targets), input_path)
-
-    # GitHub client
-    token = os.getenv("GITHUB_TOKEN")
-    if not token:
-        logger.warning("GITHUB_TOKEN not set – rate limits will be strict and SBOM may fail")
-    gh = GitHubClient(token=token)
-
-    # Scan repos (threaded)
-    started = dt.datetime.now(dt.timezone.utc)
-    results: List[RepoResult] = []
-
-    if workers <= 1:
-        for i, t in enumerate(targets, 1):
-            logger.info("[%d/%d] Scanning %s", i, len(targets), t.slug)
-            results.append(scan_one(t, gh))
-    else:
-        with ThreadPoolExecutor(max_workers=workers) as pool:
-            future_to_target = {pool.submit(scan_one, t, gh): t for t in targets}
-            done_count = 0
-            for fut in as_completed(future_to_target):
-                done_count += 1
-                tgt = future_to_target[fut]
-                try:
-                    results.append(fut.result())
-                    logger.info("[%d/%d] Done %s", done_count, len(targets), tgt.slug)
-                except Exception as exc:
-                    logger.error("Unhandled error for %s: %s", tgt.slug, exc)
-                    rr = RepoResult(
-                        owner=tgt.owner, repo=tgt.repo, slug=tgt.slug,
-                        repo_type=tgt.repo_type, original_input=tgt.original,
-                        status="failed", errors=[repr(exc)],
-                    )
-                    results.append(rr)
-
-    # Stable ordering by input position
-    order = {t.original: i for i, t in enumerate(targets)}
-    results.sort(key=lambda r: order.get(r.original_input, 10**9))
-
-    ended = dt.datetime.now(dt.timezone.utc)
-    duration = int((ended - started).total_seconds())
-    logger.info("Scanning complete – %d repos in %ds", len(results), duration)
-
-    # Log per-repo errors
-    for r in results:
-        for e in r.errors:
-            logger.warning("[%s] %s", r.slug, e)
-
-    # ---- Write outputs ----
-    os.makedirs(output_dir, exist_ok=True)
-
-    # results.raw.json
-    raw_payload = {
-        "generated_at": ended.isoformat(),
-        "duration_seconds": duration,
-        "input_file": input_path,
-        "repo_count": len(results),
-        "results": [r.to_dict() for r in results],
-    }
-    _write_json(os.path.join(output_dir, "results.raw.json"), raw_payload)
-
-    # deps.aggregate.json
-    dep_agg = build_dep_aggregate(results)
-    _write_json(os.path.join(output_dir, "deps.aggregate.json"), dep_agg)
-
-    # vulns.aggregate.json
-    vuln_agg = build_vuln_aggregate(results)
-    _write_json(os.path.join(output_dir, "vulns.aggregate.json"), vuln_agg)
-
-    # report.data.json
-    report_data = build_report_data(
-        results, dep_agg, vuln_agg,
-        top_deps_n=CONFIG["top_deps_n"],
-        top_vuln_deps_n=CONFIG["top_vuln_deps_n"],
-        top_vulns_n=CONFIG["top_vulns_n"],
+    # Augur orchestration flags
+    augur_grp = p.add_argument_group("Augur orchestration")
+    augur_grp.add_argument(
+        "--sync-augur", action="store_true",
+        help="Compare input repos vs Augur-registered repos and log the diff.",
     )
-    _write_json(os.path.join(output_dir, "report.data.json"), report_data)
+    augur_grp.add_argument(
+        "--register-augur", action="store_true",
+        help="Register missing repos in Augur before collection.",
+    )
+    augur_grp.add_argument(
+        "--wait-for-augur", action="store_true",
+        help="Poll Augur until repos have data (respects --augur-wait-mode).",
+    )
+    augur_grp.add_argument(
+        "--augur-wait-mode", type=str, default=None,
+        choices=["none", "minimal", "standard", "full"],
+        help="Readiness level to wait for (default: from AUGUR_WAIT_MODE env).",
+    )
+    augur_grp.add_argument(
+        "--augur-timeout", type=int, default=None,
+        help="Max seconds to wait for Augur data (default: 600).",
+    )
 
-    # report.html + styles.css
-    html_path = render_report(report_data, output_dir)
-    logger.info("Report written to %s", html_path)
+    return p.parse_args()
 
-    print(f"\nPipeline complete – {len(results)} repos scanned in {duration}s")
-    print(f"Outputs in: {output_dir}/")
-
-
-def _write_json(path: str, data: Any) -> None:
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, default=str)
-    logger.info("Wrote %s", path)
-
-
-# -------------------------------------------------------------------
-# CLI
-# -------------------------------------------------------------------
 
 def main() -> None:
-    ap = argparse.ArgumentParser(
-        description="Repo-risk pipeline: SBOM + OSV + Scorecard scanning",
-    )
-    ap.add_argument("--input", default="input.txt", help="Input file (default: input.txt)")
-    ap.add_argument("--output", default="output", help="Output directory (default: output)")
-    ap.add_argument("--workers", type=int, default=CONFIG["max_workers"],
-                    help=f"Thread-pool size (default: {CONFIG['max_workers']})")
-    args = ap.parse_args()
-    run_pipeline(args.input, args.output, args.workers)
+    args = parse_args()
+    logger = setup_logging(verbose=args.verbose)
+
+    t0 = time.monotonic()
+    logger.info("=" * 60)
+    logger.info("AgOSS Repo Analysis Pipeline — starting")
+    logger.info("=" * 60)
+
+    # ── Apply CLI flags ──
+    config.FORCE_REFRESH = args.force
+    if args.augur_wait_mode:
+        config.AUGUR_WAIT_MODE = args.augur_wait_mode
+    if args.augur_timeout is not None:
+        config.AUGUR_WAIT_TIMEOUT = args.augur_timeout
+
+    # ── 1. Validate environment ──
+    logger.info("Step 1/6: Validating environment …")
+
+    if not config.SCORECARD_EXE.exists():
+        logger.warning("scorecard.exe not found at %s — Scorecard collection will fail.", config.SCORECARD_EXE)
+    if not config.GITHUB_AUTH_TOKEN:
+        logger.warning("GITHUB_AUTH_TOKEN not set — Scorecard requires it to avoid rate limits.")
+
+    input_path = config.INPUT_FILE
+    if args.input:
+        from pathlib import Path
+        input_path = Path(args.input)
+    if not input_path.exists():
+        logger.error("Input file not found: %s", input_path)
+        sys.exit(1)
+
+    # ── 2. Parse input ──
+    logger.info("Step 2/6: Parsing input …")
+    from pipeline.input_parser import parse_input
+    entries = parse_input(input_path)
+
+    if not entries:
+        logger.error("No valid repo entries found in %s — aborting.", input_path)
+        sys.exit(1)
+
+    # ── 3. Scorecard collection ──
+    from pipeline.models import ScorecardResult
+    scorecard_results: dict[str, ScorecardResult] = {}
+
+    if args.skip_scorecard:
+        logger.info("Step 3/6: Scorecard collection SKIPPED (--skip-scorecard)")
+    else:
+        logger.info("Step 3/6: Running Scorecard collection for %d repos …", len(entries))
+        from pipeline.scorecard_runner import run_scorecard_batch
+        scorecard_results = run_scorecard_batch(entries)
+
+        sc_ok = sum(1 for r in scorecard_results.values() if r.status == "success")
+        sc_partial = sum(1 for r in scorecard_results.values() if r.status == "partial_success")
+        sc_fail = sum(1 for r in scorecard_results.values() if r.status == "failed")
+        logger.info("Scorecard: %d success, %d partial, %d failed (of %d)",
+                     sc_ok, sc_partial, sc_fail, len(entries))
+
+    # ── 4. Augur collection ──
+    from pipeline.models import AugurResult
+    augur_results: dict[str, AugurResult] = {}
+
+    if args.skip_augur:
+        logger.info("Step 4/6: Augur collection SKIPPED (--skip-augur)")
+    else:
+        logger.info("Step 4/6: Running Augur collection for %d repos …", len(entries))
+        from pipeline.augur_runner import check_augur_health, run_augur_batch
+
+        if not check_augur_health():
+            logger.error("Augur API is not reachable at %s — skipping Augur.", config.AUGUR_API_BASE)
+        else:
+            augur_results = run_augur_batch(
+                entries,
+                do_sync=args.sync_augur or args.register_augur or args.wait_for_augur,
+                do_register=args.register_augur,
+                do_wait=args.wait_for_augur,
+                wait_mode=args.augur_wait_mode,
+            )
+            ag_ok = sum(1 for r in augur_results.values() if r.status in ("ready", "partial"))
+            ag_fail = sum(1 for r in augur_results.values() if r.status in ("failed", "not_registered"))
+            logger.info("Augur: %d collected, %d failed (of %d)", ag_ok, ag_fail, len(entries))
+
+    # ── 5. Merge results ──
+    logger.info("Step 5/6: Merging results …")
+    from pipeline.merger import merge, write_outputs
+    records, summary = merge(entries, scorecard_results, augur_results)
+    summary.run_start = datetime.now(timezone.utc).isoformat()
+    write_outputs(records, summary)
+
+    # ── 6. Build dashboard ──
+    logger.info("Step 6/6: Building dashboard …")
+    from pipeline.report.render import build_dashboard
+    try:
+        dash_path = build_dashboard()
+        logger.info("Dashboard ready: %s", dash_path)
+    except Exception as exc:
+        logger.error("Dashboard generation failed: %s", exc)
+
+    # ── Done ──
+    elapsed = time.monotonic() - t0
+    summary.run_end = datetime.now(timezone.utc).isoformat()
+    write_outputs(records, summary)
+
+    logger.info("=" * 60)
+    logger.info("Pipeline complete in %.1fs", elapsed)
+    logger.info("  Repos analysed     : %d", len(entries))
+    logger.info("  Scorecard success  : %d", summary.scorecard_success)
+    logger.info("  Scorecard partial  : %d", summary.scorecard_partial)
+    logger.info("  Scorecard fail     : %d", summary.scorecard_fail)
+    logger.info("  Augur ready        : %d", summary.augur_success)
+    logger.info("  Augur registered   : %d", summary.augur_registered)
+    logger.info("  Augur timed-out    : %d", summary.augur_timed_out)
+    logger.info("  Augur fail         : %d", summary.augur_fail)
+    logger.info("  Outputs            : %s", config.OUTPUTS_DIR)
+    logger.info("  Dashboard          : %s", config.DASHBOARD_DIR / "index.html")
+    logger.info("=" * 60)
 
 
 if __name__ == "__main__":

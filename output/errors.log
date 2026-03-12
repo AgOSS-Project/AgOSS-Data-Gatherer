@@ -1,7 +1,0 @@
-11:29:22 WARNING [sticky-pi/sticky-pi-device] github_sbom_failed status=404 err={"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
-11:29:22 WARNING [sticky-pi/sticky-pi-api] github_sbom_failed status=404 err={"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
-11:29:22 WARNING [sticky-pi/sticky-pi-ml] github_sbom_failed status=404 err={"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
-11:29:22 WARNING [CSU-Agricultural-Water-Quality-Program/low-cost-iot-water-sampler] github_sbom_failed status=404 err={"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
-11:29:22 WARNING [autogrow/openminder] github_sbom_failed status=404 err={"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
-11:29:22 WARNING [ersha-os/ersha-os] github_sbom_failed status=404 err={"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
-11:29:22 WARNING [STEMinds/Eduponics-Mini] github_sbom_failed status=404 err={"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
