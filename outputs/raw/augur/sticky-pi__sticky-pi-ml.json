@@ -1,0 +1,571 @@
+{
+  "repo_id": 25491,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "0100b778-e600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25491,
+        "repo_name": "sticky-pi-ml"
+      },
+      {
+        "user_id": "0100155b-8400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25491,
+        "repo_name": "sticky-pi-ml"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2023-11-01T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25491,
+        "repo_name": "sticky-pi-ml"
+      }
+    ],
+    "committers": [
+      {
+        "date": "2022-04-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-02-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-01-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-09-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-08-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-07-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-06-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2021-04-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-02-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-01-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2020-12-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2020-11-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-10-01T00:00:00.000Z",
+        "repo_name": "sticky-pi-ml",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      }
+    ],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-10-20T00:00:00.000Z",
+        "added": 107,
+        "removed": 2
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-11-13T00:00:00.000Z",
+        "added": 894,
+        "removed": 12
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-11-19T00:00:00.000Z",
+        "added": 702,
+        "removed": 109
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-11-20T00:00:00.000Z",
+        "added": 513,
+        "removed": 64
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-11-23T00:00:00.000Z",
+        "added": 235,
+        "removed": 79
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-11-24T00:00:00.000Z",
+        "added": 1353,
+        "removed": 48
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-11-25T00:00:00.000Z",
+        "added": 268,
+        "removed": 88
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-11-26T00:00:00.000Z",
+        "added": 78,
+        "removed": 75
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-11-30T00:00:00.000Z",
+        "added": 24,
+        "removed": 29
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-12-02T00:00:00.000Z",
+        "added": 453,
+        "removed": 355
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-12-04T00:00:00.000Z",
+        "added": 349,
+        "removed": 270
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-12-07T00:00:00.000Z",
+        "added": 15067,
+        "removed": 351
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-12-09T00:00:00.000Z",
+        "added": 478,
+        "removed": 236
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-12-14T00:00:00.000Z",
+        "added": 111,
+        "removed": 41
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-12-16T00:00:00.000Z",
+        "added": 25,
+        "removed": 14
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2020-12-17T00:00:00.000Z",
+        "added": 28,
+        "removed": 2
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-01-12T00:00:00.000Z",
+        "added": 37,
+        "removed": 11
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-01-19T00:00:00.000Z",
+        "added": 114,
+        "removed": 60
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-01-20T00:00:00.000Z",
+        "added": 38,
+        "removed": 7
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-01-22T00:00:00.000Z",
+        "added": 62,
+        "removed": 40
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-01-25T00:00:00.000Z",
+        "added": 13,
+        "removed": 10
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-01-26T00:00:00.000Z",
+        "added": 50,
+        "removed": 20
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-01-27T00:00:00.000Z",
+        "added": 2,
+        "removed": 11
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-01-28T00:00:00.000Z",
+        "added": 15,
+        "removed": 6
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-01-29T00:00:00.000Z",
+        "added": 1,
+        "removed": 2
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-01-30T00:00:00.000Z",
+        "added": 49,
+        "removed": 18
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-02-10T00:00:00.000Z",
+        "added": 79,
+        "removed": 45
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-04-12T00:00:00.000Z",
+        "added": 35,
+        "removed": 23
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-06-08T00:00:00.000Z",
+        "added": 3,
+        "removed": 2
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-06-11T00:00:00.000Z",
+        "added": 0,
+        "removed": 1
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-06-14T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-06-15T00:00:00.000Z",
+        "added": 3,
+        "removed": 2
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-06-16T00:00:00.000Z",
+        "added": 1,
+        "removed": 2
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-07-06T00:00:00.000Z",
+        "added": 138,
+        "removed": 113
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-08-09T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2021-09-25T00:00:00.000Z",
+        "added": 482,
+        "removed": 135
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-01-06T00:00:00.000Z",
+        "added": 132,
+        "removed": 20
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-01-27T00:00:00.000Z",
+        "added": 30,
+        "removed": 21
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-01-28T00:00:00.000Z",
+        "added": 17,
+        "removed": 17
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-01-31T00:00:00.000Z",
+        "added": 48,
+        "removed": 12
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-02-01T00:00:00.000Z",
+        "added": 231,
+        "removed": 132
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-02-02T00:00:00.000Z",
+        "added": 84,
+        "removed": 79
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-02-04T00:00:00.000Z",
+        "added": 24,
+        "removed": 18
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-02-08T00:00:00.000Z",
+        "added": 14,
+        "removed": 8
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-02-15T00:00:00.000Z",
+        "added": 31,
+        "removed": 24
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-02-16T00:00:00.000Z",
+        "added": 11,
+        "removed": 18
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-02-17T00:00:00.000Z",
+        "added": 6,
+        "removed": 3
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-02-21T00:00:00.000Z",
+        "added": 7,
+        "removed": 3
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-02-22T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-02-23T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-02-24T00:00:00.000Z",
+        "added": 181,
+        "removed": 35
+      },
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2022-04-19T00:00:00.000Z",
+        "added": 354,
+        "removed": 66
+      }
+    ],
+    "issues_new": [
+      {
+        "repo_name": "sticky-pi-ml",
+        "date": "2023-11-01T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [],
+    "issues_active": [],
+    "issue_backlog": [
+      {
+        "repo_name": "sticky-pi-ml",
+        "issue_backlog": 1
+      }
+    ],
+    "avg_issue_resolution_time": [],
+    "pull_requests_new": [
+      {
+        "created_date": "2020-12-07T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-12-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-12-16T00:00:00.000",
+        "new_pull_requests": 4
+      },
+      {
+        "created_date": "2021-01-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-04-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-08-09T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [
+      {
+        "commit_date": "2020-10-20T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "sticky-pi-ml"
+      }
+    ],
+    "pr_acceptance_rate": [],
+    "releases": [],
+    "stars_count": [
+      {
+        "repo_name": "sticky-pi-ml",
+        "stars": 0
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "sticky-pi-ml",
+        "forks": 2
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "sticky-pi-ml",
+        "watchers": 3
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "sticky-pi-ml",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": null,
+        "stars_count": null,
+        "fork_count": null,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 529,
+      "db_issue_rows": 1,
+      "db_pull_request_rows": 9,
+      "db_pull_request_event_rows": 35,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 0,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 2,
+    "new_contributor_count": 1,
+    "committer_count": 13,
+    "lines_added": 107,
+    "lines_removed": 2,
+    "issues_opened": 1,
+    "issues_closed": 0,
+    "issues_active": 0,
+    "issue_backlog": 1,
+    "prs_opened": 6,
+    "release_count": 0,
+    "aggregate_summary": [
+      {
+        "watcher_count": null,
+        "stars_count": null,
+        "fork_count": null,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 14,
+    "db_commit_rows": 529,
+    "db_issue_rows": 1,
+    "db_pull_request_rows": 9,
+    "db_pull_request_event_rows": 35,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 0,
+    "db_repo_stat_rows": 0
+  }
+}

@@ -223,3 +223,29 @@ def run_scorecard_batch(entries: list[RepoEntry]) -> dict[str, ScorecardResult]:
         results[entry.repo_url] = run_scorecard(entry)
 
     return results
+
+
+def load_scorecard_batch_from_cache(entries: list[RepoEntry]) -> dict[str, ScorecardResult]:
+    """Load Scorecard results from local cache files for the provided entries."""
+    results: dict[str, ScorecardResult] = {}
+    for entry in entries:
+        out_file = _output_path(entry)
+        if not out_file.exists() or out_file.stat().st_size == 0:
+            results[entry.repo_url] = ScorecardResult(
+                status="failed",
+                error="No cached Scorecard output found.",
+            )
+            continue
+        try:
+            raw = json.loads(out_file.read_text(encoding="utf-8"))
+            norm = _normalize(raw, out_file)
+            norm.status = "success"
+            norm.collected = True
+            results[entry.repo_url] = norm
+        except Exception as exc:
+            results[entry.repo_url] = ScorecardResult(
+                status="failed",
+                error=f"Cached Scorecard file unreadable: {exc}",
+                raw_file=str(out_file),
+            )
+    return results

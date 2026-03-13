@@ -4,42 +4,55 @@ A local-first pipeline that analyses open-source agricultural software repositor
 
 ---
 
-## Folder Structure
+## Quick Start
 
+```powershell
+# 1. Clone the repo
+git clone https://github.com/AgOSS-Project/AgOSS-Data-Gatherer.git
+cd AgOSS-Data-Gatherer
+
+# 2. Install Python dependencies
+pip install -r requirements.txt          # only `requests` is needed
+
+# 3. Set your GitHub token  (required by Scorecard)
+$env:GITHUB_AUTH_TOKEN = "ghp_YOUR_TOKEN_HERE"
+
+# 4. Set up Augur  (Docker required — see "Setting Up Augur" below)
+cd tools/augur
+docker compose up -d                     # pulls images on first run
+cd ../..
+
+# 5. Run the full pipeline
+python -m pipeline.main --register-augur --wait-for-augur --augur-wait-mode minimal
+
+# 6. Open the dashboard
+start outputs\dashboard\index.html       # or open in any browser
 ```
-root/
-├── pipeline/               # Python pipeline package
-│   ├── input.txt           # One repo per line (URL, Category)
-│   ├── main.py             # CLI entry point
-│   ├── config.py           # Centralised paths & settings
-│   ├── logger_setup.py     # Logging configuration
-│   ├── models.py           # Dataclass models
-│   ├── input_parser.py     # Parse input.txt
-│   ├── scorecard_runner.py # Scorecard integration
-│   ├── augur_runner.py     # Augur API integration
-│   ├── merger.py           # Merge & write outputs
-│   └── report/
-│       ├── render.py       # Dashboard generator
-│       ├── template.html   # HTML template
-│       └── styles.css      # Dashboard CSS
-├── tools/
-│   ├── scorecard.exe       # OpenSSF Scorecard binary
-│   └── augur/              # Local Augur installation
-├── outputs/                # All generated artefacts (gitignored)
-│   ├── raw/
-│   │   ├── scorecard/      # Per-repo raw Scorecard JSON
-│   │   └── augur/          # Per-repo raw Augur JSON
-│   ├── processed/
-│   │   ├── merged_repos.json
-│   │   ├── merged_repos.csv
-│   │   └── summary.json
-│   ├── dashboard/
-│   │   └── index.html      # Self-contained HTML dashboard
-│   └── logs/
-│       └── pipeline.log
-├── requirements.txt
-└── README.md               # ← you are here
-```
+
+> **Scorecard only (no Augur)?** Skip steps 4 and the `--register-augur` / `--wait-for-augur` flags:
+> ```powershell
+> python -m pipeline.main --skip-augur
+> ```
+
+---
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Prerequisites](#prerequisites)
+- [Setting Up Augur](#setting-up-augur)
+- [Environment / Secrets Setup](#environment--secrets-setup)
+- [Formatting the Input File](#formatting-the-input-file)
+- [Running the Pipeline](#running-the-pipeline)
+- [Scorecard Status Model](#scorecard-status-model)
+- [Augur Orchestration](#augur-orchestration)
+- [Where Outputs Are Written](#where-outputs-are-written)
+- [Merged Output Schema](#merged-output-schema)
+- [Using the Dashboard](#using-the-dashboard)
+- [Troubleshooting](#troubleshooting)
+- [Extending the Pipeline](#extending-the-pipeline)
+- [Folder Structure](#folder-structure)
+- [License](#license)
 
 ---
 
@@ -48,10 +61,66 @@ root/
 | Requirement | Notes |
 |---|---|
 | **Python 3.10+** | Standard library + `requests` |
-| **tools/scorecard.exe** | Must be present. [Download from GitHub Releases](https://github.com/ossf/scorecard/releases) |
-| **GitHub PAT** | **Required** by Scorecard — set `GITHUB_AUTH_TOKEN`. Create a classic token with `public_repo` scope |
-| **Augur (optional)** | A locally running instance at `http://localhost:5002` (or custom URL via env var) |
-| **Docker & Docker Compose** | Only needed if you want to start Augur from `tools/augur/` |
+| **GitHub PAT** | **Required** by Scorecard — set `GITHUB_AUTH_TOKEN`. Create a [classic token](https://github.com/settings/tokens) with `public_repo` scope |
+| **Docker & Docker Compose** | Required only for Augur |
+
+The `tools/scorecard.exe` binary is included in the repository. If you are on Linux/macOS, download the appropriate binary from the [Scorecard releases page](https://github.com/ossf/scorecard/releases) and place it at `tools/scorecard` (then update `SCORECARD_EXE` in `pipeline/config.py` if needed).
+
+---
+
+## Setting Up Augur
+
+Augur is **not** included in this repository — you clone it separately into `tools/augur/`.
+
+### First-time setup
+
+```powershell
+# From the project root
+cd tools
+
+# Clone the Augur repo
+git clone https://github.com/chaoss/augur.git augur
+cd augur
+```
+
+Create a `tools/augur/.env` file with your credentials:
+
+```env
+AUGUR_DB_USER=augur
+AUGUR_DB_PASSWORD=augur
+AUGUR_GITHUB_API_KEY=ghp_YOUR_TOKEN_HERE
+AUGUR_GITHUB_USERNAME=your-github-username
+```
+
+Then start the containers:
+
+```powershell
+docker compose up -d
+```
+
+This pulls and starts five containers: `augur` (API server), `augur-db` (PostgreSQL), `augur-keyman`, `rabbitmq`, and `redis`. The first pull may take several minutes.
+
+### Verify Augur is running
+
+```powershell
+# Wait ~30 seconds for services to start, then:
+curl http://localhost:5002/api/unstable/
+# Expected: {"status":"OK","version":"0.92.0"}
+```
+
+> **Port note:** The `docker-compose.yml` maps container port 5000 → **host port 5002**. Always use port 5002 from the host.
+
+### Stopping and restarting Augur
+
+```powershell
+cd tools\augur
+docker compose stop       # stop containers (preserves data)
+docker compose up -d      # restart
+docker compose down       # stop and remove containers (data in volumes is kept)
+docker compose down -v    # stop, remove containers AND volumes (full reset)
+```
+
+If you don't want to use Augur at all, simply pass `--skip-augur` when running the pipeline.
 
 ---
 
@@ -64,7 +133,6 @@ Create a `.env` file **in the project root** (this file is gitignored):
 GITHUB_AUTH_TOKEN=ghp_YOUR_TOKEN_HERE
 
 # Optional — Augur base URL (default: http://localhost:5002)
-# Note: docker-compose maps container port 5000 → host port 5002
 AUGUR_API_BASE=http://localhost:5002
 
 # Optional — Augur API key if your instance requires one
@@ -80,6 +148,11 @@ AUGUR_WAIT_MODE=none          # none | minimal | standard | full
 AUGUR_POLL_INTERVAL=30        # seconds between readiness polls
 AUGUR_WAIT_TIMEOUT=600        # max wait seconds
 AUGUR_REPO_GROUP=ag-oss-pipeline
+
+# Optional — Augur DB container (for direct registration)
+AUGUR_DB_CONTAINER=augur-augur-db-1
+AUGUR_DB_USER=augur
+AUGUR_DB_NAME=augur
 ```
 
 Load the file before running the pipeline:
@@ -98,38 +171,13 @@ Get-Content .env | ForEach-Object {
 set -a; source .env; set +a
 ```
 
-> **Security note:** Never commit `.env` to Git. Add it to `.gitignore`.
+> **Security note:** Never commit `.env` to Git. It is already in `.gitignore`.
 
 ---
 
-## Verifying the Tools
+## Formatting the Input File
 
-### Scorecard
-
-```powershell
-$env:GITHUB_AUTH_TOKEN = "ghp_YOUR_TOKEN_HERE"
-.\tools\scorecard.exe --repo=https://github.com/ossf/scorecard --format=json
-```
-
-If you see JSON output with `"score"` and `"checks"`, the binary is working. **Without `GITHUB_AUTH_TOKEN`, Scorecard will error or hit rate limits.**
-
-### Augur
-
-```powershell
-cd tools\augur
-docker compose up -d        # start Augur (if not already running)
-curl http://localhost:5002/api/unstable/   # should return {"status":"OK", ...}
-```
-
-> **Port note:** The `docker-compose.yml` maps container port 5000 → host port 5002. Always use port 5002 from the host.
-
-If Augur is not reachable the pipeline will still run — Augur columns will show as "not collected".
-
----
-
-## Formatting `pipeline/input.txt`
-
-One repository per line, comma-separated:
+Edit `pipeline/input.txt` — one repository per line, comma-separated:
 
 ```
 https://github.com/owner/repo, Category Label
@@ -137,22 +185,30 @@ https://github.com/owner/repo, Category Label
 
 - Blank lines and lines starting with `#` are ignored.
 - The URL must be a full `https://github.com/…` link.
-- The category can be any free-text label.
+- The category can be any free-text label (e.g. "Field-Deployed Sensor").
+
+The repo ships with 37 pre-configured ag-OSS repositories across several categories.
 
 ---
 
 ## Running the Pipeline
 
-### Install dependencies
+### Full run (Scorecard + Augur)
 
 ```powershell
-pip install -r requirements.txt
+python -m pipeline.main --register-augur --wait-for-augur --augur-wait-mode minimal
 ```
 
-### Full run
+### Scorecard only (no Docker needed)
 
 ```powershell
-python -m pipeline.main
+python -m pipeline.main --skip-augur
+```
+
+### Rebuild dashboard from cached data (instant)
+
+```powershell
+python -m pipeline.main --skip-scorecard --skip-augur
 ```
 
 ### CLI flags
@@ -170,7 +226,7 @@ python -m pipeline.main
 | `--augur-wait-mode MODE` | Readiness level: `none` / `minimal` / `standard` / `full` |
 | `--augur-timeout N` | Max seconds to wait for Augur data (default: 600) |
 
-### Examples
+### More examples
 
 ```powershell
 # Full run with verbose output
@@ -179,16 +235,10 @@ python -m pipeline.main --verbose
 # Re-collect everything from scratch
 python -m pipeline.main --force
 
-# Only collect Scorecard data (skip Augur)
-python -m pipeline.main --skip-augur
-
-# Only build dashboard from existing cached data
-python -m pipeline.main --skip-scorecard --skip-augur
-
 # Sync input repos with Augur, register missing ones, then collect
 python -m pipeline.main --sync-augur --register-augur
 
-# Register + wait for data (standard readiness = basic metrics appear)
+# Register + wait for standard readiness (basic metrics appear)
 python -m pipeline.main --register-augur --wait-for-augur --augur-wait-mode standard
 
 # Full orchestration with 10-minute timeout
@@ -220,7 +270,7 @@ Compares your `input.txt` repos against what Augur has registered. Logs which re
 
 ### Registration (`--register-augur`)
 
-Automatically POSTs missing repos to Augur's `/repos/add` endpoint. Repos are placed in the `AUGUR_REPO_GROUP` group.
+Registers missing repos directly into Augur's PostgreSQL database via `docker exec psql`. The HTTP write API requires SSL (returns 426 on local instances), so the pipeline uses direct DB insertion instead. Repos are placed in the `AUGUR_REPO_GROUP` group and a `collection_status` row is created to trigger Augur's data ingestion.
 
 ### Wait modes (`--wait-for-augur`)
 
@@ -320,7 +370,7 @@ Scorecard **requires** a GitHub token. Without it you'll see:
 WARNING  GITHUB_AUTH_TOKEN not set — Scorecard requires it to avoid rate limits.
 ```
 
-Set the token in your `.env` and reload it.
+Set the token in your environment or `.env` and reload it.
 
 ### Scorecard: partial_success
 
@@ -340,9 +390,17 @@ Regenerate your PAT and update `.env`. Scorecard needs at least `public_repo` sc
 ERROR    Augur API is not reachable at http://localhost:5002
 ```
 
-- Make sure Docker containers are running: `cd tools/augur && docker compose ps`
+- Make sure you've cloned Augur into `tools/augur/` and run `docker compose up -d`.
+- Check containers are running: `docker ps`
 - Check the port: `curl http://localhost:5002/api/unstable/`
 - Remember: the host port is **5002** (not 5000).
+
+### Augur containers won't start
+
+- Ensure Docker Desktop is running.
+- Check for port conflicts: `netstat -an | findstr 5002` / `netstat -an | findstr 5432`.
+- View container logs: `docker logs augur-augur-1 --tail 50`
+- If the DB is corrupt, reset with `docker compose down -v` then `docker compose up -d`.
 
 ### Repo not found in Augur
 
@@ -350,7 +408,7 @@ ERROR    Augur API is not reachable at http://localhost:5002
 WARNING  owner/repo: Repo not found in Augur — may not be registered yet.
 ```
 
-Use `--register-augur` to automatically register missing repos, or manually add them via the Augur admin UI.
+Use `--register-augur` to automatically register missing repos. The pipeline inserts them directly into Augur's PostgreSQL database.
 
 ### Augur timed out waiting for data
 
@@ -358,7 +416,7 @@ Use `--register-augur` to automatically register missing repos, or manually add 
 WARNING  https://github.com/… timed out after 600s
 ```
 
-Augur data ingestion can be slow. Increase `--augur-timeout` or use `--augur-wait-mode minimal` to just confirm registration.
+Augur data ingestion can be slow for fresh repos. Increase `--augur-timeout` or use `--augur-wait-mode minimal` to just confirm registration.
 
 ### Re-running after a partial failure
 
@@ -372,6 +430,46 @@ Simply re-run `python -m pipeline.main`. The pipeline uses cached raw files, so 
 - **Add more readiness checks:** Edit `AUGUR_READINESS_ENDPOINTS` in `config.py`.
 - **Add a new tool:** Create a new `*_runner.py` module following the same pattern as `scorecard_runner.py`, then wire it into `main.py` and `merger.py`.
 - **Custom dashboard charts:** Edit `pipeline/report/template.html` — Chart.js is already loaded.
+
+---
+
+## Folder Structure
+
+```
+AgOSS-Data-Gatherer/
+├── pipeline/               # Python pipeline package
+│   ├── input.txt           # One repo per line (URL, Category)
+│   ├── main.py             # CLI entry point
+│   ├── config.py           # Centralised paths & settings
+│   ├── logger_setup.py     # Logging configuration
+│   ├── models.py           # Dataclass models
+│   ├── input_parser.py     # Parse input.txt
+│   ├── scorecard_runner.py # Scorecard integration (retries, partial_success)
+│   ├── augur_runner.py     # Augur API + DB registration + wait logic
+│   ├── merger.py           # Merge & write outputs
+│   └── report/
+│       ├── render.py       # Dashboard generator
+│       ├── template.html   # HTML template (Chart.js)
+│       └── styles.css      # Dashboard CSS
+├── tools/
+│   ├── scorecard.exe       # OpenSSF Scorecard binary (checked in)
+│   └── augur/              # ← clone Augur here (gitignored)
+├── outputs/                # Generated artefacts (gitignored)
+│   ├── raw/
+│   │   ├── scorecard/      # Per-repo raw Scorecard JSON
+│   │   └── augur/          # Per-repo raw Augur JSON
+│   ├── processed/
+│   │   ├── merged_repos.json
+│   │   ├── merged_repos.csv
+│   │   └── summary.json
+│   ├── dashboard/
+│   │   └── index.html      # Self-contained HTML dashboard
+│   └── logs/
+│       └── pipeline.log
+├── requirements.txt        # requests>=2.28
+├── .gitignore
+└── README.md
+```
 
 ---
 

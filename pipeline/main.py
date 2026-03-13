@@ -116,6 +116,12 @@ def main() -> None:
 
     if args.skip_scorecard:
         logger.info("Step 3/6: Scorecard collection SKIPPED (--skip-scorecard)")
+        from pipeline.scorecard_runner import load_scorecard_batch_from_cache
+        scorecard_results = load_scorecard_batch_from_cache(entries)
+        sc_ok = sum(1 for r in scorecard_results.values() if r.status == "success")
+        sc_fail = sum(1 for r in scorecard_results.values() if r.status == "failed")
+        logger.info("Scorecard cache: %d loaded, %d missing/failed (of %d)",
+                    sc_ok, sc_fail, len(entries))
     else:
         logger.info("Step 3/6: Running Scorecard collection for %d repos …", len(entries))
         from pipeline.scorecard_runner import run_scorecard_batch
@@ -133,12 +139,19 @@ def main() -> None:
 
     if args.skip_augur:
         logger.info("Step 4/6: Augur collection SKIPPED (--skip-augur)")
+        from pipeline.augur_runner import load_augur_batch_from_cache
+        augur_results = load_augur_batch_from_cache(entries)
+        ag_ok = sum(1 for r in augur_results.values() if r.status in ("ready", "partial", "collecting", "registered"))
+        ag_fail = sum(1 for r in augur_results.values() if r.status in ("failed", "not_registered"))
+        logger.info("Augur cache: %d loaded, %d missing/failed (of %d)",
+                    ag_ok, ag_fail, len(entries))
     else:
         logger.info("Step 4/6: Running Augur collection for %d repos …", len(entries))
-        from pipeline.augur_runner import check_augur_health, run_augur_batch
+        from pipeline.augur_runner import check_augur_health, run_augur_batch, load_augur_batch_from_cache
 
         if not check_augur_health():
-            logger.error("Augur API is not reachable at %s — skipping Augur.", config.AUGUR_API_BASE)
+            logger.error("Augur API is not reachable at %s — loading cached Augur results.", config.AUGUR_API_BASE)
+            augur_results = load_augur_batch_from_cache(entries)
         else:
             augur_results = run_augur_batch(
                 entries,

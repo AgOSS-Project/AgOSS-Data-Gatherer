@@ -56,6 +56,9 @@
           <th data-sort="scorecard_status">SC Status</th>
           <th data-sort="augur_status">Augur Status</th>
           <th data-sort="augur_contributors">Contributors</th>
+          <th data-sort="augur_commits">Commits</th>
+          <th data-sort="augur_prs_merged">PRs Merged</th>
+          <th data-sort="augur_issues_total">Issues</th>
           <th data-sort="augur_stars">Stars</th>
           <th data-sort="overall_status">Overall</th>
           <th>Details</th>
@@ -93,6 +96,7 @@
     <div class="chart-grid">
       <div class="chart-card"><h3>Repo Ranking — Scorecard Overall</h3><canvas id="chartRankSC"></canvas></div>
       <div class="chart-card"><h3>Repo Ranking — Stars</h3><canvas id="chartRankStars"></canvas></div>
+      <div class="chart-card"><h3>Repo Ranking — Commits</h3><canvas id="chartRankCommits"></canvas></div>
       <div class="chart-card"><h3>Scorecard vs Contributors</h3><canvas id="chartScatter1"></canvas></div>
       <div class="chart-card"><h3>Scorecard vs Stars</h3><canvas id="chartScatter2"></canvas></div>
       <div class="chart-card"><h3>Issues Opened vs Closed</h3><canvas id="chartScatter3"></canvas></div>
@@ -260,6 +264,9 @@ function repoSortVal(r, col) {
     case 'scorecard_status': return r.scorecard_status || '';
     case 'augur_status': return r.augur_status || '';
     case 'augur_contributors': return (r.augur_metrics||{}).contributor_count ?? -1;
+    case 'augur_commits': return (r.augur_metrics||{}).commit_count ?? -1;
+    case 'augur_prs_merged': return (r.augur_metrics||{}).prs_merged ?? -1;
+    case 'augur_issues_total': return (r.augur_metrics||{}).issues_total ?? -1;
     case 'augur_stars': return (r.augur_metrics||{}).stars ?? -1;
     case 'overall_status': return r.overall_status || '';
     default: return '';
@@ -283,7 +290,14 @@ function renderRepoTable() {
     return 0;
   });
 
-  const am = (r, k) => (r.augur_metrics||{})[k];
+  const am = (r, k) => {
+    const m = (r.augur_metrics||{});
+    if (m[k] != null) return m[k];
+    if (k === 'commit_count') return m.db_commit_rows;
+    if (k === 'issues_total') return m.db_issue_rows;
+    if (k === 'prs_merged') return m.db_pull_request_rows;
+    return undefined;
+  };
   document.getElementById('repoBody').innerHTML = rows.map((r, idx) => `<tr>
     <td><a href="${esc(r.repo_url)}" target="_blank">${esc(r.owner)}/${esc(r.repo_name)}</a></td>
     <td>${esc(r.category)}</td>
@@ -291,6 +305,9 @@ function renderRepoTable() {
     <td>${statusBadge(r.scorecard_status)}</td>
     <td>${statusBadge(r.augur_status)}</td>
     <td>${fmt(am(r,'contributor_count'),0)}</td>
+    <td>${fmt(am(r,'commit_count'),0)}</td>
+    <td>${fmt(am(r,'prs_merged'),0)}</td>
+    <td>${fmt(am(r,'issues_total'),0)}</td>
     <td>${fmt(am(r,'stars'),0)}</td>
     <td>${statusBadge(r.overall_status)}</td>
     <td><button onclick="showDetail(${idx})" style="cursor:pointer;border:none;background:var(--primary);color:#fff;padding:.25rem .6rem;border-radius:4px;font-size:.8rem;">View</button></td>
@@ -320,7 +337,14 @@ renderRepoTable();
 // ── Detail Modal ──
 function showDetail(idx) {
   const r = REPOS[idx]; if (!r) return;
-  const am = (k) => (r.augur_metrics||{})[k];
+  const am = (k) => {
+    const m = (r.augur_metrics||{});
+    if (m[k] != null) return m[k];
+    if (k === 'commit_count') return m.db_commit_rows;
+    if (k === 'issues_total') return m.db_issue_rows;
+    if (k === 'prs_merged') return m.db_pull_request_rows;
+    return undefined;
+  };
   const checks = r.scorecard_checks || {};
   const checkRows = Object.entries(checks).map(([name, info]) =>
     `<tr><td>${esc(name)}</td><td>${scoreBadge(info.score)}</td><td>${esc(info.reason||'')}</td></tr>`
@@ -433,6 +457,17 @@ renderCategories();
     options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
   });
 
+  const commitVal = (r) => (r.augur_metrics||{}).commit_count ?? (r.augur_metrics||{}).db_commit_rows ?? null;
+  const byCommits = [...REPOS]
+    .filter(r=>commitVal(r)!=null)
+    .sort((a,b)=>(commitVal(b)||0)-(commitVal(a)||0))
+    .slice(0,20);
+  new Chart(document.getElementById('chartRankCommits'), {
+    type:'bar',
+    data:{ labels:byCommits.map(r=>r.owner+'/'+r.repo_name), datasets:[{label:'Commits',data:byCommits.map(r=>commitVal(r)),backgroundColor:'#0ea5e9'}] },
+    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
+  });
+
   const s1 = REPOS.filter(r=>r.scorecard_overall!=null&&(r.augur_metrics||{}).contributor_count!=null);
   new Chart(document.getElementById('chartScatter1'), {
     type:'scatter',
@@ -492,6 +527,10 @@ renderCategories();
   const agReg     = REPOS.filter(r=>r.augur_registered).length;
   const agTimeout = REPOS.filter(r=>r.augur_status==='timed_out').length;
   const agFailed  = REPOS.filter(r=>r.augur_status==='failed'||r.augur_status==='not_registered').length;
+  const withCommits = REPOS.filter(r=>(r.augur_metrics||{}).commit_count>0).length;
+  const withIssues = REPOS.filter(r=>(r.augur_metrics||{}).issues_total>0).length;
+  const withPRs = REPOS.filter(r=>(r.augur_metrics||{}).prs_total>0).length;
+  const withFiles = REPOS.filter(r=>(r.augur_metrics||{}).files_touched_count>0).length;
 
   document.getElementById('healthCards').innerHTML = [
     { label: 'SC Success', value: scSuccess, accent: 'var(--success)' },
@@ -502,6 +541,10 @@ renderCategories();
     { label: 'Augur Registered', value: agReg,  accent: 'var(--primary)' },
     { label: 'Augur Timed Out', value: agTimeout, accent: 'var(--warning)' },
     { label: 'Augur Failed', value: agFailed, accent: 'var(--danger)' },
+    { label: 'Repos with Commits', value: withCommits, accent: 'var(--primary)' },
+    { label: 'Repos with Issues', value: withIssues, accent: 'var(--primary)' },
+    { label: 'Repos with PRs', value: withPRs, accent: 'var(--primary)' },
+    { label: 'Repos with Files Data', value: withFiles, accent: 'var(--primary)' },
   ].map(c => `<div class="card" style="border-left-color:${c.accent}"><div class="label">${c.label}</div><div class="value">${c.value}</div></div>`).join('');
 
   // SC status doughnut

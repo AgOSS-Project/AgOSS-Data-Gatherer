@@ -1,0 +1,449 @@
+{
+  "repo_id": 25492,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [],
+    "contributors_new": [],
+    "committers": [
+      {
+        "date": "2025-06-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2025-05-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-03-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-02-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-10-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-07-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-06-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-04-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-03-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-01-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2023-12-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2023-11-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2023-10-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-09-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2023-08-01T00:00:00.000Z",
+        "repo_name": "low-cost-iot-water-sampler",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      }
+    ],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-08-21T00:00:00.000Z",
+        "added": 202000,
+        "removed": 150
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-08-22T00:00:00.000Z",
+        "added": 117,
+        "removed": 99
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-08-25T00:00:00.000Z",
+        "added": 18,
+        "removed": 5
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-09-01T00:00:00.000Z",
+        "added": 13,
+        "removed": 11
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-09-29T00:00:00.000Z",
+        "added": 31,
+        "removed": 5
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-10-17T00:00:00.000Z",
+        "added": 35,
+        "removed": 2
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-10-18T00:00:00.000Z",
+        "added": 27,
+        "removed": 26
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-10-23T00:00:00.000Z",
+        "added": 3,
+        "removed": 1
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-10-31T00:00:00.000Z",
+        "added": 310,
+        "removed": 13
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-11-02T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-12-04T00:00:00.000Z",
+        "added": 51,
+        "removed": 45
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-12-05T00:00:00.000Z",
+        "added": 14,
+        "removed": 468
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2023-12-06T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2024-01-11T00:00:00.000Z",
+        "added": 25,
+        "removed": 1
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2024-03-14T00:00:00.000Z",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2024-04-15T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2024-06-10T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2024-07-09T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2024-10-28T00:00:00.000Z",
+        "added": 123,
+        "removed": 99
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2025-02-03T00:00:00.000Z",
+        "added": 81,
+        "removed": 63
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2025-02-05T00:00:00.000Z",
+        "added": 3821,
+        "removed": 60
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2025-03-05T00:00:00.000Z",
+        "added": 62,
+        "removed": 4435
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2025-05-07T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2025-05-23T00:00:00.000Z",
+        "added": 30,
+        "removed": 31
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2025-06-03T00:00:00.000Z",
+        "added": 22,
+        "removed": 109
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2025-06-05T00:00:00.000Z",
+        "added": 37,
+        "removed": 19
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2025-06-06T00:00:00.000Z",
+        "added": 15,
+        "removed": 15
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "date": "2025-06-09T00:00:00.000Z",
+        "added": 15,
+        "removed": 17
+      }
+    ],
+    "issues_new": [],
+    "issues_closed": [],
+    "issues_active": [],
+    "issue_backlog": [],
+    "avg_issue_resolution_time": [],
+    "pull_requests_new": [
+      {
+        "created_date": "2025-02-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-06-05T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [
+      {
+        "commit_date": "2023-08-21T00:00:00.000Z",
+        "count": 2,
+        "repo_name": "low-cost-iot-water-sampler"
+      },
+      {
+        "commit_date": "2025-02-03T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "low-cost-iot-water-sampler"
+      }
+    ],
+    "pr_acceptance_rate": [],
+    "releases": [
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "release_id": "RE_kwDOKJyxEs4NXADa                                                                                                                                                                                                                                             ",
+        "release_name": "LCS Version 1.3.1 Hotfix",
+        "release_description": "# LCS VERSION 1.3.1 Hotfix\r\n**1.3.1 Hotfix**: made changes to CITATION.cff\r\n\r\nA low-cost, automated water sampler (LCS) with Internet of Things (IoT) technology for scalable, near-real-time water quality research developed by the Colorado State University Agricultural Water Quality Program (AWQP).\r\n\r\n## Changes\r\n- v1.3 release is the final release to be showcased in the upcoming hardwareX manuscript (in review)\r\n- updated README.md\r\n- updated 3D printed parts\r\n- updated config.h use\r\n- updated build instructions\r\n- code bug fixes\r\n\r\n\r\n> [!NOTE]\r\n> This project is actively under development. Code, parts, instructions, and other content are subject to change as we enhance the LCS. If you download/clone/fork this repository, we ask that you please\u00a0[email us directly](mailto:ansley.brown@colostate.edu;e.deleon@colostate.edu;erik.wardle@colostate.edu;jake.ladow@colostate.edu?subject=Inquiry%20about%20the%20Low%20Cost%20IoT%20Water%20Sampler%20from%20GitHub)\u00a0for the most up-to-date information and resources. We will also email you with any news related to the project moving forward!\r\n\r\nThank you,\r\nCSU Agricultural Water Quality Program\r\n[waterquality.colostate.edu](https://waterquality.colostate.edu/)",
+        "release_author": "AJ Brown_Colorado State University",
+        "release_created_at": "2025-06-09T19:57:19.000",
+        "release_published_at": "2025-06-09T20:07:14.000",
+        "release_updated_at": "2025-07-10T17:17:43.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.3.1",
+        "release_url": "https://github.com/CSU-Agricultural-Water-Quality-Program/low-cost-iot-water-sampler/releases/tag/v1.3.1",
+        "count": 1
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "release_id": "RE_kwDOKJyxEs4NW_v0                                                                                                                                                                                                                                             ",
+        "release_name": "LCS Version 1.3",
+        "release_description": "# LCS VERSION 1.3\r\n\r\nA low-cost, automated water sampler (LCS) with Internet of Things (IoT) technology for scalable, near-real-time water quality research developed by the Colorado State University Agricultural Water Quality Program (AWQP).\r\n\r\n## Changes\r\n- v1.3 release is the final release to be showcased in the upcoming hardwareX manuscript (in review)\r\n- updated README.md\r\n- updated 3D printed parts\r\n- updated config.h use\r\n- updated build instructions\r\n- code bug fixes\r\n\r\n\r\n> [!NOTE]\r\n> This project is actively under development. Code, parts, instructions, and other content are subject to change as we enhance the LCS. If you download/clone/fork this repository, we ask that you please\u00a0[email us directly](mailto:ansley.brown@colostate.edu;e.deleon@colostate.edu;erik.wardle@colostate.edu;jake.ladow@colostate.edu?subject=Inquiry%20about%20the%20Low%20Cost%20IoT%20Water%20Sampler%20from%20GitHub)\u00a0for the most up-to-date information and resources. We will also email you with any news related to the project moving forward!\r\n\r\nThank you,\r\nCSU Agricultural Water Quality Program\r\n[waterquality.colostate.edu](https://waterquality.colostate.edu/)",
+        "release_author": "AJ Brown_Colorado State University",
+        "release_created_at": "2025-06-09T16:18:26.000",
+        "release_published_at": "2025-06-09T20:00:57.000",
+        "release_updated_at": "2025-06-09T20:00:57.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.3",
+        "release_url": "https://github.com/CSU-Agricultural-Water-Quality-Program/low-cost-iot-water-sampler/releases/tag/v1.3",
+        "count": 1
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "release_id": "RE_kwDOKJyxEs4K3kWj                                                                                                                                                                                                                                             ",
+        "release_name": "LCS VERSION 1.2",
+        "release_description": "# LCS VERSION 1.2\r\n\r\nA low-cost, automated water sampler (LCS) with Internet of Things (IoT) technology for scalable, near-real-time water quality research developed by the Colorado State University Agricultural Water Quality Program (AWQP).\r\n\r\n## Changes\r\nupdated config.h use\r\nupdated authorship\r\nupdated bill of materials\r\n\r\n> [!NOTE]\r\n> This project is actively under development. Code, parts, instructions, and other content are subject to change as we enhance the LCS. If you download/clone/fork this repository, we ask that you please\u00a0[email us directly](mailto:ansley.brown@colostate.edu;e.deleon@colostate.edu;erik.wardle@colostate.edu?subject=Inquiry%20about%20the%20Low%20Cost%20IoT%20Water%20Sampler%20from%20GitHub)\u00a0for the most up-to-date information and resources. We will also email you with any news related to the project moving forward!\r\n\r\nThank you,\r\nCSU Agricultural Water Quality Program\r\n[waterquality.colostate.edu](https://waterquality.colostate.edu/)",
+        "release_author": "AJ Brown_Colorado State University",
+        "release_created_at": "2024-10-28T20:03:34.000",
+        "release_published_at": "2024-10-28T20:05:19.000",
+        "release_updated_at": "2024-10-28T20:05:19.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.2",
+        "release_url": "https://github.com/CSU-Agricultural-Water-Quality-Program/low-cost-iot-water-sampler/releases/tag/v1.2",
+        "count": 1
+      },
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "release_id": "RE_kwDOKJyxEs4H5qLP                                                                                                                                                                                                                                             ",
+        "release_name": "Initial Public Release",
+        "release_description": "# Initial release of the AWQP Low-Cost IoT Water Sampler, Version 1.10\r\n\r\nA low-cost, automated water sampler (LCS) with Internet of Things (IoT) technology for scalable, near-real-time water quality research developed by the Colorado State University Agricultural Water Quality Program (AWQP).\r\n\r\n> [!NOTE]\r\n> This project is actively under development. Code, parts, instructions, and other content are subject to change as we enhance the LCS. If you download/clone/fork this repository, we ask that you **please [email us directly](mailto:ansley.brown@colostate.edu;e.deleon@colostate.edu;erik.wardle@colostate.edu?subject=Inquiry%20about%20the%20Low%20Cost%20IoT%20Water%20Sampler%20from%20GitHub)** for the most up-to-date information and resources. We will also email you with any news related to the project moving forward!\r\n\r\nThank you,\r\nCSU Agricultural Water Quality Program\r\n[waterquality.colostate.edu](https://waterquality.colostate.edu)\r\n\r\n**Full Changelog**: https://github.com/CSU-Agricultural-Water-Quality-Program/low-cost-iot-water-sampler/commits/v1.10",
+        "release_author": "AJ Brown_Colorado State University",
+        "release_created_at": "2023-12-04T15:48:39.000",
+        "release_published_at": "2023-12-04T18:54:43.000",
+        "release_updated_at": "2023-12-04T18:54:43.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.10",
+        "release_url": "https://github.com/CSU-Agricultural-Water-Quality-Program/low-cost-iot-water-sampler/releases/tag/v1.10",
+        "count": 1
+      }
+    ],
+    "stars_count": [
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "stars": 4
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "forks": 0
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "watchers": 0
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "low-cost-iot-water-sampler",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 2,
+        "commit_count": 36.0
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 428,
+      "db_issue_rows": 0,
+      "db_pull_request_rows": 2,
+      "db_pull_request_event_rows": 4,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 4,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 0,
+    "new_contributor_count": 0,
+    "committer_count": 15,
+    "lines_added": 202000,
+    "lines_removed": 150,
+    "issues_opened": 0,
+    "issues_closed": 0,
+    "issues_active": 0,
+    "prs_opened": 2,
+    "release_count": 4,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 2,
+        "commit_count": 36.0
+      }
+    ],
+    "commit_count": 36.0,
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 11,
+    "db_commit_rows": 428,
+    "db_issue_rows": 0,
+    "db_pull_request_rows": 2,
+    "db_pull_request_event_rows": 4,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 4,
+    "db_repo_stat_rows": 0
+  }
+}

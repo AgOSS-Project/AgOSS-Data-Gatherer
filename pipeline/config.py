@@ -26,7 +26,7 @@ LOG_DIR = OUTPUTS_DIR / "logs"
 # ---------------------------------------------------------------------------
 SCORECARD_TIMEOUT_SECONDS = int(os.getenv("SCORECARD_TIMEOUT", "120"))
 SCORECARD_RETRY_COUNT = int(os.getenv("SCORECARD_RETRY_COUNT", "1"))
-GITHUB_AUTH_TOKEN = os.getenv("GITHUB_AUTH_TOKEN", "")
+GITHUB_AUTH_TOKEN = os.getenv("GITHUB_AUTH_TOKEN") or os.getenv("GITHUB_TOKEN", "")
 
 # ---------------------------------------------------------------------------
 # Augur configuration  (docker-compose maps container 5000 → host 5002)
@@ -67,15 +67,35 @@ AUGUR_METRIC_ENDPOINTS: list[tuple[str, str]] = [
     ("contributors-new",                "contributors_new"),
     ("committers",                      "committers"),
     ("top-committers",                  "top_committers"),
+    ("commits",                         "commits"),
+    ("commits-new",                     "commits_new"),
+    ("commits-weekly",                  "commits_weekly"),
+    ("commits-daily",                   "commits_daily"),
+    ("code-changes",                    "code_changes"),
+    ("code-changes-lines",              "code_changes_lines"),
     ("issues-new",                      "issues_new"),
+    ("issues",                          "issues"),
     ("issues-closed",                   "issues_closed"),
     ("issues-active",                   "issues_active"),
+    ("issue-events",                    "issue_events"),
+    ("issue-comments",                  "issue_comments"),
+    ("issue-open-age",                  "issue_open_age"),
     ("issue-backlog",                   "issue_backlog"),
     ("average-issue-resolution-time",   "avg_issue_resolution_time"),
     ("pull-requests-new",               "pull_requests_new"),
+    ("pull-requests",                   "pull_requests"),
+    ("pull-requests-active",            "pull_requests_active"),
+    ("pull-requests-closed",            "pull_requests_closed"),
+    ("pull-requests-merged",            "pull_requests_merged"),
+    ("pull-request-comments",           "pull_request_comments"),
+    ("pull-request-events",             "pull_request_events"),
+    ("pull-request-reviewers",          "pull_request_reviewers"),
     ("pull-requests-merge-contributor-new", "pr_merge_contributor_new"),
     ("pull-request-acceptance-rate",    "pr_acceptance_rate"),
     ("releases",                        "releases"),
+    ("tags",                            "tags"),
+    ("files",                           "files"),
+    ("commits-files",                   "commits_files"),
     ("stars-count",                     "stars_count"),
     ("fork-count",                      "fork_count"),
     ("watchers-count",                  "watchers_count"),

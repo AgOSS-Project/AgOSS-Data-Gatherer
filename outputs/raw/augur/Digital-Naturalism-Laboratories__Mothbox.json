@@ -1,0 +1,1223 @@
+{
+  "repo_id": 25493,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "01000b54-e300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 39.0,
+        "commit_comments": 0.0,
+        "issue_comments": 162.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 201.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "0102457e-4e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 3.0,
+        "commit_comments": 0.0,
+        "issue_comments": 23.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 26.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "0100fc38-2700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 4.0,
+        "commit_comments": 0.0,
+        "issue_comments": 15.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 19.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "0105f479-c800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 10.0,
+        "commit_comments": 0.0,
+        "issue_comments": 6.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 16.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "010eb168-2500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 9.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 11.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "01005fe3-1900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 4.0,
+        "commit_comments": 0.0,
+        "issue_comments": 4.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 8.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "0104d4dc-0200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 7.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 8.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "010059f2-9000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 8.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 8.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "01000c57-bf00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 7.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 8.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "0101c2f1-7400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 4.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "01000d33-b100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "01017477-f300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "0100fe74-3b00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "01004e4c-5d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "0100c7f6-f200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "01000269-df00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "010252df-0900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "user_id": "0104f91e-b000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2024-03-08T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2024-04-02T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2024-12-13T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-06-05T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-06-26T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-07-01T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-07-14T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-07-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-07-17T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-08-06T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-08-31T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-09-06T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-11-18T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-11-27T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-12-04T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      },
+      {
+        "date": "2025-12-23T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25493,
+        "repo_name": "Mothbox"
+      }
+    ],
+    "committers": [],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [],
+    "issues_new": [
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-03-08T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-03-13T00:00:00.000Z",
+        "issues": 4
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-03-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-03-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-04-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-04-07T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-04-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-04-11T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-05-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-05-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-06-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-07-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-08-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-09-04T00:00:00.000Z",
+        "issues": 6
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-11-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-12-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-06T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-11T00:00:00.000Z",
+        "issues": 6
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-14T00:00:00.000Z",
+        "issues": 6
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-28T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-01T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-31T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-06T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-17T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-10-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-11-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-11-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-12-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-12-23T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-01-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-02-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-02-07T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-03-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-06-28T00:00:00.000Z",
+        "issues": 13
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-07-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-08-29T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-09-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-02-11T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-15T00:00:00.000Z",
+        "issues": 7
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-05T00:00:00.000Z",
+        "issues": 7
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-29T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-30T00:00:00.000Z",
+        "issues": 5
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-31T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-04T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-12-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-12-23T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-01-31T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-02-06T00:00:00.000Z",
+        "issues": 5
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-02-07T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_active": [
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-03-08T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-03-13T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-03-17T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-03-21T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-04-02T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-04-07T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-04-09T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-04-11T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-05-02T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-05-08T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-06-28T00:00:00.000",
+        "issues": 13
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-07-22T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-08-29T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-09-04T00:00:00.000",
+        "issues": 15
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-11-01T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2024-12-13T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-02-11T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-05T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-07T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-20T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-24T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-06-26T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-01T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-04T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-07T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-11T00:00:00.000",
+        "issues": 7
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-12T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-14T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-15T00:00:00.000",
+        "issues": 8
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-28T00:00:00.000",
+        "issues": 7
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-07-29T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-05T00:00:00.000",
+        "issues": 25
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-06T00:00:00.000",
+        "issues": 10
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-07T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-08T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-10T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-11T00:00:00.000",
+        "issues": 7
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-14T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-20T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-21T00:00:00.000",
+        "issues": 11
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-28T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-29T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-30T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-08-31T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-02T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-04T00:00:00.000",
+        "issues": 10
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-06T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-17T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-18T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-19T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-20T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-09-30T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-10-28T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-12-05T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2025-12-23T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-01-05T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-01-20T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-01-31T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-02-04T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-02-06T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-02-07T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Mothbox",
+        "date": "2026-02-11T00:00:00.000",
+        "issues": 1
+      }
+    ],
+    "issue_backlog": [
+      {
+        "repo_name": "Mothbox",
+        "issue_backlog": 14
+      }
+    ],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "Mothbox",
+        "avg_issue_resolution_time": "56 days 33:46:03.12676"
+      }
+    ],
+    "pull_requests_new": [
+      {
+        "created_date": "2024-05-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-07-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-10-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-06-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-06-23T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-06-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-12-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-02-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-02-05T00:00:00.000",
+        "new_pull_requests": 4
+      },
+      {
+        "created_date": "2026-02-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-02-17T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [],
+    "pr_acceptance_rate": [],
+    "releases": [],
+    "stars_count": [
+      {
+        "repo_name": "Mothbox",
+        "stars": 93
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "Mothbox",
+        "forks": 24
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "Mothbox",
+        "watchers": 6
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "Mothbox",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 0,
+      "db_issue_rows": 85,
+      "db_pull_request_rows": 15,
+      "db_pull_request_event_rows": 32,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 248,
+      "db_issue_label_rows": 55,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 0,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 18,
+    "new_contributor_count": 16,
+    "committer_count": 0,
+    "issues_opened": 56,
+    "issues_closed": 31,
+    "issues_active": 62,
+    "issue_backlog": 14,
+    "prs_opened": 11,
+    "release_count": 0,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 14,
+    "db_commit_rows": 0,
+    "db_issue_rows": 85,
+    "db_pull_request_rows": 15,
+    "db_pull_request_event_rows": 32,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 248,
+    "db_issue_label_rows": 55,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 0,
+    "db_repo_stat_rows": 0
+  }
+}

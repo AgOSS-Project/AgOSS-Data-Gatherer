@@ -1,0 +1,639 @@
+{
+  "repo_id": 25508,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "0100a6cc-d200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25508,
+        "repo_name": "simplesteer"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2026-01-10T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25508,
+        "repo_name": "simplesteer"
+      }
+    ],
+    "committers": [
+      {
+        "date": "2025-07-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-04-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-12-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-11-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2024-10-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-08-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2023-12-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-04-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-06-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-05-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-03-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-01-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-12-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-11-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2019-10-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-09-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-05-01T00:00:00.000Z",
+        "repo_name": "simplesteer",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      }
+    ],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-05-11T00:00:00.000Z",
+        "added": 1301,
+        "removed": 26
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-05-12T00:00:00.000Z",
+        "added": 16679,
+        "removed": 60
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-09-29T00:00:00.000Z",
+        "added": 924,
+        "removed": 1069
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-09-30T00:00:00.000Z",
+        "added": 140,
+        "removed": 59
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-10-17T00:00:00.000Z",
+        "added": 92,
+        "removed": 108
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-07T00:00:00.000Z",
+        "added": 3780,
+        "removed": 1803
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-08T00:00:00.000Z",
+        "added": 441,
+        "removed": 249
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-09T00:00:00.000Z",
+        "added": 138,
+        "removed": 50
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-10T00:00:00.000Z",
+        "added": 295,
+        "removed": 60
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-12T00:00:00.000Z",
+        "added": 145,
+        "removed": 71
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-15T00:00:00.000Z",
+        "added": 2538,
+        "removed": 475
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-16T00:00:00.000Z",
+        "added": 212,
+        "removed": 126
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-18T00:00:00.000Z",
+        "added": 298,
+        "removed": 156
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-22T00:00:00.000Z",
+        "added": 644,
+        "removed": 1350
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-23T00:00:00.000Z",
+        "added": 8,
+        "removed": 2
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-25T00:00:00.000Z",
+        "added": 2868,
+        "removed": 1579
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-26T00:00:00.000Z",
+        "added": 87,
+        "removed": 154
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-11-28T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-01T00:00:00.000Z",
+        "added": 37,
+        "removed": 40
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-02T00:00:00.000Z",
+        "added": 157,
+        "removed": 102
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-04T00:00:00.000Z",
+        "added": 124,
+        "removed": 14
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-05T00:00:00.000Z",
+        "added": 384,
+        "removed": 137
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-07T00:00:00.000Z",
+        "added": 385,
+        "removed": 246
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-10T00:00:00.000Z",
+        "added": 10,
+        "removed": 17
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-11T00:00:00.000Z",
+        "added": 70,
+        "removed": 16
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-12T00:00:00.000Z",
+        "added": 354,
+        "removed": 161
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-14T00:00:00.000Z",
+        "added": 203,
+        "removed": 118
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-16T00:00:00.000Z",
+        "added": 199,
+        "removed": 19
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-17T00:00:00.000Z",
+        "added": 42,
+        "removed": 34
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-18T00:00:00.000Z",
+        "added": 19,
+        "removed": 28
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-19T00:00:00.000Z",
+        "added": 13,
+        "removed": 4
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-21T00:00:00.000Z",
+        "added": 173,
+        "removed": 88
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-29T00:00:00.000Z",
+        "added": 3,
+        "removed": 1
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2019-12-30T00:00:00.000Z",
+        "added": 50,
+        "removed": 23
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2020-01-13T00:00:00.000Z",
+        "added": 37,
+        "removed": 22
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2020-03-19T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2020-05-26T00:00:00.000Z",
+        "added": 5465,
+        "removed": 92
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2020-06-15T00:00:00.000Z",
+        "added": 155,
+        "removed": 163
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2021-04-19T00:00:00.000Z",
+        "added": 0,
+        "removed": 2
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2021-04-20T00:00:00.000Z",
+        "added": 8,
+        "removed": 44
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2023-12-10T00:00:00.000Z",
+        "added": 28,
+        "removed": 1
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-08-18T00:00:00.000Z",
+        "added": 8,
+        "removed": 48
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-08-19T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-08-24T00:00:00.000Z",
+        "added": 1976,
+        "removed": 19
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-08-25T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-08-31T00:00:00.000Z",
+        "added": 19,
+        "removed": 21
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-10-27T00:00:00.000Z",
+        "added": 1,
+        "removed": 11
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-11-24T00:00:00.000Z",
+        "added": 732,
+        "removed": 83
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-11-25T00:00:00.000Z",
+        "added": 9,
+        "removed": 4
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-11-27T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-12-03T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-12-16T00:00:00.000Z",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-12-25T00:00:00.000Z",
+        "added": 46,
+        "removed": 40
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2024-12-29T00:00:00.000Z",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2025-04-05T00:00:00.000Z",
+        "added": 8,
+        "removed": 6
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2025-04-09T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2025-07-13T00:00:00.000Z",
+        "added": 5,
+        "removed": 3
+      }
+    ],
+    "issues_new": [
+      {
+        "repo_name": "simplesteer",
+        "date": "2026-01-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "simplesteer",
+        "date": "2026-01-11T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [],
+    "issues_active": [],
+    "issue_backlog": [
+      {
+        "repo_name": "simplesteer",
+        "issue_backlog": 2
+      }
+    ],
+    "avg_issue_resolution_time": [],
+    "pull_requests_new": [
+      {
+        "created_date": "2024-08-31T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-11-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-12-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-07-13T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [
+      {
+        "commit_date": "2019-05-11T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "simplesteer"
+      },
+      {
+        "commit_date": "2024-08-18T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "simplesteer"
+      }
+    ],
+    "pr_acceptance_rate": [],
+    "releases": [
+      {
+        "repo_name": "simplesteer",
+        "release_id": "RE_kwDOMoBZAM4LKAUG                                                                                                                                                                                                                                             ",
+        "release_name": "simplesteer-frontend",
+        "release_description": "",
+        "release_author": "Matthijs Missiaen_nocompany",
+        "release_created_at": "2024-11-24T18:04:42.000",
+        "release_published_at": "2024-11-24T18:15:57.000",
+        "release_updated_at": "2024-11-24T18:15:57.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "1.1",
+        "release_url": "https://github.com/matmis/simplesteer/releases/tag/1.1",
+        "count": 1
+      }
+    ],
+    "stars_count": [
+      {
+        "repo_name": "simplesteer",
+        "stars": 5
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "simplesteer",
+        "forks": 4
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "simplesteer",
+        "watchers": 1
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "simplesteer",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 1,
+        "commit_count": 13.0
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 822,
+      "db_issue_rows": 2,
+      "db_pull_request_rows": 5,
+      "db_pull_request_event_rows": 0,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 1,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 1,
+    "new_contributor_count": 1,
+    "committer_count": 17,
+    "lines_added": 1301,
+    "lines_removed": 26,
+    "issues_opened": 2,
+    "issues_closed": 0,
+    "issues_active": 0,
+    "issue_backlog": 2,
+    "prs_opened": 5,
+    "release_count": 1,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 1,
+        "commit_count": 13.0
+      }
+    ],
+    "commit_count": 13.0,
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 15,
+    "db_commit_rows": 822,
+    "db_issue_rows": 2,
+    "db_pull_request_rows": 5,
+    "db_pull_request_event_rows": 0,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 1,
+    "db_repo_stat_rows": 0
+  }
+}

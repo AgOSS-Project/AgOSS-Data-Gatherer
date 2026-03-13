@@ -62,10 +62,13 @@ def _should_skip(entry: RepoEntry) -> bool:
     out = _output_path(entry)
     if not out.exists() or out.stat().st_size == 0:
         return False
-    # Don't treat cached errors as valid cache hits
+    # Don't treat cached errors or transient states as valid cache hits
     try:
         raw = json.loads(out.read_text(encoding="utf-8"))
         if raw.get("error"):
+            return False
+        # "collecting" is transient — always re-check
+        if raw.get("status") in ("collecting", "registered"):
             return False
     except Exception:
         return False
@@ -359,6 +362,49 @@ def _collect_metric(repo_id: int, endpoint: str, friendly: str) -> Any:
     return None
 
 
+def _collect_db_counts(repo_id: int) -> dict[str, int]:
+    """Collect additional per-repo counts directly from Augur DB tables.
+
+    This captures richer data even when some API endpoints are unavailable
+    or still sparse for a repo.
+    """
+    tables: list[tuple[str, str]] = [
+        ("augur_data.commits", "db_commit_rows"),
+        ("augur_data.issues", "db_issue_rows"),
+        ("augur_data.pull_requests", "db_pull_request_rows"),
+        ("augur_data.pull_request_events", "db_pull_request_event_rows"),
+        ("augur_data.pull_request_files", "db_pull_request_file_rows"),
+        ("augur_data.issue_events", "db_issue_event_rows"),
+        ("augur_data.issue_labels", "db_issue_label_rows"),
+        ("augur_data.pull_request_labels", "db_pull_request_label_rows"),
+        ("augur_data.releases", "db_release_rows"),
+        ("augur_data.repo_stats", "db_repo_stat_rows"),
+    ]
+
+    counts: dict[str, int] = {}
+    for table, key in tables:
+        sql = f"SELECT COUNT(*) FROM {table} WHERE repo_id={repo_id};"
+        try:
+            p = subprocess.run(
+                [
+                    "docker", "exec", config.AUGUR_DB_CONTAINER,
+                    "psql", "-U", config.AUGUR_DB_USER, "-d", config.AUGUR_DB_NAME,
+                    "-tAc", sql,
+                ],
+                capture_output=True,
+                text=True,
+                timeout=15,
+            )
+            if p.returncode == 0:
+                raw = p.stdout.strip()
+                if raw.isdigit():
+                    counts[key] = int(raw)
+        except Exception:
+            # Keep graceful behavior: DB enrichment is best-effort.
+            continue
+    return counts
+
+
 def run_augur(
     entry: RepoEntry,
     *,
@@ -400,27 +446,54 @@ def run_augur(
 
     # Collect each configured metric
     raw_metrics: dict[str, Any] = {}
-    collected_count = 0
+    responded_count = 0   # endpoints that returned any 200
+    nonempty_count = 0    # endpoints that returned actual data
     for endpoint, friendly in config.AUGUR_METRIC_ENDPOINTS:
         value = _collect_metric(repo_id, endpoint, friendly)
         if value is not None:
             raw_metrics[friendly] = value
-            collected_count += 1
+            responded_count += 1
+            # Only count as meaningful if there's real data (not [] or {})
+            if value:
+                nonempty_count += 1
+
+    # Enrich with DB-backed counts for broader coverage.
+    db_counts = _collect_db_counts(repo_id)
+    if db_counts:
+        raw_metrics["db_counts"] = db_counts
 
     result.metrics = _summarize_metrics(raw_metrics)
+    if db_counts:
+        result.metrics.update(db_counts)
     result.raw_file = str(out_file)
     result.wait_mode = config.AUGUR_WAIT_MODE
 
-    # Classify final status
+    # Check if the summary contains any meaningful (non-zero, non-empty) values
+    has_data = any(
+        (isinstance(v, (int, float)) and v > 0)
+        or (isinstance(v, str) and v != "")
+        or (isinstance(v, list) and len(v) > 0)
+        for k, v in result.metrics.items()
+        if k not in ("aggregate_summary", "languages")
+    )
+    # Languages alone don't indicate collection is complete
+    if not has_data and result.metrics.get("languages"):
+        has_data = False
+
+    # Classify final status based on whether we got meaningful data
     total_endpoints = len(config.AUGUR_METRIC_ENDPOINTS)
-    if collected_count == total_endpoints:
+    if has_data and nonempty_count >= total_endpoints // 2:
         result.status = "ready"
         result.collected = True
         result.ready = True
-    elif collected_count > 0:
+    elif has_data:
         result.status = "partial"
         result.collected = True
         result.ready = False
+    elif responded_count > 0:
+        # API is reachable but no meaningful data yet — still collecting
+        result.status = "collecting"
+        result.collected = False
     else:
         result.status = "registered" if result.registered else "failed"
         result.collected = False
@@ -453,8 +526,31 @@ def _from_cache(raw: dict, out_file: Path) -> AugurResult:
         result.status = cached_status  # type: ignore[assignment]
         result.collected = cached_status in ("ready", "partial")
         result.ready = cached_status == "ready"
-        result.registered = True
+        result.registered = cached_status not in ("not_registered", "failed")
     return result
+
+
+def load_augur_batch_from_cache(entries: list[RepoEntry]) -> dict[str, AugurResult]:
+    """Load Augur results from local cache files for the provided entries."""
+    results: dict[str, AugurResult] = {}
+    for entry in entries:
+        out_file = _output_path(entry)
+        if not out_file.exists() or out_file.stat().st_size == 0:
+            results[entry.repo_url] = AugurResult(
+                status="failed",
+                error="No cached Augur output found.",
+            )
+            continue
+        try:
+            raw = json.loads(out_file.read_text(encoding="utf-8"))
+            results[entry.repo_url] = _from_cache(raw, out_file)
+        except Exception as exc:
+            results[entry.repo_url] = AugurResult(
+                status="failed",
+                error=f"Cached Augur file unreadable: {exc}",
+                raw_file=str(out_file),
+            )
+    return results
 
 
 # ── orchestrated batch ───────────────────────────────────────────────────────
@@ -542,16 +638,82 @@ def _summarize_metrics(raw: dict[str, Any]) -> dict[str, Any]:
     if c is not None:
         summary["committer_count"] = c
 
+    # Commits
+    c = _count("commits")
+    if c is not None:
+        summary["commit_count"] = c
+
+    c = _count("commits_new")
+    if c is not None:
+        summary["new_commit_count"] = c
+
+    c = _count("commits_files")
+    if c is not None:
+        summary["commit_files_count"] = c
+
+    c = _count("files")
+    if c is not None:
+        summary["files_touched_count"] = c
+
+    c = _count("tags")
+    if c is not None:
+        summary["tag_count"] = c
+
+    c = _count("commits_weekly")
+    if c is not None:
+        summary["weekly_commit_windows"] = c
+
+    c = _count("commits_daily")
+    if c is not None:
+        summary["daily_commit_windows"] = c
+
+    v = _scalar("code_changes", "commit_count")
+    if v is None:
+        v = _scalar("code_changes", "commits")
+    if v is not None:
+        summary["code_change_commits"] = v
+
+    v = _scalar("code_changes_lines", "added")
+    if v is None:
+        v = _scalar("code_changes_lines", "lines_added")
+    if v is not None:
+        summary["lines_added"] = v
+
+    v = _scalar("code_changes_lines", "removed")
+    if v is None:
+        v = _scalar("code_changes_lines", "lines_removed")
+    if v is not None:
+        summary["lines_removed"] = v
+
     # Issues
     c = _count("issues_new")
     if c is not None:
         summary["issues_opened"] = c
+
+    c = _count("issues")
+    if c is not None:
+        summary["issues_total"] = c
+
     c = _count("issues_closed")
     if c is not None:
         summary["issues_closed"] = c
     c = _count("issues_active")
     if c is not None:
         summary["issues_active"] = c
+
+    c = _count("issue_events")
+    if c is not None:
+        summary["issue_event_count"] = c
+
+    c = _count("issue_comments")
+    if c is not None:
+        summary["issue_comment_count"] = c
+
+    v = _scalar("issue_open_age", "average_days_open")
+    if v is None:
+        v = _scalar("issue_open_age", "mean_days_open")
+    if v is not None:
+        summary["avg_issue_open_age_days"] = v
 
     v = _scalar("issue_backlog", "issue_backlog")
     if v is not None:
@@ -565,6 +727,34 @@ def _summarize_metrics(raw: dict[str, Any]) -> dict[str, Any]:
     c = _count("pull_requests_new")
     if c is not None:
         summary["prs_opened"] = c
+
+    c = _count("pull_requests")
+    if c is not None:
+        summary["prs_total"] = c
+
+    c = _count("pull_requests_active")
+    if c is not None:
+        summary["prs_active"] = c
+
+    c = _count("pull_requests_closed")
+    if c is not None:
+        summary["prs_closed"] = c
+
+    c = _count("pull_requests_merged")
+    if c is not None:
+        summary["prs_merged"] = c
+
+    c = _count("pull_request_comments")
+    if c is not None:
+        summary["pr_comment_count"] = c
+
+    c = _count("pull_request_events")
+    if c is not None:
+        summary["pr_event_count"] = c
+
+    c = _count("pull_request_reviewers")
+    if c is not None:
+        summary["pr_reviewer_count"] = c
 
     v = _scalar("pr_acceptance_rate", "pull_request_acceptance_rate")
     if v is None:
@@ -591,7 +781,13 @@ def _summarize_metrics(raw: dict[str, Any]) -> dict[str, Any]:
     # Languages
     langs = raw.get("languages")
     if isinstance(langs, list):
-        summary["languages"] = [l.get("programming_language", str(l)) for l in langs if isinstance(l, dict)]
+        lang_names = [
+            l.get("programming_language")
+            for l in langs
+            if isinstance(l, dict) and l.get("programming_language")
+        ]
+        if lang_names:
+            summary["languages"] = lang_names
 
     # Avg weekly commits
     v = _scalar("avg_weekly_commits", "average_weekly_commits")
@@ -611,5 +807,21 @@ def _summarize_metrics(raw: dict[str, Any]) -> dict[str, Any]:
     agg = raw.get("aggregate_summary")
     if isinstance(agg, (dict, list)):
         summary["aggregate_summary"] = agg
+        first = agg[0] if isinstance(agg, list) and agg else (agg if isinstance(agg, dict) else None)
+        if isinstance(first, dict):
+            if "commit_count" in first and first.get("commit_count") is not None:
+                summary.setdefault("commit_count", first.get("commit_count"))
+            if "stars_count" in first and first.get("stars_count") is not None:
+                summary.setdefault("stars", first.get("stars_count"))
+            if "fork_count" in first and first.get("fork_count") is not None:
+                summary.setdefault("forks", first.get("fork_count"))
+            if "watcher_count" in first and first.get("watcher_count") is not None:
+                summary.setdefault("watchers", first.get("watcher_count"))
+            if "merged_count" in first and first.get("merged_count") is not None:
+                summary.setdefault("prs_merged", first.get("merged_count"))
+
+    # Include endpoint-level collection coverage for transparency
+    summary["augur_endpoint_count"] = len(raw)
+    summary["augur_nonempty_endpoint_count"] = sum(1 for v in raw.values() if v)
 
     return summary

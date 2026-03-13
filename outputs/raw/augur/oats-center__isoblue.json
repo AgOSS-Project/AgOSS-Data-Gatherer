@@ -1,0 +1,2502 @@
+{
+  "repo_id": 25506,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "0102b5b1-7e00-0000-0000-000000000000",
+        "commits": 617.0,
+        "issues": 11.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 628.0,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "user_id": "0100c6f8-9800-0000-0000-000000000000",
+        "commits": 516.0,
+        "issues": 27.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 543.0,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "user_id": "01001c75-8500-0000-0000-000000000000",
+        "commits": 411.0,
+        "issues": 35.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 446.0,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "user_id": "010052b7-1100-0000-0000-000000000000",
+        "commits": 135.0,
+        "issues": 10.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 145.0,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "user_id": "0102f65a-0500-0000-0000-000000000000",
+        "commits": 91.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 91.0,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "user_id": "01052406-7300-0000-0000-000000000000",
+        "commits": 20.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 20.0,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "user_id": "010034a2-5000-0000-0000-000000000000",
+        "commits": 14.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 14.0,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "user_id": "01034199-5300-0000-0000-000000000000",
+        "commits": 5.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 5.0,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "user_id": "0104428d-be00-0000-0000-000000000000",
+        "commits": 3.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "user_id": "010222ed-db00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2020-02-14T00:00:00.000Z",
+        "new_contributors": 2,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "date": "2020-03-24T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "date": "2020-04-02T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "date": "2020-07-21T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "date": "2020-10-26T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "date": "2021-01-22T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "date": "2021-10-19T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "date": "2021-11-19T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      },
+      {
+        "date": "2022-04-14T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25506,
+        "repo_name": "isoblue"
+      }
+    ],
+    "committers": [
+      {
+        "date": "2023-08-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-07-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2023-06-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-03-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2023-02-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2023-01-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-10-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2022-09-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2022-08-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-06-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2022-05-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-04-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2022-03-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2022-02-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2021-12-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-11-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2021-10-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 5
+      },
+      {
+        "date": "2021-09-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-07-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2021-06-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2021-05-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2021-04-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2021-03-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2021-02-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2021-01-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2020-12-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-11-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2020-10-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2020-09-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2020-08-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2020-07-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2020-06-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2020-05-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2020-04-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2020-03-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-02-01T00:00:00.000Z",
+        "repo_name": "isoblue",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      }
+    ],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [
+      {
+        "repo_name": "isoblue",
+        "date": "2020-02-14T00:00:00.000Z",
+        "added": 85001,
+        "removed": 372
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-02-15T00:00:00.000Z",
+        "added": 992,
+        "removed": 15
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-02-19T00:00:00.000Z",
+        "added": 33,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-02-21T00:00:00.000Z",
+        "added": 21888,
+        "removed": 76914
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-02-26T00:00:00.000Z",
+        "added": 159997,
+        "removed": 10618
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-03-24T00:00:00.000Z",
+        "added": 10244,
+        "removed": 37
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-02T00:00:00.000Z",
+        "added": 31,
+        "removed": 11547
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-04T00:00:00.000Z",
+        "added": 96,
+        "removed": 5
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-06T00:00:00.000Z",
+        "added": 1202,
+        "removed": 83
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-07T00:00:00.000Z",
+        "added": 57,
+        "removed": 19
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-08T00:00:00.000Z",
+        "added": 189,
+        "removed": 168
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-09T00:00:00.000Z",
+        "added": 72,
+        "removed": 15
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-11T00:00:00.000Z",
+        "added": 105,
+        "removed": 20
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-21T00:00:00.000Z",
+        "added": 2340,
+        "removed": 80
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-05-05T00:00:00.000Z",
+        "added": 3069,
+        "removed": 3597
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-05-12T00:00:00.000Z",
+        "added": 1196,
+        "removed": 1636
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-05-13T00:00:00.000Z",
+        "added": 4,
+        "removed": 8
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-05-15T00:00:00.000Z",
+        "added": 109,
+        "removed": 40
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-05-22T00:00:00.000Z",
+        "added": 26,
+        "removed": 7
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-05-29T00:00:00.000Z",
+        "added": 64,
+        "removed": 83
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-05-30T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-01T00:00:00.000Z",
+        "added": 381,
+        "removed": 312
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-03T00:00:00.000Z",
+        "added": 66,
+        "removed": 17
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-05T00:00:00.000Z",
+        "added": 15,
+        "removed": 15
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-11T00:00:00.000Z",
+        "added": 24,
+        "removed": 15
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-12T00:00:00.000Z",
+        "added": 127,
+        "removed": 46
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-14T00:00:00.000Z",
+        "added": 27,
+        "removed": 31
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-15T00:00:00.000Z",
+        "added": 139,
+        "removed": 42
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-16T00:00:00.000Z",
+        "added": 214,
+        "removed": 302
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-17T00:00:00.000Z",
+        "added": 1542,
+        "removed": 51
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-18T00:00:00.000Z",
+        "added": 207,
+        "removed": 97
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-22T00:00:00.000Z",
+        "added": 26,
+        "removed": 9
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-23T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-24T00:00:00.000Z",
+        "added": 8,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-26T00:00:00.000Z",
+        "added": 35,
+        "removed": 29
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-30T00:00:00.000Z",
+        "added": 14,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-09T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-10T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-11T00:00:00.000Z",
+        "added": 63,
+        "removed": 1238
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-13T00:00:00.000Z",
+        "added": 4068,
+        "removed": 102
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-14T00:00:00.000Z",
+        "added": 1498091,
+        "removed": 85913
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-17T00:00:00.000Z",
+        "added": 157284,
+        "removed": 13943
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-21T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-23T00:00:00.000Z",
+        "added": 54,
+        "removed": 1595
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-25T00:00:00.000Z",
+        "added": 28,
+        "removed": 14
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-27T00:00:00.000Z",
+        "added": 50,
+        "removed": 42
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-28T00:00:00.000Z",
+        "added": 13,
+        "removed": 8
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-29T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-30T00:00:00.000Z",
+        "added": 2076,
+        "removed": 82154
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-08-04T00:00:00.000Z",
+        "added": 15,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-08-08T00:00:00.000Z",
+        "added": 20,
+        "removed": 39
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-08-09T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-08-12T00:00:00.000Z",
+        "added": 6,
+        "removed": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-08-19T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-08-26T00:00:00.000Z",
+        "added": 71,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-08-27T00:00:00.000Z",
+        "added": 172,
+        "removed": 33
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-01T00:00:00.000Z",
+        "added": 58,
+        "removed": 20
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-03T00:00:00.000Z",
+        "added": 131,
+        "removed": 47
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-14T00:00:00.000Z",
+        "added": 12,
+        "removed": 11
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-18T00:00:00.000Z",
+        "added": 14,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-21T00:00:00.000Z",
+        "added": 12,
+        "removed": 8
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-22T00:00:00.000Z",
+        "added": 30,
+        "removed": 6
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-24T00:00:00.000Z",
+        "added": 7,
+        "removed": 51
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-28T00:00:00.000Z",
+        "added": 31,
+        "removed": 1196
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-29T00:00:00.000Z",
+        "added": 3393,
+        "removed": 42
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-30T00:00:00.000Z",
+        "added": 72,
+        "removed": 3921
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-01T00:00:00.000Z",
+        "added": 241,
+        "removed": 185
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-02T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-05T00:00:00.000Z",
+        "added": 22,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-07T00:00:00.000Z",
+        "added": 73,
+        "removed": 14
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-08T00:00:00.000Z",
+        "added": 58,
+        "removed": 14
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-14T00:00:00.000Z",
+        "added": 62,
+        "removed": 62
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-16T00:00:00.000Z",
+        "added": 146,
+        "removed": 65
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-22T00:00:00.000Z",
+        "added": 35,
+        "removed": 101
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-11-03T00:00:00.000Z",
+        "added": 12,
+        "removed": 18
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-11-05T00:00:00.000Z",
+        "added": 14,
+        "removed": 37
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-11-09T00:00:00.000Z",
+        "added": 28,
+        "removed": 11
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-12-11T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-12-24T00:00:00.000Z",
+        "added": 44,
+        "removed": 11
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-01-12T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-01-19T00:00:00.000Z",
+        "added": 5630,
+        "removed": 107
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-01-21T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-01-22T00:00:00.000Z",
+        "added": 162552,
+        "removed": 11
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-01-23T00:00:00.000Z",
+        "added": 10,
+        "removed": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-01-25T00:00:00.000Z",
+        "added": 427,
+        "removed": 6641
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-01-28T00:00:00.000Z",
+        "added": 209,
+        "removed": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-02-01T00:00:00.000Z",
+        "added": 31,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-02-02T00:00:00.000Z",
+        "added": 151,
+        "removed": 35
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-02-06T00:00:00.000Z",
+        "added": 773,
+        "removed": 21
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-02-08T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-02-18T00:00:00.000Z",
+        "added": 18,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-02-22T00:00:00.000Z",
+        "added": 91,
+        "removed": 11
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-02-26T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-04T00:00:00.000Z",
+        "added": 87,
+        "removed": 93
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-05T00:00:00.000Z",
+        "added": 1836,
+        "removed": 80
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-07T00:00:00.000Z",
+        "added": 10,
+        "removed": 5
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-08T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-09T00:00:00.000Z",
+        "added": 844,
+        "removed": 1317
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-11T00:00:00.000Z",
+        "added": 95,
+        "removed": 85
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-12T00:00:00.000Z",
+        "added": 41,
+        "removed": 12
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-15T00:00:00.000Z",
+        "added": 15,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-16T00:00:00.000Z",
+        "added": 1040,
+        "removed": 9
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-17T00:00:00.000Z",
+        "added": 2,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-18T00:00:00.000Z",
+        "added": 191,
+        "removed": 10
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-21T00:00:00.000Z",
+        "added": 1536,
+        "removed": 31
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-22T00:00:00.000Z",
+        "added": 188,
+        "removed": 12
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-04-12T00:00:00.000Z",
+        "added": 162,
+        "removed": 6
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-04-16T00:00:00.000Z",
+        "added": 6,
+        "removed": 7
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-04-21T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-04-22T00:00:00.000Z",
+        "added": 139,
+        "removed": 70
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-04-24T00:00:00.000Z",
+        "added": 183,
+        "removed": 87
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-05-04T00:00:00.000Z",
+        "added": 36,
+        "removed": 27
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-05-06T00:00:00.000Z",
+        "added": 24,
+        "removed": 12
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-05-11T00:00:00.000Z",
+        "added": 4,
+        "removed": 9
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-05-12T00:00:00.000Z",
+        "added": 12,
+        "removed": 35
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-05-18T00:00:00.000Z",
+        "added": 437,
+        "removed": 15
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-05-30T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-06-12T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-06-15T00:00:00.000Z",
+        "added": 697473,
+        "removed": 572736
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-06-22T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-07-12T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-07-13T00:00:00.000Z",
+        "added": 4,
+        "removed": 4
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-09-06T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-10-14T00:00:00.000Z",
+        "added": 12,
+        "removed": 12
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-10-19T00:00:00.000Z",
+        "added": 37,
+        "removed": 15
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-10-26T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-11-03T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-11-19T00:00:00.000Z",
+        "added": 70,
+        "removed": 34
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-11-23T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-12-03T00:00:00.000Z",
+        "added": 5,
+        "removed": 21
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-02-02T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-02-13T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-02-18T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-02-22T00:00:00.000Z",
+        "added": 4,
+        "removed": 14
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-03-02T00:00:00.000Z",
+        "added": 37,
+        "removed": 12
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-03-15T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-04-09T00:00:00.000Z",
+        "added": 5,
+        "removed": 5
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-04-11T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-04-12T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-04-13T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-04-14T00:00:00.000Z",
+        "added": 235,
+        "removed": 184
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-04-18T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-04-22T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-04-28T00:00:00.000Z",
+        "added": 25,
+        "removed": 8
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-05-06T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-06-06T00:00:00.000Z",
+        "added": 29,
+        "removed": 27
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-06-12T00:00:00.000Z",
+        "added": 1432,
+        "removed": 147
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-06-14T00:00:00.000Z",
+        "added": 66,
+        "removed": 40
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-06-17T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-08-08T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-09-19T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-09-20T00:00:00.000Z",
+        "added": 9,
+        "removed": 9
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-09-25T00:00:00.000Z",
+        "added": 12,
+        "removed": 12
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-09-26T00:00:00.000Z",
+        "added": 22,
+        "removed": 7
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-09-27T00:00:00.000Z",
+        "added": 58,
+        "removed": 42
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-09-28T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-10-04T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-10-05T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-10-13T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-10-19T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-10-26T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-01-06T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-01-20T00:00:00.000Z",
+        "added": 11,
+        "removed": 6
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-01-31T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-02-04T00:00:00.000Z",
+        "added": 68,
+        "removed": 35
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-03-10T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-06-02T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-06-05T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-06-06T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-06-08T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-06-09T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-06-12T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-07-12T00:00:00.000Z",
+        "added": 4,
+        "removed": 9
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-07-13T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-07-18T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-07-19T00:00:00.000Z",
+        "added": 5,
+        "removed": 0
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-07-20T00:00:00.000Z",
+        "added": 4,
+        "removed": 4
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-08-04T00:00:00.000Z",
+        "added": 22,
+        "removed": 42
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-08-11T00:00:00.000Z",
+        "added": 22,
+        "removed": 23
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-08-14T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      }
+    ],
+    "issues_new": [
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-05T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-08T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-09T00:00:00.000Z",
+        "issues": 5
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-10T00:00:00.000Z",
+        "issues": 5
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-22T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-23T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-24T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-27T00:00:00.000Z",
+        "issues": 7
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-29T00:00:00.000Z",
+        "issues": 5
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-08-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-08-31T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-18T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-01T00:00:00.000Z",
+        "issues": 5
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-02T00:00:00.000Z",
+        "issues": 5
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-01-22T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-02-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-02-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-03-24T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-04-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-07-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-07-13T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-11-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-03-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2022-09-28T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-04-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-01T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-11T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-06-23T00:00:00.000Z",
+        "issues": 5
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-07-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-08-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-03T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-29T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-09-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-02T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-10-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-11-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2020-11-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-01-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-02-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-07-13T00:00:00.000Z",
+        "issues": 6
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2021-11-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "isoblue",
+        "date": "2023-08-11T00:00:00.000Z",
+        "issues": 2
+      }
+    ],
+    "issues_active": [],
+    "issue_backlog": [
+      {
+        "repo_name": "isoblue",
+        "issue_backlog": 44
+      }
+    ],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "isoblue",
+        "avg_issue_resolution_time": "108 days 11:44:48.975"
+      }
+    ],
+    "pull_requests_new": [
+      {
+        "created_date": "2021-03-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-02-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-31T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2020-07-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-12-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-07-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-07-13T00:00:00.000",
+        "new_pull_requests": 4
+      },
+      {
+        "created_date": "2023-06-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-11-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-08-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-07-21T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2020-04-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-04-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-09-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-07-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-02-02T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-03-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-01-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-03-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-11-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-06-06T00:00:00.000",
+        "new_pull_requests": 8
+      },
+      {
+        "created_date": "2022-07-20T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-04-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-06-12T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2020-04-10T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-03-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-01-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-04-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-07-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-03-02T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-04-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-01-29T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-01-20T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2022-03-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-02T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2020-09-18T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2020-10-02T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2020-10-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-07-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-06T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2021-03-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-10-26T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2022-04-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-08-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-11-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-02-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-06-17T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2021-03-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-08T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-06-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-10-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-08-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-04-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-07-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-03-31T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-12-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-01-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-09-28T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2020-10-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-05T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2022-02-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-10-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-06-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-10-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-10-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-04-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-01-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-09-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-04-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-07-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-04-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-08-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-04-07T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-03-05T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2020-08-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-11-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-10-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-08-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-02-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-05-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-01-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-04-13T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-06-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-12-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-11-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-05-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-20T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2022-06-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-05-12T00:00:00.000",
+        "new_pull_requests": 5
+      },
+      {
+        "created_date": "2022-04-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-13T00:00:00.000",
+        "new_pull_requests": 4
+      },
+      {
+        "created_date": "2022-10-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-09-30T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2022-12-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-06-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-09-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-10-14T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2020-04-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-02-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-05-06T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2020-09-22T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2021-04-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-02-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-09-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-07-20T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-07-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-01-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-09-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-02-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-02-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-12-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-06-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-03-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-04-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-12-22T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [
+      {
+        "commit_date": "2020-02-14T00:00:00.000Z",
+        "count": 2,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2020-03-24T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2020-04-04T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2020-05-05T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2020-07-21T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2020-09-14T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2021-01-22T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2021-10-14T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2021-10-19T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2021-11-19T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2022-03-02T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2022-04-14T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      },
+      {
+        "commit_date": "2022-06-12T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "isoblue"
+      }
+    ],
+    "pr_acceptance_rate": [],
+    "releases": [],
+    "stars_count": [
+      {
+        "repo_name": "isoblue",
+        "stars": 23
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "isoblue",
+        "forks": 9
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "isoblue",
+        "watchers": 4
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "isoblue",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 1818,
+      "db_issue_rows": 84,
+      "db_pull_request_rows": 180,
+      "db_pull_request_event_rows": 0,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 93,
+      "db_pull_request_label_rows": 271,
+      "db_release_rows": 0,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 10,
+    "new_contributor_count": 9,
+    "committer_count": 36,
+    "lines_added": 85001,
+    "lines_removed": 372,
+    "issues_opened": 41,
+    "issues_closed": 24,
+    "issues_active": 0,
+    "issue_backlog": 44,
+    "prs_opened": 129,
+    "release_count": 0,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 16,
+    "db_commit_rows": 1818,
+    "db_issue_rows": 84,
+    "db_pull_request_rows": 180,
+    "db_pull_request_event_rows": 0,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 93,
+    "db_pull_request_label_rows": 271,
+    "db_release_rows": 0,
+    "db_repo_stat_rows": 0
+  }
+}

@@ -1,0 +1,1654 @@
+{
+  "repo_id": 25487,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "01030fab-2200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 28.0,
+        "commit_comments": 0.0,
+        "issue_comments": 143.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 171.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "0103774e-8200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 11.0,
+        "commit_comments": 0.0,
+        "issue_comments": 35.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 46.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "0109db04-5d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 8.0,
+        "commit_comments": 0.0,
+        "issue_comments": 19.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 27.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "01090f6b-7100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 3.0,
+        "commit_comments": 0.0,
+        "issue_comments": 18.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 21.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "01012ac9-2000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 4.0,
+        "commit_comments": 0.0,
+        "issue_comments": 13.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 17.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "010074bf-0800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 16.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 16.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "010913f1-9e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 12.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 14.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "0100abe8-6000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 5.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 6.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "01026c42-8400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 5.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 5.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "01055afc-3100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "01074e3f-7e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "010665ac-1500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "01017d1f-b700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "0102b2ab-5f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "0105b0b2-6300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 3.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "01002043-0f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "0101ea97-4800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "010455da-2f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "01071c39-db00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "010b5f1b-4e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "0101666c-c800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "01007b87-3a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "01004237-0c00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "010a091e-4700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "010ab2c5-d500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "010b7e98-a300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "user_id": "01061289-a700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2021-08-23T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2021-08-26T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2021-09-01T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2021-09-07T00:00:00.000Z",
+        "new_contributors": 2,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2021-10-28T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2022-01-07T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2022-03-31T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2022-09-07T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2023-05-20T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2023-11-28T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2023-12-11T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2023-12-19T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2024-04-28T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2024-05-13T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2024-08-24T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2024-08-26T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2024-11-13T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2024-11-29T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      },
+      {
+        "date": "2024-12-28T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25487,
+        "repo_name": "OpenWeedLocator"
+      }
+    ],
+    "committers": [],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [],
+    "issues_new": [
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-08-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-08-26T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-09-01T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-09-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-10-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-10-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-12-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-01-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-02-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-02-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-02-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-03-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-03-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-03-08T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-03-31T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-06-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-07-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-08-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-09-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-09-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-09-13T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-09-16T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-02-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-03-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-05-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-05-11T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-05-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-05-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-05-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-06-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-07-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-08-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-09-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-11-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-11-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-12-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-12-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-12-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-01-03T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-01-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-01-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-04-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-05-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-08-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-08-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-08-31T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-09-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-09-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-10-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-11-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-11-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-12-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-01-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-01-31T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-02-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-04-07T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-07-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-07-25T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-08-31T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-09-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-09-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-10-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-01-10T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-02-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-02-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-03-04T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-03-31T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-06-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-08-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-09-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-02-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-03-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-05-21T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-05-30T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-06-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-06-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-07-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-12-16T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-12-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-01-03T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-02-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-05-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-07-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-08-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-10-16T00:00:00.000Z",
+        "issues": 4
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-11-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-11-14T00:00:00.000Z",
+        "issues": 4
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-12-09T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-12-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-01-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-02-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-04-07T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_active": [
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-08-23T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-08-26T00:00:00.000",
+        "issues": 7
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-08-31T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-09-01T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-09-06T00:00:00.000",
+        "issues": 8
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-09-07T00:00:00.000",
+        "issues": 7
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-09-09T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-10-04T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-10-28T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2021-12-01T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-01-07T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-01-10T00:00:00.000",
+        "issues": 13
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-02-06T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-02-09T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-02-10T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-02-25T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-02-28T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-03-01T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-03-03T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-03-04T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-03-08T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-03-31T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-04-18T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-04-20T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-06-15T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-06-17T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-08-17T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-09-01T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-09-07T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-09-16T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-09-17T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-09-18T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-09-21T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-05T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-07T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-10T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-13T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-24T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-25T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2022-10-26T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-02-28T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-03-06T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-05-21T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-05-30T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-06-13T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-06-20T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-06-22T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-07-20T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-12-16T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2023-12-29T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-01-03T00:00:00.000",
+        "issues": 7
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-02-08T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-05-11T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-05-13T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-05-14T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-07-03T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-07-04T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-08-28T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-08-30T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-09-18T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-10-16T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-11-08T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-11-14T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-11-29T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-12-09T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2024-12-28T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-01-01T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-01-31T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-02-10T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-04-07T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-07-15T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "OpenWeedLocator",
+        "date": "2025-07-25T00:00:00.000",
+        "issues": 2
+      }
+    ],
+    "issue_backlog": [
+      {
+        "repo_name": "OpenWeedLocator",
+        "issue_backlog": 18
+      }
+    ],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "OpenWeedLocator",
+        "avg_issue_resolution_time": "125 days 25:59:47.692308"
+      }
+    ],
+    "pull_requests_new": [
+      {
+        "created_date": "2023-05-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-11-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-02-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-11-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-05-02T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-07-14T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-07-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-24T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-07-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-02-07T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-11-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-05-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-06-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-01-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-12-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-02-14T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-12-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-03-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-05-27T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2022-05-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-06-17T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-03-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-10-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-07-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-08-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-07-21T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-09-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-02-10T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2024-04-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-29T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-07-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-11-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-05-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-11-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-08-26T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-07-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-11-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-07-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-05-20T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-12-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-07-04T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-02-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-04-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-06-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-05-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-05-12T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [],
+    "pr_acceptance_rate": [],
+    "releases": [
+      {
+        "repo_name": "OpenWeedLocator",
+        "release_id": "MDc6UmVsZWFzZTQ4Mjk5NjAz                                                                                                                                                                                                                                        ",
+        "release_name": "OpenWeedLocator First Release",
+        "release_description": "Welcome to OpenWeedLocator! This is the first (v1.0.0) release of this entirely open-source software and hardware device for green-on-brown image-based weed detection.\r\n\r\nFor full details of OWL, please read through the main page and look through license documents carefully before continuing.\r\n\r\nAs improvements are made and bugs fixed, further releases will be published here. As the community of OWL, you have the opportunity to help shape its future by contributing to the code base and design through GitHub. Please let us know of any issues, recommendations or new opportunities to develop by raising issues and pull requests.\r\n\r\nA DOI for this first release has been developed by Zenodo. If you use this in your research, please consider citing this repository.",
+        "release_author": "Guy Coleman_nocompany",
+        "release_created_at": "2021-08-23T17:35:34.000",
+        "release_published_at": "2021-08-23T17:57:11.000",
+        "release_updated_at": "2021-08-23T17:57:11.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.0.0",
+        "release_url": "https://github.com/geezacoleman/OpenWeedLocator/releases/tag/v1.0.0",
+        "count": 1
+      }
+    ],
+    "stars_count": [
+      {
+        "repo_name": "OpenWeedLocator",
+        "stars": 442
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "OpenWeedLocator",
+        "forks": 83
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "OpenWeedLocator",
+        "watchers": 50
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "OpenWeedLocator",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 0,
+      "db_issue_rows": 70,
+      "db_pull_request_rows": 70,
+      "db_pull_request_event_rows": 258,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 205,
+      "db_issue_label_rows": 31,
+      "db_pull_request_label_rows": 2,
+      "db_release_rows": 1,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 27,
+    "new_contributor_count": 19,
+    "committer_count": 0,
+    "issues_opened": 60,
+    "issues_closed": 38,
+    "issues_active": 72,
+    "issue_backlog": 18,
+    "prs_opened": 57,
+    "release_count": 1,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 15,
+    "db_commit_rows": 0,
+    "db_issue_rows": 70,
+    "db_pull_request_rows": 70,
+    "db_pull_request_event_rows": 258,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 205,
+    "db_issue_label_rows": 31,
+    "db_pull_request_label_rows": 2,
+    "db_release_rows": 1,
+    "db_repo_stat_rows": 0
+  }
+}

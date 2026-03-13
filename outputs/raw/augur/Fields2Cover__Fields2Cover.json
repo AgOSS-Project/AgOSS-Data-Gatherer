@@ -1,0 +1,5311 @@
+{
+  "repo_id": 25504,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "01003b1e-be00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 11.0,
+        "commit_comments": 0.0,
+        "issue_comments": 286.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 297.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0101571e-9e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 9.0,
+        "commit_comments": 0.0,
+        "issue_comments": 37.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 46.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0100e407-9300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 39.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 40.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0100e48f-5600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 5.0,
+        "commit_comments": 0.0,
+        "issue_comments": 19.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 24.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0106eae7-b300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 4.0,
+        "commit_comments": 0.0,
+        "issue_comments": 15.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 19.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01069abe-4100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 14.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 16.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0104a95b-ee00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 4.0,
+        "commit_comments": 0.0,
+        "issue_comments": 10.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 14.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01050261-6500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 9.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 11.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0103a270-b800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 5.0,
+        "commit_comments": 0.0,
+        "issue_comments": 6.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 11.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0102ce76-0f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 8.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 10.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010625f0-2a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 3.0,
+        "commit_comments": 0.0,
+        "issue_comments": 7.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 10.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0100e30b-ac00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 8.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 9.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010a6063-ca00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 8.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 8.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01071193-9700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 5.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 7.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0107b4d0-a300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 5.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 7.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0100af59-5900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 3.0,
+        "commit_comments": 0.0,
+        "issue_comments": 4.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 7.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0102aa29-8c00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 6.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 6.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01081561-6400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 4.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 6.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0106718d-9b00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 4.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 6.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01056315-0300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 3.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 5.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0101ce04-ba00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 3.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 5.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0102bd6d-1500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 4.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 5.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010102ed-9600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 4.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 5.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0102f512-c300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 5.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 5.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0104acbc-4900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 4.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 4.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0106dad6-1a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 3.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 4.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0101c79c-e100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 3.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 4.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01080607-0800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 3.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 4.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0101b889-5200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 3.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 4.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0103812f-2900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 3.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01002043-0f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01006460-8e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010096ea-1600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 3.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0100b39b-2e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0102bc0e-b900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 3.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0103bd9c-7e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0105d458-eb00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0106651f-7c00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010668a1-0a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010750cb-1b00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0108dabc-1800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01003fb7-2e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01093f7d-8a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01003607-9400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010035e7-8500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01007b86-5c00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010ab28b-e400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01017e32-8f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0107b47d-9600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01002d40-b700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0107bd82-7600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0100244f-0100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0104e9bd-1d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010a2c85-6500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01061273-a300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01000201-3f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01015aa8-c400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0101a6f8-5400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0101b61f-fe00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010a5fa7-e600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01018acf-fc00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01001801-b300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0109713f-2c00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01069a95-3300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010033e6-2a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01075525-dc00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01001ee4-c900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01089828-9600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010c28d4-d200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0108e069-6d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0108e51f-b600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01018c15-6a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01018a80-5700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0101e379-cc00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01025429-5b00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01021345-5400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010184c8-2f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0102ab97-0a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0102e0ad-3e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01013b4b-ac00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01013790-ef00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0103fb9b-eb00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01041a95-db00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01043999-7a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0104461e-e200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "010112ca-3b00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0100b313-4e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0104bd43-4f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01009503-6600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01052016-a300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01052d6f-9200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0105549c-1300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01056a62-5b00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0105b3e9-0f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01006de4-8f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01063fc4-3a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "01005859-f000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "user_id": "0106c758-7c00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2022-06-11T00:00:00.000Z",
+        "new_contributors": 2,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2022-06-21T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2022-08-03T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2022-09-14T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2022-09-24T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2022-10-04T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2022-10-18T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2022-10-24T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2022-11-01T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2022-11-11T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2022-11-19T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-01-02T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-01-06T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-01-12T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-02-08T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-04-13T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-04-19T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-05-11T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-06-19T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-06-30T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-07-04T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-08-07T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-08-10T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-08-16T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-09-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-09-29T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2023-10-18T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-01-05T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-02-13T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-02-19T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-02-21T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-03-21T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-03-25T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-04-01T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-04-11T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-04-12T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-04-14T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-04-22T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-04-29T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-05-08T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-05-17T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-05-21T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-05-24T00:00:00.000Z",
+        "new_contributors": 2,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-05-30T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-06-17T00:00:00.000Z",
+        "new_contributors": 2,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-06-27T00:00:00.000Z",
+        "new_contributors": 2,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-07-25T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-07-26T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-08-12T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-08-22T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-08-26T00:00:00.000Z",
+        "new_contributors": 2,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-09-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-09-18T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-10-21T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2024-11-05T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2025-01-03T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2025-02-03T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2025-03-10T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2025-03-20T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2025-03-29T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2025-04-09T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2025-04-14T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2025-05-28T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2025-06-11T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2025-08-04T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2025-08-09T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2026-01-23T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "date": "2026-02-27T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25504,
+        "repo_name": "Fields2Cover"
+      }
+    ],
+    "committers": [
+      {
+        "date": "2026-01-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2025-09-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-04-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2025-03-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2024-11-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2024-09-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2024-08-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2024-07-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-06-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2024-05-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 9
+      },
+      {
+        "date": "2024-04-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2024-03-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2023-12-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2023-11-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-10-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2023-09-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2023-08-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-07-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2023-06-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-05-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-04-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2023-03-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-02-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2023-01-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2022-11-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2022-10-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2022-09-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 6
+      },
+      {
+        "date": "2022-08-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2022-07-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2022-06-01T00:00:00.000Z",
+        "repo_name": "Fields2Cover",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      }
+    ],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-08T00:00:00.000Z",
+        "added": 18850,
+        "removed": 10811
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-09T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-11T00:00:00.000Z",
+        "added": 1,
+        "removed": 26
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-15T00:00:00.000Z",
+        "added": 3,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-17T00:00:00.000Z",
+        "added": 1,
+        "removed": 52
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-20T00:00:00.000Z",
+        "added": 1013,
+        "removed": 1067
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-22T00:00:00.000Z",
+        "added": 512,
+        "removed": 9
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-24T00:00:00.000Z",
+        "added": 34,
+        "removed": 38
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-07-27T00:00:00.000Z",
+        "added": 107,
+        "removed": 22
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-07-28T00:00:00.000Z",
+        "added": 43,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-02T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-03T00:00:00.000Z",
+        "added": 6,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-06T00:00:00.000Z",
+        "added": 76,
+        "removed": 9
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-07T00:00:00.000Z",
+        "added": 24,
+        "removed": 22
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-08T00:00:00.000Z",
+        "added": 51,
+        "removed": 33
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-11T00:00:00.000Z",
+        "added": 6,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-14T00:00:00.000Z",
+        "added": 65,
+        "removed": 74
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-15T00:00:00.000Z",
+        "added": 938,
+        "removed": 23
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-16T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-18T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-19T00:00:00.000Z",
+        "added": 1392,
+        "removed": 90
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-20T00:00:00.000Z",
+        "added": 173,
+        "removed": 65
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-21T00:00:00.000Z",
+        "added": 310,
+        "removed": 78
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-22T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-23T00:00:00.000Z",
+        "added": 36,
+        "removed": 31
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-24T00:00:00.000Z",
+        "added": 71,
+        "removed": 9
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-25T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-29T00:00:00.000Z",
+        "added": 44,
+        "removed": 53
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-30T00:00:00.000Z",
+        "added": 74,
+        "removed": 24
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-02T00:00:00.000Z",
+        "added": 565,
+        "removed": 8
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-06T00:00:00.000Z",
+        "added": 344,
+        "removed": 56
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-07T00:00:00.000Z",
+        "added": 5,
+        "removed": 20
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-13T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-15T00:00:00.000Z",
+        "added": 77,
+        "removed": 28
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-19T00:00:00.000Z",
+        "added": 3,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-21T00:00:00.000Z",
+        "added": 15,
+        "removed": 15
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-22T00:00:00.000Z",
+        "added": 7,
+        "removed": 7
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-26T00:00:00.000Z",
+        "added": 257,
+        "removed": 115
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-27T00:00:00.000Z",
+        "added": 91,
+        "removed": 18
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-28T00:00:00.000Z",
+        "added": 112,
+        "removed": 27
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-29T00:00:00.000Z",
+        "added": 24,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-30T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-02T00:00:00.000Z",
+        "added": 8,
+        "removed": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-03T00:00:00.000Z",
+        "added": 3,
+        "removed": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-04T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-05T00:00:00.000Z",
+        "added": 34,
+        "removed": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-06T00:00:00.000Z",
+        "added": 20,
+        "removed": 9
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-10T00:00:00.000Z",
+        "added": 62,
+        "removed": 39
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-17T00:00:00.000Z",
+        "added": 37,
+        "removed": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-18T00:00:00.000Z",
+        "added": 2784,
+        "removed": 2133
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-24T00:00:00.000Z",
+        "added": 16,
+        "removed": 14
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-25T00:00:00.000Z",
+        "added": 36,
+        "removed": 13
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-28T00:00:00.000Z",
+        "added": 11,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-31T00:00:00.000Z",
+        "added": 16,
+        "removed": 13
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-01T00:00:00.000Z",
+        "added": 63,
+        "removed": 10
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-03T00:00:00.000Z",
+        "added": 4,
+        "removed": 54
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-10T00:00:00.000Z",
+        "added": 60,
+        "removed": 19
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-09T00:00:00.000Z",
+        "added": 231,
+        "removed": 328
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-11T00:00:00.000Z",
+        "added": 80,
+        "removed": 24
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-12T00:00:00.000Z",
+        "added": 115,
+        "removed": 24
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-13T00:00:00.000Z",
+        "added": 172,
+        "removed": 110
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-14T00:00:00.000Z",
+        "added": 53,
+        "removed": 111
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-16T00:00:00.000Z",
+        "added": 96,
+        "removed": 55
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-20T00:00:00.000Z",
+        "added": 8,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-22T00:00:00.000Z",
+        "added": 42,
+        "removed": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-24T00:00:00.000Z",
+        "added": 121,
+        "removed": 17
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-26T00:00:00.000Z",
+        "added": 8,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-05T00:00:00.000Z",
+        "added": 24,
+        "removed": 16
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-24T00:00:00.000Z",
+        "added": 13,
+        "removed": 13
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-03-06T00:00:00.000Z",
+        "added": 43,
+        "removed": 10
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-03-27T00:00:00.000Z",
+        "added": 246,
+        "removed": 117
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-04-21T00:00:00.000Z",
+        "added": 318,
+        "removed": 33
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-17T00:00:00.000Z",
+        "added": 72,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-24T00:00:00.000Z",
+        "added": 9,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-26T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-15T00:00:00.000Z",
+        "added": 164,
+        "removed": 20
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-19T00:00:00.000Z",
+        "added": 16,
+        "removed": 22
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-30T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-07-04T00:00:00.000Z",
+        "added": 12,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-07-06T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-07-17T00:00:00.000Z",
+        "added": 25,
+        "removed": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-02T00:00:00.000Z",
+        "added": 53,
+        "removed": 59
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-21T00:00:00.000Z",
+        "added": 257,
+        "removed": 103
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-26T00:00:00.000Z",
+        "added": 0,
+        "removed": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-27T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-30T00:00:00.000Z",
+        "added": 135,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-01T00:00:00.000Z",
+        "added": 112,
+        "removed": 160
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-02T00:00:00.000Z",
+        "added": 23,
+        "removed": 84
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-03T00:00:00.000Z",
+        "added": 201,
+        "removed": 119
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-04T00:00:00.000Z",
+        "added": 33,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-05T00:00:00.000Z",
+        "added": 135,
+        "removed": 39
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-16T00:00:00.000Z",
+        "added": 209,
+        "removed": 19
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-17T00:00:00.000Z",
+        "added": 8,
+        "removed": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-18T00:00:00.000Z",
+        "added": 62,
+        "removed": 21
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-31T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-11-14T00:00:00.000Z",
+        "added": 401,
+        "removed": 226
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-11-15T00:00:00.000Z",
+        "added": 0,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-12-06T00:00:00.000Z",
+        "added": 5,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-12-14T00:00:00.000Z",
+        "added": 12,
+        "removed": 9
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-12-15T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-12-17T00:00:00.000Z",
+        "added": 33,
+        "removed": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-12-18T00:00:00.000Z",
+        "added": 18,
+        "removed": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-12-21T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-12-22T00:00:00.000Z",
+        "added": 5,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-03-05T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-03-12T00:00:00.000Z",
+        "added": 249,
+        "removed": 192
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-03-13T00:00:00.000Z",
+        "added": 6,
+        "removed": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-03-15T00:00:00.000Z",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-03-19T00:00:00.000Z",
+        "added": 500,
+        "removed": 240
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-03-20T00:00:00.000Z",
+        "added": 6,
+        "removed": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-03T00:00:00.000Z",
+        "added": 982,
+        "removed": 1241
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-04T00:00:00.000Z",
+        "added": 149,
+        "removed": 75
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-05T00:00:00.000Z",
+        "added": 121,
+        "removed": 66
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-08T00:00:00.000Z",
+        "added": 49,
+        "removed": 26
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-09T00:00:00.000Z",
+        "added": 5,
+        "removed": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-12T00:00:00.000Z",
+        "added": 1,
+        "removed": 32
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-16T00:00:00.000Z",
+        "added": 22,
+        "removed": 16
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-17T00:00:00.000Z",
+        "added": 79,
+        "removed": 86
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-24T00:00:00.000Z",
+        "added": 4,
+        "removed": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-29T00:00:00.000Z",
+        "added": 13,
+        "removed": 11
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-30T00:00:00.000Z",
+        "added": 8,
+        "removed": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-02T00:00:00.000Z",
+        "added": 76,
+        "removed": 34
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-03T00:00:00.000Z",
+        "added": 131,
+        "removed": 188
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-04T00:00:00.000Z",
+        "added": 15,
+        "removed": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-06T00:00:00.000Z",
+        "added": 4,
+        "removed": 10
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-09T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-10T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-11T00:00:00.000Z",
+        "added": 8,
+        "removed": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-12T00:00:00.000Z",
+        "added": 17,
+        "removed": 7
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-13T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-14T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-16T00:00:00.000Z",
+        "added": 49,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-17T00:00:00.000Z",
+        "added": 5,
+        "removed": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-23T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-27T00:00:00.000Z",
+        "added": 17,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-29T00:00:00.000Z",
+        "added": 13,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-30T00:00:00.000Z",
+        "added": 7,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-04T00:00:00.000Z",
+        "added": 1,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-05T00:00:00.000Z",
+        "added": 864,
+        "removed": 32
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-08T00:00:00.000Z",
+        "added": 6,
+        "removed": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-11T00:00:00.000Z",
+        "added": 3,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-13T00:00:00.000Z",
+        "added": 81,
+        "removed": 40
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-14T00:00:00.000Z",
+        "added": 8,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-17T00:00:00.000Z",
+        "added": 257,
+        "removed": 958
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-19T00:00:00.000Z",
+        "added": 27,
+        "removed": 27
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-25T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-18T00:00:00.000Z",
+        "added": 161,
+        "removed": 256
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-27T00:00:00.000Z",
+        "added": 22,
+        "removed": 11
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-05T00:00:00.000Z",
+        "added": 33,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-11T00:00:00.000Z",
+        "added": 33,
+        "removed": 23
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-20T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-30T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-05T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-18T00:00:00.000Z",
+        "added": 16,
+        "removed": 21
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-19T00:00:00.000Z",
+        "added": 20,
+        "removed": 15
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-13T00:00:00.000Z",
+        "added": 15,
+        "removed": 12
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-20T00:00:00.000Z",
+        "added": 5,
+        "removed": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-21T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-03T00:00:00.000Z",
+        "added": 4,
+        "removed": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-08T00:00:00.000Z",
+        "added": 21,
+        "removed": 16
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-14T00:00:00.000Z",
+        "added": 41,
+        "removed": 12
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-17T00:00:00.000Z",
+        "added": 7,
+        "removed": 7
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-22T00:00:00.000Z",
+        "added": 58,
+        "removed": 51
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-09-30T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2026-01-08T00:00:00.000Z",
+        "added": 132,
+        "removed": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2026-01-09T00:00:00.000Z",
+        "added": 4,
+        "removed": 3
+      }
+    ],
+    "issues_new": [
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-07-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-06T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-30T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-12-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-12T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-03-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-04-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-04-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-04-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-04-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-11T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-27T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-07-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-29T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-11-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-01-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-03-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-03-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-11T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-24T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-27T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-31T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-17T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-27T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-25T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-26T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-10-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-12-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-12-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-01-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-02-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-05-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-06-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-08-04T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-08-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-08-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2026-01-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2026-02-27T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-07-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-06T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-05T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-12-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-11T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-12T00:00:00.000Z",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-03-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-03-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-04-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-17T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-07-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-07-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-03T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-11-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-01-10T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-03T00:00:00.000Z",
+        "issues": 9
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-10T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-22T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-06T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-16T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-27T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-31T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-04T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-18T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-27T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-10-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-12-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-01-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-05-06T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-08-04T00:00:00.000Z",
+        "issues": 2
+      }
+    ],
+    "issues_active": [
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-11T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-21T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-06-22T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-07-10T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-07-18T00:00:00.000",
+        "issues": 8
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-07-26T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-04T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-09T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-11T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-12T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-13T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-20T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-08-24T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-02T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-06T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-14T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-15T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-16T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-25T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-09-29T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-04T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-05T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-14T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-18T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-24T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-10-25T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-01T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-11T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-16T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-21T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-25T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-26T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-11-28T00:00:00.000",
+        "issues": 11
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-12-06T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2022-12-10T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-02T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-06T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-07T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-08T00:00:00.000",
+        "issues": 24
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-09T00:00:00.000",
+        "issues": 12
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-10T00:00:00.000",
+        "issues": 16
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-11T00:00:00.000",
+        "issues": 7
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-12T00:00:00.000",
+        "issues": 10
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-13T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-16T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-20T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-24T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-01-25T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-01T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-02T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-03T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-06T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-07T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-08T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-09T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-10T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-02-28T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-03-01T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-03-06T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-03-07T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-03-08T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-04-13T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-04-14T00:00:00.000",
+        "issues": 7
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-04-21T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-04-27T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-11T00:00:00.000",
+        "issues": 13
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-17T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-22T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-23T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-24T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-05-26T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-19T00:00:00.000",
+        "issues": 7
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-20T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-28T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-06-30T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-07-04T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-07-06T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-07-17T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-07T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-08T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-14T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-16T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-21T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-22T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-23T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-08-30T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-04T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-05T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-06T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-08T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-09T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-14T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-15T00:00:00.000",
+        "issues": 12
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-19T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-27T00:00:00.000",
+        "issues": 11
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-28T00:00:00.000",
+        "issues": 8
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-09-29T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-01T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-03T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-16T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-17T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-18T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-22T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-10-24T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-11-06T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-11-08T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-11-13T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-11-14T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-11-22T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-12-08T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2023-12-12T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-01-08T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-01-10T00:00:00.000",
+        "issues": 7
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-01-12T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-13T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-14T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-15T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-16T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-21T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-02-25T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-03-04T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-03-05T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-03-26T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-01T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-02T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-03T00:00:00.000",
+        "issues": 15
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-05T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-09T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-10T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-11T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-12T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-15T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-16T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-19T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-22T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-04-26T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-02T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-06T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-08T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-09T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-10T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-13T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-16T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-17T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-22T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-26T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-27T00:00:00.000",
+        "issues": 7
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-29T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-05-31T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-04T00:00:00.000",
+        "issues": 11
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-05T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-17T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-19T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-21T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-24T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-06-27T00:00:00.000",
+        "issues": 8
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-12T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-23T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-25T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-28T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-07-29T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-12T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-13T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-18T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-23T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-26T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-08-29T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-16T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-18T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-19T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-27T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-09-30T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-10-21T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-10-22T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-05T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-12T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-14T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-11-21T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-12-03T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-12-25T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2024-12-27T00:00:00.000",
+        "issues": 12
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-01-09T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-01-22T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-02-03T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-02-04T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-10T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-11T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-12T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-19T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-20T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-03-24T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-09T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-14T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-16T00:00:00.000",
+        "issues": 5
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-25T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-04-28T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-05-06T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-05-30T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-06-02T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-06-12T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-06-13T00:00:00.000",
+        "issues": 6
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-06-18T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-06-21T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-08-04T00:00:00.000",
+        "issues": 15
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-09-12T00:00:00.000",
+        "issues": 8
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2025-09-28T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2026-01-23T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2026-01-25T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "date": "2026-03-12T00:00:00.000",
+        "issues": 2
+      }
+    ],
+    "issue_backlog": [
+      {
+        "repo_name": "Fields2Cover",
+        "issue_backlog": 21
+      }
+    ],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "Fields2Cover",
+        "avg_issue_resolution_time": "50 days 17:36:45.841121"
+      }
+    ],
+    "pull_requests_new": [
+      {
+        "created_date": "2024-05-31T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-09T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-03-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-11-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-08-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-03T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-01-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-03-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-11-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-12-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-11-01T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-04-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-09-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-04-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-04-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-08-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-03-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-11-21T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-05-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-07-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-08-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-08-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-10-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-03-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-01-09T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-09-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-06-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-04-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-06-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-05-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-08-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-07-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-07-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-08-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-10-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-05-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-11-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-10-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-07-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-08-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-06-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-06-05T00:00:00.000",
+        "new_pull_requests": 2
+      }
+    ],
+    "pr_merge_contributor_new": [
+      {
+        "commit_date": "2022-06-08T00:00:00.000Z",
+        "count": 2,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2022-07-27T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2022-08-02T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2022-09-13T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2022-09-15T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2022-10-04T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2022-11-01T00:00:00.000Z",
+        "count": 2,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2023-05-17T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2023-07-04T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2023-09-26T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2023-09-30T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2024-03-13T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2024-04-24T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2024-04-30T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2024-05-11T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2024-05-23T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2024-05-29T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2024-05-30T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2024-11-18T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2025-03-13T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2025-03-20T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2025-04-14T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      },
+      {
+        "commit_date": "2026-01-08T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "Fields2Cover"
+      }
+    ],
+    "pr_acceptance_rate": [],
+    "releases": [
+      {
+        "repo_name": "Fields2Cover",
+        "release_id": "RE_kwDOHd3gM84Ht2Vm                                                                                                                                                                                                                                             ",
+        "release_name": "",
+        "release_description": "",
+        "release_author": "Gonzalo Mier_nocompany",
+        "release_created_at": "2023-12-22T22:49:21.000",
+        "release_published_at": "2023-11-14T22:19:03.000",
+        "release_updated_at": "2024-01-08T23:28:31.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.2.1",
+        "release_url": "https://github.com/Fields2Cover/Fields2Cover/releases/tag/v1.2.1",
+        "count": 1
+      },
+      {
+        "repo_name": "Fields2Cover",
+        "release_id": "RE_kwDOHd3gM84HtUpj                                                                                                                                                                                                                                             ",
+        "release_name": "",
+        "release_description": "First release",
+        "release_author": "Gonzalo Mier_nocompany",
+        "release_created_at": "2022-10-18T11:14:07.000",
+        "release_published_at": "2023-11-14T10:25:40.000",
+        "release_updated_at": "2023-11-14T10:25:40.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.2.0",
+        "release_url": "https://github.com/Fields2Cover/Fields2Cover/releases/tag/v1.2.0",
+        "count": 1
+      }
+    ],
+    "stars_count": [
+      {
+        "repo_name": "Fields2Cover",
+        "stars": 771
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "Fields2Cover",
+        "forks": 174
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "Fields2Cover",
+        "watchers": 21
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "Fields2Cover",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 7,
+        "commit_count": 38.0
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 2138,
+      "db_issue_rows": 128,
+      "db_pull_request_rows": 74,
+      "db_pull_request_event_rows": 360,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 709,
+      "db_issue_label_rows": 29,
+      "db_pull_request_label_rows": 2,
+      "db_release_rows": 2,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 98,
+    "new_contributor_count": 68,
+    "committer_count": 30,
+    "lines_added": 18850,
+    "lines_removed": 10811,
+    "issues_opened": 113,
+    "issues_closed": 79,
+    "issues_active": 209,
+    "issue_backlog": 21,
+    "prs_opened": 68,
+    "release_count": 2,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 7,
+        "commit_count": 38.0
+      }
+    ],
+    "commit_count": 38.0,
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 18,
+    "db_commit_rows": 2138,
+    "db_issue_rows": 128,
+    "db_pull_request_rows": 74,
+    "db_pull_request_event_rows": 360,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 709,
+    "db_issue_label_rows": 29,
+    "db_pull_request_label_rows": 2,
+    "db_release_rows": 2,
+    "db_repo_stat_rows": 0
+  }
+}
