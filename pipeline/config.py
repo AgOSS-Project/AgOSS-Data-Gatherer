@@ -9,7 +9,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 TOOLS_DIR = PROJECT_ROOT / "tools"
-SCORECARD_EXE = TOOLS_DIR / "scorecard.exe"
+SCORECARD_EXE = TOOLS_DIR / "scorecard"
 AUGUR_DIR = TOOLS_DIR / "augur"
 
 INPUT_FILE = PROJECT_ROOT / "pipeline" / "input.txt"

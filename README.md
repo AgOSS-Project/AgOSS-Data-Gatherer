@@ -177,15 +177,19 @@ set -a; source .env; set +a
 
 ## Formatting the Input File
 
-Edit `pipeline/input.txt` — one repository per line, comma-separated:
+Edit your input CSV (for example `pipeline/Open Source Agricultural Software(Input).csv`) with one repository per line:
 
 ```
-https://github.com/owner/repo, Category Label
+Display Name, https://github.com/owner/repo, Category Label, Yes|No
 ```
 
 - Blank lines and lines starting with `#` are ignored.
+- Optional header rows are detected and skipped.
 - The URL must be a full `https://github.com/…` link.
 - The category can be any free-text label (e.g. "Field-Deployed Sensor").
+- The Ag-specific column accepts `Yes/No` (also supports `true/false`, `1/0`).
+
+Legacy 2-column rows (`url, category`) are still accepted for backward compatibility.
 
 The repo ships with 37 pre-configured ag-OSS repositories across several categories.
 
@@ -219,7 +223,7 @@ python -m pipeline.main --skip-scorecard --skip-augur
 | `--verbose` / `-v` | Show debug-level output on the console |
 | `--skip-scorecard` | Skip Scorecard collection |
 | `--skip-augur` | Skip Augur collection |
-| `--input path/to/file.txt` | Use a different input file |
+| `--input path/to/file.csv` | Use a different input file |
 | `--sync-augur` | Compare input repos vs Augur-registered repos and log the diff |
 | `--register-augur` | Register missing repos in Augur before collection |
 | `--wait-for-augur` | Poll Augur until repos have data (uses `--augur-wait-mode`) |
@@ -266,7 +270,7 @@ The pipeline retries failed runs up to `SCORECARD_RETRY_COUNT` times (default 1)
 
 ### Sync (`--sync-augur`)
 
-Compares your `input.txt` repos against what Augur has registered. Logs which repos overlap and which are missing.
+Compares your input-file repos against what Augur has registered. Logs which repos overlap and which are missing.
 
 ### Registration (`--register-augur`)
 
@@ -321,8 +325,10 @@ Each record in `merged_repos.json` has:
 | Field | Description |
 |---|---|
 | `repo_url` | Full GitHub URL |
+| `display_name` | Human-readable name from input CSV |
 | `owner` / `repo_name` | Parsed from URL |
-| `category` | From input.txt |
+| `category` | From input file |
+| `ag_specific` | `true` / `false` / `null` from input CSV |
 | `collection_timestamp` | UTC ISO-8601 timestamp |
 | `scorecard_collected` | Boolean — did Scorecard produce data? |
 | `scorecard_status` | `success` / `partial_success` / `failed` / `skipped` |
@@ -438,12 +444,13 @@ Simply re-run `python -m pipeline.main`. The pipeline uses cached raw files, so 
 ```
 AgOSS-Data-Gatherer/
 ├── pipeline/               # Python pipeline package
-│   ├── input.txt           # One repo per line (URL, Category)
+│   ├── Open Source Agricultural Software(Input).csv  # Main input list (Name, URL, Category, Ag-specific)
+│   ├── input.txt           # Optional legacy input (URL, Category)
 │   ├── main.py             # CLI entry point
 │   ├── config.py           # Centralised paths & settings
 │   ├── logger_setup.py     # Logging configuration
 │   ├── models.py           # Dataclass models
-│   ├── input_parser.py     # Parse input.txt
+│   ├── input_parser.py     # Parse CSV / legacy input formats
 │   ├── scorecard_runner.py # Scorecard integration (retries, partial_success)
 │   ├── augur_runner.py     # Augur API + DB registration + wait logic
 │   ├── merger.py           # Merge & write outputs

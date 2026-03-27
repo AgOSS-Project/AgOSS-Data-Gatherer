@@ -19,12 +19,14 @@ OverallStatus = Literal["complete", "partial", "failed"]
 
 @dataclass
 class RepoEntry:
-    """A single repository parsed from input.txt."""
+    """A single repository parsed from the input file."""
+    display_name: str
     repo_url: str
     owner: str
     repo_name: str
     category: str
-    line_number: int  # original line in input.txt (1-based)
+    ag_specific: bool | None
+    line_number: int  # original line in the input file (1-based)
 
 
 @dataclass
@@ -66,10 +68,12 @@ class AugurResult:
 @dataclass
 class MergedRepoRecord:
     """Unified record written to the processed output files."""
+    display_name: str
     repo_url: str
     owner: str
     repo_name: str
     category: str
+    ag_specific: bool | None = None
     collection_timestamp: str = ""
 
     # Scorecard
@@ -116,4 +120,7 @@ class RunSummary:
     augur_fail: int = 0
 
     categories: list[str] = field(default_factory=list)
+    ag_specific_yes: int = 0
+    ag_specific_no: int = 0
+    ag_specific_unknown: int = 0
     notes: list[str] = field(default_factory=list)

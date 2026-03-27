@@ -39,7 +39,7 @@ def parse_args() -> argparse.Namespace:
     )
     p.add_argument(
         "--input", type=str, default=None,
-        help="Path to input.txt (default: pipeline/input.txt).",
+        help="Path to input file (CSV or legacy text; default: pipeline/input.txt).",
     )
 
     # Augur orchestration flags

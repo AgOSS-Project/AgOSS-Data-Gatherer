@@ -48,10 +48,12 @@ def merge(
         ag = augur.get(entry.repo_url, AugurResult())
 
         rec = MergedRepoRecord(
+            display_name=entry.display_name,
             repo_url=entry.repo_url,
             owner=entry.owner,
             repo_name=entry.repo_name,
             category=entry.category,
+            ag_specific=entry.ag_specific,
             collection_timestamp=now,
             # Scorecard
             scorecard_collected=sc.collected,
@@ -89,6 +91,9 @@ def merge(
         augur_timed_out=sum(1 for r in records if r.augur_status == "timed_out"),
         augur_fail=sum(1 for r in records if r.augur_status in ("failed", "not_registered")),
         categories=sorted({e.category for e in entries}),
+        ag_specific_yes=sum(1 for e in entries if e.ag_specific is True),
+        ag_specific_no=sum(1 for e in entries if e.ag_specific is False),
+        ag_specific_unknown=sum(1 for e in entries if e.ag_specific is None),
     )
 
     return records, summary
