@@ -1,0 +1,170 @@
+{
+  "repo_id": 25517,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "01005814-5000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25517,
+        "repo_name": "Eduponics-Mini"
+      },
+      {
+        "user_id": "01023803-6d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25517,
+        "repo_name": "Eduponics-Mini"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2021-03-11T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25517,
+        "repo_name": "Eduponics-Mini"
+      },
+      {
+        "date": "2021-10-24T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25517,
+        "repo_name": "Eduponics-Mini"
+      }
+    ],
+    "committers": [],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [],
+    "issues_new": [
+      {
+        "repo_name": "Eduponics-Mini",
+        "date": "2021-03-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Eduponics-Mini",
+        "date": "2021-10-24T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "Eduponics-Mini",
+        "date": "2021-03-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "Eduponics-Mini",
+        "date": "2021-10-24T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_active": [],
+    "issue_backlog": [],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "Eduponics-Mini",
+        "avg_issue_resolution_time": "06:16:55.5"
+      }
+    ],
+    "pull_requests_new": [],
+    "pr_merge_contributor_new": [],
+    "pr_acceptance_rate": [],
+    "releases": [],
+    "stars_count": [
+      {
+        "repo_name": "Eduponics-Mini",
+        "stars": 72
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "Eduponics-Mini",
+        "forks": 9
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "Eduponics-Mini",
+        "watchers": 8
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "Eduponics-Mini",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 0,
+      "db_issue_rows": 2,
+      "db_pull_request_rows": 0,
+      "db_pull_request_event_rows": 0,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 0,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 2,
+    "new_contributor_count": 2,
+    "committer_count": 0,
+    "issues_opened": 2,
+    "issues_closed": 2,
+    "issues_active": 0,
+    "prs_opened": 0,
+    "release_count": 0,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 11,
+    "db_commit_rows": 0,
+    "db_issue_rows": 2,
+    "db_pull_request_rows": 0,
+    "db_pull_request_event_rows": 0,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 0,
+    "db_repo_stat_rows": 0
+  }
+}

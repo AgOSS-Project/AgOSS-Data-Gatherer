@@ -1,0 +1,332 @@
+{
+  "repo_id": 25488,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "01053a29-c000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 3.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25488,
+        "repo_name": "insect-detect"
+      },
+      {
+        "user_id": "01035718-2100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 2.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25488,
+        "repo_name": "insect-detect"
+      },
+      {
+        "user_id": "010a8d4d-7800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25488,
+        "repo_name": "insect-detect"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2024-07-30T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25488,
+        "repo_name": "insect-detect"
+      }
+    ],
+    "committers": [],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [],
+    "issues_new": [
+      {
+        "repo_name": "insect-detect",
+        "date": "2024-07-30T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "insect-detect",
+        "date": "2024-08-15T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_active": [
+      {
+        "repo_name": "insect-detect",
+        "date": "2024-08-02T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "insect-detect",
+        "date": "2024-08-15T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "insect-detect",
+        "date": "2025-03-18T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "insect-detect",
+        "date": "2025-05-27T00:00:00.000",
+        "issues": 2
+      }
+    ],
+    "issue_backlog": [],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "insect-detect",
+        "avg_issue_resolution_time": "15 days 15:47:48"
+      }
+    ],
+    "pull_requests_new": [
+      {
+        "created_date": "2024-02-24T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2024-06-15T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [],
+    "pr_acceptance_rate": [],
+    "releases": [
+      {
+        "repo_name": "insect-detect",
+        "release_id": "RE_kwDOIp-hwc4Opn6Q                                                                                                                                                                                                                                             ",
+        "release_name": "insect-detect-v1.8",
+        "release_description": "## New features\r\n\r\n- Add web app for browser-based OAK camera live streaming, camera control and config customization in https://github.com/maxsitt/insect-detect/commit/2a2de92b96c0b392631836f945b1bdc565ee2f91\r\n- Centralize configuration parameters in YAML config file(s) in https://github.com/maxsitt/insect-detect/commit/b818acdcaaee727e8080878634d6cd2cde688438\r\n- Add startup customization in https://github.com/maxsitt/insect-detect/commit/70c0dd765195a81255df12676c368ad2044a2f6e\r\n- Add installation script in https://github.com/maxsitt/insect-detect/commit/9f504956766bd4aedf00f3e2a68d3d39a7b439c6\r\n- Add update script in https://github.com/maxsitt/insect-detect/commit/4086fdf5e69f7c28558a5c0121090800e4df8c59\r\n\r\n## Important Updates\r\n\r\n- Refactor processing pipeline for the recording script in https://github.com/maxsitt/insect-detect/commit/68e134d76ab27976e72f84d2546e37b5aafae977\r\n- Rename recording script in https://github.com/maxsitt/insect-detect/commit/1711cabdb7c57706170b751eca8088db662d0506\r\n- Add deployment metadata in https://github.com/maxsitt/insect-detect/commit/31616b3c25c6e6e0a8c42fa90d405f5d1cc6db56\r\n- Add network settings in https://github.com/maxsitt/insect-detect/commit/e9b68de433f3716dd04bae860208605639723826\r\n- Add LED settings in https://github.com/maxsitt/insect-detect/commit/2a75d7ac716b5992928ca52c54f2f27e96d41c90\r\n- Add option to set manual focus in https://github.com/maxsitt/insect-detect/commit/e4316ad45a6e22e12a1e0de4060e226244a212c6\r\n- Add option to upload data in https://github.com/maxsitt/insect-detect/commit/107a16133e5adecb2df7636589b50848d692fd97\r\n- Add OAK temperature check during recording in https://github.com/maxsitt/insect-detect/commit/ad6c6954e26cd32f5884c16594b420694e0eedbb\r\n- Add camera parameters to metadata .csv in https://github.com/maxsitt/insect-detect/commit/6f63d40b0a23c9630903f392359c9acf04384e86\r\n\r\n## Full Changelog\r\n\r\nChanges between previous release and this release: https://github.com/maxsitt/insect-detect/compare/v1.7...v1.8",
+        "release_author": "Maximilian Sittinger_nocompany",
+        "release_created_at": "2025-09-09T09:59:09.000",
+        "release_published_at": "2025-09-09T10:28:23.000",
+        "release_updated_at": "2025-09-09T10:28:23.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.8",
+        "release_url": "https://github.com/maxsitt/insect-detect/releases/tag/v1.8",
+        "count": 1
+      },
+      {
+        "repo_name": "insect-detect",
+        "release_id": "RE_kwDOIp-hwc4JDcVU                                                                                                                                                                                                                                             ",
+        "release_name": "insect-detect-v1.7",
+        "release_description": "**Camera trap paper now published in**\r\n[![DOI PLOS ONE](https://img.shields.io/badge/PLOS%20ONE-10.1371%2Fjournal.pone.0295474-BD3094)](https://doi.org/10.1371/journal.pone.0295474)\r\n\r\nThe v1.7 release includes several new features and updates:\r\n\r\n## New features\r\n\r\n- Add option to save full HQ frames at specified frequency, independent of detections (e.g. for training data collection) in https://github.com/maxsitt/insect-detect/commit/1ef2ded71a28acec435015cc30b313ce061cdd26\r\n- Add support for Witty Pi 4 L3V7 as alternative power management board to the PiJuice Zero in https://github.com/maxsitt/insect-detect/commit/230c14b398b44e3075ae23a23e815d982a072ffb\r\n- Add utils package with modules providing utility functions to improve maintainability in https://github.com/maxsitt/insect-detect/commit/8217d5d47af27ec94a53ca4a0839d26de92d5b23\r\n- Add option to set auto focus range (restrict auto focus to a minimum and maximum distance measured from camera) in https://github.com/maxsitt/insect-detect/commit/d5ecf04c309b5d63977f47c2b42d06a720c3e25d\r\n- Add option to store all captured data in an uncompressed .zip file in https://github.com/maxsitt/insect-detect/commit/5737451d11ec7dd82644812baa33327011f4f62e\r\n- Add option to use bounding box coordinates from detections to set auto exposure region in https://github.com/maxsitt/insect-detect/commit/7d4eaf1bcdf8c151ee7c05269e06d81229333fad\r\n- Add installation instructions and example scripts to use the DepthAI SDK in https://github.com/maxsitt/insect-detect/commit/6968c1e9f0726b4c14d59a61c24745d77ee8f0b4\r\n- Add option to save cropped detections with aspect ratio 1:1 (default) or with original variable aspect ratio in https://github.com/maxsitt/insect-detect/commit/e803d7e4cc8b1a88911facb892e840758311052a and https://github.com/maxsitt/insect-detect/commit/1716baaa5da6261c0dbd89b54328a5452472286a\r\n\r\n## Important Updates\r\n\r\n- Handle external shutdown trigger (e.g. pressing of button connected to Witty Pi while script is running) in https://github.com/maxsitt/insect-detect/commit/2690956dd54b544a78f00b5cdeb6e40a14520e36\r\n- Increase pipeline speed if full frames are saved additionally by using threading in https://github.com/maxsitt/insect-detect/commit/1ef2ded71a28acec435015cc30b313ce061cdd26\r\n- Optimize recording ID creation in https://github.com/maxsitt/insect-detect/commit/7d970d692061f70ce9b3477d776a1f2bdc1c0dc3\r\n- Use ISO 8601 format for timestamps in https://github.com/maxsitt/insect-detect/commit/8217d5d47af27ec94a53ca4a0839d26de92d5b23\r\n- Use new Sync node instead of Script node to synchronize HQ frames with tracker output in https://github.com/maxsitt/insect-detect/commit/e3101c0e982bc854be4b77dce767e80ef0b18657\r\n\r\n## Changelog\r\n\r\nChanges between previous release and this release: https://github.com/maxsitt/insect-detect/compare/v1.6...v1.7",
+        "release_author": "Maximilian Sittinger_nocompany",
+        "release_created_at": "2024-04-19T10:31:17.000",
+        "release_published_at": "2024-04-19T11:08:57.000",
+        "release_updated_at": "2024-04-19T11:08:57.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.7",
+        "release_url": "https://github.com/maxsitt/insect-detect/releases/tag/v1.7",
+        "count": 1
+      },
+      {
+        "repo_name": "insect-detect",
+        "release_id": "RE_kwDOIp-hwc4F0-tI                                                                                                                                                                                                                                             ",
+        "release_name": "insect-detect-v1.6",
+        "release_description": "In the v1.6 release, new YOLOv6n, YOLOv7-tiny and YOLOv8n detection models were added to the existing YOLOv5n model.\r\n\r\n| Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | mAP<sup>val<br>50 | Precision<sup>val<br> | Recall<sup>val<br> | Speed<sup>OAK<br>(fps) | params<br><sup>(M) |\r\n| ----------- | --------------------- | -------------------- | ----------------- | --------------------- | ------------------ | ---------------------- | ------------------ |\r\n| YOLOv5n     | 320                   | 53.8                 | 96.9              | 95.5                  | 96.1               | 49                     | 1.76               |\r\n| YOLOv6n     | 320                   | 50.3                 | 95.1              | 96.9                  | 89.8               | 60                     | 4.63               |\r\n| YOLOv7-tiny | 320                   | 53.2                 | 95.7              | 94.7                  | 94.2               | 52                     | 6.01               |\r\n| YOLOv8n     | 320                   | 55.4                 | 94.4              | 92.2                  | 89.9               | 39                     | 3.01               |\r\n\r\nThese models can reach up to 60 fps inference speed (YOLOv6n) on the OAK-1 device with 1080p sensor resolution.\r\n\r\n## New features\r\n\r\nAdd new YOLO models: https://github.com/maxsitt/insect-detect/commit/46ede0891eb85850699fe8c79b4e2ec0bc03a6f2\r\n\r\n## Important Updates\r\n\r\n- Update `yolo_preview.py` and `yolo_tracker_preview.py` to use 1080p as default sensor resolution, which leads to higher fps of the detection models without decreasing quality of the downscaled preview frames: https://github.com/maxsitt/insect-detect/commit/135e75f8f4d0b2e6e5764f1c2c5f2eecf052fd4f and https://github.com/maxsitt/insect-detect/commit/066587c548339ba1d40c2b46e4ee6aa4bc407d9a\r\n- Update `yolo_tracker_save_hqsync.py` and `yolo_tracker_save_hqsync_nopj.py` to use 1080p as default resolution for the synced HQ frames, which increases inference and pipeline speed to ~12 fps which is fast enough to track moving insects. Save overlay only once with all detected insects drawn on the frame: https://github.com/maxsitt/insect-detect/commit/ac1162e420e46043ca8b9777fee3b67e6688a733 and https://github.com/maxsitt/insect-detect/commit/5eea522c4e6ef6484d9c16e17654385687149b16\r\n- Update `video_capture.py` to use ISP scaling for 1080p resolution, which leads to higher quality frames compared to setting the sensor resolution to 1080p: https://github.com/maxsitt/insect-detect/commit/e06624ba7431e24682f35399a14677eca1e33510\r\n\r\n## Changelog\r\n\r\nChanges between previous release and this release: https://github.com/maxsitt/insect-detect/compare/v1.5...v1.6",
+        "release_author": "Maximilian Sittinger_nocompany",
+        "release_created_at": "2023-04-02T18:26:33.000",
+        "release_published_at": "2023-04-02T18:52:27.000",
+        "release_updated_at": "2023-04-02T18:52:27.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.6",
+        "release_url": "https://github.com/maxsitt/insect-detect/releases/tag/v1.6",
+        "count": 1
+      },
+      {
+        "repo_name": "insect-detect",
+        "release_id": "RE_kwDOIp-hwc4FiOhj                                                                                                                                                                                                                                             ",
+        "release_name": "insect-detect-v1.5",
+        "release_description": "For the v1.5 release, a new **YOLOv5n** detection model, trained on downscaled 320x320 frames was added. With the new model and the adapted scripts (320x320 model input), performance increases significantly to **40 fps** for insect detection + tracking on the OAK device, without affecting accuracy. The higher framerate now makes `ZERO_TERM_IMAGELESS` the [object tracker type](https://docs.luxonis.com/projects/api/en/latest/components/nodes/object_tracker/#supported-object-tracker-types) with the best performance, which increases tracking accuracy for fast moving insects significantly.\r\n\r\n| Model<br><sup>(.blob)   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | mAP<sup>val<br>50 | Precision<sup>val<br> | Recall<sup>val<br> | Speed<br><sup>OAK<br>(fps) |\r\n| ----------------------- | --------------------- | -------------------- | ----------------- | --------------------- | ------------------ | -------------------------- |\r\n| **YOLOv5n** (+ tracker) | 320                   | 53.9                 | 97.6              | 96.0                  | **96.6**           | **40**                     |\r\n| YOLOv5n (+ tracker)     | 416                   | 58.2                 | 97.4              | **97.0**              | 95.0               | 30                         |\r\n| YOLOv5s (+ tracker)     | 416                   | **63.4**             | **97.8**          | 96.6                  | 95.6               | 17                         |\r\n\r\n## New features\r\n\r\nAdd new YOLOv5n model: https://github.com/maxsitt/insect-detect/commit/0091a58687b87b46081825db64b0733e1f61cba2\r\n\r\n## Important Updates\r\n\r\n- Update yolov5_preview.py: https://github.com/maxsitt/insect-detect/commit/0a40d3bebfe1879eb09bad328c335e9857804649\r\n- Update yolov5_tracker_preview.py: https://github.com/maxsitt/insect-detect/commit/140db67eae4ce3de22632215d185844c61f697cd\r\n- Update monitoring scripts: https://github.com/maxsitt/insect-detect/commit/2f3e7382f7807fddfc6d109a16cb0cd419f828a1\r\n\r\n## Changelog\r\n\r\nChanges between previous release and this release: https://github.com/maxsitt/insect-detect/compare/v1.4...v1.5",
+        "release_author": "Maximilian Sittinger_nocompany",
+        "release_created_at": "2023-02-17T15:23:57.000",
+        "release_published_at": "2023-02-17T16:20:26.000",
+        "release_updated_at": "2023-02-17T16:20:26.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.5",
+        "release_url": "https://github.com/maxsitt/insect-detect/releases/tag/v1.5",
+        "count": 1
+      },
+      {
+        "repo_name": "insect-detect",
+        "release_id": "RE_kwDOIp-hwc4FbiR-                                                                                                                                                                                                                                             ",
+        "release_name": "insect-detect-v1.4",
+        "release_description": "For the v1.4 release, new **YOLOv5n** detection models were added. With the YOLOv5n models performance increases significantly to **32 fps** for insect detection and **30 fps** for detection + tracking on the OAK devices. To reproduce the correct speed (fps) measurement while connected via SSH (X11 forwarding of the frames), print fps to the console and comment out `cv2.imshow()`, as this will significantly slow down the received message output and thereby fps. If you are using e.g. a Raspberry Pi 4 B connected to a screen, fps will be correctly shown in the livestream.\r\n\r\n| Model<br><sup>(.blob)        | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | mAP<sup>val<br>50 | Precision<sup>val<br> | Recall<sup>val<br> | Speed<br><sup>OAK<br>(fps) |\r\n| ---------------------------- | --------------------- | -------------------- | ----------------- | --------------------- | ------------------ | -------------------------- |\r\n| **YOLOv5n** (5 shaves)       | 416                   | 58.2                 | 97.4              | **97.0**              | 95.0               | **~32**                    |\r\n| YOLOv5n (4 shaves) + tracker | 416                   | 58.2                 | 97.4              | 97.0                  | 95.0               | ~30                        |\r\n| **YOLOv5s** (5 shaves)       | 416                   | **63.4**             | **97.8**          | 96.6                  | **95.6**           | ~17                        |\r\n| YOLOv5s (4 shaves) + tracker | 416                   | 63.4                 | 97.8              | 96.6                  | 95.6               | ~17                        |\r\n\r\n## New features\r\n\r\nAdd new YOLOv5n models: https://github.com/maxsitt/insect-detect/commit/5fb3e4854aeb343caab5b353a4fbc105f0214c77\r\n\r\n## Important Updates\r\n\r\n- Update YOLOv5 preview scripts: https://github.com/maxsitt/insect-detect/commit/fd943bcb761b3198eea3ebecb5cf29498b91140b\r\n- Update monitoring scripts: https://github.com/maxsitt/insect-detect/commit/01f31489435faeba112b9fc68e9f24fe71ece340 and https://github.com/maxsitt/insect-detect/commit/5d3714a754fea327f676c3f1999c65c10330da6e\r\n\r\n## Changelog\r\n\r\nChanges between previous release and this release: https://github.com/maxsitt/insect-detect/compare/v1.3...v1.4",
+        "release_author": "Maximilian Sittinger_nocompany",
+        "release_created_at": "2023-02-02T10:12:21.000",
+        "release_published_at": "2023-02-02T10:37:02.000",
+        "release_updated_at": "2023-02-02T10:37:55.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.4",
+        "release_url": "https://github.com/maxsitt/insect-detect/releases/tag/v1.4",
+        "count": 1
+      },
+      {
+        "repo_name": "insect-detect",
+        "release_id": "RE_kwDOIp-hwc4FWIcx                                                                                                                                                                                                                                             ",
+        "release_name": "insect-detect-v1.3",
+        "release_description": "In this release the `video_capture.py` script to save encoded HQ frames (1080p or 4K resolution) with HEVC/H.265 compression to .mp4 video file was added. As there is no encoding happening on the host (Raspberry Pi), CPU/RAM usage is minimal. This makes it possible to record 30 fps 4K video without any load on the Raspberry Pi Zero 2 W.\r\n\r\n## New features\r\n\r\nAdd `video_capture.py` script: https://github.com/maxsitt/insect-detect/commit/7f53f006c3bc36f64452c1de480b1adb1b7a5027\r\n\r\n## Important Updates\r\n\r\n- Update monitoring scripts: https://github.com/maxsitt/insect-detect/commit/e1d7745b37b677809da0c452499381e913467166\r\n- Update frame capture scripts: https://github.com/maxsitt/insect-detect/commit/4e46f2f918f73753aa604ff16a89a90df1ea9716\r\n- Update `still_capture.py`: https://github.com/maxsitt/insect-detect/commit/3254d88e237e664b99b0ebd603a89e6f869f6128\r\n\r\n## Changelog\r\nChanges between previous release and this release: https://github.com/maxsitt/insect-detect/compare/v1.2...v1.3",
+        "release_author": "Maximilian Sittinger_nocompany",
+        "release_created_at": "2023-01-20T11:36:33.000",
+        "release_published_at": "2023-01-20T11:50:17.000",
+        "release_updated_at": "2023-01-20T11:50:17.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.3",
+        "release_url": "https://github.com/maxsitt/insect-detect/releases/tag/v1.3",
+        "count": 1
+      },
+      {
+        "repo_name": "insect-detect",
+        "release_id": "RE_kwDOIp-hwc4FQ3cT                                                                                                                                                                                                                                             ",
+        "release_name": "insect-detect-v1.2",
+        "release_description": "In this release the `still_capture.py` script to save still images in the highest possible sensor resolution was refactored, now you can set the recording time with the optional argument `-min` (e.g. `-min 5` for 5 minutes recording time).\r\n\r\nThe `frame_capture.py` script was added, to save HQ frames (e.g. 3840x2160 px), optionally together with LQ frames (e.g. 416x416 px) to .jpg at specified time interval. The recording time can be set with the optional argument `-min`.\r\n\r\n## Important Updates\r\n\r\nRefactor `still_capture.py` script: https://github.com/maxsitt/insect-detect/commit/3864e5f012b74ce8b561bf08765db4c2de961cc5\r\n\r\n## New features\r\n\r\nAdd `frame_capture.py` script: https://github.com/maxsitt/insect-detect/commit/c7cfeea8054886860feaa699d6243a9e97de0bee\r\n\r\n## Changelog\r\nChanges between previous release and this release: https://github.com/maxsitt/insect-detect/compare/v1.1...v1.2",
+        "release_author": "Maximilian Sittinger_nocompany",
+        "release_created_at": "2023-01-09T13:12:32.000",
+        "release_published_at": "2023-01-09T13:30:33.000",
+        "release_updated_at": "2023-01-09T13:30:33.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.2",
+        "release_url": "https://github.com/maxsitt/insect-detect/releases/tag/v1.2",
+        "count": 1
+      },
+      {
+        "repo_name": "insect-detect",
+        "release_id": "RE_kwDOIp-hwc4FLiMJ                                                                                                                                                                                                                                             ",
+        "release_name": "insect-detect-v1.1",
+        "release_description": "Release for archiving in Zenodo.",
+        "release_author": "Maximilian Sittinger_nocompany",
+        "release_created_at": "2022-12-21T23:21:29.000",
+        "release_published_at": "2022-12-22T09:42:48.000",
+        "release_updated_at": "2022-12-22T09:42:48.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.1",
+        "release_url": "https://github.com/maxsitt/insect-detect/releases/tag/v1.1",
+        "count": 1
+      },
+      {
+        "repo_name": "insect-detect",
+        "release_id": "RE_kwDOIp-hwc4FLOzH                                                                                                                                                                                                                                             ",
+        "release_name": "insect-detect-v1.0",
+        "release_description": "Initial release of Python scripts and YOLOv5s detection model (.blob format) for automated insect monitoring with the Insect Detect DIY camera trap.",
+        "release_author": "Maximilian Sittinger_nocompany",
+        "release_created_at": "2022-12-21T17:43:11.000",
+        "release_published_at": "2022-12-21T18:47:24.000",
+        "release_updated_at": "2022-12-22T09:25:39.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v1.0",
+        "release_url": "https://github.com/maxsitt/insect-detect/releases/tag/v1.0",
+        "count": 1
+      }
+    ],
+    "stars_count": [
+      {
+        "repo_name": "insect-detect",
+        "stars": 59
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "insect-detect",
+        "forks": 25
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "insect-detect",
+        "watchers": 2
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "insect-detect",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 0,
+      "db_issue_rows": 1,
+      "db_pull_request_rows": 4,
+      "db_pull_request_event_rows": 4,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 7,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 9,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 3,
+    "new_contributor_count": 1,
+    "committer_count": 0,
+    "issues_opened": 1,
+    "issues_closed": 1,
+    "issues_active": 4,
+    "prs_opened": 2,
+    "release_count": 9,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 14,
+    "db_commit_rows": 0,
+    "db_issue_rows": 1,
+    "db_pull_request_rows": 4,
+    "db_pull_request_event_rows": 4,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 7,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 9,
+    "db_repo_stat_rows": 0
+  }
+}

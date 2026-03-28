@@ -1,0 +1,274 @@
+{
+  "repo_id": 25505,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "010002c8-dc00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 14.0,
+        "commit_comments": 0.0,
+        "issue_comments": 12.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 26.0,
+        "repo_id": 25505,
+        "repo_name": "SpeedSeed3"
+      },
+      {
+        "user_id": "010080c0-d000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 6.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 7.0,
+        "repo_id": 25505,
+        "repo_name": "SpeedSeed3"
+      },
+      {
+        "user_id": "010003e0-6200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 0.0,
+        "commit_comments": 0.0,
+        "issue_comments": 3.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25505,
+        "repo_name": "SpeedSeed3"
+      },
+      {
+        "user_id": "01000c49-c200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25505,
+        "repo_name": "SpeedSeed3"
+      },
+      {
+        "user_id": "01047627-6600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25505,
+        "repo_name": "SpeedSeed3"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2018-07-18T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25505,
+        "repo_name": "SpeedSeed3"
+      },
+      {
+        "date": "2018-07-23T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25505,
+        "repo_name": "SpeedSeed3"
+      },
+      {
+        "date": "2020-04-16T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25505,
+        "repo_name": "SpeedSeed3"
+      },
+      {
+        "date": "2021-01-29T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25505,
+        "repo_name": "SpeedSeed3"
+      }
+    ],
+    "committers": [],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [],
+    "issues_new": [
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2018-07-18T00:00:00.000Z",
+        "issues": 7
+      },
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2018-07-19T00:00:00.000Z",
+        "issues": 7
+      },
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2018-07-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2020-04-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2021-01-29T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2020-04-16T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_active": [
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2018-07-18T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2018-07-19T00:00:00.000",
+        "issues": 10
+      },
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2018-07-23T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2018-10-02T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2018-11-20T00:00:00.000",
+        "issues": 4
+      },
+      {
+        "repo_name": "SpeedSeed3",
+        "date": "2020-04-16T00:00:00.000",
+        "issues": 1
+      }
+    ],
+    "issue_backlog": [
+      {
+        "repo_name": "SpeedSeed3",
+        "issue_backlog": 16
+      }
+    ],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "SpeedSeed3",
+        "avg_issue_resolution_time": "00:02:27"
+      }
+    ],
+    "pull_requests_new": [
+      {
+        "created_date": "2018-07-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-11-20T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [],
+    "pr_acceptance_rate": [],
+    "releases": [],
+    "stars_count": [
+      {
+        "repo_name": "SpeedSeed3",
+        "stars": 15
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "SpeedSeed3",
+        "forks": 3
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "SpeedSeed3",
+        "watchers": 6
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "SpeedSeed3",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 0,
+      "db_issue_rows": 17,
+      "db_pull_request_rows": 2,
+      "db_pull_request_event_rows": 9,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 23,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 1,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 5,
+    "new_contributor_count": 4,
+    "committer_count": 0,
+    "issues_opened": 5,
+    "issues_closed": 1,
+    "issues_active": 6,
+    "issue_backlog": 16,
+    "prs_opened": 2,
+    "release_count": 0,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 14,
+    "db_commit_rows": 0,
+    "db_issue_rows": 17,
+    "db_pull_request_rows": 2,
+    "db_pull_request_event_rows": 9,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 23,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 1,
+    "db_repo_stat_rows": 0
+  }
+}

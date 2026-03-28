@@ -1,0 +1,175 @@
+{
+  "repo_id": 25513,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "01000027-9900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25513,
+        "repo_name": "openminder"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2019-06-26T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25513,
+        "repo_name": "openminder"
+      }
+    ],
+    "committers": [
+      {
+        "date": "2018-06-01T00:00:00.000Z",
+        "repo_name": "openminder",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      }
+    ],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [
+      {
+        "repo_name": "openminder",
+        "date": "2018-06-05T00:00:00.000Z",
+        "added": 256503,
+        "removed": 749
+      },
+      {
+        "repo_name": "openminder",
+        "date": "2018-06-14T00:00:00.000Z",
+        "added": 188,
+        "removed": 47
+      }
+    ],
+    "issues_new": [
+      {
+        "repo_name": "openminder",
+        "date": "2019-06-26T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [],
+    "issues_active": [],
+    "issue_backlog": [
+      {
+        "repo_name": "openminder",
+        "issue_backlog": 1
+      }
+    ],
+    "avg_issue_resolution_time": [],
+    "pull_requests_new": [
+      {
+        "created_date": "2018-06-13T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [
+      {
+        "commit_date": "2018-06-05T00:00:00.000Z",
+        "count": 2,
+        "repo_name": "openminder"
+      },
+      {
+        "commit_date": "2018-06-14T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "openminder"
+      }
+    ],
+    "pr_acceptance_rate": [],
+    "releases": [],
+    "stars_count": [
+      {
+        "repo_name": "openminder",
+        "stars": 45
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "openminder",
+        "forks": 4
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "openminder",
+        "watchers": 7
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "openminder",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 727,
+      "db_issue_rows": 1,
+      "db_pull_request_rows": 1,
+      "db_pull_request_event_rows": 0,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 0,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 1,
+    "new_contributor_count": 1,
+    "committer_count": 1,
+    "lines_added": 256503,
+    "lines_removed": 749,
+    "issues_opened": 1,
+    "issues_closed": 0,
+    "issues_active": 0,
+    "issue_backlog": 1,
+    "prs_opened": 1,
+    "release_count": 0,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 14,
+    "db_commit_rows": 727,
+    "db_issue_rows": 1,
+    "db_pull_request_rows": 1,
+    "db_pull_request_event_rows": 0,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 0,
+    "db_repo_stat_rows": 0
+  }
+}

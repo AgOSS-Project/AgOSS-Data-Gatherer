@@ -1,0 +1,462 @@
+{
+  "repo_id": 25514,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "01033511-f800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 3.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25514,
+        "repo_name": "ersha-os"
+      },
+      {
+        "user_id": "01015391-f800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25514,
+        "repo_name": "ersha-os"
+      },
+      {
+        "user_id": "0102b350-3500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25514,
+        "repo_name": "ersha-os"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2026-01-06T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25514,
+        "repo_name": "ersha-os"
+      },
+      {
+        "date": "2026-01-07T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25514,
+        "repo_name": "ersha-os"
+      },
+      {
+        "date": "2026-01-09T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25514,
+        "repo_name": "ersha-os"
+      }
+    ],
+    "committers": [
+      {
+        "date": "2026-02-01T00:00:00.000Z",
+        "repo_name": "ersha-os",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2026-01-01T00:00:00.000Z",
+        "repo_name": "ersha-os",
+        "rg_name": "ag-oss-pipeline",
+        "count": 7
+      }
+    ],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-03T00:00:00.000Z",
+        "added": 203,
+        "removed": 16
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-04T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-06T00:00:00.000Z",
+        "added": 631,
+        "removed": 55
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-07T00:00:00.000Z",
+        "added": 593,
+        "removed": 99
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-08T00:00:00.000Z",
+        "added": 712,
+        "removed": 280
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-09T00:00:00.000Z",
+        "added": 1731,
+        "removed": 148
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-10T00:00:00.000Z",
+        "added": 3081,
+        "removed": 721
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-11T00:00:00.000Z",
+        "added": 1434,
+        "removed": 577
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-13T00:00:00.000Z",
+        "added": 29,
+        "removed": 29
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-14T00:00:00.000Z",
+        "added": 871,
+        "removed": 228
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-16T00:00:00.000Z",
+        "added": 183,
+        "removed": 69
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-18T00:00:00.000Z",
+        "added": 25,
+        "removed": 1
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-19T00:00:00.000Z",
+        "added": 2424,
+        "removed": 312
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-20T00:00:00.000Z",
+        "added": 3535,
+        "removed": 69
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-21T00:00:00.000Z",
+        "added": 950,
+        "removed": 1197
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-22T00:00:00.000Z",
+        "added": 2184,
+        "removed": 1256
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-23T00:00:00.000Z",
+        "added": 440,
+        "removed": 280
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-24T00:00:00.000Z",
+        "added": 1455,
+        "removed": 205
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-25T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-26T00:00:00.000Z",
+        "added": 63,
+        "removed": 33
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-27T00:00:00.000Z",
+        "added": 2427,
+        "removed": 61
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-28T00:00:00.000Z",
+        "added": 9449,
+        "removed": 2513
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-29T00:00:00.000Z",
+        "added": 2214,
+        "removed": 391
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-02-02T00:00:00.000Z",
+        "added": 11,
+        "removed": 1
+      }
+    ],
+    "issues_new": [
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-06T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-09T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-11T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "ersha-os",
+        "date": "2026-01-29T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_active": [],
+    "issue_backlog": [
+      {
+        "repo_name": "ersha-os",
+        "issue_backlog": 1
+      }
+    ],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "ersha-os",
+        "avg_issue_resolution_time": "11 days 09:36:31.5"
+      }
+    ],
+    "pull_requests_new": [
+      {
+        "created_date": "2026-01-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-01-06T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2026-01-07T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2026-01-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-01-09T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2026-01-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-01-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-01-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-01-27T00:00:00.000",
+        "new_pull_requests": 5
+      },
+      {
+        "created_date": "2026-01-28T00:00:00.000",
+        "new_pull_requests": 5
+      },
+      {
+        "created_date": "2026-01-29T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [
+      {
+        "commit_date": "2026-01-03T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "ersha-os"
+      },
+      {
+        "commit_date": "2026-01-06T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "ersha-os"
+      },
+      {
+        "commit_date": "2026-01-07T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "ersha-os"
+      },
+      {
+        "commit_date": "2026-01-14T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "ersha-os"
+      }
+    ],
+    "pr_acceptance_rate": [],
+    "releases": [
+      {
+        "repo_name": "ersha-os",
+        "release_id": "RE_kwDOQzJdT84QwE5q                                                                                                                                                                                                                                             ",
+        "release_name": "0.1.1",
+        "release_description": "# ersha-dispatch 0.1.1\n\n## Install ersha-dispatch 0.1.1\n\n### Install prebuilt binaries via shell script\n\n```sh\ncurl --proto '=https' --tlsv1.2 -LsSf https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-installer.sh | sh\n```\n\n### Install prebuilt binaries via powershell script\n\n```sh\npowershell -ExecutionPolicy Bypass -c \"irm https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-installer.ps1 | iex\"\n```\n\n## Download ersha-dispatch 0.1.1\n\n|  File  | Platform | Checksum |\n|--------|----------|----------|\n| [ersha-dispatch-aarch64-apple-darwin.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-aarch64-apple-darwin.tar.xz) | Apple Silicon macOS | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-aarch64-apple-darwin.tar.xz.sha256) |\n| [ersha-dispatch-x86_64-apple-darwin.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-x86_64-apple-darwin.tar.xz) | Intel macOS | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-x86_64-apple-darwin.tar.xz.sha256) |\n| [ersha-dispatch-x86_64-pc-windows-msvc.zip](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-x86_64-pc-windows-msvc.zip) | x64 Windows | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-x86_64-pc-windows-msvc.zip.sha256) |\n| [ersha-dispatch-aarch64-unknown-linux-gnu.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-aarch64-unknown-linux-gnu.tar.xz) | ARM64 Linux | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-aarch64-unknown-linux-gnu.tar.xz.sha256) |\n| [ersha-dispatch-x86_64-unknown-linux-gnu.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-x86_64-unknown-linux-gnu.tar.xz) | x64 Linux | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatch-x86_64-unknown-linux-gnu.tar.xz.sha256) |\n\n# ersha-dispatchers-harness 0.1.1\n\n## Install ersha-dispatchers-harness 0.1.1\n\n### Install prebuilt binaries via shell script\n\n```sh\ncurl --proto '=https' --tlsv1.2 -LsSf https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-installer.sh | sh\n```\n\n### Install prebuilt binaries via powershell script\n\n```sh\npowershell -ExecutionPolicy Bypass -c \"irm https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-installer.ps1 | iex\"\n```\n\n## Download ersha-dispatchers-harness 0.1.1\n\n|  File  | Platform | Checksum |\n|--------|----------|----------|\n| [ersha-dispatchers-harness-aarch64-apple-darwin.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-aarch64-apple-darwin.tar.xz) | Apple Silicon macOS | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-aarch64-apple-darwin.tar.xz.sha256) |\n| [ersha-dispatchers-harness-x86_64-apple-darwin.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-x86_64-apple-darwin.tar.xz) | Intel macOS | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-x86_64-apple-darwin.tar.xz.sha256) |\n| [ersha-dispatchers-harness-x86_64-pc-windows-msvc.zip](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-x86_64-pc-windows-msvc.zip) | x64 Windows | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-x86_64-pc-windows-msvc.zip.sha256) |\n| [ersha-dispatchers-harness-aarch64-unknown-linux-gnu.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-aarch64-unknown-linux-gnu.tar.xz) | ARM64 Linux | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-aarch64-unknown-linux-gnu.tar.xz.sha256) |\n| [ersha-dispatchers-harness-x86_64-unknown-linux-gnu.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-x86_64-unknown-linux-gnu.tar.xz) | x64 Linux | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-dispatchers-harness-x86_64-unknown-linux-gnu.tar.xz.sha256) |\n\n# ersha-prime 0.1.1\n\n## Install ersha-prime 0.1.1\n\n### Install prebuilt binaries via shell script\n\n```sh\ncurl --proto '=https' --tlsv1.2 -LsSf https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-installer.sh | sh\n```\n\n### Install prebuilt binaries via powershell script\n\n```sh\npowershell -ExecutionPolicy Bypass -c \"irm https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-installer.ps1 | iex\"\n```\n\n## Download ersha-prime 0.1.1\n\n|  File  | Platform | Checksum |\n|--------|----------|----------|\n| [ersha-prime-aarch64-apple-darwin.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-aarch64-apple-darwin.tar.xz) | Apple Silicon macOS | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-aarch64-apple-darwin.tar.xz.sha256) |\n| [ersha-prime-x86_64-apple-darwin.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-x86_64-apple-darwin.tar.xz) | Intel macOS | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-x86_64-apple-darwin.tar.xz.sha256) |\n| [ersha-prime-x86_64-pc-windows-msvc.zip](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-x86_64-pc-windows-msvc.zip) | x64 Windows | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-x86_64-pc-windows-msvc.zip.sha256) |\n| [ersha-prime-aarch64-unknown-linux-gnu.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-aarch64-unknown-linux-gnu.tar.xz) | ARM64 Linux | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-aarch64-unknown-linux-gnu.tar.xz.sha256) |\n| [ersha-prime-x86_64-unknown-linux-gnu.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-x86_64-unknown-linux-gnu.tar.xz) | x64 Linux | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.1/ersha-prime-x86_64-unknown-linux-gnu.tar.xz.sha256) |\n\n\n",
+        "release_author": "nobody_nocompany",
+        "release_created_at": "2026-01-29T10:06:29.000",
+        "release_published_at": "2026-01-29T10:17:14.000",
+        "release_updated_at": "2026-01-29T10:17:14.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "0.1.1",
+        "release_url": "https://github.com/ersha-os/ersha-os/releases/tag/0.1.1",
+        "count": 1
+      },
+      {
+        "repo_name": "ersha-os",
+        "release_id": "RE_kwDOQzJdT84QaiFB                                                                                                                                                                                                                                             ",
+        "release_name": "0.1.0",
+        "release_description": "# ersha-dispatch 0.1.0\n\n## Install ersha-dispatch 0.1.0\n\n### Install prebuilt binaries via shell script\n\n```sh\ncurl --proto '=https' --tlsv1.2 -LsSf https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-installer.sh | sh\n```\n\n### Install prebuilt binaries via powershell script\n\n```sh\npowershell -ExecutionPolicy Bypass -c \"irm https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-installer.ps1 | iex\"\n```\n\n## Download ersha-dispatch 0.1.0\n\n|  File  | Platform | Checksum |\n|--------|----------|----------|\n| [ersha-dispatch-aarch64-apple-darwin.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-aarch64-apple-darwin.tar.xz) | Apple Silicon macOS | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-aarch64-apple-darwin.tar.xz.sha256) |\n| [ersha-dispatch-x86_64-apple-darwin.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-x86_64-apple-darwin.tar.xz) | Intel macOS | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-x86_64-apple-darwin.tar.xz.sha256) |\n| [ersha-dispatch-x86_64-pc-windows-msvc.zip](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-x86_64-pc-windows-msvc.zip) | x64 Windows | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-x86_64-pc-windows-msvc.zip.sha256) |\n| [ersha-dispatch-aarch64-unknown-linux-gnu.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-aarch64-unknown-linux-gnu.tar.xz) | ARM64 Linux | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-aarch64-unknown-linux-gnu.tar.xz.sha256) |\n| [ersha-dispatch-x86_64-unknown-linux-gnu.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-x86_64-unknown-linux-gnu.tar.xz) | x64 Linux | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-dispatch-x86_64-unknown-linux-gnu.tar.xz.sha256) |\n\n# ersha-prime 0.1.0\n\n## Install ersha-prime 0.1.0\n\n### Install prebuilt binaries via shell script\n\n```sh\ncurl --proto '=https' --tlsv1.2 -LsSf https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-installer.sh | sh\n```\n\n### Install prebuilt binaries via powershell script\n\n```sh\npowershell -ExecutionPolicy Bypass -c \"irm https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-installer.ps1 | iex\"\n```\n\n## Download ersha-prime 0.1.0\n\n|  File  | Platform | Checksum |\n|--------|----------|----------|\n| [ersha-prime-aarch64-apple-darwin.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-aarch64-apple-darwin.tar.xz) | Apple Silicon macOS | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-aarch64-apple-darwin.tar.xz.sha256) |\n| [ersha-prime-x86_64-apple-darwin.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-x86_64-apple-darwin.tar.xz) | Intel macOS | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-x86_64-apple-darwin.tar.xz.sha256) |\n| [ersha-prime-x86_64-pc-windows-msvc.zip](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-x86_64-pc-windows-msvc.zip) | x64 Windows | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-x86_64-pc-windows-msvc.zip.sha256) |\n| [ersha-prime-aarch64-unknown-linux-gnu.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-aarch64-unknown-linux-gnu.tar.xz) | ARM64 Linux | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-aarch64-unknown-linux-gnu.tar.xz.sha256) |\n| [ersha-prime-x86_64-unknown-linux-gnu.tar.xz](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-x86_64-unknown-linux-gnu.tar.xz) | x64 Linux | [checksum](https://github.com/ersha-os/ersha-os/releases/download/0.1.0/ersha-prime-x86_64-unknown-linux-gnu.tar.xz.sha256) |\n\n\n",
+        "release_author": "nobody_nocompany",
+        "release_created_at": "2026-01-09T05:58:50.000",
+        "release_published_at": "2026-01-09T06:13:50.000",
+        "release_updated_at": "2026-01-09T06:13:50.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "0.1.0",
+        "release_url": "https://github.com/ersha-os/ersha-os/releases/tag/0.1.0",
+        "count": 1
+      }
+    ],
+    "stars_count": [
+      {
+        "repo_name": "ersha-os",
+        "stars": 302
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "ersha-os",
+        "forks": 4
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "ersha-os",
+        "watchers": 3
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "ersha-os",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 7,
+        "commit_count": 726.0
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 726,
+      "db_issue_rows": 5,
+      "db_pull_request_rows": 23,
+      "db_pull_request_event_rows": 0,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 2,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 3,
+    "new_contributor_count": 3,
+    "committer_count": 2,
+    "lines_added": 203,
+    "lines_removed": 16,
+    "issues_opened": 3,
+    "issues_closed": 3,
+    "issues_active": 0,
+    "issue_backlog": 1,
+    "prs_opened": 11,
+    "release_count": 2,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 7,
+        "commit_count": 726.0
+      }
+    ],
+    "commit_count": 726.0,
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 17,
+    "db_commit_rows": 726,
+    "db_issue_rows": 5,
+    "db_pull_request_rows": 23,
+    "db_pull_request_event_rows": 0,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 2,
+    "db_repo_stat_rows": 0
+  }
+}

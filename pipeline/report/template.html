@@ -1,206 +1,1257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Repo Risk Pipeline — Report</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgOSS Repository Analysis Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+<style>/* @@STYLES@@ */</style>
 </head>
 <body>
 
-<!-- ============================================================ -->
-<!-- A) HEADER / METADATA                                          -->
-<!-- ============================================================ -->
 <header>
-  <h1>Repo Risk Pipeline Report</h1>
-  <p class="meta">Generated: <strong>{{GENERATED_AT}}</strong></p>
+  <h1>AgOSS Repository Analysis Dashboard</h1>
+  <p id="headerSub">Loading…</p>
 </header>
 
-<!-- ============================================================ -->
-<!-- B) EXECUTIVE SUMMARY                                          -->
-<!-- ============================================================ -->
-<section id="summary">
-  <h2>Executive Summary</h2>
-  <div class="cards">
-    <div class="card">
-      <div class="big-number">{{REPO_COUNT}}</div>
-      <div class="label">Repos Scanned</div>
-    </div>
-    <div class="card warn">
-      <div class="big-number">{{REPOS_WITH_VULNS}}</div>
-      <div class="label">Repos with Vulnerabilities</div>
-    </div>
-    <div class="card">
-      <div class="big-number">{{UNIQUE_DEP_COUNT}}</div>
-      <div class="label">Unique Dependencies</div>
-    </div>
-    <div class="card warn">
-      <div class="big-number">{{VULN_UNIQUE_DEP_COUNT}}</div>
-      <div class="label">Vulnerable Dependencies</div>
-    </div>
-    <div class="card warn">
-      <div class="big-number">{{UNIQUE_VULN_COUNT}}</div>
-      <div class="label">Unique Vulnerabilities</div>
+<div class="container">
+  <!-- Tabs -->
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="repos">Repo Table</button>
+    <button class="tab-btn" data-tab="categories">Categories</button>
+    <button class="tab-btn" data-tab="ag-specific">Ag-Specific</button>
+    <button class="tab-btn" data-tab="vulnerabilities">Vulnerabilities</button>
+    <button class="tab-btn" data-tab="charts">Comparisons</button>
+    <button class="tab-btn" data-tab="quality">Pipeline Health</button>
+  </div>
+
+  <!-- ═══════════════ OVERVIEW ═══════════════ -->
+  <div id="tab-overview" class="tab-panel active">
+    <div class="cards" id="summaryCards"></div>
+    <div class="chart-grid">
+      <div class="chart-card"><h3>Scorecard Score Distribution</h3><canvas id="chartScoreHist"></canvas></div>
+      <div class="chart-card"><h3>Repos per Category</h3><canvas id="chartCatCount"></canvas></div>
+      <div class="chart-card"><h3>Avg Scorecard by Category</h3><canvas id="chartCatScore"></canvas></div>
+      <div class="chart-card"><h3>Collection Status</h3><canvas id="chartStatus"></canvas></div>
+      <div class="chart-card"><h3>Ag-Specific Breakdown</h3><canvas id="chartAgSpecific"></canvas></div>
+      <div class="chart-card"><h3>Category Split by Ag-Specificness</h3><canvas id="chartCatAgSplit"></canvas></div>
     </div>
   </div>
-</section>
 
-<!-- ============================================================ -->
-<!-- C) REPO TABLE                                                 -->
-<!-- ============================================================ -->
-<section id="repos">
-  <h2>Repository Overview</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Repository</th>
-          <th>Type</th>
-          <th>Language</th>
-          <th>Stars</th>
-          <th>Last Push</th>
-          <th>Deps</th>
-          <th>Vuln Deps</th>
-          <th>Vuln IDs</th>
-          <th>Scorecard</th>
-          <th>Hygiene</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-{{REPO_TABLE_ROWS}}
-      </tbody>
-    </table>
+  <!-- ═══════════════ REPO TABLE ═══════════════ -->
+  <div id="tab-repos" class="tab-panel">
+    <div class="filter-bar">
+      <input type="text" id="repoSearch" placeholder="Search repos…">
+      <select id="catFilter"><option value="">All Categories</option></select>
+      <select id="agFilter">
+        <option value="">All Ag-Specificness</option>
+        <option value="yes">Ag-Specific</option>
+        <option value="no">Not Ag-Specific</option>
+        <option value="unknown">Unknown</option>
+      </select>
+      <select id="statusFilter">
+        <option value="">All Statuses</option>
+        <option value="complete">Complete</option>
+        <option value="partial">Partial</option>
+        <option value="failed">Failed</option>
+      </select>
+    </div>
+    <div class="table-wrap">
+      <table id="repoTable">
+        <thead><tr>
+          <th data-sort="display_name">Name</th>
+          <th data-sort="repo_name">Repo</th>
+          <th data-sort="category">Category</th>
+          <th data-sort="ag_specific">Ag-Specific</th>
+          <th data-sort="scorecard_overall">SC Score</th>
+          <th data-sort="scorecard_status">SC Status</th>
+          <th data-sort="augur_status">Augur Status</th>
+          <th data-sort="augur_contributors">Contributors</th>
+          <th data-sort="augur_commits">Commits</th>
+          <th data-sort="augur_prs_merged">PRs Merged</th>
+          <th data-sort="augur_issues_total">Issues</th>
+          <th data-sort="augur_stars">Stars</th>
+          <th data-sort="vuln_count">Vulns</th>
+          <th data-sort="overall_status">Overall</th>
+          <th>Details</th>
+        </tr></thead>
+        <tbody id="repoBody"></tbody>
+      </table>
+    </div>
   </div>
-</section>
 
-<!-- ============================================================ -->
-<!-- D) TOP DEPENDENCIES                                           -->
-<!-- ============================================================ -->
-<section id="top-deps">
-  <h2>Top 15 Dependencies (by Occurrence)</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Dependency (purl)</th>
-          <th>Occurrences</th>
-          <th>Vulnerable?</th>
-          <th>Vuln Count</th>
-          <th>Vuln IDs</th>
-        </tr>
-      </thead>
-      <tbody>
-{{TOP_DEPS_ROWS}}
-      </tbody>
-    </table>
+  <!-- ═══════════════ AG-SPECIFIC ═══════════════ -->
+  <div id="tab-ag-specific" class="tab-panel">
+    <div class="filter-bar">
+      <select id="agLensSelect">
+        <option value="all">All Repos</option>
+        <option value="yes">Ag-Specific</option>
+        <option value="no">Not Ag-Specific</option>
+        <option value="unknown">Unknown</option>
+      </select>
+    </div>
+    <div class="cards" id="agCards"></div>
+    <div class="chart-grid">
+      <div class="chart-card"><h3>Repo Counts by Ag-Specificness</h3><canvas id="chartAgCounts"></canvas></div>
+      <div class="chart-card"><h3>Avg Scorecard by Ag-Specificness</h3><canvas id="chartAgScore"></canvas></div>
+      <div class="chart-card"><h3>Avg Stars by Ag-Specificness</h3><canvas id="chartAgStars"></canvas></div>
+      <div class="chart-card"><h3>Category Mix (Selected Ag Group)</h3><canvas id="chartAgCategoryMix"></canvas></div>
+    </div>
+    <div class="table-wrap">
+      <table id="agTable">
+        <thead><tr>
+          <th>Ag-Specificness</th><th>Repos</th><th>Avg SC Score</th><th>Avg Stars</th><th>Avg Contributors</th>
+        </tr></thead>
+        <tbody id="agBody"></tbody>
+      </table>
+    </div>
   </div>
-</section>
 
-<section id="top-vuln-deps">
-  <h2>Top 15 Vulnerable Dependencies</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Dependency (purl)</th>
-          <th>Occurrences</th>
-          <th>Vulnerable?</th>
-          <th>Vuln Count</th>
-          <th>Vuln IDs</th>
-        </tr>
-      </thead>
-      <tbody>
-{{TOP_VULN_DEPS_ROWS}}
-      </tbody>
-    </table>
+  <!-- ═══════════════ VULNERABILITIES ═══════════════ -->
+  <div id="tab-vulnerabilities" class="tab-panel">
+    <div class="cards" id="vulnCards"></div>
+    <div class="chart-grid">
+      <div class="chart-card"><h3>Most Common Vulnerability Findings</h3><canvas id="chartVulnTop"></canvas></div>
+      <div class="chart-card"><h3>Repos With vs Without Detected Vulnerabilities</h3><canvas id="chartVulnPresence"></canvas></div>
+    </div>
+    <div class="table-wrap">
+      <table id="vulnTable">
+        <thead><tr>
+          <th>Vulnerability</th><th>Appearances</th><th>Total Reported Count</th><th>Affected Repos</th>
+        </tr></thead>
+        <tbody id="vulnBody"></tbody>
+      </table>
+    </div>
   </div>
-</section>
 
-<!-- ============================================================ -->
-<!-- E) BY-TYPE SUMMARY                                            -->
-<!-- ============================================================ -->
-<section id="by-type">
-  <h2>Summary by Project Type</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Repos</th>
-          <th>Unique Deps</th>
-          <th>Vulnerable Deps</th>
-          <th>Unique Vulns</th>
-        </tr>
-      </thead>
-      <tbody>
-{{BY_TYPE_ROWS}}
-      </tbody>
-    </table>
+  <!-- ═══════════════ CATEGORIES ═══════════════ -->
+  <div id="tab-categories" class="tab-panel">
+    <div class="filter-bar">
+      <select id="catLensSelect"><option value="">All Categories</option></select>
+    </div>
+    <div class="cards" id="catCards"></div>
+    <div class="chart-grid">
+      <div class="chart-card"><h3>Category Comparison — Avg Scorecard</h3><canvas id="chartCatComp"></canvas></div>
+      <div class="chart-card"><h3>Category Comparison — Avg Stars</h3><canvas id="chartCatStars"></canvas></div>
+      <div class="chart-card"><h3>Category Comparison — Avg Contributors</h3><canvas id="chartCatContrib"></canvas></div>
+      <div class="chart-card"><h3>Category Size vs Avg Score</h3><canvas id="chartCatScatter"></canvas></div>
+    </div>
+    <div class="table-wrap">
+      <table id="catTable">
+        <thead><tr>
+          <th>Category</th><th>Repos</th><th>Avg SC Score</th>
+          <th>Avg Stars</th><th>Avg Contributors</th><th>Avg Issues</th>
+        </tr></thead>
+        <tbody id="catBody"></tbody>
+      </table>
+    </div>
   </div>
-</section>
 
-<!-- ============================================================ -->
-<!-- F) VULNERABILITY SUMMARY                                      -->
-<!-- ============================================================ -->
-<section id="vulns">
-  <h2>Top Vulnerabilities (by Affected Repos)</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Vulnerability ID</th>
-          <th>Affected Repos</th>
-          <th>Affected Deps</th>
-          <th>Types</th>
-          <th>Repos</th>
-        </tr>
-      </thead>
-      <tbody>
-{{TOP_VULNS_ROWS}}
-      </tbody>
-    </table>
+  <!-- ═══════════════ COMPARISONS ═══════════════ -->
+  <div id="tab-charts" class="tab-panel">
+    <div class="chart-grid">
+      <div class="chart-card"><h3>Repo Ranking — Scorecard Overall</h3><canvas id="chartRankSC"></canvas></div>
+      <div class="chart-card"><h3>Repo Ranking — Stars</h3><canvas id="chartRankStars"></canvas></div>
+      <div class="chart-card"><h3>Repo Ranking — Commits</h3><canvas id="chartRankCommits"></canvas></div>
+      <div class="chart-card"><h3>Scorecard vs Contributors</h3><canvas id="chartScatter1"></canvas></div>
+      <div class="chart-card"><h3>Scorecard vs Stars</h3><canvas id="chartScatter2"></canvas></div>
+      <div class="chart-card"><h3>Issues Opened vs Closed</h3><canvas id="chartScatter3"></canvas></div>
+      <div class="chart-card"><h3>Vulnerabilities vs Maintainers (Contributors)</h3><canvas id="chartVulnVsMaint"></canvas></div>
+      <div class="chart-card"><h3>Scorecard Check Averages</h3><canvas id="chartChecks"></canvas></div>
+    </div>
+    <div class="chart-grid" id="categoryRankGrid"></div>
   </div>
-</section>
 
-<!-- ============================================================ -->
-<!-- G) METHODOLOGY                                                -->
-<!-- ============================================================ -->
-<section id="methodology">
-  <h2>Methodology &amp; Limitations</h2>
-  <p>
-    <strong>Dependency extraction</strong> uses the
-    <a href="https://docs.github.com/en/rest/dependency-graph/sboms" target="_blank">GitHub Dependency Graph SBOM export</a>
-    endpoint, which returns an SPDX JSON document. Dependencies are identified by their
-    <em>purl</em> (Package URL) from the SBOM's <code>externalRefs</code>.
-  </p>
-  <p>
-    <strong>Vulnerability scanning</strong> uses the
-    <a href="https://osv.dev/docs/#tag/api/post/v1/querybatch" target="_blank">OSV.dev querybatch API</a>,
-    querying each dependency by purl. Results are aligned 1-to-1 with the input ordering.
-  </p>
-  <p>
-    <strong>OpenSSF Scorecard</strong> results come from the public REST API. If a project has not been
-    scored (404), the value is recorded as "N/A" and the pipeline continues without error.
-  </p>
-  <p>
-    <strong>RepoReaper-lite</strong> is a lightweight engineering-hygiene heuristic (0–100) based on
-    easily-checkable signals (README, LICENSE, CI, tests, docs, recent activity, stars).
-    It is <em>not</em> the original GHTorrent-backed RepoReapers tool.
-  </p>
-  <p>
-    <strong>Limitations:</strong> SBOM completeness depends on GitHub's dependency detection for
-    each language ecosystem. Some repos may have no SBOM or incomplete dependency graphs.
-    OSV coverage varies by ecosystem. Scorecard availability depends on whether the project
-    has been indexed.
-  </p>
-</section>
+  <!-- ═══════════════ PIPELINE HEALTH ═══════════════ -->
+  <div id="tab-quality" class="tab-panel">
+    <h2 style="margin-bottom:1rem;">Pipeline Health &amp; Data Quality</h2>
+    <div class="cards" id="healthCards"></div>
+    <div class="chart-grid">
+      <div class="chart-card"><h3>Scorecard Status Breakdown</h3><canvas id="chartSCStatus"></canvas></div>
+      <div class="chart-card"><h3>Augur Status Breakdown</h3><canvas id="chartAGStatus"></canvas></div>
+    </div>
+    <div class="table-wrap">
+      <table class="quality-table" id="qualityTable">
+        <thead><tr>
+          <th>Repo</th><th>SC Status</th><th>SC Exit</th><th>SC Runtime</th>
+          <th>Augur Status</th><th>Augur Registered</th><th>Overall</th><th>Notes</th>
+        </tr></thead>
+        <tbody id="qualityBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-<footer>
-  <p>Repo Risk Pipeline &mdash; generated {{GENERATED_AT}}</p>
-</footer>
+<!-- ═══════════════ DETAIL MODAL ═══════════════ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
 
+<div class="modal-overlay chart-modal" id="chartModalOverlay">
+  <div class="modal" id="chartWindow">
+    <button class="modal-close" id="chartModalClose">&times;</button>
+    <div class="chart-modal-header" id="chartModalDragHandle">
+      <h2 class="chart-modal-title" id="chartModalTitle"></h2>
+      <div class="chart-modal-actions">
+        <button type="button" class="chart-action-btn" id="chartResetZoom">Reset View</button>
+        <button type="button" class="chart-action-btn" id="chartDownloadHiRes">Download Full-Res</button>
+      </div>
+    </div>
+    <div class="chart-modal-body">
+      <canvas id="chartModalCanvas"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Embedded data (injected at build time) ──
+const REPOS = /* @@REPO_DATA@@ */ [];
+const SUMMARY = /* @@SUMMARY_DATA@@ */ {};
+
+// ── Helpers ──
+const avg = (arr) => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0;
+const fmt = (v, d=1) => v == null ? '—' : Number(v).toFixed(d);
+const esc = (s) => { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+const agKey = (value) => value === true ? 'yes' : value === false ? 'no' : 'unknown';
+const agLabel = (value) => value === true ? 'Ag-Specific' : value === false ? 'Not Ag-Specific' : 'Unknown';
+
+let enlargedChart = null;
+let activeSourceCanvas = null;
+let chartModalResizeObserver = null;
+let chartDragState = null;
+
+function deepClone(value, seen = new WeakMap()) {
+  if (typeof value === 'function') return value;
+  if (Array.isArray(value)) return value.map(v => deepClone(v, seen));
+  if (value && typeof value === 'object') {
+    if (seen.has(value)) return seen.get(value);
+    if (value instanceof Date) return new Date(value.getTime());
+    const out = {};
+    seen.set(value, out);
+    Object.keys(value).forEach((k) => { out[k] = deepClone(value[k], seen); });
+    return out;
+  }
+  return value;
+}
+
+function chartTitleFromCanvas(canvas) {
+  const card = canvas.closest('.chart-card');
+  const titleNode = card ? card.querySelector('h3') : null;
+  return (titleNode?.textContent || canvas.id || 'Chart').trim();
+}
+
+function chartFileName(canvas) {
+  const title = chartTitleFromCanvas(canvas);
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'chart';
+}
+
+function triggerDownload(dataUrl, fileName) {
+  const link = document.createElement('a');
+  link.href = dataUrl;
+  link.download = fileName;
+  link.click();
+}
+
+function sourceChartConfig(sourceChart, { forModal = false } = {}) {
+  const base = deepClone(sourceChart.config?._config || sourceChart.config);
+  const baseOptions = { ...(base.options || {}) };
+  const basePlugins = { ...(baseOptions.plugins || {}) };
+
+  base.options = {
+    ...baseOptions,
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: false,
+    plugins: {
+      ...basePlugins,
+      zoom: {
+        pan: { enabled: true, mode: 'xy' },
+        zoom: {
+          wheel: { enabled: true },
+          pinch: { enabled: true },
+          drag: { enabled: true },
+          mode: 'xy',
+        },
+      },
+    },
+  };
+
+  if (!forModal) {
+    base.options.plugins = { ...(base.options.plugins || {}) };
+    delete base.options.plugins.zoom;
+  }
+
+  return base;
+}
+
+function scaleFont(font, factor, minimum = 11) {
+  const base = typeof font === 'object' && font ? { ...font } : {};
+  const size = Number(base.size || 12);
+  return { ...base, size: Math.max(minimum, Math.round(size * factor)) };
+}
+
+function applyReadableExportStyling(config, factor) {
+  config.options = { ...(config.options || {}) };
+  config.options.plugins = { ...(config.options.plugins || {}) };
+
+  if (config.options.plugins.legend) {
+    config.options.plugins.legend = { ...config.options.plugins.legend };
+    config.options.plugins.legend.labels = {
+      ...(config.options.plugins.legend.labels || {}),
+      font: scaleFont(config.options.plugins.legend.labels?.font, factor, 12),
+      boxWidth: Math.max(14, Math.round((config.options.plugins.legend.labels?.boxWidth || 14) * factor)),
+      padding: Math.max(8, Math.round((config.options.plugins.legend.labels?.padding || 8) * factor)),
+    };
+  }
+
+  if (config.options.plugins.title) {
+    config.options.plugins.title = {
+      ...config.options.plugins.title,
+      font: scaleFont(config.options.plugins.title.font, factor, 14),
+      padding: Math.max(8, Math.round((config.options.plugins.title.padding || 8) * factor)),
+    };
+  }
+
+  if (config.options.plugins.subtitle) {
+    config.options.plugins.subtitle = {
+      ...config.options.plugins.subtitle,
+      font: scaleFont(config.options.plugins.subtitle.font, factor, 12),
+      padding: Math.max(6, Math.round((config.options.plugins.subtitle.padding || 6) * factor)),
+    };
+  }
+
+  if (config.options.plugins.tooltip) {
+    config.options.plugins.tooltip = {
+      ...config.options.plugins.tooltip,
+      titleFont: scaleFont(config.options.plugins.tooltip.titleFont, factor, 12),
+      bodyFont: scaleFont(config.options.plugins.tooltip.bodyFont, factor, 11),
+      footerFont: scaleFont(config.options.plugins.tooltip.footerFont, factor, 11),
+      padding: Math.max(6, Math.round((config.options.plugins.tooltip.padding || 6) * factor)),
+    };
+  }
+
+  const scales = config.options.scales || {};
+  Object.keys(scales).forEach((key) => {
+    const scale = { ...scales[key] };
+    if (scale.ticks) {
+      scale.ticks = {
+        ...scale.ticks,
+        font: scaleFont(scale.ticks.font, factor, 11),
+        padding: Math.max(3, Math.round((scale.ticks.padding || 3) * factor)),
+      };
+    }
+    if (scale.title) {
+      scale.title = {
+        ...scale.title,
+        font: scaleFont(scale.title.font, factor, 12),
+        padding: Math.max(4, Math.round((scale.title.padding || 4) * factor)),
+      };
+    }
+    scales[key] = scale;
+  });
+  config.options.scales = scales;
+}
+
+async function downloadChartFullRes(canvas, scaleFactor = 3) {
+  const sourceChart = Chart.getChart(canvas);
+  if (!sourceChart) return;
+
+  const sourceWidth = sourceChart.width || canvas.clientWidth || 800;
+  const sourceHeight = sourceChart.height || canvas.clientHeight || 500;
+  const exportWidth = Math.max(2200, Math.round(sourceWidth * scaleFactor));
+  const exportHeight = Math.max(1400, Math.round(sourceHeight * scaleFactor));
+
+  const tempCanvas = document.createElement('canvas');
+  tempCanvas.width = exportWidth;
+  tempCanvas.height = exportHeight;
+
+  const tempConfig = sourceChartConfig(sourceChart, { forModal: false });
+  const textScale = Math.max(1.8, Math.min(3.2, exportWidth / Math.max(700, sourceWidth)));
+  applyReadableExportStyling(tempConfig, textScale);
+
+  const whiteBackgroundPlugin = {
+    id: 'whiteExportBackground',
+    beforeDraw(chart, args, pluginOptions) {
+      const { ctx, width, height } = chart;
+      ctx.save();
+      ctx.globalCompositeOperation = 'destination-over';
+      ctx.fillStyle = pluginOptions?.color || '#ffffff';
+      ctx.fillRect(0, 0, width, height);
+      ctx.restore();
+    },
+  };
+
+  tempConfig.options = {
+    ...(tempConfig.options || {}),
+    responsive: false,
+    maintainAspectRatio: false,
+    animation: false,
+    devicePixelRatio: 1,
+  };
+  tempConfig.plugins = [...(tempConfig.plugins || []), whiteBackgroundPlugin];
+
+  const tempChart = new Chart(tempCanvas.getContext('2d'), tempConfig);
+  tempChart.resize(exportWidth, exportHeight);
+  tempChart.update('none');
+
+  await new Promise(resolve => requestAnimationFrame(resolve));
+  triggerDownload(tempCanvas.toDataURL('image/png'), `${chartFileName(canvas)}-fullres.png`);
+  tempChart.destroy();
+}
+
+function centerChartWindow() {
+  const win = document.getElementById('chartWindow');
+  const width = Math.min(1200, Math.floor(window.innerWidth * 0.9));
+  const height = Math.min(760, Math.floor(window.innerHeight * 0.8));
+  win.style.width = `${Math.max(540, width)}px`;
+  win.style.height = `${Math.max(360, height)}px`;
+  win.style.left = `${Math.max(12, Math.round((window.innerWidth - win.offsetWidth) / 2))}px`;
+  win.style.top = `${Math.max(12, Math.round((window.innerHeight - win.offsetHeight) / 2))}px`;
+}
+
+function clampChartWindow() {
+  const win = document.getElementById('chartWindow');
+  const maxLeft = Math.max(0, window.innerWidth - win.offsetWidth);
+  const maxTop = Math.max(0, window.innerHeight - win.offsetHeight);
+  const nextLeft = Math.min(maxLeft, Math.max(0, parseFloat(win.style.left || '0')));
+  const nextTop = Math.min(maxTop, Math.max(0, parseFloat(win.style.top || '0')));
+  win.style.left = `${nextLeft}px`;
+  win.style.top = `${nextTop}px`;
+}
+
+function buildEnlargedChart() {
+  if (!activeSourceCanvas) return;
+  const sourceChart = Chart.getChart(activeSourceCanvas);
+  if (!sourceChart) return;
+
+  const modalCanvas = document.getElementById('chartModalCanvas');
+  if (enlargedChart) {
+    enlargedChart.destroy();
+    enlargedChart = null;
+  }
+
+  const config = sourceChartConfig(sourceChart, { forModal: true });
+  enlargedChart = new Chart(modalCanvas, config);
+  enlargedChart.resize();
+  enlargedChart.update('none');
+}
+
+function openChartModal(canvas) {
+  activeSourceCanvas = canvas;
+  const modalOverlay = document.getElementById('chartModalOverlay');
+  document.getElementById('chartModalTitle').textContent = chartTitleFromCanvas(canvas);
+
+  centerChartWindow();
+  modalOverlay.classList.add('open');
+  requestAnimationFrame(() => {
+    buildEnlargedChart();
+    clampChartWindow();
+  });
+}
+
+function closeChartModal() {
+  document.getElementById('chartModalOverlay').classList.remove('open');
+  activeSourceCanvas = null;
+  if (enlargedChart) {
+    enlargedChart.destroy();
+    enlargedChart = null;
+  }
+}
+
+function initChartWindowInteractions() {
+  const dragHandle = document.getElementById('chartModalDragHandle');
+  const chartWindow = document.getElementById('chartWindow');
+
+  dragHandle.addEventListener('mousedown', (event) => {
+    if (event.target.closest('button')) return;
+    chartDragState = {
+      offsetX: event.clientX - chartWindow.offsetLeft,
+      offsetY: event.clientY - chartWindow.offsetTop,
+    };
+  });
+
+  window.addEventListener('mousemove', (event) => {
+    if (!chartDragState) return;
+    chartWindow.style.left = `${event.clientX - chartDragState.offsetX}px`;
+    chartWindow.style.top = `${event.clientY - chartDragState.offsetY}px`;
+    clampChartWindow();
+  });
+
+  window.addEventListener('mouseup', () => { chartDragState = null; });
+  window.addEventListener('resize', () => {
+    if (document.getElementById('chartModalOverlay').classList.contains('open')) {
+      clampChartWindow();
+      if (enlargedChart) enlargedChart.resize();
+    }
+  });
+
+  const body = document.querySelector('#chartModalOverlay .chart-modal-body');
+  chartModalResizeObserver = new ResizeObserver(() => {
+    if (enlargedChart) enlargedChart.resize();
+  });
+  chartModalResizeObserver.observe(body);
+}
+
+function initChartActions() {
+  document.querySelectorAll('.chart-card').forEach(card => {
+    const canvas = card.querySelector('canvas');
+    const title = card.querySelector('h3');
+    if (!canvas || !title || title.closest('.chart-head')) return;
+
+    const head = document.createElement('div');
+    head.className = 'chart-head';
+    title.parentNode.insertBefore(head, title);
+    head.appendChild(title);
+
+    const actions = document.createElement('div');
+    actions.className = 'chart-actions';
+    actions.innerHTML = `
+      <button type="button" class="chart-action-btn" data-action="enlarge" aria-label="Enlarge chart">Enlarge</button>
+      <button type="button" class="chart-action-btn" data-action="download" aria-label="Download chart">Download</button>
+    `;
+    head.appendChild(actions);
+
+    actions.addEventListener('click', (event) => {
+      const btn = event.target.closest('button[data-action]');
+      if (!btn) return;
+      if (btn.dataset.action === 'enlarge') openChartModal(canvas);
+      if (btn.dataset.action === 'download') downloadChartFullRes(canvas);
+    });
+
+    canvas.style.cursor = 'zoom-in';
+    canvas.addEventListener('click', () => openChartModal(canvas));
+  });
+
+  document.getElementById('chartModalClose').addEventListener('click', closeChartModal);
+  document.getElementById('chartDownloadHiRes').addEventListener('click', () => {
+    if (activeSourceCanvas) downloadChartFullRes(activeSourceCanvas);
+  });
+  document.getElementById('chartResetZoom').addEventListener('click', () => {
+    if (enlargedChart && typeof enlargedChart.resetZoom === 'function') enlargedChart.resetZoom();
+  });
+  document.getElementById('chartModalOverlay').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeChartModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.getElementById('chartModalOverlay').classList.contains('open')) {
+      closeChartModal();
+    }
+  });
+  initChartWindowInteractions();
+}
+
+function scoreBadge(v) {
+  if (v == null) return '<span class="badge badge-muted">N/A</span>';
+  const n = Number(v);
+  if (n >= 7) return `<span class="badge badge-success">${fmt(n)}</span>`;
+  if (n >= 4) return `<span class="badge badge-warning">${fmt(n)}</span>`;
+  return `<span class="badge badge-danger">${fmt(n)}</span>`;
+}
+
+function statusBadge(status) {
+  const map = {
+    success:         ['badge-success', 'Success'],
+    partial_success: ['badge-warning', 'Partial'],
+    failed:          ['badge-danger',  'Failed'],
+    skipped:         ['badge-muted',   'Skipped'],
+    ready:           ['badge-success', 'Ready'],
+    partial:         ['badge-warning', 'Partial'],
+    registered:      ['badge-info',    'Registered'],
+    collecting:      ['badge-info',    'Collecting'],
+    timed_out:       ['badge-warning', 'Timed Out'],
+    not_registered:  ['badge-danger',  'Not Registered'],
+    complete:        ['badge-success', 'Complete'],
+  };
+  const [cls, label] = map[status] || ['badge-muted', status || 'N/A'];
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function scoreBar(v, max=10) {
+  if (v == null) return '<div class="score-bar"><div class="score-bar-fill" style="width:0;background:#cbd5e1"></div></div>';
+  const pct = Math.min(100, (v / max) * 100);
+  const color = v >= 7 ? '#16a34a' : v >= 4 ? '#d97706' : '#dc2626';
+  return `<div class="score-bar"><div class="score-bar-fill" style="width:${pct}%;background:${color}"></div></div>`;
+}
+
+function agBadge(value) {
+  if (value === true) return '<span class="badge badge-success">Ag-Specific</span>';
+  if (value === false) return '<span class="badge badge-warning">Not Ag-Specific</span>';
+  return '<span class="badge badge-muted">Unknown</span>';
+}
+
+function vulnReason(repo) {
+  const checks = repo.scorecard_checks || {};
+  return ((checks.Vulnerabilities || {}).reason || '').trim();
+}
+
+function vulnCount(repo) {
+  const reason = vulnReason(repo);
+  if (!reason) return null;
+  const exact = reason.match(/(\d+)\s+existing vulnerabilities detected/i);
+  if (exact) return Number(exact[1]);
+  const firstNumber = reason.match(/(\d+)/);
+  return firstNumber ? Number(firstNumber[1]) : null;
+}
+
+function vulnTokens(reason) {
+  if (!reason) return [];
+  const cve = reason.match(/CVE-\d{4}-\d+/gi) || [];
+  const ghsa = reason.match(/GHSA-[a-z0-9-]+/gi) || [];
+  const tokens = [...cve, ...ghsa].map(s => s.toUpperCase());
+  return [...new Set(tokens)];
+}
+
+// ── Derived data ──
+const categories = [...new Set(REPOS.map(r=>r.category))].sort();
+function catGroup(cat) { return cat ? REPOS.filter(r=>r.category===cat) : REPOS; }
+function agGroup(group) {
+  if (!group || group === 'all') return REPOS;
+  return REPOS.filter(r => agKey(r.ag_specific) === group);
+}
+const agBuckets = ['yes', 'no', 'unknown'];
+function catStats(cat) {
+  const g = catGroup(cat);
+  const scores = g.map(r=>r.scorecard_overall).filter(v=>v!=null);
+  const stars = g.map(r=>(r.augur_metrics||{}).stars).filter(v=>v!=null);
+  const contribs = g.map(r=>(r.augur_metrics||{}).contributor_count).filter(v=>v!=null);
+  const issues = g.map(r=>(r.augur_metrics||{}).issues_opened).filter(v=>v!=null);
+  return { count: g.length, avgScore: avg(scores), avgStars: avg(stars), avgContrib: avg(contribs), avgIssues: avg(issues) };
+}
+function agStats(group) {
+  const g = agGroup(group);
+  const scores = g.map(r=>r.scorecard_overall).filter(v=>v!=null);
+  const stars = g.map(r=>(r.augur_metrics||{}).stars).filter(v=>v!=null);
+  const contribs = g.map(r=>(r.augur_metrics||{}).contributor_count).filter(v=>v!=null);
+  return { count: g.length, avgScore: avg(scores), avgStars: avg(stars), avgContrib: avg(contribs) };
+}
+
+const vulnSummary = (() => {
+  const byType = {};
+  let reposWithVulns = 0;
+  let totalDetected = 0;
+
+  REPOS.forEach(r => {
+    const count = vulnCount(r);
+    if ((count ?? 0) <= 0) return;
+
+    reposWithVulns++;
+    totalDetected += count || 0;
+
+    const reason = vulnReason(r);
+    const types = vulnTokens(reason);
+    const labels = types.length ? types : ['Unspecified existing vulnerabilities'];
+
+    labels.forEach(label => {
+      if (!byType[label]) byType[label] = { appearances: 0, totalCount: 0, repos: new Set() };
+      byType[label].appearances += 1;
+      byType[label].totalCount += count || 0;
+      byType[label].repos.add(`${r.owner}/${r.repo_name}`);
+    });
+  });
+
+  const rows = Object.entries(byType).map(([name, info]) => ({
+    name,
+    appearances: info.appearances,
+    totalCount: info.totalCount,
+    repoCount: info.repos.size,
+  })).sort((a,b) => (b.appearances - a.appearances) || (b.totalCount - a.totalCount) || a.name.localeCompare(b.name));
+
+  return {
+    rows,
+    reposWithVulns,
+    reposWithoutVulns: Math.max(0, REPOS.length - reposWithVulns),
+    totalDetected,
+  };
+})();
+
+// ── Tab switching ──
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+// ── Overview ──
+(function renderOverview() {
+  document.getElementById('headerSub').textContent =
+    `${SUMMARY.total_repos || REPOS.length} repos · Run: ${(SUMMARY.run_start||'').slice(0,19).replace('T',' ')}`;
+
+  const scores = REPOS.map(r=>r.scorecard_overall).filter(v=>v!=null);
+  const cards = [
+    { label: 'Total Repos', value: REPOS.length },
+    { label: 'Categories', value: categories.length },
+    { label: 'Ag-Specific', value: SUMMARY.ag_specific_yes ?? agGroup('yes').length },
+    { label: 'Not Ag-Specific', value: SUMMARY.ag_specific_no ?? agGroup('no').length },
+    { label: 'SC Success', value: SUMMARY.scorecard_success || REPOS.filter(r=>r.scorecard_status==='success').length },
+    { label: 'SC Partial', value: SUMMARY.scorecard_partial || REPOS.filter(r=>r.scorecard_status==='partial_success').length },
+    { label: 'Augur Ready', value: SUMMARY.augur_ready || REPOS.filter(r=>r.augur_status==='ready').length },
+    { label: 'Augur Registered', value: SUMMARY.augur_registered || REPOS.filter(r=>r.augur_registered).length },
+    { label: 'Avg SC Score', value: fmt(avg(scores)) },
+    { label: 'Complete', value: REPOS.filter(r=>r.overall_status==='complete').length },
+  ];
+  document.getElementById('summaryCards').innerHTML = cards.map(c =>
+    `<div class="card"><div class="label">${c.label}</div><div class="value">${c.value}</div></div>`
+  ).join('');
+
+  // Score histogram
+  const bins = Array(11).fill(0);
+  scores.forEach(s => { const b = Math.min(10, Math.floor(s)); bins[b]++; });
+  new Chart(document.getElementById('chartScoreHist'), {
+    type: 'bar',
+    data: { labels: bins.map((_,i)=>i), datasets: [{ label:'Repos', data:bins, backgroundColor:'#3b82f6' }] },
+    options: { plugins:{legend:{display:false}}, scales:{x:{title:{display:true,text:'Score'}},y:{title:{display:true,text:'Count'},beginAtZero:true}} }
+  });
+
+  // Repos per category
+  const cCounts = categories.map(c=>catGroup(c).length);
+  new Chart(document.getElementById('chartCatCount'), {
+    type: 'bar',
+    data: { labels: categories, datasets: [{ label:'Repos', data:cCounts, backgroundColor:'#6366f1' }] },
+    options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
+  });
+
+  // Avg score by category
+  const cScores = categories.map(c=>catStats(c).avgScore);
+  new Chart(document.getElementById('chartCatScore'), {
+    type: 'bar',
+    data: { labels: categories, datasets: [{ label:'Avg Score', data:cScores, backgroundColor:'#10b981' }] },
+    options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{min:0,max:10}} }
+  });
+
+  // Collection status doughnut — now uses overall_status
+  const complete = REPOS.filter(r=>r.overall_status==='complete').length;
+  const partial = REPOS.filter(r=>r.overall_status==='partial').length;
+  const failed = REPOS.filter(r=>r.overall_status==='failed').length;
+  new Chart(document.getElementById('chartStatus'), {
+    type: 'doughnut',
+    data: { labels:['Complete','Partial','Failed'], datasets:[{ data:[complete,partial,failed], backgroundColor:['#16a34a','#d97706','#dc2626'] }] },
+    options: { plugins:{legend:{position:'bottom'}} }
+  });
+
+  // Ag-specific breakdown
+  const agCounts = agBuckets.map(k => agGroup(k).length);
+  new Chart(document.getElementById('chartAgSpecific'), {
+    type: 'doughnut',
+    data: { labels: agBuckets.map(k => agLabel(k === 'yes' ? true : k === 'no' ? false : null)), datasets:[{ data: agCounts, backgroundColor:['#16a34a','#d97706','#94a3b8'] }] },
+    options: { plugins:{legend:{position:'bottom'}} }
+  });
+
+  // Category split by Ag-specificness
+  new Chart(document.getElementById('chartCatAgSplit'), {
+    type: 'bar',
+    data: {
+      labels: categories,
+      datasets: [
+        { label:'Ag-Specific', data: categories.map(c => catGroup(c).filter(r => agKey(r.ag_specific)==='yes').length), backgroundColor:'#16a34a' },
+        { label:'Not Ag-Specific', data: categories.map(c => catGroup(c).filter(r => agKey(r.ag_specific)==='no').length), backgroundColor:'#d97706' },
+        { label:'Unknown', data: categories.map(c => catGroup(c).filter(r => agKey(r.ag_specific)==='unknown').length), backgroundColor:'#94a3b8' },
+      ]
+    },
+    options: { indexAxis:'y', scales:{x:{beginAtZero:true, stacked:true}, y:{stacked:true}} }
+  });
+})();
+
+// ── Repo Table ──
+let sortCol = 'repo_name', sortAsc = true;
+
+function repoSortVal(r, col) {
+  switch(col) {
+    case 'display_name': return (r.display_name||r.repo_name||'').toLowerCase();
+    case 'repo_name': return (r.repo_name||'').toLowerCase();
+    case 'category': return (r.category||'').toLowerCase();
+    case 'ag_specific': return agKey(r.ag_specific);
+    case 'scorecard_overall': return r.scorecard_overall ?? -1;
+    case 'scorecard_status': return r.scorecard_status || '';
+    case 'augur_status': return r.augur_status || '';
+    case 'augur_contributors': return (r.augur_metrics||{}).contributor_count ?? -1;
+    case 'augur_commits': return (r.augur_metrics||{}).commit_count ?? -1;
+    case 'augur_prs_merged': return (r.augur_metrics||{}).prs_merged ?? -1;
+    case 'augur_issues_total': return (r.augur_metrics||{}).issues_total ?? -1;
+    case 'augur_stars': return (r.augur_metrics||{}).stars ?? -1;
+    case 'vuln_count': return vulnCount(r) ?? -1;
+    case 'overall_status': return r.overall_status || '';
+    default: return '';
+  }
+}
+
+function renderRepoTable() {
+  const search = document.getElementById('repoSearch').value.toLowerCase();
+  const cat = document.getElementById('catFilter').value;
+  const ag = document.getElementById('agFilter').value;
+  const status = document.getElementById('statusFilter').value;
+
+  let rows = [...REPOS];
+  if (search) rows = rows.filter(r => ((r.display_name||'')+' '+r.repo_name+' '+r.owner+' '+r.category).toLowerCase().includes(search));
+  if (cat) rows = rows.filter(r => r.category === cat);
+  if (ag) rows = rows.filter(r => agKey(r.ag_specific) === ag);
+  if (status) rows = rows.filter(r => r.overall_status === status);
+
+  rows.sort((a,b) => {
+    let va = repoSortVal(a, sortCol), vb = repoSortVal(b, sortCol);
+    if (va < vb) return sortAsc ? -1 : 1;
+    if (va > vb) return sortAsc ? 1 : -1;
+    return 0;
+  });
+
+  const am = (r, k) => {
+    const m = (r.augur_metrics||{});
+    if (m[k] != null) return m[k];
+    if (k === 'commit_count') return m.db_commit_rows;
+    if (k === 'issues_total') return m.db_issue_rows;
+    if (k === 'prs_merged') return m.db_pull_request_rows;
+    return undefined;
+  };
+  document.getElementById('repoBody').innerHTML = rows.map((r, idx) => `<tr>
+    <td>${esc(r.display_name || r.repo_name || '—')}</td>
+    <td><a href="${esc(r.repo_url)}" target="_blank">${esc(r.owner)}/${esc(r.repo_name)}</a></td>
+    <td>${esc(r.category)}</td>
+    <td>${agBadge(r.ag_specific)}</td>
+    <td>${scoreBadge(r.scorecard_overall)}</td>
+    <td>${statusBadge(r.scorecard_status)}</td>
+    <td>${statusBadge(r.augur_status)}</td>
+    <td>${fmt(am(r,'contributor_count'),0)}</td>
+    <td>${fmt(am(r,'commit_count'),0)}</td>
+    <td>${fmt(am(r,'prs_merged'),0)}</td>
+    <td>${fmt(am(r,'issues_total'),0)}</td>
+    <td>${fmt(am(r,'stars'),0)}</td>
+    <td>${fmt(vulnCount(r),0)}</td>
+    <td>${statusBadge(r.overall_status)}</td>
+    <td><button onclick="showDetail(${idx})" style="cursor:pointer;border:none;background:var(--primary);color:#fff;padding:.25rem .6rem;border-radius:4px;font-size:.8rem;">View</button></td>
+  </tr>`).join('');
+}
+
+// Populate filters
+categories.forEach(c => {
+  document.getElementById('catFilter').innerHTML += `<option value="${esc(c)}">${esc(c)}</option>`;
+  document.getElementById('catLensSelect').innerHTML += `<option value="${esc(c)}">${esc(c)}</option>`;
+});
+
+document.getElementById('repoSearch').addEventListener('input', renderRepoTable);
+document.getElementById('catFilter').addEventListener('change', renderRepoTable);
+document.getElementById('agFilter').addEventListener('change', renderRepoTable);
+document.getElementById('statusFilter').addEventListener('change', renderRepoTable);
+
+document.querySelectorAll('#repoTable thead th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.sort;
+    if (sortCol === col) sortAsc = !sortAsc; else { sortCol = col; sortAsc = true; }
+    renderRepoTable();
+  });
+});
+
+renderRepoTable();
+
+// ── Detail Modal ──
+function showDetail(idx) {
+  const r = REPOS[idx]; if (!r) return;
+  const am = (k) => {
+    const m = (r.augur_metrics||{});
+    if (m[k] != null) return m[k];
+    if (k === 'commit_count') return m.db_commit_rows;
+    if (k === 'issues_total') return m.db_issue_rows;
+    if (k === 'prs_merged') return m.db_pull_request_rows;
+    return undefined;
+  };
+  const checks = r.scorecard_checks || {};
+  const checkRows = Object.entries(checks).map(([name, info]) =>
+    `<tr><td>${esc(name)}</td><td>${scoreBadge(info.score)}</td><td>${esc(info.reason||'')}</td></tr>`
+  ).join('');
+  const augurRows = Object.entries(r.augur_metrics || {}).filter(([k])=>k!=='aggregate_summary'&&k!=='languages').map(([k,v]) =>
+    `<div class="detail-item"><div class="dlabel">${esc(k)}</div>${typeof v === 'object' ? JSON.stringify(v) : v}</div>`
+  ).join('');
+  const langs = am('languages');
+  const langStr = Array.isArray(langs) ? langs.join(', ') : (langs || '—');
+
+  document.getElementById('modalContent').innerHTML = `
+    <h2><a href="${esc(r.repo_url)}" target="_blank">${esc(r.owner)}/${esc(r.repo_name)}</a></h2>
+    <div class="detail-section"><h4>Identity</h4>
+      <div class="detail-grid">
+        <div class="detail-item"><div class="dlabel">Name</div>${esc(r.display_name || r.repo_name || '—')}</div>
+        <div class="detail-item"><div class="dlabel">Category</div>${esc(r.category)}</div>
+        <div class="detail-item"><div class="dlabel">Ag-Specificness</div>${agBadge(r.ag_specific)}</div>
+        <div class="detail-item"><div class="dlabel">Collected</div>${r.collection_timestamp ? r.collection_timestamp.slice(0,19).replace('T',' ') : '—'}</div>
+        <div class="detail-item"><div class="dlabel">Languages</div>${esc(langStr)}</div>
+        <div class="detail-item"><div class="dlabel">License</div>${esc(am('license')||'—')}</div>
+      </div>
+    </div>
+    <div class="detail-section"><h4>Scorecard — Overall ${scoreBadge(r.scorecard_overall)}</h4>
+      <div class="detail-grid">
+        <div class="detail-item"><div class="dlabel">Status</div>${statusBadge(r.scorecard_status)}</div>
+        <div class="detail-item"><div class="dlabel">Exit Code</div>${r.scorecard_exit_code ?? '—'}</div>
+        <div class="detail-item"><div class="dlabel">Runtime</div>${r.scorecard_runtime ? r.scorecard_runtime.toFixed(1)+'s' : '—'}</div>
+      </div>
+      ${r.scorecard_error ? '<p style="color:var(--danger);margin-top:.5rem;">'+esc(r.scorecard_error)+'</p>' : ''}
+      ${checkRows ? '<table style="width:100%;font-size:.85rem;margin-top:.5rem;"><thead><tr><th>Check</th><th>Score</th><th>Reason</th></tr></thead><tbody>'+checkRows+'</tbody></table>' : '<p>No check data.</p>'}
+    </div>
+    <div class="detail-section"><h4>Augur Metrics — ${statusBadge(r.augur_status)}</h4>
+      <div class="detail-grid">
+        <div class="detail-item"><div class="dlabel">Repo ID</div>${r.augur_repo_id ?? '—'}</div>
+        <div class="detail-item"><div class="dlabel">Registered</div>${r.augur_registered ? '✓' : '✗'}</div>
+        <div class="detail-item"><div class="dlabel">Ready</div>${r.augur_ready ? '✓' : '✗'}</div>
+      </div>
+      ${r.augur_error ? '<p style="color:var(--danger);margin-top:.5rem;">'+esc(r.augur_error)+'</p>' : ''}
+      <div class="detail-grid" style="margin-top:.5rem;">${augurRows || '<p>No Augur data.</p>'}</div>
+    </div>
+    <div class="detail-section"><h4>Pipeline Status</h4>
+      <div class="detail-grid">
+        <div class="detail-item"><div class="dlabel">Overall</div>${statusBadge(r.overall_status)}</div>
+      </div>
+    </div>`;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+document.getElementById('modalClose').addEventListener('click', () => document.getElementById('modalOverlay').classList.remove('open'));
+document.getElementById('modalOverlay').addEventListener('click', (e) => { if (e.target === e.currentTarget) e.currentTarget.classList.remove('open'); });
+
+// ── Categories Tab ──
+function renderCategories() {
+  const sel = document.getElementById('catLensSelect').value;
+  const cats = sel ? [sel] : categories;
+  document.getElementById('catCards').innerHTML = cats.map(c => {
+    const s = catStats(c);
+    return `<div class="card"><div class="label">${esc(c)}</div>
+      <div style="font-size:.85rem;margin-top:.4rem;">
+        <div>${s.count} repos · Avg SC: ${fmt(s.avgScore)} · Avg ★: ${fmt(s.avgStars,0)}</div>
+      </div></div>`;
+  }).join('');
+
+  document.getElementById('catBody').innerHTML = cats.map(c => {
+    const s = catStats(c);
+    return `<tr><td>${esc(c)}</td><td>${s.count}</td><td>${fmt(s.avgScore)}</td><td>${fmt(s.avgStars,0)}</td><td>${fmt(s.avgContrib,0)}</td><td>${fmt(s.avgIssues,0)}</td></tr>`;
+  }).join('');
+}
+document.getElementById('catLensSelect').addEventListener('change', renderCategories);
+renderCategories();
+
+// ── Vulnerabilities Tab ──
+(function renderVulnerabilities() {
+  const top = vulnSummary.rows.slice(0, 15);
+
+  document.getElementById('vulnCards').innerHTML = [
+    { label: 'Repos With Vulnerabilities', value: vulnSummary.reposWithVulns },
+    { label: 'Repos Without Vulnerabilities', value: vulnSummary.reposWithoutVulns },
+    { label: 'Total Vulnerabilities Reported', value: vulnSummary.totalDetected },
+    { label: 'Distinct Vulnerability Findings', value: vulnSummary.rows.length },
+  ].map(c => `<div class="card"><div class="label">${c.label}</div><div class="value">${c.value}</div></div>`).join('');
+
+  new Chart(document.getElementById('chartVulnTop'), {
+    type:'bar',
+    data:{ labels:top.map(r=>r.name), datasets:[{label:'Appearances',data:top.map(r=>r.appearances),backgroundColor:'#dc2626'}] },
+    options:{ indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
+  });
+
+  new Chart(document.getElementById('chartVulnPresence'), {
+    type:'doughnut',
+    data:{ labels:['With Vulnerabilities','Without Vulnerabilities'], datasets:[{ data:[vulnSummary.reposWithVulns, vulnSummary.reposWithoutVulns], backgroundColor:['#dc2626','#16a34a'] }] },
+    options:{ plugins:{legend:{position:'bottom'}} }
+  });
+
+  document.getElementById('vulnBody').innerHTML = (vulnSummary.rows.length ? vulnSummary.rows : [{name:'No vulnerabilities detected',appearances:0,totalCount:0,repoCount:0}]).map(r =>
+    `<tr><td>${esc(r.name)}</td><td>${r.appearances}</td><td>${r.totalCount}</td><td>${r.repoCount}</td></tr>`
+  ).join('');
+})();
+
+// Category comparison charts
+(function() {
+  const cLabels = categories;
+  const cAvgSc = cLabels.map(c=>catStats(c).avgScore);
+  const cAvgSt = cLabels.map(c=>catStats(c).avgStars);
+  const cAvgCo = cLabels.map(c=>catStats(c).avgContrib);
+  const cCounts = cLabels.map(c=>catStats(c).count);
+
+  new Chart(document.getElementById('chartCatComp'), {
+    type:'bar', data:{ labels:cLabels, datasets:[{label:'Avg Scorecard',data:cAvgSc,backgroundColor:'#3b82f6'}] },
+    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{min:0,max:10}}}
+  });
+  new Chart(document.getElementById('chartCatStars'), {
+    type:'bar', data:{ labels:cLabels, datasets:[{label:'Avg Stars',data:cAvgSt,backgroundColor:'#f59e0b'}] },
+    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
+  });
+  new Chart(document.getElementById('chartCatContrib'), {
+    type:'bar', data:{ labels:cLabels, datasets:[{label:'Avg Contributors',data:cAvgCo,backgroundColor:'#8b5cf6'}] },
+    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
+  });
+  new Chart(document.getElementById('chartCatScatter'), {
+    type:'scatter',
+    data:{ datasets:[{ label:'Categories', data:cLabels.map((c,i)=>({x:cCounts[i],y:cAvgSc[i],label:c})), backgroundColor:'#6366f1', pointRadius:8 }] },
+    options:{ plugins:{ tooltip:{ callbacks:{ label: ctx => ctx.raw.label+': '+ctx.raw.x+' repos, score '+fmt(ctx.raw.y) } } }, scales:{x:{title:{display:true,text:'# Repos'}},y:{title:{display:true,text:'Avg Score'},min:0,max:10}} }
+  });
+})();
+
+// ── Ag-Specific Tab ──
+function renderAgSpecific() {
+  const selected = document.getElementById('agLensSelect').value || 'all';
+  const buckets = selected === 'all' ? agBuckets : [selected];
+
+  document.getElementById('agCards').innerHTML = buckets.map(k => {
+    const s = agStats(k);
+    return `<div class="card"><div class="label">${esc(agLabel(k === 'yes' ? true : k === 'no' ? false : null))}</div>
+      <div style="font-size:.85rem;margin-top:.4rem;">
+        <div>${s.count} repos · Avg SC: ${fmt(s.avgScore)} · Avg ★: ${fmt(s.avgStars,0)} · Avg Contributors: ${fmt(s.avgContrib,0)}</div>
+      </div></div>`;
+  }).join('');
+
+  document.getElementById('agBody').innerHTML = buckets.map(k => {
+    const s = agStats(k);
+    return `<tr><td>${esc(agLabel(k === 'yes' ? true : k === 'no' ? false : null))}</td><td>${s.count}</td><td>${fmt(s.avgScore)}</td><td>${fmt(s.avgStars,0)}</td><td>${fmt(s.avgContrib,0)}</td></tr>`;
+  }).join('');
+
+  const selectedRepos = agGroup(selected);
+  const categoryCounts = categories.map(c => selectedRepos.filter(r => r.category === c).length);
+  if (window.__chartAgCategoryMix) window.__chartAgCategoryMix.destroy();
+  window.__chartAgCategoryMix = new Chart(document.getElementById('chartAgCategoryMix'), {
+    type: 'bar',
+    data: { labels: categories, datasets: [{ label: 'Repos', data: categoryCounts, backgroundColor: '#6366f1' }] },
+    options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
+  });
+}
+
+document.getElementById('agLensSelect').addEventListener('change', renderAgSpecific);
+renderAgSpecific();
+
+(function() {
+  const labels = agBuckets.map(k => agLabel(k === 'yes' ? true : k === 'no' ? false : null));
+  const counts = agBuckets.map(k => agStats(k).count);
+  const avgScores = agBuckets.map(k => agStats(k).avgScore);
+  const avgStars = agBuckets.map(k => agStats(k).avgStars);
+
+  new Chart(document.getElementById('chartAgCounts'), {
+    type:'bar',
+    data:{ labels, datasets:[{label:'Repos',data:counts,backgroundColor:['#16a34a','#d97706','#94a3b8']}] },
+    options:{ plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}} }
+  });
+
+  new Chart(document.getElementById('chartAgScore'), {
+    type:'bar',
+    data:{ labels, datasets:[{label:'Avg Scorecard',data:avgScores,backgroundColor:'#3b82f6'}] },
+    options:{ plugins:{legend:{display:false}}, scales:{y:{min:0,max:10}} }
+  });
+
+  new Chart(document.getElementById('chartAgStars'), {
+    type:'bar',
+    data:{ labels, datasets:[{label:'Avg Stars',data:avgStars,backgroundColor:'#f59e0b'}] },
+    options:{ plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}} }
+  });
+})();
+
+// ── Comparisons Tab ──
+(function() {
+  const ranked = [...REPOS].filter(r=>r.scorecard_overall!=null).sort((a,b)=>b.scorecard_overall-a.scorecard_overall).slice(0,20);
+  new Chart(document.getElementById('chartRankSC'), {
+    type:'bar',
+    data:{ labels:ranked.map(r=>r.owner+'/'+r.repo_name), datasets:[{label:'Score',data:ranked.map(r=>r.scorecard_overall),backgroundColor:'#3b82f6'}] },
+    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{min:0,max:10}}}
+  });
+
+  const byStars = [...REPOS].filter(r=>(r.augur_metrics||{}).stars!=null).sort((a,b)=>(b.augur_metrics.stars||0)-(a.augur_metrics.stars||0)).slice(0,20);
+  new Chart(document.getElementById('chartRankStars'), {
+    type:'bar',
+    data:{ labels:byStars.map(r=>r.owner+'/'+r.repo_name), datasets:[{label:'Stars',data:byStars.map(r=>r.augur_metrics.stars),backgroundColor:'#f59e0b'}] },
+    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
+  });
+
+  const commitVal = (r) => (r.augur_metrics||{}).commit_count ?? (r.augur_metrics||{}).db_commit_rows ?? null;
+  const byCommits = [...REPOS]
+    .filter(r=>commitVal(r)!=null)
+    .sort((a,b)=>(commitVal(b)||0)-(commitVal(a)||0))
+    .slice(0,20);
+  new Chart(document.getElementById('chartRankCommits'), {
+    type:'bar',
+    data:{ labels:byCommits.map(r=>r.owner+'/'+r.repo_name), datasets:[{label:'Commits',data:byCommits.map(r=>commitVal(r)),backgroundColor:'#0ea5e9'}] },
+    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
+  });
+
+  const s1 = REPOS.filter(r=>r.scorecard_overall!=null&&(r.augur_metrics||{}).contributor_count!=null);
+  new Chart(document.getElementById('chartScatter1'), {
+    type:'scatter',
+    data:{ datasets:categories.map((cat,ci)=>({
+      label:cat,
+      data:s1.filter(r=>r.category===cat).map(r=>({x:r.scorecard_overall,y:r.augur_metrics.contributor_count})),
+      backgroundColor:`hsl(${ci*360/categories.length},65%,55%)`,
+      pointRadius:6
+    })) },
+    options:{ scales:{x:{title:{display:true,text:'Scorecard'},min:0,max:10},y:{title:{display:true,text:'Contributors'},beginAtZero:true}} }
+  });
+
+  const s2 = REPOS.filter(r=>r.scorecard_overall!=null&&(r.augur_metrics||{}).stars!=null);
+  new Chart(document.getElementById('chartScatter2'), {
+    type:'scatter',
+    data:{ datasets:categories.map((cat,ci)=>({
+      label:cat,
+      data:s2.filter(r=>r.category===cat).map(r=>({x:r.scorecard_overall,y:r.augur_metrics.stars})),
+      backgroundColor:`hsl(${ci*360/categories.length},65%,55%)`,
+      pointRadius:6
+    })) },
+    options:{ scales:{x:{title:{display:true,text:'Scorecard'},min:0,max:10},y:{title:{display:true,text:'Stars'},beginAtZero:true}} }
+  });
+
+  const s3 = REPOS.filter(r=>(r.augur_metrics||{}).issues_opened!=null&&(r.augur_metrics||{}).issues_closed!=null);
+  new Chart(document.getElementById('chartScatter3'), {
+    type:'scatter',
+    data:{ datasets:[{ label:'Repos', data:s3.map(r=>({x:r.augur_metrics.issues_opened,y:r.augur_metrics.issues_closed})), backgroundColor:'#10b981', pointRadius:6 }] },
+    options:{ scales:{x:{title:{display:true,text:'Issues Opened'},beginAtZero:true},y:{title:{display:true,text:'Issues Closed'},beginAtZero:true}} }
+  });
+
+  const vulnMaintData = REPOS.filter(r => {
+    const contrib = (r.augur_metrics||{}).contributor_count;
+    const vulns = vulnCount(r);
+    return contrib != null && vulns != null;
+  });
+  new Chart(document.getElementById('chartVulnVsMaint'), {
+    type:'scatter',
+    data:{ datasets:categories.map((cat,ci)=>({
+      label:cat,
+      data:vulnMaintData
+        .filter(r=>r.category===cat)
+        .map(r=>({
+          x:vulnCount(r),
+          y:(r.augur_metrics||{}).contributor_count,
+          label:`${r.owner}/${r.repo_name}`,
+        })),
+      backgroundColor:`hsl(${ci*360/categories.length},65%,55%)`,
+      pointRadius:6,
+    })) },
+    options:{
+      plugins:{
+        tooltip:{
+          callbacks:{
+            label: (ctx) => `${ctx.raw.label}: ${ctx.raw.x} vulnerabilities, ${ctx.raw.y} contributors`,
+          }
+        }
+      },
+      scales:{
+        x:{title:{display:true,text:'Detected Vulnerabilities'},beginAtZero:true},
+        y:{title:{display:true,text:'Maintainers (Contributor Count)'},beginAtZero:true}
+      }
+    }
+  });
+
+  const categoryRankGrid = document.getElementById('categoryRankGrid');
+  const categoryRankLimit = 20;
+  categoryRankGrid.innerHTML = '';
+
+  categories.forEach((cat, ci) => {
+    const rankedInCategory = catGroup(cat)
+      .filter(r => r.scorecard_overall != null)
+      .sort((a, b) => b.scorecard_overall - a.scorecard_overall)
+      .slice(0, categoryRankLimit);
+
+    if (!rankedInCategory.length) return;
+
+    const card = document.createElement('div');
+    card.className = 'chart-card';
+    const chartId = `chartRankCategory${ci}`;
+    card.innerHTML = `<h3>Repo Ranking — ${esc(cat)} (Scorecard Overall)</h3><canvas id="${chartId}"></canvas>`;
+    categoryRankGrid.appendChild(card);
+
+    new Chart(document.getElementById(chartId), {
+      type:'bar',
+      data:{
+        labels: rankedInCategory.map(r => r.owner + '/' + r.repo_name),
+        datasets:[{
+          label:'Score',
+          data: rankedInCategory.map(r => r.scorecard_overall),
+          backgroundColor:`hsl(${ci*360/categories.length},65%,55%)`
+        }]
+      },
+      options:{
+        indexAxis:'y',
+        plugins:{legend:{display:false}},
+        scales:{x:{min:0,max:10}}
+      }
+    });
+  });
+
+  const checkMap = {};
+  REPOS.forEach(r => {
+    Object.entries(r.scorecard_checks||{}).forEach(([name, info]) => {
+      if (info.score != null && info.score >= 0) {
+        if (!checkMap[name]) checkMap[name] = [];
+        checkMap[name].push(info.score);
+      }
+    });
+  });
+  const checkNames = Object.keys(checkMap).sort();
+  new Chart(document.getElementById('chartChecks'), {
+    type:'bar',
+    data:{ labels:checkNames, datasets:[{label:'Avg Score',data:checkNames.map(c=>avg(checkMap[c])),backgroundColor:'#8b5cf6'}] },
+    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{min:0,max:10}}}
+  });
+})();
+
+// ── Pipeline Health Tab ──
+(function() {
+  // Health cards
+  const scSuccess = REPOS.filter(r=>r.scorecard_status==='success').length;
+  const scPartial = REPOS.filter(r=>r.scorecard_status==='partial_success').length;
+  const scFailed  = REPOS.filter(r=>r.scorecard_status==='failed').length;
+  const agReady   = REPOS.filter(r=>r.augur_status==='ready').length;
+  const agPartial = REPOS.filter(r=>r.augur_status==='partial').length;
+  const agReg     = REPOS.filter(r=>r.augur_registered).length;
+  const agTimeout = REPOS.filter(r=>r.augur_status==='timed_out').length;
+  const agFailed  = REPOS.filter(r=>r.augur_status==='failed'||r.augur_status==='not_registered').length;
+  const withCommits = REPOS.filter(r=>(r.augur_metrics||{}).commit_count>0).length;
+  const withIssues = REPOS.filter(r=>(r.augur_metrics||{}).issues_total>0).length;
+  const withPRs = REPOS.filter(r=>(r.augur_metrics||{}).prs_total>0).length;
+  const withFiles = REPOS.filter(r=>(r.augur_metrics||{}).files_touched_count>0).length;
+
+  document.getElementById('healthCards').innerHTML = [
+    { label: 'SC Success', value: scSuccess, accent: 'var(--success)' },
+    { label: 'SC Partial', value: scPartial, accent: 'var(--warning)' },
+    { label: 'SC Failed',  value: scFailed,  accent: 'var(--danger)' },
+    { label: 'Augur Ready',  value: agReady,   accent: 'var(--success)' },
+    { label: 'Augur Partial', value: agPartial, accent: 'var(--warning)' },
+    { label: 'Augur Registered', value: agReg,  accent: 'var(--primary)' },
+    { label: 'Augur Timed Out', value: agTimeout, accent: 'var(--warning)' },
+    { label: 'Augur Failed', value: agFailed, accent: 'var(--danger)' },
+    { label: 'Repos with Commits', value: withCommits, accent: 'var(--primary)' },
+    { label: 'Repos with Issues', value: withIssues, accent: 'var(--primary)' },
+    { label: 'Repos with PRs', value: withPRs, accent: 'var(--primary)' },
+    { label: 'Repos with Files Data', value: withFiles, accent: 'var(--primary)' },
+  ].map(c => `<div class="card" style="border-left-color:${c.accent}"><div class="label">${c.label}</div><div class="value">${c.value}</div></div>`).join('');
+
+  // SC status doughnut
+  new Chart(document.getElementById('chartSCStatus'), {
+    type: 'doughnut',
+    data: { labels:['Success','Partial','Failed'], datasets:[{ data:[scSuccess,scPartial,scFailed], backgroundColor:['#16a34a','#d97706','#dc2626'] }] },
+    options: { plugins:{legend:{position:'bottom'}} }
+  });
+
+  // Augur status doughnut
+  new Chart(document.getElementById('chartAGStatus'), {
+    type: 'doughnut',
+    data: { labels:['Ready','Partial','Registered Only','Timed Out','Failed/Unreg'], datasets:[{ data:[agReady,agPartial,agReg-agReady-agPartial>0?agReg-agReady-agPartial:0,agTimeout,agFailed], backgroundColor:['#16a34a','#d97706','#3b82f6','#f59e0b','#dc2626'] }] },
+    options: { plugins:{legend:{position:'bottom'}} }
+  });
+
+  // Quality table
+  document.getElementById('qualityBody').innerHTML = REPOS.map(r => {
+    const scCls = r.scorecard_status==='success' ? 'status-ok' : r.scorecard_status==='partial_success' ? 'status-partial' : 'status-fail';
+    const agCls = r.augur_status==='ready' ? 'status-ok' : (r.augur_status==='partial'||r.augur_status==='registered') ? 'status-partial' : 'status-fail';
+    const overCls = r.overall_status==='complete' ? 'status-ok' : r.overall_status==='partial' ? 'status-partial' : 'status-fail';
+    const notes = [r.scorecard_error, r.augur_error].filter(Boolean).join(' | ') || '—';
+    return `<tr>
+      <td><a href="${esc(r.repo_url)}" target="_blank">${esc(r.owner)}/${esc(r.repo_name)}</a></td>
+      <td class="${scCls}">${statusBadge(r.scorecard_status)}</td>
+      <td>${r.scorecard_exit_code ?? '—'}</td>
+      <td>${r.scorecard_runtime ? r.scorecard_runtime.toFixed(1)+'s' : '—'}</td>
+      <td class="${agCls}">${statusBadge(r.augur_status)}</td>
+      <td>${r.augur_registered ? '✓' : '✗'}</td>
+      <td class="${overCls}">${statusBadge(r.overall_status)}</td>
+      <td style="font-size:.8rem;max-width:350px;overflow:hidden;text-overflow:ellipsis;">${esc(notes)}</td>
+    </tr>`;
+  }).join('');
+})();
+
+initChartActions();
+</script>
 </body>
 </html>

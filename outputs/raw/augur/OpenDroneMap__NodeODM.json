@@ -1,0 +1,5272 @@
+{
+  "repo_id": 25512,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "01001dc8-6300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 40.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 40.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0100052d-5300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 4.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 4.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010011ed-7500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 4.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 4.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0105d09a-f500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0101c21b-fd00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01028068-4700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010217c0-1d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0100848b-7600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01046784-5f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01002586-e800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01004e75-5000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01005a0d-0000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01005e68-7800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01006afb-2600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01008bd3-5b00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01009571-ca00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01009686-8700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010099b7-7600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0100badd-a000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0100c9ff-3000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0100d2e3-aa00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0100f796-8500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01010a7b-3d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010118d0-3800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01012b3b-0d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01013ade-db00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010144c9-1400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0101657a-1800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010169d3-4800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01017335-ac00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01017687-7500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01018c2e-d000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010190b6-1900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01019937-2e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0101b685-6600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0101badb-5f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0101e9a1-7300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0101f958-9e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010205cc-2d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01021913-9e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010230dd-2100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0102417e-cb00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0102ec74-0c00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0102fce0-ee00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010336f5-dd00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010394e2-2d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010396fe-5200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01039970-0e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0103a539-ab00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0103d2e2-9c00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0104380e-0100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01043a52-2400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01044b9c-5a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01044f4b-0600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0104ae68-5900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01070fda-e800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01072772-9000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01093262-4600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010a17af-4200-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010c9efb-cd00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01000058-d600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010d5342-2800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0100006f-0100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010001ca-db00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01000b74-7500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01000bc9-3d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01000d20-cb00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "0100228b-5600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010033c5-8b00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "01003f7b-2500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "user_id": "010044ac-4000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2017-03-27T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2017-04-05T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2017-04-19T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2017-04-26T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2017-05-01T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2017-05-16T00:00:00.000Z",
+        "new_contributors": 2,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2017-05-28T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2017-06-09T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2017-08-09T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2017-12-12T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2018-01-25T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2018-03-11T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2018-08-04T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2018-09-12T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2019-03-07T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2019-03-08T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2019-04-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2019-05-14T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2019-05-30T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2019-06-28T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2019-07-25T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2019-12-14T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2020-04-07T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2020-09-01T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2020-10-01T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2021-01-19T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2021-02-24T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2021-05-11T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2021-07-23T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2021-09-22T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2021-10-20T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2022-01-21T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2022-04-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2022-05-08T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2022-07-05T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2022-08-25T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2022-09-10T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2022-11-28T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2023-01-20T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2023-01-24T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2023-02-22T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2023-04-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2023-05-16T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2023-08-24T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2023-11-06T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2023-12-29T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2024-01-03T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2024-01-17T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2024-03-06T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2024-05-09T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2024-07-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2024-08-23T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2024-09-03T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2024-09-07T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2024-09-17T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2024-10-28T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-01-13T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-04-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-07-26T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-07-29T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-08-01T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-09-23T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-09-27T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-10-16T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-10-22T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-11-26T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-12-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2025-12-25T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2026-01-27T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      },
+      {
+        "date": "2026-02-24T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25512,
+        "repo_name": "NodeODM"
+      }
+    ],
+    "committers": [
+      {
+        "date": "2026-02-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2025-12-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-11-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-10-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-08-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-07-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2025-06-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2025-03-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-02-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-12-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2024-07-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2024-05-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2024-04-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-11-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-06-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2023-04-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-01-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2022-12-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-08-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2022-07-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-05-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-02-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2021-11-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-10-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2021-09-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2021-08-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-06-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-05-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2021-04-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-03-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2021-02-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2021-01-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-12-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2020-11-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-09-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2020-08-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2020-07-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-06-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2020-05-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-04-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-03-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-02-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2020-01-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2019-12-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-11-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-10-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-07-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-06-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-05-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2019-04-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-03-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-02-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2019-01-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2018-12-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2018-11-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2018-10-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2018-09-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2018-08-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2018-07-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2018-06-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2018-05-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2018-04-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2018-01-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2017-09-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2017-07-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2017-06-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2017-05-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2017-04-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2017-03-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2017-02-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2017-01-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2016-12-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2016-11-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2016-10-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2016-09-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2016-08-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2016-07-01T00:00:00.000Z",
+        "repo_name": "NodeODM",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      }
+    ],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-02T00:00:00.000Z",
+        "added": 555,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-04T00:00:00.000Z",
+        "added": 49,
+        "removed": 6
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-05T00:00:00.000Z",
+        "added": 9885,
+        "removed": 63
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-06T00:00:00.000Z",
+        "added": 306,
+        "removed": 13
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-07T00:00:00.000Z",
+        "added": 189,
+        "removed": 39
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-08T00:00:00.000Z",
+        "added": 215,
+        "removed": 40
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-09T00:00:00.000Z",
+        "added": 95,
+        "removed": 36
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-14T00:00:00.000Z",
+        "added": 127,
+        "removed": 26
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-15T00:00:00.000Z",
+        "added": 109,
+        "removed": 11
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-17T00:00:00.000Z",
+        "added": 55,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-18T00:00:00.000Z",
+        "added": 186,
+        "removed": 39
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-25T00:00:00.000Z",
+        "added": 1141,
+        "removed": 34
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-26T00:00:00.000Z",
+        "added": 106,
+        "removed": 1150
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-28T00:00:00.000Z",
+        "added": 299,
+        "removed": 73
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-29T00:00:00.000Z",
+        "added": 182,
+        "removed": 106
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-30T00:00:00.000Z",
+        "added": 99,
+        "removed": 38
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-07-31T00:00:00.000Z",
+        "added": 3,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-08-01T00:00:00.000Z",
+        "added": 12,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-08-02T00:00:00.000Z",
+        "added": 125,
+        "removed": 53
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-09-07T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-09-14T00:00:00.000Z",
+        "added": 114,
+        "removed": 68
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-09-16T00:00:00.000Z",
+        "added": 487,
+        "removed": 52
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-09-17T00:00:00.000Z",
+        "added": 3,
+        "removed": 5
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-09-19T00:00:00.000Z",
+        "added": 76,
+        "removed": 19
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-09-20T00:00:00.000Z",
+        "added": 27,
+        "removed": 5
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-09-21T00:00:00.000Z",
+        "added": 5,
+        "removed": 5
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-09-24T00:00:00.000Z",
+        "added": 240,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-09-25T00:00:00.000Z",
+        "added": 377,
+        "removed": 248
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-10-26T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-11-04T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-11-05T00:00:00.000Z",
+        "added": 114,
+        "removed": 29
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-11-07T00:00:00.000Z",
+        "added": 4,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-11-08T00:00:00.000Z",
+        "added": 126,
+        "removed": 24
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-11-09T00:00:00.000Z",
+        "added": 14,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-11-26T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-11-27T00:00:00.000Z",
+        "added": 5,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-11-30T00:00:00.000Z",
+        "added": 1,
+        "removed": 8
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2016-12-14T00:00:00.000Z",
+        "added": 14,
+        "removed": 5
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-01-18T00:00:00.000Z",
+        "added": 154,
+        "removed": 103
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-01-24T00:00:00.000Z",
+        "added": 40,
+        "removed": 13
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-02-01T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-02-12T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-02-18T00:00:00.000Z",
+        "added": 3,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-02-19T00:00:00.000Z",
+        "added": 8,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-02-25T00:00:00.000Z",
+        "added": 1,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-03-06T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-03-14T00:00:00.000Z",
+        "added": 51,
+        "removed": 49
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-03-15T00:00:00.000Z",
+        "added": 35,
+        "removed": 6
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-03-19T00:00:00.000Z",
+        "added": 18,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-03-29T00:00:00.000Z",
+        "added": 22,
+        "removed": 5
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-03-30T00:00:00.000Z",
+        "added": 28,
+        "removed": 12
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-04-07T00:00:00.000Z",
+        "added": 837,
+        "removed": 794
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-04-08T00:00:00.000Z",
+        "added": 414,
+        "removed": 615
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-04-11T00:00:00.000Z",
+        "added": 73,
+        "removed": 20
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-04-12T00:00:00.000Z",
+        "added": 13,
+        "removed": 22
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-04-13T00:00:00.000Z",
+        "added": 2,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-04-26T00:00:00.000Z",
+        "added": 5,
+        "removed": 8
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-04-27T00:00:00.000Z",
+        "added": 8,
+        "removed": 10
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-05-17T00:00:00.000Z",
+        "added": 88,
+        "removed": 126
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-05-21T00:00:00.000Z",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-06-26T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-06-30T00:00:00.000Z",
+        "added": 273,
+        "removed": 14
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-07-12T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-09-14T00:00:00.000Z",
+        "added": 7,
+        "removed": 6
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-09-15T00:00:00.000Z",
+        "added": 16,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-01-18T00:00:00.000Z",
+        "added": 4,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-01-22T00:00:00.000Z",
+        "added": 5,
+        "removed": 6
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-01-23T00:00:00.000Z",
+        "added": 38,
+        "removed": 16
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-01-24T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-01-26T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-04-08T00:00:00.000Z",
+        "added": 6,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-05-16T00:00:00.000Z",
+        "added": 7,
+        "removed": 5
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-05-17T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-06-22T00:00:00.000Z",
+        "added": 2,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-06-24T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-06-25T00:00:00.000Z",
+        "added": 181,
+        "removed": 18
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-06-27T00:00:00.000Z",
+        "added": 30,
+        "removed": 6
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-06-30T00:00:00.000Z",
+        "added": 5,
+        "removed": 8
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-07-15T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-08-04T00:00:00.000Z",
+        "added": 8,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-09-04T00:00:00.000Z",
+        "added": 13,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-09-05T00:00:00.000Z",
+        "added": 0,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-09-12T00:00:00.000Z",
+        "added": 10,
+        "removed": 8
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-10-23T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-10-25T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-06T00:00:00.000Z",
+        "added": 12,
+        "removed": 12
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-09T00:00:00.000Z",
+        "added": 76,
+        "removed": 22
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-13T00:00:00.000Z",
+        "added": 18,
+        "removed": 12
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-20T00:00:00.000Z",
+        "added": 10,
+        "removed": 19
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-21T00:00:00.000Z",
+        "added": 49,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-23T00:00:00.000Z",
+        "added": 178,
+        "removed": 74
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-24T00:00:00.000Z",
+        "added": 109,
+        "removed": 69
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-27T00:00:00.000Z",
+        "added": 5,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-28T00:00:00.000Z",
+        "added": 26,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-30T00:00:00.000Z",
+        "added": 22,
+        "removed": 19
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-02T00:00:00.000Z",
+        "added": 62,
+        "removed": 55
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-03T00:00:00.000Z",
+        "added": 33,
+        "removed": 35
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-04T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-05T00:00:00.000Z",
+        "added": 33,
+        "removed": 19
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-13T00:00:00.000Z",
+        "added": 3,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-14T00:00:00.000Z",
+        "added": 2436,
+        "removed": 18
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-15T00:00:00.000Z",
+        "added": 32,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-19T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-21T00:00:00.000Z",
+        "added": 167,
+        "removed": 17
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-22T00:00:00.000Z",
+        "added": 26,
+        "removed": 37
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-23T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-27T00:00:00.000Z",
+        "added": 31,
+        "removed": 40
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-28T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-01-03T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-01-04T00:00:00.000Z",
+        "added": 336,
+        "removed": 431
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-01-09T00:00:00.000Z",
+        "added": 6,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-01-10T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-01-12T00:00:00.000Z",
+        "added": 4,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-01-18T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-01-30T00:00:00.000Z",
+        "added": 251,
+        "removed": 45
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-01-31T00:00:00.000Z",
+        "added": 3564,
+        "removed": 3583
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-02-01T00:00:00.000Z",
+        "added": 251,
+        "removed": 67
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-02-04T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-02-13T00:00:00.000Z",
+        "added": 21,
+        "removed": 13
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-02-20T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-03-08T00:00:00.000Z",
+        "added": 3,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-04-10T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-01T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-05T00:00:00.000Z",
+        "added": 117,
+        "removed": 43
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-08T00:00:00.000Z",
+        "added": 1,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-09T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-13T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-17T00:00:00.000Z",
+        "added": 210,
+        "removed": 23
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-19T00:00:00.000Z",
+        "added": 89,
+        "removed": 220
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-20T00:00:00.000Z",
+        "added": 17,
+        "removed": 11
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-23T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-26T00:00:00.000Z",
+        "added": 4,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-27T00:00:00.000Z",
+        "added": 4,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-28T00:00:00.000Z",
+        "added": 6,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-04T00:00:00.000Z",
+        "added": 43,
+        "removed": 6
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-05T00:00:00.000Z",
+        "added": 3,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-08T00:00:00.000Z",
+        "added": 43,
+        "removed": 65
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-09T00:00:00.000Z",
+        "added": 3,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-19T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-25T00:00:00.000Z",
+        "added": 20,
+        "removed": 7
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-26T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-07-03T00:00:00.000Z",
+        "added": 1,
+        "removed": 9
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-07-15T00:00:00.000Z",
+        "added": 13,
+        "removed": 7
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-07-25T00:00:00.000Z",
+        "added": 16,
+        "removed": 6
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-10-01T00:00:00.000Z",
+        "added": 45,
+        "removed": 22
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-10-03T00:00:00.000Z",
+        "added": 20,
+        "removed": 12
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-10-14T00:00:00.000Z",
+        "added": 3,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-10-23T00:00:00.000Z",
+        "added": 12,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-10-29T00:00:00.000Z",
+        "added": 5,
+        "removed": 12
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-11-04T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-11-26T00:00:00.000Z",
+        "added": 6,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-12-02T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-01-05T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-01-19T00:00:00.000Z",
+        "added": 179,
+        "removed": 41
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-01-20T00:00:00.000Z",
+        "added": 4,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-01-21T00:00:00.000Z",
+        "added": 4,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-02-03T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-02-04T00:00:00.000Z",
+        "added": 5,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-02-05T00:00:00.000Z",
+        "added": 14,
+        "removed": 11
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-03-02T00:00:00.000Z",
+        "added": 24,
+        "removed": 19
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-03-30T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-04-04T00:00:00.000Z",
+        "added": 4,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-04-14T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-04-30T00:00:00.000Z",
+        "added": 0,
+        "removed": 8
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-05-15T00:00:00.000Z",
+        "added": 3,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-05-17T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-06-03T00:00:00.000Z",
+        "added": 4,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-07-24T00:00:00.000Z",
+        "added": 3,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-07-29T00:00:00.000Z",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-08-03T00:00:00.000Z",
+        "added": 37,
+        "removed": 18
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-08-26T00:00:00.000Z",
+        "added": 11,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-01T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-09T00:00:00.000Z",
+        "added": 54,
+        "removed": 3292
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-10T00:00:00.000Z",
+        "added": 96,
+        "removed": 55
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-14T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-16T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-17T00:00:00.000Z",
+        "added": 26,
+        "removed": 9
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-21T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-22T00:00:00.000Z",
+        "added": 3,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-11-02T00:00:00.000Z",
+        "added": 108,
+        "removed": 81
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-11-06T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-12-07T00:00:00.000Z",
+        "added": 127,
+        "removed": 260
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-12-08T00:00:00.000Z",
+        "added": 13,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-12-09T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-12-10T00:00:00.000Z",
+        "added": 12,
+        "removed": 11
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-12-16T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-12-18T00:00:00.000Z",
+        "added": 10,
+        "removed": 8
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-12-28T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-01-04T00:00:00.000Z",
+        "added": 18,
+        "removed": 11
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-01-15T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-02-05T00:00:00.000Z",
+        "added": 29,
+        "removed": 10
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-02-07T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-02-18T00:00:00.000Z",
+        "added": 68,
+        "removed": 8
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-02-24T00:00:00.000Z",
+        "added": 4,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-03-28T00:00:00.000Z",
+        "added": 16,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-04-05T00:00:00.000Z",
+        "added": 22,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-05-20T00:00:00.000Z",
+        "added": 37,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-05-23T00:00:00.000Z",
+        "added": 54,
+        "removed": 6
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-05-24T00:00:00.000Z",
+        "added": 363,
+        "removed": 159
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-05-25T00:00:00.000Z",
+        "added": 50,
+        "removed": 21
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-06-03T00:00:00.000Z",
+        "added": 13,
+        "removed": 5
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-06-04T00:00:00.000Z",
+        "added": 19,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-06-09T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-06-21T00:00:00.000Z",
+        "added": 22,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-06-22T00:00:00.000Z",
+        "added": 33,
+        "removed": 24
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-08-09T00:00:00.000Z",
+        "added": 86,
+        "removed": 5
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-09-03T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-09-04T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-09-07T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-09-08T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-09-26T00:00:00.000Z",
+        "added": 26,
+        "removed": 9
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-09-27T00:00:00.000Z",
+        "added": 29,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-09-28T00:00:00.000Z",
+        "added": 10,
+        "removed": 8
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-10-01T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-10-04T00:00:00.000Z",
+        "added": 2,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-10-05T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-10-06T00:00:00.000Z",
+        "added": 70,
+        "removed": 29
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-10-07T00:00:00.000Z",
+        "added": 16,
+        "removed": 19
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-10-08T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-10-27T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-11-05T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-02-03T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-02-04T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-02-17T00:00:00.000Z",
+        "added": 57,
+        "removed": 7
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-05-26T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-05-30T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-07-04T00:00:00.000Z",
+        "added": 11,
+        "removed": 14
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-08-01T00:00:00.000Z",
+        "added": 15,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-08-02T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-08-11T00:00:00.000Z",
+        "added": 3,
+        "removed": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-12-12T00:00:00.000Z",
+        "added": 8,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-12-14T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-12T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-13T00:00:00.000Z",
+        "added": 12,
+        "removed": 11
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-23T00:00:00.000Z",
+        "added": 33,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-24T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-25T00:00:00.000Z",
+        "added": 11,
+        "removed": 7
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-26T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-28T00:00:00.000Z",
+        "added": 15,
+        "removed": 28
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-04-03T00:00:00.000Z",
+        "added": 8,
+        "removed": 5
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-04-04T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-06-08T00:00:00.000Z",
+        "added": 82,
+        "removed": 82
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-11-01T00:00:00.000Z",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-11-08T00:00:00.000Z",
+        "added": 30,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-04-03T00:00:00.000Z",
+        "added": 5,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-05-15T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-05-16T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-05-17T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-05-18T00:00:00.000Z",
+        "added": 5,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-07-30T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-12-05T00:00:00.000Z",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-02-26T00:00:00.000Z",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-03-11T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-06-23T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-06-26T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-06-29T00:00:00.000Z",
+        "added": 14,
+        "removed": 23
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-07-17T00:00:00.000Z",
+        "added": 0,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-07-30T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-08-23T00:00:00.000Z",
+        "added": 20,
+        "removed": 19
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-10-11T00:00:00.000Z",
+        "added": 2,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-10-21T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-11-01T00:00:00.000Z",
+        "added": 60,
+        "removed": 26
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-11-15T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-12-15T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2026-02-20T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2026-02-25T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      }
+    ],
+    "issues_new": [
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-03-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-04-05T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-04-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-04-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-05-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-05-16T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-05-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-05-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-06-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-07-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-08-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-09-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-09-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-12-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-01-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-01-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-01-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-01-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-03-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-06-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-08-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-09-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-21T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-01-07T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-02-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-02-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-03-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-03-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-04-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-04-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-07-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-08-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-09-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-10-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-10-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-12-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-01-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-01-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-01-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-01-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-02-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-04-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-06-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-07-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-10-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-11-21T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-01-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-02-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-05-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-05-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-06-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-06-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-06-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-07-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-09-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-10-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-10-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-01-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-04-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-05-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-07-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-07-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-08-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-09-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-09-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-11-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-02-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-02-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-04-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-05-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-08-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-11-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-12-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-01-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-01-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-03-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-05-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-07-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-08-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-09-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-09-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-09-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-10-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-01-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-02-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-04-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-07-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-07-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-08-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-09-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-09-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-09-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-10-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-10-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-11-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-12-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-12-25T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2026-01-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2026-02-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2026-02-24T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-03-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-04-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-05-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-05-18T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-06-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-06-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-10-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2017-12-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-01-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-01-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-06-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-08-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-09-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-09-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-23T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-11-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2018-12-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-01-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-01-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-02-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-02-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-02-13T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-04-11T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-04-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-20T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-05-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-06-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-07-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-10-02T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-10-04T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2019-10-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-01-19T00:00:00.000Z",
+        "issues": 5
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-02-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-04-03T00:00:00.000Z",
+        "issues": 4
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-04-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-06-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-09-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-10-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2020-12-07T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-01-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-02-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-02-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-05-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-06-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-06-21T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-06-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-08-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-09-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2021-10-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-04-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-07-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-08-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-09-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2022-10-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-12T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-01-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-04-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-05-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-08-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-11-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2023-12-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-01-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-03-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-04-03T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-05-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-07-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-08-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-09-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-09-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2024-10-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-02-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-02-26T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-03-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-05-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-07-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-07-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-08-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-09-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-10-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-10-21T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-10-22T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-11-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-11-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-12-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2025-12-25T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2026-02-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "date": "2026-02-21T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_active": [],
+    "issue_backlog": [
+      {
+        "repo_name": "NodeODM",
+        "issue_backlog": 2
+      }
+    ],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "NodeODM",
+        "avg_issue_resolution_time": "128 days 27:28:30.504133"
+      }
+    ],
+    "pull_requests_new": [
+      {
+        "created_date": "2025-11-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-07-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-06-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-01-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-08-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-02-05T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-05-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-10-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-12-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-07-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-02-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-12-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-11-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-09-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-10-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-06-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-02-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-10-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-02-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-06-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-03-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-09-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-01-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-12-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-25T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2024-07-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-05-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2017-09-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-01-23T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2018-10-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-11-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-09-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-22T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-08-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-05-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-06-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-06-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-11-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-11-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-01-31T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2017-03-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-05-20T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-10-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-12-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-01-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-02-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-06-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-09-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-05-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-10-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-06-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-08-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-05-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-05-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-12-10T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-04-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-10-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2017-06-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2017-04-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2017-05-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-12-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-09-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-01-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-07-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-12-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-28T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2019-11-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-10-06T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2020-09-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-12-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-12-07T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-09-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-06-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-06-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-01-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-06-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2017-06-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-08-26T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2019-02-13T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2019-06-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2017-04-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-11-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-02-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-06-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-09-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-10-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-06-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-04-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-09-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-06-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-12-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-05-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-10-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-09-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-10-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2019-06-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-04-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2017-04-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-02-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-12-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-09-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-11-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-09-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-12-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-07-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-09-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2020-07-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-03-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-06-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-12-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2017-09-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-04-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-02-18T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-08-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2018-01-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-06-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2021-09-26T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [
+      {
+        "commit_date": "2016-07-02T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2016-07-28T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2016-07-31T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2017-01-24T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2017-04-07T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2017-06-26T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2018-06-24T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2018-09-04T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2018-11-06T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2019-05-01T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2020-01-05T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2020-06-03T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2020-09-01T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2020-09-17T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2020-12-09T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2021-02-18T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2021-02-24T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2021-05-20T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2021-09-27T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2022-02-03T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2022-02-17T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2022-08-02T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2023-01-23T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2023-04-03T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2024-04-03T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2024-05-16T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2024-05-18T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2024-07-30T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2024-12-05T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2025-06-23T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      },
+      {
+        "commit_date": "2025-06-29T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "NodeODM"
+      }
+    ],
+    "pr_acceptance_rate": [],
+    "releases": [
+      {
+        "repo_name": "NodeODM",
+        "release_id": "RE_kwDOA9Xvt84JSUkz                                                                                                                                                                                                                                             ",
+        "release_name": "v2.2.3",
+        "release_description": "## What's Changed\r\n* Support for not specifying an S3 object ACL. by @rrowlands in https://github.com/OpenDroneMap/NodeODM/pull/201\r\n* Fix License notices by @pierotofy in https://github.com/OpenDroneMap/NodeODM/pull/204\r\n* Include cutline and DEM euclidean distance outputs by @pierotofy in https://github.com/OpenDroneMap/NodeODM/pull/206\r\n* add howto on image builds by @smathermather in https://github.com/OpenDroneMap/NodeODM/pull/208\r\n* Fix arguments to setTimeout for reattempting moving temp task files by @Ooglely in https://github.com/OpenDroneMap/NodeODM/pull/215\r\n\r\n## New Contributors\r\n* @rrowlands made their first contribution in https://github.com/OpenDroneMap/NodeODM/pull/201\r\n* @Ooglely made their first contribution in https://github.com/OpenDroneMap/NodeODM/pull/215\r\n\r\n**Full Changelog**: https://github.com/OpenDroneMap/NodeODM/compare/v2.2.2...v2.2.3",
+        "release_author": "Stephen Mather_nocompany",
+        "release_created_at": "2024-05-15T04:33:57.000",
+        "release_published_at": "2024-05-15T03:19:07.000",
+        "release_updated_at": "2024-05-15T04:36:08.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v2.2.3",
+        "release_url": "https://github.com/OpenDroneMap/NodeODM/releases/tag/v2.2.3",
+        "count": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "release_id": "RE_kwDOA9Xvt84FaAtZ                                                                                                                                                                                                                                             ",
+        "release_name": "2.2.2",
+        "release_description": "## What's Changed\r\n* Create initial Apptainer definition file and some initial instructions on running Apptainer on HPC by @nghi01 in https://github.com/OpenDroneMap/NodeODM/pull/191\r\n* Rename singularity.def to apptainer.def by @smathermather in https://github.com/OpenDroneMap/NodeODM/pull/193\r\n* Fix confusing order to readme on rootless by @smathermather in https://github.com/OpenDroneMap/NodeODM/pull/194\r\n* add directions on building apptainer.def by @smathermather in https://github.com/OpenDroneMap/NodeODM/pull/195\r\n* Add precautions when building apptainer container by @nghi01 in https://github.com/OpenDroneMap/NodeODM/pull/196\r\n* Automatically set --gltf when processing with WebODM by @pierotofy in https://github.com/OpenDroneMap/NodeODM/pull/197\r\n* Add glTF test files by @pierotofy in https://github.com/OpenDroneMap/NodeODM/pull/198\r\n\r\n## New Contributors\r\n* @nghi01 made their first contribution in https://github.com/OpenDroneMap/NodeODM/pull/191\r\n* @smathermather made their first contribution in https://github.com/OpenDroneMap/NodeODM/pull/193\r\n\r\n**Full Changelog**: https://github.com/OpenDroneMap/NodeODM/compare/v2.2.1...v2.2.2",
+        "release_author": "Piero Toffanin_UAV4GEO",
+        "release_created_at": "2023-01-28T16:29:02.000",
+        "release_published_at": "2023-01-30T15:41:56.000",
+        "release_updated_at": "2023-01-30T15:44:59.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v2.2.2",
+        "release_url": "https://github.com/OpenDroneMap/NodeODM/releases/tag/v2.2.2",
+        "count": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "release_id": "RE_kwDOA9Xvt84FSp2R                                                                                                                                                                                                                                             ",
+        "release_name": "2.2.1",
+        "release_description": "## What's Changed\r\n* `noRetry` in response body to stop retrying in case of non-recoverable failure. by @theoway in https://github.com/OpenDroneMap/NodeODM/pull/178\r\n* Update Dockerfile.gpu and provide docker-compose.yml examples by @mhupfauer in https://github.com/OpenDroneMap/NodeODM/pull/179\r\n* Import missing logger library by @Timic3 in https://github.com/OpenDroneMap/NodeODM/pull/184\r\n* Support for alignment files by @pierotofy in https://github.com/OpenDroneMap/NodeODM/pull/189\r\n\r\n## New Contributors\r\n* @theoway made their first contribution in https://github.com/OpenDroneMap/NodeODM/pull/178\r\n* @mhupfauer made their first contribution in https://github.com/OpenDroneMap/NodeODM/pull/179\r\n* @Timic3 made their first contribution in https://github.com/OpenDroneMap/NodeODM/pull/184\r\n\r\n**Full Changelog**: https://github.com/OpenDroneMap/NodeODM/compare/v2.2.0...v2.2.1",
+        "release_author": "Piero Toffanin_UAV4GEO",
+        "release_created_at": "2023-01-13T15:52:57.000",
+        "release_published_at": "2023-01-12T19:52:07.000",
+        "release_updated_at": "2023-01-13T15:55:51.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v2.2.1",
+        "release_url": "https://github.com/OpenDroneMap/NodeODM/releases/tag/v2.2.1",
+        "count": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "release_id": "RE_kwDOA9Xvt84DJ7Tb                                                                                                                                                                                                                                             ",
+        "release_name": "2.2.0",
+        "release_description": " - Include KMZ outputs\r\n - GPU improvements\r\n - Minor fixes",
+        "release_author": "Piero Toffanin_UAV4GEO",
+        "release_created_at": "2021-11-05T13:58:47.000",
+        "release_published_at": "2021-11-08T16:02:49.000",
+        "release_updated_at": "2021-11-08T16:05:37.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v2.2.0",
+        "release_url": "https://github.com/OpenDroneMap/NodeODM/releases/tag/v2.2.0",
+        "count": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "release_id": "MDc6UmVsZWFzZTQ1MDM5MDU5                                                                                                                                                                                                                                        ",
+        "release_name": "2.1.9",
+        "release_description": " - Bug fixes",
+        "release_author": "Piero Toffanin_UAV4GEO",
+        "release_created_at": "2021-06-22T15:31:52.000",
+        "release_published_at": "2021-06-22T15:38:01.000",
+        "release_updated_at": "2021-06-22T15:38:01.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v2.1.9",
+        "release_url": "https://github.com/OpenDroneMap/NodeODM/releases/tag/v2.1.9",
+        "count": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "release_id": "MDc6UmVsZWFzZTQ0MTUwMjkw                                                                                                                                                                                                                                        ",
+        "release_name": "2.1.7",
+        "release_description": "- [x] Auto `--cog` support\r\n- [x] Handle `--copy-to` params",
+        "release_author": "Piero Toffanin_UAV4GEO",
+        "release_created_at": "2021-06-04T19:36:27.000",
+        "release_published_at": "2021-06-05T15:28:09.000",
+        "release_updated_at": "2021-06-05T15:28:09.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v2.1.7",
+        "release_url": "https://github.com/OpenDroneMap/NodeODM/releases/tag/v2.1.7",
+        "count": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "release_id": "MDc6UmVsZWFzZTQzNzE2OTQw                                                                                                                                                                                                                                        ",
+        "release_name": "2.1.5",
+        "release_description": " - [x] Native NodeODM on Windows\r\n - [x] Async task initialization support",
+        "release_author": "Piero Toffanin_UAV4GEO",
+        "release_created_at": "2021-05-25T15:44:00.000",
+        "release_published_at": "2021-05-27T18:02:31.000",
+        "release_updated_at": "2021-05-27T18:02:31.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v2.1.5",
+        "release_url": "https://github.com/OpenDroneMap/NodeODM/releases/tag/v2.1.5",
+        "count": 1
+      },
+      {
+        "repo_name": "NodeODM",
+        "release_id": "MDc6UmVsZWFzZTM0OTM0Njc3                                                                                                                                                                                                                                        ",
+        "release_name": "2.1.0",
+        "release_description": "",
+        "release_author": "Piero Toffanin_UAV4GEO",
+        "release_created_at": "2020-12-07T14:25:29.000",
+        "release_published_at": "2020-12-07T15:32:49.000",
+        "release_updated_at": "2020-12-07T15:32:49.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "v2.1.0",
+        "release_url": "https://github.com/OpenDroneMap/NodeODM/releases/tag/v2.1.0",
+        "count": 1
+      }
+    ],
+    "stars_count": [
+      {
+        "repo_name": "NodeODM",
+        "stars": 274
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "NodeODM",
+        "forks": 170
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "NodeODM",
+        "watchers": 20
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "NodeODM",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 4,
+        "commit_count": 29.0
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 1333,
+      "db_issue_rows": 123,
+      "db_pull_request_rows": 132,
+      "db_pull_request_event_rows": 0,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 84,
+      "db_pull_request_label_rows": 44,
+      "db_release_rows": 8,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 71,
+    "new_contributor_count": 70,
+    "committer_count": 77,
+    "lines_added": 555,
+    "lines_removed": 2,
+    "issues_opened": 116,
+    "issues_closed": 95,
+    "issues_active": 0,
+    "issue_backlog": 2,
+    "prs_opened": 121,
+    "release_count": 8,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 4,
+        "commit_count": 29.0
+      }
+    ],
+    "commit_count": 29.0,
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 17,
+    "db_commit_rows": 1333,
+    "db_issue_rows": 123,
+    "db_pull_request_rows": 132,
+    "db_pull_request_event_rows": 0,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 84,
+    "db_pull_request_label_rows": 44,
+    "db_release_rows": 8,
+    "db_repo_stat_rows": 0
+  }
+}

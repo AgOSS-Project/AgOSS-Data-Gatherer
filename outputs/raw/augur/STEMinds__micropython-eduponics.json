@@ -1,0 +1,366 @@
+{
+  "repo_id": 25518,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "010004f8-2600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25518,
+        "repo_name": "micropython-eduponics"
+      },
+      {
+        "user_id": "0100291e-a700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25518,
+        "repo_name": "micropython-eduponics"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2021-07-20T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25518,
+        "repo_name": "micropython-eduponics"
+      },
+      {
+        "date": "2023-07-02T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25518,
+        "repo_name": "micropython-eduponics"
+      }
+    ],
+    "committers": [],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [],
+    "issues_new": [
+      {
+        "repo_name": "micropython-eduponics",
+        "date": "2021-07-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "date": "2021-07-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "date": "2023-07-02T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "micropython-eduponics",
+        "date": "2021-07-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "date": "2022-09-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "date": "2023-09-15T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_active": [],
+    "issue_backlog": [],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "micropython-eduponics",
+        "avg_issue_resolution_time": "160 days 23:49:34.333333"
+      }
+    ],
+    "pull_requests_new": [
+      {
+        "created_date": "2021-07-28T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [],
+    "pr_acceptance_rate": [],
+    "releases": [
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "RE_kwDOFFR64c4GCQSN                                                                                                                                                                                                                                             ",
+        "release_name": "v2.0.2 release",
+        "release_description": "Minor fixes. Fixed wrong i2c address on sht30 sensor.",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2023-04-28T10:28:57.000",
+        "release_published_at": "2023-04-28T10:30:36.000",
+        "release_updated_at": "2023-04-28T10:30:36.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "2.0.2",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/2.0.2",
+        "count": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "RE_kwDOFFR64c4GCOPg                                                                                                                                                                                                                                             ",
+        "release_name": "v2.0.1 release",
+        "release_description": "Minor update due to bug in upip, no differences between this version and 2.0.0.",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2023-04-28T09:42:25.000",
+        "release_published_at": "2023-04-28T09:43:14.000",
+        "release_updated_at": "2023-04-28T09:43:14.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "2.0.1",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/2.0.1",
+        "count": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "RE_kwDOFFR64c4FwBkS                                                                                                                                                                                                                                             ",
+        "release_name": "Eduponics v2.0",
+        "release_description": "Supports Eduponics v2.0 hardware (and v1.0 as well)\r\n\r\n## What's Changed\r\n* Fixes #2 by @guysoft in https://github.com/STEMinds/micropython-eduponics/pull/3\r\n\r\n## New Contributors\r\n* @guysoft made their first contribution in https://github.com/STEMinds/micropython-eduponics/pull/3\r\n\r\n**Full Changelog**: https://github.com/STEMinds/micropython-eduponics/compare/1.0.8...2.0.0",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2022-09-15T21:25:18.000",
+        "release_published_at": "2023-03-22T11:23:28.000",
+        "release_updated_at": "2023-03-22T11:23:46.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "2.0.0",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/2.0.0",
+        "count": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "MDc6UmVsZWFzZTQ2MjMyODUy                                                                                                                                                                                                                                        ",
+        "release_name": "Build 1.0.8",
+        "release_description": "- [x] Fixed MQTT brkoen server\r\n- [x] Fixed wrong address no extension board\r\n- [x] Fixed wrong spelling of library names\r\n- [x] Fixed WiFi stuck loop caused by trying to connect without timeout",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2021-07-15T06:24:03.000",
+        "release_published_at": "2021-07-15T06:51:39.000",
+        "release_updated_at": "2021-07-15T06:51:39.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "1.0.8",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/1.0.8",
+        "count": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "MDc6UmVsZWFzZTM5OTg1MDIy                                                                                                                                                                                                                                        ",
+        "release_name": "Build 1.0.7",
+        "release_description": "Fixed MOSFET direction\r\nAdded extra classes",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2021-03-18T06:38:28.000",
+        "release_published_at": "2021-03-18T06:49:06.000",
+        "release_updated_at": "2021-03-18T06:49:06.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "1.0.7",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/1.0.7",
+        "count": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "MDc6UmVsZWFzZTM4NDY4OTk2                                                                                                                                                                                                                                        ",
+        "release_name": "Build 1.0.6",
+        "release_description": "* Fixed ADS MOSFET syntax issue ...",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2021-02-23T07:29:41.000",
+        "release_published_at": "2021-02-23T07:30:25.000",
+        "release_updated_at": "2021-02-23T07:30:25.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "1.0.6",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/1.0.6",
+        "count": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "MDc6UmVsZWFzZTM4NDY4Nzk0                                                                                                                                                                                                                                        ",
+        "release_name": "Build 1.0.5",
+        "release_description": "* Fixed issue in TDS sensor related to ulab API",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2021-02-23T07:24:51.000",
+        "release_published_at": "2021-02-23T07:25:42.000",
+        "release_updated_at": "2021-02-23T07:25:42.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "1.0.5",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/1.0.5",
+        "count": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "MDc6UmVsZWFzZTM4NDY4NTg4                                                                                                                                                                                                                                        ",
+        "release_name": "",
+        "release_description": "* Bug fixes to ADS",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2021-02-23T07:17:32.000",
+        "release_published_at": "2021-02-23T07:17:59.000",
+        "release_updated_at": "2021-02-23T07:17:59.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "1.0.4",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/1.0.4",
+        "count": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "MDc6UmVsZWFzZTM4NDY4NDY4                                                                                                                                                                                                                                        ",
+        "release_name": "",
+        "release_description": "Bug fixes with MCP and ADS",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2021-02-23T07:13:28.000",
+        "release_published_at": "2021-02-23T07:14:02.000",
+        "release_updated_at": "2021-02-23T07:14:02.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "1.0.3",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/1.0.3",
+        "count": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "MDc6UmVsZWFzZTM4NDY4MjY2                                                                                                                                                                                                                                        ",
+        "release_name": "Build 1.0.2",
+        "release_description": "* Bug fixes with MCP and ADS",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2021-02-23T07:06:29.000",
+        "release_published_at": "2021-02-23T07:07:37.000",
+        "release_updated_at": "2021-02-23T07:07:37.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "1.0.2",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/1.0.2",
+        "count": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "MDc6UmVsZWFzZTM4NDY3ODc3                                                                                                                                                                                                                                        ",
+        "release_name": "Build 1.0.1",
+        "release_description": "* Added TDS sensor\r\n* Added MCP activation\r\n",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2021-02-23T06:51:28.000",
+        "release_published_at": "2021-02-23T06:52:45.000",
+        "release_updated_at": "2021-02-23T06:52:45.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "1.0.1",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/1.0.1",
+        "count": 1
+      },
+      {
+        "repo_name": "micropython-eduponics",
+        "release_id": "MDc6UmVsZWFzZTM4NDA0OTUz                                                                                                                                                                                                                                        ",
+        "release_name": "Build 1.0.0",
+        "release_description": "initial release with all the required drivers for eduponics-mini to work.",
+        "release_author": "Roni G_Founder of @OmnIoT @STEMinds @Agrinovo",
+        "release_created_at": "2021-02-22T04:37:11.000",
+        "release_published_at": "2021-02-22T04:38:10.000",
+        "release_updated_at": "2021-02-22T04:38:10.000",
+        "release_is_draft": false,
+        "release_is_prerelease": false,
+        "release_tag_name": "1.0.0",
+        "release_url": "https://github.com/STEMinds/micropython-eduponics/releases/tag/1.0.0",
+        "count": 1
+      }
+    ],
+    "stars_count": [
+      {
+        "repo_name": "micropython-eduponics",
+        "stars": 10
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "micropython-eduponics",
+        "forks": 3
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "micropython-eduponics",
+        "watchers": 5
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "micropython-eduponics",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 0,
+      "db_issue_rows": 3,
+      "db_pull_request_rows": 1,
+      "db_pull_request_event_rows": 0,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 12,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 2,
+    "new_contributor_count": 2,
+    "committer_count": 0,
+    "issues_opened": 3,
+    "issues_closed": 3,
+    "issues_active": 0,
+    "prs_opened": 1,
+    "release_count": 12,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 13,
+    "db_commit_rows": 0,
+    "db_issue_rows": 3,
+    "db_pull_request_rows": 1,
+    "db_pull_request_event_rows": 0,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 12,
+    "db_repo_stat_rows": 0
+  }
+}

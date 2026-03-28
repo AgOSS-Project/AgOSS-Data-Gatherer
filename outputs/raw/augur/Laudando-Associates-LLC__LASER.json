@@ -1,0 +1,290 @@
+{
+  "repo_id": 25494,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "0100012c-9f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 1.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25494,
+        "repo_name": "LASER"
+      },
+      {
+        "user_id": "01006010-1000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25494,
+        "repo_name": "LASER"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2025-06-30T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25494,
+        "repo_name": "LASER"
+      },
+      {
+        "date": "2025-09-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25494,
+        "repo_name": "LASER"
+      }
+    ],
+    "committers": [
+      {
+        "date": "2025-08-01T00:00:00.000Z",
+        "repo_name": "LASER",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-07-01T00:00:00.000Z",
+        "repo_name": "LASER",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-06-01T00:00:00.000Z",
+        "repo_name": "LASER",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-05-01T00:00:00.000Z",
+        "repo_name": "LASER",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-04-01T00:00:00.000Z",
+        "repo_name": "LASER",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      }
+    ],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [
+      {
+        "repo_name": "LASER",
+        "date": "2025-04-10T00:00:00.000Z",
+        "added": 42,
+        "removed": 21
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-04-11T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-05-03T00:00:00.000Z",
+        "added": 892,
+        "removed": 18
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-05-09T00:00:00.000Z",
+        "added": 22,
+        "removed": 7
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-05-14T00:00:00.000Z",
+        "added": 831,
+        "removed": 22
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-05-15T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-05-18T00:00:00.000Z",
+        "added": 832,
+        "removed": 400
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-05-19T00:00:00.000Z",
+        "added": 9,
+        "removed": 1
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-06-14T00:00:00.000Z",
+        "added": 0,
+        "removed": 1
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-06-25T00:00:00.000Z",
+        "added": 0,
+        "removed": 5
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-06-30T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-07-01T00:00:00.000Z",
+        "added": 513716,
+        "removed": 3798
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-08-21T00:00:00.000Z",
+        "added": 639,
+        "removed": 2149
+      }
+    ],
+    "issues_new": [
+      {
+        "repo_name": "LASER",
+        "date": "2025-06-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "LASER",
+        "date": "2025-09-15T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [],
+    "issues_active": [
+      {
+        "repo_name": "LASER",
+        "date": "2025-09-15T00:00:00.000",
+        "issues": 1
+      }
+    ],
+    "issue_backlog": [
+      {
+        "repo_name": "LASER",
+        "issue_backlog": 2
+      }
+    ],
+    "avg_issue_resolution_time": [],
+    "pull_requests_new": [],
+    "pr_merge_contributor_new": [
+      {
+        "commit_date": "2025-04-10T00:00:00.000Z",
+        "count": 2,
+        "repo_name": "LASER"
+      },
+      {
+        "commit_date": "2025-08-21T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "LASER"
+      }
+    ],
+    "pr_acceptance_rate": [],
+    "releases": [],
+    "stars_count": [
+      {
+        "repo_name": "LASER",
+        "stars": 60
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "LASER",
+        "forks": 30
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "LASER",
+        "watchers": 13
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "LASER",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 4,
+        "commit_count": 1801.0
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 1801,
+      "db_issue_rows": 2,
+      "db_pull_request_rows": 0,
+      "db_pull_request_event_rows": 0,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 1,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 0,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 2,
+    "new_contributor_count": 2,
+    "committer_count": 5,
+    "lines_added": 42,
+    "lines_removed": 21,
+    "issues_opened": 2,
+    "issues_closed": 0,
+    "issues_active": 1,
+    "issue_backlog": 2,
+    "prs_opened": 0,
+    "release_count": 0,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 4,
+        "commit_count": 1801.0
+      }
+    ],
+    "commit_count": 1801.0,
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 14,
+    "db_commit_rows": 1801,
+    "db_issue_rows": 2,
+    "db_pull_request_rows": 0,
+    "db_pull_request_event_rows": 0,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 1,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 0,
+    "db_repo_stat_rows": 0
+  }
+}
