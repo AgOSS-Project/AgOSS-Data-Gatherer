@@ -1,12 +1,12 @@
 [
   {
-    "display_name": "FarmVibes",
+    "display_name": "farmvibes-ai",
     "repo_url": "https://github.com/microsoft/farmvibes-ai",
     "owner": "microsoft",
     "repo_name": "farmvibes-ai",
     "category": "Cloud-hosted backends and dashboard",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.7,
@@ -145,9 +145,9 @@
       "db_release_rows": 0,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
@@ -156,8 +156,8 @@
     "owner": "AgOpenGPS-Official",
     "repo_name": "AgOpenGPS",
     "category": "Field-Deployed Sensor",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 5.5,
@@ -296,9 +296,9 @@
       "db_release_rows": 100,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
@@ -307,8 +307,8 @@
     "owner": "geezacoleman",
     "repo_name": "OpenWeedLocator",
     "category": "Field-Deployed Sensor",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.7,
@@ -447,19 +447,19 @@
       "db_release_rows": 1,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "InsectDetect",
+    "display_name": "insect-detect",
     "repo_url": "https://github.com/maxsitt/insect-detect",
     "owner": "maxsitt",
     "repo_name": "insect-detect",
     "category": "Field-Deployed Sensor",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.4,
@@ -597,19 +597,19 @@
       "db_release_rows": 9,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "StickyPi Device",
+    "display_name": "sticky-pi-device",
     "repo_url": "https://github.com/sticky-pi/sticky-pi-device",
     "owner": "sticky-pi",
     "repo_name": "sticky-pi-device",
     "category": "Field-Deployed Sensor",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.2,
@@ -747,19 +747,19 @@
       "db_release_rows": 0,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "StickyPi API",
+    "display_name": "sticky-pi-api",
     "repo_url": "https://github.com/sticky-pi/sticky-pi-api",
     "owner": "sticky-pi",
     "repo_name": "sticky-pi-api",
     "category": "Cloud-hosted backends and dashboard",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.2,
@@ -897,19 +897,169 @@
       "db_release_rows": 0,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "Water Sampler",
+    "display_name": "sticky-pi-ml",
+    "repo_url": "https://github.com/sticky-pi/sticky-pi-ml",
+    "owner": "sticky-pi",
+    "repo_name": "sticky-pi-ml",
+    "category": "Edge and Gateway software",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
+    "scorecard_collected": true,
+    "scorecard_error": "",
+    "scorecard_overall": 2.4,
+    "scorecard_checks": {
+      "Binary-Artifacts": {
+        "score": 10,
+        "reason": "no binaries found in the repo",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#binary-artifacts"
+      },
+      "Branch-Protection": {
+        "score": 0,
+        "reason": "branch protection not enabled on development/release branches",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#branch-protection"
+      },
+      "CI-Tests": {
+        "score": -1,
+        "reason": "no pull request found",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#ci-tests"
+      },
+      "CII-Best-Practices": {
+        "score": 0,
+        "reason": "no effort to earn an OpenSSF best practices badge detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#cii-best-practices"
+      },
+      "Code-Review": {
+        "score": 0,
+        "reason": "Found 0/30 approved changesets -- score normalized to 0",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#code-review"
+      },
+      "Contributors": {
+        "score": 6,
+        "reason": "project has 2 contributing companies or organizations -- score normalized to 6",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#contributors"
+      },
+      "Dangerous-Workflow": {
+        "score": -1,
+        "reason": "no workflows found",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dangerous-workflow"
+      },
+      "Dependency-Update-Tool": {
+        "score": 0,
+        "reason": "no update tool detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dependency-update-tool"
+      },
+      "Fuzzing": {
+        "score": 0,
+        "reason": "project is not fuzzed",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#fuzzing"
+      },
+      "License": {
+        "score": 0,
+        "reason": "license file not detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#license"
+      },
+      "Maintained": {
+        "score": 0,
+        "reason": "0 commit(s) and 0 issue activity found in the last 90 days -- score normalized to 0",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#maintained"
+      },
+      "Packaging": {
+        "score": -1,
+        "reason": "packaging workflow not detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#packaging"
+      },
+      "Pinned-Dependencies": {
+        "score": -1,
+        "reason": "no dependencies found",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#pinned-dependencies"
+      },
+      "SAST": {
+        "score": 0,
+        "reason": "no SAST tool detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#sast"
+      },
+      "Security-Policy": {
+        "score": 0,
+        "reason": "security policy file not detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#security-policy"
+      },
+      "Signed-Releases": {
+        "score": -1,
+        "reason": "no releases found",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#signed-releases"
+      },
+      "Token-Permissions": {
+        "score": -1,
+        "reason": "No tokens found",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#token-permissions"
+      },
+      "Vulnerabilities": {
+        "score": 10,
+        "reason": "0 existing vulnerabilities detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#vulnerabilities"
+      }
+    },
+    "scorecard_status": "success",
+    "scorecard_exit_code": null,
+    "scorecard_runtime": 0.0,
+    "augur_collected": true,
+    "augur_error": "",
+    "augur_repo_id": 25491,
+    "augur_metrics": {
+      "contributor_count": 2,
+      "new_contributor_count": 1,
+      "committer_count": 13,
+      "lines_added": 107,
+      "lines_removed": 2,
+      "issues_opened": 1,
+      "issues_closed": 0,
+      "issues_active": 0,
+      "issue_backlog": 1,
+      "prs_opened": 6,
+      "release_count": 0,
+      "aggregate_summary": [
+        {
+          "watcher_count": null,
+          "stars_count": null,
+          "fork_count": null,
+          "merged_count": 0,
+          "committer_count": 0,
+          "commit_count": null
+        }
+      ],
+      "prs_merged": 0,
+      "augur_endpoint_count": 23,
+      "augur_nonempty_endpoint_count": 14,
+      "db_commit_rows": 529,
+      "db_issue_rows": 1,
+      "db_pull_request_rows": 9,
+      "db_pull_request_event_rows": 35,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 0,
+      "db_repo_stat_rows": 0
+    },
+    "augur_status": "ready",
+    "augur_registered": true,
+    "augur_ready": true,
+    "overall_status": "complete"
+  },
+  {
+    "display_name": "low-cost-iot-water-sampler",
     "repo_url": "https://github.com/CSU-Agricultural-Water-Quality-Program/low-cost-iot-water-sampler",
     "owner": "CSU-Agricultural-Water-Quality-Program",
     "repo_name": "low-cost-iot-water-sampler",
     "category": "Field-Deployed Sensor",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.4,
@@ -1050,19 +1200,19 @@
       "db_release_rows": 4,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "MothBox",
+    "display_name": "Mothbox",
     "repo_url": "https://github.com/Digital-Naturalism-Laboratories/Mothbox",
     "owner": "Digital-Naturalism-Laboratories",
     "repo_name": "Mothbox",
     "category": "Field-Deployed Sensor",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.3,
@@ -1201,19 +1351,19 @@
       "db_release_rows": 0,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "Laser Weeder",
+    "display_name": "LASER",
     "repo_url": "https://github.com/Laudando-Associates-LLC/LASER",
     "owner": "Laudando-Associates-LLC",
     "repo_name": "LASER",
     "category": "Field-Deployed Sensor",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.6,
@@ -1316,34 +1466,8 @@
     "augur_error": "",
     "augur_repo_id": 25494,
     "augur_metrics": {
-      "contributor_count": 2,
-      "new_contributor_count": 2,
-      "committer_count": 5,
-      "lines_added": 42,
-      "lines_removed": 21,
-      "issues_opened": 2,
-      "issues_closed": 0,
-      "issues_active": 1,
-      "issue_backlog": 2,
-      "prs_opened": 0,
-      "release_count": 0,
-      "aggregate_summary": [
-        {
-          "watcher_count": 0,
-          "stars_count": 0,
-          "fork_count": 0,
-          "merged_count": 0,
-          "committer_count": 4,
-          "commit_count": 1801.0
-        }
-      ],
-      "commit_count": 1801.0,
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "prs_merged": 0,
-      "augur_endpoint_count": 23,
-      "augur_nonempty_endpoint_count": 14,
+      "augur_endpoint_count": 1,
+      "augur_nonempty_endpoint_count": 1,
       "db_commit_rows": 1801,
       "db_issue_rows": 2,
       "db_pull_request_rows": 0,
@@ -1355,19 +1479,19 @@
       "db_release_rows": 0,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "FarmBot WebApp",
+    "display_name": "Farmbot-Web-App",
     "repo_url": "https://github.com/FarmBot/Farmbot-Web-App",
     "owner": "FarmBot",
     "repo_name": "Farmbot-Web-App",
     "category": "Cloud-hosted backends and dashboard",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.5,
@@ -1470,31 +1594,8 @@
     "augur_error": "",
     "augur_repo_id": 25495,
     "augur_metrics": {
-      "contributor_count": 80,
-      "new_contributor_count": 77,
-      "committer_count": 0,
-      "issues_opened": 267,
-      "issues_closed": 269,
-      "issues_active": 0,
-      "issue_backlog": 38,
-      "prs_opened": 1194,
-      "release_count": 100,
-      "aggregate_summary": [
-        {
-          "watcher_count": 0,
-          "stars_count": 0,
-          "fork_count": 0,
-          "merged_count": 0,
-          "committer_count": 0,
-          "commit_count": null
-        }
-      ],
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "prs_merged": 0,
-      "augur_endpoint_count": 23,
-      "augur_nonempty_endpoint_count": 14,
+      "augur_endpoint_count": 1,
+      "augur_nonempty_endpoint_count": 1,
       "db_commit_rows": 0,
       "db_issue_rows": 488,
       "db_pull_request_rows": 2015,
@@ -1506,19 +1607,19 @@
       "db_release_rows": 100,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "FarmBot Firmware",
+    "display_name": "farmbot-arduino-firmware",
     "repo_url": "https://github.com/FarmBot/farmbot-arduino-firmware",
     "owner": "FarmBot",
     "repo_name": "farmbot-arduino-firmware",
     "category": "Embedded OS substrate",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.9,
@@ -1621,31 +1722,8 @@
     "augur_error": "",
     "augur_repo_id": 25496,
     "augur_metrics": {
-      "contributor_count": 23,
-      "new_contributor_count": 19,
-      "committer_count": 0,
-      "issues_opened": 36,
-      "issues_closed": 21,
-      "issues_active": 72,
-      "issue_backlog": 8,
-      "prs_opened": 109,
-      "release_count": 13,
-      "aggregate_summary": [
-        {
-          "watcher_count": 0,
-          "stars_count": 0,
-          "fork_count": 0,
-          "merged_count": 0,
-          "committer_count": 0,
-          "commit_count": null
-        }
-      ],
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "prs_merged": 0,
-      "augur_endpoint_count": 23,
-      "augur_nonempty_endpoint_count": 15,
+      "augur_endpoint_count": 1,
+      "augur_nonempty_endpoint_count": 1,
       "db_commit_rows": 0,
       "db_issue_rows": 44,
       "db_pull_request_rows": 124,
@@ -1657,19 +1735,19 @@
       "db_release_rows": 13,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "FarmBot OS",
+    "display_name": "farmbot_os",
     "repo_url": "https://github.com/FarmBot/farmbot_os",
     "owner": "FarmBot",
     "repo_name": "farmbot_os",
     "category": "Edge and Gateway software",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.4,
@@ -1772,31 +1850,8 @@
     "augur_error": "",
     "augur_repo_id": 25497,
     "augur_metrics": {
-      "contributor_count": 65,
-      "new_contributor_count": 63,
-      "committer_count": 0,
-      "issues_opened": 172,
-      "issues_closed": 126,
-      "issues_active": 0,
-      "issue_backlog": 21,
-      "prs_opened": 691,
-      "release_count": 100,
-      "aggregate_summary": [
-        {
-          "watcher_count": 0,
-          "stars_count": 0,
-          "fork_count": 0,
-          "merged_count": 0,
-          "committer_count": 0,
-          "commit_count": null
-        }
-      ],
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "prs_merged": 0,
-      "augur_endpoint_count": 23,
-      "augur_nonempty_endpoint_count": 14,
+      "augur_endpoint_count": 1,
+      "augur_nonempty_endpoint_count": 1,
       "db_commit_rows": 0,
       "db_issue_rows": 248,
       "db_pull_request_rows": 1272,
@@ -1808,9 +1863,9 @@
       "db_release_rows": 100,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
@@ -1819,8 +1874,8 @@
     "owner": "FreeRTOS",
     "repo_name": "FreeRTOS",
     "category": "Embedded OS substrate",
-    "ag_specific": false,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 5.7,
@@ -1923,34 +1978,8 @@
     "augur_error": "",
     "augur_repo_id": 25498,
     "augur_metrics": {
-      "contributor_count": 202,
-      "new_contributor_count": 192,
-      "committer_count": 227,
-      "lines_added": 242714,
-      "lines_removed": 896,
-      "issues_opened": 109,
-      "issues_closed": 94,
-      "issues_active": 0,
-      "issue_backlog": 11,
-      "prs_opened": 715,
-      "release_count": 14,
-      "aggregate_summary": [
-        {
-          "watcher_count": 0,
-          "stars_count": 0,
-          "fork_count": 0,
-          "merged_count": 0,
-          "committer_count": 16,
-          "commit_count": 135.0
-        }
-      ],
-      "commit_count": 135.0,
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "prs_merged": 0,
-      "augur_endpoint_count": 23,
-      "augur_nonempty_endpoint_count": 17,
+      "augur_endpoint_count": 1,
+      "augur_nonempty_endpoint_count": 1,
       "db_commit_rows": 159280,
       "db_issue_rows": 115,
       "db_pull_request_rows": 1276,
@@ -1962,19 +1991,19 @@
       "db_release_rows": 14,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "Farm Data Relay System",
+    "display_name": "Farm-Data-Relay-System",
     "repo_url": "https://github.com/timmbogner/Farm-Data-Relay-System",
     "owner": "timmbogner",
     "repo_name": "Farm-Data-Relay-System",
     "category": "Edge and Gateway software",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.7,
@@ -2077,34 +2106,8 @@
     "augur_error": "",
     "augur_repo_id": 25499,
     "augur_metrics": {
-      "contributor_count": 33,
-      "new_contributor_count": 32,
-      "committer_count": 43,
-      "lines_added": 21,
-      "lines_removed": 4,
-      "issues_opened": 62,
-      "issues_closed": 55,
-      "issues_active": 0,
-      "issue_backlog": 2,
-      "prs_opened": 71,
-      "release_count": 0,
-      "aggregate_summary": [
-        {
-          "watcher_count": 0,
-          "stars_count": 0,
-          "fork_count": 0,
-          "merged_count": 0,
-          "committer_count": 1,
-          "commit_count": 2.0
-        }
-      ],
-      "commit_count": 2.0,
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "prs_merged": 0,
-      "augur_endpoint_count": 23,
-      "augur_nonempty_endpoint_count": 16,
+      "augur_endpoint_count": 1,
+      "augur_nonempty_endpoint_count": 1,
       "db_commit_rows": 2986,
       "db_issue_rows": 71,
       "db_pull_request_rows": 93,
@@ -2116,19 +2119,19 @@
       "db_release_rows": 1,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "AgIsoStack++",
+    "display_name": "AgIsoStack-plus-plus",
     "repo_url": "https://github.com/Open-Agriculture/AgIsoStack-plus-plus",
     "owner": "Open-Agriculture",
     "repo_name": "AgIsoStack-plus-plus",
     "category": "Messaging and data transport layers",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.0,
@@ -2231,34 +2234,8 @@
     "augur_error": "",
     "augur_repo_id": 25500,
     "augur_metrics": {
-      "contributor_count": 55,
-      "new_contributor_count": 53,
-      "committer_count": 45,
-      "lines_added": 45,
-      "lines_removed": 3,
-      "issues_opened": 129,
-      "issues_closed": 112,
-      "issues_active": 0,
-      "issue_backlog": 31,
-      "prs_opened": 301,
-      "release_count": 0,
-      "aggregate_summary": [
-        {
-          "watcher_count": 0,
-          "stars_count": 0,
-          "fork_count": 0,
-          "merged_count": 0,
-          "committer_count": 18,
-          "commit_count": 264.0
-        }
-      ],
-      "commit_count": 264.0,
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "prs_merged": 0,
-      "augur_endpoint_count": 23,
-      "augur_nonempty_endpoint_count": 16,
+      "augur_endpoint_count": 1,
+      "augur_nonempty_endpoint_count": 1,
       "db_commit_rows": 3568,
       "db_issue_rows": 162,
       "db_pull_request_rows": 448,
@@ -2270,19 +2247,19 @@
       "db_release_rows": 1,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "OpenATK FieldWorkApp",
+    "display_name": "FieldWorkApp",
     "repo_url": "https://github.com/OpenATK/FieldWorkApp",
     "owner": "OpenATK",
     "repo_name": "FieldWorkApp",
     "category": "Cloud-hosted backends and dashboard",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.5,
@@ -2385,27 +2362,8 @@
     "augur_error": "",
     "augur_repo_id": 25501,
     "augur_metrics": {
-      "contributor_count": 1,
-      "new_contributor_count": 1,
-      "committer_count": 0,
-      "issues_opened": 2,
-      "issues_closed": 2,
-      "issues_active": 4,
-      "prs_opened": 1,
-      "release_count": 0,
-      "aggregate_summary": [
-        {
-          "watcher_count": null,
-          "stars_count": null,
-          "fork_count": null,
-          "merged_count": 0,
-          "committer_count": 0,
-          "commit_count": null
-        }
-      ],
-      "prs_merged": 0,
-      "augur_endpoint_count": 23,
-      "augur_nonempty_endpoint_count": 13,
+      "augur_endpoint_count": 1,
+      "augur_nonempty_endpoint_count": 1,
       "db_commit_rows": 0,
       "db_issue_rows": 2,
       "db_pull_request_rows": 1,
@@ -2417,9 +2375,9 @@
       "db_release_rows": 11,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
@@ -2428,8 +2386,8 @@
     "owner": "PeaPodTechnologies",
     "repo_name": "PeaPod",
     "category": "Cloud-hosted backends and dashboard",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.9,
@@ -2532,30 +2490,8 @@
     "augur_error": "",
     "augur_repo_id": 25502,
     "augur_metrics": {
-      "contributor_count": 4,
-      "new_contributor_count": 3,
-      "committer_count": 17,
-      "lines_added": 47,
-      "lines_removed": 4,
-      "issues_opened": 35,
-      "issues_closed": 29,
-      "issues_active": 73,
-      "issue_backlog": 18,
-      "prs_opened": 41,
-      "release_count": 3,
-      "aggregate_summary": [
-        {
-          "watcher_count": null,
-          "stars_count": null,
-          "fork_count": null,
-          "merged_count": 0,
-          "committer_count": 0,
-          "commit_count": null
-        }
-      ],
-      "prs_merged": 0,
-      "augur_endpoint_count": 23,
-      "augur_nonempty_endpoint_count": 18,
+      "augur_endpoint_count": 1,
+      "augur_nonempty_endpoint_count": 1,
       "db_commit_rows": 1874,
       "db_issue_rows": 67,
       "db_pull_request_rows": 56,
@@ -2567,19 +2503,19 @@
       "db_release_rows": 3,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "Ekylibre",
+    "display_name": "ekylibre",
     "repo_url": "https://github.com/ekylibre/ekylibre",
     "owner": "ekylibre",
     "repo_name": "ekylibre",
     "category": "Cloud-hosted backends and dashboard",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.9,
@@ -2717,9 +2653,163 @@
       "db_release_rows": 48,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
+    "overall_status": "complete"
+  },
+  {
+    "display_name": "Fields2Cover",
+    "repo_url": "https://github.com/Fields2Cover/Fields2Cover",
+    "owner": "Fields2Cover",
+    "repo_name": "Fields2Cover",
+    "category": "Edge and Gateway software",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
+    "scorecard_collected": true,
+    "scorecard_error": "",
+    "scorecard_overall": 3.1,
+    "scorecard_checks": {
+      "Binary-Artifacts": {
+        "score": 10,
+        "reason": "no binaries found in the repo",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#binary-artifacts"
+      },
+      "Branch-Protection": {
+        "score": 0,
+        "reason": "branch protection not enabled on development/release branches",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#branch-protection"
+      },
+      "CI-Tests": {
+        "score": 7,
+        "reason": "6 out of 8 merged PRs checked by a CI test -- score normalized to 7",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#ci-tests"
+      },
+      "CII-Best-Practices": {
+        "score": 0,
+        "reason": "no effort to earn an OpenSSF best practices badge detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#cii-best-practices"
+      },
+      "Code-Review": {
+        "score": 2,
+        "reason": "Found 5/19 approved changesets -- score normalized to 2",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#code-review"
+      },
+      "Contributors": {
+        "score": 10,
+        "reason": "project has 14 contributing companies or organizations",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#contributors"
+      },
+      "Dangerous-Workflow": {
+        "score": -1,
+        "reason": "no workflows found",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dangerous-workflow"
+      },
+      "Dependency-Update-Tool": {
+        "score": 0,
+        "reason": "no update tool detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dependency-update-tool"
+      },
+      "Fuzzing": {
+        "score": 0,
+        "reason": "project is not fuzzed",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#fuzzing"
+      },
+      "License": {
+        "score": 10,
+        "reason": "license file detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#license"
+      },
+      "Maintained": {
+        "score": 3,
+        "reason": "3 commit(s) and 1 issue activity found in the last 90 days -- score normalized to 3",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#maintained"
+      },
+      "Packaging": {
+        "score": -1,
+        "reason": "packaging workflow not detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#packaging"
+      },
+      "Pinned-Dependencies": {
+        "score": 0,
+        "reason": "dependency not pinned by hash detected -- score normalized to 0",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#pinned-dependencies"
+      },
+      "SAST": {
+        "score": 0,
+        "reason": "SAST tool is not run on all commits -- score normalized to 0",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#sast"
+      },
+      "Security-Policy": {
+        "score": 0,
+        "reason": "security policy file not detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#security-policy"
+      },
+      "Signed-Releases": {
+        "score": 0,
+        "reason": "Project has not signed or included provenance with any releases.",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#signed-releases"
+      },
+      "Token-Permissions": {
+        "score": -1,
+        "reason": "No tokens found",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#token-permissions"
+      },
+      "Vulnerabilities": {
+        "score": 10,
+        "reason": "0 existing vulnerabilities detected",
+        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#vulnerabilities"
+      }
+    },
+    "scorecard_status": "success",
+    "scorecard_exit_code": null,
+    "scorecard_runtime": 0.0,
+    "augur_collected": true,
+    "augur_error": "",
+    "augur_repo_id": 25504,
+    "augur_metrics": {
+      "contributor_count": 98,
+      "new_contributor_count": 68,
+      "committer_count": 30,
+      "lines_added": 18850,
+      "lines_removed": 10811,
+      "issues_opened": 113,
+      "issues_closed": 79,
+      "issues_active": 209,
+      "issue_backlog": 21,
+      "prs_opened": 68,
+      "release_count": 2,
+      "aggregate_summary": [
+        {
+          "watcher_count": 0,
+          "stars_count": 0,
+          "fork_count": 0,
+          "merged_count": 0,
+          "committer_count": 6,
+          "commit_count": 33.0
+        }
+      ],
+      "commit_count": 33.0,
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "prs_merged": 0,
+      "augur_endpoint_count": 23,
+      "augur_nonempty_endpoint_count": 18,
+      "db_commit_rows": 2138,
+      "db_issue_rows": 128,
+      "db_pull_request_rows": 74,
+      "db_pull_request_event_rows": 360,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 709,
+      "db_issue_label_rows": 29,
+      "db_pull_request_label_rows": 2,
+      "db_release_rows": 2,
+      "db_repo_stat_rows": 0
+    },
+    "augur_status": "ready",
+    "augur_registered": true,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
@@ -2727,9 +2817,9 @@
     "repo_url": "https://github.com/GrowCab/SpeedSeed3",
     "owner": "GrowCab",
     "repo_name": "SpeedSeed3",
-    "category": "Embedded OS substrate",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "category": "Edge and Gateway software",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.7,
@@ -2868,19 +2958,19 @@
       "db_release_rows": 1,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "IsoBlue",
+    "display_name": "isoblue",
     "repo_url": "https://github.com/oats-center/isoblue",
     "owner": "oats-center",
     "repo_name": "isoblue",
     "category": "Edge and Gateway software",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.0,
@@ -3021,19 +3111,19 @@
       "db_release_rows": 0,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "OpenAg Brain",
+    "display_name": "openag-brain-balena",
     "repo_url": "https://github.com/OpenAgricultureFoundation/openag-brain-balena",
     "owner": "OpenAgricultureFoundation",
     "repo_name": "openag-brain-balena",
     "category": "Edge and Gateway software",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.3,
@@ -3171,19 +3261,19 @@
       "db_release_rows": 0,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "Simplesteer",
+    "display_name": "simplesteer",
     "repo_url": "https://github.com/matmis/simplesteer",
     "owner": "matmis",
     "repo_name": "simplesteer",
     "category": "Edge and Gateway software",
-    "ag_specific": false,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.6,
@@ -3325,9 +3415,9 @@
       "db_release_rows": 1,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
@@ -3336,8 +3426,8 @@
     "owner": "Sen2Agri",
     "repo_name": "Sen2Agri-System",
     "category": "Cloud-hosted backends and dashboard",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.7,
@@ -3478,9 +3568,9 @@
       "db_release_rows": 18,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
@@ -3489,8 +3579,8 @@
     "owner": "OpenDroneMap",
     "repo_name": "WebODM",
     "category": "Cloud-hosted backends and dashboard",
-    "ag_specific": false,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.5,
@@ -3611,17 +3701,17 @@
           "fork_count": 0,
           "merged_count": 0,
           "committer_count": 15,
-          "commit_count": 612.0
+          "commit_count": 946.0
         }
       ],
-      "commit_count": 612.0,
+      "commit_count": 946.0,
       "stars": 0,
       "forks": 0,
       "watchers": 0,
       "prs_merged": 0,
       "augur_endpoint_count": 23,
       "augur_nonempty_endpoint_count": 17,
-      "db_commit_rows": 6196,
+      "db_commit_rows": 10502,
       "db_issue_rows": 1146,
       "db_pull_request_rows": 680,
       "db_pull_request_event_rows": 0,
@@ -3632,9 +3722,9 @@
       "db_release_rows": 57,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
@@ -3643,8 +3733,8 @@
     "owner": "OpenDroneMap",
     "repo_name": "ODM",
     "category": "Cloud-hosted backends and dashboard",
-    "ag_specific": false,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.4,
@@ -3765,10 +3855,10 @@
           "fork_count": 0,
           "merged_count": 0,
           "committer_count": 15,
-          "commit_count": 208.0
+          "commit_count": 207.0
         }
       ],
-      "commit_count": 208.0,
+      "commit_count": 207.0,
       "stars": 0,
       "forks": 0,
       "watchers": 0,
@@ -3786,9 +3876,9 @@
       "db_release_rows": 62,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
@@ -3796,9 +3886,9 @@
     "repo_url": "https://github.com/OpenDroneMap/NodeODM",
     "owner": "OpenDroneMap",
     "repo_name": "NodeODM",
-    "category": "Edge and Gateway software",
-    "ag_specific": false,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "category": "Messaging and data transport layers",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.8,
@@ -3940,19 +4030,19 @@
       "db_release_rows": 8,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "Openminder",
+    "display_name": "openminder",
     "repo_url": "https://github.com/autogrow/openminder",
     "owner": "autogrow",
     "repo_name": "openminder",
     "category": "Field-Deployed Sensor",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.0,
@@ -4093,19 +4183,19 @@
       "db_release_rows": 0,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "Ersha-OS",
+    "display_name": "ersha-os",
     "repo_url": "https://github.com/ersha-os/ersha-os",
     "owner": "ersha-os",
     "repo_name": "ersha-os",
     "category": "Edge and Gateway software",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.9,
@@ -4247,9 +4337,9 @@
       "db_release_rows": 2,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
@@ -4258,8 +4348,8 @@
     "owner": "STEMinds",
     "repo_name": "Eduponics-Mini",
     "category": "Field-Deployed Sensor",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.7,
@@ -4397,19 +4487,19 @@
       "db_release_rows": 0,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
   },
   {
-    "display_name": "Micropython Eduponics",
+    "display_name": "micropython-eduponics",
     "repo_url": "https://github.com/STEMinds/micropython-eduponics",
     "owner": "STEMinds",
     "repo_name": "micropython-eduponics",
-    "category": "Field-Deployed Sensor",
-    "ag_specific": true,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
+    "category": "Edge and Gateway software",
+    "ag_specific": null,
+    "collection_timestamp": "2026-03-28T17:57:21.424675+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.7,
@@ -4547,608 +4637,9 @@
       "db_release_rows": 12,
       "db_repo_stat_rows": 0
     },
-    "augur_status": "partial",
+    "augur_status": "ready",
     "augur_registered": true,
-    "augur_ready": false,
+    "augur_ready": true,
     "overall_status": "complete"
-  },
-  {
-    "display_name": "Zephyr",
-    "repo_url": "https://github.com/zephyrproject-rtos/zephyr",
-    "owner": "zephyrproject-rtos",
-    "repo_name": "zephyr",
-    "category": "Embedded OS substrate",
-    "ag_specific": false,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
-    "scorecard_collected": true,
-    "scorecard_error": "",
-    "scorecard_overall": 8.7,
-    "scorecard_checks": {
-      "Binary-Artifacts": {
-        "score": 10,
-        "reason": "no binaries found in the repo",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#binary-artifacts"
-      },
-      "Branch-Protection": {
-        "score": 5,
-        "reason": "branch protection is not maximal on development and all release branches",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#branch-protection"
-      },
-      "CI-Tests": {
-        "score": 10,
-        "reason": "21 out of 21 merged PRs checked by a CI test -- score normalized to 10",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#ci-tests"
-      },
-      "CII-Best-Practices": {
-        "score": 10,
-        "reason": "badge detected: Gold",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#cii-best-practices"
-      },
-      "Code-Review": {
-        "score": 10,
-        "reason": "all changesets reviewed",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#code-review"
-      },
-      "Contributors": {
-        "score": 10,
-        "reason": "project has 23 contributing companies or organizations",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#contributors"
-      },
-      "Dangerous-Workflow": {
-        "score": 10,
-        "reason": "no dangerous workflow patterns detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dangerous-workflow"
-      },
-      "Dependency-Update-Tool": {
-        "score": 10,
-        "reason": "update tool detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dependency-update-tool"
-      },
-      "Fuzzing": {
-        "score": 10,
-        "reason": "project is fuzzed",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#fuzzing"
-      },
-      "License": {
-        "score": 10,
-        "reason": "license file detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#license"
-      },
-      "Maintained": {
-        "score": 10,
-        "reason": "30 commit(s) and 14 issue activity found in the last 90 days -- score normalized to 10",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#maintained"
-      },
-      "Packaging": {
-        "score": -1,
-        "reason": "packaging workflow not detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#packaging"
-      },
-      "Pinned-Dependencies": {
-        "score": 10,
-        "reason": "all dependencies are pinned",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#pinned-dependencies"
-      },
-      "SAST": {
-        "score": 10,
-        "reason": "SAST tool is run on all commits",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#sast"
-      },
-      "Security-Policy": {
-        "score": 10,
-        "reason": "security policy file detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#security-policy"
-      },
-      "Signed-Releases": {
-        "score": 0,
-        "reason": "Project has not signed or included provenance with any releases.",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#signed-releases"
-      },
-      "Token-Permissions": {
-        "score": 10,
-        "reason": "GitHub workflow tokens follow principle of least privilege",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#token-permissions"
-      },
-      "Vulnerabilities": {
-        "score": 8,
-        "reason": "2 existing vulnerabilities detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#vulnerabilities"
-      }
-    },
-    "scorecard_status": "success",
-    "scorecard_exit_code": null,
-    "scorecard_runtime": 0.0,
-    "augur_collected": false,
-    "augur_error": "No cached Augur output found.",
-    "augur_repo_id": null,
-    "augur_metrics": {},
-    "augur_status": "failed",
-    "augur_registered": false,
-    "augur_ready": false,
-    "overall_status": "partial"
-  },
-  {
-    "display_name": "ArduPilot",
-    "repo_url": "https://github.com/ArduPilot/ardupilot",
-    "owner": "ArduPilot",
-    "repo_name": "ardupilot",
-    "category": "Field-Deployed Sensor",
-    "ag_specific": false,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
-    "scorecard_collected": true,
-    "scorecard_error": "",
-    "scorecard_overall": 5.4,
-    "scorecard_checks": {
-      "Binary-Artifacts": {
-        "score": 0,
-        "reason": "binaries present in source code",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#binary-artifacts"
-      },
-      "Branch-Protection": {
-        "score": 6,
-        "reason": "branch protection is not maximal on development and all release branches",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#branch-protection"
-      },
-      "CI-Tests": {
-        "score": 10,
-        "reason": "13 out of 13 merged PRs checked by a CI test -- score normalized to 10",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#ci-tests"
-      },
-      "CII-Best-Practices": {
-        "score": 2,
-        "reason": "badge detected: InProgress",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#cii-best-practices"
-      },
-      "Code-Review": {
-        "score": 7,
-        "reason": "Found 13/18 approved changesets -- score normalized to 7",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#code-review"
-      },
-      "Contributors": {
-        "score": 10,
-        "reason": "project has 42 contributing companies or organizations",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#contributors"
-      },
-      "Dangerous-Workflow": {
-        "score": 10,
-        "reason": "no dangerous workflow patterns detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dangerous-workflow"
-      },
-      "Dependency-Update-Tool": {
-        "score": 10,
-        "reason": "update tool detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dependency-update-tool"
-      },
-      "Fuzzing": {
-        "score": 0,
-        "reason": "project is not fuzzed",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#fuzzing"
-      },
-      "License": {
-        "score": 10,
-        "reason": "license file detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#license"
-      },
-      "Maintained": {
-        "score": 10,
-        "reason": "30 commit(s) and 5 issue activity found in the last 90 days -- score normalized to 10",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#maintained"
-      },
-      "Packaging": {
-        "score": -1,
-        "reason": "packaging workflow not detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#packaging"
-      },
-      "Pinned-Dependencies": {
-        "score": 0,
-        "reason": "dependency not pinned by hash detected -- score normalized to 0",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#pinned-dependencies"
-      },
-      "SAST": {
-        "score": 0,
-        "reason": "SAST tool is not run on all commits -- score normalized to 0",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#sast"
-      },
-      "Security-Policy": {
-        "score": 0,
-        "reason": "security policy file not detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#security-policy"
-      },
-      "Signed-Releases": {
-        "score": -1,
-        "reason": "no releases found",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#signed-releases"
-      },
-      "Token-Permissions": {
-        "score": 0,
-        "reason": "detected GitHub workflow tokens with excessive permissions",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#token-permissions"
-      },
-      "Vulnerabilities": {
-        "score": 10,
-        "reason": "0 existing vulnerabilities detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#vulnerabilities"
-      }
-    },
-    "scorecard_status": "success",
-    "scorecard_exit_code": null,
-    "scorecard_runtime": 0.0,
-    "augur_collected": false,
-    "augur_error": "No cached Augur output found.",
-    "augur_repo_id": null,
-    "augur_metrics": {},
-    "augur_status": "failed",
-    "augur_registered": false,
-    "augur_ready": false,
-    "overall_status": "partial"
-  },
-  {
-    "display_name": "PX4",
-    "repo_url": "https://github.com/PX4/PX4-Autopilot",
-    "owner": "PX4",
-    "repo_name": "PX4-Autopilot",
-    "category": "Field-Deployed Sensor",
-    "ag_specific": false,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
-    "scorecard_collected": true,
-    "scorecard_error": "",
-    "scorecard_overall": 4.6,
-    "scorecard_checks": {
-      "Binary-Artifacts": {
-        "score": 7,
-        "reason": "binaries present in source code",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#binary-artifacts"
-      },
-      "Branch-Protection": {
-        "score": 6,
-        "reason": "branch protection is not maximal on development and all release branches",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#branch-protection"
-      },
-      "CI-Tests": {
-        "score": 10,
-        "reason": "10 out of 10 merged PRs checked by a CI test -- score normalized to 10",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#ci-tests"
-      },
-      "CII-Best-Practices": {
-        "score": 2,
-        "reason": "badge detected: InProgress",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#cii-best-practices"
-      },
-      "Code-Review": {
-        "score": 2,
-        "reason": "Found 5/23 approved changesets -- score normalized to 2",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#code-review"
-      },
-      "Contributors": {
-        "score": 10,
-        "reason": "project has 42 contributing companies or organizations",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#contributors"
-      },
-      "Dangerous-Workflow": {
-        "score": 0,
-        "reason": "dangerous workflow patterns detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dangerous-workflow"
-      },
-      "Dependency-Update-Tool": {
-        "score": 10,
-        "reason": "update tool detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dependency-update-tool"
-      },
-      "Fuzzing": {
-        "score": 0,
-        "reason": "project is not fuzzed",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#fuzzing"
-      },
-      "License": {
-        "score": 10,
-        "reason": "license file detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#license"
-      },
-      "Maintained": {
-        "score": 10,
-        "reason": "30 commit(s) and 2 issue activity found in the last 90 days -- score normalized to 10",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#maintained"
-      },
-      "Packaging": {
-        "score": 10,
-        "reason": "packaging workflow detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#packaging"
-      },
-      "Pinned-Dependencies": {
-        "score": 0,
-        "reason": "dependency not pinned by hash detected -- score normalized to 0",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#pinned-dependencies"
-      },
-      "SAST": {
-        "score": 8,
-        "reason": "SAST tool is not run on all commits -- score normalized to 8",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#sast"
-      },
-      "Security-Policy": {
-        "score": 10,
-        "reason": "security policy file detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#security-policy"
-      },
-      "Signed-Releases": {
-        "score": 0,
-        "reason": "Project has not signed or included provenance with any releases.",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#signed-releases"
-      },
-      "Token-Permissions": {
-        "score": 0,
-        "reason": "detected GitHub workflow tokens with excessive permissions",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#token-permissions"
-      },
-      "Vulnerabilities": {
-        "score": 0,
-        "reason": "19 existing vulnerabilities detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#vulnerabilities"
-      }
-    },
-    "scorecard_status": "success",
-    "scorecard_exit_code": null,
-    "scorecard_runtime": 0.0,
-    "augur_collected": false,
-    "augur_error": "No cached Augur output found.",
-    "augur_repo_id": null,
-    "augur_metrics": {},
-    "augur_status": "failed",
-    "augur_registered": false,
-    "augur_ready": false,
-    "overall_status": "partial"
-  },
-  {
-    "display_name": "Mosquitto",
-    "repo_url": "https://github.com/eclipse-mosquitto/mosquitto",
-    "owner": "eclipse-mosquitto",
-    "repo_name": "mosquitto",
-    "category": "Edge and Gateway software",
-    "ag_specific": false,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
-    "scorecard_collected": true,
-    "scorecard_error": "",
-    "scorecard_overall": 6.0,
-    "scorecard_checks": {
-      "Binary-Artifacts": {
-        "score": 10,
-        "reason": "no binaries found in the repo",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#binary-artifacts"
-      },
-      "Branch-Protection": {
-        "score": 0,
-        "reason": "branch protection not enabled on development/release branches",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#branch-protection"
-      },
-      "CI-Tests": {
-        "score": 10,
-        "reason": "5 out of 5 merged PRs checked by a CI test -- score normalized to 10",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#ci-tests"
-      },
-      "CII-Best-Practices": {
-        "score": 0,
-        "reason": "no effort to earn an OpenSSF best practices badge detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#cii-best-practices"
-      },
-      "Code-Review": {
-        "score": 1,
-        "reason": "Found 3/30 approved changesets -- score normalized to 1",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#code-review"
-      },
-      "Contributors": {
-        "score": 10,
-        "reason": "project has 14 contributing companies or organizations",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#contributors"
-      },
-      "Dangerous-Workflow": {
-        "score": 10,
-        "reason": "no dangerous workflow patterns detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dangerous-workflow"
-      },
-      "Dependency-Update-Tool": {
-        "score": 0,
-        "reason": "no update tool detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dependency-update-tool"
-      },
-      "Fuzzing": {
-        "score": 10,
-        "reason": "project is fuzzed",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#fuzzing"
-      },
-      "License": {
-        "score": 9,
-        "reason": "license file detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#license"
-      },
-      "Maintained": {
-        "score": 10,
-        "reason": "30 commit(s) and 0 issue activity found in the last 90 days -- score normalized to 10",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#maintained"
-      },
-      "Packaging": {
-        "score": -1,
-        "reason": "packaging workflow not detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#packaging"
-      },
-      "Pinned-Dependencies": {
-        "score": 0,
-        "reason": "dependency not pinned by hash detected -- score normalized to 0",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#pinned-dependencies"
-      },
-      "SAST": {
-        "score": 10,
-        "reason": "SAST tool is run on all commits",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#sast"
-      },
-      "Security-Policy": {
-        "score": 10,
-        "reason": "security policy file detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#security-policy"
-      },
-      "Signed-Releases": {
-        "score": -1,
-        "reason": "no releases found",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#signed-releases"
-      },
-      "Token-Permissions": {
-        "score": 0,
-        "reason": "detected GitHub workflow tokens with excessive permissions",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#token-permissions"
-      },
-      "Vulnerabilities": {
-        "score": 10,
-        "reason": "0 existing vulnerabilities detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#vulnerabilities"
-      }
-    },
-    "scorecard_status": "success",
-    "scorecard_exit_code": null,
-    "scorecard_runtime": 0.0,
-    "augur_collected": false,
-    "augur_error": "No cached Augur output found.",
-    "augur_repo_id": null,
-    "augur_metrics": {},
-    "augur_status": "failed",
-    "augur_registered": false,
-    "augur_ready": false,
-    "overall_status": "partial"
-  },
-  {
-    "display_name": "Thingsboard",
-    "repo_url": "https://github.com/thingsboard/thingsboard",
-    "owner": "thingsboard",
-    "repo_name": "thingsboard",
-    "category": "Edge and Gateway software",
-    "ag_specific": false,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
-    "scorecard_collected": true,
-    "scorecard_error": "",
-    "scorecard_overall": 4.3,
-    "scorecard_checks": {
-      "Binary-Artifacts": {
-        "score": 10,
-        "reason": "no binaries found in the repo",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#binary-artifacts"
-      },
-      "Branch-Protection": {
-        "score": 3,
-        "reason": "branch protection is not maximal on development and all release branches",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#branch-protection"
-      },
-      "CI-Tests": {
-        "score": 9,
-        "reason": "10 out of 11 merged PRs checked by a CI test -- score normalized to 9",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#ci-tests"
-      },
-      "CII-Best-Practices": {
-        "score": 0,
-        "reason": "no effort to earn an OpenSSF best practices badge detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#cii-best-practices"
-      },
-      "Code-Review": {
-        "score": 5,
-        "reason": "Found 6/11 approved changesets -- score normalized to 5",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#code-review"
-      },
-      "Contributors": {
-        "score": 10,
-        "reason": "project has 7 contributing companies or organizations",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#contributors"
-      },
-      "Dangerous-Workflow": {
-        "score": 10,
-        "reason": "no dangerous workflow patterns detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dangerous-workflow"
-      },
-      "Dependency-Update-Tool": {
-        "score": 0,
-        "reason": "no update tool detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#dependency-update-tool"
-      },
-      "Fuzzing": {
-        "score": 0,
-        "reason": "project is not fuzzed",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#fuzzing"
-      },
-      "License": {
-        "score": 10,
-        "reason": "license file detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#license"
-      },
-      "Maintained": {
-        "score": 10,
-        "reason": "30 commit(s) and 0 issue activity found in the last 90 days -- score normalized to 10",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#maintained"
-      },
-      "Packaging": {
-        "score": -1,
-        "reason": "packaging workflow not detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#packaging"
-      },
-      "Pinned-Dependencies": {
-        "score": 0,
-        "reason": "dependency not pinned by hash detected -- score normalized to 0",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#pinned-dependencies"
-      },
-      "SAST": {
-        "score": 0,
-        "reason": "SAST tool is not run on all commits -- score normalized to 0",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#sast"
-      },
-      "Security-Policy": {
-        "score": 10,
-        "reason": "security policy file detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#security-policy"
-      },
-      "Signed-Releases": {
-        "score": 0,
-        "reason": "Project has not signed or included provenance with any releases.",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#signed-releases"
-      },
-      "Token-Permissions": {
-        "score": 0,
-        "reason": "detected GitHub workflow tokens with excessive permissions",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#token-permissions"
-      },
-      "Vulnerabilities": {
-        "score": 0,
-        "reason": "29 existing vulnerabilities detected",
-        "doc_url": "https://github.com/ossf/scorecard/blob/80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e/docs/checks.md#vulnerabilities"
-      }
-    },
-    "scorecard_status": "success",
-    "scorecard_exit_code": null,
-    "scorecard_runtime": 0.0,
-    "augur_collected": false,
-    "augur_error": "No cached Augur output found.",
-    "augur_repo_id": null,
-    "augur_metrics": {},
-    "augur_status": "failed",
-    "augur_registered": false,
-    "augur_ready": false,
-    "overall_status": "partial"
-  },
-  {
-    "display_name": "Grafana",
-    "repo_url": "https://github.com/grafana/grafana",
-    "owner": "grafana",
-    "repo_name": "grafana",
-    "category": "Cloud-hosted backends and dashboard",
-    "ag_specific": false,
-    "collection_timestamp": "2026-03-13T20:13:43.949077+00:00",
-    "scorecard_collected": false,
-    "scorecard_error": "scorecard timed out after 120s",
-    "scorecard_overall": null,
-    "scorecard_checks": {},
-    "scorecard_status": "failed",
-    "scorecard_exit_code": null,
-    "scorecard_runtime": 120.06,
-    "augur_collected": false,
-    "augur_error": "No cached Augur output found.",
-    "augur_repo_id": null,
-    "augur_metrics": {},
-    "augur_status": "failed",
-    "augur_registered": false,
-    "augur_ready": false,
-    "overall_status": "failed"
   }
 ]

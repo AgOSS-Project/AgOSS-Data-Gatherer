@@ -23,6 +23,7 @@
     <button class="tab-btn" data-tab="categories">Categories</button>
     <button class="tab-btn" data-tab="ag-specific">Ag-Specific</button>
     <button class="tab-btn" data-tab="vulnerabilities">Vulnerabilities</button>
+    <button class="tab-btn" data-tab="dependencies">Dependencies</button>
     <button class="tab-btn" data-tab="charts">Comparisons</button>
     <button class="tab-btn" data-tab="quality">Pipeline Health</button>
   </div>
@@ -126,6 +127,40 @@
     </div>
   </div>
 
+  <!-- ═══════════════ DEPENDENCIES ═══════════════ -->
+  <div id="tab-dependencies" class="tab-panel">
+    <div class="filter-bar">
+      <input type="text" id="depSearch" placeholder="Search repositories…">
+      <select id="depStatusFilter">
+        <option value="">All Scan Statuses</option>
+        <option value="success">Success</option>
+        <option value="partial">Partial</option>
+        <option value="failed">Failed</option>
+        <option value="skipped">Skipped</option>
+      </select>
+      <select id="depRiskFilter">
+        <option value="">All Risk Levels</option>
+        <option value="with">With Vulnerabilities</option>
+        <option value="without">No Vulnerabilities</option>
+      </select>
+    </div>
+    <div class="cards" id="depCards"></div>
+    <div class="chart-grid">
+      <div class="chart-card"><h3>Dependency Vulnerability Severity</h3><canvas id="chartDepSeverity"></canvas></div>
+      <div class="chart-card"><h3>Top Repositories by Dependency Vulns</h3><canvas id="chartDepTopRepos"></canvas></div>
+      <div class="chart-card"><h3>Package Queryability</h3><canvas id="chartDepQueryable"></canvas></div>
+    </div>
+    <div class="table-wrap">
+      <table id="depRepoTable">
+        <thead><tr>
+          <th>Repository</th><th>Status</th><th>Packages</th><th>Queryable</th><th>Unqueryable</th>
+          <th>Vulns</th><th>Critical</th><th>High</th><th>Details</th>
+        </tr></thead>
+        <tbody id="depRepoBody"></tbody>
+      </table>
+    </div>
+  </div>
+
   <!-- ═══════════════ CATEGORIES ═══════════════ -->
   <div id="tab-categories" class="tab-panel">
     <div class="filter-bar">
@@ -212,11 +247,13 @@
 // ── Embedded data (injected at build time) ──
 const REPOS = /* @@REPO_DATA@@ */ [];
 const SUMMARY = /* @@SUMMARY_DATA@@ */ {};
+const DEPENDENCY = /* @@DEPENDENCY_DATA@@ */ {};
 
 // ── Helpers ──
 const avg = (arr) => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0;
 const fmt = (v, d=1) => v == null ? '—' : Number(v).toFixed(d);
 const esc = (s) => { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+const escAttr = (s) => esc(String(s ?? '')).replace(/"/g, '&quot;');
 const agKey = (value) => value === true ? 'yes' : value === false ? 'no' : 'unknown';
 const agLabel = (value) => value === true ? 'Ag-Specific' : value === false ? 'Not Ag-Specific' : 'Unknown';
 
@@ -669,6 +706,55 @@ const vulnSummary = (() => {
   };
 })();
 
+const depRepos = Array.isArray(DEPENDENCY.repos) ? DEPENDENCY.repos : [];
+const depVulnerabilities = Array.isArray(DEPENDENCY.vulnerabilities) ? DEPENDENCY.vulnerabilities : [];
+const depTotals = (() => {
+  const totals = (DEPENDENCY && typeof DEPENDENCY === 'object' && DEPENDENCY.totals && typeof DEPENDENCY.totals === 'object')
+    ? DEPENDENCY.totals
+    : {};
+  const computedSeverity = depRepos.reduce((acc, repo) => {
+    const sev = (repo && typeof repo.severity === 'object' && repo.severity) || {};
+    acc.critical += Number(sev.critical || 0);
+    acc.high += Number(sev.high || 0);
+    acc.medium += Number(sev.medium || 0);
+    acc.low += Number(sev.low || 0);
+    acc.unknown += Number(sev.unknown || 0);
+    return acc;
+  }, { critical: 0, high: 0, medium: 0, low: 0, unknown: 0 });
+
+  return {
+    repos_total: Number(totals.repos_total ?? REPOS.length),
+    repos_analyzed: Number(totals.repos_analyzed ?? depRepos.length),
+    repos_failed: Number(totals.repos_failed ?? depRepos.filter(r => r.status === 'failed').length),
+    repos_with_vulnerabilities: Number(
+      totals.repos_with_vulnerabilities
+      ?? depRepos.filter(r => Number(r.vulnerabilities_total || 0) > 0).length
+    ),
+    packages_total: Number(totals.packages_total ?? depRepos.reduce((n, r) => n + Number(r.packages_total || 0), 0)),
+    packages_queryable: Number(totals.packages_queryable ?? depRepos.reduce((n, r) => n + Number(r.packages_queryable || 0), 0)),
+    packages_unqueryable: Number(totals.packages_unqueryable ?? depRepos.reduce((n, r) => n + Number(r.packages_unqueryable || 0), 0)),
+    vulnerabilities_total: Number(totals.vulnerabilities_total ?? depRepos.reduce((n, r) => n + Number(r.vulnerabilities_total || 0), 0)),
+    unique_vulnerability_ids: Number(totals.unique_vulnerability_ids ?? depVulnerabilities.length),
+    severity: {
+      critical: Number((totals.severity || {}).critical ?? computedSeverity.critical),
+      high: Number((totals.severity || {}).high ?? computedSeverity.high),
+      medium: Number((totals.severity || {}).medium ?? computedSeverity.medium),
+      low: Number((totals.severity || {}).low ?? computedSeverity.low),
+      unknown: Number((totals.severity || {}).unknown ?? computedSeverity.unknown),
+    },
+  };
+})();
+
+const depSeverityOrder = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'UNKNOWN'];
+
+function depSeverityBadge(severity) {
+  const sev = String(severity || 'UNKNOWN').toUpperCase();
+  if (sev === 'CRITICAL' || sev === 'HIGH') return `<span class="badge badge-danger">${sev}</span>`;
+  if (sev === 'MEDIUM') return `<span class="badge badge-warning">${sev}</span>`;
+  if (sev === 'LOW') return `<span class="badge badge-success">${sev}</span>`;
+  return `<span class="badge badge-muted">${sev}</span>`;
+}
+
 // ── Tab switching ──
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -958,6 +1044,196 @@ renderCategories();
     `<tr><td>${esc(r.name)}</td><td>${r.appearances}</td><td>${r.totalCount}</td><td>${r.repoCount}</td></tr>`
   ).join('');
 })();
+
+// ── Dependencies Tab ──
+let depSeverityChart = null;
+let depTopReposChart = null;
+let depQueryableChart = null;
+
+function showDependencyDetail(repoUrl) {
+  const repo = depRepos.find(r => r.repo_url === repoUrl);
+  if (!repo) return;
+
+  const severity = (repo && typeof repo.severity === 'object' && repo.severity) || {};
+  const packages = Array.isArray(repo.packages) ? [...repo.packages] : [];
+  packages.sort((a, b) => Number(b.vulnerability_count || 0) - Number(a.vulnerability_count || 0));
+
+  const vulnerabilities = Array.isArray(repo.vulnerabilities) ? [...repo.vulnerabilities] : [];
+  vulnerabilities.sort((a, b) => {
+    const ai = depSeverityOrder.indexOf(String(a.severity || 'UNKNOWN').toUpperCase());
+    const bi = depSeverityOrder.indexOf(String(b.severity || 'UNKNOWN').toUpperCase());
+    if (ai !== bi) return ai - bi;
+    return String(a.id || '').localeCompare(String(b.id || ''));
+  });
+
+  const vulnRows = vulnerabilities.length
+    ? vulnerabilities.map(v => `
+      <tr>
+        <td>${esc(v.id || '—')}</td>
+        <td>${depSeverityBadge(v.severity)}</td>
+        <td>${esc(v.summary || '—')}</td>
+      </tr>
+    `).join('')
+    : '<tr><td colspan="3">No dependency vulnerabilities detected.</td></tr>';
+
+  const packageRows = packages.length
+    ? packages.slice(0, 120).map(p => `
+      <tr>
+        <td>${esc(p.query_name || p.name || '—')}</td>
+        <td>${esc(p.ecosystem || '—')}</td>
+        <td>${esc(p.version || '—')}</td>
+        <td>${p.queryable ? '<span class="badge badge-success">Yes</span>' : '<span class="badge badge-muted">No</span>'}</td>
+        <td>${Number(p.vulnerability_count || 0)}</td>
+      </tr>
+    `).join('')
+    : '<tr><td colspan="5">No package rows were extracted from SBOM.</td></tr>';
+
+  document.getElementById('modalContent').innerHTML = `
+    <h2><a href="${escAttr(repo.repo_url)}" target="_blank">${esc(repo.owner || '')}/${esc(repo.repo_name || '')}</a></h2>
+    <div class="detail-section"><h4>Dependency Scan Summary</h4>
+      <div class="detail-grid">
+        <div class="detail-item"><div class="dlabel">Status</div>${statusBadge(repo.status)}</div>
+        <div class="detail-item"><div class="dlabel">SBOM Packages</div>${Number(repo.sbom_package_count || 0)}</div>
+        <div class="detail-item"><div class="dlabel">Filtered Self Packages</div>${Number(repo.filtered_self_packages || 0)}</div>
+        <div class="detail-item"><div class="dlabel">Queryable</div>${Number(repo.packages_queryable || 0)}</div>
+        <div class="detail-item"><div class="dlabel">Unqueryable</div>${Number(repo.packages_unqueryable || 0)}</div>
+        <div class="detail-item"><div class="dlabel">Dependency Vulnerabilities</div>${Number(repo.vulnerabilities_total || 0)}</div>
+        <div class="detail-item"><div class="dlabel">Critical</div>${Number(severity.critical || 0)}</div>
+        <div class="detail-item"><div class="dlabel">High</div>${Number(severity.high || 0)}</div>
+      </div>
+      ${repo.error ? `<p style="color:var(--danger);margin-top:.5rem;">${esc(repo.error)}</p>` : ''}
+    </div>
+    <div class="detail-section"><h4>Dependency Vulnerabilities</h4>
+      <table style="width:100%;font-size:.85rem;margin-top:.5rem;">
+        <thead><tr><th>ID</th><th>Severity</th><th>Summary</th></tr></thead>
+        <tbody>${vulnRows}</tbody>
+      </table>
+    </div>
+    <div class="detail-section"><h4>Packages (Top 120 by Vulnerability Count)</h4>
+      <table style="width:100%;font-size:.85rem;margin-top:.5rem;">
+        <thead><tr><th>Package</th><th>Ecosystem</th><th>Version</th><th>Queryable</th><th>Vulns</th></tr></thead>
+        <tbody>${packageRows}</tbody>
+      </table>
+    </div>`;
+
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function renderDependencies() {
+  const search = (document.getElementById('depSearch')?.value || '').toLowerCase();
+  const statusFilter = document.getElementById('depStatusFilter')?.value || '';
+  const riskFilter = document.getElementById('depRiskFilter')?.value || '';
+
+  let rows = [...depRepos];
+  if (search) {
+    rows = rows.filter(r => {
+      const text = `${r.owner || ''} ${r.repo_name || ''} ${r.repo_url || ''}`.toLowerCase();
+      return text.includes(search);
+    });
+  }
+  if (statusFilter) rows = rows.filter(r => String(r.status || '') === statusFilter);
+  if (riskFilter === 'with') rows = rows.filter(r => Number(r.vulnerabilities_total || 0) > 0);
+  if (riskFilter === 'without') rows = rows.filter(r => Number(r.vulnerabilities_total || 0) === 0);
+
+  rows.sort((a, b) => {
+    const av = Number(a.vulnerabilities_total || 0);
+    const bv = Number(b.vulnerabilities_total || 0);
+    if (av !== bv) return bv - av;
+    return `${a.owner || ''}/${a.repo_name || ''}`.localeCompare(`${b.owner || ''}/${b.repo_name || ''}`);
+  });
+
+  document.getElementById('depCards').innerHTML = [
+    { label: 'Repos Analyzed', value: depTotals.repos_analyzed },
+    { label: 'Repos With Dependency Vulns', value: depTotals.repos_with_vulnerabilities },
+    { label: 'Packages Extracted', value: depTotals.packages_total },
+    { label: 'Queryable Packages', value: depTotals.packages_queryable },
+    { label: 'Unqueryable Packages', value: depTotals.packages_unqueryable },
+    { label: 'Total Dependency Vulnerabilities', value: depTotals.vulnerabilities_total },
+    { label: 'Unique Vulnerability IDs', value: depTotals.unique_vulnerability_ids },
+  ].map(c => `<div class="card"><div class="label">${c.label}</div><div class="value">${c.value}</div></div>`).join('');
+
+  document.getElementById('depRepoBody').innerHTML = rows.length
+    ? rows.map(r => `
+      <tr>
+        <td><a href="${escAttr(r.repo_url)}" target="_blank">${esc(r.owner || '')}/${esc(r.repo_name || '')}</a></td>
+        <td>${statusBadge(r.status)}</td>
+        <td>${Number(r.packages_total || 0)}</td>
+        <td>${Number(r.packages_queryable || 0)}</td>
+        <td>${Number(r.packages_unqueryable || 0)}</td>
+        <td>${Number(r.vulnerabilities_total || 0)}</td>
+        <td>${Number((r.severity || {}).critical || 0)}</td>
+        <td>${Number((r.severity || {}).high || 0)}</td>
+        <td><button class="dep-detail-btn" data-repo-url="${escAttr(r.repo_url)}" style="cursor:pointer;border:none;background:var(--primary);color:#fff;padding:.25rem .6rem;border-radius:4px;font-size:.8rem;">View</button></td>
+      </tr>
+    `).join('')
+    : '<tr><td colspan="9">No dependency records match the current filters.</td></tr>';
+
+  document.querySelectorAll('.dep-detail-btn').forEach(btn => {
+    btn.addEventListener('click', () => showDependencyDetail(btn.getAttribute('data-repo-url') || ''));
+  });
+
+  const sev = depTotals.severity || {};
+  const severityLabels = ['Critical', 'High', 'Medium', 'Low', 'Unknown'];
+  const severityData = [
+    Number(sev.critical || 0),
+    Number(sev.high || 0),
+    Number(sev.medium || 0),
+    Number(sev.low || 0),
+    Number(sev.unknown || 0),
+  ];
+  if (depSeverityChart) depSeverityChart.destroy();
+  depSeverityChart = new Chart(document.getElementById('chartDepSeverity'), {
+    type: 'doughnut',
+    data: {
+      labels: severityLabels,
+      datasets: [{
+        data: severityData,
+        backgroundColor: ['#991b1b', '#dc2626', '#d97706', '#16a34a', '#94a3b8'],
+      }],
+    },
+    options: { plugins: { legend: { position: 'bottom' } } },
+  });
+
+  const topRows = [...depRepos]
+    .sort((a, b) => Number(b.vulnerabilities_total || 0) - Number(a.vulnerabilities_total || 0))
+    .slice(0, 12)
+    .filter(r => Number(r.vulnerabilities_total || 0) > 0);
+  if (depTopReposChart) depTopReposChart.destroy();
+  depTopReposChart = new Chart(document.getElementById('chartDepTopRepos'), {
+    type: 'bar',
+    data: {
+      labels: topRows.map(r => `${r.owner}/${r.repo_name}`),
+      datasets: [{
+        label: 'Dependency Vulnerabilities',
+        data: topRows.map(r => Number(r.vulnerabilities_total || 0)),
+        backgroundColor: '#ef4444',
+      }],
+    },
+    options: {
+      indexAxis: 'y',
+      plugins: { legend: { display: false } },
+      scales: { x: { beginAtZero: true } },
+    },
+  });
+
+  if (depQueryableChart) depQueryableChart.destroy();
+  depQueryableChart = new Chart(document.getElementById('chartDepQueryable'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Queryable', 'Unqueryable'],
+      datasets: [{
+        data: [Number(depTotals.packages_queryable || 0), Number(depTotals.packages_unqueryable || 0)],
+        backgroundColor: ['#2563eb', '#94a3b8'],
+      }],
+    },
+    options: { plugins: { legend: { position: 'bottom' } } },
+  });
+}
+
+document.getElementById('depSearch').addEventListener('input', renderDependencies);
+document.getElementById('depStatusFilter').addEventListener('change', renderDependencies);
+document.getElementById('depRiskFilter').addEventListener('change', renderDependencies);
+renderDependencies();
 
 // Category comparison charts
 (function() {

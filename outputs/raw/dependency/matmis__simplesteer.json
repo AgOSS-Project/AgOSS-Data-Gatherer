@@ -1,0 +1,57 @@
+{
+  "repo_url": "https://github.com/matmis/simplesteer",
+  "owner": "matmis",
+  "repo_name": "simplesteer",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 4,
+  "filtered_self_packages": 1,
+  "packages_total": 3,
+  "packages_queryable": 0,
+  "packages_unqueryable": 3,
+  "vulnerability_ids": [],
+  "vulnerabilities_total": 0,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "actions/checkout",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/actions/checkout@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/setup-node",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/actions/setup-node@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "setup-node",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/upload-artifact",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/actions/upload-artifact@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "upload-artifact",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}

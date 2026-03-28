@@ -272,8 +272,29 @@ def _check_readiness(repo_id: int, mode: str) -> bool:
 
     if mode == "full":
         return all(results)
-    # "standard"
-    return any(results)
+
+    # "standard": accept readiness if any configured endpoint has data.
+    if any(results):
+        return True
+
+    # Fallback for repos that have little/no issue activity but still have
+    # meaningful collected data in other endpoints.
+    fallback_endpoints = (
+        "committers",
+        "commits",
+        "pull-requests-new",
+        "releases",
+    )
+    fallback_results: list[bool] = []
+    for ep in fallback_endpoints:
+        try:
+            r = _get(f"repos/{repo_id}/{ep}")
+            has_data = r.status_code == 200 and bool(r.json())
+        except Exception:
+            has_data = False
+        fallback_results.append(has_data)
+
+    return any(fallback_results)
 
 
 def wait_for_repos(
@@ -410,14 +431,15 @@ def run_augur(
     *,
     known_repo_id: int | None = None,
     wait_status: str = "",
+    use_cache: bool = True,
 ) -> AugurResult:
     """Collect Augur metrics for a single repo."""
     result = AugurResult()
     out_file = _output_path(entry)
     config.RAW_AUGUR_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Cache hit
-    if _should_skip(entry):
+    # Cache hit (optionally bypassed by orchestration)
+    if use_cache and _should_skip(entry):
         logger.info("[augur] Using cached result for %s/%s", entry.owner, entry.repo_name)
         try:
             raw = json.loads(out_file.read_text(encoding="utf-8"))
@@ -480,9 +502,20 @@ def run_augur(
     if not has_data and result.metrics.get("languages"):
         has_data = False
 
-    # Classify final status based on whether we got meaningful data
+    # Classify final status based on wait outcome + collected data.
     total_endpoints = len(config.AUGUR_METRIC_ENDPOINTS)
-    if has_data and nonempty_count >= total_endpoints // 2:
+    ready_threshold = max(1, total_endpoints // 2)
+
+    # If the wait phase already confirmed readiness, trust it.
+    if wait_status == "ready":
+        result.status = "ready"
+        result.collected = True
+        result.ready = True
+    elif wait_status == "timed_out" and not has_data:
+        result.status = "timed_out"
+        result.collected = False
+        result.ready = False
+    elif has_data and nonempty_count >= ready_threshold:
         result.status = "ready"
         result.collected = True
         result.ready = True
@@ -593,12 +626,16 @@ def run_augur_batch(
 
     # ── Phase 3: Collect ──
     logger.info("[augur] Phase 3: Collecting metrics for %d repos …", len(entries))
+    # During registration/wait orchestration, force fresh metric reads so
+    # stale cached "partial" files do not mask newly-ready repos.
+    use_cache = not (do_register or do_wait)
     for i, entry in enumerate(entries, 1):
         logger.info("[augur] (%d/%d) %s/%s", i, len(entries), entry.owner, entry.repo_name)
         results[entry.repo_url] = run_augur(
             entry,
             known_repo_id=repo_ids.get(entry.repo_url),
             wait_status=wait_statuses.get(entry.repo_url, ""),
+            use_cache=use_cache,
         )
 
     return results

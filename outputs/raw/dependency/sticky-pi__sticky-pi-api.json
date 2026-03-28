@@ -1,0 +1,23 @@
+{
+  "repo_url": "https://github.com/sticky-pi/sticky-pi-api",
+  "owner": "sticky-pi",
+  "repo_name": "sticky-pi-api",
+  "status": "failed",
+  "error": "HTTP 404: Not Found",
+  "sbom_package_count": 0,
+  "filtered_self_packages": 0,
+  "packages_total": 0,
+  "packages_queryable": 0,
+  "packages_unqueryable": 0,
+  "vulnerability_ids": [],
+  "vulnerabilities_total": 0,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [],
+  "vulnerabilities": []
+}

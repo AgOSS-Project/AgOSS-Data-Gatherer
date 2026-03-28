@@ -1,6 +1,6 @@
 {
   "repo_id": 25504,
-  "status": "partial",
+  "status": "ready",
   "metrics_raw": {
     "contributors": [
       {
@@ -5251,8 +5251,8 @@
         "stars_count": 0,
         "fork_count": 0,
         "merged_count": 0,
-        "committer_count": 7,
-        "commit_count": 38.0
+        "committer_count": 6,
+        "commit_count": 33.0
       }
     ],
     "db_counts": {
@@ -5286,11 +5286,11 @@
         "stars_count": 0,
         "fork_count": 0,
         "merged_count": 0,
-        "committer_count": 7,
-        "commit_count": 38.0
+        "committer_count": 6,
+        "commit_count": 33.0
       }
     ],
-    "commit_count": 38.0,
+    "commit_count": 33.0,
     "stars": 0,
     "forks": 0,
     "watchers": 0,

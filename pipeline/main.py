@@ -2,6 +2,7 @@
 
 Usage:
     python -m pipeline.main [--force] [--verbose] [--skip-scorecard] [--skip-augur]
+                            [--skip-dependencies]
                             [--sync-augur] [--register-augur] [--wait-for-augur]
                             [--augur-wait-mode MODE] [--augur-timeout N]
 """
@@ -36,6 +37,10 @@ def parse_args() -> argparse.Namespace:
     p.add_argument(
         "--skip-augur", action="store_true",
         help="Skip Augur collection (use cached or empty).",
+    )
+    p.add_argument(
+        "--skip-dependencies", action="store_true",
+        help="Skip dependency vulnerability analysis (write empty dependency artifact).",
     )
     p.add_argument(
         "--input", type=str, default=None,
@@ -86,7 +91,7 @@ def main() -> None:
         config.AUGUR_WAIT_TIMEOUT = args.augur_timeout
 
     # ── 1. Validate environment ──
-    logger.info("Step 1/6: Validating environment …")
+    logger.info("Step 1/7: Validating environment …")
 
     if not config.SCORECARD_EXE.exists():
         logger.warning("scorecard.exe not found at %s — Scorecard collection will fail.", config.SCORECARD_EXE)
@@ -102,7 +107,7 @@ def main() -> None:
         sys.exit(1)
 
     # ── 2. Parse input ──
-    logger.info("Step 2/6: Parsing input …")
+    logger.info("Step 2/7: Parsing input …")
     from pipeline.input_parser import parse_input
     entries = parse_input(input_path)
 
@@ -115,7 +120,7 @@ def main() -> None:
     scorecard_results: dict[str, ScorecardResult] = {}
 
     if args.skip_scorecard:
-        logger.info("Step 3/6: Scorecard collection SKIPPED (--skip-scorecard)")
+        logger.info("Step 3/7: Scorecard collection SKIPPED (--skip-scorecard)")
         from pipeline.scorecard_runner import load_scorecard_batch_from_cache
         scorecard_results = load_scorecard_batch_from_cache(entries)
         sc_ok = sum(1 for r in scorecard_results.values() if r.status == "success")
@@ -123,7 +128,7 @@ def main() -> None:
         logger.info("Scorecard cache: %d loaded, %d missing/failed (of %d)",
                     sc_ok, sc_fail, len(entries))
     else:
-        logger.info("Step 3/6: Running Scorecard collection for %d repos …", len(entries))
+        logger.info("Step 3/7: Running Scorecard collection for %d repos …", len(entries))
         from pipeline.scorecard_runner import run_scorecard_batch
         scorecard_results = run_scorecard_batch(entries)
 
@@ -138,7 +143,7 @@ def main() -> None:
     augur_results: dict[str, AugurResult] = {}
 
     if args.skip_augur:
-        logger.info("Step 4/6: Augur collection SKIPPED (--skip-augur)")
+        logger.info("Step 4/7: Augur collection SKIPPED (--skip-augur)")
         from pipeline.augur_runner import load_augur_batch_from_cache
         augur_results = load_augur_batch_from_cache(entries)
         ag_ok = sum(1 for r in augur_results.values() if r.status in ("ready", "partial", "collecting", "registered"))
@@ -146,7 +151,7 @@ def main() -> None:
         logger.info("Augur cache: %d loaded, %d missing/failed (of %d)",
                     ag_ok, ag_fail, len(entries))
     else:
-        logger.info("Step 4/6: Running Augur collection for %d repos …", len(entries))
+        logger.info("Step 4/7: Running Augur collection for %d repos …", len(entries))
         from pipeline.augur_runner import check_augur_health, run_augur_batch, load_augur_batch_from_cache
 
         if not check_augur_health():
@@ -164,15 +169,43 @@ def main() -> None:
             ag_fail = sum(1 for r in augur_results.values() if r.status in ("failed", "not_registered"))
             logger.info("Augur: %d collected, %d failed (of %d)", ag_ok, ag_fail, len(entries))
 
-    # ── 5. Merge results ──
-    logger.info("Step 5/6: Merging results …")
+    # ── 5. Dependency vulnerability analysis ──
+    dependency_report: dict[str, object] = {}
+    if args.skip_dependencies:
+        logger.info("Step 5/7: Dependency analysis SKIPPED (--skip-dependencies)")
+        from pipeline.dependency_runner import write_empty_dependency_report
+        dependency_report = write_empty_dependency_report(entries, reason="Skipped by --skip-dependencies")
+    else:
+        logger.info("Step 5/7: Running dependency vulnerability analysis for %d repos …", len(entries))
+        from pipeline.dependency_runner import run_dependency_analysis_batch, write_empty_dependency_report
+
+        try:
+            dependency_report = run_dependency_analysis_batch(entries)
+        except Exception as exc:
+            logger.error("Dependency analysis failed: %s", exc)
+            dependency_report = write_empty_dependency_report(
+                entries,
+                reason=f"Dependency analysis failed: {exc}",
+            )
+
+        dep_totals = dependency_report.get("totals") if isinstance(dependency_report, dict) else {}
+        if isinstance(dep_totals, dict):
+            logger.info(
+                "Dependencies: %d analyzed, %d failed, %d vulnerabilities",
+                dep_totals.get("repos_analyzed", 0),
+                dep_totals.get("repos_failed", 0),
+                dep_totals.get("vulnerabilities_total", 0),
+            )
+
+    # ── 6. Merge results ──
+    logger.info("Step 6/7: Merging results …")
     from pipeline.merger import merge, write_outputs
     records, summary = merge(entries, scorecard_results, augur_results)
     summary.run_start = datetime.now(timezone.utc).isoformat()
     write_outputs(records, summary)
 
-    # ── 6. Build dashboard ──
-    logger.info("Step 6/6: Building dashboard …")
+    # ── 7. Build dashboard ──
+    logger.info("Step 7/7: Building dashboard …")
     from pipeline.report.render import build_dashboard
     try:
         dash_path = build_dashboard()
@@ -195,6 +228,11 @@ def main() -> None:
     logger.info("  Augur registered   : %d", summary.augur_registered)
     logger.info("  Augur timed-out    : %d", summary.augur_timed_out)
     logger.info("  Augur fail         : %d", summary.augur_fail)
+    dep_totals = dependency_report.get("totals") if isinstance(dependency_report, dict) else {}
+    if isinstance(dep_totals, dict):
+        logger.info("  Dependency analyzed: %d", dep_totals.get("repos_analyzed", 0))
+        logger.info("  Dependency failed  : %d", dep_totals.get("repos_failed", 0))
+        logger.info("  Dependency vulns   : %d", dep_totals.get("vulnerabilities_total", 0))
     logger.info("  Outputs            : %s", config.OUTPUTS_DIR)
     logger.info("  Dashboard          : %s", config.DASHBOARD_DIR / "index.html")
     logger.info("=" * 60)

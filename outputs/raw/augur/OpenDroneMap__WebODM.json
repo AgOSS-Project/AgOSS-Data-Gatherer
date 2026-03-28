@@ -1,6 +1,6 @@
 {
   "repo_id": 25510,
-  "status": "partial",
+  "status": "ready",
   "metrics_raw": {
     "contributors": [
       {
@@ -9659,7 +9659,7 @@
         "date": "2025-09-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 1
+        "count": 2
       },
       {
         "date": "2025-08-01T00:00:00.000Z",
@@ -9695,7 +9695,7 @@
         "date": "2025-03-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 4
       },
       {
         "date": "2025-02-01T00:00:00.000Z",
@@ -9707,7 +9707,7 @@
         "date": "2025-01-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2024-12-01T00:00:00.000Z",
@@ -9731,7 +9731,7 @@
         "date": "2024-08-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 4
       },
       {
         "date": "2024-07-01T00:00:00.000Z",
@@ -9743,13 +9743,13 @@
         "date": "2024-06-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2024-05-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 4
       },
       {
         "date": "2024-04-01T00:00:00.000Z",
@@ -9761,7 +9761,7 @@
         "date": "2024-02-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2024-01-01T00:00:00.000Z",
@@ -9785,13 +9785,13 @@
         "date": "2023-10-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 4
       },
       {
         "date": "2023-09-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2023-08-01T00:00:00.000Z",
@@ -9809,19 +9809,19 @@
         "date": "2023-05-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2023-04-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 4
+        "count": 5
       },
       {
         "date": "2023-03-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 5
+        "count": 6
       },
       {
         "date": "2023-02-01T00:00:00.000Z",
@@ -9851,19 +9851,19 @@
         "date": "2022-10-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2022-09-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2022-08-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 4
       },
       {
         "date": "2022-07-01T00:00:00.000Z",
@@ -9887,13 +9887,13 @@
         "date": "2022-04-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 1
+        "count": 4
       },
       {
         "date": "2022-03-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 4
       },
       {
         "date": "2022-02-01T00:00:00.000Z",
@@ -9905,13 +9905,13 @@
         "date": "2022-01-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2021-12-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 4
       },
       {
         "date": "2021-11-01T00:00:00.000Z",
@@ -9923,25 +9923,25 @@
         "date": "2021-10-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 5
       },
       {
         "date": "2021-09-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 4
+        "count": 5
       },
       {
         "date": "2021-08-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 4
       },
       {
         "date": "2021-07-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 4
       },
       {
         "date": "2021-06-01T00:00:00.000Z",
@@ -9965,7 +9965,7 @@
         "date": "2021-03-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 1
+        "count": 2
       },
       {
         "date": "2021-02-01T00:00:00.000Z",
@@ -9989,13 +9989,13 @@
         "date": "2020-10-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 1
+        "count": 3
       },
       {
         "date": "2020-09-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 1
+        "count": 2
       },
       {
         "date": "2020-08-01T00:00:00.000Z",
@@ -10007,7 +10007,7 @@
         "date": "2020-07-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 5
       },
       {
         "date": "2020-06-01T00:00:00.000Z",
@@ -10025,7 +10025,7 @@
         "date": "2020-04-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 4
       },
       {
         "date": "2020-03-01T00:00:00.000Z",
@@ -10043,13 +10043,13 @@
         "date": "2020-01-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 1
+        "count": 4
       },
       {
         "date": "2019-12-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 4
       },
       {
         "date": "2019-11-01T00:00:00.000Z",
@@ -10067,13 +10067,13 @@
         "date": "2019-09-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 4
+        "count": 5
       },
       {
         "date": "2019-08-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 5
       },
       {
         "date": "2019-07-01T00:00:00.000Z",
@@ -10085,7 +10085,7 @@
         "date": "2019-06-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2019-05-01T00:00:00.000Z",
@@ -10109,13 +10109,13 @@
         "date": "2019-02-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 1
+        "count": 2
       },
       {
         "date": "2019-01-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 1
+        "count": 2
       },
       {
         "date": "2018-12-01T00:00:00.000Z",
@@ -10133,13 +10133,13 @@
         "date": "2018-10-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 5
       },
       {
         "date": "2018-09-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2018-08-01T00:00:00.000Z",
@@ -10157,7 +10157,7 @@
         "date": "2018-06-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 1
+        "count": 2
       },
       {
         "date": "2018-05-01T00:00:00.000Z",
@@ -10169,7 +10169,7 @@
         "date": "2018-04-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 3
+        "count": 4
       },
       {
         "date": "2018-03-01T00:00:00.000Z",
@@ -10235,7 +10235,7 @@
         "date": "2017-05-01T00:00:00.000Z",
         "repo_name": "WebODM",
         "rg_name": "ag-oss-pipeline",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2017-04-01T00:00:00.000Z",
@@ -10310,8 +10310,8 @@
       {
         "repo_name": "WebODM",
         "date": "2016-08-13T00:00:00.000Z",
-        "added": 1492,
-        "removed": 39
+        "added": 1540,
+        "removed": 127
       },
       {
         "repo_name": "WebODM",
@@ -10322,14 +10322,14 @@
       {
         "repo_name": "WebODM",
         "date": "2016-08-16T00:00:00.000Z",
-        "added": 8,
-        "removed": 0
+        "added": 9,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2016-09-05T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 489,
+        "removed": 16
       },
       {
         "repo_name": "WebODM",
@@ -10340,20 +10340,26 @@
       {
         "repo_name": "WebODM",
         "date": "2016-09-10T00:00:00.000Z",
-        "added": 47,
-        "removed": 13
+        "added": 85,
+        "removed": 19
       },
       {
         "repo_name": "WebODM",
         "date": "2016-09-11T00:00:00.000Z",
-        "added": 5,
-        "removed": 1
+        "added": 255,
+        "removed": 11
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-09-12T00:00:00.000Z",
+        "added": 50,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
         "date": "2016-09-13T00:00:00.000Z",
-        "added": 3707,
-        "removed": 43
+        "added": 3719,
+        "removed": 52
       },
       {
         "repo_name": "WebODM",
@@ -10364,26 +10370,32 @@
       {
         "repo_name": "WebODM",
         "date": "2016-09-21T00:00:00.000Z",
-        "added": 35,
-        "removed": 6
+        "added": 80,
+        "removed": 43
       },
       {
         "repo_name": "WebODM",
         "date": "2016-09-22T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 714,
+        "removed": 407
       },
       {
         "repo_name": "WebODM",
         "date": "2016-09-24T00:00:00.000Z",
-        "added": 14,
-        "removed": 2
+        "added": 286,
+        "removed": 7
       },
       {
         "repo_name": "WebODM",
         "date": "2016-09-27T00:00:00.000Z",
-        "added": 126,
-        "removed": 19
+        "added": 129,
+        "removed": 20
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-09-28T00:00:00.000Z",
+        "added": 70,
+        "removed": 12
       },
       {
         "repo_name": "WebODM",
@@ -10394,20 +10406,20 @@
       {
         "repo_name": "WebODM",
         "date": "2016-09-30T00:00:00.000Z",
-        "added": 29,
-        "removed": 2
+        "added": 43,
+        "removed": 15
       },
       {
         "repo_name": "WebODM",
         "date": "2016-10-04T00:00:00.000Z",
-        "added": 30,
-        "removed": 29
+        "added": 126,
+        "removed": 44
       },
       {
         "repo_name": "WebODM",
         "date": "2016-10-05T00:00:00.000Z",
-        "added": 16,
-        "removed": 8
+        "added": 39,
+        "removed": 20
       },
       {
         "repo_name": "WebODM",
@@ -10418,13 +10430,13 @@
       {
         "repo_name": "WebODM",
         "date": "2016-10-07T00:00:00.000Z",
-        "added": 8,
-        "removed": 5
+        "added": 157,
+        "removed": 31
       },
       {
         "repo_name": "WebODM",
         "date": "2016-10-08T00:00:00.000Z",
-        "added": 96,
+        "added": 97,
         "removed": 134
       },
       {
@@ -10436,20 +10448,26 @@
       {
         "repo_name": "WebODM",
         "date": "2016-10-11T00:00:00.000Z",
-        "added": 67,
-        "removed": 19
+        "added": 281,
+        "removed": 160
       },
       {
         "repo_name": "WebODM",
         "date": "2016-10-12T00:00:00.000Z",
-        "added": 47,
-        "removed": 54
+        "added": 1833,
+        "removed": 177
       },
       {
         "repo_name": "WebODM",
         "date": "2016-10-13T00:00:00.000Z",
-        "added": 85,
-        "removed": 12
+        "added": 171,
+        "removed": 27
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-10-17T00:00:00.000Z",
+        "added": 131,
+        "removed": 30
       },
       {
         "repo_name": "WebODM",
@@ -10472,8 +10490,14 @@
       {
         "repo_name": "WebODM",
         "date": "2016-10-22T00:00:00.000Z",
-        "added": 6,
-        "removed": 3
+        "added": 66,
+        "removed": 31
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-10-24T00:00:00.000Z",
+        "added": 130,
+        "removed": 14
       },
       {
         "repo_name": "WebODM",
@@ -10484,74 +10508,116 @@
       {
         "repo_name": "WebODM",
         "date": "2016-10-26T00:00:00.000Z",
-        "added": 52,
-        "removed": 21
+        "added": 187,
+        "removed": 50
       },
       {
         "repo_name": "WebODM",
         "date": "2016-10-27T00:00:00.000Z",
-        "added": 144,
-        "removed": 46
+        "added": 1113,
+        "removed": 113
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-10-28T00:00:00.000Z",
+        "added": 58,
+        "removed": 39
       },
       {
         "repo_name": "WebODM",
         "date": "2016-10-29T00:00:00.000Z",
-        "added": 25,
-        "removed": 10
+        "added": 52,
+        "removed": 28
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-10-31T00:00:00.000Z",
+        "added": 76,
+        "removed": 6
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-11-01T00:00:00.000Z",
+        "added": 58,
+        "removed": 36
       },
       {
         "repo_name": "WebODM",
         "date": "2016-11-02T00:00:00.000Z",
-        "added": 278,
-        "removed": 87
+        "added": 336,
+        "removed": 92
       },
       {
         "repo_name": "WebODM",
         "date": "2016-11-03T00:00:00.000Z",
-        "added": 153,
-        "removed": 59
+        "added": 181,
+        "removed": 91
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-11-04T00:00:00.000Z",
+        "added": 200,
+        "removed": 57
       },
       {
         "repo_name": "WebODM",
         "date": "2016-11-05T00:00:00.000Z",
-        "added": 21,
-        "removed": 9
+        "added": 56,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
         "date": "2016-11-07T00:00:00.000Z",
-        "added": 148,
-        "removed": 128
+        "added": 263,
+        "removed": 230
       },
       {
         "repo_name": "WebODM",
         "date": "2016-11-08T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 25,
+        "removed": 22
       },
       {
         "repo_name": "WebODM",
         "date": "2016-11-09T00:00:00.000Z",
-        "added": 1,
-        "removed": 5
+        "added": 985,
+        "removed": 75
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-11-10T00:00:00.000Z",
+        "added": 20,
+        "removed": 8
       },
       {
         "repo_name": "WebODM",
         "date": "2016-11-11T00:00:00.000Z",
-        "added": 126,
-        "removed": 60
+        "added": 263,
+        "removed": 743
       },
       {
         "repo_name": "WebODM",
         "date": "2016-11-14T00:00:00.000Z",
-        "added": 44,
-        "removed": 12
+        "added": 313,
+        "removed": 46
       },
       {
         "repo_name": "WebODM",
         "date": "2016-11-15T00:00:00.000Z",
         "added": 207,
         "removed": 107
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-11-16T00:00:00.000Z",
+        "added": 102,
+        "removed": 136
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-11-17T00:00:00.000Z",
+        "added": 1820,
+        "removed": 76
       },
       {
         "repo_name": "WebODM",
@@ -10562,8 +10628,8 @@
       {
         "repo_name": "WebODM",
         "date": "2016-11-19T00:00:00.000Z",
-        "added": 1,
-        "removed": 0
+        "added": 2,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -10579,9 +10645,27 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2016-11-26T00:00:00.000Z",
+        "added": 85,
+        "removed": 26
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-11-27T00:00:00.000Z",
+        "added": 6,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-11-28T00:00:00.000Z",
+        "added": 6,
+        "removed": 7
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2016-12-01T00:00:00.000Z",
-        "added": 51,
-        "removed": 15
+        "added": 53,
+        "removed": 17
       },
       {
         "repo_name": "WebODM",
@@ -10592,8 +10676,8 @@
       {
         "repo_name": "WebODM",
         "date": "2016-12-06T00:00:00.000Z",
-        "added": 1,
-        "removed": 7
+        "added": 8,
+        "removed": 15
       },
       {
         "repo_name": "WebODM",
@@ -10616,20 +10700,32 @@
       {
         "repo_name": "WebODM",
         "date": "2016-12-12T00:00:00.000Z",
-        "added": 203,
-        "removed": 20
+        "added": 286,
+        "removed": 54
       },
       {
         "repo_name": "WebODM",
         "date": "2016-12-13T00:00:00.000Z",
+        "added": 11,
+        "removed": 5
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-12-14T00:00:00.000Z",
+        "added": 24,
+        "removed": 25
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2016-12-15T00:00:00.000Z",
         "added": 3,
         "removed": 2
       },
       {
         "repo_name": "WebODM",
-        "date": "2016-12-14T00:00:00.000Z",
-        "added": 15,
-        "removed": 13
+        "date": "2016-12-18T00:00:00.000Z",
+        "added": 61,
+        "removed": 4
       },
       {
         "repo_name": "WebODM",
@@ -10640,44 +10736,62 @@
       {
         "repo_name": "WebODM",
         "date": "2016-12-29T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 9,
+        "removed": 9
       },
       {
         "repo_name": "WebODM",
         "date": "2016-12-30T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 325070,
+        "removed": 794788
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-01-02T00:00:00.000Z",
+        "added": 310,
+        "removed": 63804
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-01-04T00:00:00.000Z",
+        "added": 14556,
+        "removed": 54
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-01-06T00:00:00.000Z",
+        "added": 44,
+        "removed": 37
       },
       {
         "repo_name": "WebODM",
         "date": "2017-01-09T00:00:00.000Z",
-        "added": 12,
-        "removed": 12
+        "added": 28,
+        "removed": 17
       },
       {
         "repo_name": "WebODM",
         "date": "2017-01-11T00:00:00.000Z",
-        "added": 126,
-        "removed": 303
+        "added": 222,
+        "removed": 442
       },
       {
         "repo_name": "WebODM",
         "date": "2017-01-18T00:00:00.000Z",
-        "added": 54,
-        "removed": 18
+        "added": 1982,
+        "removed": 48
       },
       {
         "repo_name": "WebODM",
         "date": "2017-01-19T00:00:00.000Z",
-        "added": 92,
-        "removed": 8
+        "added": 94,
+        "removed": 18
       },
       {
         "repo_name": "WebODM",
         "date": "2017-01-21T00:00:00.000Z",
-        "added": 26,
-        "removed": 295
+        "added": 152,
+        "removed": 311
       },
       {
         "repo_name": "WebODM",
@@ -10688,20 +10802,26 @@
       {
         "repo_name": "WebODM",
         "date": "2017-01-24T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 21,
+        "removed": 8
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-01-26T00:00:00.000Z",
+        "added": 60,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
         "date": "2017-01-27T00:00:00.000Z",
-        "added": 117,
-        "removed": 21
+        "added": 118,
+        "removed": 22
       },
       {
         "repo_name": "WebODM",
         "date": "2017-01-29T00:00:00.000Z",
-        "added": 5,
-        "removed": 3
+        "added": 21,
+        "removed": 14
       },
       {
         "repo_name": "WebODM",
@@ -10711,21 +10831,33 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2017-02-05T00:00:00.000Z",
+        "added": 60,
+        "removed": 38
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2017-02-07T00:00:00.000Z",
-        "added": 125,
-        "removed": 28
+        "added": 222,
+        "removed": 72
       },
       {
         "repo_name": "WebODM",
         "date": "2017-02-08T00:00:00.000Z",
-        "added": 376,
-        "removed": 257
+        "added": 475,
+        "removed": 308
       },
       {
         "repo_name": "WebODM",
         "date": "2017-02-09T00:00:00.000Z",
-        "added": 370,
-        "removed": 238
+        "added": 438,
+        "removed": 270
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-02-10T00:00:00.000Z",
+        "added": 196,
+        "removed": 112
       },
       {
         "repo_name": "WebODM",
@@ -10748,8 +10880,8 @@
       {
         "repo_name": "WebODM",
         "date": "2017-02-15T00:00:00.000Z",
-        "added": 9,
-        "removed": 4
+        "added": 195,
+        "removed": 49
       },
       {
         "repo_name": "WebODM",
@@ -10760,8 +10892,14 @@
       {
         "repo_name": "WebODM",
         "date": "2017-02-18T00:00:00.000Z",
-        "added": 52,
-        "removed": 64
+        "added": 55,
+        "removed": 65
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-02-19T00:00:00.000Z",
+        "added": 70,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
@@ -10771,9 +10909,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2017-02-25T00:00:00.000Z",
+        "added": 69,
+        "removed": 44
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2017-03-01T00:00:00.000Z",
-        "added": 182,
-        "removed": 73
+        "added": 258,
+        "removed": 80
       },
       {
         "repo_name": "WebODM",
@@ -10789,9 +10933,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2017-03-07T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2017-03-08T00:00:00.000Z",
-        "added": 17,
-        "removed": 16
+        "added": 78,
+        "removed": 46
       },
       {
         "repo_name": "WebODM",
@@ -10808,8 +10958,8 @@
       {
         "repo_name": "WebODM",
         "date": "2017-03-14T00:00:00.000Z",
-        "added": 14,
-        "removed": 12
+        "added": 123,
+        "removed": 48
       },
       {
         "repo_name": "WebODM",
@@ -10820,14 +10970,14 @@
       {
         "repo_name": "WebODM",
         "date": "2017-03-16T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 10,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
         "date": "2017-03-19T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -10850,8 +11000,8 @@
       {
         "repo_name": "WebODM",
         "date": "2017-03-23T00:00:00.000Z",
-        "added": 18,
-        "removed": 21
+        "added": 58,
+        "removed": 57
       },
       {
         "repo_name": "WebODM",
@@ -10880,14 +11030,32 @@
       {
         "repo_name": "WebODM",
         "date": "2017-03-31T00:00:00.000Z",
-        "added": 11147,
-        "removed": 24
+        "added": 11148,
+        "removed": 25
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-04-04T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-04-08T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2017-04-10T00:00:00.000Z",
         "added": 16,
         "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-04-11T00:00:00.000Z",
+        "added": 37,
+        "removed": 4
       },
       {
         "repo_name": "WebODM",
@@ -10903,9 +11071,21 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2017-04-14T00:00:00.000Z",
+        "added": 9,
+        "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-04-15T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2017-04-18T00:00:00.000Z",
-        "added": 13,
-        "removed": 1
+        "added": 66,
+        "removed": 9
       },
       {
         "repo_name": "WebODM",
@@ -10940,8 +11120,8 @@
       {
         "repo_name": "WebODM",
         "date": "2017-04-30T00:00:00.000Z",
-        "added": 11,
-        "removed": 1
+        "added": 28,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -10976,25 +11156,37 @@
       {
         "repo_name": "WebODM",
         "date": "2017-05-15T00:00:00.000Z",
-        "added": 3,
-        "removed": 1
+        "added": 6,
+        "removed": 4
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-05-17T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2017-05-19T00:00:00.000Z",
-        "added": 77,
-        "removed": 10
+        "added": 80,
+        "removed": 13
       },
       {
         "repo_name": "WebODM",
         "date": "2017-05-21T00:00:00.000Z",
-        "added": 12,
-        "removed": 10
+        "added": 79,
+        "removed": 20
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-05-22T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2017-05-23T00:00:00.000Z",
-        "added": 1,
+        "added": 2,
         "removed": 1
       },
       {
@@ -11006,8 +11198,8 @@
       {
         "repo_name": "WebODM",
         "date": "2017-06-05T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 12,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
@@ -11018,26 +11210,38 @@
       {
         "repo_name": "WebODM",
         "date": "2017-06-07T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 4,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-06-08T00:00:00.000Z",
+        "added": 254,
+        "removed": 18
       },
       {
         "repo_name": "WebODM",
         "date": "2017-06-09T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 59,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
         "date": "2017-06-15T00:00:00.000Z",
-        "added": 169,
-        "removed": 112
+        "added": 187,
+        "removed": 128
       },
       {
         "repo_name": "WebODM",
         "date": "2017-06-16T00:00:00.000Z",
-        "added": 3,
-        "removed": 3
+        "added": 8,
+        "removed": 8
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-06-17T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
@@ -11047,15 +11251,21 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2017-07-06T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2017-07-07T00:00:00.000Z",
-        "added": 129,
-        "removed": 108
+        "added": 181,
+        "removed": 127
       },
       {
         "repo_name": "WebODM",
         "date": "2017-07-10T00:00:00.000Z",
-        "added": 78,
-        "removed": 31
+        "added": 154,
+        "removed": 39
       },
       {
         "repo_name": "WebODM",
@@ -11071,6 +11281,12 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2017-07-13T00:00:00.000Z",
+        "added": 75,
+        "removed": 36
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2017-07-14T00:00:00.000Z",
         "added": 3,
         "removed": 1
@@ -11078,14 +11294,14 @@
       {
         "repo_name": "WebODM",
         "date": "2017-07-18T00:00:00.000Z",
-        "added": 201,
-        "removed": 231
+        "added": 220,
+        "removed": 246
       },
       {
         "repo_name": "WebODM",
         "date": "2017-07-20T00:00:00.000Z",
-        "added": 78,
-        "removed": 88
+        "added": 122,
+        "removed": 98
       },
       {
         "repo_name": "WebODM",
@@ -11095,9 +11311,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2017-07-24T00:00:00.000Z",
+        "added": 295,
+        "removed": 147
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2017-07-25T00:00:00.000Z",
-        "added": 94,
-        "removed": 78
+        "added": 415,
+        "removed": 138
       },
       {
         "repo_name": "WebODM",
@@ -11113,9 +11335,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2017-08-09T00:00:00.000Z",
+        "added": 17,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2017-08-24T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 8,
+        "removed": 8
       },
       {
         "repo_name": "WebODM",
@@ -11156,26 +11384,26 @@
       {
         "repo_name": "WebODM",
         "date": "2017-09-14T00:00:00.000Z",
-        "added": 1,
-        "removed": 0
+        "added": 3,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
         "date": "2017-09-15T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 28,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
         "date": "2017-09-28T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 9,
+        "removed": 4
       },
       {
         "repo_name": "WebODM",
         "date": "2017-09-29T00:00:00.000Z",
-        "added": 135,
-        "removed": 33
+        "added": 136,
+        "removed": 34
       },
       {
         "repo_name": "WebODM",
@@ -11204,14 +11432,14 @@
       {
         "repo_name": "WebODM",
         "date": "2017-11-06T00:00:00.000Z",
-        "added": 41,
-        "removed": 4
+        "added": 156,
+        "removed": 505
       },
       {
         "repo_name": "WebODM",
         "date": "2017-11-07T00:00:00.000Z",
-        "added": 32,
-        "removed": 31
+        "added": 146,
+        "removed": 73
       },
       {
         "repo_name": "WebODM",
@@ -11222,68 +11450,86 @@
       {
         "repo_name": "WebODM",
         "date": "2017-11-09T00:00:00.000Z",
-        "added": 219,
-        "removed": 112
+        "added": 375,
+        "removed": 119
       },
       {
         "repo_name": "WebODM",
         "date": "2017-11-10T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 105,
+        "removed": 59
       },
       {
         "repo_name": "WebODM",
         "date": "2017-11-13T00:00:00.000Z",
-        "added": 4,
-        "removed": 4
+        "added": 7,
+        "removed": 5
       },
       {
         "repo_name": "WebODM",
         "date": "2017-11-16T00:00:00.000Z",
-        "added": 44,
-        "removed": 13
+        "added": 54,
+        "removed": 27
       },
       {
         "repo_name": "WebODM",
         "date": "2017-11-17T00:00:00.000Z",
-        "added": 22,
-        "removed": 12
+        "added": 362,
+        "removed": 106
       },
       {
         "repo_name": "WebODM",
         "date": "2017-11-18T00:00:00.000Z",
-        "added": 55,
-        "removed": 36
+        "added": 105,
+        "removed": 112
       },
       {
         "repo_name": "WebODM",
         "date": "2017-11-20T00:00:00.000Z",
-        "added": 3,
-        "removed": 6
+        "added": 2545,
+        "removed": 1239
       },
       {
         "repo_name": "WebODM",
         "date": "2017-11-22T00:00:00.000Z",
-        "added": 2,
-        "removed": 0
+        "added": 192,
+        "removed": 127
       },
       {
         "repo_name": "WebODM",
         "date": "2017-11-24T00:00:00.000Z",
-        "added": 1,
-        "removed": 0
+        "added": 3,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-11-25T00:00:00.000Z",
+        "added": 5,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
         "date": "2017-11-29T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 7,
+        "removed": 4
       },
       {
         "repo_name": "WebODM",
         "date": "2017-11-30T00:00:00.000Z",
-        "added": 273,
-        "removed": 72
+        "added": 373,
+        "removed": 198
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-12-01T00:00:00.000Z",
+        "added": 247,
+        "removed": 109
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2017-12-02T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -11294,8 +11540,8 @@
       {
         "repo_name": "WebODM",
         "date": "2017-12-05T00:00:00.000Z",
-        "added": 67,
-        "removed": 21
+        "added": 69,
+        "removed": 26
       },
       {
         "repo_name": "WebODM",
@@ -11336,14 +11582,14 @@
       {
         "repo_name": "WebODM",
         "date": "2018-01-24T00:00:00.000Z",
-        "added": 130,
-        "removed": 32
+        "added": 220,
+        "removed": 57
       },
       {
         "repo_name": "WebODM",
         "date": "2018-01-25T00:00:00.000Z",
-        "added": 30,
-        "removed": 3
+        "added": 44,
+        "removed": 11
       },
       {
         "repo_name": "WebODM",
@@ -11359,9 +11605,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2018-01-30T00:00:00.000Z",
+        "added": 166,
+        "removed": 14
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2018-02-07T00:00:00.000Z",
-        "added": 8,
-        "removed": 2
+        "added": 14,
+        "removed": 24
       },
       {
         "repo_name": "WebODM",
@@ -11383,9 +11635,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2018-02-15T00:00:00.000Z",
+        "added": 199,
+        "removed": 222
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2018-02-16T00:00:00.000Z",
-        "added": 15,
-        "removed": 4
+        "added": 149,
+        "removed": 105
       },
       {
         "repo_name": "WebODM",
@@ -11402,20 +11660,20 @@
       {
         "repo_name": "WebODM",
         "date": "2018-02-20T00:00:00.000Z",
-        "added": 155,
-        "removed": 21
+        "added": 158,
+        "removed": 29
       },
       {
         "repo_name": "WebODM",
         "date": "2018-02-21T00:00:00.000Z",
-        "added": 28,
-        "removed": 6
+        "added": 64,
+        "removed": 27
       },
       {
         "repo_name": "WebODM",
         "date": "2018-02-23T00:00:00.000Z",
-        "added": 251,
-        "removed": 351
+        "added": 539,
+        "removed": 363
       },
       {
         "repo_name": "WebODM",
@@ -11432,8 +11690,8 @@
       {
         "repo_name": "WebODM",
         "date": "2018-03-02T00:00:00.000Z",
-        "added": 80,
-        "removed": 14
+        "added": 142,
+        "removed": 50
       },
       {
         "repo_name": "WebODM",
@@ -11462,8 +11720,14 @@
       {
         "repo_name": "WebODM",
         "date": "2018-03-19T00:00:00.000Z",
-        "added": 159,
-        "removed": 330
+        "added": 306,
+        "removed": 411
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-03-25T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -11474,20 +11738,20 @@
       {
         "repo_name": "WebODM",
         "date": "2018-03-29T00:00:00.000Z",
-        "added": 350,
-        "removed": 233
+        "added": 428,
+        "removed": 272
       },
       {
         "repo_name": "WebODM",
         "date": "2018-03-30T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2018-03-31T00:00:00.000Z",
         "added": 3,
-        "removed": 2
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -11504,8 +11768,14 @@
       {
         "repo_name": "WebODM",
         "date": "2018-04-08T00:00:00.000Z",
-        "added": 47,
+        "added": 54,
         "removed": 31
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-04-12T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -11522,38 +11792,50 @@
       {
         "repo_name": "WebODM",
         "date": "2018-04-15T00:00:00.000Z",
-        "added": 2,
+        "added": 3,
         "removed": 1
       },
       {
         "repo_name": "WebODM",
+        "date": "2018-04-17T00:00:00.000Z",
+        "added": 4,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2018-04-19T00:00:00.000Z",
-        "added": 7,
-        "removed": 7
+        "added": 13,
+        "removed": 8
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-04-22T00:00:00.000Z",
+        "added": 25,
+        "removed": 32
       },
       {
         "repo_name": "WebODM",
         "date": "2018-04-29T00:00:00.000Z",
-        "added": 57,
-        "removed": 20
+        "added": 148,
+        "removed": 98
       },
       {
         "repo_name": "WebODM",
         "date": "2018-05-04T00:00:00.000Z",
-        "added": 22,
-        "removed": 81
+        "added": 67,
+        "removed": 100
       },
       {
         "repo_name": "WebODM",
         "date": "2018-05-13T00:00:00.000Z",
-        "added": 54,
-        "removed": 9
+        "added": 55,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
         "date": "2018-05-31T00:00:00.000Z",
-        "added": 32,
-        "removed": 16
+        "added": 37,
+        "removed": 19
       },
       {
         "repo_name": "WebODM",
@@ -11564,14 +11846,38 @@
       {
         "repo_name": "WebODM",
         "date": "2018-06-17T00:00:00.000Z",
+        "added": 4,
+        "removed": 11
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-06-18T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-06-22T00:00:00.000Z",
         "added": 3,
-        "removed": 10
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2018-06-23T00:00:00.000Z",
         "added": 6,
         "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-06-24T00:00:00.000Z",
+        "added": 4,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-06-25T00:00:00.000Z",
+        "added": 135,
+        "removed": 14
       },
       {
         "repo_name": "WebODM",
@@ -11582,8 +11888,14 @@
       {
         "repo_name": "WebODM",
         "date": "2018-06-30T00:00:00.000Z",
-        "added": 28,
-        "removed": 2
+        "added": 35,
+        "removed": 10
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-07-01T00:00:00.000Z",
+        "added": 2,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
@@ -11600,32 +11912,38 @@
       {
         "repo_name": "WebODM",
         "date": "2018-07-25T00:00:00.000Z",
-        "added": 46,
-        "removed": 36
+        "added": 47,
+        "removed": 37
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-07-26T00:00:00.000Z",
+        "added": 349,
+        "removed": 55
       },
       {
         "repo_name": "WebODM",
         "date": "2018-07-27T00:00:00.000Z",
-        "added": 14,
-        "removed": 13
+        "added": 380,
+        "removed": 92
       },
       {
         "repo_name": "WebODM",
         "date": "2018-07-30T00:00:00.000Z",
-        "added": 150,
-        "removed": 22
+        "added": 153,
+        "removed": 23
       },
       {
         "repo_name": "WebODM",
         "date": "2018-08-11T00:00:00.000Z",
-        "added": 83,
-        "removed": 2
+        "added": 132,
+        "removed": 5
       },
       {
         "repo_name": "WebODM",
         "date": "2018-08-12T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 20,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -11636,8 +11954,8 @@
       {
         "repo_name": "WebODM",
         "date": "2018-09-04T00:00:00.000Z",
-        "added": 40,
-        "removed": 23
+        "added": 60,
+        "removed": 45
       },
       {
         "repo_name": "WebODM",
@@ -11648,8 +11966,8 @@
       {
         "repo_name": "WebODM",
         "date": "2018-09-06T00:00:00.000Z",
-        "added": 3,
-        "removed": 6
+        "added": 12,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
@@ -11666,8 +11984,14 @@
       {
         "repo_name": "WebODM",
         "date": "2018-09-12T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 4,
+        "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-09-16T00:00:00.000Z",
+        "added": 17,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
@@ -11678,20 +12002,20 @@
       {
         "repo_name": "WebODM",
         "date": "2018-09-26T00:00:00.000Z",
-        "added": 2,
-        "removed": 1
+        "added": 27,
+        "removed": 5
       },
       {
         "repo_name": "WebODM",
         "date": "2018-09-28T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2018-10-05T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -11701,9 +12025,21 @@
       },
       {
         "repo_name": "WebODM",
-        "date": "2018-10-12T00:00:00.000Z",
-        "added": 1,
+        "date": "2018-10-11T00:00:00.000Z",
+        "added": 0,
         "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-10-12T00:00:00.000Z",
+        "added": 16,
+        "removed": 20
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-10-16T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -11713,9 +12049,15 @@
       },
       {
         "repo_name": "WebODM",
-        "date": "2018-10-25T00:00:00.000Z",
+        "date": "2018-10-19T00:00:00.000Z",
         "added": 0,
         "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2018-10-25T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -11732,8 +12074,8 @@
       {
         "repo_name": "WebODM",
         "date": "2018-11-03T00:00:00.000Z",
-        "added": 31,
-        "removed": 43
+        "added": 232,
+        "removed": 49
       },
       {
         "repo_name": "WebODM",
@@ -11744,8 +12086,8 @@
       {
         "repo_name": "WebODM",
         "date": "2018-12-04T00:00:00.000Z",
-        "added": 53,
-        "removed": 37
+        "added": 165,
+        "removed": 56
       },
       {
         "repo_name": "WebODM",
@@ -11762,14 +12104,14 @@
       {
         "repo_name": "WebODM",
         "date": "2018-12-07T00:00:00.000Z",
-        "added": 45,
-        "removed": 15
+        "added": 156,
+        "removed": 37
       },
       {
         "repo_name": "WebODM",
         "date": "2018-12-10T00:00:00.000Z",
-        "added": 8,
-        "removed": 7
+        "added": 42,
+        "removed": 28
       },
       {
         "repo_name": "WebODM",
@@ -11785,9 +12127,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2018-12-29T00:00:00.000Z",
+        "added": 123,
+        "removed": 23
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2018-12-31T00:00:00.000Z",
-        "added": 102,
-        "removed": 26
+        "added": 420,
+        "removed": 44
       },
       {
         "repo_name": "WebODM",
@@ -11798,38 +12146,56 @@
       {
         "repo_name": "WebODM",
         "date": "2019-01-02T00:00:00.000Z",
-        "added": 3,
-        "removed": 3
+        "added": 165,
+        "removed": 31
       },
       {
         "repo_name": "WebODM",
-        "date": "2019-01-15T00:00:00.000Z",
-        "added": 82,
-        "removed": 22
-      },
-      {
-        "repo_name": "WebODM",
-        "date": "2019-01-16T00:00:00.000Z",
-        "added": 56,
-        "removed": 314
-      },
-      {
-        "repo_name": "WebODM",
-        "date": "2019-01-18T00:00:00.000Z",
+        "date": "2019-01-04T00:00:00.000Z",
         "added": 1,
         "removed": 1
       },
       {
         "repo_name": "WebODM",
-        "date": "2019-01-26T00:00:00.000Z",
-        "added": 20,
+        "date": "2019-01-15T00:00:00.000Z",
+        "added": 211,
+        "removed": 47
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-01-16T00:00:00.000Z",
+        "added": 104,
+        "removed": 322
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-01-18T00:00:00.000Z",
+        "added": 3,
         "removed": 3
       },
       {
         "repo_name": "WebODM",
+        "date": "2019-01-26T00:00:00.000Z",
+        "added": 29,
+        "removed": 9
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2019-02-07T00:00:00.000Z",
-        "added": 5,
-        "removed": 5
+        "added": 161,
+        "removed": 369
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-02-08T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-02-11T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -11840,13 +12206,13 @@
       {
         "repo_name": "WebODM",
         "date": "2019-02-18T00:00:00.000Z",
-        "added": 31,
-        "removed": 66
+        "added": 42,
+        "removed": 95
       },
       {
         "repo_name": "WebODM",
         "date": "2019-02-19T00:00:00.000Z",
-        "added": 117,
+        "added": 137,
         "removed": 51
       },
       {
@@ -11858,8 +12224,8 @@
       {
         "repo_name": "WebODM",
         "date": "2019-02-21T00:00:00.000Z",
-        "added": 194,
-        "removed": 29
+        "added": 385,
+        "removed": 72
       },
       {
         "repo_name": "WebODM",
@@ -11882,26 +12248,32 @@
       {
         "repo_name": "WebODM",
         "date": "2019-03-19T00:00:00.000Z",
-        "added": 38,
-        "removed": 22
+        "added": 233,
+        "removed": 190
       },
       {
         "repo_name": "WebODM",
         "date": "2019-03-20T00:00:00.000Z",
-        "added": 1,
-        "removed": 23
+        "added": 56,
+        "removed": 24
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-03-21T00:00:00.000Z",
+        "added": 3,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2019-03-28T00:00:00.000Z",
-        "added": 41,
-        "removed": 6
+        "added": 100,
+        "removed": 11
       },
       {
         "repo_name": "WebODM",
         "date": "2019-03-29T00:00:00.000Z",
-        "added": 258,
-        "removed": 14
+        "added": 410,
+        "removed": 37
       },
       {
         "repo_name": "WebODM",
@@ -11912,14 +12284,14 @@
       {
         "repo_name": "WebODM",
         "date": "2019-04-01T00:00:00.000Z",
-        "added": 167,
-        "removed": 34
+        "added": 172,
+        "removed": 44
       },
       {
         "repo_name": "WebODM",
         "date": "2019-04-02T00:00:00.000Z",
-        "added": 40,
-        "removed": 7
+        "added": 177,
+        "removed": 65
       },
       {
         "repo_name": "WebODM",
@@ -11929,15 +12301,39 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2019-04-10T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-04-26T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-05-09T00:00:00.000Z",
+        "added": 33,
+        "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2019-05-10T00:00:00.000Z",
         "added": 3,
         "removed": 3
       },
       {
         "repo_name": "WebODM",
+        "date": "2019-05-14T00:00:00.000Z",
+        "added": 23,
+        "removed": 10
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2019-05-15T00:00:00.000Z",
-        "added": 8,
-        "removed": 2
+        "added": 15,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
@@ -11965,15 +12361,33 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2019-05-24T00:00:00.000Z",
+        "added": 14,
+        "removed": 12
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-05-25T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2019-05-26T00:00:00.000Z",
-        "added": 8,
-        "removed": 6
+        "added": 28,
+        "removed": 14
       },
       {
         "repo_name": "WebODM",
         "date": "2019-05-29T00:00:00.000Z",
         "added": 1,
         "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-05-30T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
@@ -11984,14 +12398,20 @@
       {
         "repo_name": "WebODM",
         "date": "2019-06-08T00:00:00.000Z",
-        "added": 147223,
-        "removed": 76214
+        "added": 147259,
+        "removed": 76231
       },
       {
         "repo_name": "WebODM",
         "date": "2019-06-09T00:00:00.000Z",
         "added": 4,
         "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-06-10T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -12002,8 +12422,8 @@
       {
         "repo_name": "WebODM",
         "date": "2019-06-14T00:00:00.000Z",
-        "added": 33,
-        "removed": 11
+        "added": 35,
+        "removed": 13
       },
       {
         "repo_name": "WebODM",
@@ -12014,8 +12434,8 @@
       {
         "repo_name": "WebODM",
         "date": "2019-06-25T00:00:00.000Z",
-        "added": 49,
-        "removed": 2
+        "added": 59,
+        "removed": 43
       },
       {
         "repo_name": "WebODM",
@@ -12038,8 +12458,8 @@
       {
         "repo_name": "WebODM",
         "date": "2019-07-01T00:00:00.000Z",
-        "added": 7,
-        "removed": 1
+        "added": 39,
+        "removed": 49
       },
       {
         "repo_name": "WebODM",
@@ -12050,26 +12470,26 @@
       {
         "repo_name": "WebODM",
         "date": "2019-07-09T00:00:00.000Z",
-        "added": 153,
-        "removed": 39
+        "added": 1665,
+        "removed": 72
       },
       {
         "repo_name": "WebODM",
         "date": "2019-07-10T00:00:00.000Z",
-        "added": 39,
-        "removed": 14
+        "added": 46,
+        "removed": 18
       },
       {
         "repo_name": "WebODM",
         "date": "2019-07-12T00:00:00.000Z",
-        "added": 201,
-        "removed": 52
+        "added": 207,
+        "removed": 54
       },
       {
         "repo_name": "WebODM",
         "date": "2019-07-15T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 87,
+        "removed": 96
       },
       {
         "repo_name": "WebODM",
@@ -12103,6 +12523,12 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2019-07-27T00:00:00.000Z",
+        "added": 0,
+        "removed": 4
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2019-07-31T00:00:00.000Z",
         "added": 1,
         "removed": 1
@@ -12110,26 +12536,32 @@
       {
         "repo_name": "WebODM",
         "date": "2019-08-02T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-08-05T00:00:00.000Z",
         "added": 0,
         "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2019-08-06T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2019-08-13T00:00:00.000Z",
-        "added": 9,
+        "added": 16,
         "removed": 7
       },
       {
         "repo_name": "WebODM",
         "date": "2019-08-14T00:00:00.000Z",
-        "added": 13,
-        "removed": 4
+        "added": 53,
+        "removed": 18
       },
       {
         "repo_name": "WebODM",
@@ -12140,32 +12572,38 @@
       {
         "repo_name": "WebODM",
         "date": "2019-08-29T00:00:00.000Z",
-        "added": 47,
-        "removed": 18
+        "added": 51,
+        "removed": 34
       },
       {
         "repo_name": "WebODM",
         "date": "2019-08-31T00:00:00.000Z",
-        "added": 154,
-        "removed": 50
+        "added": 177,
+        "removed": 55
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-09-06T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2019-09-07T00:00:00.000Z",
-        "added": 31,
-        "removed": 12
+        "added": 56,
+        "removed": 33
       },
       {
         "repo_name": "WebODM",
         "date": "2019-09-08T00:00:00.000Z",
-        "added": 4,
-        "removed": 2
+        "added": 8,
+        "removed": 4
       },
       {
         "repo_name": "WebODM",
         "date": "2019-09-09T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 2,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
@@ -12182,8 +12620,8 @@
       {
         "repo_name": "WebODM",
         "date": "2019-09-18T00:00:00.000Z",
-        "added": 134,
-        "removed": 3
+        "added": 138,
+        "removed": 5
       },
       {
         "repo_name": "WebODM",
@@ -12200,32 +12638,44 @@
       {
         "repo_name": "WebODM",
         "date": "2019-10-10T00:00:00.000Z",
-        "added": 1,
+        "added": 2,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-10-11T00:00:00.000Z",
+        "added": 3,
         "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2019-10-22T00:00:00.000Z",
-        "added": 5,
-        "removed": 4
+        "added": 8,
+        "removed": 7
       },
       {
         "repo_name": "WebODM",
         "date": "2019-11-05T00:00:00.000Z",
-        "added": 48,
-        "removed": 43
+        "added": 208,
+        "removed": 89
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-11-06T00:00:00.000Z",
+        "added": 1,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
         "date": "2019-11-07T00:00:00.000Z",
-        "added": 9433,
-        "removed": 901
+        "added": 9498,
+        "removed": 960
       },
       {
         "repo_name": "WebODM",
         "date": "2019-11-14T00:00:00.000Z",
-        "added": 112,
-        "removed": 36
+        "added": 279,
+        "removed": 88
       },
       {
         "repo_name": "WebODM",
@@ -12236,32 +12686,32 @@
       {
         "repo_name": "WebODM",
         "date": "2019-11-18T00:00:00.000Z",
-        "added": 3,
-        "removed": 0
+        "added": 143,
+        "removed": 56
       },
       {
         "repo_name": "WebODM",
         "date": "2019-11-19T00:00:00.000Z",
-        "added": 158,
-        "removed": 53
+        "added": 590,
+        "removed": 155
       },
       {
         "repo_name": "WebODM",
         "date": "2019-11-20T00:00:00.000Z",
-        "added": 4,
-        "removed": 43
+        "added": 5,
+        "removed": 44
       },
       {
         "repo_name": "WebODM",
         "date": "2019-11-21T00:00:00.000Z",
-        "added": 108,
-        "removed": 9
+        "added": 135,
+        "removed": 22
       },
       {
         "repo_name": "WebODM",
         "date": "2019-11-25T00:00:00.000Z",
-        "added": 169,
-        "removed": 81
+        "added": 262,
+        "removed": 113
       },
       {
         "repo_name": "WebODM",
@@ -12284,32 +12734,44 @@
       {
         "repo_name": "WebODM",
         "date": "2019-11-29T00:00:00.000Z",
-        "added": 174,
-        "removed": 42
+        "added": 200,
+        "removed": 43
       },
       {
         "repo_name": "WebODM",
         "date": "2019-12-02T00:00:00.000Z",
-        "added": 566,
-        "removed": 683
+        "added": 593,
+        "removed": 712
       },
       {
         "repo_name": "WebODM",
         "date": "2019-12-03T00:00:00.000Z",
-        "added": 80,
-        "removed": 20
+        "added": 130,
+        "removed": 35
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-12-04T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-12-05T00:00:00.000Z",
+        "added": 6,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
         "date": "2019-12-09T00:00:00.000Z",
-        "added": 10,
-        "removed": 10
+        "added": 42,
+        "removed": 23
       },
       {
         "repo_name": "WebODM",
         "date": "2019-12-10T00:00:00.000Z",
-        "added": 34,
-        "removed": 21
+        "added": 73,
+        "removed": 47
       },
       {
         "repo_name": "WebODM",
@@ -12320,26 +12782,38 @@
       {
         "repo_name": "WebODM",
         "date": "2019-12-12T00:00:00.000Z",
+        "added": 4,
+        "removed": 4
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2019-12-15T00:00:00.000Z",
         "added": 0,
         "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2019-12-18T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 12,
+        "removed": 4
       },
       {
         "repo_name": "WebODM",
         "date": "2019-12-20T00:00:00.000Z",
-        "added": 0,
-        "removed": 4
+        "added": 64,
+        "removed": 17
       },
       {
         "repo_name": "WebODM",
         "date": "2019-12-31T00:00:00.000Z",
         "added": 1,
         "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2020-01-08T00:00:00.000Z",
+        "added": 1,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
@@ -12356,38 +12830,50 @@
       {
         "repo_name": "WebODM",
         "date": "2020-01-20T00:00:00.000Z",
-        "added": 33,
-        "removed": 9
+        "added": 122,
+        "removed": 216
       },
       {
         "repo_name": "WebODM",
         "date": "2020-01-21T00:00:00.000Z",
-        "added": 10,
-        "removed": 10
+        "added": 33,
+        "removed": 29
       },
       {
         "repo_name": "WebODM",
         "date": "2020-01-22T00:00:00.000Z",
-        "added": 36,
-        "removed": 37
+        "added": 39,
+        "removed": 41
       },
       {
         "repo_name": "WebODM",
         "date": "2020-01-23T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2020-01-29T00:00:00.000Z",
-        "added": 4,
+        "added": 11,
         "removed": 2
       },
       {
         "repo_name": "WebODM",
+        "date": "2020-01-30T00:00:00.000Z",
+        "added": 6,
+        "removed": 4
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2020-02-03T00:00:00.000Z",
-        "added": 1,
-        "removed": 3
+        "added": 4,
+        "removed": 7
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2020-02-04T00:00:00.000Z",
+        "added": 16,
+        "removed": 19
       },
       {
         "repo_name": "WebODM",
@@ -12398,26 +12884,32 @@
       {
         "repo_name": "WebODM",
         "date": "2020-02-12T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 4,
+        "removed": 4
       },
       {
         "repo_name": "WebODM",
         "date": "2020-02-14T00:00:00.000Z",
-        "added": 13,
-        "removed": 7
+        "added": 14,
+        "removed": 8
       },
       {
         "repo_name": "WebODM",
         "date": "2020-02-15T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 8,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
         "date": "2020-02-19T00:00:00.000Z",
-        "added": 11,
-        "removed": 4
+        "added": 14,
+        "removed": 10
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2020-02-25T00:00:00.000Z",
+        "added": 12,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
@@ -12434,14 +12926,14 @@
       {
         "repo_name": "WebODM",
         "date": "2020-02-29T00:00:00.000Z",
-        "added": 7,
-        "removed": 5
+        "added": 99,
+        "removed": 66
       },
       {
         "repo_name": "WebODM",
         "date": "2020-03-01T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 89,
+        "removed": 80
       },
       {
         "repo_name": "WebODM",
@@ -12464,8 +12956,8 @@
       {
         "repo_name": "WebODM",
         "date": "2020-03-15T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 3,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -12475,9 +12967,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2020-03-19T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2020-03-20T00:00:00.000Z",
-        "added": 42,
-        "removed": 10
+        "added": 55,
+        "removed": 14
       },
       {
         "repo_name": "WebODM",
@@ -12494,20 +12992,20 @@
       {
         "repo_name": "WebODM",
         "date": "2020-03-24T00:00:00.000Z",
-        "added": 0,
+        "added": 7,
         "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2020-03-25T00:00:00.000Z",
-        "added": 3,
-        "removed": 1
+        "added": 5,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
         "date": "2020-03-26T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 4,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
@@ -12518,14 +13016,20 @@
       {
         "repo_name": "WebODM",
         "date": "2020-03-31T00:00:00.000Z",
-        "added": 110,
-        "removed": 61
+        "added": 148,
+        "removed": 63
       },
       {
         "repo_name": "WebODM",
         "date": "2020-04-02T00:00:00.000Z",
-        "added": 111,
-        "removed": 8
+        "added": 208,
+        "removed": 32
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2020-04-03T00:00:00.000Z",
+        "added": 1,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -12542,26 +13046,32 @@
       {
         "repo_name": "WebODM",
         "date": "2020-04-07T00:00:00.000Z",
-        "added": 8,
-        "removed": 6
+        "added": 30,
+        "removed": 30
       },
       {
         "repo_name": "WebODM",
         "date": "2020-04-12T00:00:00.000Z",
-        "added": 0,
-        "removed": 17
+        "added": 1,
+        "removed": 18
       },
       {
         "repo_name": "WebODM",
         "date": "2020-04-13T00:00:00.000Z",
-        "added": 0,
+        "added": 1,
         "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2020-04-14T00:00:00.000Z",
+        "added": 2,
+        "removed": 30
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2020-04-18T00:00:00.000Z",
         "added": 1,
-        "removed": 15
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -12589,15 +13099,21 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2020-05-17T00:00:00.000Z",
+        "added": 667,
+        "removed": 76
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2020-05-18T00:00:00.000Z",
-        "added": 217,
-        "removed": 4
+        "added": 3590,
+        "removed": 156644
       },
       {
         "repo_name": "WebODM",
         "date": "2020-05-19T00:00:00.000Z",
-        "added": 43,
-        "removed": 33
+        "added": 104,
+        "removed": 44
       },
       {
         "repo_name": "WebODM",
@@ -12608,14 +13124,20 @@
       {
         "repo_name": "WebODM",
         "date": "2020-05-21T00:00:00.000Z",
-        "added": 234,
-        "removed": 102
+        "added": 85928,
+        "removed": 162
       },
       {
         "repo_name": "WebODM",
         "date": "2020-05-22T00:00:00.000Z",
         "added": 85820,
         "removed": 106
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2020-06-02T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -12632,14 +13154,14 @@
       {
         "repo_name": "WebODM",
         "date": "2020-06-07T00:00:00.000Z",
-        "added": 0,
+        "added": 20,
         "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2020-06-14T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 3,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -12650,8 +13172,20 @@
       {
         "repo_name": "WebODM",
         "date": "2020-07-15T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 8,
+        "removed": 8
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2020-07-22T00:00:00.000Z",
+        "added": 56,
+        "removed": 5
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2020-07-23T00:00:00.000Z",
+        "added": 11,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
@@ -12662,8 +13196,8 @@
       {
         "repo_name": "WebODM",
         "date": "2020-07-26T00:00:00.000Z",
-        "added": 48,
-        "removed": 25
+        "added": 49,
+        "removed": 28
       },
       {
         "repo_name": "WebODM",
@@ -12674,26 +13208,38 @@
       {
         "repo_name": "WebODM",
         "date": "2020-08-03T00:00:00.000Z",
-        "added": 2,
-        "removed": 1
+        "added": 10,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
-        "date": "2020-08-19T00:00:00.000Z",
-        "added": 0,
+        "date": "2020-08-06T00:00:00.000Z",
+        "added": 1,
         "removed": 0
       },
       {
         "repo_name": "WebODM",
+        "date": "2020-08-19T00:00:00.000Z",
+        "added": 4,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2020-08-25T00:00:00.000Z",
-        "added": 7,
-        "removed": 5
+        "added": 12,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
         "date": "2020-09-03T00:00:00.000Z",
         "added": 5,
         "removed": 5
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2020-09-24T00:00:00.000Z",
+        "added": 142,
+        "removed": 109
       },
       {
         "repo_name": "WebODM",
@@ -12704,14 +13250,14 @@
       {
         "repo_name": "WebODM",
         "date": "2020-10-01T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 24,
+        "removed": 445
       },
       {
         "repo_name": "WebODM",
         "date": "2020-10-21T00:00:00.000Z",
-        "added": 12,
-        "removed": 14
+        "added": 28,
+        "removed": 19
       },
       {
         "repo_name": "WebODM",
@@ -12727,21 +13273,27 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2020-12-07T00:00:00.000Z",
+        "added": 564,
+        "removed": 363
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2020-12-09T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2020-12-14T00:00:00.000Z",
-        "added": 414,
-        "removed": 211
+        "added": 1587,
+        "removed": 295
       },
       {
         "repo_name": "WebODM",
         "date": "2020-12-15T00:00:00.000Z",
-        "added": 258,
-        "removed": 14
+        "added": 406,
+        "removed": 73
       },
       {
         "repo_name": "WebODM",
@@ -12758,26 +13310,26 @@
       {
         "repo_name": "WebODM",
         "date": "2020-12-18T00:00:00.000Z",
-        "added": 3120,
-        "removed": 315
+        "added": 10872,
+        "removed": 525
       },
       {
         "repo_name": "WebODM",
         "date": "2020-12-21T00:00:00.000Z",
-        "added": 95,
-        "removed": 53
+        "added": 308,
+        "removed": 92
       },
       {
         "repo_name": "WebODM",
         "date": "2020-12-22T00:00:00.000Z",
-        "added": 8059,
-        "removed": 1289
+        "added": 11110,
+        "removed": 1297
       },
       {
         "repo_name": "WebODM",
         "date": "2020-12-23T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 4632,
+        "removed": 1493
       },
       {
         "repo_name": "WebODM",
@@ -12800,6 +13352,12 @@
       {
         "repo_name": "WebODM",
         "date": "2021-01-15T00:00:00.000Z",
+        "added": 18982,
+        "removed": 2955
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-01-23T00:00:00.000Z",
         "added": 1,
         "removed": 1
       },
@@ -12812,14 +13370,14 @@
       {
         "repo_name": "WebODM",
         "date": "2021-02-04T00:00:00.000Z",
-        "added": 78959,
-        "removed": 27337
+        "added": 91919,
+        "removed": 41397
       },
       {
         "repo_name": "WebODM",
         "date": "2021-02-05T00:00:00.000Z",
-        "added": 22,
-        "removed": 9
+        "added": 32,
+        "removed": 21
       },
       {
         "repo_name": "WebODM",
@@ -12829,9 +13387,15 @@
       },
       {
         "repo_name": "WebODM",
-        "date": "2021-02-08T00:00:00.000Z",
-        "added": 6,
+        "date": "2021-02-07T00:00:00.000Z",
+        "added": 3,
         "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-02-08T00:00:00.000Z",
+        "added": 16259,
+        "removed": 3951
       },
       {
         "repo_name": "WebODM",
@@ -12842,7 +13406,13 @@
       {
         "repo_name": "WebODM",
         "date": "2021-03-15T00:00:00.000Z",
-        "added": 1,
+        "added": 172,
+        "removed": 177
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-03-19T00:00:00.000Z",
+        "added": 0,
         "removed": 0
       },
       {
@@ -12856,6 +13426,12 @@
         "date": "2021-04-07T00:00:00.000Z",
         "added": 4,
         "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-04-12T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -12877,27 +13453,57 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2021-05-01T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-05-03T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2021-05-26T00:00:00.000Z",
-        "added": 212,
-        "removed": 144
+        "added": 242,
+        "removed": 158
       },
       {
         "repo_name": "WebODM",
         "date": "2021-05-27T00:00:00.000Z",
-        "added": 31,
-        "removed": 40
+        "added": 49,
+        "removed": 52
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-05-28T00:00:00.000Z",
+        "added": 30,
+        "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-05-31T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2021-06-07T00:00:00.000Z",
-        "added": 150,
-        "removed": 96
+        "added": 181,
+        "removed": 101
       },
       {
         "repo_name": "WebODM",
         "date": "2021-06-08T00:00:00.000Z",
-        "added": 29,
-        "removed": 29
+        "added": 40,
+        "removed": 30
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-06-09T00:00:00.000Z",
+        "added": 13,
+        "removed": 11
       },
       {
         "repo_name": "WebODM",
@@ -12914,7 +13520,7 @@
       {
         "repo_name": "WebODM",
         "date": "2021-06-15T00:00:00.000Z",
-        "added": 3,
+        "added": 4,
         "removed": 3
       },
       {
@@ -12926,8 +13532,8 @@
       {
         "repo_name": "WebODM",
         "date": "2021-06-17T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 4,
+        "removed": 4
       },
       {
         "repo_name": "WebODM",
@@ -12938,8 +13544,8 @@
       {
         "repo_name": "WebODM",
         "date": "2021-07-01T00:00:00.000Z",
-        "added": 221,
-        "removed": 24
+        "added": 29791,
+        "removed": 7271
       },
       {
         "repo_name": "WebODM",
@@ -12950,8 +13556,14 @@
       {
         "repo_name": "WebODM",
         "date": "2021-07-08T00:00:00.000Z",
-        "added": 1,
+        "added": 2,
         "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-07-09T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
@@ -12973,9 +13585,21 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2021-07-27T00:00:00.000Z",
+        "added": 6,
+        "removed": 4
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-07-28T00:00:00.000Z",
+        "added": 321,
+        "removed": 7
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2021-07-29T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 44,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -12986,20 +13610,20 @@
       {
         "repo_name": "WebODM",
         "date": "2021-08-04T00:00:00.000Z",
-        "added": 206,
-        "removed": 50
+        "added": 264,
+        "removed": 74
       },
       {
         "repo_name": "WebODM",
         "date": "2021-08-05T00:00:00.000Z",
-        "added": 38,
-        "removed": 4
+        "added": 123,
+        "removed": 16
       },
       {
         "repo_name": "WebODM",
         "date": "2021-08-06T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 133,
+        "removed": 25
       },
       {
         "repo_name": "WebODM",
@@ -13010,32 +13634,38 @@
       {
         "repo_name": "WebODM",
         "date": "2021-08-25T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2021-08-27T00:00:00.000Z",
-        "added": 5,
-        "removed": 1
+        "added": 7,
+        "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-08-31T00:00:00.000Z",
+        "added": 17,
+        "removed": 13
       },
       {
         "repo_name": "WebODM",
         "date": "2021-09-01T00:00:00.000Z",
-        "added": 87,
-        "removed": 19
+        "added": 382,
+        "removed": 31
       },
       {
         "repo_name": "WebODM",
         "date": "2021-09-02T00:00:00.000Z",
-        "added": 3,
-        "removed": 5
+        "added": 50,
+        "removed": 92
       },
       {
         "repo_name": "WebODM",
         "date": "2021-09-03T00:00:00.000Z",
-        "added": 7,
-        "removed": 1
+        "added": 12,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
@@ -13052,20 +13682,20 @@
       {
         "repo_name": "WebODM",
         "date": "2021-09-24T00:00:00.000Z",
-        "added": 8,
-        "removed": 5
+        "added": 285,
+        "removed": 14
       },
       {
         "repo_name": "WebODM",
         "date": "2021-09-25T00:00:00.000Z",
-        "added": 52,
-        "removed": 9
+        "added": 81,
+        "removed": 28
       },
       {
         "repo_name": "WebODM",
         "date": "2021-09-26T00:00:00.000Z",
-        "added": 80,
-        "removed": 71
+        "added": 309,
+        "removed": 95832
       },
       {
         "repo_name": "WebODM",
@@ -13082,50 +13712,50 @@
       {
         "repo_name": "WebODM",
         "date": "2021-09-30T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 400,
+        "removed": 138
       },
       {
         "repo_name": "WebODM",
         "date": "2021-10-01T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
-      },
-      {
-        "repo_name": "WebODM",
-        "date": "2021-10-02T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
-      },
-      {
-        "repo_name": "WebODM",
-        "date": "2021-10-03T00:00:00.000Z",
-        "added": 54,
-        "removed": 302
-      },
-      {
-        "repo_name": "WebODM",
-        "date": "2021-10-04T00:00:00.000Z",
-        "added": 1,
+        "added": 3,
         "removed": 1
       },
       {
         "repo_name": "WebODM",
+        "date": "2021-10-02T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-10-03T00:00:00.000Z",
+        "added": 353,
+        "removed": 593
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-10-04T00:00:00.000Z",
+        "added": 26,
+        "removed": 28
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2021-10-05T00:00:00.000Z",
-        "added": 186,
-        "removed": 179
+        "added": 190,
+        "removed": 183
       },
       {
         "repo_name": "WebODM",
         "date": "2021-10-06T00:00:00.000Z",
-        "added": 33,
-        "removed": 73
+        "added": 66,
+        "removed": 105
       },
       {
         "repo_name": "WebODM",
         "date": "2021-10-07T00:00:00.000Z",
-        "added": 26,
-        "removed": 5
+        "added": 60,
+        "removed": 27
       },
       {
         "repo_name": "WebODM",
@@ -13136,50 +13766,56 @@
       {
         "repo_name": "WebODM",
         "date": "2021-10-11T00:00:00.000Z",
-        "added": 18,
-        "removed": 9
+        "added": 34,
+        "removed": 22
       },
       {
         "repo_name": "WebODM",
         "date": "2021-10-12T00:00:00.000Z",
         "added": 25,
-        "removed": 7
+        "removed": 8
       },
       {
         "repo_name": "WebODM",
         "date": "2021-10-18T00:00:00.000Z",
-        "added": 76,
-        "removed": 13
+        "added": 287,
+        "removed": 25
       },
       {
         "repo_name": "WebODM",
         "date": "2021-10-19T00:00:00.000Z",
-        "added": 159,
-        "removed": 28
+        "added": 311,
+        "removed": 61
       },
       {
         "repo_name": "WebODM",
         "date": "2021-10-21T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-10-22T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2021-10-28T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 7,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
         "date": "2021-11-01T00:00:00.000Z",
-        "added": 61,
-        "removed": 31
+        "added": 390,
+        "removed": 96
       },
       {
         "repo_name": "WebODM",
         "date": "2021-11-02T00:00:00.000Z",
-        "added": 111,
-        "removed": 29
+        "added": 217,
+        "removed": 51
       },
       {
         "repo_name": "WebODM",
@@ -13190,26 +13826,26 @@
       {
         "repo_name": "WebODM",
         "date": "2021-11-04T00:00:00.000Z",
-        "added": 370,
-        "removed": 62
+        "added": 382,
+        "removed": 72
       },
       {
         "repo_name": "WebODM",
         "date": "2021-11-05T00:00:00.000Z",
-        "added": 270,
-        "removed": 73
+        "added": 338,
+        "removed": 137
       },
       {
         "repo_name": "WebODM",
         "date": "2021-11-08T00:00:00.000Z",
-        "added": 5,
-        "removed": 5
+        "added": 8,
+        "removed": 8
       },
       {
         "repo_name": "WebODM",
         "date": "2021-11-09T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -13244,7 +13880,13 @@
       {
         "repo_name": "WebODM",
         "date": "2021-12-11T00:00:00.000Z",
-        "added": 125,
+        "added": 126,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2021-12-16T00:00:00.000Z",
+        "added": 0,
         "removed": 1
       },
       {
@@ -13261,6 +13903,30 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2022-01-04T00:00:00.000Z",
+        "added": 756,
+        "removed": 22
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-01-05T00:00:00.000Z",
+        "added": 162,
+        "removed": 183
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-01-07T00:00:00.000Z",
+        "added": 206,
+        "removed": 191
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-01-09T00:00:00.000Z",
+        "added": 4,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2022-01-12T00:00:00.000Z",
         "added": 170,
         "removed": 67
@@ -13268,50 +13934,56 @@
       {
         "repo_name": "WebODM",
         "date": "2022-01-13T00:00:00.000Z",
-        "added": 148,
-        "removed": 264
+        "added": 249,
+        "removed": 286
       },
       {
         "repo_name": "WebODM",
         "date": "2022-01-14T00:00:00.000Z",
-        "added": 188,
-        "removed": 94
+        "added": 334,
+        "removed": 139
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-01-15T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2022-01-17T00:00:00.000Z",
-        "added": 57,
-        "removed": 38
+        "added": 94,
+        "removed": 118
       },
       {
         "repo_name": "WebODM",
         "date": "2022-01-18T00:00:00.000Z",
-        "added": 80,
-        "removed": 92
+        "added": 121,
+        "removed": 122
       },
       {
         "repo_name": "WebODM",
         "date": "2022-01-19T00:00:00.000Z",
-        "added": 181,
-        "removed": 57
+        "added": 343,
+        "removed": 61
       },
       {
         "repo_name": "WebODM",
         "date": "2022-01-20T00:00:00.000Z",
-        "added": 22,
-        "removed": 20
+        "added": 66,
+        "removed": 84
       },
       {
         "repo_name": "WebODM",
         "date": "2022-01-21T00:00:00.000Z",
-        "added": 1,
-        "removed": 14
+        "added": 69,
+        "removed": 107
       },
       {
         "repo_name": "WebODM",
         "date": "2022-01-24T00:00:00.000Z",
-        "added": 4,
-        "removed": 3
+        "added": 79,
+        "removed": 93
       },
       {
         "repo_name": "WebODM",
@@ -13322,8 +13994,8 @@
       {
         "repo_name": "WebODM",
         "date": "2022-01-28T00:00:00.000Z",
-        "added": 58,
-        "removed": 12
+        "added": 75,
+        "removed": 957
       },
       {
         "repo_name": "WebODM",
@@ -13334,26 +14006,26 @@
       {
         "repo_name": "WebODM",
         "date": "2022-02-01T00:00:00.000Z",
-        "added": 8,
-        "removed": 50
+        "added": 45,
+        "removed": 96
       },
       {
         "repo_name": "WebODM",
         "date": "2022-02-02T00:00:00.000Z",
-        "added": 0,
-        "removed": 1
+        "added": 84,
+        "removed": 38
       },
       {
         "repo_name": "WebODM",
         "date": "2022-02-03T00:00:00.000Z",
-        "added": 6,
-        "removed": 1
+        "added": 25,
+        "removed": 8
       },
       {
         "repo_name": "WebODM",
         "date": "2022-02-07T00:00:00.000Z",
-        "added": 10,
-        "removed": 4
+        "added": 22,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
@@ -13371,19 +14043,31 @@
         "repo_name": "WebODM",
         "date": "2022-02-17T00:00:00.000Z",
         "added": 13,
-        "removed": 33
+        "removed": 40
       },
       {
         "repo_name": "WebODM",
         "date": "2022-02-28T00:00:00.000Z",
-        "added": 79,
-        "removed": 75
+        "added": 89,
+        "removed": 77
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-03-02T00:00:00.000Z",
+        "added": 1,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-03-17T00:00:00.000Z",
+        "added": 6,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2022-03-18T00:00:00.000Z",
-        "added": 23,
-        "removed": 23
+        "added": 43,
+        "removed": 24
       },
       {
         "repo_name": "WebODM",
@@ -13399,6 +14083,18 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2022-03-29T00:00:00.000Z",
+        "added": 10,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-04-05T00:00:00.000Z",
+        "added": 3,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2022-04-18T00:00:00.000Z",
         "added": 0,
         "removed": 0
@@ -13406,20 +14102,26 @@
       {
         "repo_name": "WebODM",
         "date": "2022-04-22T00:00:00.000Z",
+        "added": 6,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-04-27T00:00:00.000Z",
         "added": 1,
         "removed": 1
       },
       {
         "repo_name": "WebODM",
-        "date": "2022-04-27T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "date": "2022-04-30T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
-        "date": "2022-04-30T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "date": "2022-05-01T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -13430,8 +14132,8 @@
       {
         "repo_name": "WebODM",
         "date": "2022-05-06T00:00:00.000Z",
-        "added": 6,
-        "removed": 1
+        "added": 12,
+        "removed": 7
       },
       {
         "repo_name": "WebODM",
@@ -13448,7 +14150,7 @@
       {
         "repo_name": "WebODM",
         "date": "2022-05-30T00:00:00.000Z",
-        "added": 1,
+        "added": 11,
         "removed": 1
       },
       {
@@ -13477,6 +14179,12 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2022-06-18T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2022-06-19T00:00:00.000Z",
         "added": 4,
         "removed": 12
@@ -13484,8 +14192,8 @@
       {
         "repo_name": "WebODM",
         "date": "2022-06-23T00:00:00.000Z",
-        "added": 4,
-        "removed": 0
+        "added": 78,
+        "removed": 74
       },
       {
         "repo_name": "WebODM",
@@ -13502,14 +14210,14 @@
       {
         "repo_name": "WebODM",
         "date": "2022-07-07T00:00:00.000Z",
-        "added": 17,
-        "removed": 7
+        "added": 21,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
         "date": "2022-07-08T00:00:00.000Z",
-        "added": 83,
-        "removed": 84
+        "added": 114,
+        "removed": 91
       },
       {
         "repo_name": "WebODM",
@@ -13519,9 +14227,15 @@
       },
       {
         "repo_name": "WebODM",
-        "date": "2022-07-24T00:00:00.000Z",
-        "added": 21,
+        "date": "2022-07-18T00:00:00.000Z",
+        "added": 1,
         "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-07-24T00:00:00.000Z",
+        "added": 23,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
@@ -13538,14 +14252,26 @@
       {
         "repo_name": "WebODM",
         "date": "2022-08-22T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 23,
+        "removed": 12
       },
       {
         "repo_name": "WebODM",
         "date": "2022-08-25T00:00:00.000Z",
         "added": 0,
         "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-08-28T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-09-08T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -13556,8 +14282,8 @@
       {
         "repo_name": "WebODM",
         "date": "2022-09-12T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 6,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
@@ -13568,20 +14294,38 @@
       {
         "repo_name": "WebODM",
         "date": "2022-09-21T00:00:00.000Z",
-        "added": 0,
+        "added": 7,
+        "removed": 8
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-10-01T00:00:00.000Z",
+        "added": 21,
+        "removed": 10
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-10-06T00:00:00.000Z",
+        "added": 5,
         "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-10-07T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
         "date": "2022-10-08T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2022-10-18T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 21,
+        "removed": 32
       },
       {
         "repo_name": "WebODM",
@@ -13597,9 +14341,27 @@
       },
       {
         "repo_name": "WebODM",
-        "date": "2022-11-20T00:00:00.000Z",
-        "added": 9,
+        "date": "2022-10-25T00:00:00.000Z",
+        "added": 1,
         "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-10-28T00:00:00.000Z",
+        "added": 6,
+        "removed": 6
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-11-20T00:00:00.000Z",
+        "added": 10,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-11-22T00:00:00.000Z",
+        "added": 11,
+        "removed": 7
       },
       {
         "repo_name": "WebODM",
@@ -13610,14 +14372,20 @@
       {
         "repo_name": "WebODM",
         "date": "2022-12-06T00:00:00.000Z",
-        "added": 3,
-        "removed": 2
+        "added": 4,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
         "date": "2022-12-07T00:00:00.000Z",
         "added": 1,
         "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2022-12-10T00:00:00.000Z",
+        "added": 3,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
@@ -13658,8 +14426,8 @@
       {
         "repo_name": "WebODM",
         "date": "2023-01-25T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 36,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
@@ -13669,9 +14437,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2023-01-27T00:00:00.000Z",
+        "added": 2904,
+        "removed": 31
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2023-01-28T00:00:00.000Z",
-        "added": 181,
-        "removed": 4134
+        "added": 257,
+        "removed": 4210
       },
       {
         "repo_name": "WebODM",
@@ -13681,9 +14455,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2023-02-20T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2023-02-21T00:00:00.000Z",
-        "added": 5,
-        "removed": 1
+        "added": 86,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -13694,20 +14474,26 @@
       {
         "repo_name": "WebODM",
         "date": "2023-02-23T00:00:00.000Z",
-        "added": 12,
-        "removed": 2
+        "added": 152,
+        "removed": 12
       },
       {
         "repo_name": "WebODM",
         "date": "2023-03-07T00:00:00.000Z",
-        "added": 4,
-        "removed": 6
+        "added": 222,
+        "removed": 51
       },
       {
         "repo_name": "WebODM",
         "date": "2023-03-08T00:00:00.000Z",
-        "added": 107,
-        "removed": 41
+        "added": 123,
+        "removed": 50
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-03-09T00:00:00.000Z",
+        "added": 118,
+        "removed": 25
       },
       {
         "repo_name": "WebODM",
@@ -13718,8 +14504,8 @@
       {
         "repo_name": "WebODM",
         "date": "2023-03-14T00:00:00.000Z",
-        "added": 173,
-        "removed": 78
+        "added": 323,
+        "removed": 107
       },
       {
         "repo_name": "WebODM",
@@ -13730,20 +14516,20 @@
       {
         "repo_name": "WebODM",
         "date": "2023-03-21T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 2,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2023-03-22T00:00:00.000Z",
-        "added": 74,
-        "removed": 74
+        "added": 94,
+        "removed": 79
       },
       {
         "repo_name": "WebODM",
         "date": "2023-03-23T00:00:00.000Z",
-        "added": 603,
-        "removed": 559
+        "added": 604,
+        "removed": 560
       },
       {
         "repo_name": "WebODM",
@@ -13760,20 +14546,32 @@
       {
         "repo_name": "WebODM",
         "date": "2023-03-30T00:00:00.000Z",
-        "added": 51,
+        "added": 52,
         "removed": 13
       },
       {
         "repo_name": "WebODM",
         "date": "2023-03-31T00:00:00.000Z",
         "added": 5,
-        "removed": 0
+        "removed": 13
       },
       {
         "repo_name": "WebODM",
         "date": "2023-04-02T00:00:00.000Z",
-        "added": 7,
-        "removed": 2
+        "added": 32,
+        "removed": 5
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-04-03T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-04-15T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -13802,8 +14600,8 @@
       {
         "repo_name": "WebODM",
         "date": "2023-04-27T00:00:00.000Z",
-        "added": 4,
-        "removed": 4
+        "added": 11,
+        "removed": 37
       },
       {
         "repo_name": "WebODM",
@@ -13820,8 +14618,8 @@
       {
         "repo_name": "WebODM",
         "date": "2023-05-03T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 6,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
@@ -13832,20 +14630,32 @@
       {
         "repo_name": "WebODM",
         "date": "2023-05-18T00:00:00.000Z",
-        "added": 368,
-        "removed": 17
+        "added": 561,
+        "removed": 81
       },
       {
         "repo_name": "WebODM",
         "date": "2023-05-19T00:00:00.000Z",
-        "added": 71,
-        "removed": 9
+        "added": 80,
+        "removed": 11
       },
       {
         "repo_name": "WebODM",
         "date": "2023-05-21T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 35,
+        "removed": 37
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-05-24T00:00:00.000Z",
+        "added": 50,
+        "removed": 202
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-05-29T00:00:00.000Z",
+        "added": 76,
+        "removed": 74
       },
       {
         "repo_name": "WebODM",
@@ -13856,8 +14666,8 @@
       {
         "repo_name": "WebODM",
         "date": "2023-06-03T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 215,
+        "removed": 5
       },
       {
         "repo_name": "WebODM",
@@ -13873,27 +14683,57 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2023-08-14T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2023-08-15T00:00:00.000Z",
         "added": 2,
         "removed": 1
       },
       {
         "repo_name": "WebODM",
+        "date": "2023-08-21T00:00:00.000Z",
+        "added": 139,
+        "removed": 18
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-08-24T00:00:00.000Z",
+        "added": 102,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2023-08-26T00:00:00.000Z",
-        "added": 48,
-        "removed": 12
+        "added": 78,
+        "removed": 18
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-09-01T00:00:00.000Z",
+        "added": 87,
+        "removed": 8
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-09-02T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
         "date": "2023-09-04T00:00:00.000Z",
-        "added": 23,
-        "removed": 11
+        "added": 24,
+        "removed": 12
       },
       {
         "repo_name": "WebODM",
         "date": "2023-09-05T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 3,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -13910,50 +14750,56 @@
       {
         "repo_name": "WebODM",
         "date": "2023-09-08T00:00:00.000Z",
-        "added": 122,
-        "removed": 3
+        "added": 260,
+        "removed": 83
       },
       {
         "repo_name": "WebODM",
         "date": "2023-09-11T00:00:00.000Z",
-        "added": 337,
-        "removed": 196
+        "added": 444,
+        "removed": 225
       },
       {
         "repo_name": "WebODM",
         "date": "2023-09-12T00:00:00.000Z",
-        "added": 86,
-        "removed": 78
+        "added": 87,
+        "removed": 79
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-09-14T00:00:00.000Z",
+        "added": 1,
+        "removed": 13
       },
       {
         "repo_name": "WebODM",
         "date": "2023-09-15T00:00:00.000Z",
-        "added": 143,
-        "removed": 114
+        "added": 161,
+        "removed": 123
       },
       {
         "repo_name": "WebODM",
         "date": "2023-09-16T00:00:00.000Z",
-        "added": 130,
-        "removed": 81
+        "added": 161,
+        "removed": 88
       },
       {
         "repo_name": "WebODM",
         "date": "2023-09-18T00:00:00.000Z",
-        "added": 99,
-        "removed": 9
+        "added": 104,
+        "removed": 13
       },
       {
         "repo_name": "WebODM",
         "date": "2023-09-22T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 3,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
         "date": "2023-09-26T00:00:00.000Z",
-        "added": 63,
-        "removed": 115
+        "added": 64,
+        "removed": 116
       },
       {
         "repo_name": "WebODM",
@@ -13964,32 +14810,44 @@
       {
         "repo_name": "WebODM",
         "date": "2023-09-28T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 50,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2023-10-02T00:00:00.000Z",
-        "added": 2,
+        "added": 3,
         "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2023-10-03T00:00:00.000Z",
-        "added": 195,
-        "removed": 95
+        "added": 198,
+        "removed": 96
       },
       {
         "repo_name": "WebODM",
         "date": "2023-10-04T00:00:00.000Z",
-        "added": 34,
-        "removed": 5
+        "added": 44,
+        "removed": 14
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-10-05T00:00:00.000Z",
+        "added": 9,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
         "date": "2023-10-08T00:00:00.000Z",
         "added": 2,
         "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-10-17T00:00:00.000Z",
+        "added": 0,
+        "removed": 4
       },
       {
         "repo_name": "WebODM",
@@ -14000,38 +14858,56 @@
       {
         "repo_name": "WebODM",
         "date": "2023-10-22T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 2,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-10-25T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2023-11-06T00:00:00.000Z",
-        "added": 35,
-        "removed": 8
+        "added": 86,
+        "removed": 15
       },
       {
         "repo_name": "WebODM",
         "date": "2023-11-07T00:00:00.000Z",
-        "added": 32,
-        "removed": 1
+        "added": 35,
+        "removed": 4
       },
       {
         "repo_name": "WebODM",
         "date": "2023-11-10T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-11-11T00:00:00.000Z",
+        "added": 21,
+        "removed": 5
       },
       {
         "repo_name": "WebODM",
         "date": "2023-11-14T00:00:00.000Z",
-        "added": 219,
-        "removed": 2716
+        "added": 310,
+        "removed": 2806
       },
       {
         "repo_name": "WebODM",
         "date": "2023-11-15T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 62,
+        "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-11-20T00:00:00.000Z",
+        "added": 54,
+        "removed": 47
       },
       {
         "repo_name": "WebODM",
@@ -14041,9 +14917,21 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2023-11-23T00:00:00.000Z",
+        "added": 5,
+        "removed": 4
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2023-11-27T00:00:00.000Z",
+        "added": 3,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2023-12-04T00:00:00.000Z",
-        "added": 16,
-        "removed": 2
+        "added": 17,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -14072,8 +14960,8 @@
       {
         "repo_name": "WebODM",
         "date": "2024-01-09T00:00:00.000Z",
-        "added": 362,
-        "removed": 407
+        "added": 369,
+        "removed": 417
       },
       {
         "repo_name": "WebODM",
@@ -14083,14 +14971,32 @@
       },
       {
         "repo_name": "WebODM",
-        "date": "2024-02-13T00:00:00.000Z",
+        "date": "2024-02-02T00:00:00.000Z",
         "added": 0,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2024-02-08T00:00:00.000Z",
+        "added": 5,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2024-02-13T00:00:00.000Z",
+        "added": 4,
         "removed": 0
       },
       {
         "repo_name": "WebODM",
+        "date": "2024-02-16T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2024-02-28T00:00:00.000Z",
-        "added": 0,
+        "added": 12,
         "removed": 0
       },
       {
@@ -14102,8 +15008,8 @@
       {
         "repo_name": "WebODM",
         "date": "2024-04-04T00:00:00.000Z",
-        "added": 57,
-        "removed": 13
+        "added": 92,
+        "removed": 27
       },
       {
         "repo_name": "WebODM",
@@ -14119,21 +15025,33 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2024-04-30T00:00:00.000Z",
+        "added": 25,
+        "removed": 9
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2024-05-01T00:00:00.000Z",
-        "added": 3,
-        "removed": 0
+        "added": 19,
+        "removed": 7
       },
       {
         "repo_name": "WebODM",
         "date": "2024-05-02T00:00:00.000Z",
-        "added": 104,
-        "removed": 4
+        "added": 113,
+        "removed": 70
       },
       {
         "repo_name": "WebODM",
         "date": "2024-05-05T00:00:00.000Z",
         "added": 1,
         "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2024-05-06T00:00:00.000Z",
+        "added": 4,
+        "removed": 5
       },
       {
         "repo_name": "WebODM",
@@ -14144,38 +15062,50 @@
       {
         "repo_name": "WebODM",
         "date": "2024-05-08T00:00:00.000Z",
-        "added": 114,
-        "removed": 37
+        "added": 120,
+        "removed": 40
       },
       {
         "repo_name": "WebODM",
         "date": "2024-05-09T00:00:00.000Z",
-        "added": 180,
-        "removed": 49
+        "added": 390,
+        "removed": 111
       },
       {
         "repo_name": "WebODM",
         "date": "2024-05-10T00:00:00.000Z",
-        "added": 37,
-        "removed": 19
+        "added": 74,
+        "removed": 38
       },
       {
         "repo_name": "WebODM",
         "date": "2024-05-11T00:00:00.000Z",
-        "added": 1713,
-        "removed": 57
+        "added": 1766,
+        "removed": 75
       },
       {
         "repo_name": "WebODM",
         "date": "2024-05-13T00:00:00.000Z",
-        "added": 77,
-        "removed": 80
+        "added": 126,
+        "removed": 140
       },
       {
         "repo_name": "WebODM",
         "date": "2024-05-14T00:00:00.000Z",
         "added": 96,
         "removed": 131
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2024-05-16T00:00:00.000Z",
+        "added": 10,
+        "removed": 4
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2024-05-21T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
@@ -14192,8 +15122,8 @@
       {
         "repo_name": "WebODM",
         "date": "2024-05-25T00:00:00.000Z",
-        "added": 176,
-        "removed": 46
+        "added": 293,
+        "removed": 176
       },
       {
         "repo_name": "WebODM",
@@ -14203,15 +15133,21 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2024-05-27T00:00:00.000Z",
+        "added": 4,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2024-05-28T00:00:00.000Z",
-        "added": 25,
-        "removed": 7
+        "added": 108,
+        "removed": 83
       },
       {
         "repo_name": "WebODM",
         "date": "2024-05-29T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 2,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
@@ -14222,32 +15158,50 @@
       {
         "repo_name": "WebODM",
         "date": "2024-05-31T00:00:00.000Z",
-        "added": 231,
-        "removed": 85
+        "added": 232,
+        "removed": 86
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2024-06-01T00:00:00.000Z",
+        "added": 122,
+        "removed": 57
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2024-06-15T00:00:00.000Z",
+        "added": 82,
+        "removed": 43
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2024-06-20T00:00:00.000Z",
+        "added": 0,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
         "date": "2024-06-22T00:00:00.000Z",
-        "added": 5,
-        "removed": 3
+        "added": 118,
+        "removed": 60
       },
       {
         "repo_name": "WebODM",
         "date": "2024-06-25T00:00:00.000Z",
-        "added": 53,
-        "removed": 6
+        "added": 75,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
         "date": "2024-06-27T00:00:00.000Z",
-        "added": 20,
-        "removed": 11
+        "added": 34,
+        "removed": 14
       },
       {
         "repo_name": "WebODM",
         "date": "2024-07-02T00:00:00.000Z",
-        "added": 29,
-        "removed": 50
+        "added": 122,
+        "removed": 127
       },
       {
         "repo_name": "WebODM",
@@ -14282,32 +15236,38 @@
       {
         "repo_name": "WebODM",
         "date": "2024-07-18T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 18,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
         "date": "2024-07-20T00:00:00.000Z",
-        "added": 9,
-        "removed": 12
+        "added": 30,
+        "removed": 15
       },
       {
         "repo_name": "WebODM",
         "date": "2024-07-22T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 6,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
         "date": "2024-07-23T00:00:00.000Z",
-        "added": 43,
-        "removed": 18
+        "added": 281,
+        "removed": 27
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2024-07-27T00:00:00.000Z",
+        "added": 90,
+        "removed": 20
       },
       {
         "repo_name": "WebODM",
         "date": "2024-07-29T00:00:00.000Z",
-        "added": 248,
-        "removed": 9
+        "added": 373,
+        "removed": 94
       },
       {
         "repo_name": "WebODM",
@@ -14330,14 +15290,14 @@
       {
         "repo_name": "WebODM",
         "date": "2024-08-08T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
         "date": "2024-08-09T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 3,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -14354,8 +15314,14 @@
       {
         "repo_name": "WebODM",
         "date": "2024-08-19T00:00:00.000Z",
-        "added": 8,
+        "added": 11,
         "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2024-08-20T00:00:00.000Z",
+        "added": 108,
+        "removed": 152
       },
       {
         "repo_name": "WebODM",
@@ -14366,20 +15332,20 @@
       {
         "repo_name": "WebODM",
         "date": "2024-09-02T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 5,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
         "date": "2024-09-17T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 4,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
         "date": "2024-09-28T00:00:00.000Z",
-        "added": 8,
-        "removed": 0
+        "added": 24,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
@@ -14390,14 +15356,14 @@
       {
         "repo_name": "WebODM",
         "date": "2024-11-06T00:00:00.000Z",
-        "added": 170,
-        "removed": 95
+        "added": 185,
+        "removed": 97
       },
       {
         "repo_name": "WebODM",
         "date": "2024-11-20T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 27,
+        "removed": 8
       },
       {
         "repo_name": "WebODM",
@@ -14414,14 +15380,14 @@
       {
         "repo_name": "WebODM",
         "date": "2024-11-26T00:00:00.000Z",
-        "added": 31,
-        "removed": 17
+        "added": 70,
+        "removed": 24
       },
       {
         "repo_name": "WebODM",
         "date": "2024-11-27T00:00:00.000Z",
-        "added": 237,
-        "removed": 3
+        "added": 421,
+        "removed": 17
       },
       {
         "repo_name": "WebODM",
@@ -14432,8 +15398,8 @@
       {
         "repo_name": "WebODM",
         "date": "2024-12-20T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 26,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -14450,8 +15416,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-01-03T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 6,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -14462,20 +15428,26 @@
       {
         "repo_name": "WebODM",
         "date": "2025-01-09T00:00:00.000Z",
-        "added": 4,
-        "removed": 6
+        "added": 28,
+        "removed": 49
       },
       {
         "repo_name": "WebODM",
         "date": "2025-01-10T00:00:00.000Z",
-        "added": 35,
-        "removed": 2
+        "added": 84,
+        "removed": 21
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2025-01-11T00:00:00.000Z",
+        "added": 8,
+        "removed": 14
       },
       {
         "repo_name": "WebODM",
         "date": "2025-01-13T00:00:00.000Z",
-        "added": 1,
-        "removed": 2
+        "added": 151,
+        "removed": 98
       },
       {
         "repo_name": "WebODM",
@@ -14485,9 +15457,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2025-01-23T00:00:00.000Z",
+        "added": 507,
+        "removed": 11
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2025-01-24T00:00:00.000Z",
-        "added": 65,
-        "removed": 142
+        "added": 180,
+        "removed": 204
       },
       {
         "repo_name": "WebODM",
@@ -14509,15 +15487,33 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2025-01-31T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2025-02-02T00:00:00.000Z",
+        "added": 0,
+        "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2025-02-05T00:00:00.000Z",
-        "added": 26,
-        "removed": 7
+        "added": 71,
+        "removed": 20
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2025-02-06T00:00:00.000Z",
+        "added": 6,
+        "removed": 6
       },
       {
         "repo_name": "WebODM",
         "date": "2025-02-08T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -14528,14 +15524,14 @@
       {
         "repo_name": "WebODM",
         "date": "2025-02-18T00:00:00.000Z",
-        "added": 213,
-        "removed": 34
+        "added": 238,
+        "removed": 37
       },
       {
         "repo_name": "WebODM",
         "date": "2025-02-19T00:00:00.000Z",
-        "added": 66,
-        "removed": 10
+        "added": 130,
+        "removed": 36
       },
       {
         "repo_name": "WebODM",
@@ -14552,8 +15548,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-03-05T00:00:00.000Z",
-        "added": 91,
-        "removed": 75
+        "added": 94,
+        "removed": 79
       },
       {
         "repo_name": "WebODM",
@@ -14564,8 +15560,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-03-08T00:00:00.000Z",
-        "added": 88,
-        "removed": 88
+        "added": 137,
+        "removed": 92
       },
       {
         "repo_name": "WebODM",
@@ -14576,38 +15572,44 @@
       {
         "repo_name": "WebODM",
         "date": "2025-03-11T00:00:00.000Z",
-        "added": 66,
-        "removed": 16
+        "added": 191,
+        "removed": 99
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2025-03-12T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2025-03-17T00:00:00.000Z",
-        "added": 62,
-        "removed": 20
+        "added": 67,
+        "removed": 22
       },
       {
         "repo_name": "WebODM",
         "date": "2025-03-18T00:00:00.000Z",
-        "added": 15,
-        "removed": 305
+        "added": 16,
+        "removed": 306
       },
       {
         "repo_name": "WebODM",
         "date": "2025-03-21T00:00:00.000Z",
-        "added": 228,
-        "removed": 66
+        "added": 317,
+        "removed": 147
       },
       {
         "repo_name": "WebODM",
         "date": "2025-03-24T00:00:00.000Z",
-        "added": 294,
-        "removed": 249
+        "added": 390,
+        "removed": 258
       },
       {
         "repo_name": "WebODM",
         "date": "2025-03-25T00:00:00.000Z",
-        "added": 59,
-        "removed": 6
+        "added": 66,
+        "removed": 8
       },
       {
         "repo_name": "WebODM",
@@ -14618,8 +15620,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-03-27T00:00:00.000Z",
-        "added": 155,
-        "removed": 27
+        "added": 261,
+        "removed": 83
       },
       {
         "repo_name": "WebODM",
@@ -14630,8 +15632,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-03-30T00:00:00.000Z",
-        "added": 202,
-        "removed": 98
+        "added": 359,
+        "removed": 149
       },
       {
         "repo_name": "WebODM",
@@ -14648,38 +15650,38 @@
       {
         "repo_name": "WebODM",
         "date": "2025-04-02T00:00:00.000Z",
-        "added": 181,
-        "removed": 4
+        "added": 208,
+        "removed": 13
       },
       {
         "repo_name": "WebODM",
         "date": "2025-04-13T00:00:00.000Z",
-        "added": 29,
-        "removed": 3
+        "added": 30,
+        "removed": 14
       },
       {
         "repo_name": "WebODM",
         "date": "2025-04-15T00:00:00.000Z",
-        "added": 77,
-        "removed": 38
+        "added": 88,
+        "removed": 43
       },
       {
         "repo_name": "WebODM",
         "date": "2025-04-16T00:00:00.000Z",
-        "added": 78,
-        "removed": 25
+        "added": 88,
+        "removed": 31
       },
       {
         "repo_name": "WebODM",
         "date": "2025-04-21T00:00:00.000Z",
-        "added": 45,
-        "removed": 9
+        "added": 66,
+        "removed": 11
       },
       {
         "repo_name": "WebODM",
         "date": "2025-04-22T00:00:00.000Z",
-        "added": 2,
-        "removed": 2
+        "added": 102,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
@@ -14696,8 +15698,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-05-05T00:00:00.000Z",
-        "added": 179,
-        "removed": 15
+        "added": 181,
+        "removed": 17
       },
       {
         "repo_name": "WebODM",
@@ -14708,20 +15710,20 @@
       {
         "repo_name": "WebODM",
         "date": "2025-05-11T00:00:00.000Z",
-        "added": 119,
-        "removed": 66
+        "added": 128,
+        "removed": 76
       },
       {
         "repo_name": "WebODM",
         "date": "2025-05-12T00:00:00.000Z",
-        "added": 1,
-        "removed": 0
+        "added": 43,
+        "removed": 44
       },
       {
         "repo_name": "WebODM",
         "date": "2025-05-13T00:00:00.000Z",
-        "added": 139,
-        "removed": 113
+        "added": 142,
+        "removed": 114
       },
       {
         "repo_name": "WebODM",
@@ -14732,32 +15734,32 @@
       {
         "repo_name": "WebODM",
         "date": "2025-05-16T00:00:00.000Z",
-        "added": 11,
-        "removed": 16
+        "added": 27,
+        "removed": 32
       },
       {
         "repo_name": "WebODM",
         "date": "2025-05-17T00:00:00.000Z",
-        "added": 4,
-        "removed": 2
+        "added": 11,
+        "removed": 10
       },
       {
         "repo_name": "WebODM",
         "date": "2025-05-19T00:00:00.000Z",
-        "added": 54,
+        "added": 55,
         "removed": 20
       },
       {
         "repo_name": "WebODM",
         "date": "2025-05-20T00:00:00.000Z",
-        "added": 4,
+        "added": 5,
         "removed": 3
       },
       {
         "repo_name": "WebODM",
         "date": "2025-05-23T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 4,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
@@ -14769,7 +15771,7 @@
         "repo_name": "WebODM",
         "date": "2025-06-23T00:00:00.000Z",
         "added": 3,
-        "removed": 2
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -14780,26 +15782,26 @@
       {
         "repo_name": "WebODM",
         "date": "2025-07-06T00:00:00.000Z",
-        "added": 11,
-        "removed": 4
+        "added": 12,
+        "removed": 5
       },
       {
         "repo_name": "WebODM",
         "date": "2025-07-08T00:00:00.000Z",
-        "added": 3,
-        "removed": 7
+        "added": 4,
+        "removed": 8
       },
       {
         "repo_name": "WebODM",
         "date": "2025-07-16T00:00:00.000Z",
-        "added": 99,
-        "removed": 117
+        "added": 208,
+        "removed": 206
       },
       {
         "repo_name": "WebODM",
         "date": "2025-07-17T00:00:00.000Z",
-        "added": 25,
-        "removed": 19
+        "added": 160,
+        "removed": 141
       },
       {
         "repo_name": "WebODM",
@@ -14810,14 +15812,14 @@
       {
         "repo_name": "WebODM",
         "date": "2025-07-20T00:00:00.000Z",
-        "added": 44,
-        "removed": 7
+        "added": 54,
+        "removed": 24
       },
       {
         "repo_name": "WebODM",
         "date": "2025-07-23T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 40,
+        "removed": 37
       },
       {
         "repo_name": "WebODM",
@@ -14828,12 +15830,18 @@
       {
         "repo_name": "WebODM",
         "date": "2025-07-26T00:00:00.000Z",
-        "added": 29,
-        "removed": 3
+        "added": 32,
+        "removed": 15
       },
       {
         "repo_name": "WebODM",
         "date": "2025-08-07T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2025-08-10T00:00:00.000Z",
         "added": 1,
         "removed": 1
       },
@@ -14846,14 +15854,20 @@
       {
         "repo_name": "WebODM",
         "date": "2025-08-20T00:00:00.000Z",
-        "added": 3,
-        "removed": 2
+        "added": 24,
+        "removed": 8
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2025-08-29T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
       },
       {
         "repo_name": "WebODM",
         "date": "2025-08-31T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 6,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -14864,8 +15878,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-09-09T00:00:00.000Z",
-        "added": 143,
-        "removed": 12
+        "added": 220,
+        "removed": 88
       },
       {
         "repo_name": "WebODM",
@@ -14882,8 +15896,14 @@
       {
         "repo_name": "WebODM",
         "date": "2025-09-17T00:00:00.000Z",
-        "added": 170,
-        "removed": 33
+        "added": 238,
+        "removed": 62
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2025-09-18T00:00:00.000Z",
+        "added": 27,
+        "removed": 23
       },
       {
         "repo_name": "WebODM",
@@ -14899,9 +15919,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2025-09-25T00:00:00.000Z",
+        "added": 21,
+        "removed": 8
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2025-10-04T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 3,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -14912,8 +15938,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-10-12T00:00:00.000Z",
-        "added": 0,
-        "removed": 1
+        "added": 6663,
+        "removed": 16460
       },
       {
         "repo_name": "WebODM",
@@ -14930,8 +15956,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-10-16T00:00:00.000Z",
-        "added": 438,
-        "removed": 26
+        "added": 443,
+        "removed": 31
       },
       {
         "repo_name": "WebODM",
@@ -14941,9 +15967,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2025-11-04T00:00:00.000Z",
+        "added": 32,
+        "removed": 10
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2025-11-05T00:00:00.000Z",
-        "added": 30,
-        "removed": 37
+        "added": 97,
+        "removed": 85
       },
       {
         "repo_name": "WebODM",
@@ -14955,19 +15987,19 @@
         "repo_name": "WebODM",
         "date": "2025-11-09T00:00:00.000Z",
         "added": 46,
-        "removed": 26
+        "removed": 27
       },
       {
         "repo_name": "WebODM",
         "date": "2025-11-11T00:00:00.000Z",
-        "added": 331,
-        "removed": 121
+        "added": 1027,
+        "removed": 234
       },
       {
         "repo_name": "WebODM",
         "date": "2025-11-12T00:00:00.000Z",
-        "added": 36,
-        "removed": 23
+        "added": 104,
+        "removed": 49
       },
       {
         "repo_name": "WebODM",
@@ -14978,14 +16010,14 @@
       {
         "repo_name": "WebODM",
         "date": "2025-11-14T00:00:00.000Z",
-        "added": 109,
-        "removed": 41
+        "added": 148,
+        "removed": 66
       },
       {
         "repo_name": "WebODM",
         "date": "2025-11-17T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 1,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -14996,14 +16028,20 @@
       {
         "repo_name": "WebODM",
         "date": "2025-11-21T00:00:00.000Z",
-        "added": 41,
-        "removed": 10
+        "added": 125,
+        "removed": 20
       },
       {
         "repo_name": "WebODM",
         "date": "2025-11-22T00:00:00.000Z",
-        "added": 21,
-        "removed": 4
+        "added": 22,
+        "removed": 5
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2025-11-23T00:00:00.000Z",
+        "added": 4,
+        "removed": 2
       },
       {
         "repo_name": "WebODM",
@@ -15014,8 +16052,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-11-25T00:00:00.000Z",
-        "added": 91,
-        "removed": 33
+        "added": 220,
+        "removed": 121
       },
       {
         "repo_name": "WebODM",
@@ -15026,14 +16064,14 @@
       {
         "repo_name": "WebODM",
         "date": "2025-11-28T00:00:00.000Z",
-        "added": 57,
-        "removed": 32
+        "added": 58,
+        "removed": 33
       },
       {
         "repo_name": "WebODM",
         "date": "2025-11-29T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 5,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -15068,8 +16106,14 @@
       {
         "repo_name": "WebODM",
         "date": "2025-12-08T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 5,
+        "removed": 2
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2025-12-10T00:00:00.000Z",
+        "added": 4,
+        "removed": 1
       },
       {
         "repo_name": "WebODM",
@@ -15080,8 +16124,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-12-13T00:00:00.000Z",
-        "added": 0,
-        "removed": 0
+        "added": 23,
+        "removed": 15
       },
       {
         "repo_name": "WebODM",
@@ -15098,26 +16142,26 @@
       {
         "repo_name": "WebODM",
         "date": "2025-12-22T00:00:00.000Z",
-        "added": 89,
-        "removed": 76
+        "added": 152,
+        "removed": 77
       },
       {
         "repo_name": "WebODM",
         "date": "2025-12-23T00:00:00.000Z",
-        "added": 90,
-        "removed": 29
+        "added": 153,
+        "removed": 38
       },
       {
         "repo_name": "WebODM",
         "date": "2025-12-24T00:00:00.000Z",
-        "added": 180,
-        "removed": 91
+        "added": 182,
+        "removed": 94
       },
       {
         "repo_name": "WebODM",
         "date": "2025-12-26T00:00:00.000Z",
-        "added": 4,
-        "removed": 0
+        "added": 15,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -15128,8 +16172,8 @@
       {
         "repo_name": "WebODM",
         "date": "2025-12-30T00:00:00.000Z",
-        "added": 72,
-        "removed": 29
+        "added": 73,
+        "removed": 30
       },
       {
         "repo_name": "WebODM",
@@ -15139,9 +16183,21 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2026-01-04T00:00:00.000Z",
+        "added": 0,
+        "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2026-01-05T00:00:00.000Z",
         "added": 472,
         "removed": 38
+      },
+      {
+        "repo_name": "WebODM",
+        "date": "2026-01-06T00:00:00.000Z",
+        "added": 17,
+        "removed": 17
       },
       {
         "repo_name": "WebODM",
@@ -15151,9 +16207,15 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2026-01-10T00:00:00.000Z",
+        "added": 3,
+        "removed": 0
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2026-01-12T00:00:00.000Z",
-        "added": 1,
-        "removed": 1
+        "added": 3,
+        "removed": 3
       },
       {
         "repo_name": "WebODM",
@@ -15163,15 +16225,21 @@
       },
       {
         "repo_name": "WebODM",
+        "date": "2026-01-18T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "WebODM",
         "date": "2026-01-28T00:00:00.000Z",
-        "added": 25,
-        "removed": 47
+        "added": 89,
+        "removed": 76
       },
       {
         "repo_name": "WebODM",
         "date": "2026-01-29T00:00:00.000Z",
-        "added": 17,
-        "removed": 11
+        "added": 36,
+        "removed": 14
       },
       {
         "repo_name": "WebODM",
@@ -15182,43 +16250,43 @@
       {
         "repo_name": "WebODM",
         "date": "2026-02-11T00:00:00.000Z",
-        "added": 119,
-        "removed": 126
+        "added": 264,
+        "removed": 290
       },
       {
         "repo_name": "WebODM",
         "date": "2026-02-19T00:00:00.000Z",
-        "added": 89,
-        "removed": 41
+        "added": 183,
+        "removed": 46
       },
       {
         "repo_name": "WebODM",
         "date": "2026-02-20T00:00:00.000Z",
-        "added": 23,
-        "removed": 4
+        "added": 101,
+        "removed": 2045
       },
       {
         "repo_name": "WebODM",
         "date": "2026-02-23T00:00:00.000Z",
-        "added": 186,
-        "removed": 7
+        "added": 638,
+        "removed": 139
       },
       {
         "repo_name": "WebODM",
         "date": "2026-02-24T00:00:00.000Z",
-        "added": 11,
-        "removed": 6
+        "added": 78,
+        "removed": 59
       },
       {
         "repo_name": "WebODM",
         "date": "2026-02-25T00:00:00.000Z",
-        "added": 292,
-        "removed": 153
+        "added": 410,
+        "removed": 168
       },
       {
         "repo_name": "WebODM",
         "date": "2026-03-05T00:00:00.000Z",
-        "added": 0,
+        "added": 10,
         "removed": 0
       },
       {
@@ -25147,6 +26215,11 @@
         "repo_name": "WebODM"
       },
       {
+        "commit_date": "2017-05-23T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
         "commit_date": "2017-06-26T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
@@ -25197,7 +26270,27 @@
         "repo_name": "WebODM"
       },
       {
+        "commit_date": "2018-04-17T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2018-06-24T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
         "commit_date": "2018-09-04T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2018-09-16T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2018-10-05T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -25212,7 +26305,7 @@
         "repo_name": "WebODM"
       },
       {
-        "commit_date": "2019-05-10T00:00:00.000Z",
+        "commit_date": "2019-05-09T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -25247,17 +26340,22 @@
         "repo_name": "WebODM"
       },
       {
+        "commit_date": "2019-08-06T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2019-09-09T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
         "commit_date": "2019-09-12T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
       {
         "commit_date": "2019-09-18T00:00:00.000Z",
-        "count": 1,
-        "repo_name": "WebODM"
-      },
-      {
-        "commit_date": "2019-10-22T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -25272,7 +26370,32 @@
         "repo_name": "WebODM"
       },
       {
+        "commit_date": "2019-12-05T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2020-01-21T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2020-01-23T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2020-01-30T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
         "commit_date": "2020-02-19T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2020-04-13T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -25282,7 +26405,22 @@
         "repo_name": "WebODM"
       },
       {
+        "commit_date": "2020-07-15T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
         "commit_date": "2020-08-25T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2020-09-24T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2020-10-21T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -25327,6 +26465,11 @@
         "repo_name": "WebODM"
       },
       {
+        "commit_date": "2021-08-25T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
         "commit_date": "2021-08-27T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
@@ -25347,12 +26490,17 @@
         "repo_name": "WebODM"
       },
       {
-        "commit_date": "2021-10-02T00:00:00.000Z",
+        "commit_date": "2021-09-30T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
       {
-        "commit_date": "2022-01-12T00:00:00.000Z",
+        "commit_date": "2022-01-04T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2022-01-15T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -25372,7 +26520,17 @@
         "repo_name": "WebODM"
       },
       {
-        "commit_date": "2022-03-18T00:00:00.000Z",
+        "commit_date": "2022-03-17T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2022-04-18T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2022-04-27T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -25388,11 +26546,21 @@
       },
       {
         "commit_date": "2022-08-22T00:00:00.000Z",
+        "count": 2,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2022-08-28T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
       {
         "commit_date": "2022-09-20T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2022-10-06T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -25408,11 +26576,16 @@
       },
       {
         "commit_date": "2023-03-31T00:00:00.000Z",
-        "count": 2,
+        "count": 3,
         "repo_name": "WebODM"
       },
       {
-        "commit_date": "2023-04-02T00:00:00.000Z",
+        "commit_date": "2023-04-15T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2023-05-03T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -25427,6 +26600,11 @@
         "repo_name": "WebODM"
       },
       {
+        "commit_date": "2023-09-02T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
         "commit_date": "2023-09-05T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
@@ -25437,7 +26615,12 @@
         "repo_name": "WebODM"
       },
       {
-        "commit_date": "2023-11-21T00:00:00.000Z",
+        "commit_date": "2023-10-17T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2023-11-20T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -25452,12 +26635,22 @@
         "repo_name": "WebODM"
       },
       {
-        "commit_date": "2024-02-29T00:00:00.000Z",
+        "commit_date": "2024-02-08T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2024-02-28T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
       {
         "commit_date": "2024-05-11T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2024-06-20T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -25498,6 +26691,11 @@
       },
       {
         "commit_date": "2025-02-18T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "WebODM"
+      },
+      {
+        "commit_date": "2025-03-11T00:00:00.000Z",
         "count": 1,
         "repo_name": "WebODM"
       },
@@ -26443,11 +27641,11 @@
         "fork_count": 0,
         "merged_count": 0,
         "committer_count": 15,
-        "commit_count": 612.0
+        "commit_count": 946.0
       }
     ],
     "db_counts": {
-      "db_commit_rows": 6196,
+      "db_commit_rows": 10502,
       "db_issue_rows": 1146,
       "db_pull_request_rows": 680,
       "db_pull_request_event_rows": 0,
@@ -26478,17 +27676,17 @@
         "fork_count": 0,
         "merged_count": 0,
         "committer_count": 15,
-        "commit_count": 612.0
+        "commit_count": 946.0
       }
     ],
-    "commit_count": 612.0,
+    "commit_count": 946.0,
     "stars": 0,
     "forks": 0,
     "watchers": 0,
     "prs_merged": 0,
     "augur_endpoint_count": 23,
     "augur_nonempty_endpoint_count": 17,
-    "db_commit_rows": 6196,
+    "db_commit_rows": 10502,
     "db_issue_rows": 1146,
     "db_pull_request_rows": 680,
     "db_pull_request_event_rows": 0,

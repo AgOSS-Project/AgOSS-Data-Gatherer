@@ -1,0 +1,200 @@
+{
+  "repo_url": "https://github.com/Open-Agriculture/AgIsoStack-plus-plus",
+  "owner": "Open-Agriculture",
+  "repo_name": "AgIsoStack-plus-plus",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 15,
+  "filtered_self_packages": 1,
+  "packages_total": 14,
+  "packages_queryable": 7,
+  "packages_unqueryable": 7,
+  "vulnerability_ids": [
+    "GHSA-3f63-hfp8-52jq",
+    "GHSA-44wm-f244-xhp3",
+    "GHSA-8ghj-p4vj-mr35",
+    "GHSA-j7hp-h8jx-5ppr",
+    "GHSA-m2vv-5vj5-2hm7",
+    "OSV-2022-1074",
+    "OSV-2022-715",
+    "PYSEC-2022-42979",
+    "PYSEC-2023-175",
+    "PYSEC-2023-227"
+  ],
+  "vulnerabilities_total": 10,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "breathe",
+      "version": "4.35.0",
+      "purl": "pkg:pypi/breathe@4.35.0",
+      "ecosystem": "PyPI",
+      "query_name": "breathe",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "piccolo-theme",
+      "version": "0.19.0",
+      "purl": "pkg:pypi/piccolo-theme@0.19.0",
+      "ecosystem": "PyPI",
+      "query_name": "piccolo-theme",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "pillow",
+      "version": "9.1.1",
+      "purl": "pkg:pypi/pillow@9.1.1",
+      "ecosystem": "PyPI",
+      "query_name": "pillow",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "GHSA-3f63-hfp8-52jq",
+        "GHSA-44wm-f244-xhp3",
+        "GHSA-8ghj-p4vj-mr35",
+        "GHSA-j7hp-h8jx-5ppr",
+        "GHSA-m2vv-5vj5-2hm7",
+        "OSV-2022-1074",
+        "OSV-2022-715",
+        "PYSEC-2022-42979",
+        "PYSEC-2023-175",
+        "PYSEC-2023-227"
+      ],
+      "vulnerability_count": 10
+    },
+    {
+      "name": "sphinx",
+      "version": "7.1.2",
+      "purl": "pkg:pypi/sphinx@7.1.2",
+      "ecosystem": "PyPI",
+      "query_name": "sphinx",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "sphinx-copybutton",
+      "version": "0.5.2",
+      "purl": "pkg:pypi/sphinx-copybutton@0.5.2",
+      "ecosystem": "PyPI",
+      "query_name": "sphinx-copybutton",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "sphinx-rtd-theme",
+      "version": "2.0.0",
+      "purl": "pkg:pypi/sphinx-rtd-theme@2.0.0",
+      "ecosystem": "PyPI",
+      "query_name": "sphinx-rtd-theme",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "sphinxext-opengraph",
+      "version": "0.9.1",
+      "purl": "pkg:pypi/sphinxext-opengraph@0.9.1",
+      "ecosystem": "PyPI",
+      "query_name": "sphinxext-opengraph",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/cache",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/actions/cache@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "cache",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/checkout",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/actions/checkout@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "jidicula/clang-format-action",
+      "version": "4.11.0",
+      "purl": "pkg:githubactions/jidicula/clang-format-action@4.11.0",
+      "ecosystem": null,
+      "query_name": "clang-format-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "mattnotmitt/doxygen-action",
+      "version": "edge",
+      "purl": "pkg:githubactions/mattnotmitt/doxygen-action@edge",
+      "ecosystem": null,
+      "query_name": "doxygen-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "SonarSource/sonarqube-scan-action/install-build-wrapper",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/SonarSource/sonarqube-scan-action/install-build-wrapper@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "install-build-wrapper",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/setup-python",
+      "version": "5.*.*",
+      "purl": "pkg:githubactions/actions/setup-python@5.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "setup-python",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "SonarSource/sonarqube-scan-action",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/SonarSource/sonarqube-scan-action@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "sonarqube-scan-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}

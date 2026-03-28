@@ -1,0 +1,62 @@
+{
+  "repo_url": "https://github.com/Laudando-Associates-LLC/LASER",
+  "owner": "Laudando-Associates-LLC",
+  "repo_name": "LASER",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 3,
+  "filtered_self_packages": 1,
+  "packages_total": 2,
+  "packages_queryable": 2,
+  "packages_unqueryable": 0,
+  "vulnerability_ids": [
+    "GHSA-27x4-j476-jp5f",
+    "GHSA-5rjg-fvgr-3xxf",
+    "GHSA-cx63-2mw6-8hw5",
+    "GHSA-r9hx-vwmv-q579",
+    "PYSEC-2013-22",
+    "PYSEC-2022-43012",
+    "PYSEC-2025-49"
+  ],
+  "vulnerabilities_total": 7,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "pytest",
+      "version": null,
+      "purl": "pkg:pypi/pytest",
+      "ecosystem": "PyPI",
+      "query_name": "pytest",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "setuptools",
+      "version": null,
+      "purl": "pkg:pypi/setuptools",
+      "ecosystem": "PyPI",
+      "query_name": "setuptools",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "GHSA-27x4-j476-jp5f",
+        "GHSA-5rjg-fvgr-3xxf",
+        "GHSA-cx63-2mw6-8hw5",
+        "GHSA-r9hx-vwmv-q579",
+        "PYSEC-2013-22",
+        "PYSEC-2022-43012",
+        "PYSEC-2025-49"
+      ],
+      "vulnerability_count": 7
+    }
+  ],
+  "vulnerabilities": []
+}

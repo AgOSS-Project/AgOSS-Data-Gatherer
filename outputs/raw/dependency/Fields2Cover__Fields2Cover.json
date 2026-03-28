@@ -1,0 +1,156 @@
+{
+  "repo_url": "https://github.com/Fields2Cover/Fields2Cover",
+  "owner": "Fields2Cover",
+  "repo_name": "Fields2Cover",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 13,
+  "filtered_self_packages": 1,
+  "packages_total": 12,
+  "packages_queryable": 7,
+  "packages_unqueryable": 5,
+  "vulnerability_ids": [],
+  "vulnerabilities_total": 0,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "breathe",
+      "version": ">= 4.32.0",
+      "purl": "pkg:pypi/breathe",
+      "ecosystem": "PyPI",
+      "query_name": "breathe",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "exhale",
+      "version": "> 0.3.0",
+      "purl": "pkg:pypi/exhale",
+      "ecosystem": "PyPI",
+      "query_name": "exhale",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "m2r2",
+      "version": null,
+      "purl": "pkg:pypi/m2r2",
+      "ecosystem": "PyPI",
+      "query_name": "m2r2",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "sphinx",
+      "version": "> 5.0,<= 7.2.6",
+      "purl": "pkg:pypi/sphinx",
+      "ecosystem": "PyPI",
+      "query_name": "sphinx",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "sphinx-code-tabs",
+      "version": null,
+      "purl": "pkg:pypi/sphinx-code-tabs",
+      "ecosystem": "PyPI",
+      "query_name": "sphinx-code-tabs",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "sphinx-rtd-theme",
+      "version": "> 0.3.0",
+      "purl": "pkg:pypi/sphinx-rtd-theme",
+      "ecosystem": "PyPI",
+      "query_name": "sphinx-rtd-theme",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "sphinx-sitemap",
+      "version": null,
+      "purl": "pkg:pypi/sphinx-sitemap",
+      "ecosystem": "PyPI",
+      "query_name": "sphinx-sitemap",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "ros-tooling/action-ros-ci",
+      "version": "0.3.*",
+      "purl": "pkg:githubactions/ros-tooling/action-ros-ci@0.3.%2A",
+      "ecosystem": null,
+      "query_name": "action-ros-ci",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/checkout",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/actions/checkout@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "lukka/get-cmake",
+      "version": "latest",
+      "purl": "pkg:githubactions/lukka/get-cmake@latest",
+      "ecosystem": null,
+      "query_name": "get-cmake",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "coverallsapp/github-action",
+      "version": "2.*.*",
+      "purl": "pkg:githubactions/coverallsapp/github-action@2.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "github-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "cpina/github-action-push-to-another-repository",
+      "version": "main",
+      "purl": "pkg:githubactions/cpina/github-action-push-to-another-repository@main",
+      "ecosystem": null,
+      "query_name": "github-action-push-to-another-repository",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}

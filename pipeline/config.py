@@ -17,7 +17,9 @@ INPUT_FILE = PROJECT_ROOT / "pipeline" / "input.txt"
 OUTPUTS_DIR = PROJECT_ROOT / "outputs"
 RAW_SCORECARD_DIR = OUTPUTS_DIR / "raw" / "scorecard"
 RAW_AUGUR_DIR = OUTPUTS_DIR / "raw" / "augur"
+RAW_DEPENDENCY_DIR = OUTPUTS_DIR / "raw" / "dependency"
 PROCESSED_DIR = OUTPUTS_DIR / "processed"
+DEPENDENCY_REPORT_FILE = PROCESSED_DIR / "dependency_analysis.json"
 DASHBOARD_DIR = OUTPUTS_DIR / "dashboard"
 LOG_DIR = OUTPUTS_DIR / "logs"
 
@@ -27,6 +29,18 @@ LOG_DIR = OUTPUTS_DIR / "logs"
 SCORECARD_TIMEOUT_SECONDS = int(os.getenv("SCORECARD_TIMEOUT", "120"))
 SCORECARD_RETRY_COUNT = int(os.getenv("SCORECARD_RETRY_COUNT", "1"))
 GITHUB_AUTH_TOKEN = os.getenv("GITHUB_AUTH_TOKEN") or os.getenv("GITHUB_TOKEN", "")
+
+# ---------------------------------------------------------------------------
+# Dependency analysis configuration (GitHub SBOM + OSV)
+# ---------------------------------------------------------------------------
+DEPENDENCY_MAX_WORKERS = int(os.getenv("DEPENDENCY_MAX_WORKERS", "4"))
+DEPENDENCY_HTTP_TIMEOUT_SECONDS = int(os.getenv("DEPENDENCY_HTTP_TIMEOUT", "30"))
+DEPENDENCY_RETRY_COUNT = int(os.getenv("DEPENDENCY_RETRY_COUNT", "2"))
+DEPENDENCY_RETRY_BACKOFF_SECONDS = float(os.getenv("DEPENDENCY_RETRY_BACKOFF", "1.5"))
+
+GITHUB_API_BASE = os.getenv("GITHUB_API_BASE", "https://api.github.com")
+OSV_API_BASE = os.getenv("OSV_API_BASE", "https://api.osv.dev")
+OSV_QUERY_BATCH_SIZE = int(os.getenv("OSV_QUERY_BATCH_SIZE", "100"))
 
 # ---------------------------------------------------------------------------
 # Augur configuration  (docker-compose maps container 5000 → host 5002)

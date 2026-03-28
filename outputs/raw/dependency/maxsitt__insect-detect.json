@@ -1,0 +1,176 @@
+{
+  "repo_url": "https://github.com/maxsitt/insect-detect",
+  "owner": "maxsitt",
+  "repo_name": "insect-detect",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 12,
+  "filtered_self_packages": 1,
+  "packages_total": 11,
+  "packages_queryable": 11,
+  "packages_unqueryable": 0,
+  "vulnerability_ids": [
+    "GHSA-2m4f-cg75-76w2",
+    "GHSA-72qc-wxch-74mg",
+    "GHSA-78qv-3mpx-9cqq",
+    "GHSA-7grm-h62g-5m97",
+    "GHSA-8c95-hpq2-w46f",
+    "GHSA-9ffm-fxg3-xrhh",
+    "GHSA-hxp3-63hc-5366",
+    "GHSA-m7j5-rq9j-6jj9",
+    "GHSA-mhpg-c27v-6mxr",
+    "GHSA-mp55-g7pj-rvm2",
+    "GHSA-qr4w-53vh-m672",
+    "GHSA-v82v-c5x8-w282",
+    "GHSA-w5g8-5849-vj76",
+    "PYSEC-2023-183"
+  ],
+  "vulnerabilities_total": 14,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "apscheduler",
+      "version": "3.11.0",
+      "purl": "pkg:pypi/apscheduler@3.11.0",
+      "ecosystem": "PyPI",
+      "query_name": "apscheduler",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "av",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/av@13.0.0",
+      "ecosystem": "PyPI",
+      "query_name": "av",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "depthai",
+      "version": "2.30.0.0",
+      "purl": "pkg:pypi/depthai@2.30.0.0",
+      "ecosystem": "PyPI",
+      "query_name": "depthai",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "nicegui",
+      "version": "2.23.3",
+      "purl": "pkg:pypi/nicegui@2.23.3",
+      "ecosystem": "PyPI",
+      "query_name": "nicegui",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "GHSA-2m4f-cg75-76w2",
+        "GHSA-72qc-wxch-74mg",
+        "GHSA-78qv-3mpx-9cqq",
+        "GHSA-7grm-h62g-5m97",
+        "GHSA-8c95-hpq2-w46f",
+        "GHSA-9ffm-fxg3-xrhh",
+        "GHSA-hxp3-63hc-5366",
+        "GHSA-m7j5-rq9j-6jj9",
+        "GHSA-mhpg-c27v-6mxr",
+        "GHSA-mp55-g7pj-rvm2",
+        "GHSA-v82v-c5x8-w282",
+        "GHSA-w5g8-5849-vj76"
+      ],
+      "vulnerability_count": 12
+    },
+    {
+      "name": "nmcli",
+      "version": "1.5.0",
+      "purl": "pkg:pypi/nmcli@1.5.0",
+      "ecosystem": "PyPI",
+      "query_name": "nmcli",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "numpy",
+      "version": "1.26.4",
+      "purl": "pkg:pypi/numpy@1.26.4",
+      "ecosystem": "PyPI",
+      "query_name": "numpy",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "opencv-python",
+      "version": "4.7.0.72",
+      "purl": "pkg:pypi/opencv-python@4.7.0.72",
+      "ecosystem": "PyPI",
+      "query_name": "opencv-python",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "GHSA-qr4w-53vh-m672",
+        "PYSEC-2023-183"
+      ],
+      "vulnerability_count": 2
+    },
+    {
+      "name": "pandas",
+      "version": "2.2.3",
+      "purl": "pkg:pypi/pandas@2.2.3",
+      "ecosystem": "PyPI",
+      "query_name": "pandas",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "psutil",
+      "version": "7.0.0",
+      "purl": "pkg:pypi/psutil@7.0.0",
+      "ecosystem": "PyPI",
+      "query_name": "psutil",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.2",
+      "purl": "pkg:pypi/pyyaml@6.0.2",
+      "ecosystem": "PyPI",
+      "query_name": "pyyaml",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "ruamel-yaml",
+      "version": "0.18.14",
+      "purl": "pkg:pypi/ruamel-yaml@0.18.14",
+      "ecosystem": "PyPI",
+      "query_name": "ruamel-yaml",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}
