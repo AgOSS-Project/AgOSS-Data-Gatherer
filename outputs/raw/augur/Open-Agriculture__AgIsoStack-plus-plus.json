@@ -1,7 +1,6111 @@
 {
   "repo_id": 25500,
-  "status": "ready",
+  "status": "partial",
   "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "0101bb2c-4800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 50.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 50.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0100a6c4-bd00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 33.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 33.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "010301fa-ae00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 6.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 6.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01053080-a600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 5.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 5.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0101d2ec-4d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 4.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 4.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01000f1f-6600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 4.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 4.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0100188d-de00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 4.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 4.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0101586c-2600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 3.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 3.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0102d3b7-d500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0102cc33-2900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0103db5f-4300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0104259a-1f00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01007719-6e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "010256e3-5e00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0100bcf3-3c00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0100f9f6-8400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0101647d-1a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01017ac4-6600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0101b658-7900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01024076-5d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01026121-f300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0102c029-5800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0103015e-6b00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "010317a1-bb00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01035740-c000-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0103a9b6-1400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01044afb-8600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0104579e-3400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0104ead1-f900-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "010541d1-6100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "010572b8-be00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0105af17-e600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0105deec-f500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01064f32-4c00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01071301-9d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01074e16-a600-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01078cf8-b100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "010a1ddb-7700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "010a99a2-cb00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "010b6859-2a00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01000375-dc00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "010b849a-1d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01000aaf-d400-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01000e15-8d00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01001519-9c00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "010019ef-2b00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01001a0c-2100-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01001d41-dd00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01003bcd-6300-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "010046a1-9800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01006113-7800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01007b4b-d800-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01007e94-cb00-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "0100929e-6500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "user_id": "01009ede-5500-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 1.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 1.0,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2022-10-09T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2022-11-10T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2022-12-09T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-01-01T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-01-05T00:00:00.000Z",
+        "new_contributors": 2,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-01-17T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-02-04T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-02-26T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-03-03T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-03-05T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-03-07T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-04-26T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-08-05T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-09-22T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-10-21T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-11-21T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2023-11-25T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-02-05T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-02-14T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-03-13T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-03-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-03-17T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-03-27T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-04-21T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-05-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-05-28T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-06-15T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-07-02T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-08-08T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-09-19T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-09-25T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-10-01T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-12-11T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2024-12-30T00:00:00.000Z",
+        "new_contributors": 2,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-02-03T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-02-04T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-03-21T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-04-08T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-04-09T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-04-18T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-04-29T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-06-03T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-06-13T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-06-16T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-08-05T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-08-30T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-09-25T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-11-06T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-12-02T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-12-04T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2025-12-08T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2026-01-03T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "date": "2026-03-05T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25500,
+        "repo_name": "AgIsoStack-plus-plus"
+      }
+    ],
+    "committers": [
+      {
+        "date": "2026-03-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2026-02-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2026-01-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2025-12-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 10
+      },
+      {
+        "date": "2025-11-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2025-10-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2025-09-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2025-08-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2025-07-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2025-06-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2025-05-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2025-04-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 5
+      },
+      {
+        "date": "2025-03-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2025-02-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2025-01-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 5
+      },
+      {
+        "date": "2024-12-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2024-11-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2024-10-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2024-09-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-07-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2024-06-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2024-05-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2024-04-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2024-03-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2024-02-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2024-01-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2023-12-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2023-11-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2023-10-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-09-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2023-08-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2023-07-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-06-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2023-05-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2023-04-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2023-03-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2023-02-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 4
+      },
+      {
+        "date": "2023-01-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 3
+      },
+      {
+        "date": "2022-12-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 5
+      },
+      {
+        "date": "2022-11-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 2
+      },
+      {
+        "date": "2022-10-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-09-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-08-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-07-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      },
+      {
+        "date": "2022-06-01T00:00:00.000Z",
+        "repo_name": "AgIsoStack-plus-plus",
+        "rg_name": "ag-oss-pipeline",
+        "count": 1
+      }
+    ],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-06-07T00:00:00.000Z",
+        "added": 45,
+        "removed": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-06-12T00:00:00.000Z",
+        "added": 2494,
+        "removed": 45
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-06-17T00:00:00.000Z",
+        "added": 514,
+        "removed": 97
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-06-30T00:00:00.000Z",
+        "added": 221,
+        "removed": 29
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-07-05T00:00:00.000Z",
+        "added": 326,
+        "removed": 74
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-08-08T00:00:00.000Z",
+        "added": 811,
+        "removed": 489
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-08-10T00:00:00.000Z",
+        "added": 493,
+        "removed": 273
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-08-15T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-08-20T00:00:00.000Z",
+        "added": 215,
+        "removed": 12
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-08-24T00:00:00.000Z",
+        "added": 954,
+        "removed": 10
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-08-25T00:00:00.000Z",
+        "added": 293,
+        "removed": 26
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-08-30T00:00:00.000Z",
+        "added": 179,
+        "removed": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-09-02T00:00:00.000Z",
+        "added": 727,
+        "removed": 59
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-09-03T00:00:00.000Z",
+        "added": 605,
+        "removed": 41
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-09-04T00:00:00.000Z",
+        "added": 359,
+        "removed": 37
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-09-05T00:00:00.000Z",
+        "added": 36,
+        "removed": 22
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-09-09T00:00:00.000Z",
+        "added": 140,
+        "removed": 16
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-09-11T00:00:00.000Z",
+        "added": 161,
+        "removed": 16
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-09-17T00:00:00.000Z",
+        "added": 309,
+        "removed": 98
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-09-21T00:00:00.000Z",
+        "added": 219,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-09-24T00:00:00.000Z",
+        "added": 3904,
+        "removed": 774
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-09-28T00:00:00.000Z",
+        "added": 472,
+        "removed": 72
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-09-30T00:00:00.000Z",
+        "added": 25,
+        "removed": 15
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-05T00:00:00.000Z",
+        "added": 370,
+        "removed": 84
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-06T00:00:00.000Z",
+        "added": 14,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-07T00:00:00.000Z",
+        "added": 63,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-08T00:00:00.000Z",
+        "added": 711,
+        "removed": 9
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-09T00:00:00.000Z",
+        "added": 143,
+        "removed": 18
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-15T00:00:00.000Z",
+        "added": 89,
+        "removed": 14
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-16T00:00:00.000Z",
+        "added": 407,
+        "removed": 39
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-22T00:00:00.000Z",
+        "added": 1057,
+        "removed": 223
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-25T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-26T00:00:00.000Z",
+        "added": 265,
+        "removed": 18
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-28T00:00:00.000Z",
+        "added": 779,
+        "removed": 86
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-29T00:00:00.000Z",
+        "added": 26,
+        "removed": 26
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-02T00:00:00.000Z",
+        "added": 297,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-05T00:00:00.000Z",
+        "added": 715,
+        "removed": 194
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-09T00:00:00.000Z",
+        "added": 19,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-10T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-11T00:00:00.000Z",
+        "added": 51,
+        "removed": 51
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-12T00:00:00.000Z",
+        "added": 517,
+        "removed": 324
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-13T00:00:00.000Z",
+        "added": 46,
+        "removed": 21
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-14T00:00:00.000Z",
+        "added": 29,
+        "removed": 12
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-15T00:00:00.000Z",
+        "added": 91,
+        "removed": 47
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-20T00:00:00.000Z",
+        "added": 466,
+        "removed": 198
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-01T00:00:00.000Z",
+        "added": 218,
+        "removed": 14
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-02T00:00:00.000Z",
+        "added": 47,
+        "removed": 12
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-03T00:00:00.000Z",
+        "added": 246,
+        "removed": 11
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-10T00:00:00.000Z",
+        "added": 70,
+        "removed": 29
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-11T00:00:00.000Z",
+        "added": 865,
+        "removed": 118
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-12T00:00:00.000Z",
+        "added": 14,
+        "removed": 10
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-13T00:00:00.000Z",
+        "added": 156,
+        "removed": 180
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-14T00:00:00.000Z",
+        "added": 98,
+        "removed": 12
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-15T00:00:00.000Z",
+        "added": 19,
+        "removed": 7
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-18T00:00:00.000Z",
+        "added": 7,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-19T00:00:00.000Z",
+        "added": 547,
+        "removed": 69
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-20T00:00:00.000Z",
+        "added": 126,
+        "removed": 190
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-21T00:00:00.000Z",
+        "added": 26,
+        "removed": 20
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-22T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-24T00:00:00.000Z",
+        "added": 983,
+        "removed": 24
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-26T00:00:00.000Z",
+        "added": 98,
+        "removed": 157
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-27T00:00:00.000Z",
+        "added": 30,
+        "removed": 5
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-28T00:00:00.000Z",
+        "added": 255,
+        "removed": 172
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-29T00:00:00.000Z",
+        "added": 778,
+        "removed": 75
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-30T00:00:00.000Z",
+        "added": 214,
+        "removed": 157
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-01T00:00:00.000Z",
+        "added": 47,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-02T00:00:00.000Z",
+        "added": 96,
+        "removed": 28
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-03T00:00:00.000Z",
+        "added": 96,
+        "removed": 65
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-04T00:00:00.000Z",
+        "added": 376,
+        "removed": 251
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-05T00:00:00.000Z",
+        "added": 98,
+        "removed": 47
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-06T00:00:00.000Z",
+        "added": 77,
+        "removed": 19
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-07T00:00:00.000Z",
+        "added": 49,
+        "removed": 18
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-08T00:00:00.000Z",
+        "added": 678,
+        "removed": 129
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-09T00:00:00.000Z",
+        "added": 3,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-10T00:00:00.000Z",
+        "added": 37,
+        "removed": 26
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-12T00:00:00.000Z",
+        "added": 1841,
+        "removed": 30
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-14T00:00:00.000Z",
+        "added": 529,
+        "removed": 65
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-15T00:00:00.000Z",
+        "added": 203,
+        "removed": 37
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-17T00:00:00.000Z",
+        "added": 96,
+        "removed": 86
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-20T00:00:00.000Z",
+        "added": 293,
+        "removed": 222
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-21T00:00:00.000Z",
+        "added": 310,
+        "removed": 55
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-22T00:00:00.000Z",
+        "added": 790,
+        "removed": 338
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-24T00:00:00.000Z",
+        "added": 52,
+        "removed": 18
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-25T00:00:00.000Z",
+        "added": 21,
+        "removed": 14
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-26T00:00:00.000Z",
+        "added": 31,
+        "removed": 10
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-27T00:00:00.000Z",
+        "added": 11,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-28T00:00:00.000Z",
+        "added": 2941,
+        "removed": 353
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-29T00:00:00.000Z",
+        "added": 421,
+        "removed": 425
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-04T00:00:00.000Z",
+        "added": 609,
+        "removed": 225
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-05T00:00:00.000Z",
+        "added": 253,
+        "removed": 10
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-07T00:00:00.000Z",
+        "added": 175,
+        "removed": 178
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-08T00:00:00.000Z",
+        "added": 493,
+        "removed": 6
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-09T00:00:00.000Z",
+        "added": 620,
+        "removed": 1338
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-10T00:00:00.000Z",
+        "added": 89,
+        "removed": 40
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-11T00:00:00.000Z",
+        "added": 67,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-12T00:00:00.000Z",
+        "added": 138,
+        "removed": 100
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-16T00:00:00.000Z",
+        "added": 524,
+        "removed": 18
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-17T00:00:00.000Z",
+        "added": 483,
+        "removed": 14
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-18T00:00:00.000Z",
+        "added": 1625,
+        "removed": 88
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-19T00:00:00.000Z",
+        "added": 51,
+        "removed": 37
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-20T00:00:00.000Z",
+        "added": 493,
+        "removed": 17
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-21T00:00:00.000Z",
+        "added": 681,
+        "removed": 75
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-22T00:00:00.000Z",
+        "added": 20,
+        "removed": 18
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-23T00:00:00.000Z",
+        "added": 170,
+        "removed": 65
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-24T00:00:00.000Z",
+        "added": 714,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-26T00:00:00.000Z",
+        "added": 630,
+        "removed": 279
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-01T00:00:00.000Z",
+        "added": 319,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-02T00:00:00.000Z",
+        "added": 451,
+        "removed": 20
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-05T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-06T00:00:00.000Z",
+        "added": 301,
+        "removed": 51
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-07T00:00:00.000Z",
+        "added": 100,
+        "removed": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-08T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-09T00:00:00.000Z",
+        "added": 818,
+        "removed": 266
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-10T00:00:00.000Z",
+        "added": 72,
+        "removed": 98
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-11T00:00:00.000Z",
+        "added": 76,
+        "removed": 72
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-12T00:00:00.000Z",
+        "added": 515,
+        "removed": 664
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-13T00:00:00.000Z",
+        "added": 338,
+        "removed": 368
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-14T00:00:00.000Z",
+        "added": 138,
+        "removed": 185
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-16T00:00:00.000Z",
+        "added": 5,
+        "removed": 5
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-18T00:00:00.000Z",
+        "added": 19,
+        "removed": 19
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-19T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-20T00:00:00.000Z",
+        "added": 7,
+        "removed": 16
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-21T00:00:00.000Z",
+        "added": 778,
+        "removed": 30
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-25T00:00:00.000Z",
+        "added": 52,
+        "removed": 5
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-27T00:00:00.000Z",
+        "added": 3,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-29T00:00:00.000Z",
+        "added": 102,
+        "removed": 70
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-30T00:00:00.000Z",
+        "added": 417,
+        "removed": 68
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-31T00:00:00.000Z",
+        "added": 253,
+        "removed": 18
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-01T00:00:00.000Z",
+        "added": 1814,
+        "removed": 1979
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-04T00:00:00.000Z",
+        "added": 98,
+        "removed": 111
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-07T00:00:00.000Z",
+        "added": 133,
+        "removed": 5
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-08T00:00:00.000Z",
+        "added": 316,
+        "removed": 7
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-11T00:00:00.000Z",
+        "added": 64,
+        "removed": 19
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-12T00:00:00.000Z",
+        "added": 4,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-13T00:00:00.000Z",
+        "added": 1281,
+        "removed": 84
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-14T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-15T00:00:00.000Z",
+        "added": 49,
+        "removed": 42
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-17T00:00:00.000Z",
+        "added": 631,
+        "removed": 7
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-18T00:00:00.000Z",
+        "added": 599,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-20T00:00:00.000Z",
+        "added": 155,
+        "removed": 9
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-21T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-22T00:00:00.000Z",
+        "added": 1037,
+        "removed": 76
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-24T00:00:00.000Z",
+        "added": 171,
+        "removed": 12
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-25T00:00:00.000Z",
+        "added": 865,
+        "removed": 608
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-26T00:00:00.000Z",
+        "added": 12,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-27T00:00:00.000Z",
+        "added": 55,
+        "removed": 34
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-28T00:00:00.000Z",
+        "added": 46,
+        "removed": 10
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-29T00:00:00.000Z",
+        "added": 152,
+        "removed": 18
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-02T00:00:00.000Z",
+        "added": 262,
+        "removed": 37
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-09T00:00:00.000Z",
+        "added": 438,
+        "removed": 13
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-10T00:00:00.000Z",
+        "added": 464,
+        "removed": 83
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-12T00:00:00.000Z",
+        "added": 445,
+        "removed": 241
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-14T00:00:00.000Z",
+        "added": 224,
+        "removed": 125
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-15T00:00:00.000Z",
+        "added": 14,
+        "removed": 14
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-16T00:00:00.000Z",
+        "added": 210,
+        "removed": 336
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-17T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-18T00:00:00.000Z",
+        "added": 536,
+        "removed": 570
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-19T00:00:00.000Z",
+        "added": 23,
+        "removed": 24
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-22T00:00:00.000Z",
+        "added": 108,
+        "removed": 53
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-23T00:00:00.000Z",
+        "added": 1163,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-24T00:00:00.000Z",
+        "added": 685,
+        "removed": 24
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-28T00:00:00.000Z",
+        "added": 63,
+        "removed": 62
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-29T00:00:00.000Z",
+        "added": 261,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-31T00:00:00.000Z",
+        "added": 346,
+        "removed": 23
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-01T00:00:00.000Z",
+        "added": 253,
+        "removed": 13
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-04T00:00:00.000Z",
+        "added": 242,
+        "removed": 488
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-06T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-08T00:00:00.000Z",
+        "added": 31,
+        "removed": 9
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-09T00:00:00.000Z",
+        "added": 11,
+        "removed": 9
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-10T00:00:00.000Z",
+        "added": 4,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-14T00:00:00.000Z",
+        "added": 5,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-16T00:00:00.000Z",
+        "added": 3,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-19T00:00:00.000Z",
+        "added": 906,
+        "removed": 843
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-20T00:00:00.000Z",
+        "added": 453,
+        "removed": 26
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-21T00:00:00.000Z",
+        "added": 25,
+        "removed": 5
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-23T00:00:00.000Z",
+        "added": 372,
+        "removed": 767
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-24T00:00:00.000Z",
+        "added": 55,
+        "removed": 21
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-27T00:00:00.000Z",
+        "added": 35,
+        "removed": 10
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-28T00:00:00.000Z",
+        "added": 952,
+        "removed": 21
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-29T00:00:00.000Z",
+        "added": 264,
+        "removed": 10
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-01T00:00:00.000Z",
+        "added": 858,
+        "removed": 9
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-02T00:00:00.000Z",
+        "added": 131,
+        "removed": 47
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-04T00:00:00.000Z",
+        "added": 146,
+        "removed": 269
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-05T00:00:00.000Z",
+        "added": 628,
+        "removed": 37
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-11T00:00:00.000Z",
+        "added": 1592,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-12T00:00:00.000Z",
+        "added": 7,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-13T00:00:00.000Z",
+        "added": 599,
+        "removed": 81
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-14T00:00:00.000Z",
+        "added": 8,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-15T00:00:00.000Z",
+        "added": 148,
+        "removed": 140
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-22T00:00:00.000Z",
+        "added": 808,
+        "removed": 106
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-26T00:00:00.000Z",
+        "added": 125,
+        "removed": 121
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-28T00:00:00.000Z",
+        "added": 14,
+        "removed": 17
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-31T00:00:00.000Z",
+        "added": 55,
+        "removed": 41
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-14T00:00:00.000Z",
+        "added": 19,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-15T00:00:00.000Z",
+        "added": 7,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-16T00:00:00.000Z",
+        "added": 213,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-17T00:00:00.000Z",
+        "added": 35,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-22T00:00:00.000Z",
+        "added": 0,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-27T00:00:00.000Z",
+        "added": 96,
+        "removed": 7
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-28T00:00:00.000Z",
+        "added": 62,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-29T00:00:00.000Z",
+        "added": 106,
+        "removed": 77
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-01T00:00:00.000Z",
+        "added": 61,
+        "removed": 38
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-06T00:00:00.000Z",
+        "added": 26,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-07T00:00:00.000Z",
+        "added": 28,
+        "removed": 7
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-09T00:00:00.000Z",
+        "added": 16922,
+        "removed": 64
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-10T00:00:00.000Z",
+        "added": 26,
+        "removed": 9567
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-15T00:00:00.000Z",
+        "added": 3482,
+        "removed": 12
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-21T00:00:00.000Z",
+        "added": 4,
+        "removed": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-22T00:00:00.000Z",
+        "added": 91,
+        "removed": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-23T00:00:00.000Z",
+        "added": 19,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-10-06T00:00:00.000Z",
+        "added": 111,
+        "removed": 1773
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-10-07T00:00:00.000Z",
+        "added": 4,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-10-11T00:00:00.000Z",
+        "added": 11,
+        "removed": 10
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-10-13T00:00:00.000Z",
+        "added": 5,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-10-27T00:00:00.000Z",
+        "added": 123,
+        "removed": 75
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-10-28T00:00:00.000Z",
+        "added": 829,
+        "removed": 74
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-10T00:00:00.000Z",
+        "added": 12036,
+        "removed": 60
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-11T00:00:00.000Z",
+        "added": 34,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-21T00:00:00.000Z",
+        "added": 16,
+        "removed": 6
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-22T00:00:00.000Z",
+        "added": 2493,
+        "removed": 1568
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-23T00:00:00.000Z",
+        "added": 222,
+        "removed": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-27T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-29T00:00:00.000Z",
+        "added": 2912,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-30T00:00:00.000Z",
+        "added": 594,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-01T00:00:00.000Z",
+        "added": 32,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-02T00:00:00.000Z",
+        "added": 713,
+        "removed": 895
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-05T00:00:00.000Z",
+        "added": 6,
+        "removed": 43
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-06T00:00:00.000Z",
+        "added": 54,
+        "removed": 57
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-07T00:00:00.000Z",
+        "added": 115,
+        "removed": 84
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-08T00:00:00.000Z",
+        "added": 22,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-09T00:00:00.000Z",
+        "added": 7,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-10T00:00:00.000Z",
+        "added": 308,
+        "removed": 654
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-11T00:00:00.000Z",
+        "added": 293,
+        "removed": 118
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-12T00:00:00.000Z",
+        "added": 277,
+        "removed": 194
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-16T00:00:00.000Z",
+        "added": 3402,
+        "removed": 808
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-17T00:00:00.000Z",
+        "added": 249,
+        "removed": 25
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-18T00:00:00.000Z",
+        "added": 97,
+        "removed": 97
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-19T00:00:00.000Z",
+        "added": 0,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-20T00:00:00.000Z",
+        "added": 2206,
+        "removed": 2060
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-21T00:00:00.000Z",
+        "added": 70,
+        "removed": 40
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-22T00:00:00.000Z",
+        "added": 50,
+        "removed": 42
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-24T00:00:00.000Z",
+        "added": 169,
+        "removed": 217
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-28T00:00:00.000Z",
+        "added": 22,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-29T00:00:00.000Z",
+        "added": 11,
+        "removed": 11
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-06T00:00:00.000Z",
+        "added": 532,
+        "removed": 194
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-07T00:00:00.000Z",
+        "added": 95,
+        "removed": 101
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-15T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-16T00:00:00.000Z",
+        "added": 4,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-20T00:00:00.000Z",
+        "added": 1756,
+        "removed": 71
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-21T00:00:00.000Z",
+        "added": 101,
+        "removed": 219
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-23T00:00:00.000Z",
+        "added": 1586,
+        "removed": 101
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-24T00:00:00.000Z",
+        "added": 30,
+        "removed": 9
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-25T00:00:00.000Z",
+        "added": 1365,
+        "removed": 1327
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-26T00:00:00.000Z",
+        "added": 358,
+        "removed": 319
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-28T00:00:00.000Z",
+        "added": 1104,
+        "removed": 388
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-29T00:00:00.000Z",
+        "added": 435,
+        "removed": 92
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-03T00:00:00.000Z",
+        "added": 538,
+        "removed": 12
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-05T00:00:00.000Z",
+        "added": 521,
+        "removed": 243
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-10T00:00:00.000Z",
+        "added": 1189,
+        "removed": 1192
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-13T00:00:00.000Z",
+        "added": 108,
+        "removed": 296
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-15T00:00:00.000Z",
+        "added": 13,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-16T00:00:00.000Z",
+        "added": 4,
+        "removed": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-18T00:00:00.000Z",
+        "added": 339,
+        "removed": 280
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-20T00:00:00.000Z",
+        "added": 493,
+        "removed": 762
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-21T00:00:00.000Z",
+        "added": 523,
+        "removed": 18
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-29T00:00:00.000Z",
+        "added": 196,
+        "removed": 7
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-03T00:00:00.000Z",
+        "added": 79,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-08T00:00:00.000Z",
+        "added": 7,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-12T00:00:00.000Z",
+        "added": 107,
+        "removed": 11
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-15T00:00:00.000Z",
+        "added": 8,
+        "removed": 13
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-19T00:00:00.000Z",
+        "added": 30,
+        "removed": 25
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-21T00:00:00.000Z",
+        "added": 47,
+        "removed": 45
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-31T00:00:00.000Z",
+        "added": 13,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-04-04T00:00:00.000Z",
+        "added": 422,
+        "removed": 646
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-04-20T00:00:00.000Z",
+        "added": 74,
+        "removed": 58
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-05-11T00:00:00.000Z",
+        "added": 227,
+        "removed": 17
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-05-19T00:00:00.000Z",
+        "added": 652,
+        "removed": 952
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-05-30T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-06-01T00:00:00.000Z",
+        "added": 638,
+        "removed": 106
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-06-03T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-06-10T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-06-16T00:00:00.000Z",
+        "added": 198,
+        "removed": 6
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-06-17T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-07-08T00:00:00.000Z",
+        "added": 111,
+        "removed": 20
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-07-27T00:00:00.000Z",
+        "added": 711,
+        "removed": 111
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-09-25T00:00:00.000Z",
+        "added": 11,
+        "removed": 11
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-09-26T00:00:00.000Z",
+        "added": 12,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-10-08T00:00:00.000Z",
+        "added": 3,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-10-09T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-10-13T00:00:00.000Z",
+        "added": 6541,
+        "removed": 19
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-10-16T00:00:00.000Z",
+        "added": 5,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-10-31T00:00:00.000Z",
+        "added": 178,
+        "removed": 173
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-11-05T00:00:00.000Z",
+        "added": 23,
+        "removed": 24
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-11-08T00:00:00.000Z",
+        "added": 33,
+        "removed": 24
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-11-11T00:00:00.000Z",
+        "added": 22,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-11-18T00:00:00.000Z",
+        "added": 4,
+        "removed": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-12-08T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-12-10T00:00:00.000Z",
+        "added": 25,
+        "removed": 5
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-12-14T00:00:00.000Z",
+        "added": 10,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-12-16T00:00:00.000Z",
+        "added": 253,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-12-29T00:00:00.000Z",
+        "added": 7,
+        "removed": 13
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-03T00:00:00.000Z",
+        "added": 2,
+        "removed": 8
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-05T00:00:00.000Z",
+        "added": 50,
+        "removed": 5
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-06T00:00:00.000Z",
+        "added": 229,
+        "removed": 804
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-07T00:00:00.000Z",
+        "added": 72,
+        "removed": 105
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-08T00:00:00.000Z",
+        "added": 7,
+        "removed": 9
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-11T00:00:00.000Z",
+        "added": 127,
+        "removed": 41
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-14T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-16T00:00:00.000Z",
+        "added": 1770,
+        "removed": 764
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-22T00:00:00.000Z",
+        "added": 8,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-26T00:00:00.000Z",
+        "added": 7,
+        "removed": 7
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-02-01T00:00:00.000Z",
+        "added": 3,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-02-02T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-02-04T00:00:00.000Z",
+        "added": 7,
+        "removed": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-02-15T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-02-16T00:00:00.000Z",
+        "added": 50,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-03-06T00:00:00.000Z",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-03-07T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-03-14T00:00:00.000Z",
+        "added": 41,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-03-17T00:00:00.000Z",
+        "added": 12,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-03-19T00:00:00.000Z",
+        "added": 42,
+        "removed": 27
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-01T00:00:00.000Z",
+        "added": 298,
+        "removed": 298
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-06T00:00:00.000Z",
+        "added": 58,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-07T00:00:00.000Z",
+        "added": 38,
+        "removed": 28
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-09T00:00:00.000Z",
+        "added": 27,
+        "removed": 6
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-12T00:00:00.000Z",
+        "added": 5,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-16T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-17T00:00:00.000Z",
+        "added": 38,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-18T00:00:00.000Z",
+        "added": 5,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-26T00:00:00.000Z",
+        "added": 5,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-29T00:00:00.000Z",
+        "added": 4,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-30T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-05-20T00:00:00.000Z",
+        "added": 86,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-05-27T00:00:00.000Z",
+        "added": 61,
+        "removed": 16
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-05-31T00:00:00.000Z",
+        "added": 11,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-06-03T00:00:00.000Z",
+        "added": 76,
+        "removed": 315
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-06-21T00:00:00.000Z",
+        "added": 21,
+        "removed": 30
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-07-03T00:00:00.000Z",
+        "added": 3,
+        "removed": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-07-05T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-07-11T00:00:00.000Z",
+        "added": 2,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-07-16T00:00:00.000Z",
+        "added": 32,
+        "removed": 6
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-07-29T00:00:00.000Z",
+        "added": 84,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-08-06T00:00:00.000Z",
+        "added": 58,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-08-14T00:00:00.000Z",
+        "added": 34,
+        "removed": 9
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-08-25T00:00:00.000Z",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-09-10T00:00:00.000Z",
+        "added": 9,
+        "removed": 7
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-09-13T00:00:00.000Z",
+        "added": 53,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-09-25T00:00:00.000Z",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-09-26T00:00:00.000Z",
+        "added": 65,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-09-28T00:00:00.000Z",
+        "added": 14,
+        "removed": 9
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-10-01T00:00:00.000Z",
+        "added": 69,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-10-07T00:00:00.000Z",
+        "added": 82,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-10-23T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-10-28T00:00:00.000Z",
+        "added": 26,
+        "removed": 16
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-11-03T00:00:00.000Z",
+        "added": 60,
+        "removed": 5
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-11-18T00:00:00.000Z",
+        "added": 43,
+        "removed": 419
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-11-27T00:00:00.000Z",
+        "added": 20,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-01T00:00:00.000Z",
+        "added": 21,
+        "removed": 19
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-09T00:00:00.000Z",
+        "added": 42,
+        "removed": 11
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-14T00:00:00.000Z",
+        "added": 283,
+        "removed": 228
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-15T00:00:00.000Z",
+        "added": 73,
+        "removed": 68
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-16T00:00:00.000Z",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-19T00:00:00.000Z",
+        "added": 22,
+        "removed": 22
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-20T00:00:00.000Z",
+        "added": 206,
+        "removed": 71
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-21T00:00:00.000Z",
+        "added": 149,
+        "removed": 82
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-22T00:00:00.000Z",
+        "added": 14,
+        "removed": 13
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-23T00:00:00.000Z",
+        "added": 257,
+        "removed": 547
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-27T00:00:00.000Z",
+        "added": 24,
+        "removed": 7
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2026-01-08T00:00:00.000Z",
+        "added": 68,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2026-02-04T00:00:00.000Z",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2026-02-17T00:00:00.000Z",
+        "added": 9,
+        "removed": 0
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2026-02-26T00:00:00.000Z",
+        "added": 40,
+        "removed": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2026-03-10T00:00:00.000Z",
+        "added": 330,
+        "removed": 13
+      }
+    ],
+    "issues_new": [
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-10T00:00:00.000Z",
+        "issues": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-15T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-09T00:00:00.000Z",
+        "issues": 4
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-01T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-05T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-13T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-14T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-16T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-18T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-01T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-26T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-03T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-09T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-12T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-20T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-22T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-23T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-24T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-06T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-10-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-22T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-25T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-05T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-25T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-04-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-04-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-05-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-05-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-06-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-07-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-07-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-07-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-08-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-09-19T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-09-25T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-10-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-12-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-12-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-12-30T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-02-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-02-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-02-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-03-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-03-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-18T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-06-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-06-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-06-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-07-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-08-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-08-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-09-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-10-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-11-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2026-01-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2026-01-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2026-01-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2026-03-05T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-10-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-11-15T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-16T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2022-12-31T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-06T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-07T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-08T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-14T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-01-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-02-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-12T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-14T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-28T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-03-29T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-13T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-04-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-05-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-17T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-06-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-07-12T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-05T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-08-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-07T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-09-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-10-07T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-11-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-01T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-02T00:00:00.000Z",
+        "issues": 3
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-08T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2023-12-24T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-01-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-12T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-21T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-02-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-09T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-03-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-04-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-05-08T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-05-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-06-18T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-07-26T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-09-27T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-12-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2024-12-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-06T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-01-08T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-02-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-11T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-04-15T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-05-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-05-23T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-05-27T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-07-16T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-07-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-09-10T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-09-30T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-10-02T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-10-28T00:00:00.000Z",
+        "issues": 2
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-11-03T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-11-04T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-11-06T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-20T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-22T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "date": "2025-12-27T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_active": [],
+    "issue_backlog": [
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "issue_backlog": 31
+      }
+    ],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "avg_issue_resolution_time": "44 days 23:34:55.229008"
+      }
+    ],
+    "pull_requests_new": [
+      {
+        "created_date": "2025-04-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-10-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-10-06T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-09-26T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-10-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-11-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-23T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2025-12-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-12-01T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-03-10T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2025-04-15T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-11-12T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2024-03-20T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-02-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-26T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-03-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-11-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-11-13T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-09-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-06T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2026-03-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-11-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-05-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-03-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-11-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-16T00:00:00.000",
+        "new_pull_requests": 5
+      },
+      {
+        "created_date": "2023-04-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-04T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-03-31T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-03-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-02-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-05-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-02-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-04-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-12-23T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-04-07T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-12-29T00:00:00.000",
+        "new_pull_requests": 4
+      },
+      {
+        "created_date": "2023-11-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-01-21T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2024-10-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-12-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-06-16T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-12-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-09-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-10-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-09-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-12-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-14T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-02-19T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-11-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-10-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-03-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-12-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-12-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-05-19T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2022-12-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-04-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-09T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2024-11-11T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-01-06T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-12-21T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-12-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-03-19T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-01-15T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-12-29T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-01-04T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-02-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-12-18T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-01-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-11-10T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2023-01-26T00:00:00.000",
+        "new_pull_requests": 4
+      },
+      {
+        "created_date": "2023-05-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-02-10T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-07-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-05-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-03-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-12-15T00:00:00.000",
+        "new_pull_requests": 5
+      },
+      {
+        "created_date": "2023-07-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-10-10T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-11-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-04-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-02-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-11-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-17T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-09-25T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-06-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-03-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-07-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-05-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-01-07T00:00:00.000",
+        "new_pull_requests": 4
+      },
+      {
+        "created_date": "2026-01-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-09-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-11-05T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-05-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-04-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-22T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2023-11-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-03-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-09-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-24T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-02-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-07-14T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-12-24T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-12-25T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-01-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-11-22T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-12-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-04-01T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-10-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-07T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-02-20T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-03-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-09-07T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-08T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2024-02-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-12-12T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-10-01T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-12-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-02-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-04-20T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-05-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-09-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-11-11T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-12-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-12T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2026-02-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-07-08T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-12-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-12-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-02-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-01-08T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-12-21T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-07-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-27T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-06-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-21T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2022-10-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-12T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-11-30T00:00:00.000",
+        "new_pull_requests": 5
+      },
+      {
+        "created_date": "2025-04-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-12T00:00:00.000",
+        "new_pull_requests": 5
+      },
+      {
+        "created_date": "2023-12-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-02-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-02T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-06-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-07-23T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2022-12-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-11T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-03-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-11-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-07T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-03-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-03-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-03-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-01-22T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-06-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-02-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-01-08T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-01-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-09-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-06-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-06-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-03-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-11-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-01-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-01-11T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-04-07T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-03-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-09-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-04T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-09-26T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-01-24T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2022-12-15T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2023-02-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-12-29T00:00:00.000",
+        "new_pull_requests": 5
+      },
+      {
+        "created_date": "2022-12-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-20T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-11-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-01-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-08-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-02-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-01-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-01-26T00:00:00.000",
+        "new_pull_requests": 5
+      },
+      {
+        "created_date": "2024-02-22T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-08-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-12-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-04T00:00:00.000",
+        "new_pull_requests": 4
+      },
+      {
+        "created_date": "2023-03-20T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-07-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-03-06T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-10-27T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-10-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-10-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-10-23T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2026-01-01T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-08-11T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-12-03T00:00:00.000",
+        "new_pull_requests": 4
+      },
+      {
+        "created_date": "2023-06-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-08-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-05-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-12-31T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-09-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-16T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-04-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-07-04T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-06-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-08-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-08T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-01-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-11-10T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2023-04-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-06-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-02-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-07T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-12-14T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-01-06T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-02-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-08-04T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-05-11T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-10-15T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-12-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-08-16T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2025-11-13T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-01-13T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-10-16T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-01-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-06-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-08-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-12-19T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-08-29T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-09-30T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-10-14T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-08-27T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-07-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-09-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2022-09-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-05-31T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-12-02T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2024-02-16T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-03-29T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-02-17T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-24T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-04-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-28T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-01-22T00:00:00.000",
+        "new_pull_requests": 6
+      },
+      {
+        "created_date": "2024-03-15T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2024-11-06T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-01-31T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-10-28T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-07-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-10T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-12-08T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-09-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-03-31T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2022-10-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-04-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-03-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-04-18T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-01-03T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-01-20T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-05-21T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-04-25T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-01-30T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-12-20T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-02-05T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2024-11-05T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2025-01-22T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2025-07-02T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-03-07T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-09-09T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-10-07T00:00:00.000",
+        "new_pull_requests": 2
+      },
+      {
+        "created_date": "2023-03-15T00:00:00.000",
+        "new_pull_requests": 1
+      },
+      {
+        "created_date": "2023-04-27T00:00:00.000",
+        "new_pull_requests": 3
+      },
+      {
+        "created_date": "2023-12-02T00:00:00.000",
+        "new_pull_requests": 2
+      }
+    ],
+    "pr_merge_contributor_new": [
+      {
+        "commit_date": "2022-06-07T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2022-11-09T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2022-12-12T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2022-12-13T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2023-01-10T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2023-02-22T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2023-06-16T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2023-12-05T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2023-12-19T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2024-01-24T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2024-01-29T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2024-02-29T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2024-10-16T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2024-11-08T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2024-12-29T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2025-01-14T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2025-01-22T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2025-02-01T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2025-08-14T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2025-09-26T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2025-12-09T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2025-12-15T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2025-12-21T00:00:00.000Z",
+        "count": 2,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2025-12-27T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2026-01-08T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2026-02-04T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2026-02-17T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      },
+      {
+        "commit_date": "2026-03-10T00:00:00.000Z",
+        "count": 1,
+        "repo_name": "AgIsoStack-plus-plus"
+      }
+    ],
+    "pr_acceptance_rate": [],
+    "releases": [],
+    "stars_count": [
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "stars": 337
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "forks": 87
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "watchers": 25
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "AgIsoStack-plus-plus",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 18,
+        "commit_count": 256.0
+      }
+    ],
     "db_counts": {
       "db_commit_rows": 3568,
       "db_issue_rows": 162,
@@ -16,8 +6120,34 @@
     }
   },
   "metrics_summary": {
-    "augur_endpoint_count": 1,
-    "augur_nonempty_endpoint_count": 1,
+    "contributor_count": 55,
+    "new_contributor_count": 53,
+    "committer_count": 45,
+    "lines_added": 45,
+    "lines_removed": 3,
+    "issues_opened": 129,
+    "issues_closed": 112,
+    "issues_active": 0,
+    "issue_backlog": 31,
+    "prs_opened": 301,
+    "release_count": 0,
+    "aggregate_summary": [
+      {
+        "watcher_count": 0,
+        "stars_count": 0,
+        "fork_count": 0,
+        "merged_count": 0,
+        "committer_count": 18,
+        "commit_count": 256.0
+      }
+    ],
+    "commit_count": 256.0,
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 16,
     "db_commit_rows": 3568,
     "db_issue_rows": 162,
     "db_pull_request_rows": 448,

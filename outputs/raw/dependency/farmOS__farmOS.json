@@ -1,0 +1,568 @@
+{
+  "repo_url": "https://github.com/farmOS/farmOS",
+  "owner": "farmOS",
+  "repo_name": "farmOS",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 49,
+  "filtered_self_packages": 1,
+  "packages_total": 48,
+  "packages_queryable": 37,
+  "packages_unqueryable": 11,
+  "vulnerability_ids": [
+    "DRUPAL-CONTRIB-2017-091",
+    "DRUPAL-CONTRIB-2018-059",
+    "DRUPAL-CONTRIB-2021-025",
+    "DRUPAL-CONTRIB-2023-002",
+    "DRUPAL-CONTRIB-2024-008"
+  ],
+  "vulnerabilities_total": 5,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "cweagans/composer-patches",
+      "version": ">= 1.6,< 2.0",
+      "purl": "pkg:composer/cweagans/composer-patches",
+      "ecosystem": "Packagist",
+      "query_name": "cweagans/composer-patches",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/admin_toolbar",
+      "version": ">= 3.5,< 4.0",
+      "purl": "pkg:composer/drupal/admin_toolbar",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/admin_toolbar",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "DRUPAL-CONTRIB-2021-025"
+      ],
+      "vulnerability_count": 1
+    },
+    {
+      "name": "drupal/config_update",
+      "version": ">= 2.0@alpha,< 3.0",
+      "purl": "pkg:composer/drupal/config_update",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/config_update",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "DRUPAL-CONTRIB-2017-091"
+      ],
+      "vulnerability_count": 1
+    },
+    {
+      "name": "drupal/consumers",
+      "version": ">= 1.22,< 2.0",
+      "purl": "pkg:composer/drupal/consumers",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/consumers",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/core",
+      "version": "11.3.5",
+      "purl": "pkg:composer/drupal/core@11.3.5",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/core",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/csv_serialization",
+      "version": ">= 4.0.1,< 5.0.0",
+      "purl": "pkg:composer/drupal/csv_serialization",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/csv_serialization",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/date_popup",
+      "version": ">= 2.0,< 3.0",
+      "purl": "pkg:composer/drupal/date_popup",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/date_popup",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/entity",
+      "version": "1.6",
+      "purl": "pkg:composer/drupal/entity@1.6",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/entity",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/entity_browser",
+      "version": ">= 2.12,< 3.0",
+      "purl": "pkg:composer/drupal/entity_browser",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/entity_browser",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "DRUPAL-CONTRIB-2023-002"
+      ],
+      "vulnerability_count": 1
+    },
+    {
+      "name": "drupal/entity_reference_integrity",
+      "version": ">= 2.0,< 3.0",
+      "purl": "pkg:composer/drupal/entity_reference_integrity",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/entity_reference_integrity",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/entity_reference_revisions",
+      "version": "1.14",
+      "purl": "pkg:composer/drupal/entity_reference_revisions@1.14",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/entity_reference_revisions",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/entity_reference_validators",
+      "version": ">= 2.0,< 3.0",
+      "purl": "pkg:composer/drupal/entity_reference_validators",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/entity_reference_validators",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/fraction",
+      "version": ">= 3.0,< 4.0",
+      "purl": "pkg:composer/drupal/fraction",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/fraction",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "DRUPAL-CONTRIB-2018-059"
+      ],
+      "vulnerability_count": 1
+    },
+    {
+      "name": "drupal/geofield",
+      "version": ">= 1.66,< 2.0",
+      "purl": "pkg:composer/drupal/geofield",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/geofield",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/gin",
+      "version": "5.0.12",
+      "purl": "pkg:composer/drupal/gin@5.0.12",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/gin",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/inline_entity_form",
+      "version": ">= 3.0@RC,< 4.0",
+      "purl": "pkg:composer/drupal/inline_entity_form",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/inline_entity_form",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/inspire_tree",
+      "version": ">= 1.0.6,< 2.0.0",
+      "purl": "pkg:composer/drupal/inspire_tree",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/inspire_tree",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/jsonapi_schema",
+      "version": ">= 1.0,< 2.0",
+      "purl": "pkg:composer/drupal/jsonapi_schema",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/jsonapi_schema",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/log",
+      "version": ">= 3.1,< 4.0",
+      "purl": "pkg:composer/drupal/log",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/log",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/migrate_plus",
+      "version": ">= 6.0.8,< 7.0.0",
+      "purl": "pkg:composer/drupal/migrate_plus",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/migrate_plus",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/migrate_source_csv",
+      "version": ">= 3.6,< 4.0",
+      "purl": "pkg:composer/drupal/migrate_source_csv",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/migrate_source_csv",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/migrate_tools",
+      "version": ">= 6.1.2,< 7.0.0",
+      "purl": "pkg:composer/drupal/migrate_tools",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/migrate_tools",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "DRUPAL-CONTRIB-2024-008"
+      ],
+      "vulnerability_count": 1
+    },
+    {
+      "name": "drupal/role_delegation",
+      "version": ">= 1.3,< 2.0",
+      "purl": "pkg:composer/drupal/role_delegation",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/role_delegation",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/simple_oauth",
+      "version": "6.1.0",
+      "purl": "pkg:composer/drupal/simple_oauth@6.1.0",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/simple_oauth",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/simple_oauth_password_grant",
+      "version": ">= 2.1,< 3.0",
+      "purl": "pkg:composer/drupal/simple_oauth_password_grant",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/simple_oauth_password_grant",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/state_machine",
+      "version": ">= 1.12,< 2.0",
+      "purl": "pkg:composer/drupal/state_machine",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/state_machine",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/subrequests",
+      "version": "3.0.12",
+      "purl": "pkg:composer/drupal/subrequests@3.0.12",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/subrequests",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/term_merge",
+      "version": ">= 2.0,< 3.0",
+      "purl": "pkg:composer/drupal/term_merge",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/term_merge",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/token",
+      "version": ">= 1.15,< 2.0",
+      "purl": "pkg:composer/drupal/token",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/token",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drupal/views_geojson",
+      "version": ">= 1.3,< 2.0",
+      "purl": "pkg:composer/drupal/views_geojson",
+      "ecosystem": "Packagist",
+      "query_name": "drupal/views_geojson",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "drush/drush",
+      "version": ">= 13.0,< 14.0",
+      "purl": "pkg:composer/drush/drush",
+      "ecosystem": "Packagist",
+      "query_name": "drush/drush",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "ext-bcmath",
+      "version": ">= 0",
+      "purl": "pkg:composer/ext-bcmath",
+      "ecosystem": "Packagist",
+      "query_name": "ext-bcmath",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "ext-exif",
+      "version": ">= 0",
+      "purl": "pkg:composer/ext-exif",
+      "ecosystem": "Packagist",
+      "query_name": "ext-exif",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "ext-geos",
+      "version": ">= 0",
+      "purl": "pkg:composer/ext-geos",
+      "ecosystem": "Packagist",
+      "query_name": "ext-geos",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "ext-simplexml",
+      "version": ">= 0",
+      "purl": "pkg:composer/ext-simplexml",
+      "ecosystem": "Packagist",
+      "query_name": "ext-simplexml",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "itamair/geophp",
+      "version": "1.6",
+      "purl": "pkg:composer/itamair/geophp@1.6",
+      "ecosystem": "Packagist",
+      "query_name": "itamair/geophp",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "php",
+      "version": ">= 8.4",
+      "purl": "pkg:composer/php",
+      "ecosystem": "Packagist",
+      "query_name": "php",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "softprops/action-gh-release",
+      "version": "6034af24fba4e5a8e975aaa6056554efe4c794d0",
+      "purl": "pkg:githubactions/softprops/action-gh-release@6034af24fba4e5a8e975aaa6056554efe4c794d0",
+      "ecosystem": null,
+      "query_name": "action-gh-release",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "softprops/action-gh-release",
+      "version": "c062e08bd532815e2082a85e87e3ef29c3e6d191",
+      "purl": "pkg:githubactions/softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191",
+      "ecosystem": null,
+      "query_name": "action-gh-release",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/cache",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/actions/cache@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "cache",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "dangoslen/changelog-enforcer",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/dangoslen/changelog-enforcer@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "changelog-enforcer",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/checkout",
+      "version": "2",
+      "purl": "pkg:githubactions/actions/checkout@2",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/checkout",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/actions/checkout@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/checkout",
+      "version": "master",
+      "purl": "pkg:githubactions/actions/checkout@master",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "farmOS/farmOS-microblog/.github/workflows/create-message.yml",
+      "version": "main",
+      "purl": "pkg:githubactions/farmOS/farmOS-microblog/.github/workflows/create-message.yml@main",
+      "ecosystem": null,
+      "query_name": "create-message.yml",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "docker/login-action",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/docker/login-action@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "login-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "docker/setup-buildx-action",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/docker/setup-buildx-action@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "setup-buildx-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "docker/setup-qemu-action",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/docker/setup-qemu-action@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "setup-qemu-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}

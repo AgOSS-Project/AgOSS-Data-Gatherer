@@ -1,24 +1,24 @@
 {
-  "run_start": "2026-03-28T17:57:21.424675+00:00",
-  "run_end": "2026-03-28T17:57:21.579361+00:00",
-  "total_repos": 32,
-  "scorecard_success": 32,
+  "run_start": "2026-03-30T00:59:20.293799+00:00",
+  "run_end": "2026-03-30T00:59:20.489138+00:00",
+  "total_repos": 42,
+  "scorecard_success": 40,
   "scorecard_partial": 0,
-  "scorecard_fail": 0,
-  "augur_success": 32,
-  "augur_registered": 32,
-  "augur_ready": 32,
+  "scorecard_fail": 2,
+  "augur_success": 0,
+  "augur_registered": 42,
+  "augur_ready": 0,
   "augur_timed_out": 0,
   "augur_fail": 0,
   "categories": [
     "Cloud-hosted backends and dashboard",
+    "Domain-specific agricultural platform",
     "Edge and Gateway software",
     "Embedded OS substrate",
-    "Field-Deployed Sensor",
-    "Messaging and data transport layers"
+    "Field-Deployed Sensor"
   ],
-  "ag_specific_yes": 0,
-  "ag_specific_no": 0,
-  "ag_specific_unknown": 32,
+  "ag_specific_yes": 30,
+  "ag_specific_no": 12,
+  "ag_specific_unknown": 0,
   "notes": []
 }

@@ -1,7 +1,6 @@
 FarmOS,https://github.com/farmOS/farmOS,Domain-specific agricultural platform,Yes
 Tania,https://github.com/usetania/tania-core,Domain-specific agricultural platform,Yes
 LiteFarm,https://github.com/LiteFarmOrg/LiteFarm,Domain-specific agricultural platform,Yes
-FarmVibes,https://github.com/microsoft/farmvibes-ai,Cloud-hosted backends and dashboard,Yes
 AgOpenGPS,https://github.com/AgOpenGPS-Official/AgOpenGPS,Field-Deployed Sensor,Yes
 OpenWeedLocator,https://github.com/geezacoleman/OpenWeedLocator,Field-Deployed Sensor,Yes
 InsectDetect,https://github.com/maxsitt/insect-detect,Field-Deployed Sensor,Yes
@@ -12,14 +11,14 @@ MothBox,https://github.com/Digital-Naturalism-Laboratories/Mothbox/,Field-Deploy
 Laser Weeder,https://github.com/Laudando-Associates-LLC/LASER,Field-Deployed Sensor,Yes
 FarmBot WebApp,https://github.com/FarmBot/Farmbot-Web-App,Cloud-hosted backends and dashboard,Yes
 FarmBot Firmware,https://github.com/FarmBot/farmbot-arduino-firmware,Embedded OS substrate,Yes
-FarmBot OS,https://github.com/FarmBot/farmbot_os,Edge and Gateway software,Yes
+FarmBot OS,https://github.com/FarmBot/farmbot_os,Embedded OS substrate,Yes
 FreeRTOS,https://github.com/FreeRTOS/FreeRTOS,Embedded OS substrate,No
 Farm Data Relay System,https://github.com/timmbogner/Farm-Data-Relay-System,Edge and Gateway software,Yes
-AgIsoStack++,https://github.com/Open-Agriculture/AgIsoStack-plus-plus,Messaging and data transport layers,Yes
+AgIsoStack++,https://github.com/Open-Agriculture/AgIsoStack-plus-plus,Edge and Gateway software,Yes
 OpenATK FieldWorkApp,https://github.com/OpenATK/FieldWorkApp,Cloud-hosted backends and dashboard,Yes
 PeaPod,https://github.com/PeaPodTechnologies/PeaPod,Cloud-hosted backends and dashboard,Yes
-Ekylibre,https://github.com/ekylibre/ekylibre,Cloud-hosted backends and dashboard,Yes
-Fields2Cover,https://github.com/Fields2Cover/Fields2Cover,Domain-specific agricultural platform,Yes
+Ekylibre,https://github.com/ekylibre/ekylibre,Domain-specific agricultural platform,Yes
+Fields2Cover,https://github.com/Fields2Cover/Fields2Cover,Cloud-hosted backends and dashboard,Yes
 SpeedSeed3,https://github.com/GrowCab/SpeedSeed3,Embedded OS substrate,Yes
 IsoBlue,https://github.com/oats-center/isoblue,Edge and Gateway software,Yes
 OpenAg Brain,https://github.com/OpenAgricultureFoundation/openag-brain-balena,Edge and Gateway software,Yes
@@ -35,7 +34,7 @@ APSIM X,https://github.com/APSIMInitiative/ApsimX,Domain-specific agricultural p
 Eduponics-Mini,https://github.com/STEMinds/Eduponics-Mini,Field-Deployed Sensor,Yes
 Micropython Eduponics,https://github.com/STEMinds/micropython-eduponics,Field-Deployed Sensor,Yes
 Zephyr,https://github.com/zephyrproject-rtos/zephyr,Embedded OS substrate,No
-ROS 2,https://github.com/ros2,Embedded OS substrate,No
+ROS 2,https://github.com/ros2/ros2,Embedded OS substrate,No
 ArduPilot,https://github.com/ArduPilot/ardupilot,Field-Deployed Sensor,No
 PX4,https://github.com/PX4/PX4-Autopilot,Field-Deployed Sensor,No
 Mosquitto,https://github.com/eclipse-mosquitto/mosquitto,Edge and Gateway software,No

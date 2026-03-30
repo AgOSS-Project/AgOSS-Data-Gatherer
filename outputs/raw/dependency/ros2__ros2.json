@@ -1,0 +1,68 @@
+{
+  "repo_url": "https://github.com/ros2/ros2",
+  "owner": "ros2",
+  "repo_name": "ros2",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 5,
+  "filtered_self_packages": 1,
+  "packages_total": 4,
+  "packages_queryable": 0,
+  "packages_unqueryable": 4,
+  "vulnerability_ids": [],
+  "vulnerabilities_total": 0,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "actions/checkout",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/actions/checkout@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/download-artifact",
+      "version": "37930b1c2abaa49bbe596cd826c3c89aef350131",
+      "purl": "pkg:githubactions/actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131",
+      "ecosystem": null,
+      "query_name": "download-artifact",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "zofrex/mirror-branch",
+      "version": "1",
+      "purl": "pkg:githubactions/zofrex/mirror-branch@1",
+      "ecosystem": null,
+      "query_name": "mirror-branch",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/upload-artifact",
+      "version": "b7c566a772e6b6bfb58ed0dc250532a479d7789f",
+      "purl": "pkg:githubactions/actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f",
+      "ecosystem": null,
+      "query_name": "upload-artifact",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}

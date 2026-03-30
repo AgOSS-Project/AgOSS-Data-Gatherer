@@ -1,0 +1,32 @@
+{
+  "repo_id": 25519,
+  "status": "partial",
+  "metrics_raw": {
+    "db_counts": {
+      "db_commit_rows": 0,
+      "db_issue_rows": 0,
+      "db_pull_request_rows": 0,
+      "db_pull_request_event_rows": 0,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 0,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "augur_endpoint_count": 1,
+    "augur_nonempty_endpoint_count": 1,
+    "db_commit_rows": 0,
+    "db_issue_rows": 0,
+    "db_pull_request_rows": 0,
+    "db_pull_request_event_rows": 0,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 0,
+    "db_repo_stat_rows": 0
+  }
+}

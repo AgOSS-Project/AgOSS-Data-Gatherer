@@ -8,8 +8,70 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
+
+def _load_dotenv_file(path: Path, *, override: bool = False) -> None:
+    """Load simple KEY=VALUE lines from a .env file into os.environ."""
+    if not path.exists() or not path.is_file():
+        return
+
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except OSError:
+        return
+
+    for raw_line in lines:
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("export "):
+            line = line[len("export "):].strip()
+        if "=" not in line:
+            continue
+
+        key, value = line.split("=", 1)
+        key = key.strip()
+        if not key:
+            continue
+
+        value = value.strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in {"\"", "'"}:
+            value = value[1:-1]
+
+        if override or key not in os.environ:
+            os.environ[key] = value
+
+
+def _load_project_env_files() -> None:
+    """Load environment files used by the pipeline and local Augur setup."""
+    candidates = [
+        PROJECT_ROOT / ".env",
+        PROJECT_ROOT / "pipeline" / ".env",
+        PROJECT_ROOT / "tools" / "augur" / ".env",
+    ]
+    for env_path in candidates:
+        _load_dotenv_file(env_path, override=False)
+
+
+_load_project_env_files()
+
 TOOLS_DIR = PROJECT_ROOT / "tools"
-SCORECARD_EXE = TOOLS_DIR / "scorecard"
+
+
+def _resolve_scorecard_executable() -> Path:
+    """Pick the platform-appropriate Scorecard executable path."""
+    if os.name == "nt":
+        candidates = [TOOLS_DIR / "scorecard.exe", TOOLS_DIR / "scorecard"]
+    else:
+        candidates = [TOOLS_DIR / "scorecard", TOOLS_DIR / "scorecard.exe"]
+
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+
+    return candidates[0]
+
+
+SCORECARD_EXE = _resolve_scorecard_executable()
 AUGUR_DIR = TOOLS_DIR / "augur"
 
 INPUT_FILE = PROJECT_ROOT / "pipeline" / "input.txt"

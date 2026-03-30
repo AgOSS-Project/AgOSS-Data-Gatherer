@@ -147,8 +147,12 @@
     <div class="cards" id="depCards"></div>
     <div class="chart-grid">
       <div class="chart-card"><h3>Dependency Vulnerability Severity</h3><canvas id="chartDepSeverity"></canvas></div>
+      <div class="chart-card"><h3>Vulnerabilities by Category</h3><canvas id="chartDepVulnsByCategory"></canvas></div>
+      <div class="chart-card"><h3>Vulnerabilities per Repo by Category</h3><canvas id="chartDepVulnsPerRepoCategory"></canvas></div>
       <div class="chart-card"><h3>Top Repositories by Dependency Vulns</h3><canvas id="chartDepTopRepos"></canvas></div>
       <div class="chart-card"><h3>Package Queryability</h3><canvas id="chartDepQueryable"></canvas></div>
+      <div class="chart-card"><h3>Most Common Vulnerabilities by Category</h3><canvas id="chartDepTopVulnByCategory"></canvas></div>
+      <div class="chart-card"><h3>Most Common Dependencies by Category</h3><canvas id="chartDepTopDepsByCategory"></canvas></div>
     </div>
     <div class="table-wrap">
       <table id="depRepoTable">
@@ -745,6 +749,119 @@ const depTotals = (() => {
   };
 })();
 
+const normalizeRepoUrl = (url) => String(url || '').replace(/\/+$/, '');
+const depCategoryStats = (() => {
+  const repoCategoryByUrl = new Map(
+    REPOS.map(r => [normalizeRepoUrl(r.repo_url), r.category || 'Uncategorized'])
+  );
+  const categoryOrder = new Map(categories.map((c, i) => [c, i]));
+  const rowsByCategory = {};
+
+  function ensureCategory(category) {
+    const name = category || 'Uncategorized';
+    if (!rowsByCategory[name]) {
+      rowsByCategory[name] = {
+        category: name,
+        expected_repos: 0,
+        scanned_repos: 0,
+        analyzed_repos: 0,
+        vulnerabilities_total: 0,
+        vuln_counts: {},
+        dep_counts: {},
+        dep_display: {},
+      };
+    }
+    return rowsByCategory[name];
+  }
+
+  REPOS.forEach(r => {
+    const row = ensureCategory(r.category);
+    row.expected_repos += 1;
+  });
+
+  depRepos.forEach(repo => {
+    const category = repoCategoryByUrl.get(normalizeRepoUrl(repo.repo_url)) || 'Uncategorized';
+    const row = ensureCategory(category);
+    const status = String(repo.status || '');
+
+    row.scanned_repos += 1;
+    if (status === 'success' || status === 'partial') row.analyzed_repos += 1;
+
+    row.vulnerabilities_total += Number(repo.vulnerabilities_total || 0);
+
+    const vulnIds = new Set(
+      (Array.isArray(repo.vulnerabilities) ? repo.vulnerabilities : [])
+        .map(v => String(v.id || '').trim())
+        .filter(Boolean)
+    );
+    vulnIds.forEach(id => {
+      row.vuln_counts[id] = (row.vuln_counts[id] || 0) + 1;
+    });
+
+    const depNames = new Set();
+    (Array.isArray(repo.packages) ? repo.packages : []).forEach(pkg => {
+      const rawName = String(pkg.query_name || pkg.name || '').trim();
+      if (!rawName) return;
+      const key = rawName.toLowerCase();
+      depNames.add(key);
+      if (!row.dep_display[key]) row.dep_display[key] = rawName;
+    });
+    depNames.forEach(key => {
+      row.dep_counts[key] = (row.dep_counts[key] || 0) + 1;
+    });
+  });
+
+  const rows = Object.values(rowsByCategory).sort((a, b) => {
+    const ai = categoryOrder.has(a.category) ? categoryOrder.get(a.category) : Number.MAX_SAFE_INTEGER;
+    const bi = categoryOrder.has(b.category) ? categoryOrder.get(b.category) : Number.MAX_SAFE_INTEGER;
+    if (ai !== bi) return ai - bi;
+    return String(a.category).localeCompare(String(b.category));
+  });
+
+  const vulnGlobal = {};
+  const depGlobal = {};
+  const depDisplayByKey = {};
+  rows.forEach(row => {
+    Object.entries(row.vuln_counts).forEach(([id, count]) => {
+      vulnGlobal[id] = (vulnGlobal[id] || 0) + Number(count || 0);
+    });
+    Object.entries(row.dep_counts).forEach(([key, count]) => {
+      depGlobal[key] = (depGlobal[key] || 0) + Number(count || 0);
+    });
+    Object.entries(row.dep_display).forEach(([key, value]) => {
+      if (!depDisplayByKey[key]) depDisplayByKey[key] = value;
+    });
+  });
+
+  const topVulnIds = Object.entries(vulnGlobal)
+    .sort((a, b) => Number(b[1]) - Number(a[1]) || String(a[0]).localeCompare(String(b[0])))
+    .slice(0, 8)
+    .map(([id]) => id);
+
+  const topDependencyKeys = Object.entries(depGlobal)
+    .sort((a, b) => Number(b[1]) - Number(a[1]) || String(a[0]).localeCompare(String(b[0])))
+    .slice(0, 8)
+    .map(([key]) => key);
+
+  const vulnMetaById = {};
+  depVulnerabilities.forEach(v => {
+    const id = String(v.id || '').trim();
+    if (!id) return;
+    vulnMetaById[id] = {
+      summary: String(v.summary || ''),
+      severity: String(v.severity || 'UNKNOWN').toUpperCase(),
+    };
+  });
+
+  return {
+    rows,
+    topVulnIds,
+    topDependencyKeys,
+    vulnMetaById,
+    depDisplayByKey,
+  };
+})();
+
 const depSeverityOrder = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'UNKNOWN'];
 
 function depSeverityBadge(severity) {
@@ -1049,6 +1166,21 @@ renderCategories();
 let depSeverityChart = null;
 let depTopReposChart = null;
 let depQueryableChart = null;
+let depVulnsByCategoryChart = null;
+let depVulnsPerRepoCategoryChart = null;
+let depTopVulnByCategoryChart = null;
+let depTopDepsByCategoryChart = null;
+
+function depColor(index) {
+  const palette = ['#2563eb', '#7c3aed', '#dc2626', '#f59e0b', '#16a34a', '#0891b2', '#be123c', '#4f46e5'];
+  return palette[index % palette.length];
+}
+
+function shortLabel(text, maxLen = 26) {
+  const value = String(text || '');
+  if (value.length <= maxLen) return value;
+  return value.slice(0, Math.max(3, maxLen - 3)) + '...';
+}
 
 function showDependencyDetail(repoUrl) {
   const repo = depRepos.find(r => r.repo_url === repoUrl);
@@ -1227,6 +1359,128 @@ function renderDependencies() {
       }],
     },
     options: { plugins: { legend: { position: 'bottom' } } },
+  });
+
+  const depCategoryLabels = depCategoryStats.rows.map(r => r.category);
+  const depCategoryVulnTotals = depCategoryStats.rows.map(r => Number(r.vulnerabilities_total || 0));
+  const depCategoryVulnPerRepo = depCategoryStats.rows.map(r => {
+    const denom = Number(r.analyzed_repos || 0);
+    if (denom <= 0) return 0;
+    return Number(r.vulnerabilities_total || 0) / denom;
+  });
+
+  if (depVulnsByCategoryChart) depVulnsByCategoryChart.destroy();
+  depVulnsByCategoryChart = new Chart(document.getElementById('chartDepVulnsByCategory'), {
+    type: 'bar',
+    data: {
+      labels: depCategoryLabels,
+      datasets: [{
+        label: 'Total Vulnerabilities',
+        data: depCategoryVulnTotals,
+        backgroundColor: '#f97316',
+      }],
+    },
+    options: {
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { autoSkip: false } },
+        y: { beginAtZero: true, title: { display: true, text: 'Vulnerability Count' } },
+      },
+    },
+  });
+
+  if (depVulnsPerRepoCategoryChart) depVulnsPerRepoCategoryChart.destroy();
+  depVulnsPerRepoCategoryChart = new Chart(document.getElementById('chartDepVulnsPerRepoCategory'), {
+    type: 'bar',
+    data: {
+      labels: depCategoryLabels,
+      datasets: [{
+        label: 'Vulnerabilities per Analyzed Repo',
+        data: depCategoryVulnPerRepo,
+        backgroundColor: '#0ea5e9',
+      }],
+    },
+    options: {
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const row = depCategoryStats.rows[ctx.dataIndex];
+              const avgPerRepo = Number(ctx.raw || 0).toFixed(2);
+              return `${avgPerRepo} per analyzed repo (${row.vulnerabilities_total} vulns / ${row.analyzed_repos} analyzed)`;
+            },
+          },
+        },
+      },
+      scales: {
+        x: { ticks: { autoSkip: false } },
+        y: { beginAtZero: true, title: { display: true, text: 'Average Vulnerabilities per Repo' } },
+      },
+    },
+  });
+
+  const topVulnDatasets = depCategoryStats.topVulnIds.map((vulnId, idx) => ({
+    label: vulnId,
+    data: depCategoryStats.rows.map(r => Number(r.vuln_counts[vulnId] || 0)),
+    backgroundColor: depColor(idx),
+    vulnId,
+  }));
+  if (depTopVulnByCategoryChart) depTopVulnByCategoryChart.destroy();
+  depTopVulnByCategoryChart = new Chart(document.getElementById('chartDepTopVulnByCategory'), {
+    type: 'bar',
+    data: {
+      labels: depCategoryLabels,
+      datasets: topVulnDatasets,
+    },
+    options: {
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const vulnId = ctx.dataset.vulnId || ctx.dataset.label;
+              const meta = depCategoryStats.vulnMetaById[vulnId] || {};
+              const summary = meta.summary ? ` - ${meta.summary}` : '';
+              return `${vulnId}: ${ctx.raw} repos${summary}`;
+            },
+          },
+        },
+      },
+      scales: {
+        x: { stacked: true, ticks: { autoSkip: false } },
+        y: { stacked: true, beginAtZero: true, title: { display: true, text: 'Affected Repos' } },
+      },
+    },
+  });
+
+  const topDepDatasets = depCategoryStats.topDependencyKeys.map((depKey, idx) => ({
+    label: shortLabel(depCategoryStats.depDisplayByKey[depKey] || depKey, 24),
+    fullLabel: depCategoryStats.depDisplayByKey[depKey] || depKey,
+    data: depCategoryStats.rows.map(r => Number(r.dep_counts[depKey] || 0)),
+    backgroundColor: depColor(idx),
+  }));
+  if (depTopDepsByCategoryChart) depTopDepsByCategoryChart.destroy();
+  depTopDepsByCategoryChart = new Chart(document.getElementById('chartDepTopDepsByCategory'), {
+    type: 'bar',
+    data: {
+      labels: depCategoryLabels,
+      datasets: topDepDatasets,
+    },
+    options: {
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `${ctx.dataset.fullLabel || ctx.dataset.label}: ${ctx.raw} repos`,
+          },
+        },
+      },
+      scales: {
+        x: { stacked: true, ticks: { autoSkip: false } },
+        y: { stacked: true, beginAtZero: true, title: { display: true, text: 'Repos Using Dependency' } },
+      },
+    },
   });
 }
 

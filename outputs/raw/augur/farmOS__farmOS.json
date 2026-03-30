@@ -11888,7 +11888,7 @@
         "fork_count": null,
         "merged_count": 0,
         "committer_count": 6,
-        "commit_count": 3746.0
+        "commit_count": 3707.0
       }
     ],
     "db_counts": {
@@ -11922,10 +11922,10 @@
         "fork_count": null,
         "merged_count": 0,
         "committer_count": 6,
-        "commit_count": 3746.0
+        "commit_count": 3707.0
       }
     ],
-    "commit_count": 3746.0,
+    "commit_count": 3707.0,
     "prs_merged": 0,
     "augur_endpoint_count": 23,
     "augur_nonempty_endpoint_count": 8,

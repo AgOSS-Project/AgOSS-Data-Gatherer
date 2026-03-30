@@ -1,0 +1,211 @@
+{
+  "repo_url": "https://github.com/eclipse-mosquitto/mosquitto",
+  "owner": "eclipse-mosquitto",
+  "repo_name": "mosquitto",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 18,
+  "filtered_self_packages": 1,
+  "packages_total": 17,
+  "packages_queryable": 0,
+  "packages_unqueryable": 17,
+  "vulnerability_ids": [],
+  "vulnerabilities_total": 0,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "suisei-cn/actions-download-file",
+      "version": "1.6.1",
+      "purl": "pkg:githubactions/suisei-cn/actions-download-file@1.6.1",
+      "ecosystem": null,
+      "query_name": "actions-download-file",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "jwlawson/actions-setup-cmake",
+      "version": "09fd9b0fb3b239b4b68d9256cd65adf8d6b91da0",
+      "purl": "pkg:githubactions/jwlawson/actions-setup-cmake@09fd9b0fb3b239b4b68d9256cd65adf8d6b91da0",
+      "ecosystem": null,
+      "query_name": "actions-setup-cmake",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "github/codeql-action/analyze",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/github/codeql-action/analyze@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "analyze",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "google/oss-fuzz/infra/cifuzz/actions/build_fuzzers",
+      "version": "master",
+      "purl": "pkg:githubactions/google/oss-fuzz/infra/cifuzz/actions/build_fuzzers@master",
+      "ecosystem": null,
+      "query_name": "build_fuzzers",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/checkout",
+      "version": "6.*.*",
+      "purl": "pkg:githubactions/actions/checkout@6.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "codecov/codecov-action",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/codecov/codecov-action@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "codecov-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "vapier/coverity-scan-action",
+      "version": "1.*.*",
+      "purl": "pkg:githubactions/vapier/coverity-scan-action@1.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "coverity-scan-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "Mattraks/delete-workflow-runs",
+      "version": "2",
+      "purl": "pkg:githubactions/Mattraks/delete-workflow-runs@2",
+      "ecosystem": null,
+      "query_name": "delete-workflow-runs",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "github/codeql-action/init",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/github/codeql-action/init@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "init",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "github/issue-labeler",
+      "version": "3.4.*",
+      "purl": "pkg:githubactions/github/issue-labeler@3.4.%2A",
+      "ecosystem": null,
+      "query_name": "issue-labeler",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "dessant/lock-threads",
+      "version": "6.*.*",
+      "purl": "pkg:githubactions/dessant/lock-threads@6.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "lock-threads",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "joncloud/makensis-action",
+      "version": "5.0.*",
+      "purl": "pkg:githubactions/joncloud/makensis-action@5.0.%2A",
+      "ecosystem": null,
+      "query_name": "makensis-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "google/oss-fuzz/infra/cifuzz/actions/run_fuzzers",
+      "version": "master",
+      "purl": "pkg:githubactions/google/oss-fuzz/infra/cifuzz/actions/run_fuzzers@master",
+      "ecosystem": null,
+      "query_name": "run_fuzzers",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/setup-python",
+      "version": "6.*.*",
+      "purl": "pkg:githubactions/actions/setup-python@6.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "setup-python",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/upload-artifact",
+      "version": "6.*.*",
+      "purl": "pkg:githubactions/actions/upload-artifact@6.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "upload-artifact",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "github/codeql-action/upload-sarif",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/github/codeql-action/upload-sarif@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "upload-sarif",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "johnwason/vcpkg-action",
+      "version": "7.*.*",
+      "purl": "pkg:githubactions/johnwason/vcpkg-action@7.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "vcpkg-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}

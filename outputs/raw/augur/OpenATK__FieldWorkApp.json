@@ -1,7 +1,131 @@
 {
   "repo_id": 25501,
-  "status": "ready",
+  "status": "partial",
   "metrics_raw": {
+    "contributors": [
+      {
+        "user_id": "0100710b-7700-0000-0000-000000000000",
+        "commits": 0.0,
+        "issues": 2.0,
+        "commit_comments": 0.0,
+        "issue_comments": 0.0,
+        "pull_requests": 0,
+        "pull_request_comments": 0,
+        "total": 2.0,
+        "repo_id": 25501,
+        "repo_name": "FieldWorkApp"
+      }
+    ],
+    "contributors_new": [
+      {
+        "date": "2018-05-25T00:00:00.000Z",
+        "new_contributors": 1,
+        "repo_id": 25501,
+        "repo_name": "FieldWorkApp"
+      }
+    ],
+    "committers": [],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [],
+    "issues_new": [
+      {
+        "repo_name": "FieldWorkApp",
+        "date": "2018-05-25T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "FieldWorkApp",
+        "date": "2018-05-29T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_closed": [
+      {
+        "repo_name": "FieldWorkApp",
+        "date": "2018-05-29T00:00:00.000Z",
+        "issues": 1
+      },
+      {
+        "repo_name": "FieldWorkApp",
+        "date": "2018-07-30T00:00:00.000Z",
+        "issues": 1
+      }
+    ],
+    "issues_active": [
+      {
+        "repo_name": "FieldWorkApp",
+        "date": "2018-05-25T00:00:00.000",
+        "issues": 3
+      },
+      {
+        "repo_name": "FieldWorkApp",
+        "date": "2018-05-29T00:00:00.000",
+        "issues": 2
+      },
+      {
+        "repo_name": "FieldWorkApp",
+        "date": "2018-05-30T00:00:00.000",
+        "issues": 1
+      },
+      {
+        "repo_name": "FieldWorkApp",
+        "date": "2018-07-30T00:00:00.000",
+        "issues": 1
+      }
+    ],
+    "issue_backlog": [],
+    "avg_issue_resolution_time": [
+      {
+        "repo_name": "FieldWorkApp",
+        "avg_issue_resolution_time": "32 days 23:19:07"
+      }
+    ],
+    "pull_requests_new": [
+      {
+        "created_date": "2021-05-06T00:00:00.000",
+        "new_pull_requests": 1
+      }
+    ],
+    "pr_merge_contributor_new": [],
+    "pr_acceptance_rate": [],
+    "releases": [],
+    "stars_count": [
+      {
+        "repo_name": "FieldWorkApp",
+        "stars": 1
+      }
+    ],
+    "fork_count": [
+      {
+        "repo_name": "FieldWorkApp",
+        "forks": 1
+      }
+    ],
+    "watchers_count": [
+      {
+        "repo_name": "FieldWorkApp",
+        "watchers": 10
+      }
+    ],
+    "languages": [
+      {
+        "repo_name": "FieldWorkApp",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": null,
+        "stars_count": null,
+        "fork_count": null,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
     "db_counts": {
       "db_commit_rows": 0,
       "db_issue_rows": 2,
@@ -16,8 +140,27 @@
     }
   },
   "metrics_summary": {
-    "augur_endpoint_count": 1,
-    "augur_nonempty_endpoint_count": 1,
+    "contributor_count": 1,
+    "new_contributor_count": 1,
+    "committer_count": 0,
+    "issues_opened": 2,
+    "issues_closed": 2,
+    "issues_active": 4,
+    "prs_opened": 1,
+    "release_count": 0,
+    "aggregate_summary": [
+      {
+        "watcher_count": null,
+        "stars_count": null,
+        "fork_count": null,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 13,
     "db_commit_rows": 0,
     "db_issue_rows": 2,
     "db_pull_request_rows": 1,

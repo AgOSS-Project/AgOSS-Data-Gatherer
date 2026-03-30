@@ -1,6 +1,6 @@
 {
   "repo_id": 25494,
-  "status": "ready",
+  "status": "partial",
   "metrics_raw": {
     "db_counts": {
       "db_commit_rows": 1801,

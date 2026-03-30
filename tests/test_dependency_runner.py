@@ -222,6 +222,40 @@ class DependencyRunnerReportTests(unittest.TestCase):
         self.assertEqual(0, result["packages_total"])
         self.assertEqual([], result["vulnerability_ids"])
 
+    def test_analyze_repo_dependencies_retries_failed_cache(self) -> None:
+        entry = make_entry("retry", "me")
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            cache_dir = Path(tmpdir)
+            cache_file = cache_dir / "retry__me.json"
+            cache_file.write_text(
+                """{
+  "repo_url": "https://github.com/retry/me",
+  "owner": "retry",
+  "repo_name": "me",
+  "status": "failed",
+  "error": "old failure"
+}""",
+                encoding="utf-8",
+            )
+
+            with patch.object(config, "RAW_DEPENDENCY_DIR", cache_dir):
+                with patch.object(config, "FORCE_REFRESH", False):
+                    with patch(
+                        "pipeline.dependency_runner._fetch_github_sbom",
+                        return_value=(None, "sbom unavailable"),
+                    ) as mock_fetch:
+                        result = analyze_repo_dependencies(entry)
+
+        self.assertEqual(1, mock_fetch.call_count)
+        self.assertEqual(0, mock_fetch.call_args.kwargs.get("retry_count"))
+        self.assertEqual(
+            min(10, config.DEPENDENCY_HTTP_TIMEOUT_SECONDS),
+            mock_fetch.call_args.kwargs.get("timeout_seconds"),
+        )
+        self.assertEqual("failed", result["status"])
+        self.assertIn("sbom unavailable", result["error"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,4 +1,4 @@
-"""Run OpenSSF Scorecard (tools/scorecard.exe) for each repo.
+"""Run OpenSSF Scorecard (tools/scorecard[.exe]) for each repo.
 
 Key robustness improvements:
 - Non-zero exit codes with valid JSON in stdout → partial_success
@@ -39,7 +39,7 @@ def check_scorecard_prereqs() -> list[str]:
     """Return a list of problems (empty = ready to run)."""
     problems: list[str] = []
     if not config.SCORECARD_EXE.exists():
-        problems.append(f"scorecard.exe not found at {config.SCORECARD_EXE}")
+        problems.append(f"scorecard executable not found at {config.SCORECARD_EXE}")
     if not config.GITHUB_AUTH_TOKEN:
         problems.append(
             "GITHUB_AUTH_TOKEN env var is not set — Scorecard requires it "
@@ -49,7 +49,7 @@ def check_scorecard_prereqs() -> list[str]:
 
 
 def run_scorecard(entry: RepoEntry) -> ScorecardResult:
-    """Execute scorecard.exe for a single repo and return normalised result."""
+    """Execute Scorecard for a single repo and return normalised result."""
     result = ScorecardResult()
     out_file = _output_path(entry)
     config.RAW_SCORECARD_DIR.mkdir(parents=True, exist_ok=True)
@@ -145,7 +145,7 @@ def run_scorecard(entry: RepoEntry) -> ScorecardResult:
                          entry.owner, entry.repo_name, attempt, attempts, last_error)
 
         except FileNotFoundError:
-            result.error = f"scorecard.exe not found at {config.SCORECARD_EXE}"
+            result.error = f"scorecard executable not found at {config.SCORECARD_EXE}"
             result.status = "failed"
             logger.error("[scorecard] %s", result.error)
             return result

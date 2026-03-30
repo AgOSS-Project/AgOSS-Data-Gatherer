@@ -48,11 +48,12 @@ def _repo_output_path(entry: RepoEntry) -> Path:
     return config.RAW_DEPENDENCY_DIR / f"{entry.owner}__{entry.repo_name}.json"
 
 
-def _should_skip(entry: RepoEntry) -> bool:
-    if config.FORCE_REFRESH:
+def _is_reusable_cached_result(cached: dict[str, Any]) -> bool:
+    """Return True if a cached dependency result should be reused."""
+    status = str(cached.get("status") or "").strip().lower()
+    if status in {"failed", "error", "timed_out"}:
         return False
-    path = _repo_output_path(entry)
-    return path.exists() and path.stat().st_size > 0
+    return True
 
 
 def _persist(path: Path, data: Any) -> None:
@@ -105,11 +106,15 @@ def _request_json(
     headers: dict[str, str] | None = None,
     payload: dict[str, Any] | None = None,
     expected_statuses: set[int] | None = None,
+    retry_count: int | None = None,
+    timeout_seconds: int | None = None,
 ) -> tuple[dict[str, Any] | list[Any] | None, str]:
     """Request JSON with bounded retries and timeout."""
     expected = expected_statuses or {200}
-    attempts = max(1, config.DEPENDENCY_RETRY_COUNT + 1)
-    timeout = max(1, config.DEPENDENCY_HTTP_TIMEOUT_SECONDS)
+    retries = config.DEPENDENCY_RETRY_COUNT if retry_count is None else max(0, retry_count)
+    attempts = max(1, retries + 1)
+    timeout_base = config.DEPENDENCY_HTTP_TIMEOUT_SECONDS if timeout_seconds is None else timeout_seconds
+    timeout = max(1, timeout_base)
 
     last_error = ""
     for attempt in range(attempts):
@@ -146,14 +151,26 @@ def _request_json(
     return None, (last_error or "Request failed")
 
 
-def _fetch_github_sbom(entry: RepoEntry) -> tuple[dict[str, Any] | None, str]:
+def _fetch_github_sbom(
+    entry: RepoEntry,
+    *,
+    retry_count: int | None = None,
+    timeout_seconds: int | None = None,
+) -> tuple[dict[str, Any] | None, str]:
     """Fetch SBOM from GitHub dependency graph API for a repository."""
     url = (
         f"{config.GITHUB_API_BASE.rstrip('/')}/repos/"
         f"{quote(entry.owner, safe='')}/{quote(entry.repo_name, safe='')}/dependency-graph/sbom"
     )
     with requests.Session() as session:
-        payload, err = _request_json(session, "GET", url, headers=_github_headers())
+        payload, err = _request_json(
+            session,
+            "GET",
+            url,
+            headers=_github_headers(),
+            retry_count=retry_count,
+            timeout_seconds=timeout_seconds,
+        )
     if err:
         return None, err
     if not isinstance(payload, dict):
@@ -539,13 +556,24 @@ def _fetch_vulnerability_details(vulnerability_ids: list[str]) -> dict[str, dict
 def analyze_repo_dependencies(entry: RepoEntry) -> dict[str, Any]:
     """Analyze one repository's dependency vulnerabilities."""
     out_path = _repo_output_path(entry)
+    quick_retry_after_failed_cache = False
 
-    if _should_skip(entry):
+    if not config.FORCE_REFRESH and out_path.exists() and out_path.stat().st_size > 0:
         try:
             cached = json.loads(out_path.read_text(encoding="utf-8"))
             if isinstance(cached, dict) and cached.get("repo_url") == entry.repo_url:
-                logger.info("[dependency] Using cached result for %s/%s", entry.owner, entry.repo_name)
-                return cached
+                if _is_reusable_cached_result(cached):
+                    logger.info("[dependency] Using cached result for %s/%s", entry.owner, entry.repo_name)
+                    return cached
+
+                cached_status = str(cached.get("status") or "failed")
+                quick_retry_after_failed_cache = True
+                logger.info(
+                    "[dependency] Cached result for %s/%s has status=%s; retrying analysis",
+                    entry.owner,
+                    entry.repo_name,
+                    cached_status,
+                )
         except Exception as exc:
             logger.warning(
                 "[dependency] Cached file unreadable for %s/%s, re-running: %s",
@@ -554,7 +582,14 @@ def analyze_repo_dependencies(entry: RepoEntry) -> dict[str, Any]:
                 exc,
             )
 
-    sbom_payload, sbom_error = _fetch_github_sbom(entry)
+    sbom_retry_count = 0 if quick_retry_after_failed_cache else None
+    sbom_timeout = min(10, config.DEPENDENCY_HTTP_TIMEOUT_SECONDS) if quick_retry_after_failed_cache else None
+
+    sbom_payload, sbom_error = _fetch_github_sbom(
+        entry,
+        retry_count=sbom_retry_count,
+        timeout_seconds=sbom_timeout,
+    )
     if sbom_error:
         result = {
             "repo_url": entry.repo_url,

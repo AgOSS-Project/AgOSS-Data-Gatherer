@@ -123,5 +123,12 @@ def _is_header_row(row: list[str]) -> bool:
     has_name = any(c in {"name", "repo", "repository", "repo_name"} for c in lower)
     has_url = any("url" in c or "link" in c for c in lower)
     has_category = any("category" in c for c in lower)
-    has_ag = any("ag" in c and ("specific" in c or "specificness" in c) for c in lower)
-    return (has_name and has_url and has_category) or has_ag or "ag-specific" in joined
+
+    # Detect explicit header columns like "ag-specific" or variants such as
+    # "ag specific" / "ag_specific" but avoid matching occurrences where
+    # words like "agricultural" and "domain-specific" appear separately in
+    # the category text (which would be a valid data row).
+    import re
+    has_ag = bool(re.search(r"\bag(?:-|_)?specific\b", joined)) or "ag-specific" in joined
+
+    return (has_name and has_url and has_category) or has_ag

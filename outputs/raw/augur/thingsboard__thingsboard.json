@@ -1,0 +1,87 @@
+{
+  "repo_id": 25524,
+  "status": "partial",
+  "metrics_raw": {
+    "contributors": [],
+    "contributors_new": [],
+    "committers": [],
+    "top_committers": [],
+    "code_changes": [],
+    "code_changes_lines": [],
+    "issues_new": [],
+    "issues_closed": [],
+    "issues_active": [],
+    "issue_backlog": [],
+    "avg_issue_resolution_time": [],
+    "pull_requests_new": [],
+    "pr_merge_contributor_new": [],
+    "pr_acceptance_rate": [],
+    "releases": [],
+    "stars_count": [],
+    "fork_count": [],
+    "watchers_count": [],
+    "languages": [
+      {
+        "repo_name": "thingsboard",
+        "primary_language": null
+      }
+    ],
+    "avg_weekly_commits": [],
+    "license_declared": [],
+    "aggregate_summary": [
+      {
+        "watcher_count": null,
+        "stars_count": null,
+        "fork_count": null,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "db_counts": {
+      "db_commit_rows": 0,
+      "db_issue_rows": 0,
+      "db_pull_request_rows": 0,
+      "db_pull_request_event_rows": 0,
+      "db_pull_request_file_rows": 0,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
+      "db_release_rows": 0,
+      "db_repo_stat_rows": 0
+    }
+  },
+  "metrics_summary": {
+    "contributor_count": 0,
+    "new_contributor_count": 0,
+    "committer_count": 0,
+    "issues_opened": 0,
+    "issues_closed": 0,
+    "issues_active": 0,
+    "prs_opened": 0,
+    "release_count": 0,
+    "aggregate_summary": [
+      {
+        "watcher_count": null,
+        "stars_count": null,
+        "fork_count": null,
+        "merged_count": 0,
+        "committer_count": 0,
+        "commit_count": null
+      }
+    ],
+    "prs_merged": 0,
+    "augur_endpoint_count": 23,
+    "augur_nonempty_endpoint_count": 3,
+    "db_commit_rows": 0,
+    "db_issue_rows": 0,
+    "db_pull_request_rows": 0,
+    "db_pull_request_event_rows": 0,
+    "db_pull_request_file_rows": 0,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
+    "db_release_rows": 0,
+    "db_repo_stat_rows": 0
+  }
+}

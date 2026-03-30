@@ -1,0 +1,150 @@
+{
+  "repo_url": "https://github.com/ArduPilot/ardupilot",
+  "owner": "ArduPilot",
+  "repo_name": "ardupilot",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 11,
+  "filtered_self_packages": 1,
+  "packages_total": 10,
+  "packages_queryable": 1,
+  "packages_unqueryable": 9,
+  "vulnerability_ids": [
+    "GHSA-27x4-j476-jp5f",
+    "GHSA-5rjg-fvgr-3xxf",
+    "GHSA-cx63-2mw6-8hw5",
+    "GHSA-r9hx-vwmv-q579",
+    "PYSEC-2013-22",
+    "PYSEC-2022-43012",
+    "PYSEC-2025-49"
+  ],
+  "vulnerabilities_total": 7,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "setuptools",
+      "version": null,
+      "purl": "pkg:pypi/setuptools",
+      "ecosystem": "PyPI",
+      "query_name": "setuptools",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "GHSA-27x4-j476-jp5f",
+        "GHSA-5rjg-fvgr-3xxf",
+        "GHSA-cx63-2mw6-8hw5",
+        "GHSA-r9hx-vwmv-q579",
+        "PYSEC-2013-22",
+        "PYSEC-2022-43012",
+        "PYSEC-2025-49"
+      ],
+      "vulnerability_count": 7
+    },
+    {
+      "name": "pre-commit/action",
+      "version": "3.0.1",
+      "purl": "pkg:githubactions/pre-commit/action@3.0.1",
+      "ecosystem": null,
+      "query_name": "action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/cache",
+      "version": "5.*.*",
+      "purl": "pkg:githubactions/actions/cache@5.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "cache",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/checkout",
+      "version": "6.*.*",
+      "purl": "pkg:githubactions/actions/checkout@6.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "cygwin/cygwin-install-action",
+      "version": "6.*.*",
+      "purl": "pkg:githubactions/cygwin/cygwin-install-action@6.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "cygwin-install-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "andstor/file-existence-action",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/andstor/file-existence-action@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "file-existence-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "coverallsapp/github-action",
+      "version": "master",
+      "purl": "pkg:githubactions/coverallsapp/github-action@master",
+      "ecosystem": null,
+      "query_name": "github-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/cache/restore",
+      "version": "5.*.*",
+      "purl": "pkg:githubactions/actions/cache/restore@5.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "restore",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/setup-python",
+      "version": "6.*.*",
+      "purl": "pkg:githubactions/actions/setup-python@6.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "setup-python",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/upload-artifact",
+      "version": "7.*.*",
+      "purl": "pkg:githubactions/actions/upload-artifact@7.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "upload-artifact",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}
