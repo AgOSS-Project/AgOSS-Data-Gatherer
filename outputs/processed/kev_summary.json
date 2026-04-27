@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-04-27T01:52:06.434534+00:00",
+  "summary": {
+    "total_vulnerabilities_analyzed": 1151,
+    "exploitable_vulnerabilities": 6,
+    "exploitability_rate_percent": 0.52,
+    "exploitable_by_severity": {
+      "CRITICAL": 2,
+      "HIGH": 3,
+      "MEDIUM": 1
+    },
+    "top_priority_vulnerabilities": [
+      {
+        "id": "GHSA-36p3-wjmg-h94x",
+        "summary": "Remote Code Execution in Spring Framework",
+        "matched_cve": "CVE-2022-22965",
+        "severity": "CRITICAL",
+        "kev_info": {
+          "vendor": "VMware",
+          "product": "Spring Framework",
+          "due_date": "2022-04-25"
+        }
+      },
+      {
+        "id": "GHSA-4fq3-mr56-cg6r",
+        "summary": "Spring Data Commons remote code injection vulnerability",
+        "matched_cve": "CVE-2018-1273",
+        "severity": "CRITICAL",
+        "kev_info": {
+          "vendor": "VMware Tanzu",
+          "product": "Spring Data Commons",
+          "due_date": "2022-04-15"
+        }
+      },
+      {
+        "id": "GHSA-j7hp-h8jx-5ppr",
+        "summary": "libwebp: OOB write in BuildHuffmanTable",
+        "matched_cve": "CVE-2023-4863",
+        "severity": "HIGH",
+        "kev_info": {
+          "vendor": "Google",
+          "product": "Chromium WebP",
+          "due_date": "2023-10-04"
+        }
+      },
+      {
+        "id": "GHSA-2m8v-572m-ff2v",
+        "summary": "Command Injection Vulnerability",
+        "matched_cve": "CVE-2021-21315",
+        "severity": "HIGH",
+        "kev_info": {
+          "vendor": "Npm package",
+          "product": "System Information Library for Node.JS",
+          "due_date": "2022-02-01"
+        }
+      },
+      {
+        "id": "GHSA-qqvq-6xgj-jw8g",
+        "summary": "Electron affected by libvpx's heap buffer overflow in vp8 encoding",
+        "matched_cve": "CVE-2023-5217",
+        "severity": "HIGH",
+        "kev_info": {
+          "vendor": "Google",
+          "product": "Chromium libvpx",
+          "due_date": "2023-10-23"
+        }
+      },
+      {
+        "id": "GHSA-qppj-fm5r-hxr3",
+        "summary": "HTTP/2 Stream Cancellation Attack",
+        "matched_cve": "CVE-2023-44487",
+        "severity": "MEDIUM",
+        "kev_info": {
+          "vendor": "IETF",
+          "product": "HTTP/2",
+          "due_date": "2023-10-31"
+        }
+      }
+    ]
+  },
+  "notes": []
+}

@@ -252,6 +252,7 @@
 const REPOS = /* @@REPO_DATA@@ */ [];
 const SUMMARY = /* @@SUMMARY_DATA@@ */ {};
 const DEPENDENCY = /* @@DEPENDENCY_DATA@@ */ {};
+const KEV_SUMMARY = /* @@KEV_DATA@@ */ {};
 
 // ── Helpers ──
 const avg = (arr) => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0;
@@ -1137,13 +1138,32 @@ renderCategories();
 // ── Vulnerabilities Tab ──
 (function renderVulnerabilities() {
   const top = vulnSummary.rows.slice(0, 15);
-
-  document.getElementById('vulnCards').innerHTML = [
+  const kevSummary = (KEV_SUMMARY && typeof KEV_SUMMARY === 'object' && KEV_SUMMARY.summary) || {};
+  
+  // Build cards with KEV data
+  const cards = [
     { label: 'Repos With Vulnerabilities', value: vulnSummary.reposWithVulns },
     { label: 'Repos Without Vulnerabilities', value: vulnSummary.reposWithoutVulns },
     { label: 'Total Vulnerabilities Reported', value: vulnSummary.totalDetected },
     { label: 'Distinct Vulnerability Findings', value: vulnSummary.rows.length },
-  ].map(c => `<div class="card"><div class="label">${c.label}</div><div class="value">${c.value}</div></div>`).join('');
+  ];
+  
+  // Add KEV card if data is available
+  if (kevSummary.exploitable_vulnerabilities !== undefined) {
+    cards.push({
+      label: 'Exploitable (In KEV)',
+      value: kevSummary.exploitable_vulnerabilities,
+      highlight: true
+    });
+    cards.push({
+      label: 'Exploitability Rate',
+      value: fmt(kevSummary.exploitability_rate_percent, 2) + '%'
+    });
+  }
+
+  document.getElementById('vulnCards').innerHTML = cards.map(c => 
+    `<div class="card" ${c.highlight ? 'style="border-left-color:#dc2626;background:#fee2e2;"' : ''}><div class="label">${c.label}</div><div class="value">${c.value}</div></div>`
+  ).join('');
 
   new Chart(document.getElementById('chartVulnTop'), {
     type:'bar',
@@ -1160,6 +1180,68 @@ renderCategories();
   document.getElementById('vulnBody').innerHTML = (vulnSummary.rows.length ? vulnSummary.rows : [{name:'No vulnerabilities detected',appearances:0,totalCount:0,repoCount:0}]).map(r =>
     `<tr><td>${esc(r.name)}</td><td>${r.appearances}</td><td>${r.totalCount}</td><td>${r.repoCount}</td></tr>`
   ).join('');
+  
+  // Add KEV exploitable vulnerabilities section if available
+  if (kevSummary.top_priority_vulnerabilities && Array.isArray(kevSummary.top_priority_vulnerabilities) && kevSummary.top_priority_vulnerabilities.length > 0) {
+    const vulnTable = document.getElementById('vulnTable');
+    if (vulnTable) {
+      // Insert KEV section after the main vulnerability table
+      const kevSection = document.createElement('div');
+      kevSection.style.cssText = 'margin-top:2rem;padding:1.5rem;background:#fee2e2;border-radius:var(--radius);border-left:4px solid #dc2626;';
+      
+      const kevVulns = kevSummary.top_priority_vulnerabilities.slice(0, 10);
+      const severity = kevSummary.exploitable_by_severity || {};
+      const severityBadgeStyle = (sev) => {
+        const colors = { 'CRITICAL': '#dc2626', 'HIGH': '#ea580c', 'MEDIUM': '#f59e0b', 'LOW': '#84cc16' };
+        return colors[sev] || '#6b7280';
+      };
+      
+      let kevHtml = `
+        <h3 style="margin:0 0 1rem 0;color:#991b1b;">⚠️ Exploitable Vulnerabilities (CISA KEV Catalog)</h3>
+        <p style="margin:0.5rem 0;color:#7f1d1d;font-size:0.9rem;">
+          ${kevSummary.exploitable_vulnerabilities} vulnerabilities have known public exploits
+          (${fmt(kevSummary.exploitability_rate_percent, 2)}% of total)
+        </p>
+        <div style="margin:1rem 0;display:flex;gap:1rem;flex-wrap:wrap;">
+      `;
+      
+      for (const [sev, count] of Object.entries(severity)) {
+        kevHtml += `<div style="padding:0.5rem 1rem;background:white;border-radius:4px;border-left:3px solid ${severityBadgeStyle(sev)};"><strong>${sev}</strong>: ${count}</div>`;
+      }
+      
+      kevHtml += `</div>
+        <div style="margin-top:1rem;overflow-x:auto;">
+          <table style="width:100%;font-size:0.85rem;border-collapse:collapse;">
+            <thead style="background:#fff5f5;">
+              <tr style="border-bottom:2px solid #fca5a5;">
+                <th style="padding:0.5rem;text-align:left;">Vulnerability</th>
+                <th style="padding:0.5rem;text-align:left;">CVE</th>
+                <th style="padding:0.5rem;text-align:left;">Severity</th>
+                <th style="padding:0.5rem;text-align:left;">Vendor/Product</th>
+                <th style="padding:0.5rem;text-align:left;">Due Date</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+      
+      kevVulns.forEach(v => {
+        const dueDate = v.kev_info?.due_date || '—';
+        const vendor = v.kev_info?.vendor || '—';
+        const product = v.kev_info?.product || '—';
+        kevHtml += `<tr style="border-bottom:1px solid #fecaca;">
+          <td style="padding:0.5rem;"><strong>${esc(v.id)}</strong></td>
+          <td style="padding:0.5rem;">${esc(v.matched_cve || '—')}</td>
+          <td style="padding:0.5rem;"><span style="padding:0.25rem 0.5rem;border-radius:3px;background:${severityBadgeStyle(v.severity)};color:white;font-weight:600;font-size:0.8rem;">${v.severity}</span></td>
+          <td style="padding:0.5rem;font-size:0.8rem;">${esc(vendor)} / ${esc(product)}</td>
+          <td style="padding:0.5rem;">${esc(dueDate)}</td>
+        </tr>`;
+      });
+      
+      kevHtml += `</tbody></table></div>`;
+      kevSection.innerHTML = kevHtml;
+      vulnTable.parentNode.insertBefore(kevSection, vulnTable.nextSibling);
+    }
+  }
 })();
 
 // ── Dependencies Tab ──

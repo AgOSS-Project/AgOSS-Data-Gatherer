@@ -41,6 +41,21 @@ def _empty_dependency_payload() -> dict:
     }
 
 
+def _empty_kev_payload() -> dict:
+    """Empty KEV analysis payload when file is not available."""
+    return {
+        "generated_at": "",
+        "summary": {
+            "total_vulnerabilities_analyzed": 0,
+            "exploitable_vulnerabilities": 0,
+            "exploitability_rate_percent": 0,
+            "exploitable_by_severity": {},
+            "top_priority_vulnerabilities": [],
+        },
+        "notes": ["KEV analysis not available."],
+    }
+
+
 def build_dashboard() -> Path:
     """Read processed data and emit a self-contained dashboard HTML.
 
@@ -52,6 +67,7 @@ def build_dashboard() -> Path:
     merged_path = config.PROCESSED_DIR / "merged_repos.json"
     summary_path = config.PROCESSED_DIR / "summary.json"
     dependency_path = config.DEPENDENCY_REPORT_FILE
+    kev_summary_path = config.PROCESSED_DIR / "kev_summary.json"
 
     if not merged_path.exists():
         raise FileNotFoundError(f"Processed data not found: {merged_path}")
@@ -71,6 +87,16 @@ def build_dashboard() -> Path:
     else:
         dependency_data = _empty_dependency_payload()
 
+    # Load KEV summary data
+    if kev_summary_path.exists():
+        try:
+            kev_data = json.loads(kev_summary_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            logger.warning("KEV summary artifact unreadable (%s): %s", kev_summary_path.name, exc)
+            kev_data = _empty_kev_payload()
+    else:
+        kev_data = _empty_kev_payload()
+
     # Read the HTML template
     template_html = (_TEMPLATE_DIR / "template.html").read_text(encoding="utf-8")
     styles_css = (_TEMPLATE_DIR / "styles.css").read_text(encoding="utf-8")
@@ -80,6 +106,7 @@ def build_dashboard() -> Path:
     html = html.replace("/* @@REPO_DATA@@ */ []", json.dumps(merged_data, default=str))
     html = html.replace("/* @@SUMMARY_DATA@@ */ {}", json.dumps(summary_data, default=str))
     html = html.replace("/* @@DEPENDENCY_DATA@@ */ {}", json.dumps(dependency_data, default=str))
+    html = html.replace("/* @@KEV_DATA@@ */ {}", json.dumps(kev_data, default=str))
 
     out_path = config.DASHBOARD_DIR / "index.html"
     out_path.write_text(html, encoding="utf-8")

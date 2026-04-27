@@ -46,6 +46,7 @@ start outputs\dashboard\index.html       # or open in any browser
 - [Running the Pipeline](#running-the-pipeline)
 - [Scorecard Status Model](#scorecard-status-model)
 - [Augur Orchestration](#augur-orchestration)
+- [Known Exploited Vulnerabilities (KEV) Analysis](#known-exploited-vulnerabilities-kev-analysis)
 - [Where Outputs Are Written](#where-outputs-are-written)
 - [Merged Output Schema](#merged-output-schema)
 - [Using the Dashboard](#using-the-dashboard)
@@ -302,6 +303,65 @@ Readiness endpoints (configurable in `config.py`): `contributors`, `issues-new`.
 
 ---
 
+## Known Exploited Vulnerabilities (KEV) Analysis
+
+The pipeline's vulnerability detection can be enriched using `exploit.py`, a standalone script that cross-references discovered vulnerabilities with CISA's [Known Exploited Vulnerabilities](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) catalog.
+
+### What it does
+
+`exploit.py` analyzes the dependency analysis output to identify which vulnerabilities have **known public exploits**. This is a critical security indicator — a vulnerability with a known exploit presents immediate risk if unpatched.
+
+### How to run it
+
+```powershell
+# Requires: pipeline run must have completed (produces dependency_analysis.json)
+python exploit.py
+```
+
+The script:
+1. Loads the `outputs/processed/dependency_analysis.json` file
+2. Fetches CISA's current KEV catalog via HTTPS
+3. Cross-references each vulnerability's CVE ID against the catalog
+4. Generates two output files with detailed findings and statistics
+
+### Output files
+
+| File | Contents |
+|---|---|
+| `outputs/processed/kev_analysis.json` | Full analysis — all vulnerabilities, KEV match status, and CISA details |
+| `outputs/processed/kev_summary.json` | Executive summary — counts, exploitability rate, and top-priority vulnerabilities |
+
+### Understanding the output
+
+**Key metrics in `kev_summary.json`:**
+
+```json
+{
+  "summary": {
+    "total_vulnerabilities_analyzed": 150,
+    "exploitable_vulnerabilities": 12,
+    "exploitability_rate_percent": 8.0,
+    "exploitable_by_severity": {
+      "CRITICAL": 2,
+      "HIGH": 5,
+      "MEDIUM": 5
+    },
+    "top_priority_vulnerabilities": [...]
+  }
+}
+```
+
+**Each vulnerability in `kev_analysis.json` includes:**
+
+- `id`: OSV vulnerability ID
+- `summary`: Vulnerability description
+- `severity`: Severity level (CRITICAL, HIGH, etc.)
+- `is_exploitable`: Whether it's in the CISA KEV catalog
+- `matched_cve`: The CVE ID matched to CISA's catalog (if exploitable)
+- `kev_data`: Full CISA entry including vendor, product, due date, required actions
+
+---
+
 ## Where Outputs Are Written
 
 All outputs go to `outputs/`:
@@ -313,6 +373,9 @@ All outputs go to `outputs/`:
 | `outputs/processed/merged_repos.json` | Unified dataset — all repos, all fields |
 | `outputs/processed/merged_repos.csv` | Flattened CSV version |
 | `outputs/processed/summary.json` | Run metadata — counts, timestamps, categories |
+| `outputs/processed/dependency_analysis.json` | Vulnerability analysis from pipeline (input for `exploit.py`) |
+| `outputs/processed/kev_analysis.json` | Full KEV analysis (from `exploit.py`) — all vulnerabilities with exploitation status |
+| `outputs/processed/kev_summary.json` | KEV summary (from `exploit.py`) — exploitability statistics and top findings |
 | `outputs/dashboard/index.html` | Self-contained HTML dashboard |
 | `outputs/logs/pipeline.log` | Detailed run log |
 
@@ -443,6 +506,7 @@ Simply re-run `python -m pipeline.main`. The pipeline uses cached raw files, so 
 
 ```
 AgOSS-Data-Gatherer/
+├── exploit.py              # KEV (Known Exploited Vulnerabilities) analysis tool — cross-references findings with CISA catalog
 ├── pipeline/               # Python pipeline package
 │   ├── Open Source Agricultural Software(Input).csv  # Main input list (Name, URL, Category, Ag-specific)
 │   ├── input.txt           # Optional legacy input (URL, Category)
@@ -468,6 +532,9 @@ AgOSS-Data-Gatherer/
 │   ├── processed/
 │   │   ├── merged_repos.json
 │   │   ├── merged_repos.csv
+│   │   ├── dependency_analysis.json
+│   │   ├── kev_analysis.json          # From exploit.py
+│   │   ├── kev_summary.json           # From exploit.py
 │   │   └── summary.json
 │   ├── dashboard/
 │   │   └── index.html      # Self-contained HTML dashboard
