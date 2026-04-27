@@ -1228,10 +1228,12 @@ renderCategories();
         const dueDate = v.kev_info?.due_date || '—';
         const vendor = v.kev_info?.vendor || '—';
         const product = v.kev_info?.product || '—';
+        const severityLabel = v.severity || '—';
+        const severityKey = String(severityLabel).toUpperCase();
         kevHtml += `<tr style="border-bottom:1px solid #fecaca;">
           <td style="padding:0.5rem;"><strong>${esc(v.id)}</strong></td>
           <td style="padding:0.5rem;">${esc(v.matched_cve || '—')}</td>
-          <td style="padding:0.5rem;"><span style="padding:0.25rem 0.5rem;border-radius:3px;background:${severityBadgeStyle(v.severity)};color:white;font-weight:600;font-size:0.8rem;">${v.severity}</span></td>
+          <td style="padding:0.5rem;"><span style="padding:0.25rem 0.5rem;border-radius:3px;background:${severityBadgeStyle(severityKey)};color:white;font-weight:600;font-size:0.8rem;">${esc(severityLabel)}</span></td>
           <td style="padding:0.5rem;font-size:0.8rem;">${esc(vendor)} / ${esc(product)}</td>
           <td style="padding:0.5rem;">${esc(dueDate)}</td>
         </tr>`;
