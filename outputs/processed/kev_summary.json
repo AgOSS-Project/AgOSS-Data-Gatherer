@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-27T01:52:06.434534+00:00",
+  "generated_at": "2026-04-28T21:21:55.390779+00:00",
   "summary": {
     "total_vulnerabilities_analyzed": 1151,
     "exploitable_vulnerabilities": 6,
@@ -9,6 +9,8 @@
       "HIGH": 3,
       "MEDIUM": 1
     },
+    "total_affected_repos": 11,
+    "affected_repositories": [],
     "top_priority_vulnerabilities": [
       {
         "id": "GHSA-36p3-wjmg-h94x",
