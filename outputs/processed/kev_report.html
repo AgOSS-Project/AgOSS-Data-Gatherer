@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>KEV Exploitability Report</title>
+        <style>
+            :root {
+                --ink: #1f2b2a;
+                --muted: #5b6b69;
+                --accent: #2f5d50;
+                --bg: #f6f1ea;
+                --panel: #ffffff;
+                --border: #e0d8cf;
+            }
+            * { box-sizing: border-box; }
+            body {
+                margin: 0;
+                font-family: "Merriweather", "Georgia", serif;
+                color: var(--ink);
+                background: linear-gradient(135deg, #f6f1ea 0%, #eef4f0 100%);
+            }
+            .page {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 32px 20px 60px;
+            }
+            header {
+                margin-bottom: 24px;
+            }
+            h1 {
+                margin: 0 0 6px;
+                font-size: 30px;
+                letter-spacing: 0.5px;
+            }
+            .subtitle {
+                color: var(--muted);
+                font-size: 14px;
+            }
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 14px;
+                margin: 20px 0 30px;
+            }
+            .card {
+                background: var(--panel);
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                padding: 14px 16px;
+                box-shadow: 0 6px 18px rgba(31, 43, 42, 0.08);
+                animation: fade-in 0.6s ease-out both;
+            }
+            .card-label {
+                color: var(--muted);
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 0.8px;
+            }
+            .card-value {
+                font-size: 24px;
+                margin-top: 6px;
+                color: var(--accent);
+            }
+            section {
+                background: var(--panel);
+                border: 1px solid var(--border);
+                border-radius: 14px;
+                padding: 18px;
+                margin-bottom: 20px;
+                box-shadow: 0 6px 18px rgba(31, 43, 42, 0.06);
+                animation: fade-in 0.6s ease-out both;
+            }
+            h2 {
+                margin: 0 0 12px;
+                font-size: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: "Source Sans 3", "Trebuchet MS", sans-serif;
+                font-size: 14px;
+            }
+            th, td {
+                text-align: left;
+                padding: 10px 8px;
+                border-bottom: 1px solid var(--border);
+                vertical-align: top;
+            }
+            th {
+                color: var(--muted);
+                font-weight: 600;
+            }
+            .repo-list {
+                color: var(--muted);
+            }
+            @keyframes fade-in {
+                from { opacity: 0; transform: translateY(8px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @media (max-width: 720px) {
+                .page { padding: 24px 16px 40px; }
+                table { font-size: 13px; }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <header>
+                <h1>KEV Exploitability Report</h1>
+                <div class="subtitle">Generated at 2026-04-28T21:53:41.380413+00:00</div>
+            </header>
+
+            <div class="cards">
+                
+                <div class="card">
+                    <div class="card-label">Total vulns</div>
+                    <div class="card-value">1151</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-label">Exploitable</div>
+                    <div class="card-value">6</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-label">Exploitability rate</div>
+                    <div class="card-value">0.52%</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-label">Unique repos affected</div>
+                    <div class="card-value">10</div>
+                </div>
+                
+            </div>
+
+            <section>
+                <h2>Exploitable Repos by Category</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Repos</th>
+                            <th>Vulns</th>
+                            <th>Repo list</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr>
+                    <td>Cloud-hosted backends and dashboard</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td class="repo-list">ODM, OpenATK FieldWorkApp, Sen2Agri-System</td>
+                </tr>
+                
+                <tr>
+                    <td>Domain-specific agricultural platform</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td class="repo-list">Tania</td>
+                </tr>
+                
+                <tr>
+                    <td>Edge and Gateway software</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td class="repo-list">AgIsoStack++, NodeODM, Thingsboard</td>
+                </tr>
+                
+                <tr>
+                    <td>Embedded OS substrate</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td class="repo-list">Zephyr</td>
+                </tr>
+                
+                <tr>
+                    <td>Field-Deployed Sensor</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td class="repo-list">MothBox, OpenWeedLocator</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Top Exploitable Vulnerabilities</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vuln ID</th>
+                            <th>Severity</th>
+                            <th>Matched CVE</th>
+                            <th>Repos</th>
+                            <th>Affected repos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr>
+                    <td>GHSA-36p3-wjmg-h94x</td>
+                    <td>CRITICAL</td>
+                    <td>CVE-2022-22965</td>
+                    <td>2</td>
+                    <td class="repo-list">Sen2Agri-System, Thingsboard</td>
+                </tr>
+                
+                <tr>
+                    <td>GHSA-4fq3-mr56-cg6r</td>
+                    <td>CRITICAL</td>
+                    <td>CVE-2018-1273</td>
+                    <td>1</td>
+                    <td class="repo-list">Thingsboard</td>
+                </tr>
+                
+                <tr>
+                    <td>GHSA-j7hp-h8jx-5ppr</td>
+                    <td>HIGH</td>
+                    <td>CVE-2023-4863</td>
+                    <td>5</td>
+                    <td class="repo-list">AgIsoStack++, MothBox, ODM, OpenWeedLocator, Zephyr</td>
+                </tr>
+                
+                <tr>
+                    <td>GHSA-2m8v-572m-ff2v</td>
+                    <td>HIGH</td>
+                    <td>CVE-2021-21315</td>
+                    <td>1</td>
+                    <td class="repo-list">NodeODM</td>
+                </tr>
+                
+                <tr>
+                    <td>GHSA-qqvq-6xgj-jw8g</td>
+                    <td>HIGH</td>
+                    <td>CVE-2023-5217</td>
+                    <td>1</td>
+                    <td class="repo-list">OpenATK FieldWorkApp</td>
+                </tr>
+                
+                <tr>
+                    <td>GHSA-qppj-fm5r-hxr3</td>
+                    <td>MEDIUM</td>
+                    <td>CVE-2023-44487</td>
+                    <td>1</td>
+                    <td class="repo-list">Tania</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </body>
+</html>

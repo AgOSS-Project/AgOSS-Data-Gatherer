@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-28T21:21:55.390779+00:00",
+  "generated_at": "2026-04-28T21:53:41.380413+00:00",
   "summary": {
     "total_vulnerabilities_analyzed": 1151,
     "exploitable_vulnerabilities": 6,
@@ -10,7 +10,164 @@
       "MEDIUM": 1
     },
     "total_affected_repos": 11,
-    "affected_repositories": [],
+    "unique_affected_repos": 10,
+    "affected_repositories": [
+      "https://github.com/OpenDroneMap/ODM",
+      "https://github.com/OpenATK/FieldWorkApp",
+      "https://github.com/Sen2Agri/Sen2Agri-System",
+      "https://github.com/usetania/tania-core",
+      "https://github.com/Open-Agriculture/AgIsoStack-plus-plus",
+      "https://github.com/OpenDroneMap/NodeODM",
+      "https://github.com/thingsboard/thingsboard",
+      "https://github.com/zephyrproject-rtos/zephyr",
+      "https://github.com/Digital-Naturalism-Laboratories/Mothbox",
+      "https://github.com/geezacoleman/OpenWeedLocator"
+    ],
+    "exploitable_repos": [
+      {
+        "repo_url": "https://github.com/OpenDroneMap/ODM",
+        "owner": "OpenDroneMap",
+        "repo_name": "ODM",
+        "display_name": "ODM",
+        "category": "Cloud-hosted backends and dashboard",
+        "vulnerabilities": [
+          "GHSA-j7hp-h8jx-5ppr"
+        ]
+      },
+      {
+        "repo_url": "https://github.com/OpenATK/FieldWorkApp",
+        "owner": "OpenATK",
+        "repo_name": "FieldWorkApp",
+        "display_name": "OpenATK FieldWorkApp",
+        "category": "Cloud-hosted backends and dashboard",
+        "vulnerabilities": [
+          "GHSA-qqvq-6xgj-jw8g"
+        ]
+      },
+      {
+        "repo_url": "https://github.com/Sen2Agri/Sen2Agri-System",
+        "owner": "Sen2Agri",
+        "repo_name": "Sen2Agri-System",
+        "display_name": "Sen2Agri-System",
+        "category": "Cloud-hosted backends and dashboard",
+        "vulnerabilities": [
+          "GHSA-36p3-wjmg-h94x"
+        ]
+      },
+      {
+        "repo_url": "https://github.com/usetania/tania-core",
+        "owner": "usetania",
+        "repo_name": "tania-core",
+        "display_name": "Tania",
+        "category": "Domain-specific agricultural platform",
+        "vulnerabilities": [
+          "GHSA-qppj-fm5r-hxr3"
+        ]
+      },
+      {
+        "repo_url": "https://github.com/Open-Agriculture/AgIsoStack-plus-plus",
+        "owner": "Open-Agriculture",
+        "repo_name": "AgIsoStack-plus-plus",
+        "display_name": "AgIsoStack++",
+        "category": "Edge and Gateway software",
+        "vulnerabilities": [
+          "GHSA-j7hp-h8jx-5ppr"
+        ]
+      },
+      {
+        "repo_url": "https://github.com/OpenDroneMap/NodeODM",
+        "owner": "OpenDroneMap",
+        "repo_name": "NodeODM",
+        "display_name": "NodeODM",
+        "category": "Edge and Gateway software",
+        "vulnerabilities": [
+          "GHSA-2m8v-572m-ff2v"
+        ]
+      },
+      {
+        "repo_url": "https://github.com/thingsboard/thingsboard",
+        "owner": "thingsboard",
+        "repo_name": "thingsboard",
+        "display_name": "Thingsboard",
+        "category": "Edge and Gateway software",
+        "vulnerabilities": [
+          "GHSA-36p3-wjmg-h94x",
+          "GHSA-4fq3-mr56-cg6r"
+        ]
+      },
+      {
+        "repo_url": "https://github.com/zephyrproject-rtos/zephyr",
+        "owner": "zephyrproject-rtos",
+        "repo_name": "zephyr",
+        "display_name": "Zephyr",
+        "category": "Embedded OS substrate",
+        "vulnerabilities": [
+          "GHSA-j7hp-h8jx-5ppr"
+        ]
+      },
+      {
+        "repo_url": "https://github.com/Digital-Naturalism-Laboratories/Mothbox",
+        "owner": "Digital-Naturalism-Laboratories",
+        "repo_name": "Mothbox",
+        "display_name": "MothBox",
+        "category": "Field-Deployed Sensor",
+        "vulnerabilities": [
+          "GHSA-j7hp-h8jx-5ppr"
+        ]
+      },
+      {
+        "repo_url": "https://github.com/geezacoleman/OpenWeedLocator",
+        "owner": "geezacoleman",
+        "repo_name": "OpenWeedLocator",
+        "display_name": "OpenWeedLocator",
+        "category": "Field-Deployed Sensor",
+        "vulnerabilities": [
+          "GHSA-j7hp-h8jx-5ppr"
+        ]
+      }
+    ],
+    "exploitable_repos_by_category": {
+      "Cloud-hosted backends and dashboard": {
+        "repo_count": 3,
+        "vulnerability_count": 3,
+        "repos": [
+          "ODM",
+          "OpenATK FieldWorkApp",
+          "Sen2Agri-System"
+        ]
+      },
+      "Domain-specific agricultural platform": {
+        "repo_count": 1,
+        "vulnerability_count": 1,
+        "repos": [
+          "Tania"
+        ]
+      },
+      "Edge and Gateway software": {
+        "repo_count": 3,
+        "vulnerability_count": 4,
+        "repos": [
+          "AgIsoStack++",
+          "NodeODM",
+          "Thingsboard"
+        ]
+      },
+      "Embedded OS substrate": {
+        "repo_count": 1,
+        "vulnerability_count": 1,
+        "repos": [
+          "Zephyr"
+        ]
+      },
+      "Field-Deployed Sensor": {
+        "repo_count": 2,
+        "vulnerability_count": 1,
+        "repos": [
+          "MothBox",
+          "OpenWeedLocator"
+        ]
+      }
+    },
     "top_priority_vulnerabilities": [
       {
         "id": "GHSA-36p3-wjmg-h94x",
@@ -80,5 +237,10 @@
       }
     ]
   },
-  "notes": []
+  "notes": [
+    "This analysis cross-references OSV vulnerabilities with CISA's KEV catalog.",
+    "Exploitable vulnerabilities (is_exploitable=true) have known public exploits.",
+    "kev_data contains details from the CISA catalog for matched vulnerabilities.",
+    "Affected repositories are mapped from the dependency analysis repo list."
+  ]
 }
