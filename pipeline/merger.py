@@ -7,9 +7,12 @@ import dataclasses
 import io
 import json
 import logging
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+import requests
 
 from pipeline import config
 from pipeline.models import (
@@ -22,6 +25,66 @@ from pipeline.models import (
 )
 
 logger = logging.getLogger("pipeline.merger")
+
+_GH_HEADERS = {
+    "Accept": "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+}
+
+
+def _gh_headers(token: str) -> dict[str, str]:
+    h = dict(_GH_HEADERS)
+    if token:
+        h["Authorization"] = f"Bearer {token}"
+    return h
+
+
+def _fetch_github_repo_data(owner: str, repo_name: str, token: str) -> dict | None:
+    """Fetch repo metadata from GitHub REST API (stars, forks, language, license, open_issues)."""
+    try:
+        resp = requests.get(
+            f"https://api.github.com/repos/{owner}/{repo_name}",
+            headers=_gh_headers(token),
+            timeout=10,
+        )
+        if resp.status_code == 200:
+            return resp.json()
+    except Exception:
+        pass
+    return None
+
+
+def _parse_link_last_page(link_header: str) -> int | None:
+    """Extract the last page number from a GitHub Link header."""
+    for part in link_header.split(","):
+        if 'rel="last"' in part:
+            m = re.search(r'[?&]page=(\d+)', part)
+            if m:
+                return int(m.group(1))
+    return None
+
+
+def _fetch_github_count(owner: str, repo_name: str, path: str, token: str,
+                        params: str = "") -> int | None:
+    """Return an item count using GitHub's per_page=1 + Link header trick."""
+    url = (
+        f"https://api.github.com/repos/{owner}/{repo_name}/{path}"
+        f"{'?' + params if params else ''}{'&' if params else '?'}per_page=1"
+    )
+    try:
+        resp = requests.get(url, headers=_gh_headers(token), timeout=10)
+        if resp.status_code == 200:
+            link = resp.headers.get("Link", "")
+            if link:
+                n = _parse_link_last_page(link)
+                if n is not None:
+                    return n
+            data = resp.json()
+            if isinstance(data, list):
+                return len(data)
+    except Exception:
+        pass
+    return None
 
 
 def _overall_status(sc: ScorecardResult, ag: AugurResult) -> OverallStatus:
@@ -74,6 +137,71 @@ def merge(
             # Pipeline
             overall_status=_overall_status(sc, ag),
         )
+
+        # GitHub fallback: fill missing Augur metrics from GitHub REST API.
+        metrics = rec.augur_metrics if isinstance(rec.augur_metrics, dict) else {}
+        if not isinstance(rec.augur_metrics, dict):
+            rec.augur_metrics = metrics
+
+        needs_stars = not metrics.get("stars")
+        needs_forks = not metrics.get("forks")
+        needs_language = not metrics.get("languages")
+        needs_license = not metrics.get("license")
+        needs_issues_open = not metrics.get("issues_opened") and not metrics.get("issues_total")
+        needs_contributors = not metrics.get("contributor_count")
+        needs_commits = not metrics.get("commit_count")
+        needs_issues_closed = not metrics.get("issues_closed")
+
+        token = config.GITHUB_AUTH_TOKEN
+
+        # Single metadata call covers stars, forks, language, license, open_issues.
+        if any([needs_stars, needs_forks, needs_language, needs_license, needs_issues_open]):
+            gh = _fetch_github_repo_data(entry.owner, entry.repo_name, token)
+            if gh:
+                if needs_stars and gh.get("stargazers_count") is not None:
+                    v = gh["stargazers_count"]
+                    metrics["stars"] = v
+                    agg = metrics.get("aggregate_summary")
+                    if isinstance(agg, list) and agg and isinstance(agg[0], dict):
+                        agg[0]["stars_count"] = v
+                    logger.debug("GH fallback stars %s/%s: %d", entry.owner, entry.repo_name, v)
+                if needs_forks and gh.get("forks_count") is not None:
+                    metrics["forks"] = gh["forks_count"]
+                if needs_language and gh.get("language"):
+                    metrics.setdefault("languages", [gh["language"]])
+                if needs_license and isinstance(gh.get("license"), dict):
+                    lic = gh["license"]
+                    metrics.setdefault("license",
+                                       lic.get("spdx_id") or lic.get("name") or "")
+                if needs_issues_open and gh.get("open_issues_count") is not None:
+                    metrics.setdefault("issues_opened", gh["open_issues_count"])
+
+        # Contributor count — paginated endpoint, one call.
+        if needs_contributors:
+            n = _fetch_github_count(entry.owner, entry.repo_name, "contributors", token,
+                                    params="anon=true")
+            if n is not None:
+                metrics["contributor_count"] = n
+                logger.debug("GH fallback contributors %s/%s: %d",
+                             entry.owner, entry.repo_name, n)
+
+        # Commit count — paginated endpoint, one call.
+        if needs_commits:
+            n = _fetch_github_count(entry.owner, entry.repo_name, "commits", token)
+            if n is not None:
+                metrics["commit_count"] = n
+                logger.debug("GH fallback commits %s/%s: %d",
+                             entry.owner, entry.repo_name, n)
+
+        # Closed issues count — one call.
+        if needs_issues_closed:
+            n = _fetch_github_count(entry.owner, entry.repo_name, "issues", token,
+                                    params="state=closed")
+            if n is not None:
+                metrics["issues_closed"] = n
+                logger.debug("GH fallback issues_closed %s/%s: %d",
+                             entry.owner, entry.repo_name, n)
+
         records.append(rec)
 
     summary = RunSummary(

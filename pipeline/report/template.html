@@ -6,13 +6,22 @@
 <title>AgOSS Repository Analysis Dashboard</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sgratzl/chartjs-chart-boxplot@4/build/index.umd.min.js"></script>
 <style>/* @@STYLES@@ */</style>
 </head>
 <body>
 
 <header>
-  <h1>AgOSS Repository Analysis Dashboard</h1>
-  <p id="headerSub">Loading…</p>
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+    <div>
+      <h1>AgOSS Repository Analysis Dashboard</h1>
+      <p id="headerSub">Loading…</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:.75rem;flex-shrink:0;padding-top:.5rem;">
+      <small id="collectionDate" style="color:#64748b;font-size:.8rem;"></small>
+      <a href="../../repo-search/index.html" target="_blank" rel="noopener" style="display:inline-block;padding:.35rem .75rem;background:#f1f5f9;border:1px solid #cbd5e1;border-radius:6px;color:#1e3a5f;text-decoration:none;font-size:.85rem;font-weight:500;">Candidate Search ↗</a>
+    </div>
+  </div>
 </header>
 
 <div class="container">
@@ -31,6 +40,7 @@
   <!-- ═══════════════ OVERVIEW ═══════════════ -->
   <div id="tab-overview" class="tab-panel active">
     <div class="cards" id="summaryCards"></div>
+    <div id="augurQualityCallout" style="display:none;margin:.5rem 0 1rem;padding:.75rem 1rem;background:#fef9c3;border-left:4px solid #ca8a04;border-radius:6px;font-size:.85rem;color:#713f12;"></div>
     <div class="chart-grid">
       <div class="chart-card"><h3>Scorecard Score Distribution</h3><canvas id="chartScoreHist"></canvas></div>
       <div class="chart-card"><h3>Repos per Category</h3><canvas id="chartCatCount"></canvas></div>
@@ -38,6 +48,14 @@
       <div class="chart-card"><h3>Collection Status</h3><canvas id="chartStatus"></canvas></div>
       <div class="chart-card"><h3>Ag-Specific Breakdown</h3><canvas id="chartAgSpecific"></canvas></div>
       <div class="chart-card"><h3>Category Split by Ag-Specificness</h3><canvas id="chartCatAgSplit"></canvas></div>
+    </div>
+    <div id="corrMatrixSection" style="margin-top:1.5rem;display:none;">
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;">
+        <h3 style="margin:0;">Metric Correlation Matrix (Spearman r)</h3>
+        <button type="button" id="corrMatrixDownloadBtn" class="chart-action-btn" style="flex-shrink:0;">Download</button>
+      </div>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">Upper triangle. * p&lt;0.05, ** p&lt;0.01. Color: blue = negative, red = positive.</p>
+      <div id="corrMatrixTable" style="overflow-x:auto;"></div>
     </div>
   </div>
 
@@ -99,14 +117,37 @@
       <div class="chart-card"><h3>Avg Scorecard by Ag-Specificness</h3><canvas id="chartAgScore"></canvas></div>
       <div class="chart-card"><h3>Avg Stars by Ag-Specificness</h3><canvas id="chartAgStars"></canvas></div>
       <div class="chart-card"><h3>Category Mix (Selected Ag Group)</h3><canvas id="chartAgCategoryMix"></canvas></div>
+      <div class="chart-card"><h3>Scorecard Score Distribution — Ag-Specific vs Non-Ag</h3><canvas id="chartAgScoreHist"></canvas></div>
+      <div class="chart-card"><h3>Vulnerability Exposure by Ag-Specificness</h3><canvas id="chartAgVulnExposure"></canvas></div>
+      <div class="chart-card"><h3>Scorecard Check Averages — Ag vs Non-Ag</h3><canvas id="chartAgRadar"></canvas></div>
     </div>
     <div class="table-wrap">
       <table id="agTable">
         <thead><tr>
-          <th>Ag-Specificness</th><th>Repos</th><th>Avg SC Score</th><th>Avg Stars</th><th>Avg Contributors</th>
+          <th>Ag-Specificness</th><th>Repos</th><th>Avg SC Score</th>
+          <th>Mean [95% CI]</th><th>Median [95% CI]</th>
+          <th>Avg Stars</th><th>Avg Contributors</th>
         </tr></thead>
         <tbody id="agBody"></tbody>
       </table>
+    </div>
+    <div id="mwTestPanel" style="margin-top:2rem;">
+      <h3 style="margin-bottom:1rem;">Statistical Comparison — Ag-Specific vs Non-Ag-Specific</h3>
+      <p style="font-size:.85rem;color:#64748b;margin-bottom:.75rem;">Mann-Whitney U test (two-sided). Effect size = rank-biserial r. No multiple-comparison correction applied.</p>
+      <div class="chart-card" style="margin-bottom:1.5rem;" id="mwEffectSizesCard">
+        <h3>Effect Sizes — Significant Comparisons (Ag vs Non-Ag)</h3>
+        <p style="font-size:.8rem;color:#64748b;margin-bottom:.5rem;">Rank-biserial r for significant comparisons only (α = 0.05), sorted by magnitude. Positive r = Ag-specific repos rank higher.</p>
+        <canvas id="chartMWEffectSizes" style="max-height:260px;"></canvas>
+      </div>
+      <div class="table-wrap">
+        <table id="mwTable">
+          <thead><tr>
+            <th>Metric</th><th>n (Ag)</th><th>n (Non-Ag)</th><th>MW U</th>
+            <th>p-value</th><th>Effect r</th><th>Magnitude</th><th>Significant?</th>
+          </tr></thead>
+          <tbody id="mwBody"></tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -149,11 +190,13 @@
       <div class="chart-card"><h3>Dependency Vulnerability Severity</h3><canvas id="chartDepSeverity"></canvas></div>
       <div class="chart-card"><h3>Vulnerabilities by Category</h3><canvas id="chartDepVulnsByCategory"></canvas></div>
       <div class="chart-card"><h3>Vulnerabilities per Repo by Category</h3><canvas id="chartDepVulnsPerRepoCategory"></canvas></div>
-      <div class="chart-card"><h3>Top Repositories by Dependency Vulns</h3><canvas id="chartDepTopRepos"></canvas></div>
+      <div class="chart-card"><h3>Top Repositories by Dependency Vulns</h3><div style="text-align:right;margin-bottom:4px;"><button id="toggleDepTopReposScale" style="font-size:.75rem;padding:2px 8px;border:1px solid #cbd5e1;border-radius:4px;background:#f8fafc;cursor:pointer;">Log Scale</button></div><canvas id="chartDepTopRepos"></canvas></div>
       <div class="chart-card"><h3>Package Queryability</h3><canvas id="chartDepQueryable"></canvas></div>
       <div class="chart-card"><h3>Most Common Vulnerabilities by Category</h3><canvas id="chartDepTopVulnByCategory"></canvas></div>
       <div class="chart-card"><h3>Most Common Dependencies by Category</h3><canvas id="chartDepTopDepsByCategory"></canvas></div>
+      <div class="chart-card"><h3>Vulnerability Density by Repo (Vulns / Queryable Packages)</h3><canvas id="chartDepVulnDensity"></canvas></div>
     </div>
+    <div id="depFailedNote" style="display:none;margin:.75rem 0;padding:.6rem 1rem;background:#fef3c7;border-left:4px solid #d97706;border-radius:6px;font-size:.85rem;color:#92400e;"></div>
     <div class="table-wrap">
       <table id="depRepoTable">
         <thead><tr>
@@ -172,19 +215,31 @@
     </div>
     <div class="cards" id="catCards"></div>
     <div class="chart-grid">
+      <div class="chart-card"><h3>Scorecard Score Distribution by Layer</h3><canvas id="chartCatBoxplot"></canvas></div>
+      <div class="chart-card"><h3>Dependency Vulnerability Count Distribution by Layer</h3><div style="text-align:right;margin-bottom:4px;"><button id="toggleCatVulnBoxplotScale" style="font-size:.75rem;padding:2px 8px;border:1px solid #cbd5e1;border-radius:4px;background:#f8fafc;cursor:pointer;">Log Scale</button></div><canvas id="chartCatVulnBoxplot"></canvas></div>
       <div class="chart-card"><h3>Category Comparison — Avg Scorecard</h3><canvas id="chartCatComp"></canvas></div>
       <div class="chart-card"><h3>Category Comparison — Avg Stars</h3><canvas id="chartCatStars"></canvas></div>
       <div class="chart-card"><h3>Category Comparison — Avg Contributors</h3><canvas id="chartCatContrib"></canvas></div>
       <div class="chart-card"><h3>Category Size vs Avg Score</h3><canvas id="chartCatScatter"></canvas></div>
     </div>
+    <div class="chart-card" style="margin:1rem 0;" id="heatmapCard">
+      <h3>Security Check Scores by Repository</h3>
+      <div id="chartCheckHeatmap" style="overflow-x:auto;font-size:0.72rem;"></div>
+    </div>
     <div class="table-wrap">
       <table id="catTable">
         <thead><tr>
           <th>Category</th><th>Repos</th><th>Avg SC Score</th>
+          <th>Mean [95% CI]</th><th>Median [95% CI]</th>
           <th>Avg Stars</th><th>Avg Contributors</th><th>Avg Issues</th>
         </tr></thead>
         <tbody id="catBody"></tbody>
       </table>
+    </div>
+    <div id="kwSection" style="margin-top:2rem;display:none;">
+      <h3 style="margin-bottom:.5rem;">Kruskal-Wallis Test across Categories</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">Non-parametric one-way test. Dunn's post-hoc with Bonferroni correction. * p_adj &lt; 0.05.</p>
+      <div id="kwContent"></div>
     </div>
   </div>
 
@@ -253,6 +308,7 @@ const REPOS = /* @@REPO_DATA@@ */ [];
 const SUMMARY = /* @@SUMMARY_DATA@@ */ {};
 const DEPENDENCY = /* @@DEPENDENCY_DATA@@ */ {};
 const KEV_SUMMARY = /* @@KEV_DATA@@ */ {};
+const STATS = /* @@STATS_DATA@@ */ {};
 
 // ── Helpers ──
 const avg = (arr) => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0;
@@ -261,6 +317,54 @@ const esc = (s) => { const d = document.createElement('div'); d.textContent = s;
 const escAttr = (s) => esc(String(s ?? '')).replace(/"/g, '&quot;');
 const agKey = (value) => value === true ? 'yes' : value === false ? 'no' : 'unknown';
 const agLabel = (value) => value === true ? 'Ag-Specific' : value === false ? 'Not Ag-Specific' : 'Unknown';
+
+// Helper: compute 95% CI from raw values using normal approximation (for computed-on-the-fly CIs)
+function normalCI95(values) {
+  const n = values.length;
+  if (n < 2) return null;
+  const m = values.reduce((s, v) => s + v, 0) / n;
+  const variance = values.reduce((s, v) => s + (v - m) * (v - m), 0) / (n - 1);
+  const se = Math.sqrt(variance / n);
+  const t = n >= 30 ? 1.96 : (n >= 10 ? 2.23 : 2.78);
+  return { min: m - t * se, max: m + t * se };
+}
+
+// Global error-bar plugin: draws I-bars when a dataset has an errorBars array.
+// Each entry is {min, max} in data-value units, or null to skip.
+Chart.register({
+  id: 'agossErrorBars',
+  afterDatasetDraw(chart, args) {
+    const dataset = chart.data.datasets[args.index];
+    if (!Array.isArray(dataset.errorBars)) return;
+    const meta = chart.getDatasetMeta(args.index);
+    const isHorizontal = chart.options.indexAxis === 'y';
+    const ctx = chart.ctx;
+    ctx.save();
+    ctx.lineWidth = dataset.errorBarLineWidth || 1.5;
+    ctx.strokeStyle = dataset.errorBarColor || '#1e293b';
+    const cap = 5;
+    meta.data.forEach((el, i) => {
+      const eb = dataset.errorBars[i];
+      if (!eb || eb.min == null || eb.max == null) return;
+      if (isHorizontal) {
+        const py = el.y;
+        const pxLo = chart.scales.x.getPixelForValue(eb.min);
+        const pxHi = chart.scales.x.getPixelForValue(eb.max);
+        ctx.beginPath(); ctx.moveTo(pxLo, py); ctx.lineTo(pxHi, py); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(pxLo, py - cap); ctx.lineTo(pxLo, py + cap); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(pxHi, py - cap); ctx.lineTo(pxHi, py + cap); ctx.stroke();
+      } else {
+        const px = el.x;
+        const pyLo = chart.scales.y.getPixelForValue(eb.min);
+        const pyHi = chart.scales.y.getPixelForValue(eb.max);
+        ctx.beginPath(); ctx.moveTo(px, pyLo); ctx.lineTo(px, pyHi); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(px - cap, pyLo); ctx.lineTo(px + cap, pyLo); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(px - cap, pyHi); ctx.lineTo(px + cap, pyHi); ctx.stroke();
+      }
+    });
+    ctx.restore();
+  }
+});
 
 let enlargedChart = null;
 let activeSourceCanvas = null;
@@ -649,7 +753,32 @@ function vulnTokens(reason) {
 }
 
 // ── Derived data ──
-const categories = [...new Set(REPOS.map(r=>r.category))].sort();
+
+// Stack-layer order from lowest level to highest
+const LAYER_ORDER = [
+  'Embedded OS substrate',
+  'Field-Deployed Sensor',
+  'Edge and Gateway software',
+  'Cloud-hosted backends and dashboard',
+  'Domain-specific agricultural platform',
+  'Messaging and data transport layers',
+];
+function layerIdx(cat) {
+  const i = LAYER_ORDER.indexOf(cat);
+  return i >= 0 ? i : LAYER_ORDER.length;
+}
+
+const allCatSet = [...new Set(REPOS.map(r=>r.category))];
+const categories = allCatSet.sort((a, b) => layerIdx(a) - layerIdx(b) || a.localeCompare(b));
+
+// Stars extraction — nested in aggregate_summary
+function starsVal(r) {
+  const m = r.augur_metrics || {};
+  const agg = m.aggregate_summary;
+  if (Array.isArray(agg) && agg.length > 0 && agg[0].stars_count != null) return agg[0].stars_count;
+  return m.stars ?? null;
+}
+
 function catGroup(cat) { return cat ? REPOS.filter(r=>r.category===cat) : REPOS; }
 function agGroup(group) {
   if (!group || group === 'all') return REPOS;
@@ -659,7 +788,7 @@ const agBuckets = ['yes', 'no', 'unknown'];
 function catStats(cat) {
   const g = catGroup(cat);
   const scores = g.map(r=>r.scorecard_overall).filter(v=>v!=null);
-  const stars = g.map(r=>(r.augur_metrics||{}).stars).filter(v=>v!=null);
+  const stars = g.map(r=>starsVal(r)).filter(v=>v!=null);
   const contribs = g.map(r=>(r.augur_metrics||{}).contributor_count).filter(v=>v!=null);
   const issues = g.map(r=>(r.augur_metrics||{}).issues_opened).filter(v=>v!=null);
   return { count: g.length, avgScore: avg(scores), avgStars: avg(stars), avgContrib: avg(contribs), avgIssues: avg(issues) };
@@ -667,9 +796,32 @@ function catStats(cat) {
 function agStats(group) {
   const g = agGroup(group);
   const scores = g.map(r=>r.scorecard_overall).filter(v=>v!=null);
-  const stars = g.map(r=>(r.augur_metrics||{}).stars).filter(v=>v!=null);
+  const stars = g.map(r=>starsVal(r)).filter(v=>v!=null);
   const contribs = g.map(r=>(r.augur_metrics||{}).contributor_count).filter(v=>v!=null);
   return { count: g.length, avgScore: avg(scores), avgStars: avg(stars), avgContrib: avg(contribs) };
+}
+
+// Stats helpers
+function statsCatData(cat, metric) {
+  return (STATS.by_category && STATS.by_category[cat] && STATS.by_category[cat][metric]) || null;
+}
+function statsAgData(group, metric) {
+  return (STATS.by_ag_specific && STATS.by_ag_specific[group] && STATS.by_ag_specific[group][metric]) || null;
+}
+function fmtCI(d) {
+  if (!d || d.mean == null) return '—';
+  return `${fmt(d.mean)} [${fmt(d.mean_ci_lo)}, ${fmt(d.mean_ci_hi)}]`;
+}
+function fmtCIMedian(d) {
+  if (!d || d.median == null) return '—';
+  return `${fmt(d.median)} [${fmt(d.median_ci_lo)}, ${fmt(d.median_ci_hi)}]`;
+}
+// Build label with (n=N) from catStats
+function catLabel(cat) { return `${cat} (n=${catGroup(cat).length})`; }
+function agLabel2(key) {
+  const g = agGroup(key);
+  const base = agLabel(key === 'yes' ? true : key === 'no' ? false : null);
+  return `${base} (n=${g.length})`;
 }
 
 const vulnSummary = (() => {
@@ -888,6 +1040,143 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   document.getElementById('headerSub').textContent =
     `${SUMMARY.total_repos || REPOS.length} repos · Run: ${(SUMMARY.run_start||'').slice(0,19).replace('T',' ')}`;
 
+  // Collection date in header
+  const collDate = (SUMMARY.run_end || SUMMARY.run_start || '').slice(0, 10);
+  if (collDate) {
+    const el = document.getElementById('collectionDate');
+    if (el) el.textContent = `Data collected: ${collDate}`;
+  }
+
+  // Augur quality callout
+  const perRaw = STATS.per_repo_raw || [];
+  const augurUnreliable = perRaw.filter(r => r.augur_reliable === false);
+  const depFailedRepos = perRaw.filter(r => r.dep_failed === true);
+  const callout = document.getElementById('augurQualityCallout');
+  if (callout && (augurUnreliable.length > 0 || depFailedRepos.length > 0)) {
+    let msg = '<strong>Data Quality Notes:</strong><ul style="margin:.4rem 0 0;padding-left:1.25rem;">';
+    if (augurUnreliable.length > 0)
+      msg += `<li>${augurUnreliable.length} repos have unreliable Augur activity metrics (not_registered / failed) — included in averages but flagged.</li>`;
+    if (depFailedRepos.length > 0)
+      msg += `<li>${depFailedRepos.length} repos could not be analyzed for dependencies: ${depFailedRepos.map(r => esc(r.display_name)).join(', ')}.</li>`;
+    msg += '</ul>';
+    callout.innerHTML = msg;
+    callout.style.display = 'block';
+  }
+
+  // Correlation matrix
+  const corrMatrix = STATS.correlation_matrix;
+  const corrMetrics = STATS.metrics ? STATS.metrics.filter(m => !m.startsWith('check_')) : [];
+  const coreMetricLabels = {
+    scorecard_overall: 'SC Score', contributor_count: 'Contributors', commit_count: 'Commits',
+    issues_opened: 'Issues Open', issues_closed: 'Issues Closed', prs_merged: 'PRs Merged',
+    vuln_count: 'Vuln Count', vuln_density: 'Vuln Density', stars_count: 'Stars',
+  };
+  if (corrMatrix && corrMetrics.length > 0) {
+    // Only include metrics that have at least one valid (non-null) Spearman r with another metric.
+    // Metrics with all-null rows (constant arrays like vuln_count=0, or missing data like prs_merged)
+    // are mathematically undefined and excluded to keep the matrix readable.
+    const hasValidCorr = (m) => {
+      const asRow = corrMetrics.some(m2 => { const d = corrMatrix[m] && corrMatrix[m][m2]; return d && d.spearman_r != null; });
+      const asCol = corrMetrics.some(m2 => { const d = corrMatrix[m2] && corrMatrix[m2][m]; return d && d.spearman_r != null; });
+      return asRow || asCol;
+    };
+    const allLabeled = corrMetrics.filter(m => coreMetricLabels[m]);
+    const usedMetrics = allLabeled.filter(hasValidCorr);
+    const excludedMetrics = allLabeled.filter(m => !hasValidCorr(m));
+    if (usedMetrics.length > 0) {
+      const section = document.getElementById('corrMatrixSection');
+      const tableDiv = document.getElementById('corrMatrixTable');
+      if (section && tableDiv) {
+        const hdrCells = usedMetrics.map(m => `<th style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:.72rem;padding:3px 2px;white-space:nowrap;">${esc(coreMetricLabels[m] || m)}</th>`).join('');
+        const rows = usedMetrics.map((m1, i) => {
+          const cells = usedMetrics.map((m2, j) => {
+            if (j <= i) return `<td style="background:#f1f5f9;text-align:center;padding:3px 5px;font-size:.72rem;">—</td>`;
+            const d = corrMatrix[m1] && corrMatrix[m1][m2];
+            if (!d || d.spearman_r == null) return `<td style="background:#f8fafc;text-align:center;font-size:.72rem;">n/a</td>`;
+            const r = d.spearman_r;
+            const sig = d.p_value < 0.01 ? '**' : d.p_value < 0.05 ? '*' : '';
+            const hue = r >= 0 ? Math.round(r * 15) : 240 + Math.round(r * 60);
+            const sat = Math.round(Math.abs(r) * 70);
+            const bg = `hsl(${hue},${sat}%,${Math.round(90 - Math.abs(r) * 30)}%)`;
+            return `<td style="background:${bg};text-align:center;padding:3px 5px;font-size:.72rem;" title="${esc(coreMetricLabels[m1]||m1)} vs ${esc(coreMetricLabels[m2]||m2)}: r=${r.toFixed(3)}, p=${d.p_value?.toFixed(4)}">${r.toFixed(2)}${sig}</td>`;
+          }).join('');
+          return `<tr><td style="font-size:.72rem;padding:3px 6px;white-space:nowrap;">${esc(coreMetricLabels[m1]||m1)}</td>${cells}</tr>`;
+        }).join('');
+        let matrixHtml = `<table style="border-collapse:collapse;font-size:.72rem;"><thead><tr><th></th>${hdrCells}</tr></thead><tbody>${rows}</tbody></table>`;
+        if (excludedMetrics.length > 0) {
+          const excLabels = excludedMetrics.map(m => coreMetricLabels[m] || m).join(', ');
+          matrixHtml += `<p style="font-size:.75rem;color:#94a3b8;margin-top:.5rem;">Excluded (no valid correlations — constant or missing data): ${esc(excLabels)}.</p>`;
+        }
+        tableDiv.innerHTML = matrixHtml;
+        section.style.display = 'block';
+
+        // Wire up download button
+        const dlBtn = document.getElementById('corrMatrixDownloadBtn');
+        if (dlBtn) {
+          dlBtn.addEventListener('click', () => {
+            const n = usedMetrics.length;
+            const cellSize = 72, rowLabelW = 106, colHeaderH = 110;
+            const padTop = 28, padLeft = 14;
+            const cW = padLeft + rowLabelW + n * cellSize + 24;
+            const cH = padTop + colHeaderH + n * cellSize + 24;
+            const cvs = document.createElement('canvas');
+            cvs.width = cW; cvs.height = cH;
+            const cx = cvs.getContext('2d');
+            cx.fillStyle = '#ffffff'; cx.fillRect(0, 0, cW, cH);
+            const ox = padLeft + rowLabelW, oy = padTop + colHeaderH;
+            // Title
+            cx.font = 'bold 13px sans-serif'; cx.fillStyle = '#1e293b'; cx.textAlign = 'left';
+            cx.fillText('Metric Correlation Matrix (Spearman r)   * p<0.05   ** p<0.01', padLeft, padTop - 6);
+            // Column headers (rotated 45°)
+            cx.font = '11px sans-serif'; cx.fillStyle = '#1e293b';
+            usedMetrics.forEach((m, j) => {
+              cx.save();
+              cx.translate(ox + j * cellSize + cellSize / 2, oy - 8);
+              cx.rotate(-Math.PI / 4);
+              cx.textAlign = 'left'; cx.fillText(coreMetricLabels[m] || m, 0, 0);
+              cx.restore();
+            });
+            // Row labels
+            cx.textAlign = 'right';
+            usedMetrics.forEach((m, i) => {
+              cx.fillText(coreMetricLabels[m] || m, ox - 6, oy + i * cellSize + cellSize / 2 + 4);
+            });
+            // Cells
+            usedMetrics.forEach((m1, i) => {
+              usedMetrics.forEach((m2, j) => {
+                const x = ox + j * cellSize, y = oy + i * cellSize;
+                if (j <= i) {
+                  cx.fillStyle = '#f1f5f9'; cx.fillRect(x, y, cellSize, cellSize);
+                  cx.fillStyle = '#94a3b8'; cx.textAlign = 'center';
+                  cx.fillText('—', x + cellSize / 2, y + cellSize / 2 + 4);
+                } else {
+                  const d = corrMatrix[m1] && corrMatrix[m1][m2];
+                  if (!d || d.spearman_r == null) {
+                    cx.fillStyle = '#f8fafc'; cx.fillRect(x, y, cellSize, cellSize);
+                    cx.fillStyle = '#94a3b8'; cx.textAlign = 'center';
+                    cx.fillText('n/a', x + cellSize / 2, y + cellSize / 2 + 4);
+                  } else {
+                    const r = d.spearman_r;
+                    const sig = d.p_value < 0.01 ? '**' : d.p_value < 0.05 ? '*' : '';
+                    const hue = r >= 0 ? Math.round(r * 15) : 240 + Math.round(r * 60);
+                    const sat = Math.round(Math.abs(r) * 70);
+                    cx.fillStyle = `hsl(${hue},${sat}%,${Math.round(90 - Math.abs(r) * 30)}%)`;
+                    cx.fillRect(x, y, cellSize, cellSize);
+                    cx.fillStyle = Math.abs(r) > 0.55 ? '#ffffff' : '#1e293b';
+                    cx.textAlign = 'center';
+                    cx.fillText(`${r.toFixed(2)}${sig}`, x + cellSize / 2, y + cellSize / 2 + 4);
+                  }
+                }
+                cx.strokeStyle = '#e2e8f0'; cx.strokeRect(x, y, cellSize, cellSize);
+              });
+            });
+            triggerDownload(cvs.toDataURL('image/png'), 'correlation-matrix.png');
+          });
+        }
+      }
+    }
+  }
+
   const scores = REPOS.map(r=>r.scorecard_overall).filter(v=>v!=null);
   const cards = [
     { label: 'Total Repos', value: REPOS.length },
@@ -918,7 +1207,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   const cCounts = categories.map(c=>catGroup(c).length);
   new Chart(document.getElementById('chartCatCount'), {
     type: 'bar',
-    data: { labels: categories, datasets: [{ label:'Repos', data:cCounts, backgroundColor:'#6366f1' }] },
+    data: { labels: categories.map(catLabel), datasets: [{ label:'Repos', data:cCounts, backgroundColor:'#6366f1' }] },
     options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
   });
 
@@ -926,33 +1215,50 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   const cScores = categories.map(c=>catStats(c).avgScore);
   new Chart(document.getElementById('chartCatScore'), {
     type: 'bar',
-    data: { labels: categories, datasets: [{ label:'Avg Score', data:cScores, backgroundColor:'#10b981' }] },
-    options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{min:0,max:10}} }
+    data: { labels: categories.map(catLabel), datasets: [{
+      label:'Avg Score', data:cScores, backgroundColor:'#10b981',
+      errorBars: categories.map(c=>{const d=statsCatData(c,'scorecard_overall'); return d?{min:d.mean_ci_lo,max:d.mean_ci_hi}:null;}),
+      errorBarColor:'#065f46', errorBarLineWidth:1.5,
+    }] },
+    options: { indexAxis:'y', plugins:{ legend:{display:false},
+      subtitle:{display:true,text:'Error bars = 95% CI of mean',font:{size:10},color:'#94a3b8',padding:{bottom:2}},
+      tooltip:{callbacks:{label:ctx=>{const d=statsCatData(categories[ctx.dataIndex],'scorecard_overall'); return d&&d.mean_ci_lo!=null?`Mean: ${fmt(ctx.raw)}  95% CI: [${fmt(d.mean_ci_lo)}, ${fmt(d.mean_ci_hi)}]`:`Mean: ${fmt(ctx.raw)}`;}}},
+    }, scales:{x:{min:0,max:10}} }
   });
 
-  // Collection status doughnut — now uses overall_status
+  // Collection status — sorted bar
   const complete = REPOS.filter(r=>r.overall_status==='complete').length;
   const partial = REPOS.filter(r=>r.overall_status==='partial').length;
   const failed = REPOS.filter(r=>r.overall_status==='failed').length;
+  const statusPairs = [
+    { label:'Complete', val:complete, color:'#16a34a' },
+    { label:'Partial',  val:partial,  color:'#d97706' },
+    { label:'Failed',   val:failed,   color:'#dc2626' },
+  ].sort((a,b) => b.val - a.val);
   new Chart(document.getElementById('chartStatus'), {
-    type: 'doughnut',
-    data: { labels:['Complete','Partial','Failed'], datasets:[{ data:[complete,partial,failed], backgroundColor:['#16a34a','#d97706','#dc2626'] }] },
-    options: { plugins:{legend:{position:'bottom'}} }
+    type: 'bar',
+    data: { labels:statusPairs.map(p=>p.label), datasets:[{ data:statusPairs.map(p=>p.val), backgroundColor:statusPairs.map(p=>p.color) }] },
+    options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
   });
 
-  // Ag-specific breakdown
-  const agCounts = agBuckets.map(k => agGroup(k).length);
+  // Ag-specific breakdown — sorted bar
+  const agColors = { yes:'#16a34a', no:'#d97706', unknown:'#94a3b8' };
+  const agPairs = agBuckets.map(k => ({
+    label: agLabel(k === 'yes' ? true : k === 'no' ? false : null),
+    val: agGroup(k).length,
+    color: agColors[k],
+  })).sort((a,b) => b.val - a.val);
   new Chart(document.getElementById('chartAgSpecific'), {
-    type: 'doughnut',
-    data: { labels: agBuckets.map(k => agLabel(k === 'yes' ? true : k === 'no' ? false : null)), datasets:[{ data: agCounts, backgroundColor:['#16a34a','#d97706','#94a3b8'] }] },
-    options: { plugins:{legend:{position:'bottom'}} }
+    type: 'bar',
+    data: { labels:agPairs.map(p=>p.label), datasets:[{ data:agPairs.map(p=>p.val), backgroundColor:agPairs.map(p=>p.color) }] },
+    options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
   });
 
   // Category split by Ag-specificness
   new Chart(document.getElementById('chartCatAgSplit'), {
     type: 'bar',
     data: {
-      labels: categories,
+      labels: categories.map(catLabel),
       datasets: [
         { label:'Ag-Specific', data: categories.map(c => catGroup(c).filter(r => agKey(r.ag_specific)==='yes').length), backgroundColor:'#16a34a' },
         { label:'Not Ag-Specific', data: categories.map(c => catGroup(c).filter(r => agKey(r.ag_specific)==='no').length), backgroundColor:'#d97706' },
@@ -1121,19 +1427,76 @@ function renderCategories() {
   const cats = sel ? [sel] : categories;
   document.getElementById('catCards').innerHTML = cats.map(c => {
     const s = catStats(c);
-    return `<div class="card"><div class="label">${esc(c)}</div>
+    const sd = statsCatData(c, 'scorecard_overall');
+    const ciStr = sd ? ` · CI: [${fmt(sd.mean_ci_lo)}, ${fmt(sd.mean_ci_hi)}]` : '';
+    return `<div class="card"><div class="label">${esc(c)} (n=${s.count})</div>
       <div style="font-size:.85rem;margin-top:.4rem;">
-        <div>${s.count} repos · Avg SC: ${fmt(s.avgScore)} · Avg ★: ${fmt(s.avgStars,0)}</div>
+        <div>Avg SC: ${fmt(s.avgScore)}${ciStr}</div>
+        <div>Avg ★: ${fmt(s.avgStars,0)} · Avg Contributors: ${fmt(s.avgContrib,0)}</div>
       </div></div>`;
   }).join('');
 
   document.getElementById('catBody').innerHTML = cats.map(c => {
     const s = catStats(c);
-    return `<tr><td>${esc(c)}</td><td>${s.count}</td><td>${fmt(s.avgScore)}</td><td>${fmt(s.avgStars,0)}</td><td>${fmt(s.avgContrib,0)}</td><td>${fmt(s.avgIssues,0)}</td></tr>`;
+    const sd = statsCatData(c, 'scorecard_overall');
+    return `<tr>
+      <td>${esc(c)}</td><td>${s.count}</td><td>${fmt(s.avgScore)}</td>
+      <td>${fmtCI(sd)}</td><td>${fmtCIMedian(sd)}</td>
+      <td>${fmt(s.avgStars,0)}</td><td>${fmt(s.avgContrib,0)}</td><td>${fmt(s.avgIssues,0)}</td>
+    </tr>`;
   }).join('');
 }
 document.getElementById('catLensSelect').addEventListener('change', renderCategories);
 renderCategories();
+
+// Kruskal-Wallis + Dunn's table
+(function renderKW() {
+  const kw = STATS.kruskal_wallis;
+  if (!kw) return;
+  const kwSection = document.getElementById('kwSection');
+  const kwContent = document.getElementById('kwContent');
+  if (!kwSection || !kwContent) return;
+
+  const kwMetricLabels = { scorecard_overall: 'Scorecard Overall', vuln_count: 'Vulnerability Count', vuln_density: 'Vuln Density' };
+  let html = '';
+
+  for (const [metric, result] of Object.entries(kw)) {
+    if (!result || result.H == null) continue;
+    const label = kwMetricLabels[metric] || metric;
+    const sigBg = result.significant ? '#dcfce7' : '';
+    html += `<div style="margin-bottom:1.5rem;">
+      <h4 style="margin:.5rem 0;">${esc(label)} — Kruskal-Wallis H = ${fmt(result.H, 3)}, p = ${result.p < 0.001 ? '<0.001' : fmt(result.p, 4)} ${result.significant ? '<span style="color:#16a34a;font-weight:700;">*</span>' : ''}</h4>`;
+
+    const dunn = result.dunn_posthoc || {};
+    if (Object.keys(dunn).length > 0) {
+      html += `<div style="overflow-x:auto;"><table style="width:100%;font-size:.8rem;border-collapse:collapse;">
+        <thead><tr style="border-bottom:2px solid #e2e8f0;">
+          <th style="padding:.4rem .6rem;text-align:left;">Pair</th>
+          <th style="padding:.4rem .6rem;">Z</th>
+          <th style="padding:.4rem .6rem;">p_adj (Bonferroni)</th>
+          <th style="padding:.4rem .6rem;">Significant?</th>
+        </tr></thead><tbody>`;
+      for (const [pair, d] of Object.entries(dunn)) {
+        const rowBg = d.significant ? sigBg : '';
+        html += `<tr style="border-bottom:1px solid #f1f5f9;background:${rowBg}">
+          <td style="padding:.35rem .6rem;font-size:.78rem;">${esc(pair)}</td>
+          <td style="padding:.35rem .6rem;text-align:center;">${fmt(d.Z, 3)}</td>
+          <td style="padding:.35rem .6rem;text-align:center;">${d.p_adj < 0.001 ? '<0.001' : fmt(d.p_adj, 4)}</td>
+          <td style="padding:.35rem .6rem;text-align:center;">${d.significant ? 'Yes *' : 'No'}</td>
+        </tr>`;
+      }
+      html += `</tbody></table></div>`;
+    } else {
+      html += `<p style="font-size:.8rem;color:#64748b;">Fewer than 2 groups with data — Dunn test not applicable.</p>`;
+    }
+    html += `</div>`;
+  }
+
+  if (html) {
+    kwContent.innerHTML = html;
+    kwSection.style.display = 'block';
+  }
+})();
 
 // ── Vulnerabilities Tab ──
 (function renderVulnerabilities() {
@@ -1171,10 +1534,14 @@ renderCategories();
     options:{ indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
   });
 
+  const vulnPresencePairs = [
+    { label:'With Vulnerabilities',    val:vulnSummary.reposWithVulns,    color:'#dc2626' },
+    { label:'Without Vulnerabilities', val:vulnSummary.reposWithoutVulns, color:'#16a34a' },
+  ].sort((a,b) => b.val - a.val);
   new Chart(document.getElementById('chartVulnPresence'), {
-    type:'doughnut',
-    data:{ labels:['With Vulnerabilities','Without Vulnerabilities'], datasets:[{ data:[vulnSummary.reposWithVulns, vulnSummary.reposWithoutVulns], backgroundColor:['#dc2626','#16a34a'] }] },
-    options:{ plugins:{legend:{position:'bottom'}} }
+    type:'bar',
+    data:{ labels:vulnPresencePairs.map(p=>p.label), datasets:[{ data:vulnPresencePairs.map(p=>p.val), backgroundColor:vulnPresencePairs.map(p=>p.color) }] },
+    options:{ indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
   });
 
   document.getElementById('vulnBody').innerHTML = (vulnSummary.rows.length ? vulnSummary.rows : [{name:'No vulnerabilities detected',appearances:0,totalCount:0,repoCount:0}]).map(r =>
@@ -1240,6 +1607,33 @@ renderCategories();
       });
       
       kevHtml += `</tbody></table></div>`;
+
+      // Exploitable repos by category table
+      const catBreakdown = kevSummary.exploitable_repos_by_category || {};
+      if (Object.keys(catBreakdown).length > 0) {
+        kevHtml += `<h3 style="margin:1.5rem 0 .75rem;color:#991b1b;">Exploitable Repos by Category</h3>
+          <div style="overflow-x:auto;">
+          <table style="width:100%;font-size:0.85rem;border-collapse:collapse;">
+            <thead style="background:#fff5f5;">
+              <tr style="border-bottom:2px solid #fca5a5;">
+                <th style="padding:.5rem;text-align:left;">Category</th>
+                <th style="padding:.5rem;text-align:right;">Repos Affected</th>
+                <th style="padding:.5rem;text-align:right;">Exploitable Vulns</th>
+                <th style="padding:.5rem;text-align:left;">Repositories</th>
+              </tr>
+            </thead><tbody>`;
+        for (const [cat, data] of Object.entries(catBreakdown)) {
+          const repoList = (data.repos || []).slice(0, 8).join(', ') + (data.repos && data.repos.length > 8 ? ` (+${data.repos.length - 8} more)` : '');
+          kevHtml += `<tr style="border-bottom:1px solid #fecaca;">
+            <td style="padding:.5rem;">${esc(cat)}</td>
+            <td style="padding:.5rem;text-align:right;">${data.repo_count ?? 0}</td>
+            <td style="padding:.5rem;text-align:right;">${data.vulnerability_count ?? 0}</td>
+            <td style="padding:.5rem;color:#7f1d1d;font-size:.8rem;">${esc(repoList || '—')}</td>
+          </tr>`;
+        }
+        kevHtml += `</tbody></table></div>`;
+      }
+
       kevSection.innerHTML = kevHtml;
       vulnTable.parentNode.insertBefore(kevSection, vulnTable.nextSibling);
     }
@@ -1397,17 +1791,25 @@ function renderDependencies() {
     Number(sev.low || 0),
     Number(sev.unknown || 0),
   ];
+  // Sorted horizontal bar: Critical → High → Medium → Low → Unknown
+  const sevOrder = ['Critical', 'High', 'Medium', 'Low', 'Unknown'];
+  const sevColors = { Critical:'#d32f2f', High:'#f57c00', Medium:'#fbc02d', Low:'#388e3c', Unknown:'#9e9e9e' };
+  const sortedSevPairs = sevOrder.map(l => ({ label: l, val: severityData[severityLabels.indexOf(l)] || 0 }));
   if (depSeverityChart) depSeverityChart.destroy();
   depSeverityChart = new Chart(document.getElementById('chartDepSeverity'), {
-    type: 'doughnut',
+    type: 'bar',
     data: {
-      labels: severityLabels,
+      labels: sortedSevPairs.map(p => p.label),
       datasets: [{
-        data: severityData,
-        backgroundColor: ['#991b1b', '#dc2626', '#d97706', '#16a34a', '#94a3b8'],
+        data: sortedSevPairs.map(p => p.val),
+        backgroundColor: sortedSevPairs.map(p => sevColors[p.label]),
       }],
     },
-    options: { plugins: { legend: { position: 'bottom' } } },
+    options: {
+      indexAxis: 'y',
+      plugins: { legend: { display: false }, title: { display: false } },
+      scales: { x: { beginAtZero: true, title: { display: true, text: 'Count' } } },
+    },
   });
 
   const topRows = [...depRepos]
@@ -1432,17 +1834,31 @@ function renderDependencies() {
     },
   });
 
+  // Log-scale toggle for top repos vuln chart
+  const toggleBtn = document.getElementById('toggleDepTopReposScale');
+  if (toggleBtn) {
+    toggleBtn.onclick = () => {
+      const chart = depTopReposChart;
+      if (!chart) return;
+      const cur = chart.options.scales.x.type || 'linear';
+      const next = cur === 'logarithmic' ? 'linear' : 'logarithmic';
+      chart.options.scales.x.type = next;
+      if (next === 'logarithmic') { delete chart.options.scales.x.beginAtZero; }
+      else { chart.options.scales.x.beginAtZero = true; }
+      chart.update();
+      toggleBtn.textContent = next === 'logarithmic' ? 'Linear Scale' : 'Log Scale';
+    };
+  }
+
+  const queryablePairs = [
+    { label:'Queryable',   val:Number(depTotals.packages_queryable   || 0), color:'#2563eb' },
+    { label:'Unqueryable', val:Number(depTotals.packages_unqueryable || 0), color:'#94a3b8' },
+  ].sort((a,b) => b.val - a.val);
   if (depQueryableChart) depQueryableChart.destroy();
   depQueryableChart = new Chart(document.getElementById('chartDepQueryable'), {
-    type: 'doughnut',
-    data: {
-      labels: ['Queryable', 'Unqueryable'],
-      datasets: [{
-        data: [Number(depTotals.packages_queryable || 0), Number(depTotals.packages_unqueryable || 0)],
-        backgroundColor: ['#2563eb', '#94a3b8'],
-      }],
-    },
-    options: { plugins: { legend: { position: 'bottom' } } },
+    type: 'bar',
+    data: { labels:queryablePairs.map(p=>p.label), datasets:[{ data:queryablePairs.map(p=>p.val), backgroundColor:queryablePairs.map(p=>p.color) }] },
+    options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} },
   });
 
   const depCategoryLabels = depCategoryStats.rows.map(r => r.category);
@@ -1573,31 +1989,196 @@ document.getElementById('depStatusFilter').addEventListener('change', renderDepe
 document.getElementById('depRiskFilter').addEventListener('change', renderDependencies);
 renderDependencies();
 
-// Category comparison charts
+// Vuln density chart + dep-failed note (static, not re-rendered on filter)
 (function() {
-  const cLabels = categories;
-  const cAvgSc = cLabels.map(c=>catStats(c).avgScore);
-  const cAvgSt = cLabels.map(c=>catStats(c).avgStars);
-  const cAvgCo = cLabels.map(c=>catStats(c).avgContrib);
-  const cCounts = cLabels.map(c=>catStats(c).count);
+  // Dep-failed note
+  const depFailedList = (STATS.per_repo_raw || []).filter(r => r.dep_failed === true);
+  const noteEl = document.getElementById('depFailedNote');
+  if (noteEl && depFailedList.length > 0) {
+    const names = depFailedList.map(r => esc(r.display_name)).join(', ');
+    noteEl.innerHTML = `<strong>${depFailedList.length} repo${depFailedList.length > 1 ? 's' : ''} could not be analyzed for dependencies</strong> (excluded from vulnerability metrics): ${names}.`;
+    noteEl.style.display = 'block';
+  }
+
+  // Vuln density chart
+  const densityCanvas = document.getElementById('chartDepVulnDensity');
+  if (!densityCanvas) return;
+  const densityData = (STATS.per_repo_raw || [])
+    .filter(r => r.vuln_density != null && r.vuln_density > 0)
+    .sort((a, b) => b.vuln_density - a.vuln_density)
+    .slice(0, 25);
+  if (densityData.length === 0) {
+    densityCanvas.closest('.chart-card').style.display = 'none';
+    return;
+  }
+  new Chart(densityCanvas, {
+    type: 'bar',
+    data: {
+      labels: densityData.map(r => shortLabel(r.display_name || '', 28)),
+      datasets: [{
+        label: 'Vulns / Queryable Packages',
+        data: densityData.map(r => r.vuln_density),
+        backgroundColor: densityData.map(r => {
+          const cat = categories.indexOf(r.category);
+          return `hsl(${cat >= 0 ? cat * 360 / Math.max(categories.length, 1) : 200},65%,55%)`;
+        }),
+      }],
+    },
+    options: {
+      indexAxis: 'y',
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => `${Number(ctx.raw).toFixed(4)} vulns/pkg (${esc(densityData[ctx.dataIndex]?.category || '')})` } },
+      },
+      scales: { x: { beginAtZero: true, title: { display: true, text: 'Vulnerabilities per Queryable Package' } } },
+    },
+  });
+})();
+
+function median_of(arr) {
+  if (!arr.length) return 0;
+  const s = [...arr].sort((a, b) => a - b);
+  const m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m] : (s[m-1] + s[m]) / 2;
+}
+
+// Category comparison charts + boxplots + heatmap
+(function() {
+  const cLabels = categories.map(catLabel);
+  const cAvgSc = categories.map(c=>catStats(c).avgScore);
+  const cAvgSt = categories.map(c=>catStats(c).avgStars);
+  const cAvgCo = categories.map(c=>catStats(c).avgContrib);
+  const cCounts = categories.map(c=>catStats(c).count);
 
   new Chart(document.getElementById('chartCatComp'), {
-    type:'bar', data:{ labels:cLabels, datasets:[{label:'Avg Scorecard',data:cAvgSc,backgroundColor:'#3b82f6'}] },
-    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{min:0,max:10}}}
+    type:'bar',
+    data:{ labels:cLabels, datasets:[{ label:'Avg Scorecard', data:cAvgSc, backgroundColor:'#3b82f6',
+      errorBars: categories.map(c=>{const d=statsCatData(c,'scorecard_overall'); return d?{min:d.mean_ci_lo,max:d.mean_ci_hi}:null;}),
+      errorBarColor:'#1e40af', errorBarLineWidth:1.5,
+    }] },
+    options:{indexAxis:'y',plugins:{ legend:{display:false},
+      subtitle:{display:true,text:'Error bars = 95% CI of mean',font:{size:10},color:'#94a3b8',padding:{bottom:2}},
+      tooltip:{callbacks:{label:ctx=>{const d=statsCatData(categories[ctx.dataIndex],'scorecard_overall'); return d&&d.mean_ci_lo!=null?`Mean: ${fmt(ctx.raw)}  95% CI: [${fmt(d.mean_ci_lo)}, ${fmt(d.mean_ci_hi)}]`:`Mean: ${fmt(ctx.raw)}`;}}}
+    },scales:{x:{min:0,max:10}}}
   });
   new Chart(document.getElementById('chartCatStars'), {
-    type:'bar', data:{ labels:cLabels, datasets:[{label:'Avg Stars',data:cAvgSt,backgroundColor:'#f59e0b'}] },
-    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
+    type:'bar',
+    data:{ labels:cLabels, datasets:[{ label:'Avg Stars', data:cAvgSt, backgroundColor:'#f59e0b',
+      errorBars: categories.map(c=>{const d=statsCatData(c,'stars_count'); return d?{min:d.mean_ci_lo,max:d.mean_ci_hi}:null;}),
+      errorBarColor:'#78350f', errorBarLineWidth:1.5,
+    }] },
+    options:{indexAxis:'y',plugins:{ legend:{display:false},
+      subtitle:{display:true,text:'Error bars = 95% CI of mean',font:{size:10},color:'#94a3b8',padding:{bottom:2}},
+      tooltip:{callbacks:{label:ctx=>{const d=statsCatData(categories[ctx.dataIndex],'stars_count'); return d&&d.mean_ci_lo!=null?`Mean: ${fmt(ctx.raw,0)}  95% CI: [${fmt(d.mean_ci_lo,0)}, ${fmt(d.mean_ci_hi,0)}]`:`Mean: ${fmt(ctx.raw,0)}`;}}}
+    },scales:{x:{beginAtZero:true}}}
   });
   new Chart(document.getElementById('chartCatContrib'), {
-    type:'bar', data:{ labels:cLabels, datasets:[{label:'Avg Contributors',data:cAvgCo,backgroundColor:'#8b5cf6'}] },
-    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
+    type:'bar',
+    data:{ labels:cLabels, datasets:[{ label:'Avg Contributors', data:cAvgCo, backgroundColor:'#8b5cf6',
+      errorBars: categories.map(c=>{const d=statsCatData(c,'contributor_count'); return d?{min:d.mean_ci_lo,max:d.mean_ci_hi}:null;}),
+      errorBarColor:'#4c1d95', errorBarLineWidth:1.5,
+    }] },
+    options:{indexAxis:'y',plugins:{ legend:{display:false},
+      subtitle:{display:true,text:'Error bars = 95% CI of mean',font:{size:10},color:'#94a3b8',padding:{bottom:2}},
+      tooltip:{callbacks:{label:ctx=>{const d=statsCatData(categories[ctx.dataIndex],'contributor_count'); return d&&d.mean_ci_lo!=null?`Mean: ${fmt(ctx.raw,0)}  95% CI: [${fmt(d.mean_ci_lo,0)}, ${fmt(d.mean_ci_hi,0)}]`:`Mean: ${fmt(ctx.raw,0)}`;}}}
+    },scales:{x:{beginAtZero:true}}}
   });
   new Chart(document.getElementById('chartCatScatter'), {
     type:'scatter',
-    data:{ datasets:[{ label:'Categories', data:cLabels.map((c,i)=>({x:cCounts[i],y:cAvgSc[i],label:c})), backgroundColor:'#6366f1', pointRadius:8 }] },
-    options:{ plugins:{ tooltip:{ callbacks:{ label: ctx => ctx.raw.label+': '+ctx.raw.x+' repos, score '+fmt(ctx.raw.y) } } }, scales:{x:{title:{display:true,text:'# Repos'}},y:{title:{display:true,text:'Avg Score'},min:0,max:10}} }
+    data:{ datasets:[{ label:'Categories', data:categories.map((c,i)=>({x:cCounts[i],y:cAvgSc[i],label:c})), backgroundColor:'#6366f1', pointRadius:8,
+      errorBars: categories.map(c=>{const d=statsCatData(c,'scorecard_overall'); return d?{min:d.mean_ci_lo,max:d.mean_ci_hi}:null;}),
+      errorBarColor:'#4f46e5', errorBarLineWidth:1.5,
+    }] },
+    options:{ plugins:{ tooltip:{ callbacks:{ label: ctx => {
+      const c=categories[ctx.dataIndex]; const d=statsCatData(c,'scorecard_overall');
+      const ci=d&&d.mean_ci_lo!=null?`  95% CI: [${fmt(d.mean_ci_lo)}, ${fmt(d.mean_ci_hi)}]`:'';
+      return ctx.raw.label+': '+ctx.raw.x+' repos, score '+fmt(ctx.raw.y)+ci;
+    } } } }, scales:{x:{title:{display:true,text:'# Repos'}},y:{title:{display:true,text:'Avg Score'},min:0,max:10}} }
   });
+
+  // Boxplots by layer
+  const boxplotScData = categories.map(c => catGroup(c).map(r => r.scorecard_overall).filter(v => v != null));
+  if (typeof Chart.controllers.boxplot !== 'undefined') {
+    new Chart(document.getElementById('chartCatBoxplot'), {
+      type: 'boxplot',
+      data: {
+        labels: cLabels,
+        datasets: [{ label: 'Scorecard Score', data: boxplotScData, backgroundColor: 'rgba(59,130,246,0.4)', borderColor: '#1d4ed8', borderWidth: 1.5 }],
+      },
+      options: { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { min: 0, max: 10, title: { display: true, text: 'Score (0–10)' } } } },
+    });
+
+    // Use dependency scan vuln counts — these have real variation; Scorecard vuln_count is 0 for all repos
+    const depVulnByUrl = {};
+    depRepos.forEach(r => { depVulnByUrl[normalizeRepoUrl(r.repo_url)] = Number(r.vulnerabilities_total || 0); });
+    const boxplotVulnData = categories.map(c =>
+      catGroup(c).map(r => depVulnByUrl[normalizeRepoUrl(r.repo_url)] ?? 0)
+    );
+    const allVulns = boxplotVulnData.flat();
+    const maxVuln = allVulns.length > 0 ? Math.max(...allVulns) : 0;
+    const vulnBoxplotCard = document.getElementById('chartCatVulnBoxplot').closest('.chart-card');
+    if (maxVuln === 0) {
+      // No dependency scan data — hide chart and show a note instead
+      vulnBoxplotCard.style.display = 'none';
+    } else {
+      const useLogScale = maxVuln / (median_of(allVulns) + 1) > 10;
+      const catVulnBoxplotChart = new Chart(document.getElementById('chartCatVulnBoxplot'), {
+        type: 'boxplot',
+        data: {
+          labels: cLabels,
+          datasets: [{ label: 'Dependency Vulnerability Count', data: boxplotVulnData, backgroundColor: 'rgba(239,68,68,0.4)', borderColor: '#b91c1c', borderWidth: 1.5 }],
+        },
+        options: {
+          indexAxis: 'y',
+          plugins: { legend: { display: false },
+            subtitle: { display: true, text: 'Source: dependency SBOM scan (OSV)', font: { size: 10 }, color: '#94a3b8', padding: { bottom: 2 } },
+          },
+          scales: { x: { beginAtZero: !useLogScale, type: useLogScale ? 'logarithmic' : 'linear', title: { display: true, text: 'Dependency Vulnerabilities' } } },
+        },
+      });
+      const catVulnToggleBtn = document.getElementById('toggleCatVulnBoxplotScale');
+      if (catVulnToggleBtn) {
+        catVulnToggleBtn.textContent = useLogScale ? 'Linear Scale' : 'Log Scale';
+        catVulnToggleBtn.onclick = () => {
+          const cur = catVulnBoxplotChart.options.scales.x.type || 'linear';
+          const next = cur === 'logarithmic' ? 'linear' : 'logarithmic';
+          catVulnBoxplotChart.options.scales.x.type = next;
+          if (next === 'logarithmic') { delete catVulnBoxplotChart.options.scales.x.beginAtZero; }
+          else { catVulnBoxplotChart.options.scales.x.beginAtZero = true; }
+          catVulnBoxplotChart.update();
+          catVulnToggleBtn.textContent = next === 'logarithmic' ? 'Linear Scale' : 'Log Scale';
+        };
+      }
+    }
+  } else {
+    document.getElementById('chartCatBoxplot').closest('.chart-card').style.display = 'none';
+    document.getElementById('chartCatVulnBoxplot').closest('.chart-card').style.display = 'none';
+  }
+
+  // Per-check heatmap as HTML table
+  const checkNamesHm = STATS.check_names || [];
+  const perRepoChecks = STATS.per_repo_checks || [];
+  if (checkNamesHm.length > 0 && perRepoChecks.length > 0) {
+    const sortedRepos = [...perRepoChecks].sort((a, b) => layerIdx(a.category) - layerIdx(b.category) || String(a.category).localeCompare(String(b.category)));
+    function hmColor(score) {
+      if (score == null || score < 0) return '#e2e8f0';
+      const hue = score * 12;
+      return `hsl(${hue},70%,45%)`;
+    }
+    const hdrs = checkNamesHm.map(c => `<th style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:.7rem;padding:2px 3px;white-space:nowrap;">${esc(c)}</th>`).join('');
+    const rows = sortedRepos.map(r => {
+      const cells = checkNamesHm.map(c => {
+        const v = r[`check_${c}`];
+        const label = (v == null || v < 0) ? '—' : v;
+        return `<td style="background:${hmColor(v)};color:#fff;text-align:center;padding:2px 4px;font-size:.7rem;" title="${esc(c)}: ${label}">${label}</td>`;
+      }).join('');
+      return `<tr><td style="font-size:.72rem;padding:2px 6px;white-space:nowrap;">${esc(r.display_name)}</td><td style="font-size:.7rem;padding:2px 6px;color:#64748b;">${esc(r.category||'')}</td>${cells}</tr>`;
+    }).join('');
+    document.getElementById('chartCheckHeatmap').innerHTML =
+      `<table style="border-collapse:collapse;min-width:600px;"><thead><tr><th style="padding:2px 6px;font-size:.72rem;">Repo</th><th style="padding:2px 6px;font-size:.72rem;">Layer</th>${hdrs}</tr></thead><tbody>${rows}</tbody></table>`;
+  } else {
+    document.getElementById('heatmapCard').style.display = 'none';
+  }
 })();
 
 // ── Ag-Specific Tab ──
@@ -1607,15 +2188,24 @@ function renderAgSpecific() {
 
   document.getElementById('agCards').innerHTML = buckets.map(k => {
     const s = agStats(k);
-    return `<div class="card"><div class="label">${esc(agLabel(k === 'yes' ? true : k === 'no' ? false : null))}</div>
+    const sd = statsAgData(k, 'scorecard_overall');
+    const ciStr = sd ? ` · CI: [${fmt(sd.mean_ci_lo)}, ${fmt(sd.mean_ci_hi)}]` : '';
+    return `<div class="card"><div class="label">${esc(agLabel(k === 'yes' ? true : k === 'no' ? false : null))} (n=${s.count})</div>
       <div style="font-size:.85rem;margin-top:.4rem;">
-        <div>${s.count} repos · Avg SC: ${fmt(s.avgScore)} · Avg ★: ${fmt(s.avgStars,0)} · Avg Contributors: ${fmt(s.avgContrib,0)}</div>
+        <div>Avg SC: ${fmt(s.avgScore)}${ciStr}</div>
+        <div>Avg ★: ${fmt(s.avgStars,0)} · Avg Contributors: ${fmt(s.avgContrib,0)}</div>
       </div></div>`;
   }).join('');
 
   document.getElementById('agBody').innerHTML = buckets.map(k => {
     const s = agStats(k);
-    return `<tr><td>${esc(agLabel(k === 'yes' ? true : k === 'no' ? false : null))}</td><td>${s.count}</td><td>${fmt(s.avgScore)}</td><td>${fmt(s.avgStars,0)}</td><td>${fmt(s.avgContrib,0)}</td></tr>`;
+    const sd = statsAgData(k, 'scorecard_overall');
+    return `<tr>
+      <td>${esc(agLabel(k === 'yes' ? true : k === 'no' ? false : null))}</td>
+      <td>${s.count}</td><td>${fmt(s.avgScore)}</td>
+      <td>${fmtCI(sd)}</td><td>${fmtCIMedian(sd)}</td>
+      <td>${fmt(s.avgStars,0)}</td><td>${fmt(s.avgContrib,0)}</td>
+    </tr>`;
   }).join('');
 
   const selectedRepos = agGroup(selected);
@@ -1623,7 +2213,7 @@ function renderAgSpecific() {
   if (window.__chartAgCategoryMix) window.__chartAgCategoryMix.destroy();
   window.__chartAgCategoryMix = new Chart(document.getElementById('chartAgCategoryMix'), {
     type: 'bar',
-    data: { labels: categories, datasets: [{ label: 'Repos', data: categoryCounts, backgroundColor: '#6366f1' }] },
+    data: { labels: categories.map(catLabel), datasets: [{ label: 'Repos', data: categoryCounts, backgroundColor: '#6366f1' }] },
     options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
   });
 }
@@ -1632,7 +2222,7 @@ document.getElementById('agLensSelect').addEventListener('change', renderAgSpeci
 renderAgSpecific();
 
 (function() {
-  const labels = agBuckets.map(k => agLabel(k === 'yes' ? true : k === 'no' ? false : null));
+  const labels = agBuckets.map(k => agLabel2(k));
   const counts = agBuckets.map(k => agStats(k).count);
   const avgScores = agBuckets.map(k => agStats(k).avgScore);
   const avgStars = agBuckets.map(k => agStats(k).avgStars);
@@ -1645,15 +2235,203 @@ renderAgSpecific();
 
   new Chart(document.getElementById('chartAgScore'), {
     type:'bar',
-    data:{ labels, datasets:[{label:'Avg Scorecard',data:avgScores,backgroundColor:'#3b82f6'}] },
-    options:{ plugins:{legend:{display:false}}, scales:{y:{min:0,max:10}} }
+    data:{ labels, datasets:[{ label:'Avg Scorecard', data:avgScores, backgroundColor:'#3b82f6',
+      errorBars: agBuckets.map(k=>{const d=statsAgData(k,'scorecard_overall'); return d?{min:d.mean_ci_lo,max:d.mean_ci_hi}:null;}),
+      errorBarColor:'#1e40af', errorBarLineWidth:1.5,
+    }] },
+    options:{ plugins:{ legend:{display:false},
+      subtitle:{display:true,text:'Error bars = 95% CI of mean',font:{size:10},color:'#94a3b8',padding:{bottom:2}},
+      tooltip:{callbacks:{label:ctx=>{const d=statsAgData(agBuckets[ctx.dataIndex],'scorecard_overall'); return d&&d.mean_ci_lo!=null?`Mean: ${fmt(ctx.raw)}  95% CI: [${fmt(d.mean_ci_lo)}, ${fmt(d.mean_ci_hi)}]`:`Mean: ${fmt(ctx.raw)}`;}}}
+    }, scales:{y:{min:0,max:10}} }
   });
 
   new Chart(document.getElementById('chartAgStars'), {
     type:'bar',
-    data:{ labels, datasets:[{label:'Avg Stars',data:avgStars,backgroundColor:'#f59e0b'}] },
-    options:{ plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}} }
+    data:{ labels, datasets:[{ label:'Avg Stars', data:avgStars, backgroundColor:'#f59e0b',
+      errorBars: agBuckets.map(k=>{const d=statsAgData(k,'stars_count'); return d?{min:d.mean_ci_lo,max:d.mean_ci_hi}:null;}),
+      errorBarColor:'#78350f', errorBarLineWidth:1.5,
+    }] },
+    options:{ plugins:{ legend:{display:false},
+      subtitle:{display:true,text:'Error bars = 95% CI of mean',font:{size:10},color:'#94a3b8',padding:{bottom:2}},
+      tooltip:{callbacks:{label:ctx=>{const d=statsAgData(agBuckets[ctx.dataIndex],'stars_count'); return d&&d.mean_ci_lo!=null?`Mean: ${fmt(ctx.raw,0)}  95% CI: [${fmt(d.mean_ci_lo,0)}, ${fmt(d.mean_ci_hi,0)}]`:`Mean: ${fmt(ctx.raw,0)}`;}}}
+    }, scales:{y:{beginAtZero:true}} }
   });
+
+  // Overlapping score histogram: Ag vs Non-Ag
+  const binWidth = 0.5;
+  const nBins = Math.round(10 / binWidth);
+  function scoreHistogram(group) {
+    const bins = Array(nBins).fill(0);
+    agGroup(group).forEach(r => {
+      if (r.scorecard_overall == null) return;
+      const b = Math.min(nBins - 1, Math.floor(r.scorecard_overall / binWidth));
+      bins[b]++;
+    });
+    return bins;
+  }
+  const histLabels = Array.from({length: nBins}, (_, i) => (i * binWidth).toFixed(1));
+  new Chart(document.getElementById('chartAgScoreHist'), {
+    type: 'bar',
+    data: {
+      labels: histLabels,
+      datasets: [
+        { label: 'Ag-Specific', data: scoreHistogram('yes'), backgroundColor: 'rgba(37,99,235,0.55)', borderColor: '#1d4ed8', borderWidth: 1 },
+        { label: 'Non-Ag-Specific', data: scoreHistogram('no'), backgroundColor: 'rgba(234,88,12,0.55)', borderColor: '#c2410c', borderWidth: 1 },
+      ],
+    },
+    options: {
+      plugins: { legend: { position: 'top' } },
+      scales: {
+        x: { title: { display: true, text: 'Scorecard Score' }, stacked: false },
+        y: { beginAtZero: true, title: { display: true, text: 'Number of Repos' }, stacked: false },
+      },
+    },
+  });
+
+  // Vulnerability exposure grouped bar
+  const vulnDepMap = {};
+  (STATS.per_repo_raw || []).forEach(r => {
+    if (r.vuln_count != null) vulnDepMap[r.display_name] = r.vuln_count;
+  });
+  function agVulnTotals(group) {
+    let total = 0, critical = 0, high = 0;
+    agGroup(group).forEach(r => {
+      const depRepo = (DEPENDENCY.repos || []).find(dr => dr.repo_url === r.repo_url);
+      if (depRepo) {
+        total += Number(depRepo.vulnerabilities_total || 0);
+        critical += Number((depRepo.severity || {}).critical || 0);
+        high += Number((depRepo.severity || {}).high || 0);
+      }
+    });
+    return { total, critical, high };
+  }
+  const agVulnYes = agVulnTotals('yes');
+  const agVulnNo = agVulnTotals('no');
+  new Chart(document.getElementById('chartAgVulnExposure'), {
+    type: 'bar',
+    data: {
+      labels: ['Total Vulns', 'Critical', 'High'],
+      datasets: [
+        { label: agLabel2('yes'), data: [agVulnYes.total, agVulnYes.critical, agVulnYes.high], backgroundColor: 'rgba(37,99,235,0.75)' },
+        { label: agLabel2('no'), data: [agVulnNo.total, agVulnNo.critical, agVulnNo.high], backgroundColor: 'rgba(234,88,12,0.75)' },
+      ],
+    },
+    options: {
+      plugins: { legend: { position: 'top' } },
+      scales: { y: { beginAtZero: true, title: { display: true, text: 'Count' } } },
+    },
+  });
+
+  // Radar chart: avg check score, Ag vs Non-Ag
+  const checkNamesRadar = STATS.check_names || [];
+  if (checkNamesRadar.length > 0) {
+    const agYesAvg = checkNamesRadar.map(c => {
+      const d = statsAgData('yes', `check_${c}`);
+      return d && d.mean != null ? d.mean : 0;
+    });
+    const agNoAvg = checkNamesRadar.map(c => {
+      const d = statsAgData('no', `check_${c}`);
+      return d && d.mean != null ? d.mean : 0;
+    });
+    new Chart(document.getElementById('chartAgRadar'), {
+      type: 'radar',
+      data: {
+        labels: checkNamesRadar,
+        datasets: [
+          { label: 'Ag-Specific', data: agYesAvg, backgroundColor: 'rgba(37,99,235,0.2)', borderColor: '#2563eb', pointBackgroundColor: '#2563eb' },
+          { label: 'Non-Ag', data: agNoAvg, backgroundColor: 'rgba(234,88,12,0.2)', borderColor: '#ea580c', pointBackgroundColor: '#ea580c' },
+        ],
+      },
+      options: {
+        scales: { r: { min: 0, max: 10, ticks: { stepSize: 2 } } },
+        plugins: { legend: { position: 'top' } },
+      },
+    });
+  }
+
+  // Mann-Whitney test table
+  const mwComparisons = (STATS.comparisons && STATS.comparisons.ag_vs_nonag) || {};
+  const mwMetricLabels = {
+    scorecard_overall: 'Scorecard Overall',
+    contributor_count: 'Contributors',
+    commit_count: 'Commits',
+    issues_opened: 'Issues Opened',
+    issues_closed: 'Issues Closed',
+    prs_merged: 'PRs Merged',
+    vuln_count: 'Vuln Count',
+    vuln_density: 'Vuln Density (per pkg)',
+    stars_count: 'Stars',
+  };
+  const mwRows = Object.entries(mwComparisons)
+    .filter(([k]) => mwMetricLabels[k] || k.startsWith('check_'))
+    .map(([metric, d]) => {
+      if (!d || d.mw_statistic == null) return null;
+      const label = mwMetricLabels[metric] || (metric.startsWith('check_') ? metric.slice(6) : metric);
+      const pStr = d.p_value < 0.001 ? '<0.001' : fmt(d.p_value, 4);
+      const sigStyle = d.significant ? 'background:#dcfce7;font-weight:600;' : '';
+      return `<tr style="${sigStyle}">
+        <td>${esc(label)}</td>
+        <td>${d.n_a}</td><td>${d.n_b}</td>
+        <td>${fmt(d.mw_statistic, 1)}</td>
+        <td>${pStr}</td>
+        <td>${fmt(d.effect_size_r, 3)}</td>
+        <td>${esc(d.effect_label || '—')}</td>
+        <td>${d.significant ? 'Yes *' : 'No'}</td>
+      </tr>`;
+    })
+    .filter(Boolean);
+  document.getElementById('mwBody').innerHTML = mwRows.length
+    ? mwRows.join('')
+    : '<tr><td colspan="8">Statistical comparison data not available.</td></tr>';
+
+  // Effect size bar chart — significant metrics only, sorted by |r| descending
+  const sigMwEntries = Object.entries(mwComparisons)
+    .filter(([k, d]) => mwMetricLabels[k] && d && d.significant && d.effect_size_r != null)
+    .map(([metric, d]) => ({ label: mwMetricLabels[metric], r: d.effect_size_r, mag: d.effect_label || '' }))
+    .sort((a, b) => Math.abs(b.r) - Math.abs(a.r));
+  const mwEffectCanvas = document.getElementById('chartMWEffectSizes');
+  const mwEffectCard = document.getElementById('mwEffectSizesCard');
+  if (sigMwEntries.length === 0) {
+    if (mwEffectCard) mwEffectCard.style.display = 'none';
+  } else if (mwEffectCanvas) {
+    new Chart(mwEffectCanvas, {
+      type: 'bar',
+      data: {
+        labels: sigMwEntries.map(e => e.label),
+        datasets: [{
+          label: 'Rank-biserial r',
+          data: sigMwEntries.map(e => e.r),
+          backgroundColor: sigMwEntries.map(e => e.r >= 0 ? 'rgba(37,99,235,0.75)' : 'rgba(234,88,12,0.75)'),
+          borderColor: sigMwEntries.map(e => e.r >= 0 ? '#1d4ed8' : '#c2410c'),
+          borderWidth: 1.5,
+          borderRadius: 3,
+        }],
+      },
+      options: {
+        indexAxis: 'y',
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => {
+                const e = sigMwEntries[ctx.dataIndex];
+                return `r = ${Number(ctx.raw).toFixed(3)}  (${e.mag})`;
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            min: -1, max: 1,
+            title: { display: true, text: 'Rank-biserial effect size (r)' },
+            ticks: { callback: v => Number(v).toFixed(1) },
+            grid: { color: ctx => ctx.tick.value === 0 ? '#64748b' : '#e2e8f0', lineWidth: ctx => ctx.tick.value === 0 ? 1.5 : 1 },
+          },
+          y: { title: { display: false } },
+        },
+      },
+    });
+  }
 })();
 
 // ── Comparisons Tab ──
@@ -1665,10 +2443,10 @@ renderAgSpecific();
     options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{min:0,max:10}}}
   });
 
-  const byStars = [...REPOS].filter(r=>(r.augur_metrics||{}).stars!=null).sort((a,b)=>(b.augur_metrics.stars||0)-(a.augur_metrics.stars||0)).slice(0,20);
+  const byStars = [...REPOS].filter(r=>starsVal(r)!=null).sort((a,b)=>(starsVal(b)||0)-(starsVal(a)||0)).slice(0,20);
   new Chart(document.getElementById('chartRankStars'), {
     type:'bar',
-    data:{ labels:byStars.map(r=>r.owner+'/'+r.repo_name), datasets:[{label:'Stars',data:byStars.map(r=>r.augur_metrics.stars),backgroundColor:'#f59e0b'}] },
+    data:{ labels:byStars.map(r=>r.owner+'/'+r.repo_name), datasets:[{label:'Stars',data:byStars.map(r=>starsVal(r)),backgroundColor:'#f59e0b'}] },
     options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
   });
 
@@ -1683,50 +2461,59 @@ renderAgSpecific();
     options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
   });
 
+  function spearmanSubtitle(pairKey) {
+    const c = STATS.correlations && STATS.correlations[pairKey];
+    if (!c || c.spearman_r == null) return {};
+    const sig = c.p_value < 0.05 ? ' *' : '';
+    return { subtitle: { display: true, text: `Spearman r = ${fmt(c.spearman_r,3)}, p = ${fmt(c.p_value,4)}, n = ${c.n}${sig}`, font: { size: 11 }, color: '#64748b' } };
+  }
+
   const s1 = REPOS.filter(r=>r.scorecard_overall!=null&&(r.augur_metrics||{}).contributor_count!=null);
   new Chart(document.getElementById('chartScatter1'), {
     type:'scatter',
     data:{ datasets:categories.map((cat,ci)=>({
-      label:cat,
+      label:catLabel(cat),
       data:s1.filter(r=>r.category===cat).map(r=>({x:r.scorecard_overall,y:r.augur_metrics.contributor_count})),
       backgroundColor:`hsl(${ci*360/categories.length},65%,55%)`,
       pointRadius:6
     })) },
-    options:{ scales:{x:{title:{display:true,text:'Scorecard'},min:0,max:10},y:{title:{display:true,text:'Contributors'},beginAtZero:true}} }
+    options:{ plugins:{...spearmanSubtitle('scorecard_vs_contributors')}, scales:{x:{title:{display:true,text:'Scorecard'},min:0,max:10},y:{title:{display:true,text:'Contributors'},beginAtZero:true}} }
   });
 
-  const s2 = REPOS.filter(r=>r.scorecard_overall!=null&&(r.augur_metrics||{}).stars!=null);
+  const s2 = REPOS.filter(r=>r.scorecard_overall!=null&&starsVal(r)!=null);
   new Chart(document.getElementById('chartScatter2'), {
     type:'scatter',
     data:{ datasets:categories.map((cat,ci)=>({
-      label:cat,
-      data:s2.filter(r=>r.category===cat).map(r=>({x:r.scorecard_overall,y:r.augur_metrics.stars})),
+      label:catLabel(cat),
+      data:s2.filter(r=>r.category===cat).map(r=>({x:r.scorecard_overall,y:starsVal(r)})),
       backgroundColor:`hsl(${ci*360/categories.length},65%,55%)`,
       pointRadius:6
     })) },
-    options:{ scales:{x:{title:{display:true,text:'Scorecard'},min:0,max:10},y:{title:{display:true,text:'Stars'},beginAtZero:true}} }
+    options:{ plugins:{...spearmanSubtitle('scorecard_vs_stars')}, scales:{x:{title:{display:true,text:'Scorecard'},min:0,max:10},y:{title:{display:true,text:'Stars'},beginAtZero:true}} }
   });
 
   const s3 = REPOS.filter(r=>(r.augur_metrics||{}).issues_opened!=null&&(r.augur_metrics||{}).issues_closed!=null);
   new Chart(document.getElementById('chartScatter3'), {
     type:'scatter',
     data:{ datasets:[{ label:'Repos', data:s3.map(r=>({x:r.augur_metrics.issues_opened,y:r.augur_metrics.issues_closed})), backgroundColor:'#10b981', pointRadius:6 }] },
-    options:{ scales:{x:{title:{display:true,text:'Issues Opened'},beginAtZero:true},y:{title:{display:true,text:'Issues Closed'},beginAtZero:true}} }
+    options:{ plugins:{...spearmanSubtitle('issues_opened_vs_closed')}, scales:{x:{title:{display:true,text:'Issues Opened'},beginAtZero:true},y:{title:{display:true,text:'Issues Closed'},beginAtZero:true}} }
   });
 
+  const vulnDepMap2 = {};
+  (STATS.per_repo_raw || []).forEach(r => { vulnDepMap2[r.display_name] = r.vuln_count ?? null; });
   const vulnMaintData = REPOS.filter(r => {
     const contrib = (r.augur_metrics||{}).contributor_count;
-    const vulns = vulnCount(r);
-    return contrib != null && vulns != null;
+    const v = vulnDepMap2[r.display_name];
+    return contrib != null && v != null;
   });
   new Chart(document.getElementById('chartVulnVsMaint'), {
     type:'scatter',
     data:{ datasets:categories.map((cat,ci)=>({
-      label:cat,
+      label:catLabel(cat),
       data:vulnMaintData
         .filter(r=>r.category===cat)
         .map(r=>({
-          x:vulnCount(r),
+          x: vulnDepMap2[r.display_name] ?? 0,
           y:(r.augur_metrics||{}).contributor_count,
           label:`${r.owner}/${r.repo_name}`,
         })),
@@ -1735,14 +2522,11 @@ renderAgSpecific();
     })) },
     options:{
       plugins:{
-        tooltip:{
-          callbacks:{
-            label: (ctx) => `${ctx.raw.label}: ${ctx.raw.x} vulnerabilities, ${ctx.raw.y} contributors`,
-          }
-        }
+        ...spearmanSubtitle('contributors_vs_vulns'),
+        tooltip:{ callbacks:{ label: (ctx) => `${ctx.raw.label}: ${ctx.raw.x} vulnerabilities, ${ctx.raw.y} contributors` } }
       },
       scales:{
-        x:{title:{display:true,text:'Detected Vulnerabilities'},beginAtZero:true},
+        x:{title:{display:true,text:'Dependency Vulnerabilities'},beginAtZero:true},
         y:{title:{display:true,text:'Maintainers (Contributor Count)'},beginAtZero:true}
       }
     }
@@ -1796,8 +2580,14 @@ renderAgSpecific();
   const checkNames = Object.keys(checkMap).sort();
   new Chart(document.getElementById('chartChecks'), {
     type:'bar',
-    data:{ labels:checkNames, datasets:[{label:'Avg Score',data:checkNames.map(c=>avg(checkMap[c])),backgroundColor:'#8b5cf6'}] },
-    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{min:0,max:10}}}
+    data:{ labels:checkNames, datasets:[{ label:'Avg Score', data:checkNames.map(c=>avg(checkMap[c])), backgroundColor:'#8b5cf6',
+      errorBars: checkNames.map(c=>{const ci=normalCI95(checkMap[c]); return ci?{min:Math.max(0,ci.min),max:Math.min(10,ci.max)}:null;}),
+      errorBarColor:'#4c1d95', errorBarLineWidth:1.5,
+    }] },
+    options:{indexAxis:'y',plugins:{ legend:{display:false},
+      subtitle:{display:true,text:'Error bars = 95% CI of mean (normal approx.)',font:{size:10},color:'#94a3b8',padding:{bottom:2}},
+      tooltip:{callbacks:{label:ctx=>{const ci=normalCI95(checkMap[checkNames[ctx.dataIndex]]); return ci?`Mean: ${fmt(ctx.raw)}  95% CI: [${fmt(Math.max(0,ci.min))}, ${fmt(Math.min(10,ci.max))}]`:`Mean: ${fmt(ctx.raw)}`;}}}
+    },scales:{x:{min:0,max:10}}}
   });
 })();
 
@@ -1832,18 +2622,30 @@ renderAgSpecific();
     { label: 'Repos with Files Data', value: withFiles, accent: 'var(--primary)' },
   ].map(c => `<div class="card" style="border-left-color:${c.accent}"><div class="label">${c.label}</div><div class="value">${c.value}</div></div>`).join('');
 
-  // SC status doughnut
+  // SC status — sorted bar
+  const scStatusPairs = [
+    { label:'Success', val:scSuccess, color:'#16a34a' },
+    { label:'Partial', val:scPartial, color:'#d97706' },
+    { label:'Failed',  val:scFailed,  color:'#dc2626' },
+  ].sort((a,b) => b.val - a.val);
   new Chart(document.getElementById('chartSCStatus'), {
-    type: 'doughnut',
-    data: { labels:['Success','Partial','Failed'], datasets:[{ data:[scSuccess,scPartial,scFailed], backgroundColor:['#16a34a','#d97706','#dc2626'] }] },
-    options: { plugins:{legend:{position:'bottom'}} }
+    type: 'bar',
+    data: { labels:scStatusPairs.map(p=>p.label), datasets:[{ data:scStatusPairs.map(p=>p.val), backgroundColor:scStatusPairs.map(p=>p.color) }] },
+    options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
   });
 
-  // Augur status doughnut
+  // Augur status — sorted bar
+  const augurStatusPairs = [
+    { label:'Ready',            val:agReady,                                                              color:'#16a34a' },
+    { label:'Partial',          val:agPartial,                                                            color:'#d97706' },
+    { label:'Registered Only',  val:Math.max(0, agReg - agReady - agPartial),                            color:'#3b82f6' },
+    { label:'Timed Out',        val:agTimeout,                                                            color:'#f59e0b' },
+    { label:'Failed/Unreg',     val:agFailed,                                                             color:'#dc2626' },
+  ].sort((a,b) => b.val - a.val);
   new Chart(document.getElementById('chartAGStatus'), {
-    type: 'doughnut',
-    data: { labels:['Ready','Partial','Registered Only','Timed Out','Failed/Unreg'], datasets:[{ data:[agReady,agPartial,agReg-agReady-agPartial>0?agReg-agReady-agPartial:0,agTimeout,agFailed], backgroundColor:['#16a34a','#d97706','#3b82f6','#f59e0b','#dc2626'] }] },
-    options: { plugins:{legend:{position:'bottom'}} }
+    type: 'bar',
+    data: { labels:augurStatusPairs.map(p=>p.label), datasets:[{ data:augurStatusPairs.map(p=>p.val), backgroundColor:augurStatusPairs.map(p=>p.color) }] },
+    options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
   });
 
   // Quality table

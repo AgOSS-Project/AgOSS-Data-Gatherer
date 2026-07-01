@@ -81,7 +81,7 @@ def check_augur_health() -> bool:
     """Return True if the Augur API is reachable."""
     try:
         r = requests.get(
-            f"{config.AUGUR_API_BASE.rstrip('/')}/api/unstable/",
+            f"{config.AUGUR_API_BASE.rstrip('/')}{config.AUGUR_API_PREFIX}/repos",
             timeout=5,
         )
         return r.status_code == 200
@@ -130,7 +130,7 @@ def _ensure_repo_group(group_name: str) -> int | None:
     try:
         r = _get("repo-groups")
         if r.status_code == 200:
-            for rg in r.json():
+            for rg in (r.json() or []):
                 if rg.get("rg_name") == group_name:
                     return rg["repo_group_id"]
     except Exception:
@@ -138,7 +138,7 @@ def _ensure_repo_group(group_name: str) -> int | None:
 
     # Create via direct SQL
     sql = (
-        "INSERT INTO augur_data.repo_groups (rg_name, rg_description, tool_source) "
+        "INSERT INTO aveloxis_data.repo_groups (rg_name, rg_description, tool_source) "
         f"VALUES ('{group_name}', 'Created by ag-oss pipeline', 'pipeline') "
         "ON CONFLICT DO NOTHING "
         "RETURNING repo_group_id;"
@@ -157,7 +157,7 @@ def _ensure_repo_group(group_name: str) -> int | None:
         # ON CONFLICT means it exists but RETURNING gave nothing — re-query
         r2 = _get("repo-groups")
         if r2.status_code == 200:
-            for rg in r2.json():
+            for rg in (r2.json() or []):
                 if rg.get("rg_name") == group_name:
                     return rg["repo_group_id"]
     except Exception as exc:
@@ -186,19 +186,17 @@ def register_repos(entries: list[RepoEntry]) -> dict[str, bool]:
 
     for entry in entries:
         url = entry.repo_url.rstrip("/")
-        # Sanitise for SQL (only allow URL-safe chars)
         safe_url = url.replace("'", "''")
         safe_name = entry.repo_name.replace("'", "''")
-        # Augur API expects url as "github.com/owner/repo" and repo_path as "github.com-owner-repo"
+        safe_owner = entry.owner.replace("'", "''")
         short_url = url.replace("https://", "").replace("http://", "")
         repo_path = short_url.replace("/", "-")
-        safe_short_url = short_url.replace("'", "''")
         safe_repo_path = repo_path.replace("'", "''")
 
         sql = (
-            "INSERT INTO augur_data.repo "
-            "(repo_group_id, repo_git, repo_name, repo_type, tool_source, data_source, url, repo_path) "
-            f"VALUES ({repo_group_id}, '{safe_url}', '{safe_name}', '', 'pipeline', 'pipeline', '{safe_short_url}', '{safe_repo_path}') "
+            "INSERT INTO aveloxis_data.repos "
+            "(repo_group_id, platform_id, repo_git, repo_name, repo_owner, repo_path, tool_source) "
+            f"VALUES ({repo_group_id}, 1, '{safe_url}', '{safe_name}', '{safe_owner}', '{safe_repo_path}', 'pipeline') "
             "ON CONFLICT (repo_git) DO NOTHING "
             "RETURNING repo_id;"
         )
@@ -218,9 +216,8 @@ def register_repos(entries: list[RepoEntry]) -> dict[str, bool]:
 
             if new_id and new_id.isdigit():
                 logger.info("[augur-register] Inserted %s (repo_id=%s)", url, new_id)
-                # Also insert a collection_status row so Augur knows to collect
                 cs_sql = (
-                    "INSERT INTO augur_operations.collection_status (repo_id) "
+                    "INSERT INTO aveloxis_ops.collection_queue (repo_id) "
                     f"VALUES ({new_id}) ON CONFLICT DO NOTHING;"
                 )
                 subprocess.run(
@@ -231,7 +228,7 @@ def register_repos(entries: list[RepoEntry]) -> dict[str, bool]:
                 )
                 outcomes[url] = True
             else:
-                # ON CONFLICT — repo already exists (race with another process)
+                # ON CONFLICT — repo already exists
                 logger.info("[augur-register] %s already in DB (no insert needed)", url)
                 outcomes[url] = True
         except FileNotFoundError:
@@ -390,16 +387,16 @@ def _collect_db_counts(repo_id: int) -> dict[str, int]:
     or still sparse for a repo.
     """
     tables: list[tuple[str, str]] = [
-        ("augur_data.commits", "db_commit_rows"),
-        ("augur_data.issues", "db_issue_rows"),
-        ("augur_data.pull_requests", "db_pull_request_rows"),
-        ("augur_data.pull_request_events", "db_pull_request_event_rows"),
-        ("augur_data.pull_request_files", "db_pull_request_file_rows"),
-        ("augur_data.issue_events", "db_issue_event_rows"),
-        ("augur_data.issue_labels", "db_issue_label_rows"),
-        ("augur_data.pull_request_labels", "db_pull_request_label_rows"),
-        ("augur_data.releases", "db_release_rows"),
-        ("augur_data.repo_stats", "db_repo_stat_rows"),
+        ("aveloxis_data.commits", "db_commit_rows"),
+        ("aveloxis_data.issues", "db_issue_rows"),
+        ("aveloxis_data.pull_requests", "db_pull_request_rows"),
+        ("aveloxis_data.pull_request_events", "db_pull_request_event_rows"),
+        ("aveloxis_data.pull_request_files", "db_pull_request_file_rows"),
+        ("aveloxis_data.issue_events", "db_issue_event_rows"),
+        ("aveloxis_data.issue_labels", "db_issue_label_rows"),
+        ("aveloxis_data.pull_request_labels", "db_pull_request_label_rows"),
+        ("aveloxis_data.releases", "db_release_rows"),
+        ("aveloxis_data.repo_stats", "db_repo_stat_rows"),
     ]
 
     counts: dict[str, int] = {}

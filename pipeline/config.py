@@ -74,7 +74,7 @@ def _resolve_scorecard_executable() -> Path:
 SCORECARD_EXE = _resolve_scorecard_executable()
 AUGUR_DIR = TOOLS_DIR / "augur"
 
-INPUT_FILE = PROJECT_ROOT / "pipeline" / "input.txt"
+INPUT_FILE = PROJECT_ROOT / "inputs" / "Open Source Agricultural Software(Input).csv"
 
 OUTPUTS_DIR = PROJECT_ROOT / "outputs"
 RAW_SCORECARD_DIR = OUTPUTS_DIR / "raw" / "scorecard"
@@ -82,6 +82,7 @@ RAW_AUGUR_DIR = OUTPUTS_DIR / "raw" / "augur"
 RAW_DEPENDENCY_DIR = OUTPUTS_DIR / "raw" / "dependency"
 PROCESSED_DIR = OUTPUTS_DIR / "processed"
 DEPENDENCY_REPORT_FILE = PROCESSED_DIR / "dependency_analysis.json"
+SATURATION_REPORT_FILE = PROCESSED_DIR / "saturation_analysis.json"
 DASHBOARD_DIR = OUTPUTS_DIR / "dashboard"
 LOG_DIR = OUTPUTS_DIR / "logs"
 
@@ -105,10 +106,10 @@ OSV_API_BASE = os.getenv("OSV_API_BASE", "https://api.osv.dev")
 OSV_QUERY_BATCH_SIZE = int(os.getenv("OSV_QUERY_BATCH_SIZE", "100"))
 
 # ---------------------------------------------------------------------------
-# Augur configuration  (docker-compose maps container 5000 → host 5002)
+# Aveloxis (Augur successor) — API on :8383, Postgres on :5432
 # ---------------------------------------------------------------------------
-AUGUR_API_BASE = os.getenv("AUGUR_API_BASE", "http://localhost:5002")
-AUGUR_API_PREFIX = "/api/unstable"
+AUGUR_API_BASE = os.getenv("AUGUR_API_BASE", "http://localhost:8383")
+AUGUR_API_PREFIX = "/api/v1"
 AUGUR_API_KEY = os.getenv("AUGUR_API_KEY", "")
 AUGUR_TIMEOUT_SECONDS = int(os.getenv("AUGUR_TIMEOUT", "30"))
 
@@ -116,9 +117,9 @@ AUGUR_TIMEOUT_SECONDS = int(os.getenv("AUGUR_TIMEOUT", "30"))
 AUGUR_REPO_GROUP = os.getenv("AUGUR_REPO_GROUP", "ag-oss-pipeline")
 
 # Docker container name for direct DB access (used by register_repos)
-AUGUR_DB_CONTAINER = os.getenv("AUGUR_DB_CONTAINER", "augur-augur-db-1")
-AUGUR_DB_USER = os.getenv("AUGUR_DB_USER", "augur")
-AUGUR_DB_NAME = os.getenv("AUGUR_DB_NAME", "augur")
+AUGUR_DB_CONTAINER = os.getenv("AUGUR_DB_CONTAINER", "augur-postgres-1")
+AUGUR_DB_USER = os.getenv("AUGUR_DB_USER", "aveloxis")
+AUGUR_DB_NAME = os.getenv("AUGUR_DB_NAME", "aveloxis")
 
 # Wait-mode controls how long the pipeline waits for Augur to finish
 # ingesting data after registration.

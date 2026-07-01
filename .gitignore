@@ -7,7 +7,15 @@ __pycache__/
 # C extensions
 *.so
 
+# Augur/Aveloxis + ScoreCard
 tools/augur/
+tools/scorecard
+tools/scorecard.exe
+scorecard
+scorecard.exe
+
+# Logs
+*.log
 
 # Distribution / packaging
 .Python
@@ -208,3 +216,6 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Claude
+.claude/

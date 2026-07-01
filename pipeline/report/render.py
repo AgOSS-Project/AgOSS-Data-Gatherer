@@ -41,6 +41,10 @@ def _empty_dependency_payload() -> dict:
     }
 
 
+def _empty_stats_payload() -> dict:
+    return {}
+
+
 def _empty_kev_payload() -> dict:
     """Empty KEV analysis payload when file is not available."""
     return {
@@ -68,6 +72,7 @@ def build_dashboard() -> Path:
     summary_path = config.PROCESSED_DIR / "summary.json"
     dependency_path = config.DEPENDENCY_REPORT_FILE
     kev_summary_path = config.PROCESSED_DIR / "kev_summary.json"
+    stats_path = config.PROCESSED_DIR / "statistical_analysis.json"
 
     if not merged_path.exists():
         raise FileNotFoundError(f"Processed data not found: {merged_path}")
@@ -86,6 +91,16 @@ def build_dashboard() -> Path:
             dependency_data["notes"] = [f"Dependency artifact unreadable: {exc}"]
     else:
         dependency_data = _empty_dependency_payload()
+
+    # Load statistical analysis data
+    if stats_path.exists():
+        try:
+            stats_data = json.loads(stats_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            logger.warning("Stats artifact unreadable (%s): %s", stats_path.name, exc)
+            stats_data = _empty_stats_payload()
+    else:
+        stats_data = _empty_stats_payload()
 
     # Load KEV summary data
     if kev_summary_path.exists():
@@ -107,6 +122,7 @@ def build_dashboard() -> Path:
     html = html.replace("/* @@SUMMARY_DATA@@ */ {}", json.dumps(summary_data, default=str))
     html = html.replace("/* @@DEPENDENCY_DATA@@ */ {}", json.dumps(dependency_data, default=str))
     html = html.replace("/* @@KEV_DATA@@ */ {}", json.dumps(kev_data, default=str))
+    html = html.replace("/* @@STATS_DATA@@ */ {}", json.dumps(stats_data, default=str))
 
     out_path = config.DASHBOARD_DIR / "index.html"
     out_path.write_text(html, encoding="utf-8")
