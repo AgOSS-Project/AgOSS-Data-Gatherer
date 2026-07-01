@@ -1,30 +1,41 @@
 {
-  "repo_id": 25493,
+  "repo_id": 11,
   "status": "partial",
   "metrics_raw": {
+    "issue_backlog": {
+      "issue_backlog": 0
+    },
+    "avg_issue_resolution_time": {
+      "avg_issue_resolution_days": 0
+    },
+    "fork_count": {
+      "forks": 29,
+      "repo_name": "Mothbox"
+    },
     "db_counts": {
       "db_commit_rows": 0,
-      "db_issue_rows": 85,
-      "db_pull_request_rows": 15,
-      "db_pull_request_event_rows": 32,
+      "db_issue_rows": 0,
+      "db_pull_request_rows": 0,
+      "db_pull_request_event_rows": 0,
       "db_pull_request_file_rows": 0,
-      "db_issue_event_rows": 248,
-      "db_issue_label_rows": 55,
+      "db_issue_event_rows": 0,
+      "db_issue_label_rows": 0,
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
       "db_repo_stat_rows": 0
     }
   },
   "metrics_summary": {
-    "augur_endpoint_count": 1,
-    "augur_nonempty_endpoint_count": 1,
+    "issue_backlog": 0,
+    "augur_endpoint_count": 4,
+    "augur_nonempty_endpoint_count": 4,
     "db_commit_rows": 0,
-    "db_issue_rows": 85,
-    "db_pull_request_rows": 15,
-    "db_pull_request_event_rows": 32,
+    "db_issue_rows": 0,
+    "db_pull_request_rows": 0,
+    "db_pull_request_event_rows": 0,
     "db_pull_request_file_rows": 0,
-    "db_issue_event_rows": 248,
-    "db_issue_label_rows": 55,
+    "db_issue_event_rows": 0,
+    "db_issue_label_rows": 0,
     "db_pull_request_label_rows": 0,
     "db_release_rows": 0,
     "db_repo_stat_rows": 0

@@ -1,0 +1,345 @@
+{
+  "repo_url": "https://github.com/agstack/OpenAgri-IrrigationManagement",
+  "owner": "agstack",
+  "repo_name": "OpenAgri-IrrigationManagement",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 27,
+  "filtered_self_packages": 1,
+  "packages_total": 26,
+  "packages_queryable": 20,
+  "packages_unqueryable": 6,
+  "vulnerability_ids": [
+    "GHSA-6w46-j5rx-g56g",
+    "GHSA-752w-5fwx-jx9f",
+    "GHSA-993g-76c3-p5m4",
+    "GHSA-9hjg-9r4m-mvj7",
+    "GHSA-fhv5-28vv-h8m8",
+    "GHSA-gc5v-m9x4-r6x2",
+    "GHSA-mf9w-mj56-hr94",
+    "GHSA-w7vc-732c-9m39",
+    "GHSA-xgmm-8j9v-c9wx",
+    "PYSEC-2025-183",
+    "PYSEC-2026-120",
+    "PYSEC-2026-175",
+    "PYSEC-2026-177",
+    "PYSEC-2026-178",
+    "PYSEC-2026-179"
+  ],
+  "vulnerabilities_total": 15,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "alembic",
+      "version": "1.13.1",
+      "purl": "pkg:pypi/alembic@1.13.1",
+      "ecosystem": "PyPI",
+      "query_name": "alembic",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "apscheduler",
+      "version": "3.10.4",
+      "purl": "pkg:pypi/apscheduler@3.10.4",
+      "ecosystem": "PyPI",
+      "query_name": "apscheduler",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "argon2-cffi",
+      "version": "23.1.0",
+      "purl": "pkg:pypi/argon2-cffi@23.1.0",
+      "ecosystem": "PyPI",
+      "query_name": "argon2-cffi",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "eto",
+      "version": "1.1.0",
+      "purl": "pkg:pypi/eto@1.1.0",
+      "ecosystem": "PyPI",
+      "query_name": "eto",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "fastapi",
+      "version": "0.111.0",
+      "purl": "pkg:pypi/fastapi@0.111.0",
+      "ecosystem": "PyPI",
+      "query_name": "fastapi",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "purl": "pkg:pypi/httpx@0.28.1",
+      "ecosystem": "PyPI",
+      "query_name": "httpx",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "openmeteo-requests",
+      "version": "1.3.0",
+      "purl": "pkg:pypi/openmeteo-requests@1.3.0",
+      "ecosystem": "PyPI",
+      "query_name": "openmeteo-requests",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "pandas",
+      "version": "2.2.3",
+      "purl": "pkg:pypi/pandas@2.2.3",
+      "ecosystem": "PyPI",
+      "query_name": "pandas",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "passlib",
+      "version": "1.7.4",
+      "purl": "pkg:pypi/passlib@1.7.4",
+      "ecosystem": "PyPI",
+      "query_name": "passlib",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "password-validator",
+      "version": "1.0",
+      "purl": "pkg:pypi/password-validator@1.0",
+      "ecosystem": "PyPI",
+      "query_name": "password-validator",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "psycopg2",
+      "version": "2.9.9",
+      "purl": "pkg:pypi/psycopg2@2.9.9",
+      "ecosystem": "PyPI",
+      "query_name": "psycopg2",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "pydantic-settings",
+      "version": "2.2.1",
+      "purl": "pkg:pypi/pydantic-settings@2.2.1",
+      "ecosystem": "PyPI",
+      "query_name": "pydantic-settings",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "pyjwt",
+      "version": "2.8.0",
+      "purl": "pkg:pypi/pyjwt@2.8.0",
+      "ecosystem": "PyPI",
+      "query_name": "pyjwt",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "GHSA-752w-5fwx-jx9f",
+        "GHSA-993g-76c3-p5m4",
+        "GHSA-fhv5-28vv-h8m8",
+        "GHSA-w7vc-732c-9m39",
+        "GHSA-xgmm-8j9v-c9wx",
+        "PYSEC-2025-183",
+        "PYSEC-2026-120",
+        "PYSEC-2026-175",
+        "PYSEC-2026-177",
+        "PYSEC-2026-178",
+        "PYSEC-2026-179"
+      ],
+      "vulnerability_count": 11
+    },
+    {
+      "name": "pytest",
+      "version": "8.4.2",
+      "purl": "pkg:pypi/pytest@8.4.2",
+      "ecosystem": "PyPI",
+      "query_name": "pytest",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "GHSA-6w46-j5rx-g56g"
+      ],
+      "vulnerability_count": 1
+    },
+    {
+      "name": "pytest-dotenv",
+      "version": "0.5.2",
+      "purl": "pkg:pypi/pytest-dotenv@0.5.2",
+      "ecosystem": "PyPI",
+      "query_name": "pytest-dotenv",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "ecosystem": "PyPI",
+      "query_name": "python-dotenv",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "GHSA-mf9w-mj56-hr94"
+      ],
+      "vulnerability_count": 1
+    },
+    {
+      "name": "requests",
+      "version": "2.32.3",
+      "purl": "pkg:pypi/requests@2.32.3",
+      "ecosystem": "PyPI",
+      "query_name": "requests",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "GHSA-9hjg-9r4m-mvj7",
+        "GHSA-gc5v-m9x4-r6x2"
+      ],
+      "vulnerability_count": 2
+    },
+    {
+      "name": "requests-cache",
+      "version": "1.2.1",
+      "purl": "pkg:pypi/requests-cache@1.2.1",
+      "ecosystem": "PyPI",
+      "query_name": "requests-cache",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "retry-requests",
+      "version": "2.0.0",
+      "purl": "pkg:pypi/retry-requests@2.0.0",
+      "ecosystem": "PyPI",
+      "query_name": "retry-requests",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "shapely",
+      "version": "2.0.6",
+      "purl": "pkg:pypi/shapely@2.0.6",
+      "ecosystem": "PyPI",
+      "query_name": "shapely",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "docker/build-push-action",
+      "version": "6.*.*",
+      "purl": "pkg:githubactions/docker/build-push-action@6.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "build-push-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/checkout",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/actions/checkout@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "docker/login-action",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/docker/login-action@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "login-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "docker/setup-buildx-action",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/docker/setup-buildx-action@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "setup-buildx-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "docker/setup-docker-action",
+      "version": "4.*.*",
+      "purl": "pkg:githubactions/docker/setup-docker-action@4.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "setup-docker-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "docker/setup-qemu-action",
+      "version": "3.*.*",
+      "purl": "pkg:githubactions/docker/setup-qemu-action@3.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "setup-qemu-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,7 +1,7 @@
 {
-  "repo_url": "https://github.com/ersha-os/ersha-os",
-  "owner": "ersha-os",
-  "repo_name": "ersha-os",
+  "repo_url": "https://github.com/ADAPT/GeoJSONPlugin",
+  "owner": "ADAPT",
+  "repo_name": "GeoJSONPlugin",
   "status": "failed",
   "error": "HTTP 404: Not Found",
   "sbom_package_count": 0,

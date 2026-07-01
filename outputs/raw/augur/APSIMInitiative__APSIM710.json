@@ -1,31 +1,38 @@
 {
-  "repo_id": 25515,
+  "repo_id": 30,
   "status": "partial",
   "metrics_raw": {
+    "issue_backlog": {
+      "issue_backlog": 0
+    },
+    "avg_issue_resolution_time": {
+      "avg_issue_resolution_days": 0
+    },
     "db_counts": {
       "db_commit_rows": 0,
-      "db_issue_rows": 2190,
-      "db_pull_request_rows": 98,
+      "db_issue_rows": 0,
+      "db_pull_request_rows": 0,
       "db_pull_request_event_rows": 0,
       "db_pull_request_file_rows": 0,
       "db_issue_event_rows": 0,
-      "db_issue_label_rows": 318,
-      "db_pull_request_label_rows": 1,
+      "db_issue_label_rows": 0,
+      "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
       "db_repo_stat_rows": 0
     }
   },
   "metrics_summary": {
-    "augur_endpoint_count": 1,
-    "augur_nonempty_endpoint_count": 1,
+    "issue_backlog": 0,
+    "augur_endpoint_count": 3,
+    "augur_nonempty_endpoint_count": 3,
     "db_commit_rows": 0,
-    "db_issue_rows": 2190,
-    "db_pull_request_rows": 98,
+    "db_issue_rows": 0,
+    "db_pull_request_rows": 0,
     "db_pull_request_event_rows": 0,
     "db_pull_request_file_rows": 0,
     "db_issue_event_rows": 0,
-    "db_issue_label_rows": 318,
-    "db_pull_request_label_rows": 1,
+    "db_issue_label_rows": 0,
+    "db_pull_request_label_rows": 0,
     "db_release_rows": 0,
     "db_repo_stat_rows": 0
   }

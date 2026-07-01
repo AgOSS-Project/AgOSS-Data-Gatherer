@@ -1,0 +1,222 @@
+{
+  "repo_url": "https://github.com/ADAPT/ISOv4Plugin",
+  "owner": "ADAPT",
+  "repo_name": "ISOv4Plugin",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 19,
+  "filtered_self_packages": 1,
+  "packages_total": 18,
+  "packages_queryable": 14,
+  "packages_unqueryable": 4,
+  "vulnerability_ids": [],
+  "vulnerabilities_total": 0,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "AgGatewayADAPTFramework",
+      "version": "2.0.0-alpha4",
+      "purl": "pkg:nuget/AgGatewayADAPTFramework@2.0.0-alpha4",
+      "ecosystem": "NuGet",
+      "query_name": "AgGatewayADAPTFramework",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "AgGatewayADAPTFramework",
+      "version": "2.0.1",
+      "purl": "pkg:nuget/AgGatewayADAPTFramework@2.0.1",
+      "ecosystem": "NuGet",
+      "query_name": "AgGatewayADAPTFramework",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "AgGatewayADAPTFramework",
+      "version": "3.0.2",
+      "purl": "pkg:nuget/AgGatewayADAPTFramework@3.0.2",
+      "ecosystem": "NuGet",
+      "query_name": "AgGatewayADAPTFramework",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "AgGatewayADAPTFramework",
+      "version": "3.1.0",
+      "purl": "pkg:nuget/AgGatewayADAPTFramework@3.1.0",
+      "ecosystem": "NuGet",
+      "query_name": "AgGatewayADAPTFramework",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "AgGatewayADAPTFramework",
+      "version": ">= 2.6.0,< 4",
+      "purl": "pkg:nuget/AgGatewayADAPTFramework",
+      "ecosystem": "NuGet",
+      "query_name": "AgGatewayADAPTFramework",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "Microsoft.NET.Test.Sdk",
+      "version": "15.5.0",
+      "purl": "pkg:nuget/Microsoft.NET.Test.Sdk@15.5.0",
+      "ecosystem": "NuGet",
+      "query_name": "Microsoft.NET.Test.Sdk",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "Microsoft.NET.Test.Sdk",
+      "version": "15.9.0",
+      "purl": "pkg:nuget/Microsoft.NET.Test.Sdk@15.9.0",
+      "ecosystem": "NuGet",
+      "query_name": "Microsoft.NET.Test.Sdk",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "Moq",
+      "version": "4.10.1",
+      "purl": "pkg:nuget/Moq@4.10.1",
+      "ecosystem": "NuGet",
+      "query_name": "Moq",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "Moq",
+      "version": "4.8.1",
+      "purl": "pkg:nuget/Moq@4.8.1",
+      "ecosystem": "NuGet",
+      "query_name": "Moq",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "NUnit",
+      "version": "3.11.0",
+      "purl": "pkg:nuget/NUnit@3.11.0",
+      "ecosystem": "NuGet",
+      "query_name": "NUnit",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "NUnit",
+      "version": "3.9.0",
+      "purl": "pkg:nuget/NUnit@3.9.0",
+      "ecosystem": "NuGet",
+      "query_name": "NUnit",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "NUnit3TestAdapter",
+      "version": "3.12.0",
+      "purl": "pkg:nuget/NUnit3TestAdapter@3.12.0",
+      "ecosystem": "NuGet",
+      "query_name": "NUnit3TestAdapter",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "NUnit3TestAdapter",
+      "version": "3.9.0",
+      "purl": "pkg:nuget/NUnit3TestAdapter@3.9.0",
+      "ecosystem": "NuGet",
+      "query_name": "NUnit3TestAdapter",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "SpecFlow",
+      "version": "2.4.1",
+      "purl": "pkg:nuget/SpecFlow@2.4.1",
+      "ecosystem": "NuGet",
+      "query_name": "SpecFlow",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/checkout",
+      "version": "2.*.*",
+      "purl": "pkg:githubactions/actions/checkout@2.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/checkout",
+      "version": "4.1.6",
+      "purl": "pkg:githubactions/actions/checkout@4.1.6",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/setup-dotnet",
+      "version": "4.0.0",
+      "purl": "pkg:githubactions/actions/setup-dotnet@4.0.0",
+      "ecosystem": null,
+      "query_name": "setup-dotnet",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "svenstaro/upload-release-action",
+      "version": "2.*.*",
+      "purl": "pkg:githubactions/svenstaro/upload-release-action@2.%2A.%2A",
+      "ecosystem": null,
+      "query_name": "upload-release-action",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}

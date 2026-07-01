@@ -1,12 +1,12 @@
 {
-  "run_start": "2026-03-30T00:59:20.293799+00:00",
-  "run_end": "2026-03-30T00:59:20.489138+00:00",
-  "total_repos": 42,
-  "scorecard_success": 40,
+  "run_start": "2026-06-29T14:53:06.039143+00:00",
+  "run_end": "2026-06-29T14:53:08.816133+00:00",
+  "total_repos": 54,
+  "scorecard_success": 53,
   "scorecard_partial": 0,
-  "scorecard_fail": 2,
+  "scorecard_fail": 1,
   "augur_success": 0,
-  "augur_registered": 42,
+  "augur_registered": 54,
   "augur_ready": 0,
   "augur_timed_out": 0,
   "augur_fail": 0,
@@ -17,8 +17,8 @@
     "Embedded OS substrate",
     "Field-Deployed Sensor"
   ],
-  "ag_specific_yes": 30,
-  "ag_specific_no": 12,
+  "ag_specific_yes": 43,
+  "ag_specific_no": 11,
   "ag_specific_unknown": 0,
   "notes": []
 }

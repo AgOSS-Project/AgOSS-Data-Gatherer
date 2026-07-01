@@ -1,0 +1,90 @@
+{
+  "repo_url": "https://github.com/ADAPT/ADAPT",
+  "owner": "ADAPT",
+  "repo_name": "ADAPT",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 7,
+  "filtered_self_packages": 1,
+  "packages_total": 6,
+  "packages_queryable": 4,
+  "packages_unqueryable": 2,
+  "vulnerability_ids": [],
+  "vulnerabilities_total": 0,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "Microsoft.NET.Test.Sdk",
+      "version": "15.5.0",
+      "purl": "pkg:nuget/Microsoft.NET.Test.Sdk@15.5.0",
+      "ecosystem": "NuGet",
+      "query_name": "Microsoft.NET.Test.Sdk",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "Moq",
+      "version": "4.8.1",
+      "purl": "pkg:nuget/Moq@4.8.1",
+      "ecosystem": "NuGet",
+      "query_name": "Moq",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "NUnit",
+      "version": "3.9.0",
+      "purl": "pkg:nuget/NUnit@3.9.0",
+      "ecosystem": "NuGet",
+      "query_name": "NUnit",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "NUnit3TestAdapter",
+      "version": "3.9.0",
+      "purl": "pkg:nuget/NUnit3TestAdapter@3.9.0",
+      "ecosystem": "NuGet",
+      "query_name": "NUnit3TestAdapter",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/checkout",
+      "version": "4.1.6",
+      "purl": "pkg:githubactions/actions/checkout@4.1.6",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/setup-dotnet",
+      "version": "4.0.0",
+      "purl": "pkg:githubactions/actions/setup-dotnet@4.0.0",
+      "ecosystem": null,
+      "query_name": "setup-dotnet",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}

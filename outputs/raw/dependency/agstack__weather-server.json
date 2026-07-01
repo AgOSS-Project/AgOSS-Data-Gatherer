@@ -1,0 +1,105 @@
+{
+  "repo_url": "https://github.com/agstack/weather-server",
+  "owner": "agstack",
+  "repo_name": "weather-server",
+  "status": "success",
+  "error": "",
+  "sbom_package_count": 6,
+  "filtered_self_packages": 1,
+  "packages_total": 5,
+  "packages_queryable": 3,
+  "packages_unqueryable": 2,
+  "vulnerability_ids": [
+    "GHSA-5wvp-7f3h-6wmm",
+    "GHSA-6w46-j5rx-g56g",
+    "GHSA-8cw2-jv5c-c825",
+    "GHSA-cjw4-2w9r-r8mv",
+    "GHSA-rgxp-2hwp-jwgg",
+    "PYSEC-2019-195",
+    "PYSEC-2019-196",
+    "PYSEC-2020-73",
+    "PYSEC-2023-238",
+    "PYSEC-2024-161",
+    "PYSEC-2026-113"
+  ],
+  "vulnerabilities_total": 11,
+  "severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unknown": 0
+  },
+  "packages": [
+    {
+      "name": "pandas",
+      "version": null,
+      "purl": "pkg:pypi/pandas",
+      "ecosystem": "PyPI",
+      "query_name": "pandas",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "PYSEC-2020-73"
+      ],
+      "vulnerability_count": 1
+    },
+    {
+      "name": "pyarrow",
+      "version": null,
+      "purl": "pkg:pypi/pyarrow",
+      "ecosystem": "PyPI",
+      "query_name": "pyarrow",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "GHSA-5wvp-7f3h-6wmm",
+        "GHSA-8cw2-jv5c-c825",
+        "GHSA-cjw4-2w9r-r8mv",
+        "GHSA-rgxp-2hwp-jwgg",
+        "PYSEC-2019-195",
+        "PYSEC-2019-196",
+        "PYSEC-2023-238",
+        "PYSEC-2024-161",
+        "PYSEC-2026-113"
+      ],
+      "vulnerability_count": 9
+    },
+    {
+      "name": "pytest",
+      "version": null,
+      "purl": "pkg:pypi/pytest",
+      "ecosystem": "PyPI",
+      "query_name": "pytest",
+      "queryable": true,
+      "query_reason": "",
+      "vulnerability_ids": [
+        "GHSA-6w46-j5rx-g56g"
+      ],
+      "vulnerability_count": 1
+    },
+    {
+      "name": "actions/checkout",
+      "version": "2",
+      "purl": "pkg:githubactions/actions/checkout@2",
+      "ecosystem": null,
+      "query_name": "checkout",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    },
+    {
+      "name": "actions/setup-python",
+      "version": "2",
+      "purl": "pkg:githubactions/actions/setup-python@2",
+      "ecosystem": null,
+      "query_name": "setup-python",
+      "queryable": false,
+      "query_reason": "missing ecosystem mapping from purl",
+      "vulnerability_ids": [],
+      "vulnerability_count": 0
+    }
+  ],
+  "vulnerabilities": []
+}

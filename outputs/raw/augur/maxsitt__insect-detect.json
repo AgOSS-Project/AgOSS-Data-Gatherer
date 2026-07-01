@@ -1,83 +1,43 @@
 {
-  "repo_id": 25488,
+  "repo_id": 7,
   "status": "partial",
   "metrics_raw": {
-    "contributors": [
-      {
-        "user_id": "01053a29-c000-0000-0000-000000000000",
-        "commits": 0.0,
-        "issues": 0.0,
-        "commit_comments": 0.0,
-        "issue_comments": 3.0,
-        "pull_requests": 0,
-        "pull_request_comments": 0,
-        "total": 3.0,
-        "repo_id": 25488,
-        "repo_name": "insect-detect"
-      },
-      {
-        "user_id": "01035718-2100-0000-0000-000000000000",
-        "commits": 0.0,
-        "issues": 0.0,
-        "commit_comments": 0.0,
-        "issue_comments": 2.0,
-        "pull_requests": 0,
-        "pull_request_comments": 0,
-        "total": 2.0,
-        "repo_id": 25488,
-        "repo_name": "insect-detect"
-      },
-      {
-        "user_id": "010a8d4d-7800-0000-0000-000000000000",
-        "commits": 0.0,
-        "issues": 1.0,
-        "commit_comments": 0.0,
-        "issue_comments": 1.0,
-        "pull_requests": 0,
-        "pull_request_comments": 0,
-        "total": 2.0,
-        "repo_id": 25488,
-        "repo_name": "insect-detect"
-      }
-    ],
-    "contributors_new": [
-      {
-        "date": "2024-07-30T00:00:00.000Z",
-        "new_contributors": 1,
-        "repo_id": 25488,
-        "repo_name": "insect-detect"
-      }
-    ],
-    "committers": [],
-    "top_committers": [],
+    "issue_backlog": {
+      "issue_backlog": 0
+    },
+    "avg_issue_resolution_time": {
+      "avg_issue_resolution_days": 15.658194444444444
+    },
+    "fork_count": {
+      "forks": 26,
+      "repo_name": "insect-detect"
+    },
     "db_counts": {
-      "db_commit_rows": 0,
+      "db_commit_rows": 572,
       "db_issue_rows": 1,
       "db_pull_request_rows": 4,
-      "db_pull_request_event_rows": 4,
-      "db_pull_request_file_rows": 0,
+      "db_pull_request_event_rows": 0,
+      "db_pull_request_file_rows": 139,
       "db_issue_event_rows": 7,
       "db_issue_label_rows": 0,
       "db_pull_request_label_rows": 0,
-      "db_release_rows": 9,
+      "db_release_rows": 10,
       "db_repo_stat_rows": 0
     }
   },
   "metrics_summary": {
-    "contributor_count": 3,
-    "new_contributor_count": 1,
-    "committer_count": 0,
-    "augur_endpoint_count": 5,
-    "augur_nonempty_endpoint_count": 3,
-    "db_commit_rows": 0,
+    "issue_backlog": 0,
+    "augur_endpoint_count": 4,
+    "augur_nonempty_endpoint_count": 4,
+    "db_commit_rows": 572,
     "db_issue_rows": 1,
     "db_pull_request_rows": 4,
-    "db_pull_request_event_rows": 4,
-    "db_pull_request_file_rows": 0,
+    "db_pull_request_event_rows": 0,
+    "db_pull_request_file_rows": 139,
     "db_issue_event_rows": 7,
     "db_issue_label_rows": 0,
     "db_pull_request_label_rows": 0,
-    "db_release_rows": 9,
+    "db_release_rows": 10,
     "db_repo_stat_rows": 0
   }
 }
