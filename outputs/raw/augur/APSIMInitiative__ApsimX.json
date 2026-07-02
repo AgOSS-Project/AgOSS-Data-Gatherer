@@ -8,6 +8,10 @@
     "avg_issue_resolution_time": {
       "avg_issue_resolution_days": 0
     },
+    "fork_count": {
+      "forks": 205,
+      "repo_name": "ApsimX"
+    },
     "db_counts": {
       "db_commit_rows": 0,
       "db_issue_rows": 0,
@@ -23,8 +27,8 @@
   },
   "metrics_summary": {
     "issue_backlog": 0,
-    "augur_endpoint_count": 3,
-    "augur_nonempty_endpoint_count": 3,
+    "augur_endpoint_count": 4,
+    "augur_nonempty_endpoint_count": 4,
     "db_commit_rows": 0,
     "db_issue_rows": 0,
     "db_pull_request_rows": 0,

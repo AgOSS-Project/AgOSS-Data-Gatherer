@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T14:44:15.266853+00:00",
+  "generated_at": "2026-07-02T10:14:24.840832+00:00",
   "n_repos": 54,
   "metrics": [
     "scorecard_overall",
@@ -72,51 +72,51 @@
       },
       "contributor_count": {
         "n": 6,
-        "mean": 65.0,
+        "mean": 65.1667,
         "mean_ci_lo": 37.5,
-        "mean_ci_hi": 94.3333,
+        "mean_ci_hi": 94.6667,
         "median": 65.0,
         "median_ci_lo": 27.0,
-        "median_ci_hi": 103.0,
+        "median_ci_hi": 103.5,
         "iqr": 34.75,
         "iqr_ci_lo": 1.5,
-        "iqr_ci_hi": 90.25
+        "iqr_ci_hi": 91.0
       },
       "commit_count": {
         "n": 6,
-        "mean": 15009.8333,
-        "mean_ci_lo": 6286.4375,
-        "mean_ci_hi": 24608.6542,
-        "median": 13649.0,
+        "mean": 15019.0,
+        "mean_ci_lo": 6286.925,
+        "mean_ci_hi": 24626.2292,
+        "median": 13650.5,
         "median_ci_lo": 2607.0,
-        "median_ci_hi": 28773.5,
-        "iqr": 16416.5,
+        "median_ci_hi": 28799.5,
+        "iqr": 16417.25,
         "iqr_ci_lo": 3106.4625,
-        "iqr_ci_hi": 27394.25
+        "iqr_ci_hi": 27433.25
       },
       "issues_opened": {
         "n": 6,
-        "mean": 161.8333,
-        "mean_ci_lo": 35.0,
-        "mean_ci_hi": 324.8333,
-        "median": 56.0,
-        "median_ci_lo": 23.0,
-        "median_ci_hi": 406.5,
-        "iqr": 185.25,
-        "iqr_ci_lo": 4.5,
-        "iqr_ci_hi": 453.75
+        "mean": 154.3333,
+        "mean_ci_lo": 22.8333,
+        "mean_ci_hi": 321.0,
+        "median": 47.0,
+        "median_ci_lo": 8.5,
+        "median_ci_hi": 407.5,
+        "iqr": 209.75,
+        "iqr_ci_lo": 0.75,
+        "iqr_ci_hi": 462.25
       },
       "issues_closed": {
         "n": 6,
-        "mean": 1.0,
+        "mean": 2.0,
         "mean_ci_lo": 1.0,
-        "mean_ci_hi": 1.0,
+        "mean_ci_hi": 4.0,
         "median": 1.0,
         "median_ci_lo": 1.0,
-        "median_ci_hi": 1.0,
+        "median_ci_hi": 4.0,
         "iqr": 0.0,
         "iqr_ci_lo": 0.0,
-        "iqr_ci_hi": 0.0
+        "iqr_ci_hi": 6.0
       },
       "prs_merged": {
         "n": 0,
@@ -132,39 +132,39 @@
       },
       "vuln_count": {
         "n": 6,
-        "mean": 63.1667,
-        "mean_ci_lo": 13.1667,
-        "mean_ci_hi": 132.1667,
-        "median": 32.5,
-        "median_ci_lo": 3.5,
-        "median_ci_hi": 153.5,
-        "iqr": 72.5,
-        "iqr_ci_lo": 3.0,
-        "iqr_ci_hi": 193.0
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
+        "median_ci_lo": 0.0,
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
+        "iqr_ci_lo": 0.0,
+        "iqr_ci_hi": 0.0
       },
       "vuln_density": {
         "n": 6,
-        "mean": 0.1717,
-        "mean_ci_lo": 0.0619,
-        "mean_ci_hi": 0.2971,
-        "median": 0.1325,
-        "median_ci_lo": 0.0233,
-        "median_ci_hi": 0.3592,
-        "iqr": 0.2198,
-        "iqr_ci_lo": 0.004,
-        "iqr_ci_hi": 0.3312
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
+        "median_ci_lo": 0.0,
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
+        "iqr_ci_lo": 0.0,
+        "iqr_ci_hi": 0.0
       },
       "stars_count": {
         "n": 6,
-        "mean": 511.6667,
+        "mean": 511.8333,
         "mean_ci_lo": 203.3333,
-        "mean_ci_hi": 874.6667,
+        "mean_ci_hi": 875.0,
         "median": 353.0,
         "median_ci_lo": 123.5,
-        "median_ci_hi": 1058.5,
+        "median_ci_hi": 1059.0,
         "iqr": 523.0,
         "iqr_ci_lo": 15.0,
-        "iqr_ci_hi": 1083.2375
+        "iqr_ci_hi": 1084.2312
       },
       "check_Binary-Artifacts": {
         "n": 6,
@@ -398,51 +398,51 @@
       },
       "contributor_count": {
         "n": 12,
-        "mean": 210.3333,
+        "mean": 210.5,
         "mean_ci_lo": 4.0833,
-        "mean_ci_hi": 505.1708,
+        "mean_ci_hi": 505.6708,
         "median": 2.0,
         "median_ci_lo": 1.5,
         "median_ci_hi": 27.5,
         "iqr": 19.5,
         "iqr_ci_lo": 0.5,
-        "iqr_ci_hi": 1175.5
+        "iqr_ci_hi": 1177.0
       },
       "commit_count": {
         "n": 12,
-        "mean": 10767.1667,
-        "mean_ci_lo": 364.6208,
-        "mean_ci_hi": 24831.6312,
+        "mean": 10775.8333,
+        "mean_ci_lo": 364.7833,
+        "mean_ci_hi": 24853.8833,
         "median": 173.5,
         "median_ci_lo": 60.5,
-        "median_ci_hi": 2583.5,
-        "iqr": 1934.0,
+        "median_ci_hi": 2584.0,
+        "iqr": 1934.75,
         "iqr_ci_lo": 76.6813,
-        "iqr_ci_hi": 55721.75
+        "iqr_ci_hi": 55778.0
       },
       "issues_opened": {
         "n": 12,
-        "mean": 383.5,
-        "mean_ci_lo": 4.2479,
-        "mean_ci_hi": 893.0958,
-        "median": 2.0,
+        "mean": 380.25,
+        "mean_ci_lo": 2.9979,
+        "mean_ci_hi": 889.925,
+        "median": 1.5,
         "median_ci_lo": 0.0,
-        "median_ci_hi": 25.5,
-        "iqr": 21.25,
-        "iqr_ci_lo": 2.0,
-        "iqr_ci_hi": 1873.25
+        "median_ci_hi": 23.0,
+        "iqr": 17.5,
+        "iqr_ci_lo": 1.25,
+        "iqr_ci_hi": 1856.0
       },
       "issues_closed": {
         "n": 12,
-        "mean": 0.9167,
-        "mean_ci_lo": 0.75,
-        "mean_ci_hi": 1.0,
+        "mean": 1.75,
+        "mean_ci_lo": 0.8333,
+        "mean_ci_hi": 3.3333,
         "median": 1.0,
         "median_ci_lo": 1.0,
         "median_ci_hi": 1.0,
         "iqr": 0.0,
         "iqr_ci_lo": 0.0,
-        "iqr_ci_hi": 0.25
+        "iqr_ci_hi": 3.0
       },
       "prs_merged": {
         "n": 0,
@@ -458,39 +458,39 @@
       },
       "vuln_count": {
         "n": 12,
-        "mean": 31.3333,
-        "mean_ci_lo": 4.0833,
-        "mean_ci_hi": 62.4167,
-        "median": 3.5,
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
         "median_ci_lo": 0.0,
-        "median_ci_hi": 50.0,
-        "iqr": 32.0,
-        "iqr_ci_lo": 1.75,
-        "iqr_ci_hi": 123.0
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
+        "iqr_ci_lo": 0.0,
+        "iqr_ci_hi": 0.0
       },
       "vuln_density": {
         "n": 12,
-        "mean": 2.0203,
-        "mean_ci_lo": 0.5509,
-        "mean_ci_hi": 3.6655,
-        "median": 0.1419,
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
         "median_ci_lo": 0.0,
-        "median_ci_hi": 3.7365,
-        "iqr": 3.6182,
-        "iqr_ci_lo": 0.071,
-        "iqr_ci_hi": 7.3036
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
+        "iqr_ci_lo": 0.0,
+        "iqr_ci_hi": 0.0
       },
       "stars_count": {
         "n": 12,
-        "mean": 2431.5,
-        "mean_ci_lo": 112.9958,
-        "mean_ci_hi": 5634.4208,
+        "mean": 2434.8333,
+        "mean_ci_lo": 112.9979,
+        "mean_ci_hi": 5642.0875,
         "median": 68.5,
         "median_ci_lo": 28.0,
-        "median_ci_hi": 695.5,
-        "iqr": 547.25,
+        "median_ci_hi": 696.0,
+        "iqr": 547.5,
         "iqr_ci_lo": 30.25,
-        "iqr_ci_hi": 12814.25
+        "iqr_ci_hi": 12831.0
       },
       "check_Binary-Artifacts": {
         "n": 12,
@@ -724,39 +724,39 @@
       },
       "contributor_count": {
         "n": 18,
-        "mean": 192.4444,
+        "mean": 192.6667,
         "mean_ci_lo": 11.4986,
-        "mean_ci_hi": 534.3347,
+        "mean_ci_hi": 534.8347,
         "median": 6.0,
         "median_ci_lo": 4.5,
         "median_ci_hi": 26.0,
         "iqr": 22.25,
         "iqr_ci_lo": 1.0,
-        "iqr_ci_hi": 138.25
+        "iqr_ci_hi": 139.25
       },
       "commit_count": {
         "n": 18,
-        "mean": 5364.3889,
-        "mean_ci_lo": 581.8653,
-        "mean_ci_hi": 13502.7597,
+        "mean": 5373.9444,
+        "mean_ci_lo": 582.9514,
+        "mean_ci_hi": 13527.9264,
         "median": 206.5,
         "median_ci_lo": 97.0,
-        "median_ci_hi": 2046.0,
-        "iqr": 2674.0,
+        "median_ci_hi": 2056.0,
+        "iqr": 2689.0,
         "iqr_ci_lo": 135.2313,
-        "iqr_ci_hi": 10168.2437
+        "iqr_ci_hi": 10168.25
       },
       "issues_opened": {
         "n": 18,
-        "mean": 215.1667,
-        "mean_ci_lo": 12.3889,
-        "mean_ci_hi": 607.6694,
-        "median": 11.0,
-        "median_ci_lo": 6.0,
-        "median_ci_hi": 26.5,
-        "iqr": 21.5,
-        "iqr_ci_lo": 7.5,
-        "iqr_ci_hi": 88.75
+        "mean": 215.6111,
+        "mean_ci_lo": 10.3889,
+        "mean_ci_hi": 612.3431,
+        "median": 10.0,
+        "median_ci_lo": 4.5,
+        "median_ci_hi": 24.5,
+        "iqr": 21.75,
+        "iqr_ci_lo": 6.2438,
+        "iqr_ci_hi": 89.25
       },
       "issues_closed": {
         "n": 18,
@@ -784,39 +784,39 @@
       },
       "vuln_count": {
         "n": 18,
-        "mean": 34.2222,
-        "mean_ci_lo": 18.1667,
-        "mean_ci_hi": 58.0014,
-        "median": 28.5,
-        "median_ci_lo": 7.5,
-        "median_ci_hi": 44.5,
-        "iqr": 43.5,
-        "iqr_ci_lo": 16.2438,
-        "iqr_ci_hi": 54.75
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
+        "median_ci_lo": 0.0,
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
+        "iqr_ci_lo": 0.0,
+        "iqr_ci_hi": 0.0
       },
       "vuln_density": {
         "n": 18,
-        "mean": 0.7649,
-        "mean_ci_lo": 0.3466,
-        "mean_ci_hi": 1.255,
-        "median": 0.3601,
-        "median_ci_lo": 0.0112,
-        "median_ci_hi": 1.0272,
-        "iqr": 1.163,
-        "iqr_ci_lo": 0.4777,
-        "iqr_ci_hi": 2.1588
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
+        "median_ci_lo": 0.0,
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
+        "iqr_ci_lo": 0.0,
+        "iqr_ci_hi": 0.0
       },
       "stars_count": {
         "n": 18,
-        "mean": 4857.5,
-        "mean_ci_lo": 181.4264,
-        "mean_ci_hi": 13376.9069,
+        "mean": 4859.5,
+        "mean_ci_lo": 181.5972,
+        "mean_ci_hi": 13381.1847,
         "median": 11.0,
         "median_ci_lo": 7.0,
-        "median_ci_hi": 481.0,
-        "iqr": 649.0,
+        "median_ci_hi": 482.5,
+        "iqr": 651.25,
         "iqr_ci_lo": 5.0,
-        "iqr_ci_hi": 5656.5375
+        "iqr_ci_hi": 5664.0375
       },
       "check_Binary-Artifacts": {
         "n": 17,
@@ -1050,39 +1050,39 @@
       },
       "contributor_count": {
         "n": 6,
-        "mean": 760.5,
+        "mean": 762.1667,
         "mean_ci_lo": 19.3333,
-        "mean_ci_hi": 2196.0,
+        "mean_ci_hi": 2201.0,
         "median": 42.5,
         "median_ci_lo": 8.0,
-        "median_ci_hi": 2231.0,
+        "median_ci_hi": 2236.0,
         "iqr": 95.75,
         "iqr_ci_lo": 6.75,
-        "iqr_ci_hi": 4301.0
+        "iqr_ci_hi": 4311.0
       },
       "commit_count": {
         "n": 6,
-        "mean": 25809.1667,
+        "mean": 25875.6667,
         "mean_ci_lo": 875.6667,
-        "mean_ci_hi": 73475.0708,
+        "mean_ci_hi": 73674.5708,
         "median": 2185.0,
         "median_ci_lo": 221.0,
-        "median_ci_hi": 75021.5,
+        "median_ci_hi": 75221.0,
         "iqr": 5531.5,
         "iqr_ci_lo": 133.5,
-        "iqr_ci_hi": 141239.0687
+        "iqr_ci_hi": 141638.0687
       },
       "issues_opened": {
         "n": 6,
-        "mean": 654.3333,
+        "mean": 662.0,
         "mean_ci_lo": 19.0,
-        "mean_ci_hi": 1879.1667,
-        "median": 26.5,
+        "mean_ci_hi": 1901.6667,
+        "median": 27.0,
         "median_ci_lo": 14.0,
-        "median_ci_hi": 1922.5,
-        "iqr": 101.5,
+        "median_ci_hi": 1945.0,
+        "iqr": 101.75,
         "iqr_ci_lo": 4.5,
-        "iqr_ci_hi": 3670.25
+        "iqr_ci_hi": 3715.0
       },
       "issues_closed": {
         "n": 6,
@@ -1110,39 +1110,39 @@
       },
       "vuln_count": {
         "n": 6,
-        "mean": 46.0,
-        "mean_ci_lo": 3.5,
-        "mean_ci_hi": 103.1667,
-        "median": 10.5,
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
         "median_ci_lo": 0.0,
-        "median_ci_hi": 127.5,
-        "iqr": 60.0,
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
         "iqr_ci_lo": 0.0,
-        "iqr_ci_hi": 163.75
+        "iqr_ci_hi": 0.0
       },
       "vuln_density": {
         "n": 6,
-        "mean": 0.9967,
-        "mean_ci_lo": 0.0412,
-        "mean_ci_hi": 2.5778,
-        "median": 0.1235,
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
         "median_ci_lo": 0.0,
-        "median_ci_hi": 2.8667,
-        "iqr": 0.7118,
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
         "iqr_ci_lo": 0.0,
-        "iqr_ci_hi": 4.65
+        "iqr_ci_hi": 0.0
       },
       "stars_count": {
         "n": 6,
-        "mean": 5097.6667,
-        "mean_ci_lo": 1296.3333,
-        "mean_ci_hi": 9971.8125,
-        "median": 3427.0,
+        "mean": 5107.3333,
+        "mean_ci_lo": 1299.3333,
+        "mean_ci_hi": 9992.6125,
+        "median": 3436.0,
         "median_ci_lo": 231.0,
-        "median_ci_hi": 11635.0,
-        "iqr": 6432.75,
+        "median_ci_hi": 11655.0,
+        "iqr": 6444.25,
         "iqr_ci_lo": 324.0,
-        "iqr_ci_hi": 13463.5187
+        "iqr_ci_hi": 13488.5812
       },
       "check_Binary-Artifacts": {
         "n": 6,
@@ -1388,27 +1388,27 @@
       },
       "commit_count": {
         "n": 12,
-        "mean": 3137.4167,
+        "mean": 3144.0,
         "mean_ci_lo": 404.6083,
-        "mean_ci_hi": 7819.2646,
+        "mean_ci_hi": 7838.8479,
         "median": 627.5,
         "median_ci_lo": 161.0,
         "median_ci_hi": 869.0,
         "iqr": 652.5,
         "iqr_ci_lo": 210.75,
-        "iqr_ci_hi": 10267.275
+        "iqr_ci_hi": 10287.525
       },
       "issues_opened": {
         "n": 12,
-        "mean": 107.3333,
+        "mean": 107.8333,
         "mean_ci_lo": 14.5813,
-        "mean_ci_hi": 264.7583,
+        "mean_ci_hi": 265.8417,
         "median": 19.5,
         "median_ci_lo": 3.5,
         "median_ci_hi": 48.0,
         "iqr": 43.25,
         "iqr_ci_lo": 13.75,
-        "iqr_ci_hi": 409.25
+        "iqr_ci_hi": 413.25
       },
       "issues_closed": {
         "n": 12,
@@ -1436,39 +1436,39 @@
       },
       "vuln_count": {
         "n": 12,
-        "mean": 30.8333,
-        "mean_ci_lo": 0.8333,
-        "mean_ci_hi": 79.3333,
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
         "median": 0.0,
         "median_ci_lo": 0.0,
-        "median_ci_hi": 10.5,
-        "iqr": 10.25,
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
         "iqr_ci_lo": 0.0,
-        "iqr_ci_hi": 134.75
+        "iqr_ci_hi": 0.0
       },
       "vuln_density": {
         "n": 12,
-        "mean": 0.1825,
-        "mean_ci_lo": 0.0162,
-        "mean_ci_hi": 0.4369,
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
         "median": 0.0,
         "median_ci_lo": 0.0,
-        "median_ci_hi": 0.1607,
-        "iqr": 0.1439,
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
         "iqr_ci_lo": 0.0,
-        "iqr_ci_hi": 0.6871
+        "iqr_ci_hi": 0.0
       },
       "stars_count": {
         "n": 12,
-        "mean": 2868.25,
+        "mean": 2869.8333,
         "mean_ci_lo": 91.9979,
-        "mean_ci_hi": 6600.1271,
+        "mean_ci_hi": 6603.5521,
         "median": 54.0,
         "median_ci_lo": 12.5,
         "median_ci_hi": 490.0,
         "iqr": 414.75,
         "iqr_ci_lo": 29.5,
-        "iqr_ci_hi": 13736.25
+        "iqr_ci_hi": 13745.0
       },
       "check_Binary-Artifacts": {
         "n": 12,
@@ -1704,9 +1704,9 @@
       },
       "contributor_count": {
         "n": 43,
-        "mean": 18.5581,
+        "mean": 18.5814,
         "mean_ci_lo": 11.2791,
-        "mean_ci_hi": 26.6983,
+        "mean_ci_hi": 26.7907,
         "median": 6.0,
         "median_ci_lo": 4.0,
         "median_ci_hi": 15.0,
@@ -1716,9 +1716,9 @@
       },
       "commit_count": {
         "n": 43,
-        "mean": 2954.814,
-        "mean_ci_lo": 1148.0262,
-        "mean_ci_hi": 5189.261,
+        "mean": 2956.1163,
+        "mean_ci_lo": 1148.0942,
+        "mean_ci_hi": 5192.9593,
         "median": 253.0,
         "median_ci_lo": 132.0,
         "median_ci_hi": 647.0,
@@ -1728,21 +1728,21 @@
       },
       "issues_opened": {
         "n": 43,
-        "mean": 33.9767,
-        "mean_ci_lo": 13.3488,
-        "mean_ci_hi": 62.4791,
-        "median": 11.0,
-        "median_ci_lo": 6.0,
-        "median_ci_hi": 21.0,
-        "iqr": 24.5,
-        "iqr_ci_lo": 15.5,
-        "iqr_ci_hi": 37.0
+        "mean": 31.7674,
+        "mean_ci_lo": 11.1849,
+        "mean_ci_hi": 60.9302,
+        "median": 9.0,
+        "median_ci_lo": 4.0,
+        "median_ci_hi": 17.0,
+        "iqr": 21.0,
+        "iqr_ci_lo": 10.0,
+        "iqr_ci_hi": 31.5
       },
       "issues_closed": {
         "n": 43,
-        "mean": 0.9767,
-        "mean_ci_lo": 0.9302,
-        "mean_ci_hi": 1.0,
+        "mean": 1.3488,
+        "mean_ci_lo": 0.9767,
+        "mean_ci_hi": 1.907,
         "median": 1.0,
         "median_ci_lo": 1.0,
         "median_ci_hi": 1.0,
@@ -1764,33 +1764,33 @@
       },
       "vuln_count": {
         "n": 43,
-        "mean": 28.8372,
-        "mean_ci_lo": 14.6273,
-        "mean_ci_hi": 45.2343,
-        "median": 5.0,
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
         "median_ci_lo": 0.0,
-        "median_ci_hi": 15.0,
-        "iqr": 31.0,
-        "iqr_ci_lo": 14.0,
-        "iqr_ci_hi": 69.0
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
+        "iqr_ci_lo": 0.0,
+        "iqr_ci_hi": 0.0
       },
       "vuln_density": {
         "n": 43,
-        "mean": 0.7336,
-        "mean_ci_lo": 0.3353,
-        "mean_ci_hi": 1.2797,
-        "median": 0.0272,
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
         "median_ci_lo": 0.0,
-        "median_ci_hi": 0.2471,
-        "iqr": 0.6626,
-        "iqr_ci_lo": 0.1646,
-        "iqr_ci_hi": 1.4053
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
+        "iqr_ci_lo": 0.0,
+        "iqr_ci_hi": 0.0
       },
       "stars_count": {
         "n": 43,
-        "mean": 223.9767,
-        "mean_ci_lo": 124.1756,
-        "mean_ci_hi": 335.4267,
+        "mean": 224.1395,
+        "mean_ci_lo": 124.2686,
+        "mean_ci_hi": 335.75,
         "median": 24.0,
         "median_ci_lo": 12.0,
         "median_ci_hi": 84.0,
@@ -2030,39 +2030,39 @@
       },
       "contributor_count": {
         "n": 11,
-        "mean": 979.1818,
-        "mean_ci_lo": 306.4,
-        "mean_ci_hi": 1909.9727,
+        "mean": 980.6364,
+        "mean_ci_lo": 307.0318,
+        "mean_ci_hi": 1912.3614,
         "median": 190.0,
-        "median_ci_lo": 112.0,
+        "median_ci_lo": 113.0,
         "median_ci_hi": 1326.0,
-        "iqr": 1107.5,
-        "iqr_ci_lo": 78.0,
-        "iqr_ci_hi": 3551.1875
+        "iqr": 1108.0,
+        "iqr_ci_lo": 77.5,
+        "iqr_ci_hi": 3556.675
       },
       "commit_count": {
         "n": 11,
-        "mean": 34661.0,
-        "mean_ci_lo": 12877.5,
-        "mean_ci_hi": 62767.0795,
-        "median": 4869.0,
-        "median_ci_lo": 3478.0,
-        "median_ci_hi": 70463.0,
-        "iqr": 56843.5,
-        "iqr_ci_lo": 2228.0,
-        "iqr_ci_hi": 104473.3375
+        "mean": 34729.4545,
+        "mean_ci_lo": 12900.3,
+        "mean_ci_hi": 62876.0773,
+        "median": 4870.0,
+        "median_ci_lo": 3498.0,
+        "median_ci_hi": 70614.0,
+        "iqr": 56939.0,
+        "iqr_ci_lo": 2218.5,
+        "iqr_ci_hi": 104692.6
       },
       "issues_opened": {
         "n": 11,
-        "mean": 1199.9091,
-        "mean_ci_lo": 434.2977,
-        "mean_ci_hi": 2166.0455,
-        "median": 274.0,
-        "median_ci_lo": 39.0,
-        "median_ci_hi": 3051.0,
-        "iqr": 2189.5,
-        "iqr_ci_lo": 182.0,
-        "iqr_ci_hi": 3488.5
+        "mean": 1206.3636,
+        "mean_ci_lo": 430.725,
+        "mean_ci_hi": 2183.8295,
+        "median": 279.0,
+        "median_ci_lo": 40.0,
+        "median_ci_hi": 3050.0,
+        "iqr": 2177.0,
+        "iqr_ci_lo": 183.5,
+        "iqr_ci_hi": 3529.5
       },
       "issues_closed": {
         "n": 11,
@@ -2090,39 +2090,39 @@
       },
       "vuln_count": {
         "n": 11,
-        "mean": 70.6364,
-        "mean_ci_lo": 31.2727,
-        "mean_ci_hi": 118.6364,
-        "median": 57.0,
-        "median_ci_lo": 7.0,
-        "median_ci_hi": 86.0,
-        "iqr": 70.5,
-        "iqr_ci_lo": 20.5,
-        "iqr_ci_hi": 182.05
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
+        "median_ci_lo": 0.0,
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
+        "iqr_ci_lo": 0.0,
+        "iqr_ci_hi": 0.0
       },
       "vuln_density": {
         "n": 11,
-        "mean": 1.4242,
-        "mean_ci_lo": 0.2521,
-        "mean_ci_hi": 2.8961,
-        "median": 0.2838,
-        "median_ci_lo": 0.0112,
-        "median_ci_hi": 1.9655,
-        "iqr": 1.3581,
-        "iqr_ci_lo": 0.1887,
-        "iqr_ci_hi": 5.8285
+        "mean": 0.0,
+        "mean_ci_lo": 0.0,
+        "mean_ci_hi": 0.0,
+        "median": 0.0,
+        "median_ci_lo": 0.0,
+        "median_ci_hi": 0.0,
+        "iqr": 0.0,
+        "iqr_ci_lo": 0.0,
+        "iqr_ci_hi": 0.0
       },
       "stars_count": {
         "n": 11,
-        "mean": 15914.2727,
-        "mean_ci_lo": 7360.9818,
-        "mean_ci_hi": 29646.5909,
-        "median": 11014.0,
-        "median_ci_lo": 5692.0,
-        "median_ci_hi": 15756.0,
-        "iqr": 9611.5,
-        "iqr_ci_lo": 3554.3375,
-        "iqr_ci_hi": 42610.5
+        "mean": 15927.6364,
+        "mean_ci_lo": 7371.8705,
+        "mean_ci_hi": 29664.0023,
+        "median": 11022.0,
+        "median_ci_lo": 5709.0,
+        "median_ci_hi": 15786.0,
+        "iqr": 9626.5,
+        "iqr_ci_lo": 3558.575,
+        "iqr_ci_hi": 42613.0
       },
       "check_Binary-Artifacts": {
         "n": 10,
@@ -2712,27 +2712,27 @@
       "issues_opened": {
         "n_a": 43,
         "n_b": 11,
-        "mw_statistic": 51.0,
-        "p_value": 6.9e-05,
-        "effect_size_r": -0.7844,
-        "effect_size_r_ci_lo": -0.9725,
-        "effect_size_r_ci_hi": -0.5011,
+        "mw_statistic": 45.0,
+        "p_value": 4e-05,
+        "effect_size_r": -0.8097,
+        "effect_size_r_ci_lo": -0.9789,
+        "effect_size_r_ci_hi": -0.5581,
         "effect_label": "large",
         "significant": true,
-        "p_adjusted_fdr": 0.000227,
+        "p_adjusted_fdr": 0.000184,
         "significant_fdr": true
       },
       "issues_closed": {
         "n_a": 43,
         "n_b": 11,
-        "mw_statistic": 231.0,
-        "p_value": 0.645659,
-        "effect_size_r": -0.0233,
-        "effect_size_r_ci_lo": -0.0698,
-        "effect_size_r_ci_hi": 0.0,
+        "mw_statistic": 247.5,
+        "p_value": 0.619469,
+        "effect_size_r": 0.0465,
+        "effect_size_r_ci_lo": -0.0465,
+        "effect_size_r_ci_hi": 0.1395,
         "effect_label": "negligible",
         "significant": false,
-        "p_adjusted_fdr": 0.742508,
+        "p_adjusted_fdr": 0.791544,
         "significant_fdr": false
       },
       "prs_merged": {
@@ -2749,27 +2749,27 @@
       "vuln_count": {
         "n_a": 43,
         "n_b": 11,
-        "mw_statistic": 138.5,
-        "p_value": 0.030107,
-        "effect_size_r": -0.4144,
-        "effect_size_r_ci_lo": -0.7569,
-        "effect_size_r_ci_hi": -0.0465,
-        "effect_label": "medium",
-        "significant": true,
-        "p_adjusted_fdr": 0.049461,
-        "significant_fdr": true
+        "mw_statistic": 236.5,
+        "p_value": 1.0,
+        "effect_size_r": 0.0,
+        "effect_size_r_ci_lo": 0.0,
+        "effect_size_r_ci_hi": 0.0,
+        "effect_label": "negligible",
+        "significant": false,
+        "p_adjusted_fdr": 1.0,
+        "significant_fdr": false
       },
       "vuln_density": {
         "n_a": 43,
         "n_b": 11,
-        "mw_statistic": 173.0,
-        "p_value": 0.161158,
-        "effect_size_r": -0.2685,
-        "effect_size_r_ci_lo": -0.5983,
-        "effect_size_r_ci_hi": 0.0762,
-        "effect_label": "small",
+        "mw_statistic": 236.5,
+        "p_value": 1.0,
+        "effect_size_r": 0.0,
+        "effect_size_r_ci_lo": 0.0,
+        "effect_size_r_ci_hi": 0.0,
+        "effect_label": "negligible",
         "significant": false,
-        "p_adjusted_fdr": 0.205924,
+        "p_adjusted_fdr": 1.0,
         "significant_fdr": false
       },
       "stars_count": {
@@ -2795,7 +2795,7 @@
         "effect_size_r_ci_hi": 0.5977,
         "effect_label": "small",
         "significant": false,
-        "p_adjusted_fdr": 0.139081,
+        "p_adjusted_fdr": 0.147774,
         "significant_fdr": false
       },
       "check_Branch-Protection": {
@@ -2847,7 +2847,7 @@
         "effect_size_r_ci_hi": -0.1256,
         "effect_label": "medium",
         "significant": true,
-        "p_adjusted_fdr": 0.05874,
+        "p_adjusted_fdr": 0.062936,
         "significant_fdr": false
       },
       "check_Contributors": {
@@ -2910,7 +2910,7 @@
         "effect_size_r_ci_hi": 0.2815,
         "effect_label": "negligible",
         "significant": false,
-        "p_adjusted_fdr": 0.903438,
+        "p_adjusted_fdr": 0.993782,
         "significant_fdr": false
       },
       "check_Maintained": {
@@ -2947,7 +2947,7 @@
         "effect_size_r_ci_hi": 0.12,
         "effect_label": "negligible",
         "significant": false,
-        "p_adjusted_fdr": 0.503981,
+        "p_adjusted_fdr": 0.563273,
         "significant_fdr": false
       },
       "check_SAST": {
@@ -2960,7 +2960,7 @@
         "effect_size_r_ci_hi": 0.0744,
         "effect_label": "small",
         "significant": false,
-        "p_adjusted_fdr": 0.108366,
+        "p_adjusted_fdr": 0.11559,
         "significant_fdr": false
       },
       "check_Security-Policy": {
@@ -3010,7 +3010,7 @@
         "effect_size_r_ci_hi": 0.4024,
         "effect_label": "negligible",
         "significant": false,
-        "p_adjusted_fdr": 0.848255,
+        "p_adjusted_fdr": 0.937545,
         "significant_fdr": false
       }
     }
@@ -3074,118 +3074,16 @@
       }
     },
     "vuln_count": {
-      "H": 5.9196,
-      "p": 0.205232,
-      "significant": false,
-      "dunn_posthoc": {
-        "Domain-specific agricultural platform vs Field-Deployed Sensor": {
-          "Z": 1.6019,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Domain-specific agricultural platform vs Cloud-hosted backends and dashboard": {
-          "Z": 0.8146,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Domain-specific agricultural platform vs Embedded OS substrate": {
-          "Z": 1.0832,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Domain-specific agricultural platform vs Edge and Gateway software": {
-          "Z": 2.1011,
-          "p_adj": 0.356341,
-          "significant": false
-        },
-        "Field-Deployed Sensor vs Cloud-hosted backends and dashboard": {
-          "Z": -1.1187,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Field-Deployed Sensor vs Embedded OS substrate": {
-          "Z": -0.3511,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Field-Deployed Sensor vs Edge and Gateway software": {
-          "Z": 0.6114,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Cloud-hosted backends and dashboard vs Embedded OS substrate": {
-          "Z": 0.512,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Cloud-hosted backends and dashboard vs Edge and Gateway software": {
-          "Z": 1.7885,
-          "p_adj": 0.736973,
-          "significant": false
-        },
-        "Embedded OS substrate vs Edge and Gateway software": {
-          "Z": 0.8503,
-          "p_adj": 1.0,
-          "significant": false
-        }
-      }
+      "H": null,
+      "p": null,
+      "significant": null,
+      "dunn_posthoc": {}
     },
     "vuln_density": {
-      "H": 4.399,
-      "p": 0.354695,
-      "significant": false,
-      "dunn_posthoc": {
-        "Domain-specific agricultural platform vs Field-Deployed Sensor": {
-          "Z": 0.0987,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Domain-specific agricultural platform vs Cloud-hosted backends and dashboard": {
-          "Z": -0.0815,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Domain-specific agricultural platform vs Embedded OS substrate": {
-          "Z": 0.3705,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Domain-specific agricultural platform vs Edge and Gateway software": {
-          "Z": 1.3823,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Field-Deployed Sensor vs Cloud-hosted backends and dashboard": {
-          "Z": -0.2355,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Field-Deployed Sensor vs Embedded OS substrate": {
-          "Z": 0.3291,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Field-Deployed Sensor vs Edge and Gateway software": {
-          "Z": 1.5721,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Cloud-hosted backends and dashboard vs Embedded OS substrate": {
-          "Z": 0.5353,
-          "p_adj": 1.0,
-          "significant": false
-        },
-        "Cloud-hosted backends and dashboard vs Edge and Gateway software": {
-          "Z": 1.9576,
-          "p_adj": 0.50276,
-          "significant": false
-        },
-        "Embedded OS substrate vs Edge and Gateway software": {
-          "Z": 0.9545,
-          "p_adj": 1.0,
-          "significant": false
-        }
-      }
+      "H": null,
+      "p": null,
+      "significant": null,
+      "dunn_posthoc": {}
     }
   },
   "correlations": {
@@ -3195,13 +3093,13 @@
       "n": 53
     },
     "scorecard_vs_stars": {
-      "spearman_r": 0.6249,
+      "spearman_r": 0.6268,
       "p_value": 1e-06,
       "n": 53
     },
     "scorecard_vs_vulns": {
-      "spearman_r": 0.0527,
-      "p_value": 0.707639,
+      "spearman_r": null,
+      "p_value": null,
       "n": 53
     },
     "scorecard_vs_commits": {
@@ -3210,18 +3108,18 @@
       "n": 53
     },
     "contributors_vs_vulns": {
-      "spearman_r": 0.3024,
-      "p_value": 0.026243,
+      "spearman_r": null,
+      "p_value": null,
       "n": 54
     },
     "issues_opened_vs_closed": {
-      "spearman_r": 0.1456,
-      "p_value": 0.293516,
+      "spearman_r": 0.0076,
+      "p_value": 0.956236,
       "n": 54
     },
     "scorecard_vs_vuln_density": {
-      "spearman_r": -0.0472,
-      "p_value": 0.736905,
+      "spearman_r": null,
+      "p_value": null,
       "n": 53
     }
   },
@@ -3243,13 +3141,13 @@
         "n": 53
       },
       "issues_opened": {
-        "spearman_r": 0.592,
-        "p_value": 3e-06,
+        "spearman_r": 0.5336,
+        "p_value": 3.9e-05,
         "n": 53
       },
       "issues_closed": {
-        "spearman_r": 0.2177,
-        "p_value": 0.117313,
+        "spearman_r": 0.0589,
+        "p_value": 0.675123,
         "n": 53
       },
       "prs_merged": {
@@ -3258,17 +3156,17 @@
         "n": 0
       },
       "vuln_count": {
-        "spearman_r": 0.0527,
-        "p_value": 0.707639,
+        "spearman_r": null,
+        "p_value": null,
         "n": 53
       },
       "vuln_density": {
-        "spearman_r": -0.0472,
-        "p_value": 0.736905,
+        "spearman_r": null,
+        "p_value": null,
         "n": 53
       },
       "stars_count": {
-        "spearman_r": 0.6249,
+        "spearman_r": 0.6268,
         "p_value": 1e-06,
         "n": 53
       }
@@ -3290,13 +3188,13 @@
         "n": 54
       },
       "issues_opened": {
-        "spearman_r": 0.8487,
+        "spearman_r": 0.8115,
         "p_value": 0.0,
         "n": 54
       },
       "issues_closed": {
-        "spearman_r": 0.1897,
-        "p_value": 0.169388,
+        "spearman_r": 0.1033,
+        "p_value": 0.457108,
         "n": 54
       },
       "prs_merged": {
@@ -3305,17 +3203,17 @@
         "n": 0
       },
       "vuln_count": {
-        "spearman_r": 0.3024,
-        "p_value": 0.026243,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "vuln_density": {
-        "spearman_r": 0.1124,
-        "p_value": 0.418517,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "stars_count": {
-        "spearman_r": 0.7777,
+        "spearman_r": 0.7783,
         "p_value": 0.0,
         "n": 54
       }
@@ -3337,13 +3235,13 @@
         "n": 54
       },
       "issues_opened": {
-        "spearman_r": 0.8068,
+        "spearman_r": 0.7353,
         "p_value": 0.0,
         "n": 54
       },
       "issues_closed": {
-        "spearman_r": 0.2071,
-        "p_value": 0.132907,
+        "spearman_r": 0.2284,
+        "p_value": 0.096674,
         "n": 54
       },
       "prs_merged": {
@@ -3352,34 +3250,34 @@
         "n": 0
       },
       "vuln_count": {
-        "spearman_r": 0.3683,
-        "p_value": 0.006137,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "vuln_density": {
-        "spearman_r": 0.1622,
-        "p_value": 0.241392,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "stars_count": {
-        "spearman_r": 0.7723,
+        "spearman_r": 0.7722,
         "p_value": 0.0,
         "n": 54
       }
     },
     "issues_opened": {
       "scorecard_overall": {
-        "spearman_r": 0.592,
-        "p_value": 3e-06,
+        "spearman_r": 0.5336,
+        "p_value": 3.9e-05,
         "n": 53
       },
       "contributor_count": {
-        "spearman_r": 0.8487,
+        "spearman_r": 0.8115,
         "p_value": 0.0,
         "n": 54
       },
       "commit_count": {
-        "spearman_r": 0.8068,
+        "spearman_r": 0.7353,
         "p_value": 0.0,
         "n": 54
       },
@@ -3389,8 +3287,8 @@
         "n": 54
       },
       "issues_closed": {
-        "spearman_r": 0.1456,
-        "p_value": 0.293516,
+        "spearman_r": 0.0076,
+        "p_value": 0.956236,
         "n": 54
       },
       "prs_merged": {
@@ -3399,40 +3297,40 @@
         "n": 0
       },
       "vuln_count": {
-        "spearman_r": 0.3435,
-        "p_value": 0.010997,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "vuln_density": {
-        "spearman_r": 0.227,
-        "p_value": 0.098862,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "stars_count": {
-        "spearman_r": 0.7538,
+        "spearman_r": 0.6816,
         "p_value": 0.0,
         "n": 54
       }
     },
     "issues_closed": {
       "scorecard_overall": {
-        "spearman_r": 0.2177,
-        "p_value": 0.117313,
+        "spearman_r": 0.0589,
+        "p_value": 0.675123,
         "n": 53
       },
       "contributor_count": {
-        "spearman_r": 0.1897,
-        "p_value": 0.169388,
+        "spearman_r": 0.1033,
+        "p_value": 0.457108,
         "n": 54
       },
       "commit_count": {
-        "spearman_r": 0.2071,
-        "p_value": 0.132907,
+        "spearman_r": 0.2284,
+        "p_value": 0.096674,
         "n": 54
       },
       "issues_opened": {
-        "spearman_r": 0.1456,
-        "p_value": 0.293516,
+        "spearman_r": 0.0076,
+        "p_value": 0.956236,
         "n": 54
       },
       "issues_closed": {
@@ -3446,18 +3344,18 @@
         "n": 0
       },
       "vuln_count": {
-        "spearman_r": 0.0183,
-        "p_value": 0.895762,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "vuln_density": {
-        "spearman_r": -0.1962,
-        "p_value": 0.155008,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "stars_count": {
-        "spearman_r": 0.0132,
-        "p_value": 0.9244,
+        "spearman_r": 0.1232,
+        "p_value": 0.374924,
         "n": 54
       }
     },
@@ -3510,28 +3408,28 @@
     },
     "vuln_count": {
       "scorecard_overall": {
-        "spearman_r": 0.0527,
-        "p_value": 0.707639,
+        "spearman_r": null,
+        "p_value": null,
         "n": 53
       },
       "contributor_count": {
-        "spearman_r": 0.3024,
-        "p_value": 0.026243,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "commit_count": {
-        "spearman_r": 0.3683,
-        "p_value": 0.006137,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "issues_opened": {
-        "spearman_r": 0.3435,
-        "p_value": 0.010997,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "issues_closed": {
-        "spearman_r": 0.0183,
-        "p_value": 0.895762,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "prs_merged": {
@@ -3540,45 +3438,45 @@
         "n": 0
       },
       "vuln_count": {
-        "spearman_r": 1.0,
-        "p_value": 0.0,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "vuln_density": {
-        "spearman_r": 0.7319,
-        "p_value": 0.0,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "stars_count": {
-        "spearman_r": 0.2734,
-        "p_value": 0.045432,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       }
     },
     "vuln_density": {
       "scorecard_overall": {
-        "spearman_r": -0.0472,
-        "p_value": 0.736905,
+        "spearman_r": null,
+        "p_value": null,
         "n": 53
       },
       "contributor_count": {
-        "spearman_r": 0.1124,
-        "p_value": 0.418517,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "commit_count": {
-        "spearman_r": 0.1622,
-        "p_value": 0.241392,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "issues_opened": {
-        "spearman_r": 0.227,
-        "p_value": 0.098862,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "issues_closed": {
-        "spearman_r": -0.1962,
-        "p_value": 0.155008,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "prs_merged": {
@@ -3587,45 +3485,45 @@
         "n": 0
       },
       "vuln_count": {
-        "spearman_r": 0.7319,
-        "p_value": 0.0,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "vuln_density": {
-        "spearman_r": 1.0,
-        "p_value": 0.0,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "stars_count": {
-        "spearman_r": 0.1796,
-        "p_value": 0.193794,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       }
     },
     "stars_count": {
       "scorecard_overall": {
-        "spearman_r": 0.6249,
+        "spearman_r": 0.6268,
         "p_value": 1e-06,
         "n": 53
       },
       "contributor_count": {
-        "spearman_r": 0.7777,
+        "spearman_r": 0.7783,
         "p_value": 0.0,
         "n": 54
       },
       "commit_count": {
-        "spearman_r": 0.7723,
+        "spearman_r": 0.7722,
         "p_value": 0.0,
         "n": 54
       },
       "issues_opened": {
-        "spearman_r": 0.7538,
+        "spearman_r": 0.6816,
         "p_value": 0.0,
         "n": 54
       },
       "issues_closed": {
-        "spearman_r": 0.0132,
-        "p_value": 0.9244,
+        "spearman_r": 0.1232,
+        "p_value": 0.374924,
         "n": 54
       },
       "prs_merged": {
@@ -3634,13 +3532,13 @@
         "n": 0
       },
       "vuln_count": {
-        "spearman_r": 0.2734,
-        "p_value": 0.045432,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "vuln_density": {
-        "spearman_r": 0.1796,
-        "p_value": 0.193794,
+        "spearman_r": null,
+        "p_value": null,
         "n": 54
       },
       "stars_count": {
@@ -4904,12 +4802,12 @@
       "scorecard_overall": 4.6,
       "contributor_count": 54.0,
       "commit_count": 9349.0,
-      "issues_opened": 59.0,
-      "issues_closed": 1.0,
+      "issues_opened": 8.0,
+      "issues_closed": 7.0,
       "prs_merged": null,
-      "vuln_count": 5.0,
-      "vuln_density": 0.13513513513513514,
-      "stars_count": 1305.0
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
+      "stars_count": 1306.0
     },
     {
       "display_name": "Tania",
@@ -4923,8 +4821,8 @@
       "issues_opened": 37.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 50.0,
-      "vuln_density": 0.3184713375796178,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 812.0
     },
     {
@@ -4935,12 +4833,12 @@
       "augur_reliable": true,
       "scorecard_overall": 5.6,
       "contributor_count": 78.0,
-      "commit_count": 17949.0,
-      "issues_opened": 53.0,
+      "commit_count": 17952.0,
+      "issues_opened": 57.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 90.0,
-      "vuln_density": 0.027198549410698096,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 222.0
     },
     {
@@ -4957,7 +4855,7 @@
       "prs_merged": null,
       "vuln_count": 0.0,
       "vuln_density": 0.0,
-      "stars_count": 918.0
+      "stars_count": 919.0
     },
     {
       "display_name": "OpenWeedLocator",
@@ -4968,11 +4866,11 @@
       "scorecard_overall": 2.7,
       "contributor_count": 4.0,
       "commit_count": 649.0,
-      "issues_opened": 17.0,
-      "issues_closed": 1.0,
+      "issues_opened": 4.0,
+      "issues_closed": 2.0,
       "prs_merged": null,
-      "vuln_count": 115.0,
-      "vuln_density": 8.214285714285714,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 473.0
     },
     {
@@ -4987,8 +4885,8 @@
       "issues_opened": 0.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 14.0,
-      "vuln_density": 1.2727272727272727,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 65.0
     },
     {
@@ -5047,12 +4945,12 @@
       "augur_reliable": true,
       "scorecard_overall": 2.3,
       "contributor_count": 15.0,
-      "commit_count": 1409.0,
-      "issues_opened": 13.0,
-      "issues_closed": 1.0,
+      "commit_count": 1410.0,
+      "issues_opened": 12.0,
+      "issues_closed": 10.0,
       "prs_merged": null,
-      "vuln_count": 147.0,
-      "vuln_density": 3.972972972972973,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 101.0
     },
     {
@@ -5064,11 +4962,11 @@
       "scorecard_overall": 1.6,
       "contributor_count": 2.0,
       "commit_count": 57.0,
-      "issues_opened": 2.0,
+      "issues_opened": 1.0,
       "issues_closed": 0.0,
       "prs_merged": null,
-      "vuln_count": 7.0,
-      "vuln_density": 3.5,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 66.0
     },
     {
@@ -5080,7 +4978,7 @@
       "scorecard_overall": 4.5,
       "contributor_count": 43.0,
       "commit_count": 12502.0,
-      "issues_opened": 39.0,
+      "issues_opened": 3.0,
       "issues_closed": 1.0,
       "prs_merged": null,
       "vuln_count": 0.0,
@@ -5117,7 +5015,7 @@
       "prs_merged": null,
       "vuln_count": 0.0,
       "vuln_density": 0.0,
-      "stars_count": 1162.0
+      "stars_count": 1163.0
     },
     {
       "display_name": "FreeRTOS",
@@ -5128,12 +5026,12 @@
       "scorecard_overall": 5.7,
       "contributor_count": 127.0,
       "commit_count": 3723.0,
-      "issues_opened": 30.0,
+      "issues_opened": 31.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 73.0,
-      "vuln_density": 4.866666666666666,
-      "stars_count": 7514.0
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
+      "stars_count": 7524.0
     },
     {
       "display_name": "Farm Data Relay System",
@@ -5163,8 +5061,8 @@
       "issues_opened": 49.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 10.0,
-      "vuln_density": 1.4285714285714286,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 369.0
     },
     {
@@ -5179,8 +5077,8 @@
       "issues_opened": 1.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 188.0,
-      "vuln_density": 0.10798391728891442,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 1.0
     },
     {
@@ -5195,8 +5093,8 @@
       "issues_opened": 22.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 32.0,
-      "vuln_density": 0.125,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 12.0
     },
     {
@@ -5211,8 +5109,8 @@
       "issues_opened": 9.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 217.0,
-      "vuln_density": 0.1297846889952153,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 484.0
     },
     {
@@ -5224,12 +5122,12 @@
       "scorecard_overall": 3.1,
       "contributor_count": 25.0,
       "commit_count": 492.0,
-      "issues_opened": 26.0,
+      "issues_opened": 27.0,
       "issues_closed": 1.0,
       "prs_merged": null,
       "vuln_count": 0.0,
       "vuln_density": 0.0,
-      "stars_count": 831.0
+      "stars_count": 834.0
     },
     {
       "display_name": "SpeedSeed3",
@@ -5243,8 +5141,8 @@
       "issues_opened": 17.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 21.0,
-      "vuln_density": 0.24705882352941178,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 15.0
     },
     {
@@ -5259,8 +5157,8 @@
       "issues_opened": 47.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 95.0,
-      "vuln_density": 0.19427402862985685,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 24.0
     },
     {
@@ -5275,8 +5173,8 @@
       "issues_opened": 23.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 25.0,
-      "vuln_density": 0.5952380952380952,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 131.0
     },
     {
@@ -5286,14 +5184,14 @@
       "dep_failed": false,
       "augur_reliable": true,
       "scorecard_overall": 4.5,
-      "contributor_count": 112.0,
-      "commit_count": 3478.0,
-      "issues_opened": 39.0,
+      "contributor_count": 113.0,
+      "commit_count": 3498.0,
+      "issues_opened": 40.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 59.0,
-      "vuln_density": 0.10479573712255773,
-      "stars_count": 4008.0
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
+      "stars_count": 4014.0
     },
     {
       "display_name": "ODM",
@@ -5302,14 +5200,14 @@
       "dep_failed": false,
       "augur_reliable": true,
       "scorecard_overall": 4.4,
-      "contributor_count": 154.0,
-      "commit_count": 3505.0,
+      "contributor_count": 155.0,
+      "commit_count": 3506.0,
       "issues_opened": 115.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 57.0,
-      "vuln_density": 1.9655172413793103,
-      "stars_count": 6222.0
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
+      "stars_count": 6230.0
     },
     {
       "display_name": "NodeODM",
@@ -5323,9 +5221,9 @@
       "issues_opened": 5.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 11.0,
-      "vuln_density": 0.44,
-      "stars_count": 295.0
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
+      "stars_count": 294.0
     },
     {
       "display_name": "Openminder",
@@ -5355,8 +5253,8 @@
       "issues_opened": 282.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 2.0,
-      "vuln_density": 0.4,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 45.0
     },
     {
@@ -5366,13 +5264,13 @@
       "dep_failed": false,
       "augur_reliable": true,
       "scorecard_overall": 4.4,
-      "contributor_count": 128.0,
-      "commit_count": 34355.0,
-      "issues_opened": 531.0,
+      "contributor_count": 129.0,
+      "commit_count": 34407.0,
+      "issues_opened": 533.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 15.0,
-      "vuln_density": 0.01948051948051948,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 202.0
     },
     {
@@ -5414,14 +5312,14 @@
       "dep_failed": false,
       "augur_reliable": true,
       "scorecard_overall": 8.7,
-      "contributor_count": 4335.0,
-      "commit_count": 143383.0,
-      "issues_opened": 3695.0,
+      "contributor_count": 4345.0,
+      "commit_count": 143782.0,
+      "issues_opened": 3740.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 182.0,
-      "vuln_density": 0.8666666666666667,
-      "stars_count": 15756.0
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
+      "stars_count": 15786.0
     },
     {
       "display_name": "ROS 2",
@@ -5437,7 +5335,7 @@
       "prs_merged": null,
       "vuln_count": 0.0,
       "vuln_density": 0.0,
-      "stars_count": 5692.0
+      "stars_count": 5709.0
     },
     {
       "display_name": "ArduPilot",
@@ -5447,13 +5345,13 @@
       "augur_reliable": true,
       "scorecard_overall": 5.4,
       "contributor_count": 1326.0,
-      "commit_count": 72573.0,
-      "issues_opened": 3051.0,
+      "commit_count": 72615.0,
+      "issues_opened": 3050.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 7.0,
-      "vuln_density": 7.0,
-      "stars_count": 15381.0
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
+      "stars_count": 15406.0
     },
     {
       "display_name": "PX4",
@@ -5462,14 +5360,14 @@
       "dep_failed": false,
       "augur_reliable": true,
       "scorecard_overall": 4.6,
-      "contributor_count": 1128.0,
-      "commit_count": 50207.0,
-      "issues_opened": 1482.0,
+      "contributor_count": 1130.0,
+      "commit_count": 50268.0,
+      "issues_opened": 1459.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 86.0,
-      "vuln_density": 0.2838283828382838,
-      "stars_count": 12040.0
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
+      "stars_count": 12054.0
     },
     {
       "display_name": "Mosquitto",
@@ -5479,13 +5377,13 @@
       "augur_reliable": true,
       "scorecard_overall": 6.0,
       "contributor_count": 190.0,
-      "commit_count": 4869.0,
-      "issues_opened": 835.0,
+      "commit_count": 4870.0,
+      "issues_opened": 836.0,
       "issues_closed": 1.0,
       "prs_merged": null,
       "vuln_count": 0.0,
       "vuln_density": 0.0,
-      "stars_count": 11014.0
+      "stars_count": 11022.0
     },
     {
       "display_name": "Thingsboard",
@@ -5495,13 +5393,13 @@
       "augur_reliable": true,
       "scorecard_overall": 4.3,
       "contributor_count": 257.0,
-      "commit_count": 28102.0,
-      "issues_opened": 274.0,
+      "commit_count": 28180.0,
+      "issues_opened": 279.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 254.0,
-      "vuln_density": 0.12712712712712712,
-      "stars_count": 21971.0
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
+      "stars_count": 21982.0
     },
     {
       "display_name": "Grafana",
@@ -5510,14 +5408,14 @@
       "dep_failed": false,
       "augur_reliable": true,
       "scorecard_overall": null,
-      "contributor_count": 3048.0,
-      "commit_count": 70463.0,
-      "issues_opened": 3523.0,
+      "contributor_count": 3050.0,
+      "commit_count": 70614.0,
+      "issues_opened": 3565.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 48.0,
-      "vuln_density": 0.011201866977829638,
-      "stars_count": 75164.0
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
+      "stars_count": 75183.0
     },
     {
       "display_name": "ADAPT",
@@ -5581,7 +5479,7 @@
       "prs_merged": null,
       "vuln_count": 0.0,
       "vuln_density": 0.0,
-      "stars_count": 0.0
+      "stars_count": 1.0
     },
     {
       "display_name": "ADAPT ADM Plugin",
@@ -5627,8 +5525,8 @@
       "issues_opened": 2.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 27.0,
-      "vuln_density": 0.6585365853658537,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 7.0
     },
     {
@@ -5643,8 +5541,8 @@
       "issues_opened": 27.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 41.0,
-      "vuln_density": 2.411764705882353,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 10.0
     },
     {
@@ -5659,8 +5557,8 @@
       "issues_opened": 10.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 48.0,
-      "vuln_density": 0.6666666666666666,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 22.0
     },
     {
@@ -5675,8 +5573,8 @@
       "issues_opened": 12.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 15.0,
-      "vuln_density": 0.75,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 9.0
     },
     {
@@ -5691,8 +5589,8 @@
       "issues_opened": 5.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 30.0,
-      "vuln_density": 1.3043478260869565,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 8.0
     },
     {
@@ -5707,8 +5605,8 @@
       "issues_opened": 7.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 35.0,
-      "vuln_density": 1.4,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 7.0
     },
     {
@@ -5755,8 +5653,8 @@
       "issues_opened": 10.0,
       "issues_closed": 1.0,
       "prs_merged": null,
-      "vuln_count": 11.0,
-      "vuln_density": 3.6666666666666665,
+      "vuln_count": 0.0,
+      "vuln_density": 0.0,
       "stars_count": 21.0
     }
   ]

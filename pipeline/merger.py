@@ -171,8 +171,9 @@ def merge(
                     metrics.setdefault("languages", [gh["language"]])
                 if needs_license and isinstance(gh.get("license"), dict):
                     lic = gh["license"]
-                    metrics.setdefault("license",
-                                       lic.get("spdx_id") or lic.get("name") or "")
+                    gh_lic = lic.get("spdx_id") or lic.get("name") or ""
+                    if gh_lic:
+                        metrics["license"] = gh_lic
                 if needs_issues_open and gh.get("open_issues_count") is not None:
                     metrics.setdefault("issues_opened", gh["open_issues_count"])
 
@@ -201,6 +202,8 @@ def merge(
                 metrics["issues_closed"] = n
                 logger.debug("GH fallback issues_closed %s/%s: %d",
                              entry.owner, entry.repo_name, n)
+
+        rec.license = metrics.get("license") or ""
 
         records.append(rec)
 

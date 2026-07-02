@@ -77,16 +77,31 @@ def _should_skip(entry: RepoEntry) -> bool:
 
 # ── health-check ─────────────────────────────────────────────────────────────
 
-def check_augur_health() -> bool:
-    """Return True if the Augur API is reachable."""
-    try:
-        r = requests.get(
-            f"{config.AUGUR_API_BASE.rstrip('/')}{config.AUGUR_API_PREFIX}/repos",
-            timeout=5,
-        )
-        return r.status_code == 200
-    except Exception:
-        return False
+def check_augur_health(retries: int = 18, delay: float = 5.0) -> bool:
+    """Return True if the Augur API is reachable.
+
+    Polls up to *retries* × *delay* seconds (default 90s) so that a freshly
+    started Docker stack has time to initialise before the pipeline gives up
+    and falls back to cache.  Uses the repo-groups endpoint (small fixed
+    response) rather than /repos which grows with the database.
+    """
+    url = f"{config.AUGUR_API_BASE.rstrip('/')}{config.AUGUR_API_PREFIX}/repo-groups"
+    for attempt in range(1, retries + 1):
+        try:
+            r = requests.get(url, timeout=10)
+            if r.status_code == 200:
+                if attempt > 1:
+                    logger.info("[augur-health] Augur API ready after %ds.", (attempt - 1) * delay)
+                return True
+            logger.debug("[augur-health] attempt %d/%d: HTTP %d", attempt, retries, r.status_code)
+        except Exception as exc:
+            logger.debug("[augur-health] attempt %d/%d: %s", attempt, retries, exc)
+        if attempt < retries:
+            if attempt == 1:
+                logger.info("[augur-health] Waiting for Augur API to become ready (up to %ds) …",
+                            retries * delay)
+            time.sleep(delay)
+    return False
 
 
 # ── sync / registration ─────────────────────────────────────────────────────

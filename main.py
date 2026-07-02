@@ -367,7 +367,14 @@ def main() -> None:
     args = parse_args()
     logger = setup_logging(verbose=args.verbose)
 
-    # ── Stage 1: pipeline ────────────────────────────────────────────────
+    # ── Stage 1: Docker (must be up before Augur collection) ────────────
+    if args.skip_docker:
+        logger.info("Docker services skipped (--skip-docker).")
+    else:
+        if not start_docker(logger):
+            logger.warning("Docker services could not be started — Augur will fall back to cache.")
+
+    # ── Stage 2: pipeline ────────────────────────────────────────────────
     if args.regenerate:
         logger.info("--regenerate: skipping data collection; re-running stats + saturation + dashboard.")
         merged_path = config.PROCESSED_DIR / "merged_repos.json"
@@ -395,14 +402,6 @@ def main() -> None:
         logger.info("Pipeline skipped (--skip-pipeline).")
     else:
         if not run_pipeline(args, logger):
-            sys.exit(1)
-
-    # ── Stage 2: Docker ──────────────────────────────────────────────────
-    if args.skip_docker:
-        logger.info("Docker services skipped (--skip-docker).")
-    else:
-        if not start_docker(logger):
-            logger.error("Aborting: Docker services could not be started.")
             sys.exit(1)
 
     # ── Stage 3: dashboard ───────────────────────────────────────────────

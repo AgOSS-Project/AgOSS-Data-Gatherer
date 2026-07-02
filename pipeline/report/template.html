@@ -46,6 +46,7 @@
       <div class="chart-card"><h3>Repos per Category</h3><canvas id="chartCatCount"></canvas></div>
       <div class="chart-card"><h3>Avg Scorecard by Category</h3><canvas id="chartCatScore"></canvas></div>
       <div class="chart-card"><h3>Collection Status</h3><canvas id="chartStatus"></canvas></div>
+      <div class="chart-card"><h3>License Distribution</h3><p style="font-size:.75rem;color:#64748b;margin-top:-.25rem;margin-bottom:.5rem;">SPDX identifiers · unknown/undetected grouped separately</p><canvas id="chartLicenseDist"></canvas></div>
       <div class="chart-card"><h3>Ag-Specific Breakdown</h3><canvas id="chartAgSpecific"></canvas></div>
       <div class="chart-card"><h3>Category Split by Ag-Specificness</h3><canvas id="chartCatAgSplit"></canvas></div>
     </div>
@@ -93,6 +94,7 @@
           <th data-sort="augur_issues_total">Issues</th>
           <th data-sort="augur_stars">Stars</th>
           <th data-sort="vuln_count">Vulns</th>
+          <th data-sort="license">License</th>
           <th data-sort="overall_status">Overall</th>
           <th>Details</th>
         </tr></thead>
@@ -1241,6 +1243,32 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
   });
 
+  // License distribution — horizontal bar, known SPDX IDs + Unknown bucket
+  {
+    const licCounts = {};
+    REPOS.forEach(r => {
+      const lic = r.license || '';
+      const key = (lic && lic !== 'NOASSERTION') ? lic : 'Unknown / Undetected';
+      licCounts[key] = (licCounts[key] || 0) + 1;
+    });
+    const licPairs = Object.entries(licCounts).sort((a,b) => b[1]-a[1]);
+    const licPalette = ['#2563eb','#16a34a','#d97706','#dc2626','#7c3aed','#0891b2','#be185d','#65a30d','#ea580c','#64748b'];
+    new Chart(document.getElementById('chartLicenseDist'), {
+      type: 'bar',
+      data: {
+        labels: licPairs.map(p=>p[0]),
+        datasets: [{ data: licPairs.map(p=>p[1]),
+          backgroundColor: licPairs.map((_,i) => licPalette[i % licPalette.length]) }]
+      },
+      options: {
+        indexAxis: 'y',
+        plugins: { legend:{ display:false },
+          tooltip:{ callbacks:{ label: ctx => ` ${ctx.parsed.x} repo${ctx.parsed.x!==1?'s':''}` } } },
+        scales: { x:{ beginAtZero:true, ticks:{ stepSize:1 } } }
+      }
+    });
+  }
+
   // Ag-specific breakdown — sorted bar
   const agColors = { yes:'#16a34a', no:'#d97706', unknown:'#94a3b8' };
   const agPairs = agBuckets.map(k => ({
@@ -1281,6 +1309,7 @@ function repoSortVal(r, col) {
     case 'scorecard_overall': return r.scorecard_overall ?? -1;
     case 'scorecard_status': return r.scorecard_status || '';
     case 'augur_status': return r.augur_status || '';
+    case 'license': return r.license || '';
     case 'augur_contributors': return (r.augur_metrics||{}).contributor_count ?? -1;
     case 'augur_commits': return (r.augur_metrics||{}).commit_count ?? -1;
     case 'augur_prs_merged': return (r.augur_metrics||{}).prs_merged ?? -1;
@@ -1333,6 +1362,7 @@ function renderRepoTable() {
     <td>${fmt(am(r,'issues_total'),0)}</td>
     <td>${fmt(am(r,'stars'),0)}</td>
     <td>${fmt(vulnCount(r),0)}</td>
+    <td>${esc(r.license || '—')}</td>
     <td>${statusBadge(r.overall_status)}</td>
     <td><button onclick="showDetail(${idx})" style="cursor:pointer;border:none;background:var(--primary);color:#fff;padding:.25rem .6rem;border-radius:4px;font-size:.8rem;">View</button></td>
   </tr>`).join('');
@@ -1389,7 +1419,7 @@ function showDetail(idx) {
         <div class="detail-item"><div class="dlabel">Ag-Specificness</div>${agBadge(r.ag_specific)}</div>
         <div class="detail-item"><div class="dlabel">Collected</div>${r.collection_timestamp ? r.collection_timestamp.slice(0,19).replace('T',' ') : '—'}</div>
         <div class="detail-item"><div class="dlabel">Languages</div>${esc(langStr)}</div>
-        <div class="detail-item"><div class="dlabel">License</div>${esc(am('license')||'—')}</div>
+        <div class="detail-item"><div class="dlabel">License</div>${esc(r.license || am('license') || '—')}</div>
       </div>
     </div>
     <div class="detail-section"><h4>Scorecard — Overall ${scoreBadge(r.scorecard_overall)}</h4>

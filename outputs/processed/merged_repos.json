@@ -6,7 +6,7 @@
     "repo_name": "farmOS",
     "category": "Domain-specific agricultural platform",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.6,
@@ -109,33 +109,34 @@
     "augur_error": "",
     "augur_repo_id": 2,
     "augur_metrics": {
-      "issue_backlog": 0,
-      "augur_endpoint_count": 4,
-      "augur_nonempty_endpoint_count": 4,
+      "issues_opened": 8,
+      "issues_closed": 7,
+      "issue_backlog": 32,
+      "augur_endpoint_count": 6,
+      "augur_nonempty_endpoint_count": 6,
       "db_commit_rows": 0,
-      "db_issue_rows": 0,
-      "db_pull_request_rows": 0,
+      "db_issue_rows": 453,
+      "db_pull_request_rows": 8,
       "db_pull_request_event_rows": 0,
-      "db_pull_request_file_rows": 0,
+      "db_pull_request_file_rows": 49,
       "db_issue_event_rows": 0,
-      "db_issue_label_rows": 0,
-      "db_pull_request_label_rows": 0,
+      "db_issue_label_rows": 243,
+      "db_pull_request_label_rows": 2,
       "db_release_rows": 94,
       "db_repo_stat_rows": 0,
-      "stars": 1305,
+      "stars": 1306,
       "forks": 355,
       "languages": [
         "PHP"
       ],
       "license": "GPL-2.0",
-      "issues_opened": 59,
       "contributor_count": 54,
-      "commit_count": 9349,
-      "issues_closed": 1
+      "commit_count": 9349
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "GPL-2.0",
     "overall_status": "complete"
   },
   {
@@ -145,7 +146,7 @@
     "repo_name": "tania-core",
     "category": "Domain-specific agricultural platform",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.7,
@@ -275,6 +276,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "Apache-2.0",
     "overall_status": "complete"
   },
   {
@@ -284,7 +286,7 @@
     "repo_name": "LiteFarm",
     "category": "Domain-specific agricultural platform",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 5.6,
@@ -406,14 +408,15 @@
         "JavaScript"
       ],
       "license": "GPL-3.0",
-      "issues_opened": 53,
+      "issues_opened": 57,
       "contributor_count": 78,
-      "commit_count": 17949,
+      "commit_count": 17952,
       "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "GPL-3.0",
     "overall_status": "complete"
   },
   {
@@ -423,7 +426,7 @@
     "repo_name": "AgOpenGPS",
     "category": "Field-Deployed Sensor",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 5.5,
@@ -539,8 +542,8 @@
       "db_pull_request_label_rows": 0,
       "db_release_rows": 178,
       "db_repo_stat_rows": 0,
-      "stars": 918,
-      "forks": 347,
+      "stars": 919,
+      "forks": 348,
       "languages": [
         "C#"
       ],
@@ -553,6 +556,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "Apache-2.0",
     "overall_status": "complete"
   },
   {
@@ -562,7 +566,7 @@
     "repo_name": "OpenWeedLocator",
     "category": "Field-Deployed Sensor",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.7,
@@ -665,17 +669,20 @@
     "augur_error": "",
     "augur_repo_id": 6,
     "augur_metrics": {
-      "issue_backlog": 0,
-      "augur_endpoint_count": 4,
-      "augur_nonempty_endpoint_count": 4,
-      "db_commit_rows": 0,
-      "db_issue_rows": 0,
-      "db_pull_request_rows": 0,
+      "issues_opened": 4,
+      "issues_closed": 2,
+      "issues_active": 4,
+      "issue_backlog": 14,
+      "augur_endpoint_count": 7,
+      "augur_nonempty_endpoint_count": 7,
+      "db_commit_rows": 1788,
+      "db_issue_rows": 74,
+      "db_pull_request_rows": 82,
       "db_pull_request_event_rows": 0,
-      "db_pull_request_file_rows": 0,
-      "db_issue_event_rows": 0,
-      "db_issue_label_rows": 0,
-      "db_pull_request_label_rows": 0,
+      "db_pull_request_file_rows": 825,
+      "db_issue_event_rows": 227,
+      "db_issue_label_rows": 34,
+      "db_pull_request_label_rows": 2,
       "db_release_rows": 2,
       "db_repo_stat_rows": 0,
       "stars": 473,
@@ -684,14 +691,13 @@
         "Python"
       ],
       "license": "MIT",
-      "issues_opened": 17,
       "contributor_count": 4,
-      "commit_count": 649,
-      "issues_closed": 1
+      "commit_count": 649
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -701,7 +707,7 @@
     "repo_name": "insect-detect",
     "category": "Field-Deployed Sensor",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.4,
@@ -831,6 +837,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "GPL-3.0",
     "overall_status": "complete"
   },
   {
@@ -840,7 +847,7 @@
     "repo_name": "sticky-pi-device",
     "category": "Field-Deployed Sensor",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.2,
@@ -969,6 +976,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "",
     "overall_status": "complete"
   },
   {
@@ -978,7 +986,7 @@
     "repo_name": "sticky-pi-api",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.2,
@@ -1081,15 +1089,15 @@
     "augur_error": "",
     "augur_repo_id": 9,
     "augur_metrics": {
-      "issue_backlog": 0,
+      "issue_backlog": 6,
       "augur_endpoint_count": 4,
       "augur_nonempty_endpoint_count": 4,
-      "db_commit_rows": 0,
-      "db_issue_rows": 0,
-      "db_pull_request_rows": 0,
+      "db_commit_rows": 749,
+      "db_issue_rows": 13,
+      "db_pull_request_rows": 35,
       "db_pull_request_event_rows": 0,
-      "db_pull_request_file_rows": 0,
-      "db_issue_event_rows": 0,
+      "db_pull_request_file_rows": 446,
+      "db_issue_event_rows": 14,
       "db_issue_label_rows": 0,
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
@@ -1107,6 +1115,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "",
     "overall_status": "complete"
   },
   {
@@ -1116,7 +1125,7 @@
     "repo_name": "low-cost-iot-water-sampler",
     "category": "Field-Deployed Sensor",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.4,
@@ -1246,6 +1255,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "GPL-2.0",
     "overall_status": "complete"
   },
   {
@@ -1255,7 +1265,7 @@
     "repo_name": "Mothbox",
     "category": "Field-Deployed Sensor",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.3,
@@ -1358,16 +1368,19 @@
     "augur_error": "",
     "augur_repo_id": 11,
     "augur_metrics": {
-      "issue_backlog": 0,
-      "augur_endpoint_count": 4,
-      "augur_nonempty_endpoint_count": 4,
-      "db_commit_rows": 0,
-      "db_issue_rows": 0,
-      "db_pull_request_rows": 0,
+      "issues_opened": 12,
+      "issues_closed": 10,
+      "issues_active": 11,
+      "issue_backlog": 13,
+      "augur_endpoint_count": 7,
+      "augur_nonempty_endpoint_count": 7,
+      "db_commit_rows": 8872,
+      "db_issue_rows": 99,
+      "db_pull_request_rows": 16,
       "db_pull_request_event_rows": 0,
-      "db_pull_request_file_rows": 0,
-      "db_issue_event_rows": 0,
-      "db_issue_label_rows": 0,
+      "db_pull_request_file_rows": 199,
+      "db_issue_event_rows": 291,
+      "db_issue_label_rows": 62,
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
       "db_repo_stat_rows": 0,
@@ -1377,14 +1390,13 @@
         "Perl"
       ],
       "license": "MIT",
-      "issues_opened": 13,
       "contributor_count": 15,
-      "commit_count": 1409,
-      "issues_closed": 1
+      "commit_count": 1410
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -1394,7 +1406,7 @@
     "repo_name": "LASER",
     "category": "Field-Deployed Sensor",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.6,
@@ -1497,7 +1509,7 @@
     "augur_error": "",
     "augur_repo_id": 12,
     "augur_metrics": {
-      "issues_opened": 2,
+      "issues_opened": 1,
       "issues_active": 1,
       "issue_backlog": 2,
       "augur_endpoint_count": 6,
@@ -1525,6 +1537,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "NOASSERTION",
     "overall_status": "complete"
   },
   {
@@ -1534,7 +1547,7 @@
     "repo_name": "Farmbot-Web-App",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.5,
@@ -1637,26 +1650,27 @@
     "augur_error": "",
     "augur_repo_id": 13,
     "augur_metrics": {
-      "issue_backlog": 0,
-      "augur_endpoint_count": 4,
-      "augur_nonempty_endpoint_count": 4,
+      "issues_opened": 3,
+      "issues_active": 2,
+      "issue_backlog": 39,
+      "augur_endpoint_count": 6,
+      "augur_nonempty_endpoint_count": 6,
       "db_commit_rows": 0,
-      "db_issue_rows": 0,
+      "db_issue_rows": 489,
       "db_pull_request_rows": 0,
       "db_pull_request_event_rows": 0,
       "db_pull_request_file_rows": 0,
-      "db_issue_event_rows": 0,
-      "db_issue_label_rows": 0,
+      "db_issue_event_rows": 3602,
+      "db_issue_label_rows": 479,
       "db_pull_request_label_rows": 0,
       "db_release_rows": 208,
       "db_repo_stat_rows": 0,
       "stars": 969,
-      "forks": 356,
+      "forks": 355,
       "languages": [
         "TypeScript"
       ],
       "license": "MIT",
-      "issues_opened": 39,
       "contributor_count": 43,
       "commit_count": 12502,
       "issues_closed": 1
@@ -1664,6 +1678,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -1673,7 +1688,7 @@
     "repo_name": "farmbot-arduino-firmware",
     "category": "Embedded OS substrate",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.9,
@@ -1790,7 +1805,7 @@
       "db_release_rows": 0,
       "db_repo_stat_rows": 0,
       "stars": 447,
-      "forks": 205,
+      "forks": 204,
       "languages": [
         "C++"
       ],
@@ -1803,6 +1818,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -1812,7 +1828,7 @@
     "repo_name": "farmbot_os",
     "category": "Embedded OS substrate",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.4,
@@ -1929,7 +1945,7 @@
       "db_release_rows": 0,
       "db_repo_stat_rows": 0,
       "stars": 1163,
-      "forks": 285,
+      "forks": 284,
       "languages": [
         "Elixir"
       ],
@@ -1942,6 +1958,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -1951,7 +1968,7 @@
     "repo_name": "FreeRTOS",
     "category": "Embedded OS substrate",
     "ag_specific": false,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 5.7,
@@ -2067,13 +2084,13 @@
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
       "db_repo_stat_rows": 0,
-      "stars": 7514,
-      "forks": 2049,
+      "stars": 7524,
+      "forks": 2052,
       "languages": [
         "C"
       ],
       "license": "MIT",
-      "issues_opened": 30,
+      "issues_opened": 31,
       "contributor_count": 127,
       "commit_count": 3723,
       "issues_closed": 1
@@ -2081,6 +2098,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -2090,7 +2108,7 @@
     "repo_name": "Farm-Data-Relay-System",
     "category": "Edge and Gateway software",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.7,
@@ -2220,6 +2238,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -2229,7 +2248,7 @@
     "repo_name": "AgIsoStack-plus-plus",
     "category": "Edge and Gateway software",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.0,
@@ -2359,6 +2378,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -2368,7 +2388,7 @@
     "repo_name": "FieldWorkApp",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.5,
@@ -2497,6 +2517,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "",
     "overall_status": "complete"
   },
   {
@@ -2506,7 +2527,7 @@
     "repo_name": "PeaPod",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.9,
@@ -2636,6 +2657,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -2645,7 +2667,7 @@
     "repo_name": "ekylibre",
     "category": "Domain-specific agricultural platform",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.9,
@@ -2775,6 +2797,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "AGPL-3.0",
     "overall_status": "complete"
   },
   {
@@ -2784,7 +2807,7 @@
     "repo_name": "Fields2Cover",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.1,
@@ -2900,13 +2923,13 @@
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
       "db_repo_stat_rows": 0,
-      "stars": 831,
-      "forks": 183,
+      "stars": 834,
+      "forks": 186,
       "languages": [
         "C++"
       ],
       "license": "BSD-3-Clause",
-      "issues_opened": 26,
+      "issues_opened": 27,
       "contributor_count": 25,
       "commit_count": 492,
       "issues_closed": 1
@@ -2914,6 +2937,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "BSD-3-Clause",
     "overall_status": "complete"
   },
   {
@@ -2923,7 +2947,7 @@
     "repo_name": "SpeedSeed3",
     "category": "Embedded OS substrate",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.7,
@@ -3053,6 +3077,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -3062,7 +3087,7 @@
     "repo_name": "isoblue",
     "category": "Edge and Gateway software",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.0,
@@ -3186,11 +3211,13 @@
       "license": "MIT",
       "issues_opened": 47,
       "contributor_count": 11,
-      "commit_count": 525
+      "commit_count": 525,
+      "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -3200,7 +3227,7 @@
     "repo_name": "Sen2Agri-System",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.7,
@@ -3330,6 +3357,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "NOASSERTION",
     "overall_status": "complete"
   },
   {
@@ -3339,7 +3367,7 @@
     "repo_name": "WebODM",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": false,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.5,
@@ -3455,20 +3483,21 @@
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
       "db_repo_stat_rows": 0,
-      "stars": 4008,
-      "forks": 1182,
+      "stars": 4014,
+      "forks": 1184,
       "languages": [
         "Python"
       ],
       "license": "AGPL-3.0",
-      "issues_opened": 39,
-      "contributor_count": 112,
-      "commit_count": 3478,
+      "issues_opened": 40,
+      "contributor_count": 113,
+      "commit_count": 3498,
       "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "AGPL-3.0",
     "overall_status": "complete"
   },
   {
@@ -3478,7 +3507,7 @@
     "repo_name": "ODM",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": false,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.4,
@@ -3594,20 +3623,21 @@
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
       "db_repo_stat_rows": 0,
-      "stars": 6223,
+      "stars": 6230,
       "forks": 1290,
       "languages": [
         "Python"
       ],
       "license": "AGPL-3.0",
       "issues_opened": 115,
-      "contributor_count": 154,
-      "commit_count": 3505,
+      "contributor_count": 155,
+      "commit_count": 3506,
       "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "AGPL-3.0",
     "overall_status": "complete"
   },
   {
@@ -3617,7 +3647,7 @@
     "repo_name": "NodeODM",
     "category": "Edge and Gateway software",
     "ag_specific": false,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.8,
@@ -3721,8 +3751,8 @@
     "augur_repo_id": 28,
     "augur_metrics": {
       "issue_backlog": 0,
-      "augur_endpoint_count": 3,
-      "augur_nonempty_endpoint_count": 3,
+      "augur_endpoint_count": 4,
+      "augur_nonempty_endpoint_count": 4,
       "db_commit_rows": 0,
       "db_issue_rows": 0,
       "db_pull_request_rows": 0,
@@ -3731,9 +3761,9 @@
       "db_issue_event_rows": 0,
       "db_issue_label_rows": 0,
       "db_pull_request_label_rows": 0,
-      "db_release_rows": 0,
+      "db_release_rows": 8,
       "db_repo_stat_rows": 0,
-      "stars": 295,
+      "stars": 294,
       "forks": 172,
       "languages": [
         "JavaScript"
@@ -3741,11 +3771,13 @@
       "license": "AGPL-3.0",
       "issues_opened": 5,
       "contributor_count": 31,
-      "commit_count": 658
+      "commit_count": 658,
+      "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "AGPL-3.0",
     "overall_status": "complete"
   },
   {
@@ -3755,7 +3787,7 @@
     "repo_name": "openminder",
     "category": "Field-Deployed Sensor",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.0,
@@ -3858,14 +3890,14 @@
     "augur_error": "",
     "augur_repo_id": 29,
     "augur_metrics": {
-      "issue_backlog": 0,
-      "augur_endpoint_count": 3,
-      "augur_nonempty_endpoint_count": 3,
-      "db_commit_rows": 0,
-      "db_issue_rows": 0,
-      "db_pull_request_rows": 0,
+      "issue_backlog": 1,
+      "augur_endpoint_count": 4,
+      "augur_nonempty_endpoint_count": 4,
+      "db_commit_rows": 727,
+      "db_issue_rows": 1,
+      "db_pull_request_rows": 1,
       "db_pull_request_event_rows": 0,
-      "db_pull_request_file_rows": 0,
+      "db_pull_request_file_rows": 12,
       "db_issue_event_rows": 0,
       "db_issue_label_rows": 0,
       "db_pull_request_label_rows": 0,
@@ -3885,6 +3917,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "NOASSERTION",
     "overall_status": "complete"
   },
   {
@@ -3894,7 +3927,7 @@
     "repo_name": "APSIM710",
     "category": "Domain-specific agricultural platform",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 1.9,
@@ -3998,8 +4031,8 @@
     "augur_repo_id": 30,
     "augur_metrics": {
       "issue_backlog": 0,
-      "augur_endpoint_count": 3,
-      "augur_nonempty_endpoint_count": 3,
+      "augur_endpoint_count": 4,
+      "augur_nonempty_endpoint_count": 4,
       "db_commit_rows": 0,
       "db_issue_rows": 0,
       "db_pull_request_rows": 0,
@@ -4023,6 +4056,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "",
     "overall_status": "complete"
   },
   {
@@ -4032,7 +4066,7 @@
     "repo_name": "ApsimX",
     "category": "Domain-specific agricultural platform",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.4,
@@ -4136,8 +4170,8 @@
     "augur_repo_id": 31,
     "augur_metrics": {
       "issue_backlog": 0,
-      "augur_endpoint_count": 3,
-      "augur_nonempty_endpoint_count": 3,
+      "augur_endpoint_count": 4,
+      "augur_nonempty_endpoint_count": 4,
       "db_commit_rows": 0,
       "db_issue_rows": 0,
       "db_pull_request_rows": 0,
@@ -4154,14 +4188,15 @@
         "Jupyter Notebook"
       ],
       "license": "NOASSERTION",
-      "issues_opened": 531,
-      "contributor_count": 128,
-      "commit_count": 34355,
+      "issues_opened": 533,
+      "contributor_count": 129,
+      "commit_count": 34407,
       "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "NOASSERTION",
     "overall_status": "complete"
   },
   {
@@ -4171,7 +4206,7 @@
     "repo_name": "Eduponics-Mini",
     "category": "Field-Deployed Sensor",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.7,
@@ -4275,14 +4310,14 @@
     "augur_repo_id": 32,
     "augur_metrics": {
       "issue_backlog": 0,
-      "augur_endpoint_count": 3,
-      "augur_nonempty_endpoint_count": 3,
-      "db_commit_rows": 0,
-      "db_issue_rows": 0,
+      "augur_endpoint_count": 4,
+      "augur_nonempty_endpoint_count": 4,
+      "db_commit_rows": 224,
+      "db_issue_rows": 2,
       "db_pull_request_rows": 0,
       "db_pull_request_event_rows": 0,
       "db_pull_request_file_rows": 0,
-      "db_issue_event_rows": 0,
+      "db_issue_event_rows": 4,
       "db_issue_label_rows": 0,
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
@@ -4298,6 +4333,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -4307,7 +4343,7 @@
     "repo_name": "micropython-eduponics",
     "category": "Field-Deployed Sensor",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.7,
@@ -4411,17 +4447,17 @@
     "augur_repo_id": 33,
     "augur_metrics": {
       "issue_backlog": 0,
-      "augur_endpoint_count": 3,
-      "augur_nonempty_endpoint_count": 3,
-      "db_commit_rows": 0,
-      "db_issue_rows": 0,
-      "db_pull_request_rows": 0,
+      "augur_endpoint_count": 4,
+      "augur_nonempty_endpoint_count": 4,
+      "db_commit_rows": 180,
+      "db_issue_rows": 3,
+      "db_pull_request_rows": 1,
       "db_pull_request_event_rows": 0,
-      "db_pull_request_file_rows": 0,
-      "db_issue_event_rows": 0,
+      "db_pull_request_file_rows": 1,
+      "db_issue_event_rows": 11,
       "db_issue_label_rows": 0,
       "db_pull_request_label_rows": 0,
-      "db_release_rows": 0,
+      "db_release_rows": 12,
       "db_repo_stat_rows": 0,
       "stars": 10,
       "forks": 3,
@@ -4437,6 +4473,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "NOASSERTION",
     "overall_status": "complete"
   },
   {
@@ -4446,7 +4483,7 @@
     "repo_name": "zephyr",
     "category": "Embedded OS substrate",
     "ag_specific": false,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 8.7,
@@ -4550,8 +4587,8 @@
     "augur_repo_id": 34,
     "augur_metrics": {
       "issue_backlog": 0,
-      "augur_endpoint_count": 3,
-      "augur_nonempty_endpoint_count": 3,
+      "augur_endpoint_count": 4,
+      "augur_nonempty_endpoint_count": 4,
       "db_commit_rows": 0,
       "db_issue_rows": 0,
       "db_pull_request_rows": 0,
@@ -4560,22 +4597,23 @@
       "db_issue_event_rows": 0,
       "db_issue_label_rows": 0,
       "db_pull_request_label_rows": 0,
-      "db_release_rows": 0,
+      "db_release_rows": 148,
       "db_repo_stat_rows": 0,
-      "stars": 15760,
-      "forks": 9432,
+      "stars": 15786,
+      "forks": 9459,
       "languages": [
         "C"
       ],
       "license": "Apache-2.0",
-      "issues_opened": 3735,
-      "contributor_count": 4335,
-      "commit_count": 143383,
+      "issues_opened": 3740,
+      "contributor_count": 4345,
+      "commit_count": 143782,
       "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "Apache-2.0",
     "overall_status": "complete"
   },
   {
@@ -4585,7 +4623,7 @@
     "repo_name": "ros2",
     "category": "Embedded OS substrate",
     "ag_specific": false,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 5.7,
@@ -4689,8 +4727,8 @@
     "augur_repo_id": 35,
     "augur_metrics": {
       "issue_backlog": 0,
-      "augur_endpoint_count": 3,
-      "augur_nonempty_endpoint_count": 3,
+      "augur_endpoint_count": 4,
+      "augur_nonempty_endpoint_count": 4,
       "db_commit_rows": 0,
       "db_issue_rows": 0,
       "db_pull_request_rows": 0,
@@ -4699,10 +4737,10 @@
       "db_issue_event_rows": 0,
       "db_issue_label_rows": 0,
       "db_pull_request_label_rows": 0,
-      "db_release_rows": 0,
+      "db_release_rows": 107,
       "db_repo_stat_rows": 0,
-      "stars": 5694,
-      "forks": 921,
+      "stars": 5709,
+      "forks": 923,
       "issues_opened": 150,
       "contributor_count": 63,
       "commit_count": 310,
@@ -4711,6 +4749,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "",
     "overall_status": "complete"
   },
   {
@@ -4720,7 +4759,7 @@
     "repo_name": "ardupilot",
     "category": "Field-Deployed Sensor",
     "ag_specific": false,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 5.4,
@@ -4824,8 +4863,8 @@
     "augur_repo_id": 36,
     "augur_metrics": {
       "issue_backlog": 0,
-      "augur_endpoint_count": 3,
-      "augur_nonempty_endpoint_count": 3,
+      "augur_endpoint_count": 4,
+      "augur_nonempty_endpoint_count": 4,
       "db_commit_rows": 0,
       "db_issue_rows": 0,
       "db_pull_request_rows": 0,
@@ -4834,22 +4873,23 @@
       "db_issue_event_rows": 0,
       "db_issue_label_rows": 0,
       "db_pull_request_label_rows": 0,
-      "db_release_rows": 0,
+      "db_release_rows": 86,
       "db_repo_stat_rows": 0,
-      "stars": 15381,
-      "forks": 20986,
+      "stars": 15406,
+      "forks": 21000,
       "languages": [
         "C++"
       ],
       "license": "GPL-3.0",
-      "issues_opened": 3053,
+      "issues_opened": 3050,
       "contributor_count": 1326,
-      "commit_count": 72573,
+      "commit_count": 72615,
       "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "GPL-3.0",
     "overall_status": "complete"
   },
   {
@@ -4859,7 +4899,7 @@
     "repo_name": "PX4-Autopilot",
     "category": "Field-Deployed Sensor",
     "ag_specific": false,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.6,
@@ -4963,8 +5003,8 @@
     "augur_repo_id": 37,
     "augur_metrics": {
       "issue_backlog": 0,
-      "augur_endpoint_count": 3,
-      "augur_nonempty_endpoint_count": 3,
+      "augur_endpoint_count": 4,
+      "augur_nonempty_endpoint_count": 4,
       "db_commit_rows": 0,
       "db_issue_rows": 0,
       "db_pull_request_rows": 0,
@@ -4973,22 +5013,23 @@
       "db_issue_event_rows": 0,
       "db_issue_label_rows": 0,
       "db_pull_request_label_rows": 0,
-      "db_release_rows": 0,
+      "db_release_rows": 134,
       "db_repo_stat_rows": 0,
-      "stars": 12041,
-      "forks": 15622,
+      "stars": 12054,
+      "forks": 15630,
       "languages": [
         "C++"
       ],
       "license": "BSD-3-Clause",
-      "issues_opened": 1485,
-      "contributor_count": 1128,
-      "commit_count": 50207,
+      "issues_opened": 1459,
+      "contributor_count": 1130,
+      "commit_count": 50268,
       "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "BSD-3-Clause",
     "overall_status": "complete"
   },
   {
@@ -4998,7 +5039,7 @@
     "repo_name": "mosquitto",
     "category": "Edge and Gateway software",
     "ag_specific": false,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 6.0,
@@ -5114,20 +5155,21 @@
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
       "db_repo_stat_rows": 0,
-      "stars": 11015,
+      "stars": 11022,
       "forks": 2618,
       "languages": [
         "C"
       ],
       "license": "NOASSERTION",
-      "issues_opened": 835,
+      "issues_opened": 836,
       "contributor_count": 190,
-      "commit_count": 4869,
+      "commit_count": 4870,
       "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "NOASSERTION",
     "overall_status": "complete"
   },
   {
@@ -5137,7 +5179,7 @@
     "repo_name": "thingsboard",
     "category": "Edge and Gateway software",
     "ag_specific": false,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.3,
@@ -5253,20 +5295,21 @@
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
       "db_repo_stat_rows": 0,
-      "stars": 21971,
-      "forks": 6355,
+      "stars": 21982,
+      "forks": 6363,
       "languages": [
         "Java"
       ],
       "license": "Apache-2.0",
-      "issues_opened": 273,
+      "issues_opened": 279,
       "contributor_count": 257,
-      "commit_count": 28107,
+      "commit_count": 28180,
       "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "Apache-2.0",
     "overall_status": "complete"
   },
   {
@@ -5276,14 +5319,14 @@
     "repo_name": "grafana",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": false,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": false,
-    "scorecard_error": "scorecard timed out after 120s",
+    "scorecard_error": "No cached Scorecard output found.",
     "scorecard_overall": null,
     "scorecard_checks": {},
     "scorecard_status": "failed",
     "scorecard_exit_code": null,
-    "scorecard_runtime": 120.27,
+    "scorecard_runtime": 0.0,
     "augur_collected": true,
     "augur_error": "",
     "augur_repo_id": 40,
@@ -5301,20 +5344,21 @@
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
       "db_repo_stat_rows": 0,
-      "stars": 75179,
-      "forks": 14153,
+      "stars": 75183,
+      "forks": 14171,
       "languages": [
         "TypeScript"
       ],
       "license": "AGPL-3.0",
-      "issues_opened": 3522,
-      "contributor_count": 3048,
-      "commit_count": 70476,
+      "issues_opened": 3565,
+      "contributor_count": 3050,
+      "commit_count": 70614,
       "issues_closed": 1
     },
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "AGPL-3.0",
     "overall_status": "partial"
   },
   {
@@ -5324,7 +5368,7 @@
     "repo_name": "ADAPT",
     "category": "Edge and Gateway software",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.3,
@@ -5454,6 +5498,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "EPL-1.0",
     "overall_status": "complete"
   },
   {
@@ -5463,7 +5508,7 @@
     "repo_name": "ISOv4Plugin",
     "category": "Edge and Gateway software",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.2,
@@ -5593,6 +5638,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "EPL-1.0",
     "overall_status": "complete"
   },
   {
@@ -5602,7 +5648,7 @@
     "repo_name": "Standard",
     "category": "Edge and Gateway software",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.9,
@@ -5729,6 +5775,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -5738,7 +5785,7 @@
     "repo_name": "StandardPlugin",
     "category": "Edge and Gateway software",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.4,
@@ -5854,7 +5901,7 @@
       "db_pull_request_label_rows": 0,
       "db_release_rows": 0,
       "db_repo_stat_rows": 0,
-      "stars": 0,
+      "stars": 1,
       "forks": 3,
       "languages": [
         "C#"
@@ -5868,6 +5915,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -5877,7 +5925,7 @@
     "repo_name": "ADMPlugin",
     "category": "Edge and Gateway software",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.5,
@@ -6007,6 +6055,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "EPL-1.0",
     "overall_status": "complete"
   },
   {
@@ -6016,7 +6065,7 @@
     "repo_name": "GeoJSONPlugin",
     "category": "Edge and Gateway software",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.1,
@@ -6146,6 +6195,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "MIT",
     "overall_status": "complete"
   },
   {
@@ -6155,7 +6205,7 @@
     "repo_name": "OpenAgri-GateKeeper",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.0,
@@ -6285,6 +6335,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "EUPL-1.2",
     "overall_status": "complete"
   },
   {
@@ -6294,7 +6345,7 @@
     "repo_name": "OpenAgri-FarmCalendar",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 4.2,
@@ -6424,6 +6475,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "Apache-2.0",
     "overall_status": "complete"
   },
   {
@@ -6433,7 +6485,7 @@
     "repo_name": "OpenAgri-WeatherService",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.6,
@@ -6563,6 +6615,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "Apache-2.0",
     "overall_status": "complete"
   },
   {
@@ -6572,7 +6625,7 @@
     "repo_name": "OpenAgri-IrrigationManagement",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.6,
@@ -6702,6 +6755,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "EUPL-1.2",
     "overall_status": "complete"
   },
   {
@@ -6711,7 +6765,7 @@
     "repo_name": "OpenAgri-PestAndDiseaseManagement",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.5,
@@ -6841,6 +6895,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "EUPL-1.2",
     "overall_status": "complete"
   },
   {
@@ -6850,7 +6905,7 @@
     "repo_name": "OpenAgri-ReportingService",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.3,
@@ -6980,6 +7035,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "EUPL-1.2",
     "overall_status": "complete"
   },
   {
@@ -6989,7 +7045,7 @@
     "repo_name": "OpenAgri-UserDashboard",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.6,
@@ -7119,6 +7175,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "EUPL-1.2",
     "overall_status": "complete"
   },
   {
@@ -7128,7 +7185,7 @@
     "repo_name": "OpenAgri-OCSM",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 3.0,
@@ -7258,6 +7315,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "EUPL-1.2",
     "overall_status": "complete"
   },
   {
@@ -7267,7 +7325,7 @@
     "repo_name": "weather-server",
     "category": "Cloud-hosted backends and dashboard",
     "ag_specific": true,
-    "collection_timestamp": "2026-06-29T14:50:37.443591+00:00",
+    "collection_timestamp": "2026-07-02T10:09:08.278753+00:00",
     "scorecard_collected": true,
     "scorecard_error": "",
     "scorecard_overall": 2.8,
@@ -7397,6 +7455,7 @@
     "augur_status": "partial",
     "augur_registered": true,
     "augur_ready": false,
+    "license": "Apache-2.0",
     "overall_status": "complete"
   }
 ]

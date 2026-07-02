@@ -94,6 +94,9 @@ class MergedRepoRecord:
     augur_registered: bool = False
     augur_ready: bool = False
 
+    # License (SPDX ID or display name; empty if not detected)
+    license: str = ""
+
     # Pipeline
     overall_status: OverallStatus = "failed"
 

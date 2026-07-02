@@ -347,8 +347,10 @@ Grafana,https://github.com/grafana/grafana,Cloud-hosted backends and dashboard,N
 python main.py
 ```
 
-Runs all eight stages in sequence and opens the dashboard in the default
-browser when finished.
+Starts the Aveloxis Docker stack first (so Augur is reachable during
+collection), runs all eight pipeline stages in sequence, then opens the
+dashboard in the default browser. Pass `--skip-docker` if the stack is already
+running or if you are not using Aveloxis.
 
 ### Skip slow stages using cached outputs
 
@@ -461,8 +463,8 @@ registered repository and writes results to `outputs/raw/augur/owner__repo.json`
 
 **Metrics collected** (up to 38 endpoints), including:
 contributor count, commit count, issues opened/closed/backlog, pull requests
-merged, release count, fork count, star count, language breakdown, licence,
-average issue resolution time.
+merged, release count, fork count, star count, language breakdown, declared
+licence (SPDX ID), average issue resolution time.
 
 **Status model:**
 
@@ -528,7 +530,10 @@ Outputs:
 
 Reads all Scorecard and Augur raw caches, merges them into a unified
 per-repository record, and supplements with live data from the GitHub REST API
-where Aveloxis metrics are missing. Writes:
+where Aveloxis metrics are missing (stars, forks, contributor count, commit
+count, closed-issue count, and SPDX license identifier). The detected license
+is promoted to a top-level `license` field on each record so the dashboard can
+display and filter by it without parsing nested Augur metrics. Writes:
 
 - `outputs/processed/merged_repos.json` — array of unified records (one per input repo).
 - `outputs/processed/merged_repos.csv` — flat CSV equivalent for spreadsheet use.
@@ -755,8 +760,8 @@ internet connection is required.
 
 | Tab | Contents |
 |---|---|
-| **Overview** | Summary cards · score histogram · category counts · ag-specific breakdown · Spearman correlation heatmap |
-| **Repo Table** | Sortable, filterable table of all repositories with Scorecard scores, Augur metrics, and vulnerability counts |
+| **Overview** | Summary cards · score histogram · category counts · license distribution · ag-specific breakdown · Spearman correlation heatmap |
+| **Repo Table** | Sortable, filterable table of all repositories with Scorecard scores, Augur metrics, vulnerability counts, and detected license |
 | **Categories** | Scorecard boxplots by software layer · dependency vulnerability boxplot · category comparison bar charts with 95% CI error bars · per-repo security check heatmap · Kruskal-Wallis + Dunn results |
 | **Ag-Specific** | Ag vs non-ag metric comparisons · Mann-Whitney effect size chart with CI · radar chart of Scorecard check averages · full Mann-Whitney table |
 | **Vulnerabilities** | Dependency vulnerability breakdown · CISA KEV exploitability panel with remediation deadlines |

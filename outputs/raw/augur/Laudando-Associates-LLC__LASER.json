@@ -4,11 +4,6 @@
   "metrics_raw": {
     "issues_new": [
       {
-        "date": "2025-06-01T00:00:00Z",
-        "value": 1,
-        "repo_name": "LASER"
-      },
-      {
         "date": "2025-09-01T00:00:00Z",
         "value": 1,
         "repo_name": "LASER"
@@ -45,7 +40,7 @@
     }
   },
   "metrics_summary": {
-    "issues_opened": 2,
+    "issues_opened": 1,
     "issues_active": 1,
     "issue_backlog": 2,
     "augur_endpoint_count": 6,

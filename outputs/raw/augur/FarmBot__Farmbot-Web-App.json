@@ -2,11 +2,40 @@
   "repo_id": 13,
   "status": "partial",
   "metrics_raw": {
+    "issues_new": [
+      {
+        "date": "2025-09-01T00:00:00Z",
+        "value": 1,
+        "repo_name": "Farmbot-Web-App"
+      },
+      {
+        "date": "2026-01-01T00:00:00Z",
+        "value": 1,
+        "repo_name": "Farmbot-Web-App"
+      },
+      {
+        "date": "2026-05-01T00:00:00Z",
+        "value": 1,
+        "repo_name": "Farmbot-Web-App"
+      }
+    ],
+    "issues_active": [
+      {
+        "date": "2026-03-01T00:00:00Z",
+        "value": 1,
+        "repo_name": "Farmbot-Web-App"
+      },
+      {
+        "date": "2026-06-01T00:00:00Z",
+        "value": 2,
+        "repo_name": "Farmbot-Web-App"
+      }
+    ],
     "issue_backlog": {
-      "issue_backlog": 0
+      "issue_backlog": 39
     },
     "avg_issue_resolution_time": {
-      "avg_issue_resolution_days": 0
+      "avg_issue_resolution_days": 192.49319771090535
     },
     "fork_count": {
       "forks": 356,
@@ -14,28 +43,30 @@
     },
     "db_counts": {
       "db_commit_rows": 0,
-      "db_issue_rows": 0,
+      "db_issue_rows": 489,
       "db_pull_request_rows": 0,
       "db_pull_request_event_rows": 0,
       "db_pull_request_file_rows": 0,
-      "db_issue_event_rows": 0,
-      "db_issue_label_rows": 0,
+      "db_issue_event_rows": 3602,
+      "db_issue_label_rows": 479,
       "db_pull_request_label_rows": 0,
       "db_release_rows": 208,
       "db_repo_stat_rows": 0
     }
   },
   "metrics_summary": {
-    "issue_backlog": 0,
-    "augur_endpoint_count": 4,
-    "augur_nonempty_endpoint_count": 4,
+    "issues_opened": 3,
+    "issues_active": 2,
+    "issue_backlog": 39,
+    "augur_endpoint_count": 6,
+    "augur_nonempty_endpoint_count": 6,
     "db_commit_rows": 0,
-    "db_issue_rows": 0,
+    "db_issue_rows": 489,
     "db_pull_request_rows": 0,
     "db_pull_request_event_rows": 0,
     "db_pull_request_file_rows": 0,
-    "db_issue_event_rows": 0,
-    "db_issue_label_rows": 0,
+    "db_issue_event_rows": 3602,
+    "db_issue_label_rows": 479,
     "db_pull_request_label_rows": 0,
     "db_release_rows": 208,
     "db_repo_stat_rows": 0
