@@ -5,9 +5,9 @@ discards archived repos and forks, and writes a frozen dataset to
 candidates.json for use in the AgOSS MSR study.
 
 Usage:
-    python repo-search/agoss_search.py
-    python repo-search/agoss_search.py --sort stars -n 100
-    python repo-search/agoss_search.py --output path/to/output.json
+    python ag-oss-search/agoss_search.py
+    python ag-oss-search/agoss_search.py --sort stars -n 100
+    python ag-oss-search/agoss_search.py --output path/to/output.json
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 KEYWORDS = ["agriculture", "agtech", "farming"]
-DEFAULT_N = 250
+DEFAULT_N = 500
 DEFAULT_OUTPUT = Path(__file__).parent / "candidates.json"
 GITHUB_API_BASE = "https://api.github.com"
 PER_PAGE = 100
@@ -263,7 +263,7 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    # JS sidecar consumed by repo-search/index.html (works on file:// without a server)
+    # JS sidecar consumed by ag-oss-search/index.html (works on file:// without a server)
     js_path = args.output.with_name("candidates_data.js")
     js_path.write_text(
         "const CANDIDATES = " + json.dumps(output, ensure_ascii=False) + ";\n",

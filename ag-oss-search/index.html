@@ -169,6 +169,11 @@ tr:hover td { background: #f8fafc; }
 tr.shortlisted td { background: #f0fdf4; }
 tr.shortlisted:hover td { background: #dcfce7; }
 tr.hidden { display: none; }
+/* row-hidden = user-hidden state (independent of the filter-driven .hidden
+   above); only ever visible at all when "Show hidden" is on, and dimmed so
+   it reads clearly as set aside rather than a normal row. */
+tr.row-hidden td { opacity: .45; }
+tr.row-hidden:hover td { opacity: .7; }
 
 /* Column sizing */
 .col-cb   { width: 36px; text-align: center; }
@@ -177,6 +182,23 @@ tr.hidden { display: none; }
 .col-name { min-width: 240px; }
 .col-num  { width: 76px; text-align: right; }
 .col-date { width: 90px; text-align: right; }
+.col-hide { width: 76px; text-align: center; }
+
+.hide-btn {
+  padding: .22rem .55rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: pointer;
+  font-size: .72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: .12s;
+  white-space: nowrap;
+}
+.hide-btn:hover { border-color: #94a3b8; color: var(--text); }
+tr.row-hidden .hide-btn { background: var(--primary); border-color: var(--primary); color: #fff; }
+tr.row-hidden .hide-btn:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
 
 input[type="checkbox"] {
   width: 15px; height: 15px;
@@ -309,11 +331,16 @@ input[type="checkbox"] {
     <input type="checkbox" id="sl-only"> Shortlisted only
   </label>
 
+  <label class="toggle-label">
+    <input type="checkbox" id="show-hidden"> Show hidden (<span id="hidden-count">0</span>)
+  </label>
+
   <span class="vis-count">
     Showing <strong id="vis-count">0</strong> of <strong id="total-count">0</strong>
   </span>
 
   <div class="toolbar-actions">
+    <button class="btn" id="btn-unhide-all">Unhide all</button>
     <button class="btn btn-danger" id="btn-clear">Clear all</button>
     <button class="btn btn-export" id="btn-export">Export shortlist ↓</button>
   </div>
@@ -333,6 +360,7 @@ input[type="checkbox"] {
         <th class="col-num">Stars</th>
         <th class="col-num">Forks</th>
         <th class="col-date">Last Push</th>
+        <th class="col-hide"></th>
       </tr>
     </thead>
     <tbody id="tbody"></tbody>
@@ -349,7 +377,7 @@ if (typeof CANDIDATES === 'undefined') {
       <h2 style="margin-bottom:.75rem">candidates_data.js not found</h2>
       <p style="color:#64748b">
         Run <code style="background:#f1f5f9;padding:.2em .4em;border-radius:4px">
-        python repo-search/agoss_search.py</code> to generate it, then reopen this page.
+        python ag-oss-search/agoss_search.py</code> to generate it, then reopen this page.
       </p>
     </div>`;
   throw new Error('candidates_data.js missing');
@@ -357,6 +385,7 @@ if (typeof CANDIDATES === 'undefined') {
 
 // ── State ─────────────────────────────────────────────────────────────────────
 const STORAGE_KEY = 'agoss-shortlist-v1';
+const HIDDEN_STORAGE_KEY = 'agoss-hidden-v1';
 const meta = CANDIDATES.meta;
 
 function loadShortlist() {
@@ -367,10 +396,20 @@ function saveShortlist() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify([...shortlist]));
 }
 
+function loadHidden() {
+  try { return new Set(JSON.parse(localStorage.getItem(HIDDEN_STORAGE_KEY) || '[]')); }
+  catch { return new Set(); }
+}
+function saveHidden() {
+  localStorage.setItem(HIDDEN_STORAGE_KEY, JSON.stringify([...hidden]));
+}
+
 let shortlist = loadShortlist();
+let hidden    = loadHidden();
 let activeKw = 'all';
 let searchQ   = '';
 let slOnly    = false;
+let showHidden = false;
 
 // merged already carries keyword + rank from the search script
 const rows = CANDIDATES.merged;
@@ -430,11 +469,13 @@ rows.forEach(repo => {
   const owner = repo.name.slice(0, slash);
   const rname = repo.name.slice(slash + 1);
   const checked = shortlist.has(repo.name);
+  const isHidden = hidden.has(repo.name);
 
   const tr = document.createElement('tr');
   tr.dataset.name = repo.name;
   tr.dataset.kw   = repo.keyword;
   if (checked) tr.classList.add('shortlisted');
+  if (isHidden) tr.classList.add('row-hidden');
 
   tr.innerHTML = `
     <td class="col-cb">
@@ -449,6 +490,9 @@ rows.forEach(repo => {
     <td class="col-num num-cell">⭐ ${fmtNum(repo.stars)}</td>
     <td class="col-num num-cell">${fmtNum(repo.forks)}</td>
     <td class="col-date date-cell">${fmtDate(repo.pushed_at)}</td>
+    <td class="col-hide">
+      <button class="hide-btn" data-name="${repo.name}">${isHidden ? 'Unhide' : 'Hide'}</button>
+    </td>
   `;
   tbody.appendChild(tr);
 });
@@ -471,19 +515,41 @@ tbody.addEventListener('change', e => {
   updateVisCount();
 });
 
+// ── Hide/unhide handler ───────────────────────────────────────────────────────
+// Independent of the shortlist checkbox above — this just declutters the view
+// (e.g. repos already triaged out) without affecting the shortlist selection.
+tbody.addEventListener('click', e => {
+  const btn = e.target.closest('.hide-btn');
+  if (!btn) return;
+  const name = btn.dataset.name;
+  const tr = btn.closest('tr');
+  const nowHidden = !hidden.has(name);
+  if (nowHidden) hidden.add(name); else hidden.delete(name);
+  tr.classList.toggle('row-hidden', nowHidden);
+  btn.textContent = nowHidden ? 'Unhide' : 'Hide';
+  saveHidden();
+  updateHiddenCount();
+  applyFilters();
+});
+
 // ── Filter ────────────────────────────────────────────────────────────────────
 function applyFilters() {
   let vis = 0;
   tbody.querySelectorAll('tr').forEach(tr => {
-    const kwOk  = activeKw === 'all' || tr.dataset.kw === activeKw;
-    const srOk  = !searchQ  || tr.dataset.name.toLowerCase().includes(searchQ);
-    const slOk  = !slOnly   || shortlist.has(tr.dataset.name);
-    const show  = kwOk && srOk && slOk;
+    const kwOk   = activeKw === 'all' || tr.dataset.kw === activeKw;
+    const srOk   = !searchQ  || tr.dataset.name.toLowerCase().includes(searchQ);
+    const slOk   = !slOnly   || shortlist.has(tr.dataset.name);
+    const hideOk = showHidden || !hidden.has(tr.dataset.name);
+    const show   = kwOk && srOk && slOk && hideOk;
     tr.classList.toggle('hidden', !show);
     if (show) vis++;
   });
   document.getElementById('vis-count').textContent = vis;
   document.getElementById('empty-msg').style.display = vis === 0 ? 'block' : 'none';
+}
+
+function updateHiddenCount() {
+  document.getElementById('hidden-count').textContent = hidden.size;
 }
 
 function updateVisCount() {
@@ -499,6 +565,7 @@ function updateBadge() {
   el.classList.toggle('has-items', n > 0);
 }
 updateBadge();
+updateHiddenCount();
 
 // ── Controls ──────────────────────────────────────────────────────────────────
 document.getElementById('search').addEventListener('input', e => {
@@ -517,6 +584,24 @@ document.querySelectorAll('.kw-btn').forEach(btn => {
 
 document.getElementById('sl-only').addEventListener('change', e => {
   slOnly = e.target.checked;
+  applyFilters();
+});
+
+document.getElementById('show-hidden').addEventListener('change', e => {
+  showHidden = e.target.checked;
+  applyFilters();
+});
+
+document.getElementById('btn-unhide-all').addEventListener('click', () => {
+  if (hidden.size === 0) return;
+  if (!confirm(`Unhide all ${hidden.size} hidden repos?`)) return;
+  hidden.clear();
+  saveHidden();
+  tbody.querySelectorAll('tr.row-hidden').forEach(tr => {
+    tr.classList.remove('row-hidden');
+    tr.querySelector('.hide-btn').textContent = 'Hide';
+  });
+  updateHiddenCount();
   applyFilters();
 });
 

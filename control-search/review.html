@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control Pool Candidate Review</title>
+<script src="control_candidates_triaged_data.js"></script>
+<!-- All three optional: absent on a file:// 404 (normal before that wave has
+     been run / before any pool has ever been reviewed) -- guarded via
+     `typeof ... !== 'undefined'` below, never required like TRIAGED is. -->
+<script src="control_candidates_triaged_expansion_data.js" onerror="void 0"></script>
+<script src="control_candidates_triaged_ruby_data.js" onerror="void 0"></script>
+<script src="control_pool_reviewed_data.js" onerror="void 0"></script>
+<style>
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --border: #dee2e6;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --radius: 6px;
+  --shadow: 0 1px 3px rgba(0,0,0,.07);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: .9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+header h1 { font-size: 1.15rem; font-weight: 600; }
+header .sub { font-size: .78rem; opacity: .8; margin-top: .15rem; }
+.sl-badge {
+  background: rgba(255,255,255,.2);
+  border: 1px solid rgba(255,255,255,.35);
+  color: #fff;
+  padding: .3rem .8rem;
+  border-radius: 99px;
+  font-size: .82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.sl-badge.has-items { background: #16a34a; border-color: #15803d; }
+
+.toolbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: .6rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: var(--shadow);
+}
+
+#search {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .38rem .75rem;
+  font-size: .875rem;
+  width: 210px;
+  outline: none;
+  transition: border-color .15s;
+}
+#search:focus { border-color: var(--primary); }
+
+.kw-group { display: flex; gap: .25rem; }
+.kw-btn {
+  padding: .32rem .7rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: pointer;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: .12s;
+  white-space: nowrap;
+}
+.kw-btn:hover { border-color: #94a3b8; color: var(--text); }
+.kw-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+.kw-btn[data-conf="low"].active { background: #d97706; border-color: #d97706; }
+.kw-btn[data-conf="high"].active { background: #16a34a; border-color: #16a34a; }
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .82rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.toggle-label input { accent-color: var(--primary); cursor: pointer; }
+
+.vis-count { font-size: .82rem; color: var(--text-muted); white-space: nowrap; }
+.vis-count strong { color: var(--text); }
+
+.toolbar-actions { display: flex; gap: .4rem; margin-left: auto; }
+.btn {
+  padding: .32rem .7rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: pointer;
+  font-size: .78rem;
+  font-weight: 500;
+  transition: .12s;
+}
+.btn:hover { background: var(--bg); border-color: #94a3b8; }
+.btn-export { background: var(--primary); border-color: var(--primary); color: #fff; }
+.btn-export:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.btn-danger:hover { background: #fee2e2; border-color: #fca5a5; color: #dc2626; }
+
+.table-wrap { padding: 1rem 1.5rem 2rem; }
+.table-outer { border-radius: var(--radius); box-shadow: var(--shadow); overflow: clip; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); }
+thead { position: sticky; top: 53px; z-index: 10; }
+th {
+  background: #f8fafc;
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-muted);
+  padding: .55rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+th.sortable { cursor: pointer; user-select: none; }
+th.sortable:hover { color: var(--text); }
+th.sortable .sort-arrow { display: inline-block; width: 1em; margin-left: .2rem; opacity: .4; }
+th.sortable.sort-active .sort-arrow { opacity: 1; color: var(--primary); }
+td { padding: .5rem 1rem; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #f8fafc; }
+tr.selected td { background: #f0fdf4; }
+tr.selected:hover td { background: #dcfce7; }
+tr.hidden { display: none; }
+/* row-hidden = user-hidden state (independent of the filter-driven .hidden
+   above); only ever visible at all when "Show hidden" is on, and dimmed so
+   it reads clearly as set aside rather than a normal row. */
+tr.row-hidden td { opacity: .45; }
+tr.row-hidden:hover td { opacity: .7; }
+
+.col-cb { width: 36px; text-align: center; }
+.col-conf { width: 100px; }
+.col-name { min-width: 240px; }
+.col-num { width: 76px; text-align: right; }
+.col-topics { min-width: 220px; }
+.col-reason { min-width: 260px; font-size: .78rem; color: var(--text-muted); }
+.col-hide { width: 76px; text-align: center; }
+
+.hide-btn {
+  padding: .22rem .55rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: pointer;
+  font-size: .72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: .12s;
+  white-space: nowrap;
+}
+.hide-btn:hover { border-color: #94a3b8; color: var(--text); }
+tr.row-hidden .hide-btn { background: var(--primary); border-color: var(--primary); color: #fff; }
+tr.row-hidden .hide-btn:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+
+input[type="checkbox"] { width: 15px; height: 15px; cursor: pointer; accent-color: var(--primary); }
+.badge {
+  display: inline-block;
+  padding: .13rem .48rem;
+  border-radius: 99px;
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.badge-high { background: #dcfce7; color: #15803d; }
+.badge-low  { background: #fef3c7; color: #92400e; }
+
+.wave-chip {
+  display: inline-block;
+  padding: .06rem .4rem;
+  border-radius: 99px;
+  font-size: .65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  background: #ede9fe;
+  color: #6d28d9;
+  margin-left: .4rem;
+  vertical-align: middle;
+}
+
+.repo-name { font-weight: 500; font-size: .88rem; }
+.repo-owner { font-size: .75rem; color: var(--text-muted); }
+.num-cell { font-variant-numeric: tabular-nums; font-size: .82rem; color: var(--text-muted); }
+.topic-chip {
+  display: inline-block;
+  background: #eef2ff;
+  color: #3730a3;
+  border-radius: 99px;
+  padding: .05rem .45rem;
+  font-size: .7rem;
+  margin: 0 .2rem .2rem 0;
+}
+
+.stats-bar {
+  display: flex;
+  gap: .75rem;
+  padding: .75rem 1.5rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .6rem .9rem;
+  min-width: 148px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: .2rem;
+  text-align: center;
+}
+.stat-card .total-num { font-size: 1.4rem; font-weight: 700; color: var(--primary); font-variant-numeric: tabular-nums; line-height: 1; }
+.stat-card .total-label { font-size: .72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; }
+
+.empty-msg { text-align: center; padding: 3.5rem 1rem; color: var(--text-muted); font-size: .9rem; display: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Control Pool Candidate Review</h1>
+    <div class="sub" id="header-sub"></div>
+  </div>
+  <div class="sl-badge" id="sl-badge">0 selected</div>
+</header>
+
+<div class="toolbar">
+  <input type="search" id="search" placeholder="Filter by name…" autocomplete="off">
+
+  <div class="kw-group">
+    <button class="kw-btn active" data-conf="all">All</button>
+    <button class="kw-btn" data-conf="high">Topic-confirmed</button>
+    <button class="kw-btn" data-conf="low">Needs review</button>
+  </div>
+
+  <div class="kw-group" id="wave-group" style="display:none;">
+    <button class="kw-btn active" data-wave="all">All waves</button>
+    <button class="kw-btn" data-wave="original">Original</button>
+    <button class="kw-btn" id="wave-btn-expansion" data-wave="expansion" style="display:none;">Expansion</button>
+    <button class="kw-btn" id="wave-btn-ruby" data-wave="ruby" style="display:none;">Ruby</button>
+  </div>
+
+  <select id="lang-filter">
+    <option value="">All languages</option>
+  </select>
+
+  <label class="toggle-label">
+    <input type="checkbox" id="sl-only"> Selected only
+  </label>
+
+  <label class="toggle-label">
+    <input type="checkbox" id="show-hidden"> Show hidden (<span id="hidden-count">0</span>)
+  </label>
+
+  <span class="vis-count">
+    Showing <strong id="vis-count">0</strong> of <strong id="total-count">0</strong>
+  </span>
+
+  <div class="toolbar-actions">
+    <button class="btn" id="btn-unhide-all">Unhide all</button>
+    <button class="btn" id="btn-sync-reviewed" style="display:none;">Sync to reviewed pool</button>
+    <button class="btn" id="btn-reset">Reset to suggestions</button>
+    <button class="btn btn-danger" id="btn-clear">Clear all</button>
+    <button class="btn btn-export" id="btn-export">Export reviewed pool ↓</button>
+  </div>
+</div>
+
+<div class="stats-bar" id="stats-bar"></div>
+
+<div class="table-wrap">
+  <div class="table-outer">
+  <table>
+    <thead>
+      <tr>
+        <th class="col-cb">✓</th>
+        <th class="col-conf sortable" data-sort="confidence">Confidence<span class="sort-arrow"></span></th>
+        <th class="col-name sortable" data-sort="name">Repository<span class="sort-arrow"></span></th>
+        <th class="col-num sortable" data-sort="stars">Stars<span class="sort-arrow"></span></th>
+        <th class="col-num sortable" data-sort="forks">Forks<span class="sort-arrow"></span></th>
+        <th class="col-topics">Topics</th>
+        <th class="col-reason">Why suggested</th>
+        <th class="col-hide"></th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  </div>
+  <div class="empty-msg" id="empty-msg">No repositories match the current filters.</div>
+</div>
+
+<script>
+// ── Guard ─────────────────────────────────────────────────────────────────────
+if (typeof TRIAGED === 'undefined') {
+  document.body.innerHTML = `
+    <div style="padding:4rem;text-align:center;font-family:sans-serif;color:#1e293b">
+      <h2 style="margin-bottom:.75rem">control_candidates_triaged_data.js not found</h2>
+      <p style="color:#64748b">
+        Run <code style="background:#f1f5f9;padding:.2em .4em;border-radius:4px">
+        python control-search/control_search.py</code> then <code style="background:#f1f5f9;padding:.2em .4em;border-radius:4px">
+        python control-search/triage.py</code> to generate it, then reopen this page.
+      </p>
+    </div>`;
+  throw new Error('control_candidates_triaged_data.js missing');
+}
+
+// ── State ─────────────────────────────────────────────────────────────────────
+// Every candidate — including suggested-accepts — is independently editable
+// here. selection[] starts from the auto-triage suggestion (or, for repos
+// already in a prior control_pool_reviewed.json export, from that decision
+// — see initialSelectionFor below) but is fully overridable and persisted
+// per-repo in localStorage.
+const STORAGE_KEY = 'agoss-control-pool-selection-v1';
+const HIDDEN_STORAGE_KEY = 'agoss-control-pool-hidden-v1';
+
+// Original wave first, then expansion, then ruby, appended in that order --
+// never interleaved. TRIAGED_EXPANSION and TRIAGED_RUBY are both optional
+// (only present once that search wave has been run; see
+// prepare_expansion_pool.py / prepare_ruby_pool.py) and neither ever mutates
+// anything an earlier wave produced.
+const originalRows = TRIAGED.candidates.map(r => ({ ...r, wave: r.wave || 'original' }));
+const expansionRows = (typeof TRIAGED_EXPANSION !== 'undefined')
+  ? TRIAGED_EXPANSION.candidates.map(r => ({ ...r, wave: r.wave || 'expansion' }))
+  : [];
+const rubyRows = (typeof TRIAGED_RUBY !== 'undefined')
+  ? TRIAGED_RUBY.candidates.map(r => ({ ...r, wave: r.wave || 'ruby' }))
+  : [];
+const rows = [...originalRows, ...expansionRows, ...rubyRows];
+const hasExpansionWave = expansionRows.length > 0;
+const hasRubyWave = rubyRows.length > 0;
+
+// Names already present in a previously-exported control_pool_reviewed.json
+// (REVIEWED, optional -- absent before any pool has ever been reviewed).
+// Note this can only tell us "definitely accepted" -- the export format
+// doesn't record explicit rejections, so absence from this set is not
+// evidence of anything and is intentionally NOT treated as "rejected" below.
+const reviewedNames = new Set(
+  (typeof REVIEWED !== 'undefined' && Array.isArray(REVIEWED.repos))
+    ? REVIEWED.repos.map(r => r.name)
+    : []
+);
+
+function initialSelectionFor(repo) {
+  // The original wave has already been through one full human review pass
+  // (that's what control_pool_reviewed.json records). Once a reviewed file
+  // exists, it is therefore authoritative for original-wave rows: a
+  // suggested-accept that a human actually reviewed and rejected must stay
+  // unchecked here, not get re-checked by falling back to the suggestion.
+  if (repo.wave === 'original' && reviewedNames.size > 0) {
+    return reviewedNames.has(repo.name);
+  }
+  // Newly-searched waves (e.g. expansion) have never been reviewed, so
+  // absence from the reviewed file means "not decided yet," not "rejected" --
+  // fall back to the fresh auto-triage suggestion, same as a first-time
+  // original-wave review before any export has ever happened.
+  if (reviewedNames.has(repo.name)) return true;
+  return repo.suggested_decision === 'accept';
+}
+
+function loadSelection() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); }
+  catch { return null; }
+}
+function saveSelection() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(selection));
+}
+
+function loadHidden() {
+  try { return new Set(JSON.parse(localStorage.getItem(HIDDEN_STORAGE_KEY) || '[]')); }
+  catch { return new Set(); }
+}
+function saveHidden() {
+  localStorage.setItem(HIDDEN_STORAGE_KEY, JSON.stringify([...hidden]));
+}
+
+let selection = loadSelection();
+if (!selection) {
+  selection = {};
+  rows.forEach(r => { selection[r.name] = initialSelectionFor(r); });
+  saveSelection();
+} else {
+  // New candidates appearing since last visit (e.g. re-ran control_search.py,
+  // or an expansion wave was added) default via initialSelectionFor --
+  // pre-checked if already in control_pool_reviewed.json, else fresh suggestion.
+  rows.forEach(r => { if (!(r.name in selection)) selection[r.name] = initialSelectionFor(r); });
+}
+
+let hidden = loadHidden();
+let activeConf = 'all';
+let activeWave = 'all';
+let activeLang = '';
+let searchQ = '';
+let selOnly = false;
+let showHidden = false;
+let sortKey = null;
+let sortDir = 'desc';
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function fmtNum(n) {
+  if (n == null) return '—';
+  if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+  return n.toLocaleString();
+}
+
+// ── Stats bar ─────────────────────────────────────────────────────────────────
+const statsBar = document.getElementById('stats-bar');
+const nHigh = rows.filter(r => r.confidence === 'high').length;
+const nLow = rows.length - nHigh;
+const statCards = [
+  { label: 'Total candidates', val: rows.length },
+  { label: 'Topic-confirmed', val: nHigh },
+  { label: 'Needs review', val: nLow },
+];
+if (hasExpansionWave || hasRubyWave) {
+  statCards.push({ label: 'Original wave', val: originalRows.length });
+  if (hasExpansionWave) statCards.push({ label: 'Expansion wave', val: expansionRows.length });
+  if (hasRubyWave) statCards.push({ label: 'Ruby wave', val: rubyRows.length });
+}
+if (reviewedNames.size > 0) {
+  statCards.push({ label: 'Pre-selected (already reviewed)', val: reviewedNames.size });
+}
+statCards.forEach(s => {
+  const card = document.createElement('div');
+  card.className = 'stat-card';
+  card.innerHTML = `<div class="total-num">${s.val}</div><div class="total-label">${s.label}</div>`;
+  statsBar.appendChild(card);
+});
+
+// ── Header ────────────────────────────────────────────────────────────────────
+const genDate = TRIAGED.generated_at ? new Date(TRIAGED.generated_at).toLocaleString('en-US', {
+  month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'
+}) : 'unknown';
+let headerSub = `Generated ${genDate} · ${rows.length} candidates · ${nHigh} topic-confirmed, ${nLow} need review`;
+if (hasExpansionWave || hasRubyWave) {
+  const waveParts = [`${originalRows.length} original`];
+  if (hasExpansionWave) waveParts.push(`${expansionRows.length} expansion`);
+  if (hasRubyWave) waveParts.push(`${rubyRows.length} ruby`);
+  headerSub += ` · ${waveParts.join(' + ')} (shown appended, not mixed in)`;
+}
+document.getElementById('header-sub').textContent = headerSub;
+document.getElementById('total-count').textContent = rows.length;
+
+// Wave filter only makes sense (and only shows) once there's a second wave;
+// each wave's own filter button only shows once that wave has candidates.
+if (hasExpansionWave || hasRubyWave) {
+  document.getElementById('wave-group').style.display = '';
+}
+if (hasExpansionWave) {
+  document.getElementById('wave-btn-expansion').style.display = '';
+}
+if (hasRubyWave) {
+  document.getElementById('wave-btn-ruby').style.display = '';
+}
+
+// "Sync to reviewed pool" only makes sense once a reviewed file exists to
+// sync against.
+if (reviewedNames.size > 0) {
+  document.getElementById('btn-sync-reviewed').style.display = '';
+}
+
+// ── Language filter options ──────────────────────────────────────────────────
+const langSelect = document.getElementById('lang-filter');
+const languages = [...new Set(rows.map(r => r.language).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+languages.forEach(lang => {
+  const opt = document.createElement('option');
+  opt.value = lang;
+  opt.textContent = lang;
+  langSelect.appendChild(opt);
+});
+
+// ── Build table ───────────────────────────────────────────────────────────────
+const tbody = document.getElementById('tbody');
+const rowElByName = {};
+const WAVE_CHIP_LABELS = { expansion: 'Expansion', ruby: 'Ruby' };
+
+rows.forEach(repo => {
+  const slash = repo.name.indexOf('/');
+  const owner = repo.name.slice(0, slash);
+  const rname = repo.name.slice(slash + 1);
+  const checked = !!selection[repo.name];
+  const isHidden = hidden.has(repo.name);
+
+  const tr = document.createElement('tr');
+  tr.dataset.name = repo.name;
+  tr.dataset.conf = repo.confidence;
+  tr.dataset.lang = repo.language || '';
+  tr.dataset.wave = repo.wave;
+  if (checked) tr.classList.add('selected');
+  if (isHidden) tr.classList.add('row-hidden');
+
+  const topicsHtml = (repo.topics || []).slice(0, 6)
+    .map(t => `<span class="topic-chip">${t}</span>`).join('') || '<span style="color:#94a3b8;">none</span>';
+  const waveChip = WAVE_CHIP_LABELS[repo.wave]
+    ? `<span class="wave-chip">${WAVE_CHIP_LABELS[repo.wave]}</span>` : '';
+
+  tr.innerHTML = `
+    <td class="col-cb">
+      <input type="checkbox" data-name="${repo.name}"${checked ? ' checked' : ''}>
+    </td>
+    <td class="col-conf"><span class="badge badge-${repo.confidence}">${repo.confidence}</span></td>
+    <td class="col-name">
+      <div class="repo-name"><a href="${repo.url}" target="_blank" rel="noopener">${rname}</a>${waveChip}</div>
+      <div class="repo-owner">${owner}${repo.language ? ' · ' + repo.language : ''}</div>
+    </td>
+    <td class="col-num num-cell">⭐ ${fmtNum(repo.stars)}</td>
+    <td class="col-num num-cell">${fmtNum(repo.forks)}</td>
+    <td class="col-topics">${topicsHtml}</td>
+    <td class="col-reason">${repo.suggestion_reason || ''}</td>
+    <td class="col-hide">
+      <button class="hide-btn" data-name="${repo.name}">${isHidden ? 'Unhide' : 'Hide'}</button>
+    </td>
+  `;
+  tbody.appendChild(tr);
+  rowElByName[repo.name] = tr;
+});
+
+// ── Checkbox handler ──────────────────────────────────────────────────────────
+tbody.addEventListener('change', e => {
+  if (e.target.type !== 'checkbox') return;
+  const name = e.target.dataset.name;
+  const tr = e.target.closest('tr');
+  selection[name] = e.target.checked;
+  tr.classList.toggle('selected', e.target.checked);
+  if (!e.target.checked && selOnly) tr.classList.add('hidden');
+  saveSelection();
+  updateBadge();
+  updateVisCount();
+});
+
+// ── Hide/unhide handler ───────────────────────────────────────────────────────
+// Independent of the selection checkbox above — this just declutters the view
+// (e.g. candidates already triaged out) without affecting pool selection.
+tbody.addEventListener('click', e => {
+  const btn = e.target.closest('.hide-btn');
+  if (!btn) return;
+  const name = btn.dataset.name;
+  const tr = btn.closest('tr');
+  const nowHidden = !hidden.has(name);
+  if (nowHidden) hidden.add(name); else hidden.delete(name);
+  tr.classList.toggle('row-hidden', nowHidden);
+  btn.textContent = nowHidden ? 'Unhide' : 'Hide';
+  saveHidden();
+  updateHiddenCount();
+  applyFilters();
+});
+
+// ── Sort ──────────────────────────────────────────────────────────────────────
+const SORT_ACCESSORS = {
+  confidence: repo => repo.confidence === 'high' ? 1 : 0,
+  name: repo => repo.name.toLowerCase(),
+  stars: repo => Number(repo.stars) || 0,
+  forks: repo => Number(repo.forks) || 0,
+};
+
+function applySort() {
+  if (!sortKey) return;
+  const accessor = SORT_ACCESSORS[sortKey];
+  const sorted = [...rows].sort((a, b) => {
+    const av = accessor(a), bv = accessor(b);
+    const cmp = av < bv ? -1 : av > bv ? 1 : 0;
+    return sortDir === 'asc' ? cmp : -cmp;
+  });
+  // Reorder existing <tr> elements in place — preserves checkbox state/listeners.
+  sorted.forEach(repo => tbody.appendChild(rowElByName[repo.name]));
+
+  document.querySelectorAll('th.sortable').forEach(th => {
+    const active = th.dataset.sort === sortKey;
+    th.classList.toggle('sort-active', active);
+    th.querySelector('.sort-arrow').textContent = active ? (sortDir === 'asc' ? '▲' : '▼') : '';
+  });
+}
+
+document.querySelectorAll('th.sortable').forEach(th => {
+  th.addEventListener('click', () => {
+    const key = th.dataset.sort;
+    if (sortKey === key) {
+      sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortKey = key;
+      sortDir = key === 'name' ? 'asc' : 'desc'; // names A-Z by default, numbers high-to-low
+    }
+    applySort();
+    applyFilters();
+  });
+});
+
+// ── Filter ────────────────────────────────────────────────────────────────────
+function applyFilters() {
+  let vis = 0;
+  tbody.querySelectorAll('tr').forEach(tr => {
+    const confOk = activeConf === 'all' || tr.dataset.conf === activeConf;
+    const waveOk = activeWave === 'all' || tr.dataset.wave === activeWave;
+    const langOk = !activeLang || tr.dataset.lang === activeLang;
+    const srOk = !searchQ || tr.dataset.name.toLowerCase().includes(searchQ);
+    const slOk = !selOnly || selection[tr.dataset.name];
+    const hideOk = showHidden || !hidden.has(tr.dataset.name);
+    const show = confOk && waveOk && langOk && srOk && slOk && hideOk;
+    tr.classList.toggle('hidden', !show);
+    if (show) vis++;
+  });
+  document.getElementById('vis-count').textContent = vis;
+  document.getElementById('empty-msg').style.display = vis === 0 ? 'block' : 'none';
+}
+
+function updateHiddenCount() {
+  document.getElementById('hidden-count').textContent = hidden.size;
+}
+
+function updateVisCount() {
+  let vis = 0;
+  tbody.querySelectorAll('tr:not(.hidden)').forEach(() => vis++);
+  document.getElementById('vis-count').textContent = vis;
+}
+
+function updateBadge() {
+  const n = Object.values(selection).filter(Boolean).length;
+  const el = document.getElementById('sl-badge');
+  el.textContent = `${n} selected`;
+  el.classList.toggle('has-items', n > 0);
+}
+updateBadge();
+updateHiddenCount();
+
+// ── Controls ──────────────────────────────────────────────────────────────────
+document.getElementById('search').addEventListener('input', e => {
+  searchQ = e.target.value.trim().toLowerCase();
+  applyFilters();
+});
+
+document.querySelectorAll('#wave-group .kw-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#wave-group .kw-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeWave = btn.dataset.wave;
+    applyFilters();
+  });
+});
+
+document.querySelectorAll('.kw-group:not(#wave-group) .kw-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.kw-group:not(#wave-group) .kw-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeConf = btn.dataset.conf;
+    applyFilters();
+  });
+});
+
+langSelect.addEventListener('change', e => {
+  activeLang = e.target.value;
+  applyFilters();
+});
+
+document.getElementById('sl-only').addEventListener('change', e => {
+  selOnly = e.target.checked;
+  applyFilters();
+});
+
+document.getElementById('show-hidden').addEventListener('change', e => {
+  showHidden = e.target.checked;
+  applyFilters();
+});
+
+document.getElementById('btn-unhide-all').addEventListener('click', () => {
+  if (hidden.size === 0) return;
+  if (!confirm(`Unhide all ${hidden.size} hidden candidates?`)) return;
+  hidden.clear();
+  saveHidden();
+  tbody.querySelectorAll('tr.row-hidden').forEach(tr => {
+    tr.classList.remove('row-hidden');
+    tr.querySelector('.hide-btn').textContent = 'Hide';
+  });
+  updateHiddenCount();
+  applyFilters();
+});
+
+document.getElementById('btn-sync-reviewed').addEventListener('click', () => {
+  // Hard sync, both waves: checked iff the repo is in control_pool_reviewed.json,
+  // unchecked otherwise -- ignores the auto-triage suggestion entirely. Use
+  // this to wipe out stale localStorage state (e.g. after a "Reset to
+  // suggestions" click) and get back to exactly what's on disk.
+  if (!confirm(`Check only the ${reviewedNames.size} repos already in control_pool_reviewed.json and uncheck everything else (both original and expansion)? This discards manual overrides.`)) return;
+  rows.forEach(r => { selection[r.name] = reviewedNames.has(r.name); });
+  saveSelection();
+  tbody.querySelectorAll('tr').forEach(tr => {
+    const checked = selection[tr.dataset.name];
+    tr.querySelector('input[type="checkbox"]').checked = checked;
+    tr.classList.toggle('selected', checked);
+  });
+  updateBadge();
+  applyFilters();
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => {
+  if (!confirm('Reset every row back to its auto-triage suggestion? This discards manual overrides.')) return;
+  rows.forEach(r => { selection[r.name] = r.suggested_decision === 'accept'; });
+  saveSelection();
+  tbody.querySelectorAll('tr').forEach(tr => {
+    const checked = selection[tr.dataset.name];
+    tr.querySelector('input[type="checkbox"]').checked = checked;
+    tr.classList.toggle('selected', checked);
+  });
+  updateBadge();
+  applyFilters();
+});
+
+document.getElementById('btn-clear').addEventListener('click', () => {
+  const n = Object.values(selection).filter(Boolean).length;
+  if (n === 0) return;
+  if (!confirm(`Deselect all ${n} currently-selected repos?`)) return;
+  rows.forEach(r => { selection[r.name] = false; });
+  saveSelection();
+  tbody.querySelectorAll('input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+  tbody.querySelectorAll('tr.selected').forEach(tr => tr.classList.remove('selected'));
+  updateBadge();
+  applyFilters();
+});
+
+document.getElementById('btn-export').addEventListener('click', async () => {
+  const selected = rows.filter(r => selection[r.name]);
+  if (selected.length === 0) { alert('Nothing selected yet.'); return; }
+  const payload = JSON.stringify({ count: selected.length, review_status: 'human_reviewed', repos: selected }, null, 2);
+
+  // Prefer writing the file directly via the File System Access API, so the
+  // export lands in control-search/ itself instead of the browser's default
+  // Downloads folder. Only available in a secure context (http://localhost
+  // works; a plain file:// page does not) -- falls back to a normal download
+  // otherwise. The picker remembers the last folder you saved to within the
+  // browser session, so after choosing control-search/ once, later exports
+  // default back to it.
+  if (window.showSaveFilePicker) {
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: 'control_pool_reviewed.json',
+        types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }],
+      });
+      const writable = await handle.createWritable();
+      await writable.write(payload);
+      await writable.close();
+      return;
+    } catch (err) {
+      if (err && err.name === 'AbortError') return; // user cancelled the save dialog
+      console.warn('showSaveFilePicker failed, falling back to download:', err);
+    }
+  }
+
+  const a = Object.assign(document.createElement('a'), {
+    href: URL.createObjectURL(new Blob([payload], { type: 'application/json' })),
+    download: 'control_pool_reviewed.json',
+  });
+  a.click();
+  alert(
+    'Saved to your browser\'s default downloads folder as control_pool_reviewed.json '
+    + '-- move it into control-search/ to replace the existing pool.\n\n'
+    + 'Tip: to save directly into control-search/ next time, serve this page over '
+    + 'http:// instead of opening it as a file, e.g. from the control-search/ folder run:\n'
+    + '  python -m http.server 8000\n'
+    + 'then open http://localhost:8000/review.html -- the Export button will then let you '
+    + 'pick the folder directly.'
+  );
+});
+
+applyFilters();
+</script>
+</body>
+</html>
