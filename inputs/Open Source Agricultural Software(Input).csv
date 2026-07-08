@@ -18,7 +18,7 @@ AgIsoStack++,https://github.com/Open-Agriculture/AgIsoStack-plus-plus,Edge and G
 OpenATK FieldWorkApp,https://github.com/OpenATK/FieldWorkApp,Cloud-hosted backends and dashboard,Yes
 PeaPod,https://github.com/PeaPodTechnologies/PeaPod,Cloud-hosted backends and dashboard,Yes
 Ekylibre,https://github.com/ekylibre/ekylibre,Domain-specific agricultural platform,Yes
-Fields2Cover,https://github.com/Fields2Cover/Fields2Cover,Cloud-hosted backends and dashboard,Yes
+Fields2Cover,https://github.com/Fields2Cover/Fields2Cover,Data Processing Libraries/Tools,Yes
 SpeedSeed3,https://github.com/GrowCab/SpeedSeed3,Embedded OS substrate,Yes
 IsoBlue,https://github.com/oats-center/isoblue,Edge and Gateway software,Yes
 Sen2Agri-System,https://github.com/Sen2Agri/Sen2Agri-System,Cloud-hosted backends and dashboard,Yes
@@ -28,10 +28,8 @@ NodeODM,https://github.com/OpenDroneMap/NodeODM,Edge and Gateway software,No
 Openminder,https://github.com/autogrow/openminder,Field-Deployed Sensor,Yes
 APSIM,https://github.com/APSIMInitiative/APSIM710,Domain-specific agricultural platform,Yes
 APSIM X,https://github.com/APSIMInitiative/ApsimX,Domain-specific agricultural platform,Yes
-Eduponics-Mini,https://github.com/STEMinds/Eduponics-Mini,Field-Deployed Sensor,Yes
 Micropython Eduponics,https://github.com/STEMinds/micropython-eduponics,Field-Deployed Sensor,Yes
 Zephyr,https://github.com/zephyrproject-rtos/zephyr,Embedded OS substrate,No
-ROS 2,https://github.com/ros2/ros2,Embedded OS substrate,No
 ArduPilot,https://github.com/ArduPilot/ardupilot,Field-Deployed Sensor,No
 PX4,https://github.com/PX4/PX4-Autopilot,Field-Deployed Sensor,No
 Mosquitto,https://github.com/eclipse-mosquitto/mosquitto,Edge and Gateway software,No
@@ -39,7 +37,6 @@ Thingsboard,https://github.com/thingsboard/thingsboard,Edge and Gateway software
 Grafana,https://github.com/grafana/grafana,Cloud-hosted backends and dashboard,No
 ADAPT,https://github.com/ADAPT/ADAPT,Edge and Gateway software,Yes
 ADAPT ISOv4 Plugin,https://github.com/ADAPT/ISOv4Plugin,Edge and Gateway software,Yes
-ADAPT Standard,https://github.com/ADAPT/Standard,Edge and Gateway software,Yes
 ADAPT Standard Plugin,https://github.com/ADAPT/StandardPlugin,Edge and Gateway software,Yes
 ADAPT ADM Plugin,https://github.com/ADAPT/ADMPlugin,Edge and Gateway software,Yes
 ADAPT GeoJSON Plugin,https://github.com/ADAPT/GeoJSONPlugin,Edge and Gateway software,Yes
@@ -52,3 +49,18 @@ OpenAgri Reporting Service,https://github.com/agstack/OpenAgri-ReportingService,
 OpenAgri User Dashboard,https://github.com/agstack/OpenAgri-UserDashboard,Cloud-hosted backends and dashboard,Yes
 OpenAgri OCSM,https://github.com/agstack/OpenAgri-OCSM,Cloud-hosted backends and dashboard,Yes
 AgStack Weather Server,https://github.com/agstack/weather-server,Cloud-hosted backends and dashboard,Yes
+GeosysPy,https://github.com/earthdaily/GeosysPy,Cloud-hosted backends and dashboard,Yes
+Frappe Agriculture,https://github.com/frappe/agriculture,Domain-specific agricultural platform,Yes
+Vinduino,https://github.com/ReiniervdL/Vinduino,Field-Deployed Sensor,Yes
+csa-admin,https://github.com/csa-admin-org/csa-admin,Domain-specific agricultural platform,Yes
+ALUES,https://github.com/alstat/ALUES,Data Processing Libraries/Tools,Yes
+pyprecag,https://github.com/CSIRO-Precision-Agriculture/pyprecag,Data Processing Libraries/Tools,Yes
+AG-LOAM,https://github.com/UCR-Robotics/AG-LOAM,Field-Deployed Sensor,Yes
+tektelic-agriculture-decoder,https://github.com/SensationalSystems/tektelic-agriculture-decoder,Edge and Gateway software,Yes
+agri-cruiser,https://github.com/agri-cruiser/agri-cruiser,Field-Deployed Sensor,Yes
+teikei,https://github.com/teikei/teikei,Domain-specific agricultural platform,Yes
+rnassqs,https://github.com/ropensci/rnassqs,Data Processing Libraries/Tools,Yes
+PAT_QGIS_Plugin,https://github.com/CSIRO-Precision-Agriculture/PAT_QGIS_Plugin,Data Processing Libraries/Tools,Yes
+bety,https://github.com/PecanProject/bety,Cloud-hosted backends and dashboard,Yes
+gosset,https://github.com/AgrDataSci/gosset,Data Processing Libraries/Tools,Yes
+Chirpstack, https://github.com/chirpstack/chirpstack,Edge and Gateway software, No

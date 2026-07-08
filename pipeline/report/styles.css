@@ -227,6 +227,38 @@ tbody tr:hover { background: #f8fafc; }
 .quality-table .status-fail { color: var(--danger); }
 .quality-table .status-partial { color: var(--warning); }
 
+/* matched-control accordion viewer */
+.match-accordion { border: 1px solid var(--border); border-radius: 6px; margin-bottom: .6rem; overflow: hidden; }
+.match-accordion summary {
+    cursor: pointer; padding: .65rem 1rem; background: #f8fafc; font-weight: 600;
+    display: flex; align-items: center; justify-content: space-between; gap: .75rem; list-style: none;
+}
+.match-accordion summary::-webkit-details-marker { display: none; }
+.match-accordion summary::before { content: '▸'; margin-right: .5rem; color: var(--text-muted); transition: transform .12s; }
+.match-accordion[open] summary::before { transform: rotate(90deg); }
+.match-accordion .match-summary-meta { font-weight: 400; font-size: .8rem; color: var(--text-muted); margin-left: auto; }
+.match-accordion .match-body { padding: .75rem 1rem; }
+.match-control-row { border-top: 1px solid #f1f5f9; padding: .6rem 0; }
+.match-control-row:first-child { border-top: none; padding-top: 0; }
+.match-control-name { font-weight: 600; font-size: .9rem; }
+.match-control-name .check { color: var(--success); margin-right: .3rem; }
+.match-no-controls { color: var(--text-muted); font-size: .85rem; padding: .5rem 0; }
+
+/* pool-construction funnel */
+.funnel-stage-title { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--text-muted); margin-bottom: .5rem; }
+.funnel-arrow { text-align: center; font-size: 1.3rem; color: #cbd5e1; margin: .3rem 0; }
+
+/* effect-size badges (magnitude, not significance — kept visually neutral re: direction) */
+.effect-badge { display: inline-block; padding: .2rem .55rem; border-radius: 99px; font-size: .74rem; font-weight: 700; }
+.effect-badge-negligible { background: #f1f5f9; color: #64748b; }
+.effect-badge-small { background: #e0e7ff; color: #4338ca; }
+.effect-badge-medium { background: #c7d2fe; color: #3730a3; }
+.effect-badge-large { background: #a5b4fc; color: #312e81; }
+
+/* seed-stability flag */
+.stability-flag-stable { color: var(--success); font-weight: 600; }
+.stability-flag-unstable { color: var(--warning); font-weight: 600; }
+
 /* responsive */
 @media (max-width: 768px) {
     .cards { grid-template-columns: 1fr 1fr; }

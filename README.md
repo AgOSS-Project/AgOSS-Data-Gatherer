@@ -6,10 +6,42 @@
 A research pipeline for collecting, analysing, and visualising security and
 ecosystem-health metrics across open-source agricultural software (AgOSS)
 repositories. The pipeline orchestrates four independent data sources —
-**OpenSSF Scorecard**, **Aveloxis (Augur)**, **GitHub SBOM + OSV**, and the
+**OpenSSF Scorecard**, **GitHub GraphQL/REST API**, **GitHub SBOM + OSV**, and the
 **CISA Known Exploited Vulnerabilities (KEV) catalogue** — merges them into a
 unified dataset, runs a battery of statistical tests, and produces a fully
 self-contained interactive HTML dashboard.
+
+> **Why not Augur/Aveloxis?** Earlier versions of this pipeline used a
+> self-hosted [CHAOSS Augur](https://chaoss.github.io/augur/) instance
+> (deployed as Aveloxis, Augur's high-throughput Go rewrite) for
+> commit/contributor/PR/issue metrics. It was dropped: every metric this
+> pipeline actually uses (contributors, commits, issues, merged PRs, stars,
+> forks, language, license) is collectable directly and reliably via GitHub's
+> own APIs — which is itself standard MSR methodology (see Kalliamvakou et
+> al., ["The Promises and Perils of Mining
+> GitHub"](https://dl.acm.org/doi/10.1145/2597073.2597074), MSR 2014) — and
+> Aveloxis's own advertised bulk throughput, "40,000 repositories fully
+> collected in three days," doesn't fit a pipeline that needs to re-run in
+> minutes during iterative analysis. Collection is now Scorecard + a single
+> GitHub metrics pass (`pipeline/merger.py`) + dependency/OSV + KEV — no
+> Docker stack required.
+>
+> **REST vs. GraphQL:** stars, forks, license, primary language, and
+> issue/merged-PR counts are fetched via a single **batched GraphQL** call
+> per ~20 repos (using aliases), because GitHub's REST **Search API** —
+> needed for exact issue/PR counts, since a plain `/issues` call or
+> `open_issues_count` both silently fold pull requests into "issues" — is
+> capped at 30 requests/min authenticated, far tighter than core REST's
+> 5,000/hr. GraphQL's `issues(states:...){ totalCount }` /
+> `pullRequests(states:...){ totalCount }` return the same exact aggregate
+> counts but bill against the normal ~5,000-point/hr GraphQL budget instead,
+> and batching many repos per call cuts round-trips further. Contributor
+> count and commit count stay on core REST (the `per_page=1` + `Link`-header
+> trick) since GraphQL has no cheap equivalent for either. Every request —
+> REST and GraphQL — retries with backoff on 403/429/5xx rather than
+> silently dropping data, and the GraphQL path watches its own rate-limit
+> budget (returned inline in each response) to pause before it runs out
+> rather than after.
 
 ---
 
@@ -23,11 +55,12 @@ self-contained interactive HTML dashboard.
 6. [Running the Pipeline](#running-the-pipeline)
 7. [Pipeline Stages in Detail](#pipeline-stages-in-detail)
 8. [Statistical Methodology](#statistical-methodology)
-9. [Outputs](#outputs)
-10. [Dashboard Guide](#dashboard-guide)
-11. [Reproducibility](#reproducibility)
-12. [Troubleshooting](#troubleshooting)
-13. [Extending the Pipeline](#extending-the-pipeline)
+9. [Matched-Comparison Analysis](#matched-comparison-analysis)
+10. [Outputs](#outputs)
+11. [Dashboard Guide](#dashboard-guide)
+12. [Reproducibility](#reproducibility)
+13. [Troubleshooting](#troubleshooting)
+14. [Extending the Pipeline](#extending-the-pipeline)
 
 ---
 
@@ -42,7 +75,7 @@ The pipeline was designed to answer the following research questions:
   ag-specificity in security hygiene, maintenance activity, and dependency
   exposure?
 
-The pipeline processes a user-curated list of GitHub repositories through eight
+The pipeline processes a user-curated list of GitHub repositories through seven
 sequential stages:
 
 ```
@@ -53,23 +86,23 @@ Input CSV (user-provided)
         │
         ├──► [2] OpenSSF Scorecard  (security checks per repo)
         │
-        ├──► [3] Aveloxis / Augur   (ecosystem metrics per repo)
-        │
-        └──► [4] GitHub SBOM + OSV  (dependency vulnerability scan)
+        └──► [3] GitHub SBOM + OSV  (dependency vulnerability scan)
                         │
         ┌───────────────┘
         ▼
-  [5] Merge & Enrich  (unified JSON + CSV)
+  [4] Merge & Enrich  (GitHub metrics collection + unified JSON/CSV)
         │
-        ├──► [6] KEV Analysis  (CISA exploitability cross-reference)
+        ├──► [5] KEV Analysis  (CISA exploitability cross-reference)
         │
-        ├──► [7] Statistical Analysis  (tests, correlations, CIs)
+        ├──► [6] Statistical Analysis  (tests, correlations, CIs)
         │
-        └──► [7.5] Saturation Analysis  (sample-size adequacy)
+        ├──► [6.5] Saturation Analysis  (sample-size adequacy)
+        │
+        └──► [6.6] Matched-Comparison Analysis  (control-search/, see below)
                         │
         ┌───────────────┘
         ▼
-  [8] Dashboard Generation  →  outputs/dashboard/index.html
+  [7] Dashboard Generation  →  outputs/dashboard/index.html
 ```
 
 > **Platform note:** The pipeline has been developed and tested exclusively on
@@ -91,21 +124,6 @@ Input CSV (user-provided)
 | GitHub Personal Access Token (PAT) | — | `public_repo` scope is sufficient |
 | OpenSSF Scorecard binary | v5.4.0+ | See [Installation & Setup](#installation--setup) |
 
-### For Aveloxis (Augur) Metrics
-
-| Requirement | Version | Notes |
-|---|---|---|
-| Docker Desktop | 4.x | Must be running before the pipeline starts |
-| Docker Compose | v2 | Bundled with Docker Desktop |
-
-Aveloxis is the current deployment name of the CHAOSS Augur analytics platform.
-The pipeline registers each input repository with a locally-running Aveloxis
-instance and then collects ecosystem metrics (commits, contributors, issues,
-pull requests, stars, etc.) through its REST API. If you are running without
-Docker, use `--skip-docker` and `--skip-augur`; the merger will fall back to
-the GitHub REST API for the subset of metrics it supports (stars, fork count,
-open issues, languages, licence).
-
 ### Optional (for full analysis)
 
 | Requirement | Purpose |
@@ -121,10 +139,12 @@ open issues, languages, licence).
 > one-time activity used to identify candidate repositories before the main
 > analysis begins.
 
-The `repo-search/` directory contains a utility (`agoss_search.py`) that
-queries the GitHub Search API and produces a browsable web interface for
-reviewing candidates. In practice, repository selection for this study
-combined three methods:
+The `ag-oss-search/` directory (renamed from `repo-search/` — see
+[Matched-Comparison Analysis](#matched-comparison-analysis) for the sibling
+`control-search/` tool used to build the *non-ag* comparison pool) contains a
+utility (`agoss_search.py`) that queries the GitHub Search API and produces a
+browsable web interface for reviewing candidates. In practice, repository
+selection for this study combined three methods:
 
 1. **Automated GitHub search** — keyword queries (`agriculture`, `agtech`,
    `farming`) returning up to 250 results per keyword, filtered for
@@ -142,18 +162,20 @@ pipeline.
 
 ```bash
 # Requires GITHUB_AUTH_TOKEN in environment or .env
-python repo-search/agoss_search.py
+python ag-oss-search/agoss_search.py
 
 # Customise: sort by stars, fetch top 500 per keyword
-python repo-search/agoss_search.py --sort stars -n 500
+python ag-oss-search/agoss_search.py --sort stars -n 500
 
 # Write results to a custom file
-python repo-search/agoss_search.py --output my_candidates.json
+python ag-oss-search/agoss_search.py --output my_candidates.json
 ```
 
-After running, open `repo-search/index.html` in a browser to browse and
-shortlist candidates interactively. The frozen candidate dataset used for this
-study is committed as `repo-search/candidates.json`.
+After running, open `ag-oss-search/index.html` in a browser to browse and
+shortlist candidates interactively. `candidates.json`/`shortlist.json` are
+local, regenerable discovery artifacts and are not committed — the actual
+result of this discovery process (the study's data of record) is the input
+CSV (see [Input File Format](#input-file-format)).
 
 ---
 
@@ -212,60 +234,7 @@ Verify the binary is working:
 .\tools\scorecard.exe version
 ```
 
-### 4. Set Up Aveloxis (Augur) with Docker
-
-> **Skip this section** if you are not collecting Aveloxis metrics. Pass
-> `--skip-augur --skip-docker` when running the pipeline.
-
-Aveloxis is a containerised deployment of the CHAOSS Augur platform. The
-Docker Compose configuration and runtime files are not included in this
-repository (they are gitignored as they contain credentials). Obtain the
-Aveloxis Docker setup from the official Aveloxis / CHAOSS Augur documentation
-and place it in a `tools/augur/` directory of your own.
-
-**4a.** Create your Aveloxis config file and set the `github_api_key` field to
-a GitHub PAT (the same token used for Scorecard works).
-
-**4b.** Start the Aveloxis stack. The pipeline can start Docker automatically
-on each run, or you can do it manually:
-
-```powershell
-docker compose up -d
-```
-
-The stack brings up five containers:
-
-| Container | Role |
-|---|---|
-| `augur-postgres-1` | PostgreSQL database |
-| `augur-migrate-1` | One-shot schema migration (exits after completion) |
-| `augur-serve-1` | Augur backend worker |
-| `augur-web-1` | Augur web UI (optional) |
-| `augur-api-1` | REST API (port 8383) |
-
-Allow approximately 60 seconds for the stack to initialise before running
-the pipeline.
-
-**4c.** Registration happens automatically.
-
-When you run `python main.py` with Augur enabled, the pipeline compares the
-input repo list against what is already registered in Aveloxis and registers
-any missing repos automatically before collecting metrics. Registration is
-idempotent — repos already present in Aveloxis are not re-inserted.
-
-> **⚠️ User input required:** Registration inserts records directly into the
-> Aveloxis PostgreSQL database via `psql` inside the `augur-postgres-1`
-> container. Ensure Docker Desktop is running and that the container name in
-> `AUGUR_DB_CONTAINER` (default: `augur-postgres-1`) matches your actual
-> container name shown by `docker ps`.
-
-After the pipeline registers repos, Aveloxis begins collecting data
-asynchronously in the background. Full collection for ~54 repositories
-typically takes **15–60 minutes** depending on GitHub API rate limits and
-server load. Run the pipeline again after that window to pick up the
-collected metrics from cache.
-
-### 5. Configure Environment Variables
+### 4. Configure Environment Variables
 
 Copy the provided template and fill in your values:
 
@@ -347,10 +316,8 @@ Grafana,https://github.com/grafana/grafana,Cloud-hosted backends and dashboard,N
 python main.py
 ```
 
-Starts the Aveloxis Docker stack first (so Augur is reachable during
-collection), runs all eight pipeline stages in sequence, then opens the
-dashboard in the default browser. Pass `--skip-docker` if the stack is already
-running or if you are not using Aveloxis.
+Runs all seven pipeline stages in sequence, then opens the dashboard in the
+default browser.
 
 ### Skip slow stages using cached outputs
 
@@ -364,8 +331,8 @@ python main.py --regenerate
 # Skip Scorecard collection; use cached JSONs, re-run everything else
 python main.py --skip-scorecard
 
-# Skip both collection stages
-python main.py --skip-scorecard --skip-augur
+# Skip Scorecard and dependency collection both
+python main.py --skip-scorecard --skip-dependencies
 
 # Skip dependency and KEV analysis (no external calls for those stages)
 python main.py --skip-dependencies --skip-kev
@@ -398,15 +365,11 @@ python main.py --input "inputs/my_repos.csv"
 | `--force` / `--force-refresh` | Ignore all cache; re-collect from scratch |
 | `--verbose` / `-v` | Print DEBUG-level messages to the console |
 | `--skip-scorecard` | Load Scorecard from cache (`outputs/raw/scorecard/`) |
-| `--skip-augur` | Load Augur metrics from cache (`outputs/raw/augur/`) |
 | `--skip-dependencies` | Skip GitHub SBOM + OSV dependency vulnerability analysis |
 | `--skip-kev` | Skip CISA KEV exploitability cross-reference |
-| `--skip-docker` | Do not attempt to start or stop Docker services |
+| `--skip-matched-comparison` | Skip the matched-comparison analysis (`control-search/`) described below |
 | `--no-browser` | Do not open the dashboard on completion |
 | `--input PATH` | Path to the input CSV (default: `inputs/Open Source Agricultural Software(Input).csv`) |
-| `--wait-for-augur` | Poll Aveloxis after the run until repos report data |
-| `--augur-wait-mode MODE` | Readiness level to wait for: `none` / `minimal` / `standard` / `full` |
-| `--augur-timeout N` | Maximum seconds to wait for Aveloxis readiness (default: 600) |
 
 ---
 
@@ -456,38 +419,7 @@ Invokes the `scorecard` binary once per repository, authenticating via
 Each check is scored 0–10; the overall Scorecard score is a weighted aggregate
 in the same range.
 
-### Stage 4 — Aveloxis (Augur) Metrics Collection
-
-Queries the Aveloxis REST API (`http://localhost:8383/api/v1`) for each
-registered repository and writes results to `outputs/raw/augur/owner__repo.json`.
-
-**Metrics collected** (up to 38 endpoints), including:
-contributor count, commit count, issues opened/closed/backlog, pull requests
-merged, release count, fork count, star count, language breakdown, declared
-licence (SPDX ID), average issue resolution time.
-
-**Status model:**
-
-| Status | Meaning |
-|---|---|
-| `ready` | All expected metric endpoints returned data |
-| `partial` | Some endpoints returned data; others are still processing |
-| `registered` | Repository inserted in DB; collection not yet started |
-| `collecting` | Data collection actively in progress |
-| `timed_out` | Collection did not complete within `--augur-timeout` |
-| `not_registered` | Repository not found in the Aveloxis database |
-| `failed` | API returned an unrecoverable error |
-| `skipped` | Stage skipped via `--skip-augur` |
-
-> **On `partial` status:** Aveloxis populates metrics asynchronously.
-> A `partial` result does not mean data is absent — it means at least one
-> metric endpoint has responded. The merger uses all available data.
-> For metrics not yet returned by Aveloxis, the merger falls back to the
-> **GitHub REST API** (stars, fork count, open issues, languages, licence).
-> In this study, all 54 repositories reached `partial` status with core metrics
-> (commits, contributors, stars) fully populated.
-
-### Stage 5 — Dependency Vulnerability Analysis
+### Stage 4 — Dependency Vulnerability Analysis
 
 Fetches the **Software Bill of Materials (SBOM)** from the GitHub Dependency
 Graph API for each repository, then queries the
@@ -510,11 +442,57 @@ HTTP 429 and 5xx responses are retried with exponential backoff.
 
 Output: `outputs/processed/dependency_analysis.json`
 
+### Stage 5 — Merge & Enrich (includes GitHub Metrics Collection)
+
+Collects repo metrics directly via GitHub's GraphQL and REST APIs
+(`pipeline/merger.py`) — contributor count, commit count, issues
+opened/closed, merged pull requests, stars, forks, primary language, and
+declared license (SPDX ID). This comfortably fits GitHub's rate limits even
+at control-pool scale and completes in minutes, not the hours-to-days a
+self-hosted Augur/Aveloxis crawl would need for PR-heavy repositories (see the
+"Why not Augur/Aveloxis?" note near the top of this document).
+
+**Stars, forks, license, primary language, and issue/merged-PR counts** are
+fetched via one **batched GraphQL query per ~20 repos**
+(`fetch_github_metrics_batch`, using GraphQL aliases to request many repos in
+a single HTTP call). Issue and PR counts specifically use GraphQL's
+`issues(states:...){ totalCount }` / `pullRequests(states:...){ totalCount }`
+rather than the plain REST `/issues` endpoint or `open_issues_count` (both of
+which silently fold pull requests into "issues" — GitHub models a PR as a
+special kind of issue) or the REST Search API (`type:issue`/`type:pr`
+qualifiers), which returns the same exact counts but is capped at 30
+requests/min authenticated — GraphQL's equivalent fields bill against the
+much larger ~5,000-point/hr budget instead. Every GraphQL response also
+returns `rateLimit { remaining resetAt }` inline, so the pipeline can pause
+before that budget runs out rather than after.
+
+**Contributor count and commit count** stay on core REST (`per_page=1` +
+`Link`-header trick) since GraphQL has no cheap equivalent for either — no
+deduplicated contributor total, and a commit count requires paginating full
+history. Both retry with backoff on 403/429/5xx.
+
+Primary language detection excludes `NON_IMPLEMENTATION_LANGUAGES` (currently
+just `Jupyter Notebook`) from consideration — GitHub Linguist counts a
+notebook's saved outputs (rendered plots, printed tensors) as bytes, which can
+dwarf the actual code and make a repo appear to be "written in" Jupyter
+Notebook. When the top-level `language` field is null or falls in this set,
+the next-largest language in the full byte-count breakdown
+(`/repos/{owner}/{repo}/languages`) is used instead.
+
+Merges Scorecard results with the above into a unified per-repository record.
+The detected license is promoted to a top-level `license` field on each
+record so the dashboard can display and filter by it without parsing nested
+GitHub metrics. Writes:
+
+- `outputs/processed/merged_repos.json` — array of unified records (one per input repo), each carrying a `github_metrics` object plus a `github_metrics_collected` flag and `github_metrics_error` if collection failed.
+- `outputs/processed/merged_repos.csv` — flat CSV equivalent for spreadsheet use.
+- `outputs/processed/summary.json` — run metadata and aggregate counts.
+
 ### Stage 6 — KEV Exploitability Analysis
 
 Downloads the CISA
 [Known Exploited Vulnerabilities catalogue](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
-and cross-references each CVE found in Stage 5 against it. Vulnerabilities
+and cross-references each CVE found in Stage 4 against it. Vulnerabilities
 present in the KEV catalogue have **confirmed public exploits** and an active
 CISA remediation deadline.
 
@@ -526,26 +504,13 @@ Outputs:
 - `outputs/processed/kev_summary.json` — exploitability statistics and
   severity breakdown (embedded into the main dashboard).
 
-### Stage 5b — Merge & Enrich
-
-Reads all Scorecard and Augur raw caches, merges them into a unified
-per-repository record, and supplements with live data from the GitHub REST API
-where Aveloxis metrics are missing (stars, forks, contributor count, commit
-count, closed-issue count, and SPDX license identifier). The detected license
-is promoted to a top-level `license` field on each record so the dashboard can
-display and filter by it without parsing nested Augur metrics. Writes:
-
-- `outputs/processed/merged_repos.json` — array of unified records (one per input repo).
-- `outputs/processed/merged_repos.csv` — flat CSV equivalent for spreadsheet use.
-- `outputs/processed/summary.json` — run metadata and aggregate counts.
-
-### Stage 7 — Statistical Analysis
+### Stage 6.5 — Statistical Analysis
 
 Runs the full test battery described in
 [Statistical Methodology](#statistical-methodology) and writes
 `outputs/processed/statistical_analysis.json`.
 
-### Stage 7.5 — Saturation Analysis
+### Stage 6.6 — Saturation Analysis
 
 Computes **rarefaction curves** to assess whether the sample of N repositories
 is large enough to stabilise the key outcome metrics. At each sample size
@@ -563,7 +528,18 @@ patterns.
 
 Output: `outputs/processed/saturation_analysis.json`
 
-### Stage 8 — Dashboard Generation
+### Stage 6.7 — Matched-Comparison Analysis
+
+Runs the matched-comparison analysis described in full in
+[Matched-Comparison Analysis](#matched-comparison-analysis) below. This stage
+lives in `control-search/` (outside `pipeline/`) and is invoked by `main.py`
+as a post-pipeline step; it is non-fatal (a failure here logs a warning and
+the dashboard simply shows no matched-comparison data) and can be skipped
+with `--skip-matched-comparison`.
+
+Output: `outputs/processed/matched_comparison.json`
+
+### Stage 7 — Dashboard Generation
 
 Combines all processed outputs into a **single self-contained HTML file**
 (`outputs/dashboard/index.html`). All data is embedded as JSON literals and
@@ -659,6 +635,267 @@ excluded from the matrix with an explanatory note.
 
 ---
 
+## Matched-Comparison Analysis
+
+> Code for this analysis lives entirely in `control-search/`, separate from
+> `pipeline/`. It is invoked automatically by `main.py` after the main
+> pipeline (Stage 7.6) but can also be run and inspected standalone.
+
+### Why this analysis exists
+
+The main pipeline's `ag_vs_nonag` comparison (see
+[Statistical Methodology](#statistical-methodology)) compares the 43
+`ag_specific=Yes` repos against the 11 `ag_specific=No` repos already in the
+dataset. Those 11 are themselves **ag-critical infrastructure** (ArduPilot,
+ROS 2, Zephyr, FreeRTOS, WebODM, etc.) — software actually used in
+agricultural contexts, just not purpose-built for agriculture — and they also
+skew toward large, mature projects. A "weaker" result for the ag-specific
+group in that comparison could simply reflect project maturity rather than
+anything agriculture-specific.
+
+The matched-comparison analysis addresses this by treating **all 54 dataset
+repos** (both `ag_specific=Yes` and `ag_specific=No`) as the group of
+interest, and comparing each of them against `k=3` statistically **matched
+controls** drawn from a much larger pool of genuinely **non-ag-critical but
+operationally similar** repositories — IoT platforms, embedded systems,
+robotics middleware, sensor frameworks, environmental monitoring tools, small
+cloud dashboards, and other cyber-physical software with no agricultural
+connection at all. This tests whether the AgOSS maturity/security gap
+persists once compared against software with similar observable size, age,
+activity, and ecosystem — a more defensible baseline than "the whole rest of
+the dataset."
+
+**This analysis does not establish causality.** It cannot show that
+agriculture *causes* weaker security posture; it can only show whether the
+observed gap survives controlling for observable confounders.
+
+### Building the control pool
+
+Candidates are filtered at search time (`control_search.py`) before triage
+ever sees them: already-archived repos, forks, repos already in the 54-repo
+dataset, repos whose name/description/topics are agriculture-adjacent, and
+`awesome-*`-style curated list repos (e.g. `phodal/awesome-iot` — these
+surface legitimately from topic searches like `topic:iot` but aren't software
+themselves, so they're excluded regardless of which keyword found them).
+
+Steps 1–2 (search + triage) are combined into a single command,
+`prepare_pool.py`, for ease of use and reproducibility of the *procedure* —
+the keyword list, exclusion rules, and triage heuristic are all fixed in
+code, so re-running it applies the exact same method every time (GitHub's
+live search results themselves can still drift over time as repos are
+created, starred, or archived — that part is inherently not fully
+reproducible, same as the original `ag-oss-search/` tool). Step 3 (review) is
+the one part that's inherently manual — it requires a human judgment call —
+and cannot be automated away.
+
+```powershell
+# 1-2. Search GitHub for non-ag candidates across the target domains, then
+#      auto-suggest accept/review decisions (topic-confirmed vs needs-review)
+python control-search/prepare_pool.py
+
+# Customise: sort by stars, fetch top 150 per keyword
+python control-search/prepare_pool.py --sort stars -n 150
+
+# 3. Open control-search/review.html in a browser to review every candidate
+#    — including auto-suggested-accepts, which stay fully editable in case
+#    the heuristic is wrong — then click "Export reviewed pool ↓" and save
+#    the download as control-search/control_pool_reviewed.json
+#
+#    The table supports sorting (click any of the Confidence/Repository/
+#    Stars/Forks column headers to sort, click again to reverse), a language
+#    filter dropdown, a confidence filter (All/Topic-confirmed/Needs review),
+#    a text search box, and a "Selected only" toggle — useful for quickly
+#    scanning a large candidate pool.
+
+# 4. (Optional — run_matched_comparison.py does this automatically) Resolve
+#    the final pool from the reviewed export
+python control-search/build_control_pool.py
+```
+
+`control_search.py` and `triage.py` remain runnable individually (e.g. to
+re-triage without re-searching) — `prepare_pool.py` is a thin wrapper that
+calls both in sequence and prints the next-step reminder to open
+`review.html`.
+
+#### Later search waves: expansion and ruby
+
+The control pool isn't necessarily built in one pass. After an initial
+matching run, the post-matching diagnostics (`unmatched_dataset_repos`,
+`unmatched_characterization` in `matched_comparison.json`, and the "why
+didn't this repo match" detail per repo) can reveal that specific dataset
+repos have no viable control because the pool itself has a coverage gap —
+not because the matching protocol is broken. Rather than loosen the hard
+exact-language gate or the caliper to paper over that (which would
+reintroduce the confound matching exists to remove), the fix is to run an
+additional, narrowly-targeted search wave and append its accepted repos to
+the same reviewed pool. Two such waves exist so far, both following the same
+pattern as the original wave — search, auto-triage, human review in
+`review.html`, export — via their own `control_search.run(..., wave=...)`
+call and their own output files, so neither wave ever reads-for-writing or
+overwrites an earlier wave's files (only reads them, for deduplication):
+
+- **Expansion wave** (`prepare_expansion_pool.py`, `EXPANSION_KEYWORDS`) —
+  added after the initial pool showed near-zero coverage for the
+  "business/community-management SaaS" niche that repos like `LiteFarm`,
+  `csa-admin`, and `ekylibre` occupy: a full-stack CRUD business-management
+  web app. Targets that *domain* (SaaS/CRM/ERP/admin-dashboard/scheduling
+  topics), not a language.
+- **Ruby wave** (`prepare_ruby_pool.py`, `RUBY_KEYWORDS`) — added after the
+  expansion wave still left a specific gap: 3 of the dataset's unmatched
+  repos (`PecanProject/bety`, `csa-admin-org/csa-admin`, `ekylibre/ekylibre`)
+  are all Ruby, and specifically the same archetype — a long-running,
+  Rails-shaped community/cooperative/membership-management platform — while
+  the whole reviewed pool had only 2 Ruby repos total. Targets that niche
+  directly (`topic:ruby-on-rails`, `topic:rails`, and Rails-adjacent
+  membership/cooperative/association-management terms), not "Ruby" as a
+  language — a broad `language:ruby` search would be a much less principled
+  net than the rest of the pool was built with, and would mostly resurface
+  generic gems/CLI tools rather than the community-platform archetype that
+  motivated the wave. Capped at 200 unique candidates
+  (`prepare_ruby_pool.RUBY_MAX_TOTAL`) via `control_search.run`'s
+  `max_total` parameter — this wave's keyword set is narrow enough that the
+  review burden should stay small (~150–200 candidates) regardless of how
+  much overlap GitHub's search results happen to have between keywords.
+
+```powershell
+# Run an additional wave (after an initial matching pass has already
+# identified a coverage gap) — same pattern for either:
+python control-search/prepare_expansion_pool.py
+python control-search/prepare_ruby_pool.py
+
+# review.html then shows all waves present, appended in
+# original -> expansion -> ruby order (never interleaved), with a wave
+# filter and a per-repo "Expansion"/"Ruby" chip once more than one wave
+# exists. Export still writes a single control_pool_reviewed.json covering
+# every wave's accepted repos.
+```
+
+Every candidate carries a `"wave"` field through to the final exported pool,
+so the two waves' contributions can be reported and audited separately in
+the paper (e.g. "N repos added via a follow-up wave targeting the Ruby/Rails
+community-platform niche") rather than blending invisibly into "the control
+pool." Unlike the original wave's search, later waves' *unreviewed*
+intermediate files (`control_candidates_expansion*.json`,
+`control_candidates_ruby*.json`, and their triaged/JS-sidecar counterparts)
+are gitignored the same way the original wave's are — only the final
+`control_pool_reviewed.json` is committed.
+
+**Step 3 is required, not optional, for `python main.py`.** The matched-
+comparison analysis is gated on an explicit human-reviewed pool: `main.py`
+checks for `control-search/control_pool_reviewed.json` before running Stage
+7.6, and skips it entirely (logging a clear message, and leaving the
+dashboard's Matched Comparison tab in its "not available yet" state) if that
+file doesn't exist. This is deliberate — an unreviewed, auto-suggested
+control pool should never silently reach the published dashboard. Once you've
+exported the reviewed pool, every subsequent `python main.py` run uses it
+automatically; you don't need to re-review unless you want to change the pool.
+
+For local testing only, `python control-search/run_matched_comparison.py
+--allow-unreviewed` bypasses the gate and uses the auto-suggested-accept set
+(marked `"review_status": "auto_suggested_fallback"` in the output JSON).
+`main.py` never passes this flag.
+
+### Methodology summary
+
+1. **Matching covariates** — `log(stars+1)`, `log(forks+1)`, repository age,
+   `log(contributor count+1)`, `log(recent 52-week commit activity+1)`, and
+   `log(codebase size in bytes+1)` (total non-notebook language bytes from
+   GitHub's `/languages` breakdown — added because two repos with similar
+   stars/forks/activity can still differ substantially in actual codebase
+   scale, a dimension the other five don't capture), plus a hard gate on
+   primary language (see Eligibility below). All count-type covariates are
+   log-transformed for the same reason: Mahalanobis distance assumes roughly
+   elliptical covariate distributions, and raw GitHub activity counts are
+   heavily right-skewed (commit activity here is more skewed than stars).
+   Release count, dependency count (SBOM package count), and
+   organization-vs-individual ownership were considered and deliberately
+   excluded — the first two are plausible mediators (downstream of
+   ag-specific status rather than a nuisance confound of it), and ownership
+   type was the noisiest of the candidate covariates without being the main
+   driver of caliper failures. Computed via the **GitHub REST API uniformly
+   for every repo in the analysis** (both the dataset repos and every control
+   candidate), since mixing measurement sources between groups would bias
+   the matching itself.
+2. **Eligibility** — a hard exact primary-language gate (no ecosystem-bucket
+   fallback: a dataset repo with zero same-language candidates in the control
+   pool is dropped into the unmatched cohort rather than matched against a
+   different-language proxy), then a **Mahalanobis-distance caliper** over
+   the standardized continuous
+   covariates plus the ownership indicator. Mahalanobis distance (rather than
+   raw Euclidean distance) accounts for correlation between covariates and is
+   the standard choice in the matching literature for a covariate set this
+   size with a modest treated sample (Rosenbaum & Rubin; King & Nielsen 2019).
+   The caliper threshold is set via the chi-squared distribution (df = number
+   of covariates), since squared Mahalanobis distances are asymptotically
+   chi-squared distributed.
+3. **Covariate balance diagnostics** — standardized mean difference (SMD) per
+   covariate, dataset group vs. control pool (before) and vs. each repo's
+   top-k nearest-eligible controls at the dashboard's selected k (after),
+   following the Rosenbaum/Rubin/Austin convention (`|SMD| < 0.1` well
+   balanced, `0.1–0.25` acceptable, `> 0.25` imbalanced). Computed per k in
+   `k_options`, not against the full caliper-eligible union, so "after"
+   always reflects the same matched sample the effect estimates use.
+4. **Repeated random matching, at multiple k** — for each of many random
+   seeds (default 1,000), `k` controls are drawn from the *full eligible
+   pool* per dataset repo (without replacement within a seed where possible,
+   with replacement only if the eligible pool is too small). This — rather
+   than a single fixed assignment — represents matching-*assignment*
+   uncertainty in addition to ordinary sampling uncertainty. This step is run
+   once per value in `--k-options` (default `1,3,5`), not just once at a
+   single k: the dashboard's **k selector** lets you switch between fully
+   precomputed results at each k instantly, for every group and every
+   metric — not only a headline-metrics robustness footnote. `--k` picks
+   which of those values is pre-selected by default. `k_guidance` in the
+   output JSON reports the average and minimum eligible-control pool size
+   across matched repos, to help judge how much higher k values would force
+   reusing the same control.
+5. **Effect estimation** — per seed, the matched-pair difference (dataset
+   repo's outcome − mean of its k matched controls' outcome) is computed per
+   metric, and a Wilcoxon signed-rank test gives a matched-pairs rank-biserial
+   effect size. Across seeds, the **median effect and [2.5th, 97.5th]
+   percentile interval** are reported, with **Benjamini-Hochberg FDR
+   correction** applied across metrics within each grouping (reusing the same
+   `_bh_fdr_correct` helper the `ag_vs_nonag` comparison already uses).
+   Results are reported for **all 54 repos**, separately for the
+   `ag_specific=Yes` and `ag_specific=No` subgroups (the latter has limited
+   statistical power at n=11 and should be read as suggestive, not
+   conclusive, on its own), and separately per repo category.
+6. **Outcome metrics** — `scorecard_overall` and all Scorecard per-check
+   scores (including `Dependency-Update-Tool` and `Signed-Releases`),
+   dependency vulnerability count/density, and CISA KEV-exploitable
+   vulnerability count — computed with the exact same
+   `pipeline/scorecard_runner.py`, `pipeline/dependency_runner.py`, and
+   `pipeline/exploit.py` logic used for the original 54 repos, so outcome
+   measurement is identical across groups.
+
+Full limitations and interpretation framing are included verbatim in the
+`data_notes` field of `outputs/processed/matched_comparison.json`.
+
+### Running standalone
+
+```powershell
+# Full run (builds the control pool if needed, fetches covariates, collects
+# Scorecard for the eligible union, runs 1000 seeds)
+python control-search/run_matched_comparison.py
+
+# Re-fetch everything, ignoring caches
+python control-search/run_matched_comparison.py --force
+
+# Fewer seeds for a quick check
+python control-search/run_matched_comparison.py --n-seeds 100
+
+# Change which k values get precomputed for the dashboard's k selector, and
+# which one is pre-selected by default (both default to 1,3,5 / 3)
+python control-search/run_matched_comparison.py --k-options 1,2,3,5,8 --k 3
+```
+
+Results appear in the dashboard's **Matched Comparison** tab (see
+[Dashboard Guide](#dashboard-guide)). Per-repo raw API responses are cached
+under `control-search/raw/` (covariates, scorecard, dependency), separate from
+`outputs/raw/`, so reruns are fast unless `--force` is passed.
+
+---
+
 ## Outputs
 
 ### Directory structure
@@ -668,10 +905,14 @@ outputs/
 ├── raw/
 │   ├── scorecard/
 │   │   └── owner__repo.json        ← one file per repo (raw Scorecard output)
-│   ├── augur/
-│   │   └── owner__repo.json        ← one file per repo (Aveloxis API response)
 │   └── dependency/
 │       └── owner__repo.json        ← one file per repo (SBOM + OSV results)
+│   # GitHub metrics (contributors, commits, issues, merged PRs, stars,
+│   # forks, language, license) have no separate raw/ cache — collection is
+│   # 1 batched GraphQL call per ~20 repos plus 2 REST calls per repo
+│   # (minutes for the whole dataset), so unlike Scorecard/dependency
+│   # there's no slow step worth caching separately. Results live directly
+│   # in merged_repos.json's `github_metrics` field.
 ├── processed/
 │   ├── merged_repos.json           ← unified dataset (one record per input repo)
 │   ├── merged_repos.csv            ← flat CSV version of merged_repos.json
@@ -680,11 +921,22 @@ outputs/
 │   ├── kev_analysis.json           ← per-vulnerability KEV match details
 │   ├── kev_summary.json            ← exploitability statistics (embedded in dashboard)
 │   ├── statistical_analysis.json   ← all statistical test results
-│   └── saturation_analysis.json    ← rarefaction curve data
+│   ├── saturation_analysis.json    ← rarefaction curve data
+│   └── matched_comparison.json     ← matched-comparison results (see below)
 ├── dashboard/
 │   └── index.html                  ← self-contained interactive dashboard
 └── logs/
     └── pipeline.log                ← full DEBUG log for the most recent run
+
+control-search/
+├── control_candidates.json         ← raw non-ag candidate search results
+├── control_candidates_triaged.json ← candidates + auto-triage suggestions
+├── control_pool_reviewed.json      ← human-exported reviewed pool (from review.html)
+├── control_pool.json               ← final resolved control pool
+└── raw/
+    ├── covariates/owner__repo.json ← cached GitHub REST covariate fetches
+    ├── scorecard/owner__repo.json  ← cached Scorecard runs (eligible union only)
+    └── dependency/owner__repo.json ← cached SBOM + OSV results (full control pool)
 ```
 
 ### Key output files
@@ -707,13 +959,19 @@ Array of per-repository records. Each record includes:
     "Code-Review": { "score": 7, "reason": "..." },
     "Maintained":  { "score": 10, "reason": "..." }
   },
-  "augur_status": "partial",
-  "augur_metrics": {
+  "github_metrics_collected": true,
+  "github_metrics": {
     "contributor_count": 54,
     "commit_count": 9349,
-    "stars": 1305
+    "issues_opened": 7,
+    "issues_closed": 41,
+    "prs_merged": 312,
+    "stars": 1305,
+    "forks": 356,
+    "languages": ["PHP"],
+    "license": "GPL-2.0"
   },
-  "overall_status": "partial"
+  "overall_status": "complete"
 }
 ```
 
@@ -761,13 +1019,14 @@ internet connection is required.
 | Tab | Contents |
 |---|---|
 | **Overview** | Summary cards · score histogram · category counts · license distribution · ag-specific breakdown · Spearman correlation heatmap |
-| **Repo Table** | Sortable, filterable table of all repositories with Scorecard scores, Augur metrics, vulnerability counts, and detected license |
+| **Repo Table** | Sortable, filterable table of all repositories with Scorecard scores, GitHub metrics, vulnerability counts, and detected license |
 | **Categories** | Scorecard boxplots by software layer · dependency vulnerability boxplot · category comparison bar charts with 95% CI error bars · per-repo security check heatmap · Kruskal-Wallis + Dunn results |
 | **Ag-Specific** | Ag vs non-ag metric comparisons · Mann-Whitney effect size chart with CI · radar chart of Scorecard check averages · full Mann-Whitney table |
 | **Vulnerabilities** | Dependency vulnerability breakdown · CISA KEV exploitability panel with remediation deadlines |
 | **Dependencies** | Full dependency scan results per repository · severity breakdown · vulnerability density chart |
 | **Comparisons** | Repo rankings by score / stars / commits · scatter plots with Spearman subtitles · Scorecard check averages with 95% CI error bars |
-| **Pipeline Health** | Per-repository Scorecard and Augur status badges · runtime statistics |
+| **Matched Comparison** | All-54-vs-matched-controls results: covariate balance table, per-metric effect table (all / ag-specific / non-ag-specific / per category), a k selector that instantly switches every section between precomputed k values, per-repo eligible-control coverage — see [Matched-Comparison Analysis](#matched-comparison-analysis) |
+| **Pipeline Health** | Per-repository Scorecard and GitHub metrics status badges · runtime statistics |
 
 ### Chart interactions
 
@@ -789,7 +1048,6 @@ internet connection is required.
 | Tool | Version used in this study |
 |---|---|
 | OpenSSF Scorecard | v5.4.0 |
-| Aveloxis / Augur | Docker image as of collection date (see `COLLECTION_DATE.txt`) |
 | Python | 3.11 |
 | scipy | 1.11+ |
 | numpy | 1.24+ |
@@ -799,12 +1057,15 @@ The collection date is recorded in `COLLECTION_DATE.txt` and in
 
 ### Reproducing analysis from committed cache
 
-The `outputs/raw/` directory is committed to version control so that
-statistical analysis and dashboard generation can be reproduced without
-re-running data collection or requiring any API access:
+`outputs/processed/` (the actual analysis results and merged dataset) and
+`outputs/dashboard/` are committed to version control, so statistical
+analysis and dashboard generation can be reproduced without re-running data
+collection or requiring any API access. `outputs/raw/` (per-repo Scorecard
+and dependency API caches) is gitignored — it's large and fully reproducible
+from `inputs/` via a pipeline re-run, not needed for `--regenerate`:
 
 ```powershell
-# Reproduce all downstream results from committed raw outputs (~5 seconds)
+# Reproduce all downstream results from committed processed outputs (~5 seconds)
 python main.py --regenerate
 ```
 
@@ -813,14 +1074,6 @@ python main.py --regenerate
 Bootstrap resampling in `pipeline/stats.py` and `pipeline/saturation.py` uses
 a fixed NumPy seed (`seed=42`). All bootstrap CI results are therefore
 **deterministic** given the same input data.
-
-### Aveloxis collection timing
-
-Aveloxis collects data asynchronously. Metric values improve over time as the
-worker processes each repository's git history and issue tracker. Exact values
-depend on when repositories were first registered and how long the Docker
-stack has been running. The committed `outputs/raw/augur/` cache represents the state at
-the recorded collection date.
 
 ---
 
@@ -843,28 +1096,12 @@ This is expected behaviour. The `Branch-Protection`, `Signed-Releases`, and
 routinely exit non-zero for public repos analysed by a non-admin token.
 The overall score and most check scores are still valid and usable.
 
-### Aveloxis not reachable (`Connection refused` on port 8383)
+### GitHub metrics collection failed for a repository
 
-1. Confirm Docker Desktop is running.
-2. Check all five containers are healthy:
-   ```powershell
-   docker ps --filter name=augur
-   ```
-3. Allow ~60 seconds after `docker compose up -d` before running the pipeline.
-4. If port 8383 conflicts with another service, change `AUGUR_API_BASE` in
-   `.env` and update the `docker-compose.yml` port mapping accordingly.
-
-### All Augur metrics are zero / status is `not_registered`
-
-Registration is now automatic — the pipeline registers any unregistered repos
-before collecting metrics. If all repos still show `not_registered`:
-
-1. Confirm Docker Desktop is running and `docker ps` shows all Aveloxis containers.
-2. Run an Augur-only pass to trigger registration and wait for collection:
-   ```powershell
-   python main.py --skip-scorecard --skip-dependencies --skip-kev
-   ```
-3. Allow 15–60 minutes for Aveloxis to collect data, then re-run the full pipeline.
+Check `github_metrics_error` on that repo's record in `merged_repos.json`.
+The most common cause is a transient GitHub API error or rate limiting —
+re-run the pipeline (or just `--force` for that stage) once the rate limit
+window resets. `GET /rate_limit` (authenticated) shows your current quota.
 
 ### Dependency analysis returns no results for a repository
 
@@ -878,8 +1115,8 @@ before collecting metrics. If all repos still show `not_registered`:
 
 The matrix is suppressed when every pair of metrics has at least one member
 with constant values across all repositories (e.g., all vulnerability counts
-= 0 because dependency analysis has not run). Running Stage 5
-(`--skip-scorecard --skip-augur`) populates the dependency data.
+= 0 because dependency analysis has not run). Running Stage 4
+(`python main.py --skip-scorecard`) populates the dependency data.
 
 ### Windows: `scorecard binary not found`
 
@@ -895,17 +1132,18 @@ Check that `tools\scorecard.exe` exists (note the backslash). The parent
 Edit the input CSV and add rows following the 4-column format, then run:
 
 ```powershell
-# Full re-collection; new repos are auto-registered with Aveloxis
-# (cache is used for repos whose raw JSON already exists)
+# Full re-collection; Scorecard and dependency caches are reused for repos
+# whose raw JSON already exists, GitHub metrics are re-collected fresh
+# (cheap enough not to need caching -- see Stage 5)
 python main.py
 ```
 
 ### Changing the repository list
 
 Remove rows from the input CSV and delete the corresponding files from
-`outputs/raw/scorecard/`, `outputs/raw/augur/`, and `outputs/raw/dependency/`
-before re-running. Stale cache files for removed repositories will otherwise
-be included in the merge step.
+`outputs/raw/scorecard/` and `outputs/raw/dependency/` before re-running.
+Stale cache files for removed repositories will otherwise be included in the
+merge step.
 
 ### Adding new statistical tests
 

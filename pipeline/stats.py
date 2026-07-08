@@ -287,21 +287,31 @@ def compute_spearman(x: list, y: list) -> dict:
 # ---------------------------------------------------------------------------
 
 def _vuln_counts_from_dep(dep_data: dict) -> dict[str, int]:
-    """Map repo_url → vulnerabilities_total from dependency_analysis.json."""
+    """Map repo_url → vulnerabilities_total from dependency_analysis.json.
+
+    Repos with status "failed" (e.g. no GitHub dependency graph available)
+    are excluded rather than treated as 0 vulnerabilities -- we never
+    queried their dependencies, so 0 would be indistinguishable from a
+    repo that was actually scanned and found clean.
+    """
     counts: dict[str, int] = {}
     for repo in dep_data.get("repos", []):
         url = repo.get("repo_url", "")
-        if url:
+        if url and repo.get("status") != "failed":
             counts[url] = int(repo.get("vulnerabilities_total", 0))
     return counts
 
 
 def _vuln_densities_from_dep(dep_data: dict) -> dict[str, float]:
-    """Map repo_url → vuln_density (vulns / packages_queryable)."""
+    """Map repo_url → vuln_density (vulns / packages_queryable).
+
+    See _vuln_counts_from_dep: repos with no successful dependency scan
+    are excluded rather than coded as density 0.
+    """
     densities: dict[str, float] = {}
     for repo in dep_data.get("repos", []):
         url = repo.get("repo_url", "")
-        if not url:
+        if not url or repo.get("status") == "failed":
             continue
         vulns = int(repo.get("vulnerabilities_total", 0))
         queryable = int(repo.get("packages_queryable", 0))
@@ -310,28 +320,12 @@ def _vuln_densities_from_dep(dep_data: dict) -> dict[str, float]:
 
 
 def _stars(repo: dict) -> float | None:
-    """Extract stars count; checks aggregate_summary first, then top-level stars key."""
-    metrics = repo.get("augur_metrics") or {}
-    summary = metrics.get("aggregate_summary")
-    if isinstance(summary, list) and summary:
-        val = summary[0].get("stars_count")
-        if val is not None:
-            try:
-                return float(val)
-            except (TypeError, ValueError):
-                pass
-    # Fallback: top-level "stars" key set by GitHub API fallback in merger
-    val = metrics.get("stars")
-    if val is not None:
-        try:
-            return float(val)
-        except (TypeError, ValueError):
-            pass
-    return None
+    """Extract stars count from directly-collected GitHub metrics."""
+    return _github_metric(repo, "stars")
 
 
-def _augur(repo: dict, key: str) -> float | None:
-    metrics = repo.get("augur_metrics") or {}
+def _github_metric(repo: dict, key: str) -> float | None:
+    metrics = repo.get("github_metrics") or {}
     if not isinstance(metrics, dict):
         return None
     val = metrics.get(key)
@@ -370,14 +364,16 @@ def _get_metric(
             return f if f >= 0 else None
         return None
     if metric == "vuln_count":
-        return float(vuln_counts.get(repo.get("repo_url", ""), 0))
+        v = vuln_counts.get(repo.get("repo_url", ""))
+        return float(v) if v is not None else None
     if metric == "vuln_density":
-        return float(vuln_densities.get(repo.get("repo_url", ""), 0.0))
+        v = vuln_densities.get(repo.get("repo_url", ""))
+        return float(v) if v is not None else None
     if metric == "stars_count":
         return _stars(repo)
     if metric.startswith("check_"):
         return _check_score(repo, metric[6:])
-    return _augur(repo, metric)
+    return _github_metric(repo, metric)
 
 
 # ---------------------------------------------------------------------------
@@ -535,21 +531,12 @@ def run_all(merged_repos_path: Path, dep_analysis_path: Path) -> Path:
         repo_url = repo.get("repo_url", "")
         dep_failed = dep_data_exists and bool(repo_url) and repo_url not in analyzed_urls
 
-        augur_status = repo.get("augur_status") or ""
-        augur_ready = repo.get("augur_ready")
-        if augur_ready is True or str(augur_status).lower() in ("ready", "partial"):
-            augur_reliable = True
-        elif augur_ready is False or augur_status:
-            augur_reliable = False
-        else:
-            augur_reliable = None
-
         row = {
             "display_name": repo.get("display_name") or repo.get("repo_name", ""),
             "category": repo.get("category") or "Unknown",
             "ag_specific": repo.get("ag_specific"),
             "dep_failed": dep_failed,
-            "augur_reliable": augur_reliable,
+            "github_metrics_reliable": bool(repo.get("github_metrics_collected")),
         }
         for metric in CORE_METRICS:
             row[metric] = gm(repo, metric)

@@ -1,6 +1,6 @@
 """Dependency vulnerability analysis using GitHub SBOM + OSV.
 
-This module is intentionally isolated from Scorecard/Augur scoring so the
+This module is intentionally isolated from Scorecard scoring so the
 existing pipeline behavior remains unchanged.
 """
 
@@ -591,11 +591,17 @@ def analyze_repo_dependencies(entry: RepoEntry) -> dict[str, Any]:
         timeout_seconds=sbom_timeout,
     )
     if sbom_error:
+        # GitHub's dependency-graph/sbom endpoint 404s when a repo has no
+        # manifest file in a GitHub-recognized ecosystem (or the graph was
+        # never generated for it) -- that's an absence of data, not a
+        # transient collection error, so it's flagged distinctly here.
+        no_dependency_graph = sbom_error.startswith("HTTP 404")
         result = {
             "repo_url": entry.repo_url,
             "owner": entry.owner,
             "repo_name": entry.repo_name,
             "status": "failed",
+            "failure_reason": "no_dependency_graph" if no_dependency_graph else "collection_error",
             "error": sbom_error,
             "sbom_package_count": 0,
             "filtered_self_packages": 0,

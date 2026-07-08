@@ -60,6 +60,11 @@ def _empty_kev_payload() -> dict:
     }
 
 
+def _empty_matched_payload() -> dict:
+    """Empty matched-comparison payload when the artifact is not available."""
+    return {}
+
+
 def build_dashboard() -> Path:
     """Read processed data and emit a self-contained dashboard HTML.
 
@@ -73,6 +78,7 @@ def build_dashboard() -> Path:
     dependency_path = config.DEPENDENCY_REPORT_FILE
     kev_summary_path = config.PROCESSED_DIR / "kev_summary.json"
     stats_path = config.PROCESSED_DIR / "statistical_analysis.json"
+    matched_path = config.PROCESSED_DIR / "matched_comparison.json"
 
     if not merged_path.exists():
         raise FileNotFoundError(f"Processed data not found: {merged_path}")
@@ -112,6 +118,16 @@ def build_dashboard() -> Path:
     else:
         kev_data = _empty_kev_payload()
 
+    # Load matched-comparison data
+    if matched_path.exists():
+        try:
+            matched_data = json.loads(matched_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            logger.warning("Matched-comparison artifact unreadable (%s): %s", matched_path.name, exc)
+            matched_data = _empty_matched_payload()
+    else:
+        matched_data = _empty_matched_payload()
+
     # Read the HTML template
     template_html = (_TEMPLATE_DIR / "template.html").read_text(encoding="utf-8")
     styles_css = (_TEMPLATE_DIR / "styles.css").read_text(encoding="utf-8")
@@ -123,6 +139,7 @@ def build_dashboard() -> Path:
     html = html.replace("/* @@DEPENDENCY_DATA@@ */ {}", json.dumps(dependency_data, default=str))
     html = html.replace("/* @@KEV_DATA@@ */ {}", json.dumps(kev_data, default=str))
     html = html.replace("/* @@STATS_DATA@@ */ {}", json.dumps(stats_data, default=str))
+    html = html.replace("/* @@MATCHED_DATA@@ */ {}", json.dumps(matched_data, default=str))
 
     out_path = config.DASHBOARD_DIR / "index.html"
     out_path.write_text(html, encoding="utf-8")

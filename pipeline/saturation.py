@@ -31,10 +31,13 @@ def _sample_sizes(n_total: int) -> list[int]:
 
 
 def _vuln_counts_from_dep(dep_data: dict) -> dict[str, int]:
+    # Repos with status "failed" (e.g. no GitHub dependency graph) have no
+    # real vulnerability data and are excluded rather than coded as 0 --
+    # see pipeline/stats.py's _vuln_counts_from_dep for the same fix.
     counts: dict[str, int] = {}
     for repo in dep_data.get("repos", []):
         url = repo.get("repo_url", "")
-        if url:
+        if url and repo.get("status") != "failed":
             counts[url] = int(repo.get("vulnerabilities_total", 0))
     return counts
 
@@ -96,12 +99,14 @@ def run_saturation(merged_repos_path: Path, dep_analysis_path: Path) -> Path:
                         pass
             scores_iter.append(float(np.mean(scores)) if scores else 0.0)
 
-            # % repos with any vulnerability
-            vuln_vals = [vuln_counts.get(r.get("repo_url", ""), 0) for r in sample]
-            vuln_pct_iter.append(100.0 * sum(v > 0 for v in vuln_vals) / k)
-
-            # Mean vulnerability count
-            vuln_count_iter.append(float(np.mean(vuln_vals)))
+            # % repos with any vulnerability (only over repos with real dependency data)
+            vuln_vals = [vuln_counts[url] for r in sample if (url := r.get("repo_url", "")) in vuln_counts]
+            if vuln_vals:
+                vuln_pct_iter.append(100.0 * sum(v > 0 for v in vuln_vals) / len(vuln_vals))
+                vuln_count_iter.append(float(np.mean(vuln_vals)))
+            else:
+                vuln_pct_iter.append(0.0)
+                vuln_count_iter.append(0.0)
 
             # Unique categories seen
             cats = {r.get("category") or "Unknown" for r in sample}

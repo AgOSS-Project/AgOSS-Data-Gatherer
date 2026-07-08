@@ -7,8 +7,7 @@ __pycache__/
 # C extensions
 *.so
 
-# Augur/Aveloxis + ScoreCard
-tools/augur/
+# ScoreCard
 tools/scorecard
 tools/scorecard.exe
 scorecard
@@ -247,3 +246,23 @@ control-search/control_candidates_triaged.json
 control-search/control_candidates_triaged_data.js
 control-search/control_pool.json
 control-search/raw/
+
+# control-search: expansion wave (second search pass) — same regenerable
+# intermediates as the original wave above, via prepare_expansion_pool.py.
+control-search/control_candidates_expansion.json
+control-search/control_candidates_expansion_data.js
+control-search/control_candidates_triaged_expansion.json
+control-search/control_candidates_triaged_expansion_data.js
+
+# control-search: ruby wave (third search pass) — same regenerable
+# intermediates as the earlier waves above, via prepare_ruby_pool.py.
+control-search/control_candidates_ruby.json
+control-search/control_candidates_ruby_data.js
+control-search/control_candidates_triaged_ruby.json
+control-search/control_candidates_triaged_ruby_data.js
+
+# control-search: JS sidecar mirror of control_pool_reviewed.json, generated
+# by build_control_pool.write_reviewed_sidecar() purely so review.html (a
+# static file:// page) can read it — the committed source of truth is
+# control_pool_reviewed.json itself, not this regenerable mirror.
+control-search/control_pool_reviewed_data.js

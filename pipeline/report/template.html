@@ -19,7 +19,6 @@
     </div>
     <div style="display:flex;align-items:center;gap:.75rem;flex-shrink:0;padding-top:.5rem;">
       <small id="collectionDate" style="color:#64748b;font-size:.8rem;"></small>
-      <a href="../../repo-search/index.html" target="_blank" rel="noopener" style="display:inline-block;padding:.35rem .75rem;background:#f1f5f9;border:1px solid #cbd5e1;border-radius:6px;color:#1e3a5f;text-decoration:none;font-size:.85rem;font-weight:500;">Candidate Search ↗</a>
     </div>
   </div>
 </header>
@@ -34,13 +33,14 @@
     <button class="tab-btn" data-tab="vulnerabilities">Vulnerabilities</button>
     <button class="tab-btn" data-tab="dependencies">Dependencies</button>
     <button class="tab-btn" data-tab="charts">Comparisons</button>
+    <button class="tab-btn" data-tab="matched">Matched Comparison</button>
     <button class="tab-btn" data-tab="quality">Pipeline Health</button>
   </div>
 
   <!-- ═══════════════ OVERVIEW ═══════════════ -->
   <div id="tab-overview" class="tab-panel active">
     <div class="cards" id="summaryCards"></div>
-    <div id="augurQualityCallout" style="display:none;margin:.5rem 0 1rem;padding:.75rem 1rem;background:#fef9c3;border-left:4px solid #ca8a04;border-radius:6px;font-size:.85rem;color:#713f12;"></div>
+    <div id="githubMetricsQualityCallout" style="display:none;margin:.5rem 0 1rem;padding:.75rem 1rem;background:#fef9c3;border-left:4px solid #ca8a04;border-radius:6px;font-size:.85rem;color:#713f12;"></div>
     <div class="chart-grid">
       <div class="chart-card"><h3>Scorecard Score Distribution</h3><canvas id="chartScoreHist"></canvas></div>
       <div class="chart-card"><h3>Repos per Category</h3><canvas id="chartCatCount"></canvas></div>
@@ -87,12 +87,12 @@
           <th data-sort="ag_specific">Ag-Specific</th>
           <th data-sort="scorecard_overall">SC Score</th>
           <th data-sort="scorecard_status">SC Status</th>
-          <th data-sort="augur_status">Augur Status</th>
-          <th data-sort="augur_contributors">Contributors</th>
-          <th data-sort="augur_commits">Commits</th>
-          <th data-sort="augur_prs_merged">PRs Merged</th>
-          <th data-sort="augur_issues_total">Issues</th>
-          <th data-sort="augur_stars">Stars</th>
+          <th data-sort="github_metrics_status">GitHub Metrics</th>
+          <th data-sort="github_contributors">Contributors</th>
+          <th data-sort="github_commits">Commits</th>
+          <th data-sort="github_prs_merged">PRs Merged</th>
+          <th data-sort="github_issues_total">Issues</th>
+          <th data-sort="github_stars">Stars</th>
           <th data-sort="vuln_count">Vulns</th>
           <th data-sort="license">License</th>
           <th data-sort="overall_status">Overall</th>
@@ -264,18 +264,299 @@
   <div id="tab-quality" class="tab-panel">
     <h2 style="margin-bottom:1rem;">Pipeline Health &amp; Data Quality</h2>
     <div class="cards" id="healthCards"></div>
+
+    <h3 style="margin:1.5rem 0 .5rem;">Collection Completeness by Ag-Specificity</h3>
+    <p style="font-size:.85rem;color:#64748b;margin-bottom:.75rem;max-width:900px;">
+      If Scorecard or dependency collection fails more often for one group than the other, that's a
+      differential-missingness threat — comparisons between groups could partly reflect which repos
+      happened to fail collection, not real differences. Rates should be similar across rows.
+    </p>
+    <div class="table-wrap" style="padding-left:0;padding-right:0;margin-bottom:1.5rem;">
+      <table id="completenessTable">
+        <thead><tr>
+          <th>Group</th><th>Repos</th>
+          <th>Scorecard Success</th><th>Scorecard Failed</th>
+          <th>Dependency Success</th><th>Dependency Failed</th>
+        </tr></thead>
+        <tbody id="completenessBody"></tbody>
+      </table>
+    </div>
+
     <div class="chart-grid">
       <div class="chart-card"><h3>Scorecard Status Breakdown</h3><canvas id="chartSCStatus"></canvas></div>
-      <div class="chart-card"><h3>Augur Status Breakdown</h3><canvas id="chartAGStatus"></canvas></div>
+      <div class="chart-card"><h3>GitHub Metrics Status Breakdown</h3><canvas id="chartAGStatus"></canvas></div>
     </div>
     <div class="table-wrap">
       <table class="quality-table" id="qualityTable">
         <thead><tr>
           <th>Repo</th><th>SC Status</th><th>SC Exit</th><th>SC Runtime</th>
-          <th>Augur Status</th><th>Augur Registered</th><th>Overall</th><th>Notes</th>
+          <th>GitHub Metrics</th><th>Overall</th><th>Notes</th>
         </tr></thead>
         <tbody id="qualityBody"></tbody>
       </table>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MATCHED COMPARISON ═══════════════ -->
+  <div id="tab-matched" class="tab-panel">
+    <h2 style="margin-bottom:.5rem;">Matched Control Comparison</h2>
+    <div class="cards" id="matchedCards"></div>
+    <div id="matchedEmpty" style="display:none;padding:2rem;text-align:center;color:#64748b;max-width:700px;margin:0 auto;">
+      Matched-comparison data not available yet. This analysis requires a human-reviewed
+      control pool before it will run: 1) <code>python control-search/control_search.py</code>,
+      2) <code>python control-search/triage.py</code>, 3) open <code>control-search/review.html</code>,
+      review the candidates, and export the reviewed pool to
+      <code>control-search/control_pool_reviewed.json</code>. Once that file exists,
+      <code>python main.py</code> (or <code>python control-search/run_matched_comparison.py</code>)
+      will run the analysis automatically.
+    </div>
+    <div id="matchedContent" style="display:none;">
+      <h3 style="margin:1rem 0 .5rem;">Naive vs. Matched Comparison</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        The Ag-Specific tab's Mann-Whitney test compares the 43 ag-specific repos against only the 11
+        non-ag repos already in this dataset (mostly large, mature infrastructure — a confounded
+        baseline). This table places that "naive" comparison side-by-side with the matched comparison
+        (the same 43 repos vs. their Mahalanobis-matched controls from the external non-ag-critical
+        pool) so you can see directly whether controlling for size/age/activity/ecosystem changes the
+        conclusion, for every metric available in both.
+      </p>
+      <div id="naiveVsMatchedEmpty" style="display:none;color:#64748b;font-size:.85rem;margin-bottom:1rem;">
+        Naive comparison data not available (statistical_analysis.json not loaded).
+      </div>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;margin-bottom:1.5rem;">
+        <table id="naiveVsMatchedTable">
+          <thead><tr>
+            <th>Metric</th>
+            <th>Naive Effect r<br><span style="font-weight:400;color:#94a3b8;">(43 vs 11 corpus)</span></th>
+            <th>Naive Sig?</th>
+            <th>Matched Effect r<br><span style="font-weight:400;color:#94a3b8;">(43 vs external pool)</span></th>
+            <th>Matched Sig?</th>
+            <th>Direction</th>
+          </tr></thead>
+          <tbody id="naiveVsMatchedBody"></tbody>
+        </table>
+      </div>
+
+      <h3 style="margin:1rem 0 .5rem;">Control Pool Construction</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        How the control candidate pool was built, from raw GitHub search results down to the final
+        resolved pool used for matching.
+      </p>
+      <div id="poolConstructionEmpty" style="display:none;color:#64748b;font-size:.85rem;margin-bottom:1rem;">
+        Pool construction provenance not available (control-search/control_candidates.json not found).
+      </div>
+      <div id="poolConstructionContent" style="margin-bottom:1.5rem;">
+        <div class="funnel-stage">
+          <div class="funnel-stage-title">1. Discovery</div>
+          <div class="cards" id="poolDiscoveryCards"></div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-stage">
+          <div class="funnel-stage-title">2. Automatic Filters</div>
+          <div class="cards" id="poolFilterCards"></div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-stage">
+          <div class="funnel-stage-title">3. Manual Review</div>
+          <div class="cards" id="poolReviewCards"></div>
+        </div>
+      </div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Domain Breakdown — Control Pool Diversity</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        Control-pool repos grouped by the domain that first surfaced them (IoT, embedded systems,
+        robotics, etc.) — demonstrates the pool isn't concentrated in just one operationally-similar niche.
+      </p>
+      <div class="chart-card" style="margin-bottom:1.5rem;"><canvas id="chartDomainBreakdown" style="max-height:280px;"></canvas></div>
+
+      <div class="filter-bar">
+        <select id="matchedGroupSelect">
+          <option value="all">All 54 Repos</option>
+          <option value="ag_specific">Ag-Specific Only</option>
+          <option value="non_ag_specific">Not Ag-Specific Only</option>
+        </select>
+        <select id="matchedKSelect"></select>
+        <span style="font-size:.8rem;color:#64748b;">These selections drive every section below.</span>
+      </div>
+      <div id="kGuidanceNote" style="font-size:.78rem;color:#94a3b8;margin:-.5rem 0 1rem;max-width:900px;"></div>
+
+      <h3 style="margin:1rem 0 .5rem;">Matching Quality Summary</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        How good the matches actually are, distinct from raw eligible-control counts.
+        Distance = Mahalanobis distance to the nearest eligible control (lower = more similar);
+        the caliper threshold (χ² 50th percentile) is <span id="matchQualityCaliper">—</span>.
+      </p>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;margin-bottom:1.5rem;">
+        <table id="matchQualityTable">
+          <thead><tr><th>Metric</th><th style="text-align:right;">Value</th></tr></thead>
+          <tbody id="matchQualityBody"></tbody>
+        </table>
+      </div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Covariate Balance — Love Plot</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        Standardized mean difference (SMD) per covariate, before vs after matching. Dashed lines mark the
+        ±0.1 (well-balanced) and ±0.25 (imbalanced) conventions. Points closer to 0 — and "after" points
+        closer to 0 than "before" — indicate better-balanced matching.
+      </p>
+      <div class="chart-card" style="margin-bottom:1.5rem;"><canvas id="chartLovePlot" style="max-height:340px;"></canvas></div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Covariate Balance (Standardized Mean Difference)</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        |SMD| &lt; 0.1 = well balanced · 0.1–0.25 = acceptable · &gt; 0.25 = imbalanced (flagged).
+        "Before" = dataset group vs full control candidate pool. "After" = dataset group vs each repo's top-k
+        nearest-eligible controls at the k selected above — the same matched sample the effect estimates use,
+        not the full caliper-eligible pool.
+      </p>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;">
+        <table id="balanceTable">
+          <thead><tr>
+            <th>Covariate</th><th>SMD Before</th><th>SMD After</th><th>Balance</th>
+          </tr></thead>
+          <tbody id="balanceBody"></tbody>
+        </table>
+      </div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Matching Distance Distribution</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        Distribution of each matched repo's nearest-control Mahalanobis distance — one value per
+        successfully-matched dataset repo. A cluster near 0 indicates close matches; a long right tail
+        indicates repos whose "best" match still isn't very similar.
+      </p>
+      <div class="chart-card" style="margin-bottom:1.5rem;"><canvas id="chartDistanceHist" style="max-height:280px;"></canvas></div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Covariate Distributions — Before vs After Matching</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        Seeing the overlap directly is more convincing than a single SMD number: "Before" compares the
+        dataset group against the full control candidate pool; "After" compares it against only the
+        matched-eligible controls. Better matching should visibly tighten the overlap.
+      </p>
+      <div class="filter-bar">
+        <select id="matchedCovariateSelect"></select>
+      </div>
+      <div class="chart-grid">
+        <div class="chart-card"><h3>Before Matching (Dataset vs Control Pool)</h3><canvas id="chartDistBefore"></canvas></div>
+        <div class="chart-card"><h3>After Matching (Dataset vs Matched Controls)</h3><canvas id="chartDistAfter"></canvas></div>
+      </div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Forest Plot — Effect Sizes (Primary Estimate)</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        Median deterministic top-k nearest-neighbor matched-pair difference (point) — each dataset repo
+        paired with its k closest eligible controls by Mahalanobis distance, no random re-assignment —
+        with a bootstrap [2.5, 97.5] percentile interval (bar), reoriented so the left side always means
+        "AgOSS worse" and the right side always means "AgOSS better" regardless of whether the underlying
+        metric is higher-is-better (Scorecard) or higher-is-worse (vulnerability counts). See the full
+        table below for every check and exact values, and the Robustness section further down for how
+        this holds up under looser, randomly-assigned matching.
+      </p>
+      <div class="chart-card" style="margin-bottom:1.5rem;"><canvas id="chartForestPlot" style="max-height:340px;"></canvas></div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Robustness Check — Random-Matching Seed Stability</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        Secondary check, not the headline result: instead of always pairing each dataset repo with its
+        single closest control (the primary estimate above), this draws k controls <em>at random</em>
+        from the same eligible pool across 1,000 seeds. "Stable" means at least 95% of seeds agreed on
+        the direction of the effect (AgOSS better vs. worse) — i.e. the primary conclusion doesn't depend
+        on always getting the best-available match.
+      </p>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;margin-bottom:1rem;">
+        <table id="seedStabilityTable">
+          <thead><tr>
+            <th>Outcome</th><th style="text-align:right;">Median</th>
+            <th style="text-align:right;">Seed-to-Seed SD</th>
+            <th style="text-align:right;">% Seeds Same Direction</th><th>Stability</th>
+          </tr></thead>
+          <tbody id="seedStabilityBody"></tbody>
+        </table>
+      </div>
+      <div class="filter-bar">
+        <select id="seedStabilityMetricSelect"></select>
+      </div>
+      <div class="chart-card" style="margin-bottom:1.5rem;"><canvas id="chartSeedDistribution" style="max-height:260px;"></canvas></div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Robustness — Does the Conclusion Depend on These Specific Choices?</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;max-width:900px;">
+        These tables use the same random-matching secondary check as above (not the deterministic primary
+        estimate) to see whether the headline metrics (all-54 group only) hold up across k=1/3/5 and a
+        tighter/looser caliper — i.e. whether the conclusion is an artifact of one arbitrary
+        specification, or of always picking the single best-available control. Median Δ direction and
+        rough magnitude should stay stable across rows. For every metric and every group (not just
+        headline metrics on all-54), use the k selector above instead — it switches the full Matching
+        Quality, Effects, Forest Plot, and Seed Stability sections between k values instantly.
+      </p>
+      <h4 style="margin:1rem 0 .5rem;font-size:.9rem;">By k (controls per repo)</h4>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;margin-bottom:1rem;">
+        <table id="robustnessKTable">
+          <thead><tr><th>Metric</th><th>k=1</th><th>k=3 (primary)</th><th>k=5</th></tr></thead>
+          <tbody id="robustnessKBody"></tbody>
+        </table>
+      </div>
+      <h4 style="margin:1rem 0 .5rem;font-size:.9rem;">By Caliper Width</h4>
+      <p style="font-size:.78rem;color:#94a3b8;margin-bottom:.5rem;">
+        Coverage = how many of that caliper's eligible controls actually had Scorecard/dependency data
+        collected. The loose caliper can admit controls outside the primary eligible union that were
+        never collected — those are skipped rather than treated as missing-equals-zero, and coverage
+        below 100% discloses exactly how much of the loose caliper's pool this reuses vs. skips.
+      </p>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;margin-bottom:1.5rem;">
+        <table id="robustnessCaliperTable">
+          <thead><tr><th>Metric</th><th>Tight (25th %ile)</th><th>Primary (50th %ile)</th><th>Loose (75th %ile)</th></tr></thead>
+          <tbody id="robustnessCaliperBody"></tbody>
+        </table>
+      </div>
+      <div id="robustnessCoverageNote" style="font-size:.78rem;color:#94a3b8;margin-bottom:1.5rem;"></div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Outcome Effects — Dataset Repos vs Matched Controls (Primary Estimate)</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        Median deterministic matched-pair difference (dataset − mean of its k nearest eligible controls
+        by Mahalanobis distance), with a [2.5, 97.5] percentile interval from a nonparametric bootstrap
+        over the matched pairs. Effect size (rank-biserial correlation, magnitude only) is the primary
+        signal here — per current empirical software engineering reporting practice, rows aren't shaded
+        by p-value, since that tends to overemphasize statistical significance at the expense of
+        practical significance. FDR p is still reported for reference, Benjamini-Hochberg corrected
+        across metrics within the selected group. See Robustness above/below for the secondary
+        random-matching check.
+      </p>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;">
+        <table id="matchedEffectsTable">
+          <thead><tr>
+            <th>Metric</th><th>Median Δ</th><th>95% CI</th>
+            <th>Effect Size</th><th>FDR p</th>
+          </tr></thead>
+          <tbody id="matchedEffectsBody"></tbody>
+        </table>
+      </div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Unmatched Repo Characterization</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;max-width:900px;">
+        Are the repos that couldn't be matched systematically different from the ones that were — e.g.
+        larger or more mature — rather than just unlucky? If so, the matched-comparison sample
+        underrepresents part of the dataset (this table isn't affected by the group dropdown above,
+        since it's inherently about the whole dataset's matched/unmatched split).
+      </p>
+      <div id="unmatchedCharEmpty" style="display:none;color:#64748b;font-size:.85rem;margin-bottom:1rem;">
+        No unmatched repos to characterize (or no matched ones to compare against).
+      </div>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;margin-bottom:1.5rem;">
+        <table id="unmatchedCharTable">
+          <thead><tr>
+            <th>Covariate</th>
+            <th style="text-align:right;">Matched<br><span style="font-weight:400;color:#94a3b8;" id="unmatchedCharMatchedN"></span></th>
+            <th style="text-align:right;">Unmatched<br><span style="font-weight:400;color:#94a3b8;" id="unmatchedCharUnmatchedN"></span></th>
+            <th style="text-align:right;">Unmatched ÷ Matched</th>
+          </tr></thead>
+          <tbody id="unmatchedCharBody"></tbody>
+        </table>
+      </div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Matched Control Viewer</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+        Expand a repository to see its nearest k matched controls (distance-ranked) — exactly the
+        controls the primary estimate above pairs it with. The secondary robustness check further down
+        instead draws randomly from the full eligible pool across seeds, so its matched-pair differences
+        won't always come from this same closest-k set.
+      </p>
+      <div id="matchedControlViewer"></div>
     </div>
   </div>
 </div>
@@ -311,6 +592,7 @@ const SUMMARY = /* @@SUMMARY_DATA@@ */ {};
 const DEPENDENCY = /* @@DEPENDENCY_DATA@@ */ {};
 const KEV_SUMMARY = /* @@KEV_DATA@@ */ {};
 const STATS = /* @@STATS_DATA@@ */ {};
+const MATCHED = /* @@MATCHED_DATA@@ */ {};
 
 // ── Helpers ──
 const avg = (arr) => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0;
@@ -763,7 +1045,7 @@ const LAYER_ORDER = [
   'Edge and Gateway software',
   'Cloud-hosted backends and dashboard',
   'Domain-specific agricultural platform',
-  'Messaging and data transport layers',
+  'Data Processing Libraries/Tools',
 ];
 function layerIdx(cat) {
   const i = LAYER_ORDER.indexOf(cat);
@@ -773,12 +1055,8 @@ function layerIdx(cat) {
 const allCatSet = [...new Set(REPOS.map(r=>r.category))];
 const categories = allCatSet.sort((a, b) => layerIdx(a) - layerIdx(b) || a.localeCompare(b));
 
-// Stars extraction — nested in aggregate_summary
 function starsVal(r) {
-  const m = r.augur_metrics || {};
-  const agg = m.aggregate_summary;
-  if (Array.isArray(agg) && agg.length > 0 && agg[0].stars_count != null) return agg[0].stars_count;
-  return m.stars ?? null;
+  return (r.github_metrics || {}).stars ?? null;
 }
 
 function catGroup(cat) { return cat ? REPOS.filter(r=>r.category===cat) : REPOS; }
@@ -791,15 +1069,15 @@ function catStats(cat) {
   const g = catGroup(cat);
   const scores = g.map(r=>r.scorecard_overall).filter(v=>v!=null);
   const stars = g.map(r=>starsVal(r)).filter(v=>v!=null);
-  const contribs = g.map(r=>(r.augur_metrics||{}).contributor_count).filter(v=>v!=null);
-  const issues = g.map(r=>(r.augur_metrics||{}).issues_opened).filter(v=>v!=null);
+  const contribs = g.map(r=>(r.github_metrics||{}).contributor_count).filter(v=>v!=null);
+  const issues = g.map(r=>(r.github_metrics||{}).issues_opened).filter(v=>v!=null);
   return { count: g.length, avgScore: avg(scores), avgStars: avg(stars), avgContrib: avg(contribs), avgIssues: avg(issues) };
 }
 function agStats(group) {
   const g = agGroup(group);
   const scores = g.map(r=>r.scorecard_overall).filter(v=>v!=null);
   const stars = g.map(r=>starsVal(r)).filter(v=>v!=null);
-  const contribs = g.map(r=>(r.augur_metrics||{}).contributor_count).filter(v=>v!=null);
+  const contribs = g.map(r=>(r.github_metrics||{}).contributor_count).filter(v=>v!=null);
   return { count: g.length, avgScore: avg(scores), avgStars: avg(stars), avgContrib: avg(contribs) };
 }
 
@@ -1049,15 +1327,15 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     if (el) el.textContent = `Data collected: ${collDate}`;
   }
 
-  // Augur quality callout
+  // GitHub metrics quality callout
   const perRaw = STATS.per_repo_raw || [];
-  const augurUnreliable = perRaw.filter(r => r.augur_reliable === false);
+  const githubMetricsUnreliable = perRaw.filter(r => r.github_metrics_reliable === false);
   const depFailedRepos = perRaw.filter(r => r.dep_failed === true);
-  const callout = document.getElementById('augurQualityCallout');
-  if (callout && (augurUnreliable.length > 0 || depFailedRepos.length > 0)) {
+  const callout = document.getElementById('githubMetricsQualityCallout');
+  if (callout && (githubMetricsUnreliable.length > 0 || depFailedRepos.length > 0)) {
     let msg = '<strong>Data Quality Notes:</strong><ul style="margin:.4rem 0 0;padding-left:1.25rem;">';
-    if (augurUnreliable.length > 0)
-      msg += `<li>${augurUnreliable.length} repos have unreliable Augur activity metrics (not_registered / failed) — included in averages but flagged.</li>`;
+    if (githubMetricsUnreliable.length > 0)
+      msg += `<li>${githubMetricsUnreliable.length} repos have missing GitHub activity metrics (collection failed) — excluded from metrics that need them, flagged here.</li>`;
     if (depFailedRepos.length > 0)
       msg += `<li>${depFailedRepos.length} repos could not be analyzed for dependencies: ${depFailedRepos.map(r => esc(r.display_name)).join(', ')}.</li>`;
     msg += '</ul>';
@@ -1187,8 +1465,8 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     { label: 'Not Ag-Specific', value: SUMMARY.ag_specific_no ?? agGroup('no').length },
     { label: 'SC Success', value: SUMMARY.scorecard_success || REPOS.filter(r=>r.scorecard_status==='success').length },
     { label: 'SC Partial', value: SUMMARY.scorecard_partial || REPOS.filter(r=>r.scorecard_status==='partial_success').length },
-    { label: 'Augur Ready', value: SUMMARY.augur_ready || REPOS.filter(r=>r.augur_status==='ready').length },
-    { label: 'Augur Registered', value: SUMMARY.augur_registered || REPOS.filter(r=>r.augur_registered).length },
+    { label: 'GitHub Metrics OK', value: SUMMARY.github_metrics_success ?? REPOS.filter(r=>r.github_metrics_collected).length },
+    { label: 'GitHub Metrics Failed', value: SUMMARY.github_metrics_fail ?? REPOS.filter(r=>!r.github_metrics_collected).length },
     { label: 'Avg SC Score', value: fmt(avg(scores)) },
     { label: 'Complete', value: REPOS.filter(r=>r.overall_status==='complete').length },
   ];
@@ -1308,13 +1586,16 @@ function repoSortVal(r, col) {
     case 'ag_specific': return agKey(r.ag_specific);
     case 'scorecard_overall': return r.scorecard_overall ?? -1;
     case 'scorecard_status': return r.scorecard_status || '';
-    case 'augur_status': return r.augur_status || '';
+    case 'github_metrics_status': return r.github_metrics_collected ? 'collected' : 'failed';
     case 'license': return r.license || '';
-    case 'augur_contributors': return (r.augur_metrics||{}).contributor_count ?? -1;
-    case 'augur_commits': return (r.augur_metrics||{}).commit_count ?? -1;
-    case 'augur_prs_merged': return (r.augur_metrics||{}).prs_merged ?? -1;
-    case 'augur_issues_total': return (r.augur_metrics||{}).issues_total ?? -1;
-    case 'augur_stars': return (r.augur_metrics||{}).stars ?? -1;
+    case 'github_contributors': return (r.github_metrics||{}).contributor_count ?? -1;
+    case 'github_commits': return (r.github_metrics||{}).commit_count ?? -1;
+    case 'github_prs_merged': return (r.github_metrics||{}).prs_merged ?? -1;
+    case 'github_issues_total': {
+      const m = r.github_metrics || {};
+      return (m.issues_opened ?? 0) + (m.issues_closed ?? 0);
+    }
+    case 'github_stars': return (r.github_metrics||{}).stars ?? -1;
     case 'vuln_count': return vulnCount(r) ?? -1;
     case 'overall_status': return r.overall_status || '';
     default: return '';
@@ -1341,12 +1622,9 @@ function renderRepoTable() {
   });
 
   const am = (r, k) => {
-    const m = (r.augur_metrics||{});
-    if (m[k] != null) return m[k];
-    if (k === 'commit_count') return m.db_commit_rows;
-    if (k === 'issues_total') return m.db_issue_rows;
-    if (k === 'prs_merged') return m.db_pull_request_rows;
-    return undefined;
+    const m = (r.github_metrics||{});
+    if (k === 'issues_total') return (m.issues_opened ?? 0) + (m.issues_closed ?? 0);
+    return m[k];
   };
   document.getElementById('repoBody').innerHTML = rows.map((r, idx) => `<tr>
     <td>${esc(r.display_name || r.repo_name || '—')}</td>
@@ -1355,7 +1633,7 @@ function renderRepoTable() {
     <td>${agBadge(r.ag_specific)}</td>
     <td>${scoreBadge(r.scorecard_overall)}</td>
     <td>${statusBadge(r.scorecard_status)}</td>
-    <td>${statusBadge(r.augur_status)}</td>
+    <td>${statusBadge(r.github_metrics_collected ? 'success' : 'failed')}</td>
     <td>${fmt(am(r,'contributor_count'),0)}</td>
     <td>${fmt(am(r,'commit_count'),0)}</td>
     <td>${fmt(am(r,'prs_merged'),0)}</td>
@@ -1393,18 +1671,15 @@ renderRepoTable();
 function showDetail(idx) {
   const r = REPOS[idx]; if (!r) return;
   const am = (k) => {
-    const m = (r.augur_metrics||{});
-    if (m[k] != null) return m[k];
-    if (k === 'commit_count') return m.db_commit_rows;
-    if (k === 'issues_total') return m.db_issue_rows;
-    if (k === 'prs_merged') return m.db_pull_request_rows;
-    return undefined;
+    const m = (r.github_metrics||{});
+    if (k === 'issues_total') return (m.issues_opened ?? 0) + (m.issues_closed ?? 0);
+    return m[k];
   };
   const checks = r.scorecard_checks || {};
   const checkRows = Object.entries(checks).map(([name, info]) =>
     `<tr><td>${esc(name)}</td><td>${scoreBadge(info.score)}</td><td>${esc(info.reason||'')}</td></tr>`
   ).join('');
-  const augurRows = Object.entries(r.augur_metrics || {}).filter(([k])=>k!=='aggregate_summary'&&k!=='languages').map(([k,v]) =>
+  const githubMetricsRows = Object.entries(r.github_metrics || {}).filter(([k])=>k!=='languages').map(([k,v]) =>
     `<div class="detail-item"><div class="dlabel">${esc(k)}</div>${typeof v === 'object' ? JSON.stringify(v) : v}</div>`
   ).join('');
   const langs = am('languages');
@@ -1431,14 +1706,9 @@ function showDetail(idx) {
       ${r.scorecard_error ? '<p style="color:var(--danger);margin-top:.5rem;">'+esc(r.scorecard_error)+'</p>' : ''}
       ${checkRows ? '<table style="width:100%;font-size:.85rem;margin-top:.5rem;"><thead><tr><th>Check</th><th>Score</th><th>Reason</th></tr></thead><tbody>'+checkRows+'</tbody></table>' : '<p>No check data.</p>'}
     </div>
-    <div class="detail-section"><h4>Augur Metrics — ${statusBadge(r.augur_status)}</h4>
-      <div class="detail-grid">
-        <div class="detail-item"><div class="dlabel">Repo ID</div>${r.augur_repo_id ?? '—'}</div>
-        <div class="detail-item"><div class="dlabel">Registered</div>${r.augur_registered ? '✓' : '✗'}</div>
-        <div class="detail-item"><div class="dlabel">Ready</div>${r.augur_ready ? '✓' : '✗'}</div>
-      </div>
-      ${r.augur_error ? '<p style="color:var(--danger);margin-top:.5rem;">'+esc(r.augur_error)+'</p>' : ''}
-      <div class="detail-grid" style="margin-top:.5rem;">${augurRows || '<p>No Augur data.</p>'}</div>
+    <div class="detail-section"><h4>GitHub Metrics — ${statusBadge(r.github_metrics_collected ? 'success' : 'failed')}</h4>
+      ${r.github_metrics_error ? '<p style="color:var(--danger);margin-top:.5rem;">'+esc(r.github_metrics_error)+'</p>' : ''}
+      <div class="detail-grid" style="margin-top:.5rem;">${githubMetricsRows || '<p>No GitHub metrics.</p>'}</div>
     </div>
     <div class="detail-section"><h4>Pipeline Status</h4>
       <div class="detail-grid">
@@ -2480,7 +2750,7 @@ renderAgSpecific();
     options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
   });
 
-  const commitVal = (r) => (r.augur_metrics||{}).commit_count ?? (r.augur_metrics||{}).db_commit_rows ?? null;
+  const commitVal = (r) => (r.github_metrics||{}).commit_count ?? null;
   const byCommits = [...REPOS]
     .filter(r=>commitVal(r)!=null)
     .sort((a,b)=>(commitVal(b)||0)-(commitVal(a)||0))
@@ -2498,12 +2768,12 @@ renderAgSpecific();
     return { subtitle: { display: true, text: `Spearman r = ${fmt(c.spearman_r,3)}, p = ${fmt(c.p_value,4)}, n = ${c.n}${sig}`, font: { size: 11 }, color: '#64748b' } };
   }
 
-  const s1 = REPOS.filter(r=>r.scorecard_overall!=null&&(r.augur_metrics||{}).contributor_count!=null);
+  const s1 = REPOS.filter(r=>r.scorecard_overall!=null&&(r.github_metrics||{}).contributor_count!=null);
   new Chart(document.getElementById('chartScatter1'), {
     type:'scatter',
     data:{ datasets:categories.map((cat,ci)=>({
       label:catLabel(cat),
-      data:s1.filter(r=>r.category===cat).map(r=>({x:r.scorecard_overall,y:r.augur_metrics.contributor_count})),
+      data:s1.filter(r=>r.category===cat).map(r=>({x:r.scorecard_overall,y:r.github_metrics.contributor_count})),
       backgroundColor:`hsl(${ci*360/categories.length},65%,55%)`,
       pointRadius:6
     })) },
@@ -2522,17 +2792,17 @@ renderAgSpecific();
     options:{ plugins:{...spearmanSubtitle('scorecard_vs_stars')}, scales:{x:{title:{display:true,text:'Scorecard'},min:0,max:10},y:{title:{display:true,text:'Stars'},beginAtZero:true}} }
   });
 
-  const s3 = REPOS.filter(r=>(r.augur_metrics||{}).issues_opened!=null&&(r.augur_metrics||{}).issues_closed!=null);
+  const s3 = REPOS.filter(r=>(r.github_metrics||{}).issues_opened!=null&&(r.github_metrics||{}).issues_closed!=null);
   new Chart(document.getElementById('chartScatter3'), {
     type:'scatter',
-    data:{ datasets:[{ label:'Repos', data:s3.map(r=>({x:r.augur_metrics.issues_opened,y:r.augur_metrics.issues_closed})), backgroundColor:'#10b981', pointRadius:6 }] },
+    data:{ datasets:[{ label:'Repos', data:s3.map(r=>({x:r.github_metrics.issues_opened,y:r.github_metrics.issues_closed})), backgroundColor:'#10b981', pointRadius:6 }] },
     options:{ plugins:{...spearmanSubtitle('issues_opened_vs_closed')}, scales:{x:{title:{display:true,text:'Issues Opened'},beginAtZero:true},y:{title:{display:true,text:'Issues Closed'},beginAtZero:true}} }
   });
 
   const vulnDepMap2 = {};
   (STATS.per_repo_raw || []).forEach(r => { vulnDepMap2[r.display_name] = r.vuln_count ?? null; });
   const vulnMaintData = REPOS.filter(r => {
-    const contrib = (r.augur_metrics||{}).contributor_count;
+    const contrib = (r.github_metrics||{}).contributor_count;
     const v = vulnDepMap2[r.display_name];
     return contrib != null && v != null;
   });
@@ -2544,7 +2814,7 @@ renderAgSpecific();
         .filter(r=>r.category===cat)
         .map(r=>({
           x: vulnDepMap2[r.display_name] ?? 0,
-          y:(r.augur_metrics||{}).contributor_count,
+          y:(r.github_metrics||{}).contributor_count,
           label:`${r.owner}/${r.repo_name}`,
         })),
       backgroundColor:`hsl(${ci*360/categories.length},65%,55%)`,
@@ -2627,30 +2897,60 @@ renderAgSpecific();
   const scSuccess = REPOS.filter(r=>r.scorecard_status==='success').length;
   const scPartial = REPOS.filter(r=>r.scorecard_status==='partial_success').length;
   const scFailed  = REPOS.filter(r=>r.scorecard_status==='failed').length;
-  const agReady   = REPOS.filter(r=>r.augur_status==='ready').length;
-  const agPartial = REPOS.filter(r=>r.augur_status==='partial').length;
-  const agReg     = REPOS.filter(r=>r.augur_registered).length;
-  const agTimeout = REPOS.filter(r=>r.augur_status==='timed_out').length;
-  const agFailed  = REPOS.filter(r=>r.augur_status==='failed'||r.augur_status==='not_registered').length;
-  const withCommits = REPOS.filter(r=>(r.augur_metrics||{}).commit_count>0).length;
-  const withIssues = REPOS.filter(r=>(r.augur_metrics||{}).issues_total>0).length;
-  const withPRs = REPOS.filter(r=>(r.augur_metrics||{}).prs_total>0).length;
-  const withFiles = REPOS.filter(r=>(r.augur_metrics||{}).files_touched_count>0).length;
+  const ghOk     = REPOS.filter(r=>r.github_metrics_collected).length;
+  const ghFailed = REPOS.filter(r=>!r.github_metrics_collected).length;
+  const withCommits = REPOS.filter(r=>(r.github_metrics||{}).commit_count>0).length;
+  const withIssues = REPOS.filter(r=>{const m=r.github_metrics||{}; return (m.issues_opened ?? 0) + (m.issues_closed ?? 0) > 0;}).length;
+  const withPRs = REPOS.filter(r=>(r.github_metrics||{}).prs_merged>0).length;
+  const withStars = REPOS.filter(r=>(r.github_metrics||{}).stars>0).length;
 
   document.getElementById('healthCards').innerHTML = [
     { label: 'SC Success', value: scSuccess, accent: 'var(--success)' },
     { label: 'SC Partial', value: scPartial, accent: 'var(--warning)' },
     { label: 'SC Failed',  value: scFailed,  accent: 'var(--danger)' },
-    { label: 'Augur Ready',  value: agReady,   accent: 'var(--success)' },
-    { label: 'Augur Partial', value: agPartial, accent: 'var(--warning)' },
-    { label: 'Augur Registered', value: agReg,  accent: 'var(--primary)' },
-    { label: 'Augur Timed Out', value: agTimeout, accent: 'var(--warning)' },
-    { label: 'Augur Failed', value: agFailed, accent: 'var(--danger)' },
+    { label: 'GitHub Metrics OK', value: ghOk, accent: 'var(--success)' },
+    { label: 'GitHub Metrics Failed', value: ghFailed, accent: 'var(--danger)' },
     { label: 'Repos with Commits', value: withCommits, accent: 'var(--primary)' },
     { label: 'Repos with Issues', value: withIssues, accent: 'var(--primary)' },
-    { label: 'Repos with PRs', value: withPRs, accent: 'var(--primary)' },
-    { label: 'Repos with Files Data', value: withFiles, accent: 'var(--primary)' },
+    { label: 'Repos with Merged PRs', value: withPRs, accent: 'var(--primary)' },
+    { label: 'Repos with Stars Data', value: withStars, accent: 'var(--primary)' },
   ].map(c => `<div class="card" style="border-left-color:${c.accent}"><div class="label">${c.label}</div><div class="value">${c.value}</div></div>`).join('');
+
+  // Collection completeness by ag_specific — a differential-missingness check:
+  // if one group fails collection more often than the other, cross-group
+  // comparisons could partly reflect *which repos happened to fail*, not a
+  // real difference.
+  (function renderCompletenessByAgSpecific() {
+    const depByUrl = {};
+    (DEPENDENCY.repos || []).forEach(r => { depByUrl[r.repo_url] = r.status; });
+
+    const groups = [
+      { label: 'Ag-Specific', filter: r => r.ag_specific === true },
+      { label: 'Not Ag-Specific', filter: r => r.ag_specific === false },
+      { label: 'Unknown', filter: r => r.ag_specific !== true && r.ag_specific !== false },
+    ];
+    const rows = groups.map(g => {
+      const repos = REPOS.filter(g.filter);
+      if (!repos.length) return null;
+      const scOk = repos.filter(r => r.scorecard_status === 'success' || r.scorecard_status === 'partial_success').length;
+      const scFail = repos.length - scOk;
+      const depStatuses = repos.map(r => depByUrl[r.repo_url]);
+      const depOk = depStatuses.filter(s => s === 'success' || s === 'partial').length;
+      const depFail = repos.length - depOk;
+      const pct = (n) => repos.length ? ((100 * n / repos.length).toFixed(0) + '%') : '—';
+      return `<tr>
+        <td>${esc(g.label)}</td>
+        <td>${repos.length}</td>
+        <td>${scOk} (${pct(scOk)})</td>
+        <td>${scFail} (${pct(scFail)})</td>
+        <td>${depOk} (${pct(depOk)})</td>
+        <td>${depFail} (${pct(depFail)})</td>
+      </tr>`;
+    }).filter(Boolean);
+    document.getElementById('completenessBody').innerHTML = rows.length
+      ? rows.join('')
+      : '<tr><td colspan="6">No data available.</td></tr>';
+  })();
 
   // SC status — sorted bar
   const scStatusPairs = [
@@ -2664,37 +2964,825 @@ renderAgSpecific();
     options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
   });
 
-  // Augur status — sorted bar
-  const augurStatusPairs = [
-    { label:'Ready',            val:agReady,                                                              color:'#16a34a' },
-    { label:'Partial',          val:agPartial,                                                            color:'#d97706' },
-    { label:'Registered Only',  val:Math.max(0, agReg - agReady - agPartial),                            color:'#3b82f6' },
-    { label:'Timed Out',        val:agTimeout,                                                            color:'#f59e0b' },
-    { label:'Failed/Unreg',     val:agFailed,                                                             color:'#dc2626' },
+  // GitHub metrics status — sorted bar
+  const githubStatusPairs = [
+    { label:'Collected', val:ghOk,     color:'#16a34a' },
+    { label:'Failed',    val:ghFailed, color:'#dc2626' },
   ].sort((a,b) => b.val - a.val);
   new Chart(document.getElementById('chartAGStatus'), {
     type: 'bar',
-    data: { labels:augurStatusPairs.map(p=>p.label), datasets:[{ data:augurStatusPairs.map(p=>p.val), backgroundColor:augurStatusPairs.map(p=>p.color) }] },
+    data: { labels:githubStatusPairs.map(p=>p.label), datasets:[{ data:githubStatusPairs.map(p=>p.val), backgroundColor:githubStatusPairs.map(p=>p.color) }] },
     options: { indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} }
   });
 
   // Quality table
   document.getElementById('qualityBody').innerHTML = REPOS.map(r => {
     const scCls = r.scorecard_status==='success' ? 'status-ok' : r.scorecard_status==='partial_success' ? 'status-partial' : 'status-fail';
-    const agCls = r.augur_status==='ready' ? 'status-ok' : (r.augur_status==='partial'||r.augur_status==='registered') ? 'status-partial' : 'status-fail';
+    const ghCls = r.github_metrics_collected ? 'status-ok' : 'status-fail';
     const overCls = r.overall_status==='complete' ? 'status-ok' : r.overall_status==='partial' ? 'status-partial' : 'status-fail';
-    const notes = [r.scorecard_error, r.augur_error].filter(Boolean).join(' | ') || '—';
+    const notes = [r.scorecard_error, r.github_metrics_error].filter(Boolean).join(' | ') || '—';
     return `<tr>
       <td><a href="${esc(r.repo_url)}" target="_blank">${esc(r.owner)}/${esc(r.repo_name)}</a></td>
       <td class="${scCls}">${statusBadge(r.scorecard_status)}</td>
       <td>${r.scorecard_exit_code ?? '—'}</td>
       <td>${r.scorecard_runtime ? r.scorecard_runtime.toFixed(1)+'s' : '—'}</td>
-      <td class="${agCls}">${statusBadge(r.augur_status)}</td>
-      <td>${r.augur_registered ? '✓' : '✗'}</td>
+      <td class="${ghCls}">${statusBadge(r.github_metrics_collected ? 'success' : 'failed')}</td>
       <td class="${overCls}">${statusBadge(r.overall_status)}</td>
       <td style="font-size:.8rem;max-width:350px;overflow:hidden;text-overflow:ellipsis;">${esc(notes)}</td>
     </tr>`;
   }).join('');
+})();
+
+// ── Matched Comparison Tab ──
+(function() {
+  const hasData = MATCHED && typeof MATCHED === 'object' && MATCHED.primary_effects_by_k;
+  const emptyEl = document.getElementById('matchedEmpty');
+  const contentEl = document.getElementById('matchedContent');
+  if (!hasData) {
+    if (emptyEl) emptyEl.style.display = 'block';
+    if (contentEl) contentEl.style.display = 'none';
+    return;
+  }
+  if (emptyEl) emptyEl.style.display = 'none';
+  if (contentEl) contentEl.style.display = 'block';
+
+  // Vertical reference lines (0, ±0.1 well-balanced, ±0.25 imbalanced) for the Love Plot.
+  // No annotation plugin is loaded, so this is a small custom afterDraw plugin, same
+  // pattern as the agossErrorBars plugin registered earlier in this file.
+  Chart.register({
+    id: 'loveplotRefLines',
+    afterDraw(chart) {
+      if (chart.canvas.id !== 'chartLovePlot') return;
+      const xScale = chart.scales.x;
+      const ctx = chart.ctx;
+      const marks = [
+        { v: 0, color: '#94a3b8', dash: [] },
+        { v: 0.1, color: '#d97706', dash: [4, 4] },
+        { v: -0.1, color: '#d97706', dash: [4, 4] },
+        { v: 0.25, color: '#dc2626', dash: [4, 4] },
+        { v: -0.25, color: '#dc2626', dash: [4, 4] },
+      ];
+      ctx.save();
+      marks.forEach(m => {
+        const xPix = xScale.getPixelForValue(m.v);
+        ctx.beginPath();
+        ctx.setLineDash(m.dash);
+        ctx.strokeStyle = m.color;
+        ctx.lineWidth = 1;
+        ctx.moveTo(xPix, chart.chartArea.top);
+        ctx.lineTo(xPix, chart.chartArea.bottom);
+        ctx.stroke();
+      });
+      ctx.restore();
+    },
+  });
+
+  const matchedMetricLabels = {
+    scorecard_overall: 'Scorecard Overall',
+    vuln_count: 'Vuln Count',
+    vuln_density: 'Vuln Density (per pkg)',
+    kev_exploitable_count: 'KEV-Exploitable Vulns',
+  };
+  function matchedLabel(metric) {
+    return matchedMetricLabels[metric] || (metric.startsWith('check_') ? metric.slice(6) : metric);
+  }
+
+  function renderMatchedCards() {
+    const nUnmatched = (MATCHED.unmatched_dataset_repos || []).length;
+    const cards = [
+      { label: 'Dataset Repos', val: MATCHED.n_dataset_repos },
+      { label: 'Ag-Specific', val: MATCHED.n_ag_specific },
+      { label: 'Not Ag-Specific', val: MATCHED.n_non_ag_specific },
+      { label: 'Control Pool', val: MATCHED.n_control_pool },
+      { label: 'Robustness Seeds', val: MATCHED.n_seeds },
+      { label: 'Unmatched Repos', val: nUnmatched },
+      { label: 'Review Status', val: MATCHED.review_status === 'human_reviewed' ? 'Human-reviewed' : 'Unreviewed (auto)' },
+    ];
+    document.getElementById('matchedCards').innerHTML = cards.map(c =>
+      `<div class="card"><div class="label">${esc(c.label)}</div><div style="font-size:1.3rem;font-weight:700;margin-top:.3rem;">${esc(String(c.val ?? '—'))}</div></div>`
+    ).join('');
+  }
+  renderMatchedCards();
+
+  // Category options — appended after the three fixed groups, in an
+  // optgroup so it's visually clear they're a different kind of split.
+  (function populateCategoryGroupOptions() {
+    const categories = MATCHED.category_names || [];
+    if (!categories.length) return;
+    const select = document.getElementById('matchedGroupSelect');
+    const optgroup = document.createElement('optgroup');
+    optgroup.label = 'By Category';
+    categories.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat;
+      opt.textContent = cat;
+      optgroup.appendChild(opt);
+    });
+    select.appendChild(optgroup);
+  })();
+
+  // k options — every value here has a full precomputed matching-quality +
+  // effects result (all groups, all metrics), so switching k is instant and
+  // needs no rerun. k_default comes pre-selected.
+  (function populateKSelectOptions() {
+    const options = MATCHED.k_options || [3];
+    const kDefault = MATCHED.k_default != null ? MATCHED.k_default : 3;
+    const select = document.getElementById('matchedKSelect');
+    options.forEach(kval => {
+      const opt = document.createElement('option');
+      opt.value = String(kval);
+      opt.textContent = `k=${kval}` + (kval === kDefault ? ' (default)' : '');
+      if (kval === kDefault) opt.selected = true;
+      select.appendChild(opt);
+    });
+    const note = MATCHED.k_guidance && MATCHED.k_guidance.note;
+    const noteEl = document.getElementById('kGuidanceNote');
+    if (noteEl) noteEl.textContent = note || '';
+  })();
+
+  // Naive (43 vs 11 corpus, from pipeline/stats.py) vs matched (43 vs external
+  // pool) comparison — both use the same sign convention (positive = the
+  // ag-specific side scored higher on the raw metric), so effect signs are
+  // directly comparable without any direction adjustment.
+  function renderNaiveVsMatchedComparison() {
+    const naive = (STATS.comparisons && STATS.comparisons.ag_vs_nonag) || {};
+    const kEffects = (MATCHED.primary_effects_by_k && MATCHED.primary_effects_by_k[String(currentK())]) || {};
+    const matched = kEffects.ag_specific || {};
+    const emptyEl = document.getElementById('naiveVsMatchedEmpty');
+    const tableEl = document.getElementById('naiveVsMatchedTable');
+    if (!Object.keys(naive).length) {
+      if (emptyEl) emptyEl.style.display = 'block';
+      if (tableEl) tableEl.style.display = 'none';
+      return;
+    }
+    if (emptyEl) emptyEl.style.display = 'none';
+    if (tableEl) tableEl.style.display = '';
+
+    const metricKeys = Object.keys(naive).filter(m => matched[m]);
+    const rows = metricKeys.map(m => {
+      const n = naive[m], d = matched[m];
+      if (!n || n.effect_size_r == null || !d || d.median_diff == null) return null;
+      const naiveSign = n.effect_size_r > 0 ? 1 : n.effect_size_r < 0 ? -1 : 0;
+      const matchedSign = d.effect_size_rank_biserial > 0 ? 1 : d.effect_size_rank_biserial < 0 ? -1 : 0;
+      const sameDirection = naiveSign === matchedSign;
+      const directionHtml = sameDirection
+        ? '<span style="color:#64748b;">Same direction</span>'
+        : '<span style="color:#d97706;font-weight:600;">Direction flips</span>';
+      return `<tr>
+        <td>${esc(matchedLabel(m))}</td>
+        <td>${fmt(n.effect_size_r, 3)}</td>
+        <td>${n.significant_fdr ? 'Yes *' : 'No'}</td>
+        <td>${fmt(d.effect_size_rank_biserial, 3)}</td>
+        <td>${d.significant_fdr ? 'Yes *' : 'No'}</td>
+        <td>${directionHtml}</td>
+      </tr>`;
+    }).filter(Boolean);
+    document.getElementById('naiveVsMatchedBody').innerHTML = rows.length
+      ? rows.join('')
+      : '<tr><td colspan="6">No overlapping metrics between the naive and matched comparisons.</td></tr>';
+  }
+
+  function renderPoolConstruction() {
+    const pc = MATCHED.pool_construction;
+    const emptyEl = document.getElementById('poolConstructionEmpty');
+    const contentEl = document.getElementById('poolConstructionContent');
+    if (!pc) {
+      if (emptyEl) emptyEl.style.display = 'block';
+      if (contentEl) contentEl.style.display = 'none';
+      return;
+    }
+    if (emptyEl) emptyEl.style.display = 'none';
+    if (contentEl) contentEl.style.display = 'block';
+
+    const cardHtml = (label, val) =>
+      `<div class="card"><div class="label">${esc(label)}</div><div style="font-size:1.2rem;font-weight:700;margin-top:.3rem;">${esc(String(val ?? '—'))}</div></div>`;
+
+    const discovery = pc.discovery || {};
+    const discoveryCards = Object.entries(discovery.by_method || {}).map(([m, n]) => cardHtml(m, n));
+    discoveryCards.push(cardHtml('Total Raw Examined', discovery.total_raw_examined));
+    document.getElementById('poolDiscoveryCards').innerHTML = discoveryCards.join('');
+
+    const filters = pc.automatic_filters || {};
+    const filterLabels = {
+      archived: 'Archived', forks: 'Forks', already_in_dataset: 'Already in Dataset',
+      ag_adjacent: 'Ag-Adjacent', curated_lists: 'Curated Lists (awesome-*)',
+      cross_keyword_duplicates: 'Cross-Keyword Duplicates',
+    };
+    const filterCards = Object.entries(filterLabels).map(([key, label]) => cardHtml(label, filters[key]));
+    filterCards.push(cardHtml('Unique After Filters', pc.after_filters_unique));
+    document.getElementById('poolFilterCards').innerHTML = filterCards.join('');
+
+    const review = pc.manual_review;
+    const reviewCards = [];
+    if (review) {
+      reviewCards.push(cardHtml('Candidates Triaged', review.total_candidates));
+      reviewCards.push(cardHtml('Topic-Confirmed (auto-suggested)', review.suggested_accept));
+      reviewCards.push(cardHtml('Needs Review (auto-suggested)', review.suggested_review));
+      reviewCards.push(cardHtml('Final Pool Size', review.final_pool_size));
+      reviewCards.push(cardHtml('Review Status', review.review_status === 'human_reviewed' ? 'Human-reviewed' : 'Unreviewed (auto)'));
+      if (review.not_included_in_final_pool != null) {
+        reviewCards.push(cardHtml('Not Included in Final Pool', review.not_included_in_final_pool));
+      }
+    } else {
+      reviewCards.push(cardHtml('Review Status', 'Triage not run yet'));
+    }
+    document.getElementById('poolReviewCards').innerHTML = reviewCards.join('');
+  }
+  renderPoolConstruction();
+
+  function renderDomainBreakdown() {
+    const breakdown = MATCHED.domain_breakdown || {};
+    const canvas = document.getElementById('chartDomainBreakdown');
+    const entries = Object.entries(breakdown);
+    if (!canvas || !entries.length) return;
+    new Chart(canvas, {
+      type: 'bar',
+      data: {
+        labels: entries.map(([k]) => k),
+        datasets: [{ label: 'Control-pool repos', data: entries.map(([, v]) => v), backgroundColor: '#0ea5e9' }],
+      },
+      options: {
+        indexAxis: 'y',
+        plugins: { legend: { display: false } },
+        scales: { x: { beginAtZero: true, title: { display: true, text: 'Number of repos' }, ticks: { precision: 0 } } },
+      },
+    });
+  }
+  renderDomainBreakdown();
+
+  function renderUnmatchedCharacterization() {
+    const uc = MATCHED.unmatched_characterization;
+    const emptyEl = document.getElementById('unmatchedCharEmpty');
+    const tableEl = document.getElementById('unmatchedCharTable');
+    if (!uc || !uc.n_unmatched || !uc.n_matched) {
+      if (emptyEl) emptyEl.style.display = 'block';
+      if (tableEl) tableEl.style.display = 'none';
+      return;
+    }
+    if (emptyEl) emptyEl.style.display = 'none';
+    if (tableEl) tableEl.style.display = '';
+
+    document.getElementById('unmatchedCharMatchedN').textContent = `(n=${uc.n_matched})`;
+    document.getElementById('unmatchedCharUnmatchedN').textContent = `(n=${uc.n_unmatched})`;
+
+    const covariateLabelMap = MATCHED.covariate_labels || {};
+    const rows = Object.entries(uc.by_covariate || {}).map(([feature, d]) => {
+      const label = covariateLabelMap[feature] || feature;
+      const ratio = d.unmatched_to_matched_ratio;
+      let ratioHtml = '—';
+      if (ratio != null) {
+        const flagged = ratio >= 2 || ratio <= 0.5;
+        ratioHtml = flagged
+          ? `<span style="color:#d97706;font-weight:600;">${fmt(ratio, 2)}×</span>`
+          : `${fmt(ratio, 2)}×`;
+      }
+      return `<tr>
+        <td>${esc(label)}</td>
+        <td style="text-align:right;">${fmt(d.matched && d.matched.mean, 1)}</td>
+        <td style="text-align:right;">${fmt(d.unmatched && d.unmatched.mean, 1)}</td>
+        <td style="text-align:right;">${ratioHtml}</td>
+      </tr>`;
+    });
+    document.getElementById('unmatchedCharBody').innerHTML = rows.length
+      ? rows.join('')
+      : '<tr><td colspan="4">No covariate data available.</td></tr>';
+  }
+  renderUnmatchedCharacterization();
+
+  function renderRobustness() {
+    const rb = MATCHED.robustness;
+    if (!rb) return;
+    const covariateLabelMap = MATCHED.covariate_labels || {};
+
+    const kRows = (rb.metrics || []).map(metric => {
+      const k1 = rb.by_k && rb.by_k['1'] && rb.by_k['1'][metric];
+      const k3 = rb.by_k && rb.by_k['3'] && rb.by_k['3'][metric];
+      const k5 = rb.by_k && rb.by_k['5'] && rb.by_k['5'][metric];
+      if (!k1 && !k3 && !k5) return null;
+      const cell = d => d && d.median_diff != null ? fmt(d.median_diff, 3) : '—';
+      return `<tr>
+        <td>${esc(matchedLabel(metric))}</td>
+        <td>${cell(k1)}</td>
+        <td>${cell(k3)}</td>
+        <td>${cell(k5)}</td>
+      </tr>`;
+    }).filter(Boolean);
+    document.getElementById('robustnessKBody').innerHTML = kRows.length
+      ? kRows.join('')
+      : '<tr><td colspan="4">No robustness data available.</td></tr>';
+
+    const caliperRows = (rb.metrics || []).map(metric => {
+      const tight = rb.by_caliper && rb.by_caliper.tight && rb.by_caliper.tight[metric];
+      const primary = rb.by_caliper && rb.by_caliper.primary && rb.by_caliper.primary[metric];
+      const loose = rb.by_caliper && rb.by_caliper.loose && rb.by_caliper.loose[metric];
+      if (!tight && !primary && !loose) return null;
+      const cell = d => d && d.median_diff != null ? fmt(d.median_diff, 3) : '—';
+      return `<tr>
+        <td>${esc(matchedLabel(metric))}</td>
+        <td>${cell(tight)}</td>
+        <td>${cell(primary)}</td>
+        <td>${cell(loose)}</td>
+      </tr>`;
+    }).filter(Boolean);
+    document.getElementById('robustnessCaliperBody').innerHTML = caliperRows.length
+      ? caliperRows.join('')
+      : '<tr><td colspan="4">No robustness data available.</td></tr>';
+
+    const cov = rb.caliper_coverage || {};
+    const covText = ['tight', 'primary', 'loose'].filter(l => cov[l]).map(l => {
+      const c = cov[l];
+      const pct = c.eligible_union_size ? Math.round(100 * c.eligible_union_with_outcome_data / c.eligible_union_size) : 100;
+      return `${l}: ${c.eligible_union_with_outcome_data}/${c.eligible_union_size} eligible controls had outcome data (${pct}%)`;
+    }).join(' · ');
+    document.getElementById('robustnessCoverageNote').textContent = covText;
+  }
+  renderRobustness();
+
+  // Every section below is driven by this one dropdown; group-scoped data
+  // (balance/quality/distributions/effects) is pre-computed per group in
+  // matched_comparison.json (all / ag_specific / non_ag_specific / one per
+  // category), and the Matched Control Viewer filters per_dataset_repo
+  // client-side using the same group semantics.
+  function currentGroup() {
+    return document.getElementById('matchedGroupSelect').value || 'all';
+  }
+
+  // Which k (matched controls per repo) is currently selected — every value
+  // in MATCHED.k_options has full precomputed matching_quality/effects_by_k
+  // data, so this just reads the dropdown, no recomputation.
+  function currentK() {
+    const el = document.getElementById('matchedKSelect');
+    const v = el && el.value;
+    return v ? parseInt(v, 10) : (MATCHED.k_default != null ? MATCHED.k_default : 3);
+  }
+
+  // Total dataset repos belonging to a group (matched + unmatched) — the
+  // fixed three groups have precomputed totals; any other group name is a
+  // category, counted from per_dataset_repo directly.
+  function groupTotalCount(group) {
+    if (group === 'all') return MATCHED.n_dataset_repos;
+    if (group === 'ag_specific') return MATCHED.n_ag_specific;
+    if (group === 'non_ag_specific') return MATCHED.n_non_ag_specific;
+    return (MATCHED.per_dataset_repo || []).filter(r => r.category === group).length;
+  }
+
+  // Filter per_dataset_repo to a group, matching the same semantics as
+  // groupTotalCount() above.
+  function filterReposByGroup(repos, group) {
+    if (group === 'ag_specific') return repos.filter(r => r.ag_specific === true);
+    if (group === 'non_ag_specific') return repos.filter(r => r.ag_specific === false);
+    if (group === 'all') return repos;
+    return repos.filter(r => r.category === group);
+  }
+
+  function renderBalance(group) {
+    const balance = (MATCHED.balance && MATCHED.balance[String(currentK())] && MATCHED.balance[String(currentK())][group]) || {};
+    const rows = Object.entries(balance).map(([feature, d]) => {
+      const after = d.smd_after;
+      let color = '', label = '—';
+      if (after != null) {
+        const abs = Math.abs(after);
+        if (abs < 0.1) { color = '#16a34a'; label = 'Well balanced'; }
+        else if (abs < 0.25) { color = '#d97706'; label = 'Acceptable'; }
+        else { color = '#dc2626'; label = 'Imbalanced'; }
+      }
+      return `<tr>
+        <td>${esc(feature)}</td>
+        <td>${fmt(d.smd_before, 3)}</td>
+        <td>${fmt(d.smd_after, 3)}</td>
+        <td style="color:${color};font-weight:600;">${label}</td>
+      </tr>`;
+    });
+    document.getElementById('balanceBody').innerHTML = rows.length
+      ? rows.join('')
+      : '<tr><td colspan="4">Balance data not available.</td></tr>';
+  }
+
+  // Magnitude only (not significance) — badge colors are a neutral escalating
+  // scale, deliberately not red/green, since direction (better/worse) is a
+  // separate concern shown elsewhere (forest plot bar color).
+  function effectBadge(label) {
+    if (!label) return '—';
+    return `<span class="effect-badge effect-badge-${esc(label)}">${esc(label)}</span>`;
+  }
+
+  function renderEffects(group) {
+    const kEffects = (MATCHED.primary_effects_by_k && MATCHED.primary_effects_by_k[String(currentK())]) || {};
+    const effects = kEffects[group] || {};
+    const rows = Object.entries(effects).map(([metric, d]) => {
+      if (!d || d.median_diff == null) return null;
+      const interval = (d.ci_lo != null && d.ci_hi != null) ? `[${fmt(d.ci_lo,3)}, ${fmt(d.ci_hi,3)}]` : '—';
+      const pFdr = d.p_adjusted_fdr == null ? '—' : (d.p_adjusted_fdr < 0.001 ? '<0.001' : fmt(d.p_adjusted_fdr, 4));
+      return `<tr>
+        <td>${esc(matchedLabel(metric))}</td>
+        <td>${fmt(d.median_diff, 3)}</td>
+        <td>${interval}</td>
+        <td>${effectBadge(d.effect_label)} <span style="color:#94a3b8;font-size:.78rem;">${fmt(d.effect_size_rank_biserial, 3)}</span></td>
+        <td>${pFdr}</td>
+      </tr>`;
+    }).filter(Boolean);
+    document.getElementById('matchedEffectsBody').innerHTML = rows.length
+      ? rows.join('')
+      : '<tr><td colspan="5">No effect data for this group.</td></tr>';
+  }
+
+  function renderMatchQuality(group) {
+    const q = (MATCHED.matching_quality && MATCHED.matching_quality[group]) || {};
+    const nInGroup = groupTotalCount(group);
+    const caliperText = MATCHED.caliper && MATCHED.caliper.thresholds && MATCHED.caliper.thresholds.primary != null
+      ? fmt(MATCHED.caliper.thresholds.primary, 2) + ' (squared Mahalanobis distance, χ² 50th percentile)'
+      : '—';
+    const caliperEl = document.getElementById('matchQualityCaliper');
+    if (caliperEl) caliperEl.textContent = caliperText;
+
+    const avgControls = q.avg_controls_per_repo_by_k && q.avg_controls_per_repo_by_k[String(currentK())];
+    const rows = [
+      ['Dataset repositories (this group)', nInGroup],
+      ['Successfully matched', q.n_successfully_matched],
+      [`Average controls per repo (k=${currentK()})`, fmt(avgControls, 2)],
+      ['Dropped — no same-language control', q.n_dropped_no_language_match != null ? q.n_dropped_no_language_match + ' repos' : '—'],
+      ['Mean nearest-match distance', fmt(q.mean_nearest_distance, 2)],
+      ['Median nearest-match distance', fmt(q.median_nearest_distance, 2)],
+      ['Maximum nearest-match distance', fmt(q.max_nearest_distance, 2)],
+    ];
+
+    const cs = q.caliper_sensitivity || {};
+    const caliperRowLabels = {
+      tight: 'Tight caliper (25th %ile)', primary: 'Primary caliper (50th %ile) — used above',
+      loose: 'Loose caliper (75th %ile)',
+    };
+    let html = rows.map(([label, val]) =>
+      `<tr><td>${esc(label)}</td><td style="text-align:right;font-variant-numeric:tabular-nums;">${esc(String(val ?? '—'))}</td></tr>`
+    ).join('');
+    if (Object.keys(cs).length) {
+      html += `<tr><td colspan="2" style="padding-top:1rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:#94a3b8;border-top:1px solid #e2e8f0;">Caliper Sensitivity — is the matched pool an artifact of one threshold?</td></tr>`;
+      ['tight', 'primary', 'loose'].forEach(label => {
+        const c = cs[label];
+        if (!c) return;
+        html += `<tr><td>${esc(caliperRowLabels[label])}</td><td style="text-align:right;font-variant-numeric:tabular-nums;">${fmt(c.avg_eligible_controls, 2)} avg eligible · ${fmt(c.pct_repos_matched, 1)}% of repos matched</td></tr>`;
+      });
+    }
+    document.getElementById('matchQualityBody').innerHTML = html;
+  }
+
+  function renderLovePlot(group) {
+    const balance = (MATCHED.balance && MATCHED.balance[String(currentK())] && MATCHED.balance[String(currentK())][group]) || {};
+    const covariateLabels = Object.keys(balance);
+    const canvas = document.getElementById('chartLovePlot');
+    if (window.__chartLovePlot) { window.__chartLovePlot.destroy(); window.__chartLovePlot = null; }
+    if (!covariateLabels.length || !canvas) return;
+    const beforePoints = covariateLabels.map(c => ({ x: balance[c].smd_before, y: c }));
+    const afterPoints = covariateLabels.map(c => ({ x: balance[c].smd_after, y: c }));
+
+    window.__chartLovePlot = new Chart(canvas, {
+      type: 'scatter',
+      data: {
+        labels: covariateLabels,
+        datasets: [
+          { label: 'Before matching', data: beforePoints, backgroundColor: '#94a3b8', borderColor: '#64748b', pointRadius: 6, pointHoverRadius: 8, pointStyle: 'circle' },
+          { label: 'After matching', data: afterPoints, backgroundColor: '#2563eb', borderColor: '#1d4ed8', pointRadius: 6, pointHoverRadius: 8, pointStyle: 'triangle' },
+        ],
+      },
+      options: {
+        plugins: {
+          legend: { position: 'top' },
+          tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${fmt(ctx.raw.x, 3)}` } },
+        },
+        scales: {
+          x: { title: { display: true, text: 'Standardized Mean Difference (SMD)' }, suggestedMin: -1, suggestedMax: 1 },
+          y: { type: 'category', labels: covariateLabels, offset: true },
+        },
+      },
+    });
+  }
+
+  function histogramBins(values, nBinsTarget) {
+    if (!values.length) return { labels: [], bins: [] };
+    const maxV = Math.max(...values);
+    const minV = Math.min(0, Math.min(...values));
+    const range = Math.max(1e-6, maxV - minV);
+    const binWidth = Math.max(range / nBinsTarget, range > 0 ? range / 100 : 0.05);
+    const nBins = Math.max(1, Math.ceil((maxV - minV) / binWidth) + 1);
+    const bins = Array(nBins).fill(0);
+    values.forEach(v => {
+      const b = Math.min(nBins - 1, Math.max(0, Math.floor((v - minV) / binWidth)));
+      bins[b]++;
+    });
+    const labels = Array.from({ length: nBins }, (_, i) => (minV + i * binWidth).toFixed(1));
+    return { labels, bins };
+  }
+
+  function renderDistanceHistogram(group) {
+    const distances = (MATCHED.matching_quality && MATCHED.matching_quality[group] && MATCHED.matching_quality[group].nearest_distances) || [];
+    const canvas = document.getElementById('chartDistanceHist');
+    if (window.__chartDistanceHist) { window.__chartDistanceHist.destroy(); window.__chartDistanceHist = null; }
+    if (!distances.length || !canvas) return;
+    const { labels, bins } = histogramBins(distances, 12);
+    window.__chartDistanceHist = new Chart(canvas, {
+      type: 'bar',
+      data: { labels, datasets: [{ label: 'Repos', data: bins, backgroundColor: '#6366f1' }] },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { title: { display: true, text: 'Nearest-control Mahalanobis distance' } },
+          y: { beginAtZero: true, title: { display: true, text: 'Number of dataset repos' }, ticks: { stepSize: 1, precision: 0 } },
+        },
+      },
+    });
+  }
+
+  // ── Covariate distribution plots (before/after, overlapping histograms) ──
+  const covariateLabelMap = MATCHED.covariate_labels || {};
+  const covariateSelect = document.getElementById('matchedCovariateSelect');
+  Object.entries(covariateLabelMap).forEach(([key, label]) => {
+    const opt = document.createElement('option');
+    opt.value = key;
+    opt.textContent = label;
+    covariateSelect.appendChild(opt);
+  });
+
+  function renderCovariateDistributions(group) {
+    const feature = covariateSelect.value || Object.keys(covariateLabelMap)[0];
+    if (!feature) return;
+    const kDist = MATCHED.covariate_distributions && MATCHED.covariate_distributions[String(currentK())];
+    const dist = (kDist && kDist[group] && kDist[group][feature]) || {};
+    const featureLabel = covariateLabelMap[feature] || feature;
+
+    ['chartDistBefore', 'chartDistAfter'].forEach(id => {
+      const key = '__' + id;
+      if (window[key]) { window[key].destroy(); window[key] = null; }
+    });
+
+    const datasetVals = dist.dataset || [];
+    const poolVals = dist.control_pool || [];
+    const matchedVals = dist.matched_controls || [];
+
+    function overlapChart(canvasId, aVals, aLabel, aColor, bVals, bLabel, bColor) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const combined = aVals.concat(bVals);
+      if (!combined.length) return;
+      const { labels } = histogramBins(combined, 10);
+      const binOf = (v, minV, binWidth, nBins) => Math.min(nBins - 1, Math.max(0, Math.floor((v - minV) / binWidth)));
+      const maxV = Math.max(...combined);
+      const minV = Math.min(0, Math.min(...combined));
+      const range = Math.max(1e-6, maxV - minV);
+      const binWidth = Math.max(range / 10, range > 0 ? range / 100 : 0.05);
+      const nBins = labels.length;
+      const aBins = Array(nBins).fill(0);
+      const bBins = Array(nBins).fill(0);
+      aVals.forEach(v => aBins[binOf(v, minV, binWidth, nBins)]++);
+      bVals.forEach(v => bBins[binOf(v, minV, binWidth, nBins)]++);
+
+      window['__' + canvasId] = new Chart(canvas, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            { label: `${aLabel} (n=${aVals.length})`, data: aBins, backgroundColor: aColor.bg, borderColor: aColor.border, borderWidth: 1 },
+            { label: `${bLabel} (n=${bVals.length})`, data: bBins, backgroundColor: bColor.bg, borderColor: bColor.border, borderWidth: 1 },
+          ],
+        },
+        options: {
+          plugins: { legend: { position: 'top' } },
+          scales: {
+            x: { title: { display: true, text: featureLabel }, stacked: false },
+            y: { beginAtZero: true, title: { display: true, text: 'Number of repos' }, stacked: false, ticks: { precision: 0 } },
+          },
+        },
+      });
+    }
+
+    overlapChart('chartDistBefore', datasetVals, 'Dataset', { bg: 'rgba(37,99,235,0.55)', border: '#1d4ed8' },
+      poolVals, 'Control Pool', { bg: 'rgba(148,163,184,0.55)', border: '#64748b' });
+    overlapChart('chartDistAfter', datasetVals, 'Dataset', { bg: 'rgba(37,99,235,0.55)', border: '#1d4ed8' },
+      matchedVals, 'Matched Controls', { bg: 'rgba(22,163,74,0.55)', border: '#15803d' });
+  }
+  covariateSelect.addEventListener('change', () => renderCovariateDistributions(currentGroup()));
+
+  // ── Forest plot ──
+  const FOREST_PLOT_METRICS = [
+    { key: 'scorecard_overall', label: 'Overall Scorecard', worseIfHigher: false },
+    { key: 'check_Dependency-Update-Tool', label: 'Dependency-Update-Tool', worseIfHigher: false },
+    { key: 'check_Signed-Releases', label: 'Signed-Releases', worseIfHigher: false },
+    { key: 'check_Maintained', label: 'Maintained', worseIfHigher: false },
+    { key: 'check_Vulnerabilities', label: 'Vulnerabilities (Scorecard check)', worseIfHigher: false },
+    { key: 'vuln_count', label: 'Dependency Vuln Count', worseIfHigher: true },
+    { key: 'vuln_density', label: 'Dependency Vuln Density', worseIfHigher: true },
+    { key: 'kev_exploitable_count', label: 'KEV-Exploitable Vulns', worseIfHigher: true },
+  ];
+
+  function renderForestPlot(group) {
+    const kEffects = (MATCHED.primary_effects_by_k && MATCHED.primary_effects_by_k[String(currentK())]) || {};
+    const effects = kEffects[group] || {};
+    const canvas = document.getElementById('chartForestPlot');
+    if (window.__chartForestPlot) { window.__chartForestPlot.destroy(); window.__chartForestPlot = null; }
+    const rows = FOREST_PLOT_METRICS.map(m => {
+      const d = effects[m.key];
+      if (!d || d.median_diff == null) return null;
+      const sign = m.worseIfHigher ? -1 : 1;
+      const point = sign * d.median_diff;
+      const a = d.ci_lo != null ? sign * d.ci_lo : null;
+      const b = d.ci_hi != null ? sign * d.ci_hi : null;
+      const min = (a != null && b != null) ? Math.min(a, b) : null;
+      const max = (a != null && b != null) ? Math.max(a, b) : null;
+      return { label: m.label, point, min, max, sig: d.significant_fdr };
+    }).filter(Boolean);
+    if (!canvas || !rows.length) return;
+
+    // Chart.js auto-scales the x-axis from the bar values only, not the
+    // errorBars extents drawn by the custom agossErrorBars plugin — so CI
+    // whiskers that extend past the bar's own value were getting clipped at
+    // the canvas edge. Compute the true extent (bars + intervals) and pad it
+    // explicitly so nothing gets cut off.
+    const allExtents = rows.flatMap(r => [r.point, r.min, r.max].filter(v => v != null));
+    const dataMin = Math.min(0, ...allExtents);
+    const dataMax = Math.max(0, ...allExtents);
+    const pad = Math.max(0.05, (dataMax - dataMin) * 0.12);
+
+    window.__chartForestPlot = new Chart(canvas, {
+      type: 'bar',
+      data: {
+        labels: rows.map(r => r.label),
+        datasets: [{
+          label: 'Direction-adjusted effect',
+          data: rows.map(r => r.point),
+          backgroundColor: rows.map(r => r.point < 0 ? 'rgba(220,38,38,0.75)' : 'rgba(22,163,74,0.75)'),
+          borderColor: rows.map(r => r.point < 0 ? '#b91c1c' : '#15803d'),
+          borderWidth: 1.5,
+          borderRadius: 3,
+          errorBars: rows.map(r => (r.min != null && r.max != null) ? { min: r.min, max: r.max } : null),
+          errorBarColor: '#1e293b',
+          errorBarLineWidth: 1.5,
+        }],
+      },
+      options: {
+        indexAxis: 'y',
+        layout: { padding: { left: 8, right: 8 } },
+        plugins: {
+          legend: { display: false },
+          subtitle: { display: true, text: '← AgOSS Worse            AgOSS Better →', font: { size: 11 }, color: '#64748b', padding: { bottom: 6 } },
+          tooltip: {
+            callbacks: {
+              label: ctx => {
+                const r = rows[ctx.dataIndex];
+                const interval = (r.min != null && r.max != null) ? `  [${fmt(r.min,3)}, ${fmt(r.max,3)}]` : '';
+                return `Effect: ${fmt(r.point,3)}${interval}${r.sig ? '  (significant, FDR)' : ''}`;
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            title: { display: true, text: 'Direction-adjusted matched-pair difference' },
+            min: dataMin - pad,
+            max: dataMax + pad,
+          },
+        },
+      },
+    });
+  }
+
+  // ── Seed stability ──
+  const seedMetricSelect = document.getElementById('seedStabilityMetricSelect');
+  (MATCHED.headline_metrics || []).forEach(key => {
+    const opt = document.createElement('option');
+    opt.value = key;
+    opt.textContent = matchedLabel(key);
+    seedMetricSelect.appendChild(opt);
+  });
+
+  function renderSeedStability(group) {
+    const randomByK = (MATCHED.robustness && MATCHED.robustness.random_matching_by_k) || {};
+    const kEffects = randomByK[String(currentK())] || {};
+    const effects = kEffects[group] || {};
+    const headline = MATCHED.headline_metrics || [];
+
+    const rows = headline.map(metric => {
+      const d = effects[metric];
+      if (!d || d.median_diff == null) return null;
+      const flagClass = d.seed_stable ? 'stability-flag-stable' : 'stability-flag-unstable';
+      const flagText = d.seed_stable ? 'Stable ✓' : 'Variable ⚠';
+      return `<tr>
+        <td>${esc(matchedLabel(metric))}</td>
+        <td style="text-align:right;">${fmt(d.median_diff, 3)}</td>
+        <td style="text-align:right;">${fmt(d.seed_to_seed_sd, 3)}</td>
+        <td style="text-align:right;">${d.pct_seeds_same_sign != null ? fmt(d.pct_seeds_same_sign * 100, 1) + '%' : '—'}</td>
+        <td class="${flagClass}">${flagText}</td>
+      </tr>`;
+    }).filter(Boolean);
+    document.getElementById('seedStabilityBody').innerHTML = rows.length
+      ? rows.join('')
+      : '<tr><td colspan="5">No seed-stability data for this group.</td></tr>';
+
+    // Distribution-over-seeds chart for whichever headline metric is selected.
+    const canvas = document.getElementById('chartSeedDistribution');
+    if (window.__chartSeedDistribution) { window.__chartSeedDistribution.destroy(); window.__chartSeedDistribution = null; }
+    const metric = seedMetricSelect.value || headline[0];
+    const d = effects[metric];
+    const values = d && d.seed_values;
+    if (!canvas || !values || !values.length) return;
+    const { labels, bins } = histogramBins(values, 15);
+    window.__chartSeedDistribution = new Chart(canvas, {
+      type: 'bar',
+      data: { labels, datasets: [{ label: 'Seeds', data: bins, backgroundColor: '#8b5cf6' }] },
+      options: {
+        plugins: {
+          legend: { display: false },
+          subtitle: { display: true, text: `Distribution of the matched-pair difference across ${values.length} seeds`, font: { size: 11 }, color: '#64748b' },
+        },
+        scales: {
+          x: { title: { display: true, text: 'Matched-pair difference (this seed)' } },
+          y: { beginAtZero: true, title: { display: true, text: 'Number of seeds' }, ticks: { precision: 0 } },
+        },
+      },
+    });
+  }
+  seedMetricSelect.addEventListener('change', () => renderSeedStability(currentGroup()));
+
+  // ── Matched Control Viewer ──
+  function renderMatchedControlViewer(group) {
+    const repos = filterReposByGroup(MATCHED.per_dataset_repo || [], group);
+    const k = currentK();
+
+    const html = repos.map(r => {
+      const metaText = `${r.category || ''} · ${r.n_eligible_controls} eligible`;
+      const agBadge = r.ag_specific === true ? 'Ag-Specific' : r.ag_specific === false ? 'Not Ag-Specific' : 'Unknown';
+      const dc = r.dataset_covariates || {};
+      const datasetProfileHtml = `
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:#94a3b8;margin-bottom:.3rem;">Dataset Repository (this row)</div>
+        <div class="detail-grid" style="margin-bottom:1rem;">
+          <div class="detail-item"><div class="dlabel">Language</div>${esc(dc.language || '—')}</div>
+          <div class="detail-item"><div class="dlabel">Age</div>${dc.age_years != null ? dc.age_years + ' years' : '—'}</div>
+          <div class="detail-item"><div class="dlabel">Stars</div>${fmt(dc.stars, 0)}</div>
+          <div class="detail-item"><div class="dlabel">Forks</div>${fmt(dc.forks, 0)}</div>
+        </div>`;
+      // matched_controls holds up to max(k_options) nearest eligible controls
+      // (distance-sorted); slice to the currently selected k so the viewer
+      // shows exactly as many as the k selector implies.
+      const controlsToShow = (r.matched_controls || []).slice(0, k);
+      let body;
+      if (controlsToShow.length) {
+        body = controlsToShow.map(c => `
+          <div class="match-control-row">
+            <div class="match-control-name"><span class="check">✓</span><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.name)}</a></div>
+            <div class="detail-grid" style="margin-top:.4rem;">
+              <div class="detail-item"><div class="dlabel">Language</div>${esc(c.language || '—')}</div>
+              <div class="detail-item"><div class="dlabel">Age</div>${c.age_years != null ? c.age_years + ' years' : '—'}</div>
+              <div class="detail-item"><div class="dlabel">Stars</div>${fmt(c.stars, 0)}</div>
+              <div class="detail-item"><div class="dlabel">Forks</div>${fmt(c.forks, 0)}</div>
+              <div class="detail-item"><div class="dlabel">Distance</div>${fmt(c.distance, 3)}</div>
+            </div>
+          </div>`).join('');
+      } else {
+        const why = r.why_not_matched;
+        const reasonText = why ? why.reason_label : 'No eligible controls found.';
+        const exceededHtml = (why && why.exceeded_covariates && why.exceeded_covariates.length)
+          ? `<div style="margin-top:.4rem;font-size:.8rem;color:#64748b;">Contributing factors: ${why.exceeded_covariates.map(e => esc(e.label)).join(', ')}</div>`
+          : '';
+        const closest = why && why.closest_rejected_candidate;
+        const closestHtml = closest ? `
+          <div class="match-control-row" style="margin-top:.6rem;">
+            <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:#94a3b8;margin-bottom:.3rem;">Closest Rejected Candidate</div>
+            <div class="match-control-name"><span style="color:#dc2626;margin-right:.3rem;">✗</span><a href="${esc(closest.url)}" target="_blank" rel="noopener">${esc(closest.name)}</a></div>
+            <div class="detail-grid" style="margin-top:.4rem;">
+              <div class="detail-item"><div class="dlabel">Language</div>${esc(closest.language || '—')}</div>
+              <div class="detail-item"><div class="dlabel">Age</div>${closest.age_years != null ? closest.age_years + ' years' : '—'}</div>
+              <div class="detail-item"><div class="dlabel">Stars</div>${fmt(closest.stars, 0)}</div>
+              <div class="detail-item"><div class="dlabel">Forks</div>${fmt(closest.forks, 0)}</div>
+              <div class="detail-item"><div class="dlabel">Distance</div>${fmt(closest.distance, 3)}</div>
+            </div>
+          </div>` : '';
+        body = `<div class="match-no-controls"><strong>Reason:</strong> ${esc(reasonText)}</div>${exceededHtml}${closestHtml}`;
+      }
+      return `<details class="match-accordion">
+        <summary>
+          <span>${esc(r.display_name)} <span style="font-weight:400;color:#94a3b8;">(${esc(agBadge)})</span></span>
+          <span class="match-summary-meta">${esc(metaText)}</span>
+        </summary>
+        <div class="match-body">${datasetProfileHtml}${body}</div>
+      </details>`;
+    }).join('');
+    document.getElementById('matchedControlViewer').innerHTML = html || '<p style="color:#64748b;">No per-repo data available.</p>';
+  }
+
+  // ── Single dispatcher: the group + k dropdowns drive every section ──
+  function renderAllGroupDependent() {
+    const group = currentGroup();
+    renderNaiveVsMatchedComparison();
+    renderMatchQuality(group);
+    renderLovePlot(group);
+    renderBalance(group);
+    renderDistanceHistogram(group);
+    renderCovariateDistributions(group);
+    renderForestPlot(group);
+    renderSeedStability(group);
+    renderEffects(group);
+    renderMatchedControlViewer(group);
+  }
+  document.getElementById('matchedGroupSelect').addEventListener('change', renderAllGroupDependent);
+  document.getElementById('matchedKSelect').addEventListener('change', renderAllGroupDependent);
+  renderAllGroupDependent();
 })();
 
 initChartActions();
