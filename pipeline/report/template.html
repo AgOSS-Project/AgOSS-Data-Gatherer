@@ -597,6 +597,13 @@ const MATCHED = /* @@MATCHED_DATA@@ */ {};
 // ── Helpers ──
 const avg = (arr) => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0;
 const fmt = (v, d=1) => v == null ? '—' : Number(v).toFixed(d);
+const fmtBytes = (v) => {
+  if (v == null) return '—';
+  const n = Number(v);
+  if (n < 1024) return n + ' B';
+  if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+  return (n / (1024 * 1024)).toFixed(1) + ' MB';
+};
 const esc = (s) => { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
 const escAttr = (s) => esc(String(s ?? '')).replace(/"/g, '&quot;');
 const agKey = (value) => value === true ? 'yes' : value === false ? 'no' : 'unknown';
@@ -1757,15 +1764,27 @@ renderCategories();
   const kwContent = document.getElementById('kwContent');
   if (!kwSection || !kwContent) return;
 
-  const kwMetricLabels = { scorecard_overall: 'Scorecard Overall', vuln_count: 'Vulnerability Count', vuln_density: 'Vuln Density' };
+  const kwMetricLabels = {
+    scorecard_overall: 'Scorecard Overall',
+    contributor_count: 'Contributor Count',
+    commit_count: 'Commit Count',
+    issues_opened: 'Issues Opened',
+    issues_closed: 'Issues Closed',
+    prs_merged: 'PRs Merged',
+    vuln_count: 'Vulnerability Count',
+    vuln_density: 'Vuln Density',
+  };
   let html = '';
 
   for (const [metric, result] of Object.entries(kw)) {
     if (!result || result.H == null) continue;
     const label = kwMetricLabels[metric] || metric;
-    const sigBg = result.significant ? '#dcfce7' : '';
+    const sigBg = result.significant_fdr ? '#dcfce7' : '';
+    const fdrText = result.p_adjusted_fdr != null
+      ? `, p_adj (FDR) = ${result.p_adjusted_fdr < 0.001 ? '<0.001' : fmt(result.p_adjusted_fdr, 4)} ${result.significant_fdr ? '<span style="color:#16a34a;font-weight:700;">*</span>' : ''}`
+      : '';
     html += `<div style="margin-bottom:1.5rem;">
-      <h4 style="margin:.5rem 0;">${esc(label)} — Kruskal-Wallis H = ${fmt(result.H, 3)}, p = ${result.p < 0.001 ? '<0.001' : fmt(result.p, 4)} ${result.significant ? '<span style="color:#16a34a;font-weight:700;">*</span>' : ''}</h4>`;
+      <h4 style="margin:.5rem 0;">${esc(label)} — Kruskal-Wallis H = ${fmt(result.H, 3)}, p = ${result.p < 0.001 ? '<0.001' : fmt(result.p, 4)}${fdrText}</h4>`;
 
     const dunn = result.dunn_posthoc || {};
     if (Object.keys(dunn).length > 0) {
@@ -3716,6 +3735,9 @@ renderAgSpecific();
           <div class="detail-item"><div class="dlabel">Age</div>${dc.age_years != null ? dc.age_years + ' years' : '—'}</div>
           <div class="detail-item"><div class="dlabel">Stars</div>${fmt(dc.stars, 0)}</div>
           <div class="detail-item"><div class="dlabel">Forks</div>${fmt(dc.forks, 0)}</div>
+          <div class="detail-item"><div class="dlabel">Codebase Size</div>${fmtBytes(dc.codebase_bytes)}</div>
+          <div class="detail-item"><div class="dlabel">Contributors</div>${fmt(dc.contributor_count, 0)}</div>
+          <div class="detail-item"><div class="dlabel">Commits (52w)</div>${fmt(dc.commit_activity_52w, 0)}</div>
         </div>`;
       // matched_controls holds up to max(k_options) nearest eligible controls
       // (distance-sorted); slice to the currently selected k so the viewer
@@ -3731,6 +3753,9 @@ renderAgSpecific();
               <div class="detail-item"><div class="dlabel">Age</div>${c.age_years != null ? c.age_years + ' years' : '—'}</div>
               <div class="detail-item"><div class="dlabel">Stars</div>${fmt(c.stars, 0)}</div>
               <div class="detail-item"><div class="dlabel">Forks</div>${fmt(c.forks, 0)}</div>
+              <div class="detail-item"><div class="dlabel">Codebase Size</div>${fmtBytes(c.codebase_bytes)}</div>
+              <div class="detail-item"><div class="dlabel">Contributors</div>${fmt(c.contributor_count, 0)}</div>
+              <div class="detail-item"><div class="dlabel">Commits (52w)</div>${fmt(c.commit_activity_52w, 0)}</div>
               <div class="detail-item"><div class="dlabel">Distance</div>${fmt(c.distance, 3)}</div>
             </div>
           </div>`).join('');
@@ -3750,6 +3775,9 @@ renderAgSpecific();
               <div class="detail-item"><div class="dlabel">Age</div>${closest.age_years != null ? closest.age_years + ' years' : '—'}</div>
               <div class="detail-item"><div class="dlabel">Stars</div>${fmt(closest.stars, 0)}</div>
               <div class="detail-item"><div class="dlabel">Forks</div>${fmt(closest.forks, 0)}</div>
+              <div class="detail-item"><div class="dlabel">Codebase Size</div>${fmtBytes(closest.codebase_bytes)}</div>
+              <div class="detail-item"><div class="dlabel">Contributors</div>${fmt(closest.contributor_count, 0)}</div>
+              <div class="detail-item"><div class="dlabel">Commits (52w)</div>${fmt(closest.commit_activity_52w, 0)}</div>
               <div class="detail-item"><div class="dlabel">Distance</div>${fmt(closest.distance, 3)}</div>
             </div>
           </div>` : '';

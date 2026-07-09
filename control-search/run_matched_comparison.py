@@ -520,6 +520,9 @@ def run(
             "age_years": round(age, 1) if age is not None else None,
             "stars": cov.get("stars"),
             "forks": cov.get("forks"),
+            "codebase_bytes": cov.get("codebase_bytes"),
+            "contributor_count": cov.get("contributor_count"),
+            "commit_activity_52w": cov.get("commit_activity_52w"),
         }
 
     per_dataset_repo = []

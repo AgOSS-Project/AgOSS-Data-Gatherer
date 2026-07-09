@@ -1,15 +1,16 @@
 {
-  "generated_at": "2026-07-01T14:31:45.739207+00:00",
+  "generated_at": "2026-07-08T17:57:28.764571+00:00",
   "summary": {
-    "total_vulnerabilities_analyzed": 1212,
-    "exploitable_vulnerabilities": 6,
-    "exploitability_rate_percent": 0.5,
+    "total_vulnerabilities_analyzed": 1649,
+    "exploitable_vulnerabilities": 7,
+    "exploitability_rate_percent": 0.42,
     "exploitable_by_severity": {
       "CRITICAL": 2,
       "HIGH": 3,
-      "MEDIUM": 1
+      "MEDIUM": 1,
+      "UNKNOWN": 1
     },
-    "total_affected_repos": 11,
+    "total_affected_repos": 16,
     "unique_affected_repos": 10,
     "affected_repositories": [
       "https://github.com/OpenDroneMap/ODM",
@@ -31,7 +32,8 @@
         "display_name": "ODM",
         "category": "Cloud-hosted backends and dashboard",
         "vulnerabilities": [
-          "GHSA-j7hp-h8jx-5ppr"
+          "GHSA-j7hp-h8jx-5ppr",
+          "PYSEC-2026-1794"
         ]
       },
       {
@@ -71,7 +73,8 @@
         "display_name": "AgIsoStack++",
         "category": "Edge and Gateway software",
         "vulnerabilities": [
-          "GHSA-j7hp-h8jx-5ppr"
+          "GHSA-j7hp-h8jx-5ppr",
+          "PYSEC-2026-1794"
         ]
       },
       {
@@ -102,7 +105,8 @@
         "display_name": "Zephyr",
         "category": "Embedded OS substrate",
         "vulnerabilities": [
-          "GHSA-j7hp-h8jx-5ppr"
+          "GHSA-j7hp-h8jx-5ppr",
+          "PYSEC-2026-1794"
         ]
       },
       {
@@ -112,7 +116,8 @@
         "display_name": "MothBox",
         "category": "Field-Deployed Sensor",
         "vulnerabilities": [
-          "GHSA-j7hp-h8jx-5ppr"
+          "GHSA-j7hp-h8jx-5ppr",
+          "PYSEC-2026-1794"
         ]
       },
       {
@@ -122,14 +127,15 @@
         "display_name": "OpenWeedLocator",
         "category": "Field-Deployed Sensor",
         "vulnerabilities": [
-          "GHSA-j7hp-h8jx-5ppr"
+          "GHSA-j7hp-h8jx-5ppr",
+          "PYSEC-2026-1794"
         ]
       }
     ],
     "exploitable_repos_by_category": {
       "Cloud-hosted backends and dashboard": {
         "repo_count": 3,
-        "vulnerability_count": 3,
+        "vulnerability_count": 4,
         "repos": [
           "ODM",
           "OpenATK FieldWorkApp",
@@ -145,7 +151,7 @@
       },
       "Edge and Gateway software": {
         "repo_count": 3,
-        "vulnerability_count": 4,
+        "vulnerability_count": 5,
         "repos": [
           "AgIsoStack++",
           "NodeODM",
@@ -154,14 +160,14 @@
       },
       "Embedded OS substrate": {
         "repo_count": 1,
-        "vulnerability_count": 1,
+        "vulnerability_count": 2,
         "repos": [
           "Zephyr"
         ]
       },
       "Field-Deployed Sensor": {
         "repo_count": 2,
-        "vulnerability_count": 1,
+        "vulnerability_count": 2,
         "repos": [
           "MothBox",
           "OpenWeedLocator"
@@ -233,6 +239,17 @@
           "vendor": "IETF",
           "product": "HTTP/2",
           "due_date": "2023-10-31"
+        }
+      },
+      {
+        "id": "PYSEC-2026-1794",
+        "summary": "libwebp: OOB write in BuildHuffmanTable",
+        "matched_cve": "CVE-2023-4863",
+        "severity": "UNKNOWN",
+        "kev_info": {
+          "vendor": "Google",
+          "product": "Chromium WebP",
+          "due_date": "2023-10-04"
         }
       }
     ]

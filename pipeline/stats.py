@@ -402,7 +402,16 @@ SCATTER_PAIRS = {
     "scorecard_vs_vuln_density": ("scorecard_overall", "vuln_density"),
 }
 
-KW_METRICS = ["scorecard_overall", "vuln_count", "vuln_density"]
+KW_METRICS = [
+    "scorecard_overall",
+    "contributor_count",
+    "commit_count",
+    "issues_opened",
+    "issues_closed",
+    "prs_merged",
+    "vuln_count",
+    "vuln_density",
+]
 
 
 def _nan_to_none(obj):
@@ -496,6 +505,18 @@ def run_all(merged_repos_path: Path, dep_analysis_path: Path) -> Path:
     for metric in KW_METRICS:
         kruskal_wallis[metric] = run_kruskal_wallis_with_dunn(metric, categories, gm)
 
+    # BH-FDR correction across all Kruskal-Wallis omnibus tests, same family-wide
+    # treatment already applied to the Mann-Whitney tests above -- "significant"
+    # stays the raw p<0.05 flag; p_adjusted_fdr/significant_fdr are the corrected
+    # ones. Dunn's post-hoc pairwise p-values already get their own Bonferroni
+    # correction inside dunn_posthoc() and are untouched by this.
+    _valid_kw = [m for m in KW_METRICS if kruskal_wallis[m].get("p") is not None]
+    _raw_p_kw = [kruskal_wallis[m]["p"] for m in _valid_kw]
+    _adj_p_kw = _bh_fdr_correct(_raw_p_kw)
+    for _m, _ap in zip(_valid_kw, _adj_p_kw):
+        kruskal_wallis[_m]["p_adjusted_fdr"] = round(_ap, 6)
+        kruskal_wallis[_m]["significant_fdr"] = _ap < 0.05
+
     # ── Spearman correlations (scatter pairs) ─────────────────────────────
     def get_all(metric: str) -> list:
         return [gm(r, metric) for r in merged_data]
@@ -556,7 +577,11 @@ def run_all(merged_repos_path: Path, dep_analysis_path: Path) -> Path:
             "(raw score = -1) are excluded from scorecard-based comparisons, so n_b in "
             "the Mann-Whitney result may be smaller than the total non-ag repo count. "
             "p_adjusted_fdr uses Benjamini-Hochberg FDR correction applied simultaneously "
-            f"across all {len(_valid_mw)} Mann-Whitney tests."
+            f"across all {len(_valid_mw)} Mann-Whitney tests. Kruskal-Wallis omnibus "
+            f"p-values are likewise BH-FDR corrected across all {len(_valid_kw)} "
+            "category-comparison tests (separately from the Mann-Whitney family above); "
+            "Dunn's post-hoc pairwise p-values keep their own per-metric Bonferroni "
+            "correction, unaffected by this."
         ),
         "by_category": by_category,
         "by_ag_specific": by_ag_specific,
