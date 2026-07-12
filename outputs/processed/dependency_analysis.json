@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T17:55:52.505688+00:00",
+  "generated_at": "2026-07-09T16:20:13.480535+00:00",
   "status": "partial",
   "notes": [],
   "totals": {
@@ -7,8 +7,8 @@
     "repos_analyzed": 55,
     "repos_failed": 11,
     "repos_with_vulnerabilities": 36,
-    "packages_total": 20049,
-    "packages_queryable": 19643,
+    "packages_total": 20050,
+    "packages_queryable": 19644,
     "packages_unqueryable": 406,
     "vulnerabilities_total": 2841,
     "unique_vulnerability_ids": 1649,
@@ -16,8 +16,8 @@
       "critical": 167,
       "high": 893,
       "medium": 818,
-      "low": 239,
-      "unknown": 724
+      "low": 240,
+      "unknown": 723
     }
   },
   "vulnerabilities": [
@@ -12710,6 +12710,16 @@
       "affected_package_count": 1
     },
     {
+      "id": "GHSA-jhq6-gfmj-v8fx",
+      "summary": "Logback vulnerable to Object Injection through HardenedObjectInputStream modules",
+      "aliases": [
+        "CVE-2026-10532"
+      ],
+      "severity": "LOW",
+      "affected_repo_count": 1,
+      "affected_package_count": 1
+    },
+    {
       "id": "GHSA-jm77-qphf-c4w8",
       "summary": "pyca/cryptography's wheels include vulnerable OpenSSL",
       "aliases": [],
@@ -15075,18 +15085,6 @@
       "aliases": [
         "CVE-2026-21728",
         "GHSA-p4r4-xvrq-gvmc"
-      ],
-      "severity": "UNKNOWN",
-      "affected_repo_count": 1,
-      "affected_package_count": 1
-    },
-    {
-      "id": "GO-2026-5662",
-      "summary": "Prometheus has Stored XSS via metric names and label values in Prometheus web UI tooltips and metrics explorer in github.com/prometheus/prometheus",
-      "aliases": [
-        "BIT-prometheus-2026-40179",
-        "CVE-2026-40179",
-        "GHSA-vffh-x6r8-xx99"
       ],
       "severity": "UNKNOWN",
       "affected_repo_count": 1,
@@ -19960,7 +19958,7 @@
           ],
           "severity": "CRITICAL",
           "published": "2026-06-25T22:22:04Z",
-          "modified": "2026-07-08T15:45:42.126220199Z",
+          "modified": "2026-07-09T15:45:32.954010038Z",
           "error": ""
         },
         {
@@ -20203,7 +20201,7 @@
           ],
           "severity": "HIGH",
           "published": "2026-06-25T22:18:43Z",
-          "modified": "2026-07-08T15:45:35.991714389Z",
+          "modified": "2026-07-09T15:45:32.793346831Z",
           "error": ""
         },
         {
@@ -20227,7 +20225,7 @@
           ],
           "severity": "MEDIUM",
           "published": "2026-06-25T22:14:38Z",
-          "modified": "2026-07-08T15:45:35.993827363Z",
+          "modified": "2026-07-09T15:45:32.798996507Z",
           "error": ""
         },
         {
@@ -20773,7 +20771,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:08:34Z",
-          "modified": "2026-07-08T10:44:27.517872343Z",
+          "modified": "2026-07-09T10:44:32.186811941Z",
           "error": ""
         },
         {
@@ -20797,7 +20795,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:08:34Z",
-          "modified": "2026-06-25T22:41:12.430059151Z",
+          "modified": "2026-07-09T10:44:32.407043862Z",
           "error": ""
         },
         {
@@ -20809,7 +20807,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:08:34Z",
-          "modified": "2026-07-08T10:44:27.449006763Z",
+          "modified": "2026-07-09T10:44:33.544285584Z",
           "error": ""
         },
         {
@@ -20833,7 +20831,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:08:34Z",
-          "modified": "2026-07-08T10:44:26.783254103Z",
+          "modified": "2026-07-09T10:44:33.475428433Z",
           "error": ""
         },
         {
@@ -20845,7 +20843,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:08:34Z",
-          "modified": "2026-07-08T10:44:27.596398965Z",
+          "modified": "2026-07-09T10:44:32.472160985Z",
           "error": ""
         },
         {
@@ -20881,7 +20879,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:08:34Z",
-          "modified": "2026-07-07T10:29:22.973840920Z",
+          "modified": "2026-07-09T10:44:32.741406076Z",
           "error": ""
         },
         {
@@ -20893,7 +20891,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:08:34Z",
-          "modified": "2026-06-25T22:41:24.197031337Z",
+          "modified": "2026-07-09T10:44:32.801670607Z",
           "error": ""
         },
         {
@@ -20926,7 +20924,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:46:43Z",
-          "modified": "2026-07-08T10:44:27.069811889Z",
+          "modified": "2026-07-09T10:44:32.122115803Z",
           "error": ""
         },
         {
@@ -20960,7 +20958,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:46:43Z",
-          "modified": "2026-07-02T10:44:28.815339479Z",
+          "modified": "2026-07-09T10:44:31.952177221Z",
           "error": ""
         },
         {
@@ -20971,7 +20969,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:46:43Z",
-          "modified": "2026-05-30T05:14:17.711727465Z",
+          "modified": "2026-07-09T10:44:32.617262622Z",
           "error": ""
         },
         {
@@ -58696,7 +58694,7 @@
           ],
           "severity": "HIGH",
           "published": "2026-06-15T16:34:23Z",
-          "modified": "2026-06-16T16:44:28.450917852Z",
+          "modified": "2026-07-08T17:45:17.778266838Z",
           "error": ""
         },
         {
@@ -91986,7 +91984,7 @@
           ],
           "severity": "HIGH",
           "published": "2021-05-06T16:05:51Z",
-          "modified": "2026-07-08T08:11:11.759560102Z",
+          "modified": "2026-07-08T18:29:36.682352320Z",
           "error": ""
         },
         {
@@ -92358,7 +92356,7 @@
           ],
           "severity": "HIGH",
           "published": "2026-06-15T16:34:23Z",
-          "modified": "2026-06-16T16:44:28.450917852Z",
+          "modified": "2026-07-08T17:45:17.778266838Z",
           "error": ""
         },
         {
@@ -92481,7 +92479,7 @@
           ],
           "severity": "HIGH",
           "published": "2022-10-18T12:00:32Z",
-          "modified": "2024-02-14T18:15:16Z",
+          "modified": "2026-07-08T18:29:36.290089494Z",
           "error": ""
         },
         {
@@ -92870,7 +92868,7 @@
           ],
           "severity": "HIGH",
           "published": "2021-09-20T20:47:31Z",
-          "modified": "2023-11-08T04:06:25.125067Z",
+          "modified": "2026-07-08T18:29:36.015209359Z",
           "error": ""
         },
         {
@@ -93278,7 +93276,7 @@
           ],
           "severity": "MEDIUM",
           "published": "2026-05-18T13:31:42Z",
-          "modified": "2026-05-18T13:48:58.462109Z",
+          "modified": "2026-07-08T22:29:20.514585937Z",
           "error": ""
         },
         {
@@ -93931,7 +93929,7 @@
           ],
           "severity": "MEDIUM",
           "published": "2021-05-24T19:52:40Z",
-          "modified": "2025-01-14T08:57:17.283480Z",
+          "modified": "2026-07-08T18:29:36.357323559Z",
           "error": ""
         },
         {
@@ -109862,7 +109860,7 @@
           ],
           "severity": "HIGH",
           "published": "2026-06-15T16:34:23Z",
-          "modified": "2026-06-16T16:44:28.450917852Z",
+          "modified": "2026-07-08T17:45:17.778266838Z",
           "error": ""
         },
         {
@@ -130385,7 +130383,7 @@
           ],
           "severity": "HIGH",
           "published": "2021-05-06T16:05:51Z",
-          "modified": "2026-07-08T08:11:11.759560102Z",
+          "modified": "2026-07-08T18:29:36.682352320Z",
           "error": ""
         },
         {
@@ -130759,7 +130757,7 @@
           ],
           "severity": "HIGH",
           "published": "2026-06-15T16:34:23Z",
-          "modified": "2026-06-16T16:44:28.450917852Z",
+          "modified": "2026-07-08T17:45:17.778266838Z",
           "error": ""
         },
         {
@@ -130924,7 +130922,7 @@
           ],
           "severity": "HIGH",
           "published": "2022-10-18T12:00:32Z",
-          "modified": "2024-02-14T18:15:16Z",
+          "modified": "2026-07-08T18:29:36.290089494Z",
           "error": ""
         },
         {
@@ -131309,7 +131307,7 @@
           ],
           "severity": "HIGH",
           "published": "2021-09-20T20:47:31Z",
-          "modified": "2023-11-08T04:06:25.125067Z",
+          "modified": "2026-07-08T18:29:36.015209359Z",
           "error": ""
         },
         {
@@ -131894,7 +131892,7 @@
           ],
           "severity": "MEDIUM",
           "published": "2026-05-18T13:31:42Z",
-          "modified": "2026-05-18T13:48:58.462109Z",
+          "modified": "2026-07-08T22:29:20.514585937Z",
           "error": ""
         },
         {
@@ -132716,7 +132714,7 @@
           ],
           "severity": "MEDIUM",
           "published": "2021-05-24T19:52:40Z",
-          "modified": "2025-01-14T08:57:17.283480Z",
+          "modified": "2026-07-08T18:29:36.357323559Z",
           "error": ""
         },
         {
@@ -134556,7 +134554,7 @@
           ],
           "severity": "HIGH",
           "published": "2021-05-06T16:05:51Z",
-          "modified": "2026-07-08T08:11:11.759560102Z",
+          "modified": "2026-07-08T18:29:36.682352320Z",
           "error": ""
         },
         {
@@ -140751,7 +140749,7 @@
           ],
           "severity": "HIGH",
           "published": "2026-06-15T16:34:23Z",
-          "modified": "2026-06-16T16:44:28.450917852Z",
+          "modified": "2026-07-08T17:45:17.778266838Z",
           "error": ""
         },
         {
@@ -156580,7 +156578,7 @@
           ],
           "severity": "HIGH",
           "published": "2026-06-15T16:34:23Z",
-          "modified": "2026-06-16T16:44:28.450917852Z",
+          "modified": "2026-07-08T17:45:17.778266838Z",
           "error": ""
         },
         {
@@ -173757,6 +173755,7 @@
         "GHSA-j823-4qch-3rgm",
         "GHSA-jfc7-64v2-mr8c",
         "GHSA-jfg9-48mv-9qgx",
+        "GHSA-jhq6-gfmj-v8fx",
         "GHSA-jjjh-jjxp-wpff",
         "GHSA-jmp9-x22r-554x",
         "GHSA-m44j-cfrm-g8qc",
@@ -173874,12 +173873,12 @@
         "GHSA-xm78-4m3g-7wm7",
         "MAL-2025-22760"
       ],
-      "vulnerabilities_total": 296,
+      "vulnerabilities_total": 297,
       "severity": {
         "critical": 37,
         "high": 122,
         "medium": 122,
-        "low": 14,
+        "low": 15,
         "unknown": 1
       },
       "packages": [
@@ -173921,13 +173920,14 @@
             "GHSA-668q-qrv7-99fm",
             "GHSA-6v67-2wr5-gvf4",
             "GHSA-gm62-rw4g-vrc4",
+            "GHSA-jhq6-gfmj-v8fx",
             "GHSA-p47f-322f-whfh",
             "GHSA-pr98-23f8-jwxv",
             "GHSA-qqpg-mvqg-649v",
             "GHSA-vmfg-rjjm-rjrj",
             "GHSA-vmq6-5m68-f53m"
           ],
-          "vulnerability_count": 9
+          "vulnerability_count": 10
         },
         {
           "name": "com.amazonaws:aws-java-sdk-lambda",
@@ -199020,7 +199020,7 @@
           ],
           "severity": "MEDIUM",
           "published": "2026-05-18T13:31:42Z",
-          "modified": "2026-05-18T13:48:58.462109Z",
+          "modified": "2026-07-08T22:29:20.514585937Z",
           "error": ""
         },
         {
@@ -200096,6 +200096,17 @@
           "error": ""
         },
         {
+          "id": "GHSA-jhq6-gfmj-v8fx",
+          "summary": "Logback vulnerable to Object Injection through HardenedObjectInputStream modules",
+          "aliases": [
+            "CVE-2026-10532"
+          ],
+          "severity": "LOW",
+          "published": "2026-06-01T15:30:40Z",
+          "modified": "2026-07-08T20:45:21.732528366Z",
+          "error": ""
+        },
+        {
           "id": "GHSA-p47f-322f-whfh",
           "summary": "QOS.CH Sarl logback logback-core has a deserialization of untrusted data vulnerability",
           "aliases": [
@@ -200174,10 +200185,10 @@
       "repo_name": "grafana",
       "status": "success",
       "error": "",
-      "sbom_package_count": 8216,
+      "sbom_package_count": 8219,
       "filtered_self_packages": 1,
-      "packages_total": 4304,
-      "packages_queryable": 4229,
+      "packages_total": 4305,
+      "packages_queryable": 4230,
       "packages_unqueryable": 75,
       "vulnerability_ids": [
         "GHSA-22p9-wv53-3rq4",
@@ -200228,16 +200239,15 @@
         "GO-2026-5030",
         "GO-2026-5359",
         "GO-2026-5528",
-        "GO-2026-5662",
         "GO-2026-5932"
       ],
-      "vulnerabilities_total": 50,
+      "vulnerabilities_total": 49,
       "severity": {
         "critical": 1,
         "high": 9,
         "medium": 17,
         "low": 6,
-        "unknown": 17
+        "unknown": 16
       },
       "packages": [
         {
@@ -203292,10 +203302,21 @@
         },
         {
           "name": "github.com/go-openapi/runtime",
-          "version": "v0.29.5",
-          "purl": "pkg:golang/github.com/go-openapi/runtime@v0.29.5",
+          "version": "v0.32.4",
+          "purl": "pkg:golang/github.com/go-openapi/runtime@v0.32.4",
           "ecosystem": "Go",
           "query_name": "github.com/go-openapi/runtime",
+          "queryable": true,
+          "query_reason": "",
+          "vulnerability_ids": [],
+          "vulnerability_count": 0
+        },
+        {
+          "name": "github.com/go-openapi/runtime/server-middleware",
+          "version": "v0.30.0",
+          "purl": "pkg:golang/github.com/go-openapi/runtime/server-middleware@v0.30.0",
+          "ecosystem": "Go",
+          "query_name": "github.com/go-openapi/runtime/server-middleware",
           "queryable": true,
           "query_reason": "",
           "vulnerability_ids": [],
@@ -203314,8 +203335,8 @@
         },
         {
           "name": "github.com/go-openapi/spec",
-          "version": "v0.22.5",
-          "purl": "pkg:golang/github.com/go-openapi/spec@v0.22.5",
+          "version": "v0.22.6",
+          "purl": "pkg:golang/github.com/go-openapi/spec@v0.22.6",
           "ecosystem": "Go",
           "query_name": "github.com/go-openapi/spec",
           "queryable": true,
@@ -203435,8 +203456,8 @@
         },
         {
           "name": "github.com/go-openapi/swag/fileutils",
-          "version": "v0.26.0",
-          "purl": "pkg:golang/github.com/go-openapi/swag/fileutils@v0.26.0",
+          "version": "v0.26.1",
+          "purl": "pkg:golang/github.com/go-openapi/swag/fileutils@v0.26.1",
           "ecosystem": "Go",
           "query_name": "github.com/go-openapi/swag/fileutils",
           "queryable": true,
@@ -203633,8 +203654,8 @@
         },
         {
           "name": "github.com/go-openapi/validate",
-          "version": "v0.25.2",
-          "purl": "pkg:golang/github.com/go-openapi/validate@v0.25.2",
+          "version": "v0.26.0",
+          "purl": "pkg:golang/github.com/go-openapi/validate@v0.26.0",
           "ecosystem": "Go",
           "query_name": "github.com/go-openapi/validate",
           "queryable": true,
@@ -204513,8 +204534,8 @@
         },
         {
           "name": "github.com/grafana/alerting",
-          "version": "v0.0.0-20260624092630-e3cde2289ada",
-          "purl": "pkg:golang/github.com/grafana/alerting@v0.0.0-20260624092630-e3cde2289ada",
+          "version": "v0.0.0-20260707141535-ae0e826355dd",
+          "purl": "pkg:golang/github.com/grafana/alerting@v0.0.0-20260707141535-ae0e826355dd",
           "ecosystem": "Go",
           "query_name": "github.com/grafana/alerting",
           "queryable": true,
@@ -204568,8 +204589,8 @@
         },
         {
           "name": "github.com/grafana/cog",
-          "version": "v0.1.17",
-          "purl": "pkg:golang/github.com/grafana/cog@v0.1.17",
+          "version": "v0.1.22",
+          "purl": "pkg:golang/github.com/grafana/cog@v0.1.22",
           "ecosystem": "Go",
           "query_name": "github.com/grafana/cog",
           "queryable": true,
@@ -204854,8 +204875,8 @@
         },
         {
           "name": "github.com/grafana/loki/v3",
-          "version": "v3.7.2",
-          "purl": "pkg:golang/github.com/grafana/loki/v3@v3.7.2",
+          "version": "v3.7.3",
+          "purl": "pkg:golang/github.com/grafana/loki/v3@v3.7.3",
           "ecosystem": "Go",
           "query_name": "github.com/grafana/loki/v3",
           "queryable": true,
@@ -204865,8 +204886,8 @@
         },
         {
           "name": "github.com/grafana/nanogit",
-          "version": "v1.2.0",
-          "purl": "pkg:golang/github.com/grafana/nanogit@v1.2.0",
+          "version": "v1.4.0",
+          "purl": "pkg:golang/github.com/grafana/nanogit@v1.4.0",
           "ecosystem": "Go",
           "query_name": "github.com/grafana/nanogit",
           "queryable": true,
@@ -204876,8 +204897,8 @@
         },
         {
           "name": "github.com/grafana/nanogit/gittest",
-          "version": "v1.2.0",
-          "purl": "pkg:golang/github.com/grafana/nanogit/gittest@v1.2.0",
+          "version": "v1.4.0",
+          "purl": "pkg:golang/github.com/grafana/nanogit/gittest@v1.4.0",
           "ecosystem": "Go",
           "query_name": "github.com/grafana/nanogit/gittest",
           "queryable": true,
@@ -207747,10 +207768,8 @@
           "query_name": "github.com/prometheus/prometheus",
           "queryable": true,
           "query_reason": "",
-          "vulnerability_ids": [
-            "GO-2026-5662"
-          ],
-          "vulnerability_count": 1
+          "vulnerability_ids": [],
+          "vulnerability_count": 0
         },
         {
           "name": "github.com/prometheus/sigv4",
@@ -209023,17 +209042,6 @@
           "purl": "pkg:golang/github.com/yagipy/maintidx@v1.0.0",
           "ecosystem": "Go",
           "query_name": "github.com/yagipy/maintidx",
-          "queryable": true,
-          "query_reason": "",
-          "vulnerability_ids": [],
-          "vulnerability_count": 0
-        },
-        {
-          "name": "github.com/yalue/merged_fs",
-          "version": "v1.3.0",
-          "purl": "pkg:golang/github.com/yalue/merged_fs@v1.3.0",
-          "ecosystem": "Go",
-          "query_name": "github.com/yalue/merged_fs",
           "queryable": true,
           "query_reason": "",
           "vulnerability_ids": [],
@@ -224029,8 +224037,8 @@
         },
         {
           "name": "baseline-browser-mapping",
-          "version": "2.9.19",
-          "purl": "pkg:npm/baseline-browser-mapping@2.9.19",
+          "version": "2.10.42",
+          "purl": "pkg:npm/baseline-browser-mapping@2.10.42",
           "ecosystem": "npm",
           "query_name": "baseline-browser-mapping",
           "queryable": true,
@@ -224524,8 +224532,8 @@
         },
         {
           "name": "caniuse-lite",
-          "version": "1.0.30001769",
-          "purl": "pkg:npm/caniuse-lite@1.0.30001769",
+          "version": "1.0.30001800",
+          "purl": "pkg:npm/caniuse-lite@1.0.30001800",
           "ecosystem": "npm",
           "query_name": "caniuse-lite",
           "queryable": true,
@@ -227599,6 +227607,17 @@
             "GHSA-x4vx-rjvf-j5p4"
           ],
           "vulnerability_count": 8
+        },
+        {
+          "name": "dompurify",
+          "version": "3.4.11",
+          "purl": "pkg:npm/dompurify@3.4.11",
+          "ecosystem": "npm",
+          "query_name": "dompurify",
+          "queryable": true,
+          "query_reason": "",
+          "vulnerability_ids": [],
+          "vulnerability_count": 0
         },
         {
           "name": "dompurify",
@@ -231304,8 +231323,8 @@
         },
         {
           "name": "i18next",
-          "version": "25.6.2",
-          "purl": "pkg:npm/i18next@25.6.2",
+          "version": "25.10.10",
+          "purl": "pkg:npm/i18next@25.10.10",
           "ecosystem": "npm",
           "query_name": "i18next",
           "queryable": true,
@@ -231315,8 +231334,8 @@
         },
         {
           "name": "i18next",
-          "version": "^25.0.0",
-          "purl": "pkg:npm/i18next@%5E25.0.0",
+          "version": "^25.10.9",
+          "purl": "pkg:npm/i18next@%5E25.10.9",
           "ecosystem": "npm",
           "query_name": "i18next",
           "queryable": true,
@@ -240293,8 +240312,8 @@
         },
         {
           "name": "react-i18next",
-          "version": "15.6.1",
-          "purl": "pkg:npm/react-i18next@15.6.1",
+          "version": "16.6.6",
+          "purl": "pkg:npm/react-i18next@16.6.6",
           "ecosystem": "npm",
           "query_name": "react-i18next",
           "queryable": true,
@@ -240315,8 +240334,8 @@
         },
         {
           "name": "react-i18next",
-          "version": "^15.0.0",
-          "purl": "pkg:npm/react-i18next@%5E15.0.0",
+          "version": "^16.6.6",
+          "purl": "pkg:npm/react-i18next@%5E16.6.6",
           "ecosystem": "npm",
           "query_name": "react-i18next",
           "queryable": true,
@@ -247717,7 +247736,7 @@
           ],
           "severity": "HIGH",
           "published": "2026-03-27T00:31:20Z",
-          "modified": "2026-06-25T19:56:13.762384867Z",
+          "modified": "2026-07-09T12:44:26.787291120Z",
           "error": ""
         },
         {
@@ -248125,7 +248144,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:46:43Z",
-          "modified": "2026-07-08T10:44:27.069811889Z",
+          "modified": "2026-07-09T10:44:32.122115803Z",
           "error": ""
         },
         {
@@ -248159,7 +248178,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:46:43Z",
-          "modified": "2026-07-02T10:44:28.815339479Z",
+          "modified": "2026-07-09T10:44:31.952177221Z",
           "error": ""
         },
         {
@@ -248170,7 +248189,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:46:43Z",
-          "modified": "2026-05-30T05:14:17.711727465Z",
+          "modified": "2026-07-09T10:44:32.617262622Z",
           "error": ""
         },
         {
@@ -248182,7 +248201,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-06-25T18:43:19Z",
-          "modified": "2026-06-25T19:45:34.281321223Z",
+          "modified": "2026-07-09T12:44:26.870919557Z",
           "error": ""
         },
         {
@@ -248195,19 +248214,6 @@
           "severity": "UNKNOWN",
           "published": "2026-06-25T22:34:34Z",
           "modified": "2026-07-08T15:29:23.719271975Z",
-          "error": ""
-        },
-        {
-          "id": "GO-2026-5662",
-          "summary": "Prometheus has Stored XSS via metric names and label values in Prometheus web UI tooltips and metrics explorer in github.com/prometheus/prometheus",
-          "aliases": [
-            "BIT-prometheus-2026-40179",
-            "CVE-2026-40179",
-            "GHSA-vffh-x6r8-xx99"
-          ],
-          "severity": "UNKNOWN",
-          "published": "2026-06-25T22:34:38Z",
-          "modified": "2026-06-26T15:44:22.923971176Z",
           "error": ""
         },
         {
@@ -251803,7 +251809,7 @@
           ],
           "severity": "MEDIUM",
           "published": "2026-06-04T13:15:17Z",
-          "modified": "2026-06-13T03:29:14.608135711Z",
+          "modified": "2026-07-08T17:45:16.754082328Z",
           "error": ""
         },
         {
@@ -253316,7 +253322,7 @@
           ],
           "severity": "MEDIUM",
           "published": "2026-06-04T13:15:17Z",
-          "modified": "2026-06-13T03:29:14.608135711Z",
+          "modified": "2026-07-08T17:45:16.754082328Z",
           "error": ""
         },
         {
@@ -254197,7 +254203,7 @@
           ],
           "severity": "MEDIUM",
           "published": "2026-06-04T13:15:17Z",
-          "modified": "2026-06-13T03:29:14.608135711Z",
+          "modified": "2026-07-08T17:45:16.754082328Z",
           "error": ""
         },
         {
@@ -256559,8 +256565,8 @@
         },
         {
           "name": "aws-partitions",
-          "version": "1.1262.0",
-          "purl": "pkg:gem/aws-partitions@1.1262.0",
+          "version": "1.1263.0",
+          "purl": "pkg:gem/aws-partitions@1.1263.0",
           "ecosystem": "RubyGems",
           "query_name": "aws-partitions",
           "queryable": true,
@@ -257131,8 +257137,8 @@
         },
         {
           "name": "fugit",
-          "version": "1.12.2",
-          "purl": "pkg:gem/fugit@1.12.2",
+          "version": "1.12.3",
+          "purl": "pkg:gem/fugit@1.12.3",
           "ecosystem": "RubyGems",
           "query_name": "fugit",
           "queryable": true,
@@ -257582,8 +257588,8 @@
         },
         {
           "name": "mail",
-          "version": "2.9.0",
-          "purl": "pkg:gem/mail@2.9.0",
+          "version": "2.9.1",
+          "purl": "pkg:gem/mail@2.9.1",
           "ecosystem": "RubyGems",
           "query_name": "mail",
           "queryable": true,
@@ -258396,8 +258402,8 @@
         },
         {
           "name": "rubocop",
-          "version": "1.88.0",
-          "purl": "pkg:gem/rubocop@1.88.0",
+          "version": "1.88.1",
+          "purl": "pkg:gem/rubocop@1.88.1",
           "ecosystem": "RubyGems",
           "query_name": "rubocop",
           "queryable": true,
@@ -266463,7 +266469,7 @@
         },
         {
           "name": "chirpstack_api",
-          "version": ">= 4.19.0-test.6,< 5.0.0",
+          "version": ">= 4.19.0,< 5.0.0",
           "purl": "pkg:cargo/chirpstack_api",
           "ecosystem": "crates.io",
           "query_name": "chirpstack_api",
@@ -279196,7 +279202,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:46:43Z",
-          "modified": "2026-07-08T10:44:27.069811889Z",
+          "modified": "2026-07-09T10:44:32.122115803Z",
           "error": ""
         },
         {
@@ -279230,7 +279236,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:46:43Z",
-          "modified": "2026-07-02T10:44:28.815339479Z",
+          "modified": "2026-07-09T10:44:31.952177221Z",
           "error": ""
         },
         {
@@ -279241,7 +279247,7 @@
           ],
           "severity": "UNKNOWN",
           "published": "2026-05-22T02:46:43Z",
-          "modified": "2026-05-30T05:14:17.711727465Z",
+          "modified": "2026-07-09T10:44:32.617262622Z",
           "error": ""
         },
         {

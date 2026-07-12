@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T17:57:28.761896+00:00",
+  "generated_at": "2026-07-09T16:21:50.787866+00:00",
   "source": "CISA Known Exploited Vulnerabilities Catalog",
   "catalog_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
   "analysis": {
@@ -32342,6 +32342,27 @@
       ],
       "affected_repos_count": 1
     },
+    "GHSA-jhq6-gfmj-v8fx": {
+      "id": "GHSA-jhq6-gfmj-v8fx",
+      "summary": "Logback vulnerable to Object Injection through HardenedObjectInputStream modules",
+      "severity": "LOW",
+      "aliases": [
+        "CVE-2026-10532"
+      ],
+      "is_exploitable": false,
+      "kev_data": null,
+      "matched_cve": null,
+      "affected_repos": [
+        {
+          "repo_url": "https://github.com/thingsboard/thingsboard",
+          "owner": "thingsboard",
+          "repo_name": "thingsboard",
+          "display_name": "Thingsboard",
+          "category": "Edge and Gateway software"
+        }
+      ],
+      "affected_repos_count": 1
+    },
     "GHSA-jm77-qphf-c4w8": {
       "id": "GHSA-jm77-qphf-c4w8",
       "summary": "pyca/cryptography's wheels include vulnerable OpenSSL",
@@ -39401,29 +39422,6 @@
       "aliases": [
         "CVE-2026-21728",
         "GHSA-p4r4-xvrq-gvmc"
-      ],
-      "is_exploitable": false,
-      "kev_data": null,
-      "matched_cve": null,
-      "affected_repos": [
-        {
-          "repo_url": "https://github.com/grafana/grafana",
-          "owner": "grafana",
-          "repo_name": "grafana",
-          "display_name": "Grafana",
-          "category": "Cloud-hosted backends and dashboard"
-        }
-      ],
-      "affected_repos_count": 1
-    },
-    "GO-2026-5662": {
-      "id": "GO-2026-5662",
-      "summary": "Prometheus has Stored XSS via metric names and label values in Prometheus web UI tooltips and metrics explorer in github.com/prometheus/prometheus",
-      "severity": "UNKNOWN",
-      "aliases": [
-        "BIT-prometheus-2026-40179",
-        "CVE-2026-40179",
-        "GHSA-vffh-x6r8-xx99"
       ],
       "is_exploitable": false,
       "kev_data": null,

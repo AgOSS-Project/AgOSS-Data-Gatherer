@@ -1,10 +1,10 @@
 {
-  "run_start": "2026-07-08T17:57:28.217693+00:00",
-  "run_end": "2026-07-08T23:23:49.423815+00:00",
+  "run_start": "2026-07-09T16:21:50.263434+00:00",
+  "run_end": "2026-07-09T22:21:26.485181+00:00",
   "total_repos": 66,
-  "scorecard_success": 43,
-  "scorecard_partial": 15,
-  "scorecard_fail": 8,
+  "scorecard_success": 48,
+  "scorecard_partial": 18,
+  "scorecard_fail": 0,
   "github_metrics_success": 66,
   "github_metrics_fail": 0,
   "categories": [
