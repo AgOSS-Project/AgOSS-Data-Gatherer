@@ -9,9 +9,9 @@ control_candidates.json for later triage (triage.py) + human review
 (review.html).
 
 Usage:
-    python control-search/control_search.py
-    python control-search/control_search.py --sort stars -n 100
-    python control-search/control_search.py --output path/to/output.json
+    python control_search/control_search.py
+    python control_search/control_search.py --sort stars -n 100
+    python control_search/control_search.py --output path/to/output.json
 """
 
 from __future__ import annotations
@@ -87,7 +87,7 @@ RUBY_KEYWORDS = [
     "\"subscription management\" language:ruby",
 ]
 
-# ag-oss-search's own search keywords (ag-oss-search/agoss_search.py::KEYWORDS,
+# ag_oss_search's own search keywords (ag_oss_search/agoss_search.py::KEYWORDS,
 # used to build the original 54-repo AgOSS dataset). Any control candidate
 # tagged with one of these as an actual GitHub topic was very likely also
 # directly discoverable by that tool, so it's excluded by exact topic match —
@@ -466,7 +466,7 @@ def run(
         encoding="utf-8",
     )
 
-    # JS sidecar consumed by control-search/review.html (works on file:// without
+    # JS sidecar consumed by control_search/review.html (works on file:// without
     # a server) -- named after output_path's own stem so the expansion wave gets
     # its own sidecar (control_candidates_expansion_data.js) instead of
     # overwriting the original wave's (control_candidates_data.js).

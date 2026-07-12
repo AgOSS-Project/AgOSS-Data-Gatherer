@@ -29,8 +29,8 @@ review step itself or write control_pool_reviewed.json -- that still only
 happens via a human exporting from review.html.
 
 Usage:
-    python control-search/prepare_ruby_pool.py
-    python control-search/prepare_ruby_pool.py --sort stars -n 30
+    python control_search/prepare_ruby_pool.py
+    python control_search/prepare_ruby_pool.py --sort stars -n 30
 """
 
 from __future__ import annotations
@@ -118,12 +118,12 @@ def run(*, sort: str = "best-match", top_n: int = RUBY_DEFAULT_N) -> None:
     build_control_pool.write_reviewed_sidecar()
 
     logger.info(
-        "[prepare_ruby_pool] Done. Open control-search/review.html in a browser -- "
+        "[prepare_ruby_pool] Done. Open control_search/review.html in a browser -- "
         "it will show the original wave's candidates first, then expansion, then "
         "ruby, appended in that order, with anything already in "
         "control_pool_reviewed.json pre-checked. Review, then click 'Export "
         "reviewed pool ↓' and save the download as "
-        "control-search/control_pool_reviewed.json (same filename as before -- this "
+        "control_search/control_pool_reviewed.json (same filename as before -- this "
         "supersedes it with your prior decisions preserved plus the new ones)."
     )
 

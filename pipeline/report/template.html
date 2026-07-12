@@ -55,7 +55,7 @@
         <h3 style="margin:0;">Metric Correlation Matrix (Spearman r)</h3>
         <button type="button" id="corrMatrixDownloadBtn" class="chart-action-btn" style="flex-shrink:0;">Download</button>
       </div>
-      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">Upper triangle. * p&lt;0.05, ** p&lt;0.01. Color: blue = negative, red = positive.</p>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">Upper triangle. * = significant after Benjamini-Hochberg FDR correction (applied once across all 45 unique pairs in this matrix — see cell tooltips for both raw p and FDR-adjusted p). Color: blue = negative, red = positive.</p>
       <div id="corrMatrixTable" style="overflow-x:auto;"></div>
     </div>
   </div>
@@ -135,17 +135,29 @@
     </div>
     <div id="mwTestPanel" style="margin-top:2rem;">
       <h3 style="margin-bottom:1rem;">Statistical Comparison — Ag-Specific vs Non-Ag-Specific</h3>
-      <p style="font-size:.85rem;color:#64748b;margin-bottom:.75rem;">Mann-Whitney U test (two-sided). Effect size = rank-biserial r. No multiple-comparison correction applied.</p>
+      <p style="font-size:.85rem;color:#64748b;margin-bottom:.75rem;">
+        Mann-Whitney U test (two-sided). Effect size = rank-biserial r. "Significant?" uses
+        Benjamini-Hochberg FDR correction applied across all comparisons in this table (raw p-value
+        also shown). <strong>This is the naive, unmatched comparison</strong> — the Non-Ag group is a
+        small, scale-mismatched convenience sample (see the Matched Comparison tab for the
+        confound-controlled version before drawing conclusions from this table alone).
+        <strong>MDE, not Achieved Power, is the metric to read</strong> for whether a non-significant
+        result reflects a real null or just an underpowered sample — achieved/retrospective power is a
+        near-deterministic function of the p-value already shown (a small observed effect always looks
+        "low power" in retrospect) and is widely regarded as uninformative on its own; it's shown for
+        completeness only. See Hoenig &amp; Heisey (2001), "The Abuse of Power."
+      </p>
       <div class="chart-card" style="margin-bottom:1.5rem;" id="mwEffectSizesCard">
         <h3>Effect Sizes — Significant Comparisons (Ag vs Non-Ag)</h3>
-        <p style="font-size:.8rem;color:#64748b;margin-bottom:.5rem;">Rank-biserial r for significant comparisons only (α = 0.05), sorted by magnitude. Positive r = Ag-specific repos rank higher.</p>
+        <p style="font-size:.8rem;color:#64748b;margin-bottom:.5rem;">Rank-biserial r for FDR-significant comparisons only, sorted by magnitude. Positive r = Ag-specific repos rank higher.</p>
         <canvas id="chartMWEffectSizes" style="max-height:260px;"></canvas>
       </div>
       <div class="table-wrap">
         <table id="mwTable">
           <thead><tr>
             <th>Metric</th><th>n (Ag)</th><th>n (Non-Ag)</th><th>MW U</th>
-            <th>p-value</th><th>Effect r</th><th>Magnitude</th><th>Significant?</th>
+            <th>p-value</th><th>p_adj (FDR)</th><th>Effect r</th><th>Magnitude</th>
+            <th>Significant?</th><th>MDE (r, 80% power)</th><th>Achieved Power</th>
           </tr></thead>
           <tbody id="mwBody"></tbody>
         </table>
@@ -240,8 +252,45 @@
     </div>
     <div id="kwSection" style="margin-top:2rem;display:none;">
       <h3 style="margin-bottom:.5rem;">Kruskal-Wallis Test across Categories</h3>
-      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">Non-parametric one-way test. Dunn's post-hoc with Bonferroni correction. * p_adj &lt; 0.05.</p>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">Non-parametric one-way test. Dunn's post-hoc with Bonferroni correction. * p_adj &lt; 0.05. MDE / Achieved power use Noether's (1987) approximation for Wilcoxon-Mann-Whitney, applied to each Dunn pair at its actual n and Bonferroni-adjusted alpha — indicative at these small category sizes, not exact. Prefer MDE over Achieved Power: retrospective power is a near-deterministic function of the p-value already shown and is widely regarded as uninformative on its own (Hoenig &amp; Heisey 2001).</p>
       <div id="kwContent"></div>
+    </div>
+
+    <div id="kwChecksSection" style="margin-top:2rem;display:none;">
+      <h3 style="margin-bottom:.5rem;">Per-Check Comparison Across Categories</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;max-width:900px;">
+        Same Kruskal-Wallis + Dunn test as above, repeated per individual Scorecard check instead of only
+        the aggregate score — answers "which specific security practice differs by stack layer," not just
+        whether the overall score does. BH-FDR corrected as its own family, separate from the aggregate-metric
+        battery above. Rows are sorted by FDR-adjusted p-value; only checks with at least 2 categories having
+        data are shown.
+      </p>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;">
+        <table id="kwChecksTable">
+          <thead><tr>
+            <th>Check</th><th>H</th><th>p</th><th>p_adj (FDR)</th><th>Significant?</th>
+          </tr></thead>
+          <tbody id="kwChecksBody"></tbody>
+        </table>
+      </div>
+      <p style="font-size:.78rem;color:#64748b;margin:.5rem 0;">Click a row to expand its Dunn post-hoc pairwise breakdown.</p>
+      <div id="kwChecksDunnDetail"></div>
+    </div>
+
+    <div id="jointModelSection" style="margin-top:2rem;display:none;">
+      <h3 style="margin-bottom:.5rem;">Joint Regression Model</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;max-width:900px;" id="jointModelIntro">
+        The Mann-Whitney/Kruskal-Wallis tests above test category and ag-specificity separately. Category and
+        ag_specific overlap in this dataset (some categories have zero non-ag members), so this model fits
+        each outcome on category, ag_specific, and scale (log stars, log contributors) simultaneously via
+        ordinary least squares — each coefficient is the partial effect holding the others fixed. Standard
+        errors use the HC3 heteroskedasticity-robust estimator (not classical/homoskedastic SEs) since GitHub
+        activity and security metrics are essentially guaranteed to be heteroskedastic even after the log1p
+        transforms applied here — coefficients and R&sup2; are unaffected by this choice, only the
+        SE/t/p-values are. Check the VIF column before trusting an individual coefficient: VIF &gt; 5 flags
+        collinearity that makes that term's estimate unstable.
+      </p>
+      <div id="jointModelContent"></div>
     </div>
   </div>
 
@@ -282,6 +331,24 @@
       </table>
     </div>
 
+    <h3 style="margin:1.5rem 0 .5rem;">Collection Completeness by Stack Layer (Category)</h3>
+    <p style="font-size:.85rem;color:#64748b;margin-bottom:.75rem;max-width:900px;">
+      Same check, broken down by category — dependency-graph failures in this dataset are concentrated
+      in specific layers and skew toward smaller/lower-visibility repos (see median stars columns), so
+      <code>vuln_count</code>/<code>vuln_density</code> comparisons for the worst-affected categories run
+      on a smaller and systematically different subsample than their repo count suggests.
+    </p>
+    <div class="table-wrap" style="padding-left:0;padding-right:0;margin-bottom:1.5rem;">
+      <table id="completenessByCategoryTable">
+        <thead><tr>
+          <th>Category</th><th>Repos</th>
+          <th>Dependency Success</th><th>Dependency Failed</th>
+          <th>Median Stars (Dep Success)</th><th>Median Stars (Dep Failed)</th>
+        </tr></thead>
+        <tbody id="completenessByCategoryBody"></tbody>
+      </table>
+    </div>
+
     <div class="chart-grid">
       <div class="chart-card"><h3>Scorecard Status Breakdown</h3><canvas id="chartSCStatus"></canvas></div>
       <div class="chart-card"><h3>GitHub Metrics Status Breakdown</h3><canvas id="chartAGStatus"></canvas></div>
@@ -303,22 +370,22 @@
     <div class="cards" id="matchedCards"></div>
     <div id="matchedEmpty" style="display:none;padding:2rem;text-align:center;color:#64748b;max-width:700px;margin:0 auto;">
       Matched-comparison data not available yet. This analysis requires a human-reviewed
-      control pool before it will run: 1) <code>python control-search/control_search.py</code>,
-      2) <code>python control-search/triage.py</code>, 3) open <code>control-search/review.html</code>,
+      control pool before it will run: 1) <code>python control_search/control_search.py</code>,
+      2) <code>python control_search/triage.py</code>, 3) open <code>control_search/review.html</code>,
       review the candidates, and export the reviewed pool to
-      <code>control-search/control_pool_reviewed.json</code>. Once that file exists,
-      <code>python main.py</code> (or <code>python control-search/run_matched_comparison.py</code>)
+      <code>control_search/control_pool_reviewed.json</code>. Once that file exists,
+      <code>python main.py</code> (or <code>python control_search/run_matched_comparison.py</code>)
       will run the analysis automatically.
     </div>
     <div id="matchedContent" style="display:none;">
       <h3 style="margin:1rem 0 .5rem;">Naive vs. Matched Comparison</h3>
       <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
-        The Ag-Specific tab's Mann-Whitney test compares the 43 ag-specific repos against only the 11
-        non-ag repos already in this dataset (mostly large, mature infrastructure — a confounded
-        baseline). This table places that "naive" comparison side-by-side with the matched comparison
-        (the same 43 repos vs. their Mahalanobis-matched controls from the external non-ag-critical
-        pool) so you can see directly whether controlling for size/age/activity/ecosystem changes the
-        conclusion, for every metric available in both.
+        The Ag-Specific tab's Mann-Whitney test compares the <span id="nvmAgCount">ag-specific</span> repos
+        against only the <span id="nvmNonAgCount">non-ag</span> repos already in this dataset (mostly large,
+        mature infrastructure — a confounded baseline). This table places that "naive" comparison
+        side-by-side with the matched comparison (the same ag-specific repos vs. their Mahalanobis-matched
+        controls from the external non-ag-critical pool) so you can see directly whether controlling for
+        size/age/activity/ecosystem changes the conclusion, for every metric available in both.
       </p>
       <div id="naiveVsMatchedEmpty" style="display:none;color:#64748b;font-size:.85rem;margin-bottom:1rem;">
         Naive comparison data not available (statistical_analysis.json not loaded).
@@ -327,9 +394,9 @@
         <table id="naiveVsMatchedTable">
           <thead><tr>
             <th>Metric</th>
-            <th>Naive Effect r<br><span style="font-weight:400;color:#94a3b8;">(43 vs 11 corpus)</span></th>
+            <th>Naive Effect r<br><span id="nvmNaiveCorpusLabel" style="font-weight:400;color:#94a3b8;">(dataset corpus)</span></th>
             <th>Naive Sig?</th>
-            <th>Matched Effect r<br><span style="font-weight:400;color:#94a3b8;">(43 vs external pool)</span></th>
+            <th>Matched Effect r<br><span id="nvmMatchedCorpusLabel" style="font-weight:400;color:#94a3b8;">(vs external pool)</span></th>
             <th>Matched Sig?</th>
             <th>Direction</th>
           </tr></thead>
@@ -343,7 +410,7 @@
         resolved pool used for matching.
       </p>
       <div id="poolConstructionEmpty" style="display:none;color:#64748b;font-size:.85rem;margin-bottom:1rem;">
-        Pool construction provenance not available (control-search/control_candidates.json not found).
+        Pool construction provenance not available (control_search/control_candidates.json not found).
       </div>
       <div id="poolConstructionContent" style="margin-bottom:1.5rem;">
         <div class="funnel-stage">
@@ -371,7 +438,7 @@
 
       <div class="filter-bar">
         <select id="matchedGroupSelect">
-          <option value="all">All 54 Repos</option>
+          <option value="all" id="matchedGroupAllOption">All Repos</option>
           <option value="ag_specific">Ag-Specific Only</option>
           <option value="non_ag_specific">Not Ag-Specific Only</option>
         </select>
@@ -393,13 +460,15 @@
         </table>
       </div>
 
-      <h3 style="margin:1.5rem 0 .5rem;">Covariate Balance — Love Plot</h3>
-      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
-        Standardized mean difference (SMD) per covariate, before vs after matching. Dashed lines mark the
-        ±0.1 (well-balanced) and ±0.25 (imbalanced) conventions. Points closer to 0 — and "after" points
-        closer to 0 than "before" — indicate better-balanced matching.
-      </p>
-      <div class="chart-card" style="margin-bottom:1.5rem;"><canvas id="chartLovePlot" style="max-height:340px;"></canvas></div>
+      <div class="chart-card" style="margin-bottom:1.5rem;">
+        <h3>Covariate Balance — Love Plot</h3>
+        <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
+          Standardized mean difference (SMD) per covariate, before vs after matching. Dashed lines mark the
+          ±0.1 (well-balanced) and ±0.25 (imbalanced) conventions. Points closer to 0 — and "after" points
+          closer to 0 than "before" — indicate better-balanced matching.
+        </p>
+        <canvas id="chartLovePlot" style="max-height:340px;"></canvas>
+      </div>
 
       <h3 style="margin:1.5rem 0 .5rem;">Covariate Balance (Standardized Mean Difference)</h3>
       <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;">
@@ -477,11 +546,11 @@
       <h3 style="margin:1.5rem 0 .5rem;">Robustness — Does the Conclusion Depend on These Specific Choices?</h3>
       <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;max-width:900px;">
         These tables use the same random-matching secondary check as above (not the deterministic primary
-        estimate) to see whether the headline metrics (all-54 group only) hold up across k=1/3/5 and a
+        estimate) to see whether the headline metrics (all-repos group only) hold up across k=1/3/5 and a
         tighter/looser caliper — i.e. whether the conclusion is an artifact of one arbitrary
         specification, or of always picking the single best-available control. Median Δ direction and
         rough magnitude should stay stable across rows. For every metric and every group (not just
-        headline metrics on all-54), use the k selector above instead — it switches the full Matching
+        headline metrics on all repos), use the k selector above instead — it switches the full Matching
         Quality, Effects, Forest Plot, and Seed Stability sections between k values instantly.
       </p>
       <h4 style="margin:1rem 0 .5rem;font-size:.9rem;">By k (controls per repo)</h4>
@@ -1357,6 +1426,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     scorecard_overall: 'SC Score', contributor_count: 'Contributors', commit_count: 'Commits',
     issues_opened: 'Issues Open', issues_closed: 'Issues Closed', prs_merged: 'PRs Merged',
     vuln_count: 'Vuln Count', vuln_density: 'Vuln Density', stars_count: 'Stars',
+    kev_exploitable_count: 'KEV Exploitable',
   };
   if (corrMatrix && corrMetrics.length > 0) {
     // Only include metrics that have at least one valid (non-null) Spearman r with another metric.
@@ -1381,11 +1451,14 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
             const d = corrMatrix[m1] && corrMatrix[m1][m2];
             if (!d || d.spearman_r == null) return `<td style="background:#f8fafc;text-align:center;font-size:.72rem;">n/a</td>`;
             const r = d.spearman_r;
-            const sig = d.p_value < 0.01 ? '**' : d.p_value < 0.05 ? '*' : '';
+            // * = FDR-significant (BH-corrected across all 45 unique pairs in this
+            // matrix), not raw p<0.05 -- see corrMatrixSection intro for why.
+            const sig = d.significant_fdr ? '*' : '';
             const hue = r >= 0 ? Math.round(r * 15) : 240 + Math.round(r * 60);
             const sat = Math.round(Math.abs(r) * 70);
             const bg = `hsl(${hue},${sat}%,${Math.round(90 - Math.abs(r) * 30)}%)`;
-            return `<td style="background:${bg};text-align:center;padding:3px 5px;font-size:.72rem;" title="${esc(coreMetricLabels[m1]||m1)} vs ${esc(coreMetricLabels[m2]||m2)}: r=${r.toFixed(3)}, p=${d.p_value?.toFixed(4)}">${r.toFixed(2)}${sig}</td>`;
+            const pFdrStr = d.p_adjusted_fdr != null ? d.p_adjusted_fdr.toFixed(4) : 'n/a';
+            return `<td style="background:${bg};text-align:center;padding:3px 5px;font-size:.72rem;" title="${esc(coreMetricLabels[m1]||m1)} vs ${esc(coreMetricLabels[m2]||m2)}: r=${r.toFixed(3)}, p=${d.p_value?.toFixed(4)}, p_adj (FDR)=${pFdrStr}">${r.toFixed(2)}${sig}</td>`;
           }).join('');
           return `<tr><td style="font-size:.72rem;padding:3px 6px;white-space:nowrap;">${esc(coreMetricLabels[m1]||m1)}</td>${cells}</tr>`;
         }).join('');
@@ -1444,7 +1517,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
                     cx.fillText('n/a', x + cellSize / 2, y + cellSize / 2 + 4);
                   } else {
                     const r = d.spearman_r;
-                    const sig = d.p_value < 0.01 ? '**' : d.p_value < 0.05 ? '*' : '';
+                    const sig = d.significant_fdr ? '*' : '';
                     const hue = r >= 0 ? Math.round(r * 15) : 240 + Math.round(r * 60);
                     const sat = Math.round(Math.abs(r) * 70);
                     cx.fillStyle = `hsl(${hue},${sat}%,${Math.round(90 - Math.abs(r) * 30)}%)`;
@@ -1773,6 +1846,7 @@ renderCategories();
     prs_merged: 'PRs Merged',
     vuln_count: 'Vulnerability Count',
     vuln_density: 'Vuln Density',
+    kev_exploitable_count: 'KEV Exploitable Count',
   };
   let html = '';
 
@@ -1788,20 +1862,42 @@ renderCategories();
 
     const dunn = result.dunn_posthoc || {};
     if (Object.keys(dunn).length > 0) {
+      // A pair only counts as significant here if BOTH the pairwise Dunn test
+      // (Bonferroni-adjusted) AND the parent Kruskal-Wallis omnibus test
+      // (BH-FDR-adjusted) are significant. Standard practice gates post-hoc
+      // interpretation on a significant omnibus result; showing "Yes *" for a
+      // pair whose omnibus test didn't survive FDR correction overstates how
+      // much support the pairwise difference actually has.
+      const anyRawSigWithoutOmnibus = !result.significant_fdr
+        && Object.values(dunn).some(d => d.significant);
+      if (anyRawSigWithoutOmnibus) {
+        html += `<p style="font-size:.78rem;color:#b45309;background:#fffbeb;padding:.5rem .75rem;border-radius:4px;margin-bottom:.5rem;">
+          The omnibus Kruskal-Wallis test for this metric is not significant after FDR correction
+          (p_adj (FDR) shown above). The pairwise comparisons below are shown for completeness but
+          should be read as exploratory, not confirmatory — none are marked significant.
+        </p>`;
+      }
       html += `<div style="overflow-x:auto;"><table style="width:100%;font-size:.8rem;border-collapse:collapse;">
         <thead><tr style="border-bottom:2px solid #e2e8f0;">
           <th style="padding:.4rem .6rem;text-align:left;">Pair</th>
           <th style="padding:.4rem .6rem;">Z</th>
           <th style="padding:.4rem .6rem;">p_adj (Bonferroni)</th>
           <th style="padding:.4rem .6rem;">Significant?</th>
+          <th style="padding:.4rem .6rem;">MDE (r, 80% power)</th>
+          <th style="padding:.4rem .6rem;">Achieved Power</th>
         </tr></thead><tbody>`;
       for (const [pair, d] of Object.entries(dunn)) {
-        const rowBg = d.significant ? sigBg : '';
+        const pairSig = !!(d.significant && result.significant_fdr);
+        const rowBg = pairSig ? sigBg : '';
+        const powerStr = d.power != null ? fmt(d.power, 2) : '—';
+        const mdeStr = d.mde_r_80 != null ? fmt(d.mde_r_80, 3) : '—';
         html += `<tr style="border-bottom:1px solid #f1f5f9;background:${rowBg}">
           <td style="padding:.35rem .6rem;font-size:.78rem;">${esc(pair)}</td>
           <td style="padding:.35rem .6rem;text-align:center;">${fmt(d.Z, 3)}</td>
           <td style="padding:.35rem .6rem;text-align:center;">${d.p_adj < 0.001 ? '<0.001' : fmt(d.p_adj, 4)}</td>
-          <td style="padding:.35rem .6rem;text-align:center;">${d.significant ? 'Yes *' : 'No'}</td>
+          <td style="padding:.35rem .6rem;text-align:center;">${pairSig ? 'Yes *' : 'No'}</td>
+          <td style="padding:.35rem .6rem;text-align:center;" title="Minimum rank-biserial |r| detectable at 80% power for this pair's actual n, alpha Bonferroni-adjusted. Prefer this over Achieved Power for judging whether a non-significant pair is a true null or just underpowered.">${mdeStr}</td>
+          <td style="padding:.35rem .6rem;text-align:center;" title="Retrospective/observed power at this pair's actual n and observed effect, alpha Bonferroni-adjusted (Noether 1987 approximation). Shown for completeness -- as a near-deterministic function of the p-value already in this row, it's widely regarded as uninformative on its own (Hoenig &amp; Heisey 2001). Prefer MDE.">${powerStr}</td>
         </tr>`;
       }
       html += `</tbody></table></div>`;
@@ -1814,6 +1910,151 @@ renderCategories();
   if (html) {
     kwContent.innerHTML = html;
     kwSection.style.display = 'block';
+  }
+})();
+
+// ── Per-check Kruskal-Wallis across categories ──
+(function renderKWChecks() {
+  const kwc = STATS.kruskal_wallis_checks;
+  if (!kwc || !Object.keys(kwc).length) return;
+  const section = document.getElementById('kwChecksSection');
+  const body = document.getElementById('kwChecksBody');
+  const detailEl = document.getElementById('kwChecksDunnDetail');
+  if (!section || !body || !detailEl) return;
+
+  const entries = Object.entries(kwc)
+    .filter(([, r]) => r && r.H != null)
+    .sort((a, b) => (a[1].p_adjusted_fdr ?? 1) - (b[1].p_adjusted_fdr ?? 1));
+  if (!entries.length) return;
+
+  const rowsHtml = entries.map(([metric, r]) => {
+    const checkName = metric.startsWith('check_') ? metric.slice(6) : metric;
+    const pStr = r.p < 0.001 ? '<0.001' : fmt(r.p, 4);
+    const pFdrStr = r.p_adjusted_fdr == null ? '—' : (r.p_adjusted_fdr < 0.001 ? '<0.001' : fmt(r.p_adjusted_fdr, 4));
+    const sigStyle = r.significant_fdr ? 'background:#dcfce7;font-weight:600;' : '';
+    return `<tr style="cursor:pointer;${sigStyle}" data-metric="${esc(metric)}" class="kwCheckRow">
+      <td>${esc(checkName)}</td>
+      <td>${fmt(r.H, 3)}</td>
+      <td>${pStr}</td>
+      <td>${pFdrStr}</td>
+      <td>${r.significant_fdr ? 'Yes *' : 'No'}</td>
+    </tr>`;
+  }).join('');
+  body.innerHTML = rowsHtml;
+  section.style.display = 'block';
+
+  function showDunnDetail(metric) {
+    const r = kwc[metric];
+    const dunn = (r && r.dunn_posthoc) || {};
+    const checkName = metric.startsWith('check_') ? metric.slice(6) : metric;
+    if (!Object.keys(dunn).length) {
+      detailEl.innerHTML = `<p style="font-size:.8rem;color:#64748b;">${esc(checkName)}: fewer than 2 groups with data.</p>`;
+      return;
+    }
+    const anyRawSigWithoutOmnibus = !r.significant_fdr && Object.values(dunn).some(d => d.significant);
+    const caveat = anyRawSigWithoutOmnibus
+      ? `<p style="font-size:.75rem;color:#b45309;background:#fffbeb;padding:.4rem .6rem;border-radius:4px;margin-bottom:.5rem;">Omnibus not FDR-significant for this check — pairwise rows below are exploratory only, none are marked significant.</p>`
+      : '';
+    const rows = Object.entries(dunn).map(([pair, d]) => {
+      const pairSig = !!(d.significant && r.significant_fdr);
+      const rowBg = pairSig ? '#dcfce7' : '';
+      return `<tr style="background:${rowBg}">
+        <td style="padding:.3rem .5rem;">${esc(pair)}</td>
+        <td style="padding:.3rem .5rem;text-align:center;">${fmt(d.Z, 3)}</td>
+        <td style="padding:.3rem .5rem;text-align:center;">${d.p_adj < 0.001 ? '<0.001' : fmt(d.p_adj, 4)}</td>
+        <td style="padding:.3rem .5rem;text-align:center;">${pairSig ? 'Yes *' : 'No'}</td>
+        <td style="padding:.3rem .5rem;text-align:center;" title="Prefer this over Power for judging whether a non-significant pair is a true null or just underpowered.">${d.mde_r_80 != null ? fmt(d.mde_r_80, 3) : '—'}</td>
+        <td style="padding:.3rem .5rem;text-align:center;" title="Retrospective power -- a near-deterministic function of p_adj already shown; widely regarded as uninformative on its own (Hoenig &amp; Heisey 2001). Prefer MDE.">${d.power != null ? fmt(d.power, 2) : '—'}</td>
+      </tr>`;
+    }).join('');
+    detailEl.innerHTML = `<div style="margin-top:.5rem;padding:.75rem;background:#f8fafc;border-radius:6px;">
+      <strong style="font-size:.85rem;">${esc(checkName)} — Dunn post-hoc</strong>
+      ${caveat}
+      <div style="overflow-x:auto;"><table style="width:100%;font-size:.78rem;border-collapse:collapse;margin-top:.4rem;">
+        <thead><tr style="border-bottom:2px solid #e2e8f0;">
+          <th style="padding:.3rem .5rem;text-align:left;">Pair</th><th style="padding:.3rem .5rem;">Z</th>
+          <th style="padding:.3rem .5rem;">p_adj</th><th style="padding:.3rem .5rem;">Sig?</th>
+          <th style="padding:.3rem .5rem;">MDE (r)</th><th style="padding:.3rem .5rem;">Power</th>
+        </tr></thead><tbody>${rows}</tbody></table></div>
+    </div>`;
+  }
+
+  body.querySelectorAll('.kwCheckRow').forEach(row => {
+    row.addEventListener('click', () => showDunnDetail(row.getAttribute('data-metric')));
+  });
+  showDunnDetail(entries[0][0]);
+})();
+
+// ── Joint regression models ──
+(function renderJointModels() {
+  const jm = STATS.joint_models;
+  if (!jm) return;
+  const section = document.getElementById('jointModelSection');
+  const content = document.getElementById('jointModelContent');
+  if (!section || !content) return;
+
+  const outcomeLabels = {
+    scorecard_overall: 'Scorecard Overall (native 0–10 scale)',
+    vuln_count_log1p: 'Vulnerability Count (log1p-transformed outcome)',
+    vuln_density_log1p: 'Vulnerability Density (log1p-transformed outcome)',
+  };
+  const termLabels = (term) => {
+    if (term === 'intercept') return 'Intercept';
+    if (term === 'ag_specific') return 'Ag-Specific (yes vs no)';
+    if (term === 'log_stars') return 'log(Stars)';
+    if (term === 'log_contributor_count') return 'log(Contributors)';
+    const m = term.match(/^category\[(.+)\]$/);
+    return m ? `Category: ${m[1]}` : term;
+  };
+
+  let html = '';
+  let anyModel = false;
+  for (const [outcome, fit] of Object.entries(jm)) {
+    if (!fit) {
+      html += `<div style="margin-bottom:1.5rem;"><h4 style="margin:.5rem 0;">${esc(outcomeLabels[outcome] || outcome)}</h4>
+        <p style="font-size:.8rem;color:#64748b;">Not enough complete cases to fit this model.</p></div>`;
+      continue;
+    }
+    anyModel = true;
+    const rows = fit.coefficients.map(c => {
+      const sig = c.p_value != null && c.p_value < 0.05;
+      const sigFdrNote = c.significant_fdr != null
+        ? ` <span style="color:${c.significant_fdr ? '#16a34a' : '#94a3b8'};font-weight:700;" title="BH-FDR corrected across the ag_specific coefficient's 3-model family">${c.significant_fdr ? '*' : '(ns after FDR)'}</span>`
+        : '';
+      const vifColor = c.vif != null && c.vif > 5 ? 'color:#dc2626;font-weight:700;' : '';
+      const ciStr = (c.ci_lo != null && c.ci_hi != null) ? `[${fmt(c.ci_lo, 3)}, ${fmt(c.ci_hi, 3)}]` : '—';
+      return `<tr style="${sig ? 'background:#f0fdf4;' : ''}">
+        <td style="padding:.35rem .6rem;">${esc(termLabels(c.term))}</td>
+        <td style="padding:.35rem .6rem;text-align:right;">${fmt(c.coef, 4)}</td>
+        <td style="padding:.35rem .6rem;text-align:right;white-space:nowrap;" title="95% CI, consistent with the HC3 robust SE (z-based, not t-based).">${ciStr}</td>
+        <td style="padding:.35rem .6rem;text-align:right;">${c.se != null ? fmt(c.se, 4) : '—'}</td>
+        <td style="padding:.35rem .6rem;text-align:right;">${c.t != null ? fmt(c.t, 3) : '—'}</td>
+        <td style="padding:.35rem .6rem;text-align:right;">${c.p_value != null ? (c.p_value < 0.001 ? '<0.001' : fmt(c.p_value, 4)) : '—'}${sigFdrNote}</td>
+        <td style="padding:.35rem .6rem;text-align:right;${vifColor}">${c.vif != null ? fmt(c.vif, 2) : '—'}</td>
+      </tr>`;
+    }).join('');
+    html += `<div style="margin-bottom:1.5rem;">
+      <h4 style="margin:.5rem 0;">${esc(outcomeLabels[outcome] || outcome)}</h4>
+      <p style="font-size:.78rem;color:#64748b;margin-bottom:.4rem;">
+        n = ${fit.n}, dof = ${fit.dof}, R&sup2; = ${fmt(fit.r_squared, 3)}, adj. R&sup2; = ${fmt(fit.adj_r_squared, 3)},
+        reference category = "${esc(fit.reference_category)}", SE type = ${esc(fit.se_type || 'classical')}
+      </p>
+      <div style="overflow-x:auto;"><table style="width:100%;font-size:.8rem;border-collapse:collapse;">
+        <thead><tr style="border-bottom:2px solid #e2e8f0;">
+          <th style="padding:.4rem .6rem;text-align:left;">Term</th>
+          <th style="padding:.4rem .6rem;text-align:right;">Coef</th>
+          <th style="padding:.4rem .6rem;text-align:right;">95% CI</th>
+          <th style="padding:.4rem .6rem;text-align:right;">SE</th>
+          <th style="padding:.4rem .6rem;text-align:right;">t</th>
+          <th style="padding:.4rem .6rem;text-align:right;">p</th>
+          <th style="padding:.4rem .6rem;text-align:right;">VIF</th>
+        </tr></thead><tbody>${rows}</tbody></table></div>
+    </div>`;
+  }
+
+  if (anyModel) {
+    content.innerHTML = html;
+    section.style.display = 'block';
   }
 })();
 
@@ -2680,6 +2921,7 @@ renderAgSpecific();
     vuln_count: 'Vuln Count',
     vuln_density: 'Vuln Density (per pkg)',
     stars_count: 'Stars',
+    kev_exploitable_count: 'KEV Exploitable Count',
   };
   const mwRows = Object.entries(mwComparisons)
     .filter(([k]) => mwMetricLabels[k] || k.startsWith('check_'))
@@ -2687,25 +2929,31 @@ renderAgSpecific();
       if (!d || d.mw_statistic == null) return null;
       const label = mwMetricLabels[metric] || (metric.startsWith('check_') ? metric.slice(6) : metric);
       const pStr = d.p_value < 0.001 ? '<0.001' : fmt(d.p_value, 4);
-      const sigStyle = d.significant ? 'background:#dcfce7;font-weight:600;' : '';
+      const pFdrStr = d.p_adjusted_fdr == null ? '—' : (d.p_adjusted_fdr < 0.001 ? '<0.001' : fmt(d.p_adjusted_fdr, 4));
+      const sigStyle = d.significant_fdr ? 'background:#dcfce7;font-weight:600;' : '';
+      const powerStr = d.power != null ? fmt(d.power, 2) : '—';
+      const mdeStr = d.mde_r_80 != null ? fmt(d.mde_r_80, 3) : '—';
       return `<tr style="${sigStyle}">
         <td>${esc(label)}</td>
         <td>${d.n_a}</td><td>${d.n_b}</td>
         <td>${fmt(d.mw_statistic, 1)}</td>
         <td>${pStr}</td>
+        <td>${pFdrStr}</td>
         <td>${fmt(d.effect_size_r, 3)}</td>
         <td>${esc(d.effect_label || '—')}</td>
-        <td>${d.significant ? 'Yes *' : 'No'}</td>
+        <td>${d.significant_fdr ? 'Yes *' : 'No'}</td>
+        <td title="Minimum rank-biserial |r| detectable at 80% power for this comparison's actual n, alpha=0.05. Prefer this over Achieved Power for judging whether a non-significant result is a true null or just underpowered.">${mdeStr}</td>
+        <td title="Retrospective/observed power at the observed n and effect size, alpha=0.05 (Noether 1987 approximation for Wilcoxon-Mann-Whitney). Shown for completeness -- as a near-deterministic function of the p-value already in this row, it adds little beyond it and is widely regarded as uninformative on its own (Hoenig &amp; Heisey 2001). Prefer MDE.">${powerStr}</td>
       </tr>`;
     })
     .filter(Boolean);
   document.getElementById('mwBody').innerHTML = mwRows.length
     ? mwRows.join('')
-    : '<tr><td colspan="8">Statistical comparison data not available.</td></tr>';
+    : '<tr><td colspan="11">Statistical comparison data not available.</td></tr>';
 
-  // Effect size bar chart — significant metrics only, sorted by |r| descending
+  // Effect size bar chart — FDR-significant metrics only, sorted by |r| descending
   const sigMwEntries = Object.entries(mwComparisons)
-    .filter(([k, d]) => mwMetricLabels[k] && d && d.significant && d.effect_size_r != null)
+    .filter(([k, d]) => mwMetricLabels[k] && d && d.significant_fdr && d.effect_size_r != null)
     .map(([metric, d]) => ({ label: mwMetricLabels[metric], r: d.effect_size_r, mag: d.effect_label || '' }))
     .sort((a, b) => Math.abs(b.r) - Math.abs(a.r));
   const mwEffectCanvas = document.getElementById('chartMWEffectSizes');
@@ -2783,7 +3031,9 @@ renderAgSpecific();
   function spearmanSubtitle(pairKey) {
     const c = STATS.correlations && STATS.correlations[pairKey];
     if (!c || c.spearman_r == null) return {};
-    const sig = c.p_value < 0.05 ? ' *' : '';
+    // * = FDR-significant (BH-corrected across the 45 unique pairs this test
+    // belongs to in correlation_matrix), not raw p<0.05.
+    const sig = c.significant_fdr ? ' *' : '';
     return { subtitle: { display: true, text: `Spearman r = ${fmt(c.spearman_r,3)}, p = ${fmt(c.p_value,4)}, n = ${c.n}${sig}`, font: { size: 11 }, color: '#64748b' } };
   }
 
@@ -2971,6 +3221,40 @@ renderAgSpecific();
       : '<tr><td colspan="6">No data available.</td></tr>';
   })();
 
+  (function renderCompletenessByCategory() {
+    const depByUrl = {};
+    (DEPENDENCY.repos || []).forEach(r => { depByUrl[r.repo_url] = r.status; });
+
+    const median = (vals) => {
+      const v = vals.filter(x => x != null).slice().sort((a, b) => a - b);
+      if (!v.length) return null;
+      const mid = Math.floor(v.length / 2);
+      return v.length % 2 ? v[mid] : (v[mid - 1] + v[mid]) / 2;
+    };
+
+    const categories = Array.from(new Set(REPOS.map(r => r.category || 'Unknown'))).sort();
+    const rows = categories.map(cat => {
+      const repos = REPOS.filter(r => (r.category || 'Unknown') === cat);
+      if (!repos.length) return null;
+      const depOk = repos.filter(r => depByUrl[r.repo_url] === 'success' || depByUrl[r.repo_url] === 'partial');
+      const depFail = repos.filter(r => !(depByUrl[r.repo_url] === 'success' || depByUrl[r.repo_url] === 'partial'));
+      const pct = (n) => repos.length ? ((100 * n / repos.length).toFixed(0) + '%') : '—';
+      const starsOk = median(depOk.map(r => (r.github_metrics || {}).stars));
+      const starsFail = median(depFail.map(r => (r.github_metrics || {}).stars));
+      return `<tr>
+        <td>${esc(cat)}</td>
+        <td>${repos.length}</td>
+        <td>${depOk.length} (${pct(depOk.length)})</td>
+        <td>${depFail.length} (${pct(depFail.length)})</td>
+        <td>${starsOk != null ? fmt(starsOk, 0) : '—'}</td>
+        <td>${starsFail != null ? fmt(starsFail, 0) : (depFail.length ? '—' : 'n/a — none failed')}</td>
+      </tr>`;
+    }).filter(Boolean);
+    document.getElementById('completenessByCategoryBody').innerHTML = rows.length
+      ? rows.join('')
+      : '<tr><td colspan="6">No data available.</td></tr>';
+  })();
+
   // SC status — sorted bar
   const scStatusPairs = [
     { label:'Success', val:scSuccess, color:'#16a34a' },
@@ -3119,10 +3403,27 @@ renderAgSpecific();
     if (noteEl) noteEl.textContent = note || '';
   })();
 
-  // Naive (43 vs 11 corpus, from pipeline/stats.py) vs matched (43 vs external
-  // pool) comparison — both use the same sign convention (positive = the
-  // ag-specific side scored higher on the raw metric), so effect signs are
-  // directly comparable without any direction adjustment.
+  // Naive (ag-specific vs non-ag corpus, from pipeline/stats.py) vs matched
+  // (ag-specific vs external pool) comparison — both use the same sign
+  // convention (positive = the ag-specific side scored higher on the raw
+  // metric), so effect signs are directly comparable without any direction
+  // adjustment. Counts are pulled live from MATCHED/STATS rather than
+  // hardcoded, since the dataset size changes as repos are added.
+  (function populateNaiveVsMatchedCounts() {
+    const nAg = MATCHED.n_ag_specific;
+    const nNonAg = MATCHED.n_non_ag_specific;
+    const agCountEl = document.getElementById('nvmAgCount');
+    const nonAgCountEl = document.getElementById('nvmNonAgCount');
+    const naiveLabelEl = document.getElementById('nvmNaiveCorpusLabel');
+    const matchedLabelEl = document.getElementById('nvmMatchedCorpusLabel');
+    const allOptionEl = document.getElementById('matchedGroupAllOption');
+    if (agCountEl && nAg != null) agCountEl.textContent = `${nAg} ag-specific`;
+    if (nonAgCountEl && nNonAg != null) nonAgCountEl.textContent = `${nNonAg} non-ag`;
+    if (naiveLabelEl && nAg != null && nNonAg != null) naiveLabelEl.textContent = `(${nAg} vs ${nNonAg} corpus)`;
+    if (matchedLabelEl && nAg != null) matchedLabelEl.textContent = `(${nAg} vs external pool)`;
+    if (allOptionEl && MATCHED.n_dataset_repos != null) allOptionEl.textContent = `All ${MATCHED.n_dataset_repos} Repos`;
+  })();
+
   function renderNaiveVsMatchedComparison() {
     const naive = (STATS.comparisons && STATS.comparisons.ag_vs_nonag) || {};
     const kEffects = (MATCHED.primary_effects_by_k && MATCHED.primary_effects_by_k[String(currentK())]) || {};

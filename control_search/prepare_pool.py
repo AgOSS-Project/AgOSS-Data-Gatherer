@@ -9,8 +9,8 @@ analysis (see run_matched_comparison.py). This script exists purely for
 ease of use and reproducibility of steps 1-2, not to bypass step 3.
 
 Usage:
-    python control-search/prepare_pool.py
-    python control-search/prepare_pool.py --sort stars -n 150
+    python control_search/prepare_pool.py
+    python control_search/prepare_pool.py --sort stars -n 150
 """
 
 from __future__ import annotations
@@ -65,10 +65,10 @@ def run(*, sort: str = "best-match", top_n: int = control_search.DEFAULT_N) -> N
     build_control_pool.write_reviewed_sidecar()
 
     logger.info(
-        "[prepare_pool] Done. Open control-search/review.html in a browser to review "
+        "[prepare_pool] Done. Open control_search/review.html in a browser to review "
         "candidates (every row is editable, including auto-suggested-accepts), then "
         "click 'Export reviewed pool ↓' and save the download as "
-        "control-search/control_pool_reviewed.json. That file is what enables the "
+        "control_search/control_pool_reviewed.json. That file is what enables the "
         "matched-comparison analysis in `python main.py`."
     )
 

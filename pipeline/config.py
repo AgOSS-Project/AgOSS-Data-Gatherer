@@ -79,7 +79,6 @@ RAW_SCORECARD_DIR = OUTPUTS_DIR / "raw" / "scorecard"
 RAW_DEPENDENCY_DIR = OUTPUTS_DIR / "raw" / "dependency"
 PROCESSED_DIR = OUTPUTS_DIR / "processed"
 DEPENDENCY_REPORT_FILE = PROCESSED_DIR / "dependency_analysis.json"
-SATURATION_REPORT_FILE = PROCESSED_DIR / "saturation_analysis.json"
 DASHBOARD_DIR = OUTPUTS_DIR / "dashboard"
 LOG_DIR = OUTPUTS_DIR / "logs"
 

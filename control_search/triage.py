@@ -10,7 +10,7 @@ stays visible and independently editable in review.html, so a human can catch
 and correct any triage mistake before the pool is finalized.
 
 Usage:
-    python control-search/triage.py
+    python control_search/triage.py
 """
 
 from __future__ import annotations

@@ -52,7 +52,7 @@ DEPENDENCY_REPORT_FILE = _THIS_DIR / "raw" / "dependency_analysis_full_pool.json
 @contextmanager
 def _redirect_dependency_cache():
     """Point both the dependency runner's per-repo cache dir AND its aggregate
-    report file at control-search/raw/ so control-pool data never mixes into
+    report file at control_search/raw/ so control-pool data never mixes into
     the main 54-repo raw cache or overwrites outputs/processed/dependency_analysis.json
     (which pipeline/report/render.py reads directly for the main dashboard's
     Dependencies/Vulnerabilities tabs)."""
@@ -191,7 +191,7 @@ def attach_dependency_counts(
     entries: list[RepoEntry],
 ) -> dict[str, Any]:
     """Run the pipeline's dependency analysis for *entries* (cache redirected
-    to control-search/raw/) and merge packages_total into each covariate
+    to control_search/raw/) and merge packages_total into each covariate
     record. Returns the full dependency_analysis report so later stages
     (outcome vuln counts, KEV exposure) can reuse it without re-querying OSV.
     """

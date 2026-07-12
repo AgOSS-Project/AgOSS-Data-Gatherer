@@ -126,7 +126,7 @@ def _retrying_get(url: str, token: str, *, params: dict | None = None,
 def _fetch_github_repo_data(owner: str, repo_name: str, token: str) -> dict | None:
     """Fetch repo metadata from GitHub REST API (stars, forks, language, license, open_issues).
 
-    Retained for callers outside this module (control-search/covariates.py)
+    Retained for callers outside this module (control_search/covariates.py)
     that only need this one repo's metadata rather than a batched fetch.
     """
     resp = _retrying_get(f"https://api.github.com/repos/{owner}/{repo_name}", token)
@@ -149,7 +149,7 @@ NON_IMPLEMENTATION_LANGUAGES = {"Jupyter Notebook"}
 def _fetch_github_language_breakdown(owner: str, repo_name: str, token: str) -> dict[str, int] | None:
     """Return the raw {language: bytes} breakdown from GitHub's /languages endpoint.
 
-    Used by control-search/covariates.py for both language reclassification
+    Used by control_search/covariates.py for both language reclassification
     (excluding NON_IMPLEMENTATION_LANGUAGES) and as the source for the
     codebase_bytes size matching covariate (see
     matching.CONTINUOUS_COVARIATES) -- one call serves both purposes there.

@@ -2,14 +2,14 @@
 
 Pipeline:
   0. GATE: require a human-reviewed control pool
-     (control-search/control_pool_reviewed.json, exported from review.html)
+     (control_search/control_pool_reviewed.json, exported from review.html)
      before doing anything else. This is what main.py calls automatically
      after the main pipeline, so this gate is what prevents an unreviewed
      control pool from ever silently reaching the dashboard on a first run.
      Pass --allow-unreviewed (standalone use only) to bypass it for local
      testing; main.py never passes that flag.
   1. Resolve control_pool.json from the reviewed export (build_control_pool)
-  2. Compute matching covariates for all 54 dataset repos + control pool
+  2. Compute matching covariates for all dataset repos + control pool
      (GitHub REST metadata + dependency count via the pipeline's dependency
      runner, which also yields dependency-based outcome data as a side effect)
   3. Compute eligibility (Mahalanobis caliper within a language/ecosystem
@@ -29,10 +29,10 @@ software matched on observable size/age/activity/ecosystem. See data_notes
 in the output file for the full interpretation framing and limitations.
 
 Usage:
-    python control-search/run_matched_comparison.py
-    python control-search/run_matched_comparison.py --force
-    python control-search/run_matched_comparison.py --n-seeds 500
-    python control-search/run_matched_comparison.py --allow-unreviewed  # local testing only
+    python control_search/run_matched_comparison.py
+    python control_search/run_matched_comparison.py --force
+    python control_search/run_matched_comparison.py --n-seeds 500
+    python control_search/run_matched_comparison.py --allow-unreviewed  # local testing only
 """
 
 from __future__ import annotations
@@ -103,11 +103,17 @@ KEYWORD_TO_DOMAIN = {
     "small cloud dashboard": "Dashboards",
 }
 
-DATA_NOTES = (
-    "This analysis compares all 54 dataset repos (both ag_specific=True and "
-    "ag_specific=False -- the latter are ag-critical infrastructure used in "
+def _build_data_notes(n_dataset: int, n_ag: int, n_non_ag: int, k: int) -> str:
+    """Assemble the data_notes string with the current dataset's live repo
+    counts -- these previously hardcoded "54"/"43"/"11" from the dataset size
+    when this text was first written, and drifted out of sync as the input
+    CSV grew (see README's Troubleshooting notes on hardcoded counts)."""
+    return (
+    f"This analysis compares all {n_dataset} dataset repos ({n_ag} "
+    f"ag_specific=True and {n_non_ag} ag_specific=False -- the latter are "
+    "ag-critical infrastructure used in "
     "agriculture but not purpose-built for it, so both groups are treated "
-    "here as the object of comparison) against k=3 matched controls each, "
+    f"here as the object of comparison) against k={k} matched controls each, "
     "drawn from a pool of non-ag-critical but operationally similar repos "
     "(IoT platforms, embedded systems, robotics middleware, sensor "
     "frameworks, environmental monitoring tools, small cloud dashboards, "
@@ -170,7 +176,7 @@ DATA_NOTES = (
 
 
 def build_pool_construction_summary() -> dict[str, Any] | None:
-    """Read the control-search/ provenance files (raw candidates -> triage ->
+    """Read the control_search/ provenance files (raw candidates -> triage ->
     final pool) and summarize the funnel from discovery through automatic
     filtering to the resolved pool. Returns None if control_candidates.json
     doesn't exist (e.g. the analysis ran against a manually-assembled pool
@@ -348,9 +354,9 @@ def run(
         logger.warning(
             "[run_matched_comparison] SKIPPED — no human-reviewed control pool found at "
             "%s. The matched-comparison analysis will not run (and the dashboard tab will "
-            "show no data) until you: 1) run `python control-search/control_search.py`, "
-            "2) run `python control-search/triage.py`, 3) open "
-            "`control-search/review.html`, review the candidates, and export the reviewed "
+            "show no data) until you: 1) run `python control_search/control_search.py`, "
+            "2) run `python control_search/triage.py`, 3) open "
+            "`control_search/review.html`, review the candidates, and export the reviewed "
             "pool to that path. (--allow-unreviewed bypasses this gate for local testing "
             "only; main.py never passes it.)",
             REVIEWED_FILE,
@@ -596,7 +602,7 @@ def run(
             "thresholds": eligibility.caliper_chi2,
         },
         "review_status": review_status,
-        "data_notes": DATA_NOTES,
+        "data_notes": _build_data_notes(len(dataset_entries), n_ag, n_non_ag, k),
         "unmatched_dataset_repos": unmatched,
         "unmatched_characterization": unmatched_characterization,
         "matching_quality": matching_quality,

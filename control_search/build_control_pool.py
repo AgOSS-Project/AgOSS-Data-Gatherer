@@ -8,7 +8,7 @@ Priority order:
      "accept" subset of control_candidates_triaged.json, with a clearly
      logged warning that unreviewed defaults are in use.
 
-When invoked from the automatic pipeline (control-search/run_matched_comparison.py,
+When invoked from the automatic pipeline (control_search/run_matched_comparison.py,
 which main.py calls), allow_unreviewed defaults to False there — the matched-
 comparison analysis is gated on an explicit human review and will not run
 against an unreviewed pool. Running this script directly on the command line
@@ -16,7 +16,7 @@ still uses the fallback by default, since that's a deliberate manual action
 useful for local testing.
 
 Usage:
-    python control-search/build_control_pool.py
+    python control_search/build_control_pool.py
 """
 
 from __future__ import annotations
@@ -66,7 +66,7 @@ def main(*, allow_unreviewed: bool = True) -> Path:
     else:
         if not allow_unreviewed:
             raise FileNotFoundError(
-                f"{REVIEWED_FILE} not found. Open control-search/review.html, review the "
+                f"{REVIEWED_FILE} not found. Open control_search/review.html, review the "
                 "candidates, and export the reviewed pool to that path before building the "
                 "control pool for the automatic pipeline."
             )
@@ -80,7 +80,7 @@ def main(*, allow_unreviewed: bool = True) -> Path:
         review_status = "auto_suggested_fallback"
         logger.warning(
             "[build_control_pool] No control_pool_reviewed.json found — using %d "
-            "unreviewed auto-suggested-accept candidates. Open control-search/review.html "
+            "unreviewed auto-suggested-accept candidates. Open control_search/review.html "
             "and export to get a human-reviewed pool instead.",
             len(repos),
         )

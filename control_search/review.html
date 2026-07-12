@@ -337,8 +337,8 @@ if (typeof TRIAGED === 'undefined') {
       <h2 style="margin-bottom:.75rem">control_candidates_triaged_data.js not found</h2>
       <p style="color:#64748b">
         Run <code style="background:#f1f5f9;padding:.2em .4em;border-radius:4px">
-        python control-search/control_search.py</code> then <code style="background:#f1f5f9;padding:.2em .4em;border-radius:4px">
-        python control-search/triage.py</code> to generate it, then reopen this page.
+        python control_search/control_search.py</code> then <code style="background:#f1f5f9;padding:.2em .4em;border-radius:4px">
+        python control_search/triage.py</code> to generate it, then reopen this page.
       </p>
     </div>`;
   throw new Error('control_candidates_triaged_data.js missing');
@@ -761,11 +761,11 @@ document.getElementById('btn-export').addEventListener('click', async () => {
   const payload = JSON.stringify({ count: selected.length, review_status: 'human_reviewed', repos: selected }, null, 2);
 
   // Prefer writing the file directly via the File System Access API, so the
-  // export lands in control-search/ itself instead of the browser's default
+  // export lands in control_search/ itself instead of the browser's default
   // Downloads folder. Only available in a secure context (http://localhost
   // works; a plain file:// page does not) -- falls back to a normal download
   // otherwise. The picker remembers the last folder you saved to within the
-  // browser session, so after choosing control-search/ once, later exports
+  // browser session, so after choosing control_search/ once, later exports
   // default back to it.
   if (window.showSaveFilePicker) {
     try {
@@ -790,9 +790,9 @@ document.getElementById('btn-export').addEventListener('click', async () => {
   a.click();
   alert(
     'Saved to your browser\'s default downloads folder as control_pool_reviewed.json '
-    + '-- move it into control-search/ to replace the existing pool.\n\n'
-    + 'Tip: to save directly into control-search/ next time, serve this page over '
-    + 'http:// instead of opening it as a file, e.g. from the control-search/ folder run:\n'
+    + '-- move it into control_search/ to replace the existing pool.\n\n'
+    + 'Tip: to save directly into control_search/ next time, serve this page over '
+    + 'http:// instead of opening it as a file, e.g. from the control_search/ folder run:\n'
     + '  python -m http.server 8000\n'
     + 'then open http://localhost:8000/review.html -- the Export button will then let you '
     + 'pick the folder directly.'

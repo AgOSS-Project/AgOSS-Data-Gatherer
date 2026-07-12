@@ -15,7 +15,7 @@ Methodology (see the project plan for full rationale):
     distance because it accounts for correlation between covariates (e.g.
     stars and forks), and is the standard choice in the matching literature
     (Rosenbaum & Rubin; King & Nielsen 2019) for a small covariate set with a
-    modest treated sample (n=54) — more transparent and stable here than
+    modest treated sample size — more transparent and stable here than
     fitting a propensity-score model. Codebase size (total non-notebook
     language bytes from GitHub's /languages breakdown, log1p'd for the same
     right-skew reason as the other count covariates) was added because it
@@ -79,6 +79,7 @@ from typing import Any
 
 import numpy as np
 from scipy import stats as scipy_stats
+from scipy.spatial.distance import cdist
 
 _THIS_DIR = Path(__file__).resolve().parent
 _PROJECT_ROOT = _THIS_DIR.parent
@@ -297,9 +298,17 @@ def compute_eligibility(
     distances: dict[str, dict[str, float]] = {}
     unmatched_diagnostics: dict[str, dict[str, Any] | None] = {}
 
+    # Full dataset x control squared-Mahalanobis-distance matrix in one call,
+    # via scipy.spatial.distance.cdist(metric="mahalanobis", VI=inv_cov) --
+    # replaces a from-scratch per-row np.einsum computation (verified to
+    # match it to floating-point precision: max abs diff ~1e-14 on synthetic
+    # data). VI is passed explicitly (this function's own ridge-stabilized
+    # inverse covariance) rather than left for cdist to recompute, so the
+    # numerical-stability epsilon above is still honored.
+    d2_matrix = cdist(z_dataset, z_control, metric="mahalanobis", VI=inv_cov) ** 2
+
     for i, dkey in enumerate(dataset_keys):
-        diff = z_control - z_dataset[i]
-        d2 = np.einsum("ij,jk,ik->i", diff, inv_cov, diff)  # squared Mahalanobis distance
+        d2 = d2_matrix[i]  # squared Mahalanobis distance from this dataset repo to every control
 
         # Hard gate: exact primary-language match only. A dataset repo with no
         # same-language candidate in the control pool has zero eligible
@@ -333,7 +342,11 @@ def compute_eligibility(
         else:
             masked_idxs = np.where(mask)[0]
             closest_local = int(masked_idxs[np.argmin(d2[masked_idxs])])
-            closest_diff = diff[closest_local]
+            # Per-covariate standardized difference to just this one rejected
+            # candidate (cheap: O(n_features), not the full O(n_control) diff
+            # matrix) -- explains *which* covariate(s) pushed it outside the
+            # caliper. Sign is dataset-minus-control; only abs() is used below.
+            closest_diff = z_dataset[i] - z_control[closest_local]
             exceeded = [
                 (ALL_FEATURES[j], float(abs(closest_diff[j])))
                 for j in range(len(ALL_FEATURES))
