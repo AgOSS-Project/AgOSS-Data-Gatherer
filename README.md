@@ -1,8 +1,5 @@
 # AgOSS Data Gatherer
 
-> **Paper:** AgOSS: An Empirical Dataset and Multi-Layer Characterization of Open-Source Agricultural Software
-> _[Citation to be filled in]_
-
 A research pipeline for collecting, analysing, and visualising security and
 ecosystem-health metrics across open-source agricultural software (AgOSS)
 repositories. The pipeline orchestrates four independent data sources —
@@ -66,16 +63,6 @@ self-contained interactive HTML dashboard.
 ---
 
 ## Overview
-
-The pipeline was designed to answer the following research questions:
-
-- **RQ1:** How can open-source agricultural software repositories be
-  systematically identified, filtered, and organized into an empirically
-  analyzable ecosystem?
-- **RQ2:** How do agricultural OSS repositories differ across stack layers and
-  ag-specificity in security hygiene, maintenance activity, and dependency
-  exposure?
-
 The pipeline processes a user-curated list of GitHub repositories through nine
 sequential stages:
 
@@ -181,11 +168,12 @@ Analysis](#matched-comparison-analysis) for the sibling `control_search/`
 tool, renamed from `control-search/` for the same reason, used to build the
 *non-ag* comparison pool) contains a
 utility (`agoss_search.py`) that queries the GitHub Search API and produces a
-browsable web interface for reviewing candidates. In practice, repository
-selection for this study combined three methods:
+browsable web interface for reviewing candidates. 
+
+In practice, repository selection for this study combined three methods:
 
 1. **Automated GitHub search** — keyword queries (`agriculture`, `agtech`,
-   `farming`) returning up to 250 results per keyword, filtered for
+   `farming`) returning up to 500 results per keyword, filtered for
    non-archived, non-forked repos.
 2. **Manual snowball sampling** — following references in academic papers,
    blog posts, and project documentation.
@@ -308,7 +296,7 @@ and a short description.
 
 ## Input File Format
 
-> **⚠️ User input required:** You must create and maintain this file before
+> **User input required:** You must create and maintain this file before
 > running the pipeline. It is the sole definition of which repositories are
 > analysed. There is no automated mechanism to populate it.
 
@@ -388,13 +376,13 @@ Individual stages can be skipped when their raw outputs already exist from a
 previous run. This is the normal workflow after initial data collection:
 
 ```powershell
-# Re-run only stats + dashboard (~5 seconds, no network calls)
+# Re-run only stats + dashboard updates (~5 seconds, no network calls)
 python main.py --regenerate
 
 # Skip Scorecard collection; use cached JSONs, re-run everything else
 python main.py --skip-scorecard
 
-# Skip Scorecard and dependency collection both
+# Skip Scorecard and dependency collection (using cached JSONS instead - if available)
 python main.py --skip-scorecard --skip-dependencies
 
 # Skip dependency and KEV analysis (no external calls for those stages)
@@ -843,7 +831,7 @@ calls both in sequence and prints the next-step reminder to open
 
 #### Later search waves: expansion and ruby
 
-The control pool isn't necessarily built in one pass. After an initial
+The control pool wasn't built in one pass. After an initial
 matching run, the post-matching diagnostics (`unmatched_dataset_repos`,
 `unmatched_characterization` in `matched_comparison.json`, and the "why
 didn't this repo match" detail per repo) can reveal that specific dataset
@@ -893,16 +881,6 @@ python control_search/prepare_ruby_pool.py
 # exists. Export still writes a single control_pool_reviewed.json covering
 # every wave's accepted repos.
 ```
-
-Every candidate carries a `"wave"` field through to the final exported pool,
-so the two waves' contributions can be reported and audited separately in
-the paper (e.g. "N repos added via a follow-up wave targeting the Ruby/Rails
-community-platform niche") rather than blending invisibly into "the control
-pool." Unlike the original wave's search, later waves' *unreviewed*
-intermediate files (`control_candidates_expansion*.json`,
-`control_candidates_ruby*.json`, and their triaged/JS-sidecar counterparts)
-are gitignored the same way the original wave's are — only the final
-`control_pool_reviewed.json` is committed.
 
 **Step 3 is required, not optional, for `python main.py`.** The matched-
 comparison analysis is gated on an explicit human-reviewed pool: `main.py`
@@ -1062,90 +1040,6 @@ control_search/
     └── dependency/owner__repo.json ← cached SBOM + OSV results (full control pool)
 ```
 
-### Key output files
-
-#### `merged_repos.json`
-
-Array of per-repository records. Each record includes:
-
-```json
-{
-  "display_name": "FarmOS",
-  "repo_url": "https://github.com/farmOS/farmOS",
-  "owner": "farmOS",
-  "repo_name": "farmOS",
-  "category": "Domain-specific agricultural platform",
-  "ag_specific": true,
-  "scorecard_overall": 5.7,
-  "scorecard_status": "success",
-  "scorecard_checks": {
-    "Code-Review": { "score": 1, "reason": "..." },
-    "Maintained":  { "score": 10, "reason": "..." }
-  },
-  "github_metrics_collected": true,
-  "github_metrics": {
-    "contributor_count": 54,
-    "commit_count": 9349,
-    "issues_opened": 32,
-    "issues_closed": 421,
-    "prs_merged": 452,
-    "stars": 1308,
-    "forks": 357,
-    "languages": ["PHP"],
-    "license": "GPL-2.0"
-  },
-  "overall_status": "complete"
-}
-```
-
-(Real values from the committed sample, not a hypothetical illustration —
-verified against `outputs/processed/merged_repos.json` directly.)
-
-#### `statistical_analysis.json`
-
-Structured results of all statistical tests, keyed by group and metric:
-
-```json
-{
-  "by_category": {
-    "Domain-specific agricultural platform": {
-      "scorecard_overall": {
-        "n": 9, "mean": 4.1444,
-        "mean_ci_lo": 3.42, "mean_ci_hi": 4.86, "median": 4.9
-      }
-    }
-  },
-  "comparisons": {
-    "ag_vs_nonag": {
-      "scorecard_overall": {
-        "n_a": 55, "n_b": 11,
-        "mw_statistic": 38.5,
-        "p_value": 0.000006,
-        "p_adjusted_fdr": 0.000034,
-        "effect_size_r": -0.8727,
-        "effect_label": "large",
-        "significant": true,
-        "significant_fdr": true,
-        "power": 0.9951,
-        "mde_r_80": 0.5379
-      }
-    }
-  },
-  "correlations": { "scorecard_vs_contributors": { "spearman_r": 0.694, "p_value": 0.0, "p_adjusted_fdr": 0.0, "significant_fdr": true, "n": 66 } },
-  "correlation_matrix": { ... },
-  "kruskal_wallis": { ... },
-  "kruskal_wallis_checks": { ... },
-  "joint_models": { ... }
-}
-```
-
-(Real values from the committed sample — `p_adjusted_fdr`/`significant_fdr`
-are the fields that actually drive the dashboard's significance markers; see
-[Multiple-Comparison Correction: Five Independent
-Families](#multiple-comparison-correction-five-independent-families).)
-
----
-
 ## Dashboard Guide
 
 Open `outputs/dashboard/index.html` in any modern browser. No server or
@@ -1288,31 +1182,6 @@ fixed to a single master seed the way the bootstrap CIs are — re-running with
 a different `--n-seeds` value changes which seed indices run, not their
 individual determinism.
 
-### Running the test suite
-
-`tests/` covers the two modules where a silent numerical error would be
-hardest to notice by eye: `pipeline/stats.py` (BH-FDR correctness, the exact
-Mann-Whitney NaN-fallback behavior, Dunn's post-hoc structure, the joint
-regression model's design-matrix construction) and
-`control_search/matching.py` (Mahalanobis distance, verified against an
-independently-computed `scipy.spatial.distance.mahalanobis` value; the hard
-language-eligibility gate; and a regression test for a real bug fixed during
-this project's development — a dataset repo whose only same-language control
-candidates all fall outside the matching caliper used to crash with a
-`NameError` in the "closest rejected candidate" diagnostic). Tests are
-plain `unittest`, no test framework beyond the standard library required to
-run them, and make no network calls:
-
-```powershell
-python -m unittest discover tests -v
-```
-
-The suite is **not** a full-coverage regression harness for the entire
-pipeline (Scorecard invocation, GitHub API collection, and the dashboard's
-own JavaScript are untested) — treat it as covering the parts of the
-codebase where a silently-wrong number is most likely and least likely to be
-caught by simply eyeballing the output.
-
 ---
 
 ## Known Limitations
@@ -1427,47 +1296,3 @@ Check that `tools\scorecard.exe` exists (note the backslash). The parent
 `tools\` directory must not be renamed.
 
 ---
-
-## Extending the Pipeline
-
-### Adding new repositories
-
-Edit the input CSV and add rows following the 4-column format, then run:
-
-```powershell
-# Full re-collection; Scorecard and dependency caches are reused for repos
-# whose raw JSON already exists, GitHub metrics are re-collected fresh
-# (cheap enough not to need caching -- see Stage 5)
-python main.py
-```
-
-### Changing the repository list
-
-Remove rows from the input CSV and delete the corresponding files from
-`outputs/raw/scorecard/` and `outputs/raw/dependency/` before re-running.
-Stale cache files for removed repositories will otherwise be included in the
-merge step.
-
-### Adding new statistical tests
-
-Add test logic to `pipeline/stats.py` and include the results in the `output`
-dict. The dashboard template receives the full `statistical_analysis.json` as
-the `STATS` JavaScript variable and can access any new keys immediately.
-
-### Adding new dashboard visualisations
-
-1. Add a `<canvas id="chartMyNew">` element to the appropriate tab in
-   `pipeline/report/template.html`.
-2. Create the chart in the corresponding `(function() { ... })()` block using
-   Chart.js v4.
-3. Regenerate the dashboard:
-   ```powershell
-   python -c "from pipeline.report.render import build_dashboard; build_dashboard()"
-   ```
-   This bypasses the full pipeline and completes in under a second.
-
-### Regenerating only the dashboard (template edits)
-
-```powershell
-python -c "from pipeline.report.render import build_dashboard; build_dashboard()"
-```
