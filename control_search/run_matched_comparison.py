@@ -109,11 +109,9 @@ def _build_data_notes(n_dataset: int, n_ag: int, n_non_ag: int, k: int) -> str:
     when this text was first written, and drifted out of sync as the input
     CSV grew (see README's Troubleshooting notes on hardcoded counts)."""
     return (
-    f"This analysis compares all {n_dataset} dataset repos ({n_ag} "
-    f"ag_specific=True and {n_non_ag} ag_specific=False -- the latter are "
-    "ag-critical infrastructure used in "
-    "agriculture but not purpose-built for it, so both groups are treated "
-    f"here as the object of comparison) against k={k} matched controls each, "
+    f"This analysis compares the {n_dataset} ag_specific=True dataset repos "
+    "(purpose-built agricultural software) "
+    f"against k={k} matched controls each, "
     "drawn from a pool of non-ag-critical but operationally similar repos "
     "(IoT platforms, embedded systems, robotics middleware, sensor "
     "frameworks, environmental monitoring tools, small cloud dashboards, "
@@ -122,10 +120,11 @@ def _build_data_notes(n_dataset: int, n_ag: int, n_non_ag: int, k: int) -> str:
     "same-language candidates in the control pool is dropped into the "
     "unmatched cohort rather than matched against a different-language "
     "proxy) plus a Mahalanobis-distance caliper on log stars, log "
-    "forks, repository age, log contributor count, and log recent commit "
-    "activity (all four right-skewed count covariates are log1p-transformed "
-    "for the same reason -- Mahalanobis distance assumes roughly elliptical "
-    "covariate distributions, which raw GitHub activity counts are not). "
+    "forks, repository age, log contributor count, log recent commit "
+    "activity, and log codebase size (all five right-skewed count covariates "
+    "are log1p-transformed for the same reason -- Mahalanobis distance "
+    "assumes roughly elliptical covariate distributions, which raw GitHub "
+    "activity counts are not). "
     "release_count and dependency_count are deliberately excluded from the "
     "caliper -- both are plausible mediators of ag-specific status (part of "
     "the security/maturity story being tested, not a nuisance confound of "
@@ -159,19 +158,32 @@ def _build_data_notes(n_dataset: int, n_ag: int, n_non_ag: int, k: int) -> str:
     "primary conclusion survives even looser, non-optimal (randomly rather "
     "than optimally assigned) matching -- it is not the headline number. "
     "Benjamini-Hochberg FDR correction is applied across metrics within each "
-    "grouping (all / ag_specific / non_ag_specific) for both the primary "
+    "grouping (all / ag_specific / per-category) for both the primary "
     "estimate and the robustness check, consistent with the existing "
-    "ag_vs_nonag comparison in statistical_analysis.json. "
+    "ag_vs_nonag comparison in statistical_analysis.json (that comparison, "
+    "on the Ag-Specific tab, is unaffected by this dataset restriction and "
+    "still covers all 66 repos -- the 'Naive vs Matched Comparison' table "
+    "below places it side-by-side with this matched estimate). "
     "This analysis does not establish causality (\"agriculture causes weaker "
     "security posture\"); it tests whether the observed maturity/security gap "
     "persists after matching on observable size, age, activity, and "
     "ecosystem. Matching is on observed covariates only -- unobserved "
     "confounders (funding model, institutional backing, etc.) are not "
-    "addressed. The non_ag_specific dataset subgroup is small and has "
-    "limited statistical power; its interval should be read as suggestive, "
-    "not conclusive, on its own. Repos left unmatched (zero eligible "
+    "addressed. Repos left unmatched (zero eligible "
     "controls -- there is no ecosystem-bucket fallback) are disclosed by "
-    "name below, not silently excluded from the denominator."
+    "name below, not silently excluded from the denominator; the Unmatched-"
+    "Repo Sensitivity Analysis further down bounds how much the conclusion "
+    "could shift if those specific repos had matched, using whichever repos "
+    "are actually unmatched under the current k rather than a fixed count. "
+    "Regression-Adjusted Estimate compares this matched-pair estimate "
+    "against an OLS fit of outcome on treatment plus log_stars/log_forks on "
+    "the matched sample, since Covariate Balance shows those two covariates "
+    "can remain imbalanced even after matching -- agreement between the two "
+    "estimates means the conclusion doesn't depend on which adjustment "
+    "method is used. Repository-Level Matching Diagnostics lists, per "
+    "treated repo, its eligible-control count, how many controls were "
+    "actually selected, and the resulting distance/covariate gaps, for "
+    "auditing individual matches rather than only the aggregate."
 )
 
 
@@ -379,11 +391,18 @@ def run(
         )
     dataset_merged_repos = json.loads(merged_path.read_text(encoding="utf-8"))
 
-    dataset_entries = parse_input(config.INPUT_FILE)
+    # Dataset scope: ag_specific=True repos only. Earlier versions of this
+    # analysis also included the ag_specific=False "ag-critical but not
+    # purpose-built for agriculture" repos as a second dataset group; that
+    # comparison is dropped in favor of comparing only the purpose-built
+    # agricultural repos against the external control pool, so every
+    # remaining dataset repo is ag_specific=True and the "ag_specific" /
+    # "all" groups below are identical by construction.
+    dataset_entries = [e for e in parse_input(config.INPUT_FILE) if e.ag_specific is True]
     control_entries, review_status = _load_control_pool_entries(allow_unreviewed=allow_unreviewed)
 
     logger.info(
-        "[run_matched_comparison] %d dataset repos, %d control-pool repos",
+        "[run_matched_comparison] %d dataset repos (ag_specific=True only), %d control-pool repos",
         len(dataset_entries), len(control_entries),
     )
     if not control_entries:
@@ -404,6 +423,8 @@ def run(
     control_keys = [f"{e.owner}/{e.repo_name}" for e in control_entries]
     dataset_covariates = {k: all_covariates[k] for k in dataset_keys if k in all_covariates}
     control_covariates = {k: all_covariates[k] for k in control_keys if k in all_covariates}
+    display_by_key = {f"{e.owner}/{e.repo_name}": e for e in dataset_entries}
+    control_display_by_key = {f"{e.owner}/{e.repo_name}": e for e in control_entries}
 
     # ── Step 3: eligibility + balance ───────────────────────────────────────
     eligibility = matching_mod.compute_eligibility(dataset_covariates, control_covariates)
@@ -476,6 +497,30 @@ def run(
         det_results = matching_mod.run_deterministic(eligibility, outcomes, groups, metrics, k=kval)
         primary_effects_by_k[str(kval)] = matching_mod.summarize_deterministic(det_results, metrics)
 
+    # ── Step 5a-ii: repository-level matching diagnostics, unmatched-repo
+    # sensitivity bounds, and a regression-adjusted estimate on the matched
+    # sample -- all three built from the same "all"-group top-k assignment
+    # (each dataset repo's own k nearest eligible controls) primary_effects_by_k
+    # itself uses, at every k in k_options, so they stay consistent with the
+    # primary estimate above and none of the three ever hardcodes a fixed
+    # unmatched-repo count -- see matching.py's docstrings for what each
+    # computes.
+    matching_diagnostics_by_k: dict[str, Any] = {}
+    unmatched_sensitivity_by_k: dict[str, Any] = {}
+    regression_adjustment_by_k: dict[str, Any] = {}
+    headline_metrics_sorted = sorted(matching_mod.HEADLINE_METRIC_WORSE_IF_HIGHER)
+    for kval in k_options:
+        assigned_all = {dk: eligibility.eligible.get(dk, [])[:kval] for dk in eligibility.eligible}
+        matching_diagnostics_by_k[str(kval)] = matching_mod.matching_diagnostics(
+            assigned_all, eligibility, dataset_covariates, control_covariates, dataset_keys, display_by_key,
+        )
+        unmatched_sensitivity_by_k[str(kval)] = matching_mod.unmatched_sensitivity_analysis(
+            assigned_all, dataset_keys, outcomes, display_by_key, headline_metrics_sorted,
+        )
+        regression_adjustment_by_k[str(kval)] = matching_mod.regression_adjusted_estimate(
+            assigned_all, outcomes, dataset_covariates, control_covariates, headline_metrics_sorted,
+        )
+
     # ── Step 5b: repeated random-matching seeds (secondary robustness check) ──
     random_matching_effects_by_k: dict[str, Any] = {}
     for kval in k_options:
@@ -515,9 +560,6 @@ def run(
     }
 
     # ── Per-dataset-repo eligibility summary + matched-control detail ───────
-    display_by_key = {f"{e.owner}/{e.repo_name}": e for e in dataset_entries}
-    control_display_by_key = {f"{e.owner}/{e.repo_name}": e for e in control_entries}
-
     def _covariate_snapshot(cov_key: str, covariates: dict[str, dict]) -> dict[str, Any]:
         cov = covariates.get(cov_key, {})
         age = matching_mod.age_years(cov.get("created_at"))
@@ -616,6 +658,9 @@ def run(
         "robustness": robustness,
         "per_dataset_repo": per_dataset_repo,
         "primary_effects_by_k": primary_effects_by_k,
+        "matching_diagnostics_by_k": matching_diagnostics_by_k,
+        "unmatched_sensitivity_by_k": unmatched_sensitivity_by_k,
+        "regression_adjustment_by_k": regression_adjustment_by_k,
     }
 
     config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)

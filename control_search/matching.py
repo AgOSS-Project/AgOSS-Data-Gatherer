@@ -87,7 +87,8 @@ for _p in (str(_PROJECT_ROOT), str(_THIS_DIR)):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-from pipeline.stats import _bh_fdr_correct, _effect_label
+from pipeline.models import RepoEntry
+from pipeline.stats import _bh_fdr_correct, _effect_label, _ols_fit, bootstrap_ci
 
 logger = logging.getLogger("control_search.matching")
 
@@ -252,22 +253,44 @@ def compute_eligibility(
     dataset_keys = list(dataset_covariates.keys())
     control_keys = list(control_covariates.keys())
 
-    if not control_keys:
+    # A repo whose GitHub metadata fetch failed entirely (covariates.py sets
+    # fetch_error) has no trustworthy covariates -- _to_feature_row's `or 0`
+    # fallbacks would otherwise silently read it as "zero stars, zero forks,
+    # brand new" and let it fully participate in standardization and the
+    # Mahalanobis distance as if that were a real, measured data point rather
+    # than a missing one. Control-side failures are just dropped from
+    # candidacy (like a language mismatch); dataset-side failures still get a
+    # dedicated diagnostic reason below rather than silently vanishing from
+    # every downstream count the way an outright removal from dataset_keys
+    # would.
+    bad_dataset_keys = {k for k in dataset_keys if dataset_covariates[k].get("fetch_error")}
+    good_dataset_keys = [k for k in dataset_keys if k not in bad_dataset_keys]
+    good_control_keys = [k for k in control_keys if not control_covariates[k].get("fetch_error")]
+    fetch_failed_diagnostic = {
+        "reason": "covariate_fetch_failed",
+        "reason_label": "GitHub metadata fetch failed for this repo -- covariates unavailable",
+        "closest_candidate": None, "closest_distance": None, "exceeded_covariates": [],
+    }
+
+    if not good_control_keys:
         return EligibilityResult(
             eligible={k: [] for k in dataset_keys},
             sensitivity_table={k: {"tight": 0, "primary": 0, "loose": 0} for k in dataset_keys},
             caliper_chi2={},
             distances={k: {} for k in dataset_keys},
             unmatched_diagnostics={
-                k: {
-                    "reason": "empty_control_pool",
-                    "reason_label": "Control pool is empty",
-                    "closest_candidate": None, "closest_distance": None, "exceeded_covariates": [],
-                }
+                k: (
+                    dict(fetch_failed_diagnostic) if k in bad_dataset_keys else {
+                        "reason": "empty_control_pool",
+                        "reason_label": "Control pool is empty",
+                        "closest_candidate": None, "closest_distance": None, "exceeded_covariates": [],
+                    }
+                )
                 for k in dataset_keys
             },
         )
 
+    dataset_keys, control_keys = good_dataset_keys, good_control_keys
     dataset_rows = [_to_feature_row(dataset_covariates[k]) for k in dataset_keys]
     control_rows = [_to_feature_row(control_covariates[k]) for k in control_keys]
 
@@ -369,6 +392,15 @@ def compute_eligibility(
                 ],
             }
 
+    # Add back the fetch-failed dataset repos filtered out above -- they never
+    # entered the distance computation, so they need their own zero-eligible
+    # entries added here rather than being silently absent from the result.
+    for k in bad_dataset_keys:
+        eligible[k] = []
+        sensitivity_table[k] = {"tight": 0, "primary": 0, "loose": 0}
+        distances[k] = {}
+        unmatched_diagnostics[k] = dict(fetch_failed_diagnostic)
+
     return EligibilityResult(
         eligible=eligible,
         sensitivity_table=sensitivity_table, caliper_chi2=thresholds,
@@ -412,7 +444,13 @@ def compute_balance(
         for dk, v in eligibility.eligible.items() if dk in keys
     }
     matched_keys = sorted({c for lst in eligible_subset.values() for c in lst})
-    matched_rows = [_to_feature_row(control_covariates[mk]) for mk in matched_keys if mk in control_covariates] or pool_rows
+    # No `or pool_rows` fallback here: an empty matched_rows means this group
+    # has zero matched controls at this k, which must surface as smd_after
+    # being unavailable (None, via _smd's own len(b) < 2 guard below) rather
+    # than silently reusing the full pool and reporting "no change from
+    # before" -- those are two very different situations for a reader of the
+    # balance table to conflate.
+    matched_rows = [_to_feature_row(control_covariates[mk]) for mk in matched_keys if mk in control_covariates]
 
     def _smd(a: list[dict], b: list[dict], feature: str) -> float | None:
         if len(a) < 2 or len(b) < 2:
@@ -514,7 +552,15 @@ def characterize_unmatched(
     (e.g. larger, older) from the ones that were," which would mean the
     matched-comparison sample isn't fully representative of the whole
     dataset. Pure aggregation over already-fetched covariates; no new data
-    collection needed."""
+    collection needed.
+
+    Both a mean-based and a median-based unmatched/matched ratio are
+    reported per covariate, not just the mean. The unmatched group is
+    typically small, so a mean ratio can be dominated by a single outlier
+    repo; the median ratio is a robustness check against exactly that --
+    if the two ratios disagree sharply, that gap is itself informative about
+    how skewed the unmatched group's distribution is, rather than something
+    to silently average away."""
     matched_keys = [k for k, v in eligibility.eligible.items() if v]
     unmatched_keys = [k for k, v in eligibility.eligible.items() if not v]
 
@@ -527,14 +573,21 @@ def characterize_unmatched(
             return {"mean": None, "median": None, "n": 0}
         return {"mean": round(float(np.mean(vals)), 2), "median": round(float(np.median(vals)), 2), "n": len(vals)}
 
+    def _ratio(numerator: float | None, denominator: float | None) -> float | None:
+        if numerator is None or denominator in (None, 0):
+            return None
+        return round(numerator / denominator, 2)
+
     by_covariate: dict[str, dict[str, Any]] = {}
     for feature in RAW_COVARIATE_LABELS:
         matched_stats = _stats_for(matched_keys, feature)
         unmatched_stats = _stats_for(unmatched_keys, feature)
-        ratio = None
-        if matched_stats["mean"] not in (None, 0) and unmatched_stats["mean"] is not None:
-            ratio = round(unmatched_stats["mean"] / matched_stats["mean"], 2)
-        by_covariate[feature] = {"matched": matched_stats, "unmatched": unmatched_stats, "unmatched_to_matched_ratio": ratio}
+        by_covariate[feature] = {
+            "matched": matched_stats,
+            "unmatched": unmatched_stats,
+            "unmatched_to_matched_mean_ratio": _ratio(unmatched_stats["mean"], matched_stats["mean"]),
+            "unmatched_to_matched_median_ratio": _ratio(unmatched_stats["median"], matched_stats["median"]),
+        }
 
     return {
         "n_matched": len(matched_keys),
@@ -619,12 +672,19 @@ def run_seeds(
 ) -> dict[str, Any]:
     """Repeated random matched-pair sampling.
 
-    Each seed draws k controls per dataset repo from its full eligible pool
-    (without replacement within the seed where possible, allowing replacement
-    only when the eligible pool is too small). Returns, per group (as defined
-    by the caller-supplied `groups` mapping — see build_standard_groups()) and
-    per metric, the list of seed-level (median paired difference, Wilcoxon p,
-    rank-biserial r) tuples.
+    Each seed draws k controls per dataset repo from its OWN full eligible
+    pool, independently of every other dataset repo (without replacement
+    within the repo's own draw where possible, allowing replacement only when
+    that repo's own eligible pool is smaller than k). A control can therefore
+    legitimately be drawn by more than one dataset repo in the same seed --
+    that's expected, not a bug, since each repo's assignment is meant to be an
+    independent random draw from its own candidate set, not a global
+    allocation competing for a shared, non-reusable resource (that global,
+    no-reuse-across-repos design is what "optimal" matching would be, a
+    different and more restrictive question than this robustness check asks).
+    Returns, per group (as defined by the caller-supplied `groups` mapping —
+    see build_standard_groups()) and per metric, the list of seed-level
+    (median paired difference, Wilcoxon p, rank-biserial r) tuples.
     """
     seed_diffs: dict[str, dict[str, list[float]]] = {g: {m: [] for m in metrics} for g in groups}
     seed_wilcoxon: dict[str, dict[str, list[dict]]] = {g: {m: [] for m in metrics} for g in groups}
@@ -635,7 +695,6 @@ def run_seeds(
         rng = random.Random(seed)
         order = list(dataset_order_base)
         rng.shuffle(order)
-        used: set[str] = set()
         assignment: dict[str, list[str]] = {}
 
         for dkey in order:
@@ -643,15 +702,13 @@ def run_seeds(
             if not candidates:
                 assignment[dkey] = []
                 continue
-            unused = [c for c in candidates if c not in used]
-            if len(unused) >= k:
-                chosen = rng.sample(unused, k)
+            if len(candidates) >= k:
+                chosen = rng.sample(candidates, k)
             else:
-                chosen = list(unused)
+                chosen = list(candidates)
                 while len(chosen) < k and candidates:
-                    chosen.append(rng.choice(candidates))  # allow replacement from full eligible set
+                    chosen.append(rng.choice(candidates))  # allow replacement from this repo's own eligible set
             assignment[dkey] = chosen
-            used.update(chosen)
 
         for metric in metrics:
             for group, dkeys in groups.items():
@@ -895,3 +952,355 @@ def summarize_deterministic(
             out[group][metric]["significant_fdr"] = p_adj < 0.05
 
     return out
+
+
+# ---------------------------------------------------------------------------
+# Repository-level matching diagnostics, unmatched-repo sensitivity bounds,
+# and a regression-adjusted estimate on the matched sample -- all three
+# build on the SAME kind of {dataset_key: [selected control keys]} mapping
+# run_deterministic() computes internally (each dataset repo's own top-k
+# nearest eligible controls; run_matched_comparison.py builds this mapping
+# explicitly at each k as `eligibility.eligible.get(dk, [])[:kval]` and
+# passes it into all three), so the three sections stay consistent with the
+# primary matched-pair estimate itself -- a repo's balance/diagnostic/
+# regression contribution always comes from the exact same matched controls
+# its effect estimate does.
+# ---------------------------------------------------------------------------
+
+def matching_diagnostics(
+    assigned: dict[str, list[str]],
+    eligibility: EligibilityResult,
+    dataset_covariates: dict[str, dict[str, Any]],
+    control_covariates: dict[str, dict[str, Any]],
+    dataset_keys: list[str],
+    display_by_key: dict[str, RepoEntry],
+) -> list[dict[str, Any]]:
+    """Repository-level matching diagnostics, one row per treated (dataset)
+    repo: how many controls it's eligible for, how many were actually
+    selected under the given assignment, the Mahalanobis distance to its
+    single nearest ELIGIBLE control (independent of how many were actually
+    selected -- a property of eligibility alone) versus the mean distance
+    across its actually-SELECTED controls, and the raw star/fork gap to
+    those selected controls' mean -- a plain-English read on match quality
+    alongside the abstract Mahalanobis distance.
+    """
+    rows: list[dict[str, Any]] = []
+    for dk in dataset_keys:
+        entry = display_by_key[dk]
+        eligible_controls = eligibility.eligible.get(dk, [])
+        selected_controls = assigned.get(dk, [])
+        distances = eligibility.distances.get(dk, {})
+
+        distance_nearest = min(distances.values()) if distances else None
+        selected_distances = [distances[c] for c in selected_controls if c in distances]
+        avg_distance = (sum(selected_distances) / len(selected_distances)) if selected_distances else None
+
+        d_stars = dataset_covariates.get(dk, {}).get("stars")
+        d_forks = dataset_covariates.get(dk, {}).get("forks")
+        sel_stars = [
+            v for c in selected_controls
+            if (v := control_covariates.get(c, {}).get("stars")) is not None
+        ]
+        sel_forks = [
+            v for c in selected_controls
+            if (v := control_covariates.get(c, {}).get("forks")) is not None
+        ]
+        delta_stars = (d_stars - (sum(sel_stars) / len(sel_stars))) if d_stars is not None and sel_stars else None
+        delta_forks = (d_forks - (sum(sel_forks) / len(sel_forks))) if d_forks is not None and sel_forks else None
+
+        rows.append({
+            "repo_key": dk,
+            "display_name": entry.display_name,
+            "repo_url": entry.repo_url,
+            "category": entry.category,
+            "ag_specific": entry.ag_specific,
+            "n_eligible_controls": len(eligible_controls),
+            "n_selected_controls": len(selected_controls),
+            "distance_nearest": round(distance_nearest, 4) if distance_nearest is not None else None,
+            "avg_distance": round(avg_distance, 4) if avg_distance is not None else None,
+            "delta_stars": round(delta_stars, 1) if delta_stars is not None else None,
+            "delta_forks": round(delta_forks, 1) if delta_forks is not None else None,
+        })
+    return rows
+
+
+# Direction each headline metric is scored in -- True means a higher value is
+# WORSE (vulnerability/exposure counts); False means higher is better
+# (Scorecard-derived checks). Same set run_matched_comparison.py's
+# HEADLINE_METRICS names and the dashboard's own FOREST_PLOT_METRICS
+# (pipeline/report/template.html) already use for the same "which extreme
+# favors the treated side" question -- kept in sync deliberately.
+HEADLINE_METRIC_WORSE_IF_HIGHER = {
+    "scorecard_overall": False,
+    "check_Dependency-Update-Tool": False,
+    "check_Signed-Releases": False,
+    "check_Maintained": False,
+    "check_Vulnerabilities": False,
+    "vuln_count": True,
+    "vuln_density": True,
+    "kev_exploitable_count": True,
+}
+
+
+def _median(values: list[float]) -> float | None:
+    if not values:
+        return None
+    s = sorted(values)
+    n = len(s)
+    mid = n // 2
+    return s[mid] if n % 2 else (s[mid - 1] + s[mid]) / 2.0
+
+
+def unmatched_sensitivity_analysis(
+    assigned: dict[str, list[str]],
+    dataset_keys: list[str],
+    outcomes: dict[str, dict[str, float | None]],
+    display_by_key: dict[str, RepoEntry],
+    metrics: list[str],
+) -> dict[str, Any]:
+    """Best-case / worst-case bound on the median matched-pair difference if
+    the currently-unmatched dataset repos (no assigned controls in `assigned`)
+    HAD been matched. Never hardcodes which repos are unmatched or how many
+    -- both are derived from `assigned` itself, so this automatically tracks
+    whichever repos actually have zero selected controls at the k this was
+    called with, not a fixed count from any one run.
+
+    For each unmatched repo, "best-matched-control outcome" / "worst-
+    matched-control outcome" is the most/least favorable value actually
+    observed among the SELECTED controls of OTHER (matched) repos in the same
+    category (falling back to the full dataset's selected-control pool if no
+    matched peer exists in that repo's own category, flagged per-row via
+    used_category_pool=False) -- not a synthetic or extrapolated value, an
+    empirically observed one. "Most favorable" accounts for metric direction
+    (HEADLINE_METRIC_WORSE_IF_HIGHER): e.g. for vuln_count (higher=worse),
+    the best-case control is the highest-vuln one actually matched in-
+    category (so the imputed repo looks as good as an already-real
+    comparison allows), the worst-case control is the lowest-vuln one.
+
+    "direction_robust" is True when the best-case and worst-case medians
+    both keep the SAME sign as the observed (real, non-imputed) median (0 =
+    inconclusive, never counted as robust).
+    """
+    matched_keys = [dk for dk in dataset_keys if assigned.get(dk)]
+    unmatched_keys = [dk for dk in dataset_keys if not assigned.get(dk)]
+
+    real_diffs: dict[str, list[float]] = {m: [] for m in metrics}
+    category_pool: dict[str, dict[str, list[float]]] = {}
+    all_pool: dict[str, list[float]] = {m: [] for m in metrics}
+
+    for dk in matched_keys:
+        controls = assigned[dk]
+        cat = display_by_key[dk].category or "Unknown"
+        for m in metrics:
+            dval = outcomes.get(dk, {}).get(m)
+            cvals = [v for c in controls if (v := outcomes.get(c, {}).get(m)) is not None]
+            if cvals:
+                category_pool.setdefault(cat, {}).setdefault(m, []).extend(cvals)
+                all_pool[m].extend(cvals)
+            if dval is not None and cvals:
+                real_diffs[m].append(float(dval) - sum(cvals) / len(cvals))
+
+    imputed_best: dict[str, list[float]] = {m: list(real_diffs[m]) for m in metrics}
+    imputed_worst: dict[str, list[float]] = {m: list(real_diffs[m]) for m in metrics}
+
+    per_repo: list[dict[str, Any]] = []
+    for dk in unmatched_keys:
+        entry = display_by_key[dk]
+        cat = entry.category or "Unknown"
+        row: dict[str, Any] = {
+            "repo_key": dk, "display_name": entry.display_name, "repo_url": entry.repo_url, "category": cat,
+            "metrics": {},
+        }
+        for m in metrics:
+            dval = outcomes.get(dk, {}).get(m)
+            used_category_pool = bool(category_pool.get(cat, {}).get(m))
+            pool = category_pool.get(cat, {}).get(m) or all_pool.get(m) or []
+            if dval is None or not pool:
+                row["metrics"][m] = {"imputed_best": None, "imputed_worst": None, "used_category_pool": None}
+                continue
+            worse_if_higher = HEADLINE_METRIC_WORSE_IF_HIGHER.get(m, False)
+            best_control = max(pool) if worse_if_higher else min(pool)
+            worst_control = min(pool) if worse_if_higher else max(pool)
+            diff_best = float(dval) - best_control
+            diff_worst = float(dval) - worst_control
+            row["metrics"][m] = {
+                "imputed_best": round(diff_best, 4),
+                "imputed_worst": round(diff_worst, 4),
+                "used_category_pool": used_category_pool,
+            }
+            imputed_best[m].append(diff_best)
+            imputed_worst[m].append(diff_worst)
+        per_repo.append(row)
+
+    def _sign(x: float | None) -> int:
+        if x is None:
+            return 0
+        return 1 if x > 0 else (-1 if x < 0 else 0)
+
+    by_metric: dict[str, Any] = {}
+    for m in metrics:
+        observed_median = _median(real_diffs[m])
+        best_median = _median(imputed_best[m])
+        worst_median = _median(imputed_worst[m])
+        obs_sign = _sign(observed_median)
+        by_metric[m] = {
+            "worse_if_higher": HEADLINE_METRIC_WORSE_IF_HIGHER.get(m, False),
+            "n_observed": len(real_diffs[m]),
+            "n_best_case": len(imputed_best[m]),
+            "n_worst_case": len(imputed_worst[m]),
+            "observed_median": round(observed_median, 4) if observed_median is not None else None,
+            "best_case_median": round(best_median, 4) if best_median is not None else None,
+            "worst_case_median": round(worst_median, 4) if worst_median is not None else None,
+            "direction_robust": bool(
+                obs_sign != 0 and _sign(best_median) == obs_sign and _sign(worst_median) == obs_sign
+            ),
+        }
+
+    return {
+        "n_matched": len(matched_keys),
+        "n_unmatched": len(unmatched_keys),
+        "per_repo": per_repo,
+        "by_metric": by_metric,
+    }
+
+
+# The two covariates flagged as still "Imbalanced" (|SMD| > 0.25) after
+# matching in the Covariate Balance table, regardless of k -- see
+# regression_adjusted_estimate() below.
+REGRESSION_ADJUSTMENT_COVARIATES = ["log_stars", "log_forks"]
+
+
+def regression_adjusted_estimate(
+    assigned: dict[str, list[str]],
+    outcomes: dict[str, dict[str, float | None]],
+    dataset_covariates: dict[str, dict[str, Any]],
+    control_covariates: dict[str, dict[str, Any]],
+    metrics: list[str],
+) -> dict[str, Any]:
+    """Regression-adjusted matching estimate: on the matched sample (every
+    treated repo with >=1 selected control, plus every distinct control
+    actually selected by any of them -- the same "after matching" set
+    compute_balance()'s "after" side uses), fit outcome ~ treatment +
+    log_stars + log_forks via OLS (pipeline.stats._ols_fit, HC3 robust SE)
+    for each headline metric, adjusting for the two covariates that remain
+    imbalanced even after matching (see REGRESSION_ADJUSTMENT_COVARIATES).
+
+    Compares two estimates of the same quantity:
+      - matching_only: the simple (unadjusted) mean of each treated repo's
+        matched-pair difference -- meaned rather than medianed so it's
+        directly comparable to the regression coefficient (also a
+        mean-scale estimate; the Outcome Effects table's own "Median Δ" is
+        deliberately not used for this comparison, since a median isn't the
+        quantity a linear regression coefficient estimates).
+      - matching_plus_regression: the OLS coefficient on the treatment
+        indicator, which nets out any remaining linear association between
+        treatment and log_stars/log_forks within the matched sample.
+
+    Two derived columns replace a single "are these consistent" judgment
+    call, because collapsing "same sign" and "both significant" into one
+    CI-overlap check conflates two different questions -- a sign flip
+    between two individually-insignificant estimates can still pass a
+    CI-overlap test (both CIs are wide and cross zero, so each contains the
+    other's point estimate) and would misleadingly read as "consistent" even
+    though the two methods disagree about which direction the effect points:
+      - "same_direction": True when matching_only_mean and the regression
+        treatment coefficient have the same sign (None if either is exactly
+        zero, where sign comparison is undefined).
+      - "significant_both": True when the matching-only estimate's bootstrap
+        CI excludes zero AND the regression coefficient's p-value is < 0.05
+        -- i.e. both methods independently reject the null, not just one.
+        This is a plain per-metric threshold, not FDR-corrected across
+        metrics: this table is a robustness diagnostic on the primary
+        FDR-corrected estimate above, not itself a primary inferential claim.
+    """
+    treated_keys = [dk for dk, ctrls in assigned.items() if ctrls]
+    distinct_controls = sorted({c for ctrls in assigned.values() for c in ctrls})
+
+    by_metric: dict[str, Any] = {}
+    for m in metrics:
+        diffs: list[float] = []
+        for dk in treated_keys:
+            dval = outcomes.get(dk, {}).get(m)
+            cvals = [v for c in assigned[dk] if (v := outcomes.get(c, {}).get(m)) is not None]
+            if dval is not None and cvals:
+                diffs.append(float(dval) - sum(cvals) / len(cvals))
+
+        matching_only_mean = (sum(diffs) / len(diffs)) if diffs else None
+        mo_ci_lo, mo_ci_hi = bootstrap_ci(diffs, np.mean) if diffs else (None, None)
+
+        rows: list[list[float]] = []
+        ys: list[float] = []
+        for dk in treated_keys:
+            val = outcomes.get(dk, {}).get(m)
+            if val is None:
+                continue
+            feats = _to_feature_row(dataset_covariates.get(dk, {}))
+            rows.append([1.0, 1.0, feats["log_stars"], feats["log_forks"]])
+            ys.append(val)
+        for ck in distinct_controls:
+            val = outcomes.get(ck, {}).get(m)
+            if val is None:
+                continue
+            feats = _to_feature_row(control_covariates.get(ck, {}))
+            rows.append([1.0, 0.0, feats["log_stars"], feats["log_forks"]])
+            ys.append(val)
+
+        # Same "some slack beyond the parameter count" rule
+        # pipeline.stats._build_design_matrix uses (4 params here: intercept,
+        # treatment, log_stars, log_forks).
+        fit = None
+        if len(ys) >= 4 + 5:
+            fit = _ols_fit(np.array(ys, dtype=float), np.array(rows, dtype=float),
+                            ["intercept", "treatment"] + REGRESSION_ADJUSTMENT_COVARIATES)
+
+        reg_coef = reg_se = reg_p = reg_ci_lo = reg_ci_hi = None
+        vifs: dict[str, float | None] = {}
+        if fit:
+            for c in fit["coefficients"]:
+                if c["term"] == "treatment":
+                    reg_coef, reg_se, reg_p = c["coef"], c["se"], c["p_value"]
+                    reg_ci_lo, reg_ci_hi = c["ci_lo"], c["ci_hi"]
+                elif c["term"] in REGRESSION_ADJUSTMENT_COVARIATES:
+                    vifs[c["term"]] = c["vif"]
+
+        mo_significant = None
+        if (
+            mo_ci_lo is not None and mo_ci_hi is not None
+            and not math.isnan(mo_ci_lo) and not math.isnan(mo_ci_hi)
+        ):
+            mo_significant = not (mo_ci_lo <= 0 <= mo_ci_hi)
+        reg_significant = (reg_p < 0.05) if reg_p is not None else None
+
+        same_direction = None
+        if matching_only_mean is not None and reg_coef is not None and matching_only_mean != 0 and reg_coef != 0:
+            same_direction = (matching_only_mean > 0) == (reg_coef > 0)
+
+        significant_both = None
+        if mo_significant is not None and reg_significant is not None:
+            significant_both = bool(mo_significant and reg_significant)
+
+        by_metric[m] = {
+            "n_matched_pairs": len(diffs),
+            "matching_only_mean": round(matching_only_mean, 4) if matching_only_mean is not None else None,
+            "matching_only_ci_lo": round(mo_ci_lo, 4) if mo_ci_lo is not None and not math.isnan(mo_ci_lo) else None,
+            "matching_only_ci_hi": round(mo_ci_hi, 4) if mo_ci_hi is not None and not math.isnan(mo_ci_hi) else None,
+            "regression_n": fit["n"] if fit else None,
+            "regression_coef": reg_coef,
+            "regression_se": reg_se,
+            "regression_ci_lo": reg_ci_lo,
+            "regression_ci_hi": reg_ci_hi,
+            "regression_p_value": reg_p,
+            "log_stars_vif": vifs.get("log_stars"),
+            "log_forks_vif": vifs.get("log_forks"),
+            "matching_only_significant": mo_significant,
+            "regression_significant": reg_significant,
+            "same_direction": same_direction,
+            "significant_both": significant_both,
+        }
+
+    return {
+        "n_treated": len(treated_keys),
+        "n_distinct_controls": len(distinct_controls),
+        "covariates": REGRESSION_ADJUSTMENT_COVARIATES,
+        "by_metric": by_metric,
+    }

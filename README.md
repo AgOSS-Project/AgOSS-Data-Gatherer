@@ -765,8 +765,8 @@ skew toward large, mature projects. A "weaker" result for the ag-specific
 group in that comparison could simply reflect project maturity rather than
 anything agriculture-specific.
 
-The matched-comparison analysis addresses this by treating **all dataset
-repos** (both `ag_specific=Yes` and `ag_specific=No`) as the group of
+The matched-comparison analysis addresses this by taking the
+`ag_specific=Yes` (purpose-built agricultural software) repos as the group of
 interest, and comparing each of them against `k=3` statistically **matched
 controls** drawn from a much larger pool of genuinely **non-ag-critical but
 operationally similar** repositories — IoT platforms, embedded systems,
@@ -921,12 +921,7 @@ For local testing only, `python control_search/run_matched_comparison.py
 2. **Eligibility** — a hard exact primary-language gate (no ecosystem-bucket
    fallback: a dataset repo with zero same-language candidates in the control
    pool is dropped into the unmatched cohort rather than matched against a
-   different-language proxy), then a **Mahalanobis-distance caliper** over
-   the standardized continuous
-   covariates plus the ownership indicator. Mahalanobis distance (rather than
-   raw Euclidean distance) accounts for correlation between covariates and is
-   the standard choice in the matching literature for a covariate set this
-   size with a modest treated sample (Rosenbaum & Rubin; King & Nielsen 2019).
+   different-language proxy), then a **Mahalanobis-distance caliper**.
    The caliper threshold is set via the chi-squared distribution (df = number
    of covariates), since squared Mahalanobis distances are asymptotically
    chi-squared distributed.
@@ -958,10 +953,9 @@ For local testing only, `python control_search/run_matched_comparison.py
    percentile interval** are reported, with **Benjamini-Hochberg FDR
    correction** applied across metrics within each grouping (reusing the same
    `_bh_fdr_correct` helper the `ag_vs_nonag` comparison already uses).
-   Results are reported for **all dataset repos**, separately for the
-   `ag_specific=Yes` and `ag_specific=No` subgroups (the latter is a small
-   subgroup with limited statistical power and should be read as suggestive,
-   not conclusive, on its own), and separately per repo category.
+   Since every dataset repo is `ag_specific=Yes` by construction (see [Why
+   this analysis exists](#why-this-analysis-exists)), results are reported
+   for the dataset as a whole and separately per repo category.
 6. **Outcome metrics** — `scorecard_overall` and all Scorecard per-check
    scores (including `Dependency-Update-Tool` and `Signed-Releases`),
    dependency vulnerability count/density, and CISA KEV-exploitable
@@ -969,6 +963,36 @@ For local testing only, `python control_search/run_matched_comparison.py
    `pipeline/scorecard_runner.py`, `pipeline/dependency_runner.py`, and
    `pipeline/exploit.py` logic used for the dataset repos, so outcome
    measurement is identical across groups.
+7. **Regression-adjusted estimate** — the Covariate Balance table (point 3)
+   can show `log_stars`/`log_forks` remaining imbalanced even after matching.
+   For each headline metric, an OLS fit of `outcome ~ treatment + log_stars +
+   log_forks` (HC3 robust SE) on the matched sample is compared against the
+   simple unadjusted mean matched-pair difference. Agreement is reported as
+   two separate questions rather than one combined judgment, since collapsing
+   them can hide a sign flip between two individually-non-significant
+   estimates: **Same Direction?** (do the two estimates agree on sign) and
+   **Significant Under Both?** (does the matching-only estimate's CI exclude
+   zero *and* is the regression p-value < 0.05).
+8. **Unmatched-repo sensitivity analysis** — bounds how much the headline
+   median effect could shift if the currently-unmatched repos (zero eligible
+   controls) *had* matched, by imputing each one against the best/worst
+   outcome actually observed among other matched repos' selected controls in
+   the same category (falling back to the full matched pool if no in-category
+   peer exists). If the median keeps the same sign under both the best- and
+   worst-case bound, the conclusion doesn't depend on how those specific
+   repos would have matched.
+9. **Repository-level matching diagnostics** — one row per treated repo:
+   eligible-control count, actually-selected-control count, Mahalanobis
+   distance to its nearest eligible control vs. the mean distance across its
+   selected controls, and the raw star/fork gap to those controls' mean — for
+   auditing individual matches rather than only the aggregate.
+
+**Unmatched Repo Characterization** (a diagnostic distinct from the
+sensitivity analysis above — see [Later search waves](#later-search-waves-expansion-and-ruby))
+reports both a mean-based and a median-based unmatched-to-matched ratio per
+covariate, not just the mean: the unmatched group is often small, so a single
+outlier repo can swing a mean ratio on its own, and a sharp mean/median
+disagreement is itself informative about how skewed that group is.
 
 Full limitations and interpretation framing are included verbatim in the
 `data_notes` field of `outputs/processed/matched_comparison.json`.
@@ -1056,7 +1080,7 @@ internet connection is required.
 | **Vulnerabilities** | Dependency vulnerability breakdown · CISA KEV exploitability panel with remediation deadlines |
 | **Dependencies** | Full dependency scan results per repository · severity breakdown · vulnerability density chart |
 | **Comparisons** | Repo rankings by score / stars / commits · scatter plots with Spearman subtitles · Scorecard check averages with 95% CI error bars |
-| **Matched Comparison** | All-dataset-repos-vs-matched-controls results: covariate balance table, per-metric effect table (all / ag-specific / non-ag-specific / per category), a k selector that instantly switches every section between precomputed k values, per-repo eligible-control coverage — see [Matched-Comparison Analysis](#matched-comparison-analysis) |
+| **Matched Comparison** | Ag-specific-repos-vs-matched-controls results: naive-vs-matched comparison table, covariate balance table, per-metric effect table (all / per category), regression-adjusted estimate, unmatched-repo sensitivity analysis, repository-level matching diagnostics, a k selector that instantly switches every section between precomputed k values, per-repo eligible-control coverage — see [Matched-Comparison Analysis](#matched-comparison-analysis) |
 | **Pipeline Health** | Per-repository Scorecard and GitHub metrics status badges · runtime statistics |
 
 ### Chart interactions
@@ -1151,25 +1175,70 @@ and dependency API caches) is gitignored, since it's fully reproducible from
 `inputs/` via a pipeline re-run and isn't needed to reproduce the committed
 `outputs/processed/` results.
 
+### Canonical result snapshot
+
+The copy of the dashboard of results collected on the most recent collection date is committed to the following path:
+
+```
+outputs/dashboard/snapshots/<COLLECTION_DATE>/index.html
+```
+
+Populating this is a manual step, not an automated one: after a run whose
+results you want preserved as a durable reference, copy
+`outputs/dashboard/index.html` to
+`outputs/dashboard/snapshots/<the value in COLLECTION_DATE.txt>/index.html`
+and commit it alongside the rest of that run's outputs. It's self-contained
+the same way the live dashboard is (all data embedded as JSON literals, no
+server or network access needed to view it), so opening that file directly
+— not running any command — is the only way to guarantee "the exact results
+as of that date," independent of what any later `main.py` run in the same
+clone does to the live copy.
+
 ### Reproducing analysis from committed cache
 
 Because `outputs/processed/` and `outputs/dashboard/` are committed,
 statistical analysis and dashboard generation can be reproduced without
-re-running data collection or requiring any API access:
+re-running the main data collection:
 
 ```powershell
-# Reproduce all downstream results from committed processed outputs (~5 seconds)
+# Reproduce all downstream results from committed processed outputs
 python main.py --regenerate
 ```
 
-This re-derives `statistical_analysis.json` and the dashboard from the
-already-committed `merged_repos.json` and
-`dependency_analysis.json` — it does not touch the matched-comparison output
-(`matched_comparison.json`), which is only refreshed by re-running
-`control_search/run_matched_comparison.py` directly (see [Matched-Comparison
-Analysis](#matched-comparison-analysis)); that step makes its own network
-calls (GitHub REST for the control pool's covariates, plus Scorecard/OSV for
-any not-yet-cached control repo) and is not part of `--regenerate`.
+This re-derives `statistical_analysis.json` from the already-committed
+`merged_repos.json` and `dependency_analysis.json` — pure computation, fixed
+bootstrap seed, no network — and rebuilds the dashboard. **By default it also
+re-runs the matched-comparison analysis**
+(`control_search/run_matched_comparison.py`, see
+[Matched-Comparison Analysis](#matched-comparison-analysis)); pass
+`--skip-matched-comparison` for a purely offline, no-credentials rebuild of
+everything else:
+
+```powershell
+# Stats + dashboard only, ~5 seconds, no network access or GitHub token needed
+python main.py --regenerate --skip-matched-comparison
+```
+
+The matched-comparison rerun makes its own network calls (GitHub REST for
+covariates, the Scorecard binary, OSV) for any repo not already cached under
+`control_search/raw/`, and needs `GITHUB_AUTH_TOKEN` plus a locally installed
+Scorecard binary (see [Prerequisites](#prerequisites)) to succeed for those.
+In practice this is usually fast and stable rather than fully "live":
+whatever is already cached is reused as-is regardless of how much time has
+passed, and only genuinely new repos (a newly added dataset entry or
+control-pool repo) trigger a fresh fetch. Pass `--force` to bypass those
+caches entirely and refetch everything live.
+
+`--force` here only refreshes the **control pool's** side of the matched
+comparison — `--regenerate` never re-runs Stages 1–6 (Scorecard/dependency/
+GitHub-metrics collection for the *dataset* repos), so the dataset side stays
+frozen at whatever `COLLECTION_DATE.txt` reflects regardless of which flags
+are passed. A forced `--regenerate` can therefore end up comparing an older
+dataset snapshot against newer control-pool data — check
+`matched_comparison.json`'s own `generated_at` field (distinct from, and not
+kept in sync with, `COLLECTION_DATE.txt`) if that distinction matters for a
+specific run. A full `python main.py --force` re-collects both sides
+together and is the only way to guarantee they're dated consistently.
 
 ### Random seed
 
@@ -1190,24 +1259,27 @@ Interpretation gotchas specific to the committed sample dataset — worth
 reading before citing a number from the dashboard or `statistical_analysis.json`
 in isolation.
 
-- **The raw ag-vs-non-ag Scorecard gap is large but confounded, and does not
-  survive controlling for repository size/category.** The univariate
-  Mann-Whitney comparison shows a large, highly significant gap (large
-  effect size, `p_adjusted_fdr < 0.001`) between `ag_specific=Yes` and
-  `ag_specific=No` repositories. Two independent analyses designed
-  specifically to test whether this survives confound-adjustment — the
+- **The raw ag-vs-non-ag Scorecard gap is large but confounded, and shrinks
+  sharply against cleaner baselines.** The univariate Mann-Whitney comparison
+  shows a large, highly significant gap (`r≈-0.87`, `p_adjusted_fdr < 0.001`)
+  between `ag_specific=Yes` and `ag_specific=No` repositories already in the
+  dataset. Two independent analyses ask a related but distinct question and
+  both find a much smaller, non-significant effect: the
   [joint regression models](#joint-regression-models--disentangling-category-ag-specificity-and-scale)
-  and the [matched-comparison analysis](#matched-comparison-analysis) — both
-  show the `ag_specific` effect is **not** statistically significant once
-  category, popularity, and contributor-community size are held constant
-  (joint model: `p_adjusted_fdr` in the 0.3–0.4 range across all three
-  outcomes; matched comparison: the Scorecard gap shrinks from a large raw
-  effect to a small one that doesn't survive FDR correction at any tested
-  `k`). Read together, not selectively: the raw gap is real and reproducible,
-  and it substantially — though not entirely — reflects repository size and
-  community engagement rather than agricultural-domain status per se.
-  Reporting only the raw Mann-Whitney result without this context would
-  overstate what the data supports.
+  ask whether `ag_specific` status predicts the outcome once category,
+  popularity, and contributor-community size are held constant *within the
+  dataset* (`p_adjusted_fdr` in the 0.3–0.4 range across all three outcomes —
+  not significant), and the
+  [matched-comparison analysis](#matched-comparison-analysis) asks whether
+  `ag_specific=Yes` repos look different from operationally similar non-ag
+  software drawn from an *external* control pool (median Scorecard difference
+  of roughly -0.1 to -0.4 points depending on `k`, `p_adjusted_fdr` in the
+  0.13–0.67 range — not significant at any tested `k`). Read together, not
+  selectively: the raw gap is real and reproducible, and it substantially —
+  though not entirely — reflects repository size and community engagement
+  rather than agricultural-domain status per se. Reporting only the raw
+  Mann-Whitney result without this context would overstate what the data
+  supports.
 - **Dependency-scan failures are concentrated in, and systematically smaller
   within, the ag-specific group.** In the committed sample, all repositories
   whose dependency scan failed (HTTP 404 from the SBOM endpoint) are
@@ -1221,11 +1293,14 @@ in isolation.
   repositories large enough for GitHub to generate a dependency graph.
 - **The non-ag-specific comparison group is small.** `ag_specific=No` has 11
   repositories in the committed sample. Several Mann-Whitney/Kruskal-Wallis
-  comparisons involving this group, and the matched-comparison's
-  `non_ag_specific` breakdown specifically, should be read as suggestive
-  rather than conclusive on their own — check `mde_r_80` (not `power`; see
+  comparisons involving this group (in `statistical_analysis.json`'s
+  `ag_vs_nonag` family) should be read as suggestive rather than conclusive
+  on their own — check `mde_r_80` (not `power`; see
   [Mann-Whitney](#mann-whitney-u-test--ag-specific-vs-non-ag-specific)) before
-  concluding a non-significant result there reflects a genuine null.
+  concluding a non-significant result there reflects a genuine null. This
+  group does not appear in the matched-comparison analysis at all — that
+  analysis now compares only `ag_specific=Yes` repos against the external
+  control pool (see [Why this analysis exists](#why-this-analysis-exists)).
 - **Category sample sizes range from 5 to 19.** The smallest categories
   (`Embedded OS substrate`, `n=5`; `Data Processing Libraries/Tools`, `n=6`)
   have limited power for both the omnibus Kruskal-Wallis tests and Dunn's
@@ -1235,8 +1310,8 @@ in isolation.
   the dashboard and JSON both surface explicitly rather than silently
   dropping.
 - **Matching is on observed covariates only.** The matched-comparison
-  analysis (log stars/forks/age/contributor-count/commit-activity, plus a
-  hard primary-language gate) cannot address unobserved confounders —
+  analysis (log stars/forks/age/contributor-count/commit-activity/codebase-size,
+  plus a hard primary-language gate) cannot address unobserved confounders —
   funding model, institutional backing, deployment context — and does not
   establish causality in either direction. It answers "does the gap persist
   after controlling for observable size/age/activity/ecosystem," not "does

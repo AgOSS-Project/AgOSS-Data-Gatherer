@@ -439,8 +439,6 @@
       <div class="filter-bar">
         <select id="matchedGroupSelect">
           <option value="all" id="matchedGroupAllOption">All Repos</option>
-          <option value="ag_specific">Ag-Specific Only</option>
-          <option value="non_ag_specific">Not Ag-Specific Only</option>
         </select>
         <select id="matchedKSelect"></select>
         <span style="font-size:.8rem;color:#64748b;">These selections drive every section below.</span>
@@ -590,18 +588,53 @@
         <table id="matchedEffectsTable">
           <thead><tr>
             <th>Metric</th><th>Median Δ</th><th>95% CI</th>
-            <th>Effect Size</th><th>FDR p</th>
+            <th>Effect Size</th><th>FDR p</th><th title="Matched pairs actually used for this metric.">n</th>
           </tr></thead>
           <tbody id="matchedEffectsBody"></tbody>
         </table>
       </div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Regression-Adjusted Estimate — Matching Only vs Matching + Regression</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;max-width:900px;">
+        The Covariate Balance table above can show log_stars and log_forks staying imbalanced even after
+        matching. This fits <code>outcome ~ treatment + log_stars + log_forks</code> by OLS (HC3 robust
+        SE) on the matched sample — every matched repo plus every control actually selected, the same
+        "after matching" set Covariate Balance itself uses — for each headline metric, and compares the
+        adjusted treatment coefficient to the simple (unadjusted) mean matched-pair difference. Agreement
+        is reported as two separate questions rather than one combined "consistent?" judgment, since
+        collapsing them can hide a sign flip: two estimates can both be individually non-significant
+        (wide CIs that each happen to contain the other's point estimate) while pointing in opposite
+        directions. <strong>Same Direction?</strong> asks only about the sign of the effect;
+        <strong>Significant Under Both?</strong> asks whether both methods independently reject the null
+        at p&lt;0.05 / CI excludes zero. Only when both are "Yes" does the conclusion not depend on
+        whether residual size differences are handled by nearest-neighbor averaging or a regression
+        surface.
+      </p>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;margin-bottom:.5rem;">
+        <table id="regressionAdjustmentTable">
+          <thead><tr>
+            <th>Metric</th>
+            <th style="text-align:right;">Matching-Only (mean Δ, 95% CI)</th>
+            <th style="text-align:right;">Matching + Regression (β, 95% CI)</th>
+            <th style="text-align:right;">Regression p</th>
+            <th title="Do matching-only and regression agree on the sign of the effect? (— if either estimate is exactly zero.)">Same Direction?</th>
+            <th title="True only when BOTH the matching-only estimate's 95% CI excludes zero AND the regression p-value is below 0.05 -- i.e. both methods independently reject the null, not just one.">Significant Under Both?</th>
+          </tr></thead>
+          <tbody id="regressionAdjustmentBody"></tbody>
+        </table>
+      </div>
+      <div id="regressionAdjustmentNote" style="font-size:.78rem;color:#94a3b8;margin-bottom:1.5rem;"></div>
 
       <h3 style="margin:1.5rem 0 .5rem;">Unmatched Repo Characterization</h3>
       <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;max-width:900px;">
         Are the repos that couldn't be matched systematically different from the ones that were — e.g.
         larger or more mature — rather than just unlucky? If so, the matched-comparison sample
         underrepresents part of the dataset (this table isn't affected by the group dropdown above,
-        since it's inherently about the whole dataset's matched/unmatched split).
+        since it's inherently about the whole dataset's matched/unmatched split). Both a mean-based and
+        a median-based ratio are shown side by side: the unmatched group is often small, so a single
+        outlier repo can swing a mean ratio on its own — if the mean and median ratios disagree sharply,
+        that gap is itself informative about how skewed the unmatched group is, rather than something to
+        read past.
       </p>
       <div id="unmatchedCharEmpty" style="display:none;color:#64748b;font-size:.85rem;margin-bottom:1rem;">
         No unmatched repos to characterize (or no matched ones to compare against).
@@ -610,11 +643,71 @@
         <table id="unmatchedCharTable">
           <thead><tr>
             <th>Covariate</th>
-            <th style="text-align:right;">Matched<br><span style="font-weight:400;color:#94a3b8;" id="unmatchedCharMatchedN"></span></th>
-            <th style="text-align:right;">Unmatched<br><span style="font-weight:400;color:#94a3b8;" id="unmatchedCharUnmatchedN"></span></th>
-            <th style="text-align:right;">Unmatched ÷ Matched</th>
+            <th style="text-align:right;">Matched Mean<br><span style="font-weight:400;color:#94a3b8;" id="unmatchedCharMatchedN"></span></th>
+            <th style="text-align:right;">Unmatched Mean<br><span style="font-weight:400;color:#94a3b8;" id="unmatchedCharUnmatchedN"></span></th>
+            <th style="text-align:right;">Mean Ratio</th>
+            <th style="text-align:right;">Matched Median</th>
+            <th style="text-align:right;">Unmatched Median</th>
+            <th style="text-align:right;">Median Ratio</th>
           </tr></thead>
           <tbody id="unmatchedCharBody"></tbody>
+        </table>
+      </div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Unmatched-Repo Sensitivity Analysis</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;max-width:900px;">
+        The <span id="sensitivityNUnmatched">—</span> unmatched repos above (not affected by the group
+        dropdown, same reasoning as Unmatched Repo Characterization) contribute nothing to the median Δ
+        shown elsewhere on this page. This bounds what would happen to that median if they HAD been
+        matched: for each unmatched repo, "best case" imputes it against the most favorable outcome
+        actually observed among OTHER matched repos' selected controls in the SAME category (worst case
+        uses the least favorable) — an empirically observed value, not a synthetic one. If the median Δ
+        keeps the same sign under both bounds, the conclusion does not depend on how these particular
+        repos would have matched. This reflects whichever repos are actually unmatched at the currently
+        selected k, not a fixed set.
+      </p>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;margin-bottom:1rem;">
+        <table id="unmatchedSensitivityTable">
+          <thead><tr>
+            <th>Metric</th>
+            <th style="text-align:right;">Observed Median Δ (n)</th>
+            <th style="text-align:right;">Best-Case Median Δ (n)</th>
+            <th style="text-align:right;">Worst-Case Median Δ (n)</th>
+            <th>Conclusion Robust?</th>
+          </tr></thead>
+          <tbody id="unmatchedSensitivityBody"></tbody>
+        </table>
+      </div>
+      <div id="unmatchedSensitivityPerRepo" style="font-size:.78rem;color:#64748b;margin-bottom:1.5rem;"></div>
+
+      <h3 style="margin:1.5rem 0 .5rem;">Repository-Level Matching Diagnostics</h3>
+      <p style="font-size:.8rem;color:#64748b;margin-bottom:.75rem;max-width:900px;">
+        One row per treated repository: how many controls it's eligible for, how many were actually
+        selected at the currently selected k, the Mahalanobis distance to its single nearest eligible
+        control (independent of k) versus the mean distance across the controls actually selected
+        (depends on k), and the raw star/fork gap to those selected controls' mean — a plain-English
+        read on match quality alongside the abstract distance. Positive Δ means the repository has more
+        than its selected controls' average.
+      </p>
+      <div class="filter-bar">
+        <select id="matchingDiagnosticsSortSelect">
+          <option value="none">Sort: Repository name (A–Z)</option>
+          <option value="fewest_eligible">Sort: Fewest eligible controls</option>
+          <option value="largest_nearest_distance">Sort: Largest nearest-neighbor distance</option>
+        </select>
+      </div>
+      <div class="table-wrap" style="padding-left:0;padding-right:0;margin-bottom:1.5rem;">
+        <table id="matchingDiagnosticsTable">
+          <thead><tr>
+            <th>Repository</th>
+            <th style="text-align:right;">Eligible Controls</th>
+            <th style="text-align:right;" title="How many controls were actually used for this repo at the selected k.">Controls Selected</th>
+            <th style="text-align:right;" title="Mahalanobis distance to the single nearest eligible control -- independent of k.">Distance to Nearest</th>
+            <th style="text-align:right;" title="Mean Mahalanobis distance across the controls actually selected -- depends on k.">Avg Distance</th>
+            <th style="text-align:right;">Δ Stars</th>
+            <th style="text-align:right;">Δ Forks</th>
+          </tr></thead>
+          <tbody id="matchingDiagnosticsBody"></tbody>
         </table>
       </div>
 
@@ -3411,7 +3504,14 @@ renderAgSpecific();
   // hardcoded, since the dataset size changes as repos are added.
   (function populateNaiveVsMatchedCounts() {
     const nAg = MATCHED.n_ag_specific;
-    const nNonAg = MATCHED.n_non_ag_specific;
+    // The naive comparison's non-ag count comes from STATS (pipeline/
+    // stats.py's ag_vs_nonag family, over the full dataset) rather than
+    // MATCHED -- the matched-comparison analysis restricts its dataset side
+    // to ag-specific repos only, so MATCHED.n_non_ag_specific is always 0
+    // and does not describe the naive comparison's own population.
+    const nNonAg = (STATS.group_sizes_total && STATS.group_sizes_total.no != null)
+      ? STATS.group_sizes_total.no
+      : MATCHED.n_non_ag_specific;
     const agCountEl = document.getElementById('nvmAgCount');
     const nonAgCountEl = document.getElementById('nvmNonAgCount');
     const naiveLabelEl = document.getElementById('nvmNaiveCorpusLabel');
@@ -3546,26 +3646,28 @@ renderAgSpecific();
     document.getElementById('unmatchedCharUnmatchedN').textContent = `(n=${uc.n_unmatched})`;
 
     const covariateLabelMap = MATCHED.covariate_labels || {};
+    const ratioHtml = (ratio) => {
+      if (ratio == null) return '—';
+      const flagged = ratio >= 2 || ratio <= 0.5;
+      return flagged
+        ? `<span style="color:#d97706;font-weight:600;">${fmt(ratio, 2)}×</span>`
+        : `${fmt(ratio, 2)}×`;
+    };
     const rows = Object.entries(uc.by_covariate || {}).map(([feature, d]) => {
       const label = covariateLabelMap[feature] || feature;
-      const ratio = d.unmatched_to_matched_ratio;
-      let ratioHtml = '—';
-      if (ratio != null) {
-        const flagged = ratio >= 2 || ratio <= 0.5;
-        ratioHtml = flagged
-          ? `<span style="color:#d97706;font-weight:600;">${fmt(ratio, 2)}×</span>`
-          : `${fmt(ratio, 2)}×`;
-      }
       return `<tr>
         <td>${esc(label)}</td>
         <td style="text-align:right;">${fmt(d.matched && d.matched.mean, 1)}</td>
         <td style="text-align:right;">${fmt(d.unmatched && d.unmatched.mean, 1)}</td>
-        <td style="text-align:right;">${ratioHtml}</td>
+        <td style="text-align:right;">${ratioHtml(d.unmatched_to_matched_mean_ratio)}</td>
+        <td style="text-align:right;">${fmt(d.matched && d.matched.median, 1)}</td>
+        <td style="text-align:right;">${fmt(d.unmatched && d.unmatched.median, 1)}</td>
+        <td style="text-align:right;">${ratioHtml(d.unmatched_to_matched_median_ratio)}</td>
       </tr>`;
     });
     document.getElementById('unmatchedCharBody').innerHTML = rows.length
       ? rows.join('')
-      : '<tr><td colspan="4">No covariate data available.</td></tr>';
+      : '<tr><td colspan="7">No covariate data available.</td></tr>';
   }
   renderUnmatchedCharacterization();
 
@@ -3699,11 +3801,118 @@ renderAgSpecific();
         <td>${interval}</td>
         <td>${effectBadge(d.effect_label)} <span style="color:#94a3b8;font-size:.78rem;">${fmt(d.effect_size_rank_biserial, 3)}</span></td>
         <td>${pFdr}</td>
+        <td>${d.n_matched_pairs != null ? d.n_matched_pairs : '—'}</td>
       </tr>`;
     }).filter(Boolean);
     document.getElementById('matchedEffectsBody').innerHTML = rows.length
       ? rows.join('')
-      : '<tr><td colspan="5">No effect data for this group.</td></tr>';
+      : '<tr><td colspan="6">No effect data for this group.</td></tr>';
+  }
+
+  // ── Regression-Adjusted Estimate ──
+  function renderRegressionAdjustment() {
+    const body = document.getElementById('regressionAdjustmentBody');
+    const noteEl = document.getElementById('regressionAdjustmentNote');
+    if (!body) return;
+    const ra = (MATCHED.regression_adjustment_by_k && MATCHED.regression_adjustment_by_k[String(currentK())]) || null;
+    if (!ra || !ra.by_metric) {
+      body.innerHTML = '<tr><td colspan="6">No regression-adjustment data available.</td></tr>';
+      if (noteEl) noteEl.textContent = '';
+      return;
+    }
+    const yesNoHtml = (val, yesText, noText) => val == null
+      ? '<span style="color:#94a3b8;">n/a</span>'
+      : val
+        ? `<span style="color:#16a34a;font-weight:600;">${yesText || 'Yes'}</span>`
+        : `<span style="color:#d97706;font-weight:600;">${noText || 'No'}</span>`;
+    const rows = Object.entries(ra.by_metric).map(([metric, d]) => {
+      const moCi = (d.matching_only_ci_lo != null && d.matching_only_ci_hi != null)
+        ? `[${fmt(d.matching_only_ci_lo, 3)}, ${fmt(d.matching_only_ci_hi, 3)}]` : '—';
+      const regCi = (d.regression_ci_lo != null && d.regression_ci_hi != null)
+        ? `[${fmt(d.regression_ci_lo, 3)}, ${fmt(d.regression_ci_hi, 3)}]` : '—';
+      return `<tr>
+        <td>${esc(matchedLabel(metric))}</td>
+        <td style="text-align:right;">${fmt(d.matching_only_mean, 3)} <span style="color:#94a3b8;">${moCi}</span></td>
+        <td style="text-align:right;">${d.regression_coef != null ? fmt(d.regression_coef, 3) : '—'} <span style="color:#94a3b8;">${regCi}</span></td>
+        <td style="text-align:right;">${d.regression_p_value != null ? fmt(d.regression_p_value, 4) : '—'}</td>
+        <td>${yesNoHtml(d.same_direction)}</td>
+        <td>${yesNoHtml(d.significant_both)}</td>
+      </tr>`;
+    }).join('');
+    body.innerHTML = rows || '<tr><td colspan="6">No headline-metric data available.</td></tr>';
+    if (noteEl) {
+      noteEl.textContent = `Matched sample: ${ra.n_treated} treated repos, ${ra.n_distinct_controls} distinct selected controls. Adjusting for: ${(ra.covariates || []).join(', ')}.`;
+    }
+  }
+
+  // ── Unmatched-Repo Sensitivity Analysis ──
+  function renderUnmatchedSensitivity() {
+    const body = document.getElementById('unmatchedSensitivityBody');
+    const perRepoEl = document.getElementById('unmatchedSensitivityPerRepo');
+    const nEl = document.getElementById('sensitivityNUnmatched');
+    if (!body) return;
+    const sens = (MATCHED.unmatched_sensitivity_by_k && MATCHED.unmatched_sensitivity_by_k[String(currentK())]) || null;
+    if (!sens || !sens.n_unmatched) {
+      body.innerHTML = '<tr><td colspan="5">No unmatched repos under the current selection — nothing to bound.</td></tr>';
+      if (perRepoEl) perRepoEl.innerHTML = '';
+      if (nEl) nEl.textContent = '0';
+      return;
+    }
+    if (nEl) nEl.textContent = String(sens.n_unmatched);
+
+    const rows = Object.entries(sens.by_metric || {}).map(([metric, d]) => {
+      const robustHtml = d.direction_robust
+        ? '<span style="color:#16a34a;font-weight:600;">Yes — survives both bounds</span>'
+        : '<span style="color:#d97706;font-weight:600;">No — direction changes under at least one bound</span>';
+      return `<tr>
+        <td>${esc(matchedLabel(metric))}</td>
+        <td style="text-align:right;">${fmt(d.observed_median, 3)} <span style="color:#94a3b8;">(n=${d.n_observed})</span></td>
+        <td style="text-align:right;">${fmt(d.best_case_median, 3)} <span style="color:#94a3b8;">(n=${d.n_best_case})</span></td>
+        <td style="text-align:right;">${fmt(d.worst_case_median, 3)} <span style="color:#94a3b8;">(n=${d.n_worst_case})</span></td>
+        <td>${robustHtml}</td>
+      </tr>`;
+    }).join('');
+    body.innerHTML = rows || '<tr><td colspan="5">No headline-metric data available.</td></tr>';
+
+    if (perRepoEl) {
+      const items = (sens.per_repo || []).map(r => {
+        const usedFallback = Object.values(r.metrics || {}).some(m => m && m.used_category_pool === false);
+        const fallbackNote = usedFallback ? ' (no matched peer in this category for at least one metric — used dataset-wide pool instead)' : '';
+        return `<li><a href="${esc(r.repo_url)}" target="_blank" rel="noopener">${esc(r.display_name)}</a> — ${esc(r.category || 'Unknown')}${fallbackNote}</li>`;
+      }).join('');
+      perRepoEl.innerHTML = items ? `<strong>Unmatched repos in this bound:</strong><ul style="margin:.4rem 0 0 1.2rem;">${items}</ul>` : '';
+    }
+  }
+
+  // ── Repository-Level Matching Diagnostics ──
+  function renderMatchingDiagnostics(group) {
+    const body = document.getElementById('matchingDiagnosticsBody');
+    if (!body) return;
+    const byK = (MATCHED.matching_diagnostics_by_k && MATCHED.matching_diagnostics_by_k[String(currentK())]) || [];
+    let rows = filterReposByGroup(byK, group).slice();
+    const sortEl = document.getElementById('matchingDiagnosticsSortSelect');
+    const sortMode = sortEl ? sortEl.value : 'none';
+    if (sortMode === 'fewest_eligible') {
+      rows.sort((a, b) => (a.n_eligible_controls ?? Infinity) - (b.n_eligible_controls ?? Infinity));
+    } else if (sortMode === 'largest_nearest_distance') {
+      rows.sort((a, b) => (b.distance_nearest ?? -Infinity) - (a.distance_nearest ?? -Infinity));
+    } else {
+      rows.sort((a, b) => (a.display_name || '').localeCompare(b.display_name || ''));
+    }
+    const html = rows.map(r => `<tr>
+      <td><a href="${esc(r.repo_url)}" target="_blank" rel="noopener">${esc(r.display_name)}</a></td>
+      <td style="text-align:right;">${r.n_eligible_controls}</td>
+      <td style="text-align:right;">${r.n_selected_controls}</td>
+      <td style="text-align:right;">${fmt(r.distance_nearest, 3)}</td>
+      <td style="text-align:right;">${fmt(r.avg_distance, 3)}</td>
+      <td style="text-align:right;">${fmt(r.delta_stars, 0)}</td>
+      <td style="text-align:right;">${fmt(r.delta_forks, 0)}</td>
+    </tr>`).join('');
+    body.innerHTML = html || '<tr><td colspan="7">No per-repo data available.</td></tr>';
+  }
+  const matchingDiagnosticsSortSelectEl = document.getElementById('matchingDiagnosticsSortSelect');
+  if (matchingDiagnosticsSortSelectEl) {
+    matchingDiagnosticsSortSelectEl.addEventListener('change', () => renderMatchingDiagnostics(currentGroup()));
   }
 
   function renderMatchQuality(group) {
@@ -4107,6 +4316,9 @@ renderAgSpecific();
     renderForestPlot(group);
     renderSeedStability(group);
     renderEffects(group);
+    renderRegressionAdjustment();
+    renderUnmatchedSensitivity();
+    renderMatchingDiagnostics(group);
     renderMatchedControlViewer(group);
   }
   document.getElementById('matchedGroupSelect').addEventListener('change', renderAllGroupDependent);
