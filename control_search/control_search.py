@@ -47,14 +47,10 @@ KEYWORDS = [
     "sensor framework", "environmental monitoring", "small cloud dashboard",
 ]
 
-# Wave 2 -- added after initial matching (see run_matched_comparison.py
-# notes) revealed near-zero control-pool coverage for the "business/
-# community-management SaaS" niche that LiteFarm, csa-admin, and ekylibre
-# occupy: a full-stack CRUD business-management web app. Targets the
-# *domain*, not a language -- Ruby/JS repos naturally surface from this
-# search because that's Rails/Node's traditional niche, not because they
-# were searched for directly (searching for "Ruby repos" would be a much
-# broader, less principled net than the rest of this pool was built with).
+# Wave 2 -- added after matching revealed near-zero control-pool coverage for
+# the "business/community-management SaaS" niche (LiteFarm, csa-admin,
+# ekylibre). Targets that domain, not a language, so Ruby/JS repos surface
+# naturally rather than via a broad language-based search.
 EXPANSION_KEYWORDS = [
     "topic:saas", "topic:admin-dashboard", "topic:crm", "topic:erp",
     "topic:inventory-management", "topic:scheduling",
@@ -62,23 +58,11 @@ EXPANSION_KEYWORDS = [
     "admin dashboard",
 ]
 
-# Wave 3 -- added after the post-matching unmatched-repo diagnosis showed 3
-# of 6 true pool-starvation cases (PecanProject/bety, csa-admin-org/csa-admin,
-# ekylibre/ekylibre) are all Ruby, and specifically the same project
-# archetype: a long-running, Rails-shaped community/cooperative/membership
-# management platform. Neither wave 1 (IoT/embedded/robotics) nor wave 2
-# (generic SaaS/CRM/ERP) targeted that specific niche, and the whole pool's
-# reviewed set had only 2 Ruby repos total against 3 dataset repos needing a
-# same-language match. Targets the niche directly (Rails + membership/
-# cooperative/association-management terms), not "Ruby" as a language --
-# same principle as wave 2's docstring: a broad "language:ruby" search would
-# be a much less principled net than the rest of the pool was built with.
-#
-# Verified live against the GitHub Search API before finalizing this list:
-# "association management" language:ruby and "cooperative software"
-# language:ruby both return 0 results (a free-text phrase plus a language
-# qualifier together over-narrows the query) -- replaced with the topic-based
-# forms below, which return real, sizeable result sets.
+# Wave 3 -- 3 of 6 pool-starvation cases (bety, csa-admin, ekylibre) are
+# Rails-shaped community/membership platforms neither wave 1 nor wave 2
+# targeted, and only 2 Ruby repos existed pool-wide. Targets that niche
+# directly, not "Ruby" as a language. Free-text + language:ruby phrases
+# returned 0 live results, so topic-based forms are used instead.
 RUBY_KEYWORDS = [
     "topic:ruby-on-rails", "topic:rails",
     "\"membership management\" language:ruby",
@@ -87,12 +71,9 @@ RUBY_KEYWORDS = [
     "\"subscription management\" language:ruby",
 ]
 
-# ag_oss_search's own search keywords (ag_oss_search/agoss_search.py::KEYWORDS,
-# used to build the original 54-repo AgOSS dataset). Any control candidate
-# tagged with one of these as an actual GitHub topic was very likely also
-# directly discoverable by that tool, so it's excluded by exact topic match —
-# not just the broader substring check below — to keep the exclusion
-# explicit and traceable to the sibling tool's own criteria.
+# Mirrors ag_oss_search's own KEYWORDS: a candidate tagged with one of these
+# topics was likely directly discoverable by that tool too, so it's excluded
+# by exact topic match (in addition to the substring check below).
 AG_OSS_SEARCH_TOPICS = {"agriculture", "agtech", "farming"}
 
 # Candidates whose name/description/topics mention these terms are excluded —
@@ -118,10 +99,12 @@ REQUEST_DELAY = 2.0  # seconds between paginated requests to stay within rate li
 # ---------------------------------------------------------------------------
 
 def _token() -> str:
+    """Return the GitHub auth token from env vars or config, or an empty string."""
     return os.getenv("GITHUB_AUTH_TOKEN") or os.getenv("GITHUB_TOKEN", "") or config.GITHUB_AUTH_TOKEN
 
 
 def _headers() -> dict[str, str]:
+    """Build GitHub API request headers, adding a bearer token when available."""
     hdrs: dict[str, str] = {
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
@@ -172,6 +155,7 @@ def _search_page(keyword: str, sort: str, page: int) -> dict:
 
 
 def _is_ag_adjacent(item: dict) -> bool:
+    """Return True if item's topics match AG_OSS_SEARCH_TOPICS or its name/description/topics contain an ag exclusion term."""
     topics = {str(t).strip().lower() for t in (item.get("topics") or [])}
     if topics & AG_OSS_SEARCH_TOPICS:
         return True
@@ -184,6 +168,7 @@ def _is_ag_adjacent(item: dict) -> bool:
 
 
 def _repo_short_name(item: dict) -> str:
+    """Return the repo-name portion of a GitHub 'owner/repo' full_name string."""
     full = str(item.get("full_name") or "")
     return full.split("/", 1)[1] if "/" in full else full
 
@@ -203,6 +188,7 @@ def _is_curated_list(item: dict) -> bool:
 
 
 def _to_record(item: dict) -> dict:
+    """Convert a raw GitHub search API item into the flat record dict stored in the pool."""
     owner = item.get("owner") or {}
     return {
         "name": item["full_name"],
@@ -280,13 +266,9 @@ def fetch_candidates(
 
 
 def _load_excluded_names(*, also_exclude_file: Path | list[Path] | None = None) -> set[str]:
-    """owner/repo (lowercase) for every repo already in the AgOSS dataset,
-    plus (for expansion/later-wave runs) every repo already in one or more
-    earlier search waves' output files -- so a repo matching keywords from
-    two different waves doesn't get triaged and reviewed twice. A single
-    Path or a list of Paths are both accepted (the ruby wave excludes
-    against both the original and expansion waves at once).
-    """
+    """Return owner/repo (lowercase) for every repo already in the AgOSS
+    dataset, plus any repos from earlier search waves' output files, so
+    later waves don't re-triage the same repo twice."""
     excluded: set[str] = set()
     if config.INPUT_FILE.exists():
         entries = parse_input(config.INPUT_FILE)
@@ -311,6 +293,7 @@ def _load_excluded_names(*, also_exclude_file: Path | list[Path] | None = None) 
 # ---------------------------------------------------------------------------
 
 def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments for sort order, candidates-per-keyword, and output path."""
     p = argparse.ArgumentParser(
         description="Search GitHub for candidate non-ag control repositories.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -348,27 +331,11 @@ def run(
     exclude_prior_wave_file: Path | list[Path] | None = None,
     max_total: int | None = None,
 ) -> Path:
-    """Run the full search + dedup + write, callable directly (no argparse/sys.argv
-    involved) so other scripts — e.g. prepare_pool.py — can invoke it in-process.
-
-    *keywords*/*output_path*/*wave*/*js_global*/*exclude_prior_wave_file* let
-    prepare_expansion_pool.py (and later prepare_ruby_pool.py) reuse this
-    exact function for additional search waves without touching anything an
-    earlier wave produced -- output_path defaults to DEFAULT_OUTPUT
-    (control_candidates.json) but each later wave passes its own output path
-    instead, so no earlier wave's file is ever read for writing, only
-    (optionally) for dedup via exclude_prior_wave_file (a single Path or a
-    list of Paths, to exclude against more than one earlier wave at once).
-
-    max_total caps the final deduplicated candidate count (after all
-    per-keyword fetching, filtering, and cross-keyword dedup), truncating in
-    the same first-occurrence order used for dedup. None (the default, used
-    by the original and expansion waves) means no cap. Added for the ruby
-    wave, whose narrower keyword set could still return more raw candidates
-    than intended to review by hand if GitHub's result overlap is lower than
-    expected -- a hard cap makes the review-set size a guarantee rather than
-    a hopeful estimate from keyword-count x top_n.
-    """
+    """Run the full search + dedup + write, callable directly so other
+    scripts (e.g. prepare_expansion_pool.py, prepare_ruby_pool.py) can
+    invoke additional search waves in-process, each writing its own
+    output_path and excluding prior waves via exclude_prior_wave_file.
+    max_total optionally caps the final deduplicated candidate count."""
     if not _token():
         print(
             "Warning: GITHUB_AUTH_TOKEN not set — unauthenticated rate limits apply.",
@@ -482,6 +449,7 @@ def run(
 
 
 def main() -> None:
+    """CLI entry point: parse arguments and run the original-wave control search."""
     args = parse_args()
     run(sort=args.sort, top_n=args.top_n, output_path=args.output)
 

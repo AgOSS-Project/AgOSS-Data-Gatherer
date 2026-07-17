@@ -32,6 +32,7 @@ logger = logging.getLogger("control_search.prepare_pool")
 
 
 def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments for sort order and candidates-per-keyword."""
     p = argparse.ArgumentParser(
         description="Search GitHub for control-pool candidates and auto-triage them in one step.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -53,6 +54,8 @@ def parse_args() -> argparse.Namespace:
 
 
 def run(*, sort: str = "best-match", top_n: int = control_search.DEFAULT_N) -> None:
+    """Run control_search then triage in sequence, and refresh the
+    reviewed-pool sidecar so review.html is ready for a human review pass."""
     logger.info("[prepare_pool] Step 1/2 — searching GitHub for candidates …")
     control_search.run(sort=sort, top_n=top_n)
 
@@ -74,6 +77,7 @@ def run(*, sort: str = "best-match", top_n: int = control_search.DEFAULT_N) -> N
 
 
 def main() -> None:
+    """CLI entry point: parse arguments, configure logging, and run the pool-prep steps."""
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(message)s")
     args = parse_args()
     run(sort=args.sort, top_n=args.top_n)

@@ -56,9 +56,7 @@ self-contained interactive HTML dashboard.
 10. [Outputs](#outputs)
 11. [Dashboard Guide](#dashboard-guide)
 12. [Reproducibility](#reproducibility)
-13. [Known Limitations](#known-limitations)
-14. [Troubleshooting](#troubleshooting)
-15. [Extending the Pipeline](#extending-the-pipeline)
+13. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -142,7 +140,7 @@ exactly, in execution order.
 |---|---|---|
 | Python | 3.10 or later | Tested with CPython 3.11/3.12 on Windows 11 and WSL2 Ubuntu |
 | pip | any recent | Bundled with Python 3.10+ |
-| GitHub Personal Access Token (PAT) | — | `public_repo` scope is sufficient |
+| GitHub Personal Access Token (PAT) | — | `public_repo` (read) and `read:packages` scopes (per `.env.example`) |
 | OpenSSF Scorecard binary | latest release | Use whatever the [releases page](https://github.com/ossf/scorecard/releases) currently ships, not a pinned old version — the committed sample data was collected with v5.5.0, but there's no reason to pin below latest; see [Install the OpenSSF Scorecard Binary](#3-install-the-openssf-scorecard-binary) |
 
 ### Optional (for full analysis)
@@ -428,12 +426,16 @@ python main.py --input "inputs/my_repos.csv"
 
 ### Stage 1 — Environment Validation
 
-Verifies that:
-- The Scorecard binary exists at `tools/scorecard[.exe]` and is executable.
-- `GITHUB_AUTH_TOKEN` is set and non-empty.
-- The input CSV exists and is parseable (at least one valid row).
+Checks that:
+- The Scorecard binary exists at `tools/scorecard[.exe]` (logs a warning, not
+  a hard failure, if missing — Scorecard collection will simply fail later).
+- `GITHUB_AUTH_TOKEN` is set and non-empty (logs a warning, not a hard
+  failure, if missing).
+- The input CSV exists (aborts immediately with a descriptive error if not
+  found).
 
-Fails immediately with a descriptive error message if any check fails.
+Only a missing input file aborts the run at this stage; the input CSV's
+parseability (at least one valid row) is checked next, in Stage 2.
 
 ### Stage 2 — Input Parsing
 
@@ -458,9 +460,9 @@ Invokes the `scorecard` binary once per repository, authenticating via
 | `success` | Binary exited 0; complete JSON produced |
 | `partial_success` | Binary exited non-zero but produced valid JSON (common for repos lacking admin-level checks such as Branch-Protection) |
 | `failed` | Binary produced no valid JSON |
-| `skipped` | Stage skipped via `--skip-scorecard` |
+| `skipped` | Reserved in the status type but not currently produced per-repo — `--skip-scorecard` loads from cache instead, yielding `success` for a cache hit or `failed` for a miss |
 
-**Security dimensions evaluated** (17 checks):
+**Security dimensions evaluated** (18 checks):
 `Binary-Artifacts`, `Branch-Protection`, `CI-Tests`, `CII-Best-Practices`,
 `Code-Review`, `Contributors`, `Dangerous-Workflow`, `Dependency-Update-Tool`,
 `Fuzzing`, `License`, `Maintained`, `Packaging`, `Pinned-Dependencies`,
@@ -759,7 +761,7 @@ The main pipeline's `ag_vs_nonag` comparison (see
 dataset (current counts are in `statistical_analysis.json`'s
 `group_sizes_total`, and in the dashboard's Ag-Specific tab). Those
 `ag_specific=No` repos are themselves **ag-critical infrastructure** (ArduPilot,
-ROS 2, Zephyr, FreeRTOS, WebODM, etc.) — software actually used in
+Zephyr, FreeRTOS, WebODM, etc.) — software actually used in
 agricultural contexts, just not purpose-built for agriculture — and they also
 skew toward large, mature projects. A "weaker" result for the ag-specific
 group in that comparison could simply reflect project maturity rather than
@@ -885,7 +887,7 @@ python control_search/prepare_ruby_pool.py
 **Step 3 is required, not optional, for `python main.py`.** The matched-
 comparison analysis is gated on an explicit human-reviewed pool: `main.py`
 checks for `control_search/control_pool_reviewed.json` before running Stage
-7.6, and skips it entirely (logging a clear message, and leaving the
+8, and skips it entirely (logging a clear message, and leaving the
 dashboard's Matched Comparison tab in its "not available yet" state) if that
 file doesn't exist. This is deliberate — an unreviewed, auto-suggested
 control pool should never silently reach the published dashboard. Once you've
@@ -1253,77 +1255,6 @@ individual determinism.
 
 ---
 
-## Known Limitations
-
-Interpretation gotchas specific to the committed sample dataset — worth
-reading before citing a number from the dashboard or `statistical_analysis.json`
-in isolation.
-
-- **The raw ag-vs-non-ag Scorecard gap is large but confounded, and shrinks
-  sharply against cleaner baselines.** The univariate Mann-Whitney comparison
-  shows a large, highly significant gap (`r≈-0.87`, `p_adjusted_fdr < 0.001`)
-  between `ag_specific=Yes` and `ag_specific=No` repositories already in the
-  dataset. Two independent analyses ask a related but distinct question and
-  both find a much smaller, non-significant effect: the
-  [joint regression models](#joint-regression-models--disentangling-category-ag-specificity-and-scale)
-  ask whether `ag_specific` status predicts the outcome once category,
-  popularity, and contributor-community size are held constant *within the
-  dataset* (`p_adjusted_fdr` in the 0.3–0.4 range across all three outcomes —
-  not significant), and the
-  [matched-comparison analysis](#matched-comparison-analysis) asks whether
-  `ag_specific=Yes` repos look different from operationally similar non-ag
-  software drawn from an *external* control pool (median Scorecard difference
-  of roughly -0.1 to -0.4 points depending on `k`, `p_adjusted_fdr` in the
-  0.13–0.67 range — not significant at any tested `k`). Read together, not
-  selectively: the raw gap is real and reproducible, and it substantially —
-  though not entirely — reflects repository size and community engagement
-  rather than agricultural-domain status per se. Reporting only the raw
-  Mann-Whitney result without this context would overstate what the data
-  supports.
-- **Dependency-scan failures are concentrated in, and systematically smaller
-  within, the ag-specific group.** In the committed sample, all repositories
-  whose dependency scan failed (HTTP 404 from the SBOM endpoint) are
-  `ag_specific=Yes`, and they are also markedly smaller than the
-  successfully-scanned ag-specific repositories (about 7 vs. 46 median stars,
-  3 vs. 10.5 median contributors). Every vulnerability-count,
-  vulnerability-density, and KEV-exploitable-count figure for the ag-specific
-  group therefore describes the larger, more established slice of that
-  population, not the full one — this is a real skew, not a hypothetical
-  one, and isn't correctable without either a different SBOM source or
-  repositories large enough for GitHub to generate a dependency graph.
-- **The non-ag-specific comparison group is small.** `ag_specific=No` has 11
-  repositories in the committed sample. Several Mann-Whitney/Kruskal-Wallis
-  comparisons involving this group (in `statistical_analysis.json`'s
-  `ag_vs_nonag` family) should be read as suggestive rather than conclusive
-  on their own — check `mde_r_80` (not `power`; see
-  [Mann-Whitney](#mann-whitney-u-test--ag-specific-vs-non-ag-specific)) before
-  concluding a non-significant result there reflects a genuine null. This
-  group does not appear in the matched-comparison analysis at all — that
-  analysis now compares only `ag_specific=Yes` repos against the external
-  control pool (see [Why this analysis exists](#why-this-analysis-exists)).
-- **Category sample sizes range from 5 to 19.** The smallest categories
-  (`Embedded OS substrate`, `n=5`; `Data Processing Libraries/Tools`, `n=6`)
-  have limited power for both the omnibus Kruskal-Wallis tests and Dunn's
-  pairwise post-hoc comparisons — several individual Scorecard checks are
-  also unevaluable for entire groups (e.g. too few repos with
-  Branch-Protection or Token-Permissions data in a given category), which
-  the dashboard and JSON both surface explicitly rather than silently
-  dropping.
-- **Matching is on observed covariates only.** The matched-comparison
-  analysis (log stars/forks/age/contributor-count/commit-activity/codebase-size,
-  plus a hard primary-language gate) cannot address unobserved confounders —
-  funding model, institutional backing, deployment context — and does not
-  establish causality in either direction. It answers "does the gap persist
-  after controlling for observable size/age/activity/ecosystem," not "does
-  being agricultural software cause weaker security posture."
-- **The two validated collection environments (native Windows, WSL2) give
-  different Scorecard results for three checks.** See the platform note near
-  the top of this document. All committed data was collected under WSL; a
-  native-Windows collection run should not be merged into the same dataset
-  without re-collecting those three checks under WSL.
-
----
-
 ## Troubleshooting
 
 ### `GITHUB_AUTH_TOKEN` not found
@@ -1352,8 +1283,8 @@ window resets. `GET /rate_limit` (authenticated) shows your current quota.
 
 ### Dependency analysis returns no results for a repository
 
-- Verify `GITHUB_AUTH_TOKEN` has `public_repo` scope (required for the GitHub
-  Dependency Graph API).
+- Verify `GITHUB_AUTH_TOKEN` has the `public_repo` and `read:packages` scopes
+  (required for the GitHub Dependency Graph API).
 - Some repositories have the Dependency Graph disabled or do not publish an
   SBOM. These repos are marked `skipped` in `dependency_analysis.json` and
   excluded from vulnerability statistics.

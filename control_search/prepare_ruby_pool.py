@@ -68,6 +68,7 @@ RUBY_DEFAULT_N = 40
 
 
 def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments for sort order and candidates-per-keyword."""
     p = argparse.ArgumentParser(
         description="Search GitHub for a third control-pool wave (Rails-shaped "
                     "community/cooperative/membership-management platforms) and "
@@ -92,6 +93,8 @@ def parse_args() -> argparse.Namespace:
 
 
 def run(*, sort: str = "best-match", top_n: int = RUBY_DEFAULT_N) -> None:
+    """Run the ruby-wave search then triage, excluding repos already in the
+    original or expansion waves, and refresh the reviewed-pool sidecar."""
     logger.info("[prepare_ruby_pool] Step 1/2 — searching GitHub for ruby-wave candidates …")
     control_search.run(
         sort=sort,
@@ -129,6 +132,7 @@ def run(*, sort: str = "best-match", top_n: int = RUBY_DEFAULT_N) -> None:
 
 
 def main() -> None:
+    """CLI entry point: parse arguments, configure logging, and run the ruby-pool steps."""
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(message)s")
     args = parse_args()
     run(sort=args.sort, top_n=args.top_n)

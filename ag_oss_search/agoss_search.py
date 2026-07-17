@@ -36,10 +36,12 @@ REQUEST_DELAY = 2.0  # seconds between paginated requests to stay within rate li
 # ---------------------------------------------------------------------------
 
 def _token() -> str:
+    """Return the GitHub auth token from the environment, or an empty string."""
     return os.getenv("GITHUB_AUTH_TOKEN") or os.getenv("GITHUB_TOKEN", "")
 
 
 def _headers() -> dict[str, str]:
+    """Build GitHub API request headers, adding a bearer token when available."""
     hdrs: dict[str, str] = {
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
@@ -96,6 +98,7 @@ def _search_page(keyword: str, sort: str, page: int) -> dict:
 
 
 def _to_record(item: dict) -> dict:
+    """Extract the fields we persist from a raw GitHub search result item."""
     return {
         "name": item["full_name"],
         "url": item["html_url"],
@@ -158,6 +161,7 @@ def fetch_candidates(
 # ---------------------------------------------------------------------------
 
 def parse_args() -> argparse.Namespace:
+    """Parse CLI arguments for sort order, results per keyword, and output path."""
     p = argparse.ArgumentParser(
         description="Search GitHub for candidate agricultural OSS repositories.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -185,6 +189,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
+    """Fetch candidates for each keyword, merge/deduplicate, and write outputs."""
     args = parse_args()
 
     if not _token():

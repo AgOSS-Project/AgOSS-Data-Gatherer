@@ -62,6 +62,7 @@ STUDENT_BLOCKLIST = [
 
 
 def _is_student_project(candidate: dict) -> bool:
+    """Return True if candidate's name/description/topics match a student/toy-project blocklist term."""
     haystack = " ".join([
         str(candidate.get("name") or ""),
         str(candidate.get("description") or ""),
@@ -71,11 +72,14 @@ def _is_student_project(candidate: dict) -> bool:
 
 
 def _topic_confirmed(candidate: dict) -> bool:
+    """Return True if any of candidate's GitHub topics is in TARGET_TOPICS."""
     topics = {str(t).strip().lower() for t in (candidate.get("topics") or [])}
     return bool(topics & TARGET_TOPICS)
 
 
 def triage_candidate(candidate: dict) -> dict:
+    """Suggest an accept/review decision for one candidate, based on the
+    student-project blocklist and target-topic confirmation checks."""
     blocked = _is_student_project(candidate)
     confirmed = _topic_confirmed(candidate)
     if blocked:

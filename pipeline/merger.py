@@ -2,34 +2,26 @@
 
 GitHub metrics (contributors, commits, issues, merged PRs, stars, forks,
 language, license) are collected directly via the GitHub GraphQL and REST
-APIs. This used to be a fallback layer behind a self-hosted Augur/Aveloxis
-instance; Augur was removed because every field this pipeline actually
-uses was already being sourced from this fallback in practice (Augur's
-own REST metrics layer produced usable data for close to none of the
-70-repo dataset), and Aveloxis's own advertised bulk throughput --
-"40,000 repositories, fully collected, in three days" -- doesn't fit an
-iterative research pipeline that needs to re-run in minutes. See
-Kalliamvakou et al., "The Promises and Perils of Mining GitHub" (MSR
-2014) for standard methodology on GitHub-API-based repository mining,
-which this module follows (excluding forks/archived repos upstream).
+APIs. This used to sit behind a self-hosted Augur/Aveloxis instance;
+that layer was removed because every field this pipeline uses was already
+being sourced from this fallback in practice, and Aveloxis's advertised
+bulk throughput didn't fit an iterative research pipeline needing to
+re-run in minutes. See Kalliamvakou et al., "The Promises and Perils of
+Mining GitHub" (MSR 2014) for the GitHub-API mining methodology this
+module follows (excluding forks/archived repos upstream).
 
 Why GraphQL for issues/PRs/stars/forks/license/language, and REST for
 contributor/commit counts:
   - The REST Search API (used for exact issue/PR counts, since GitHub
-    models a PR as a kind of issue and both open_issues_count and the
-    plain /issues endpoint conflate them) is capped at 30 requests/min
+    models a PR as a kind of issue) is capped at 30 requests/min
     authenticated -- far tighter than core REST's 5,000/hr. GraphQL's
-    `issues(states: ...) { totalCount }` and `pullRequests(states: ...)
-    { totalCount }` fields return the identical aggregate counts but are
-    billed against the normal GraphQL point budget (~5,000 points/hr),
-    not the Search sub-limit -- so moving these there removes the actual
-    bottleneck instead of just retrying into it. GraphQL also lets many
-    repos be requested in a single HTTP call via aliases, which cuts
-    round-trips at control-pool scale.
+    `totalCount` fields return the same aggregate counts but bill against
+    the normal GraphQL point budget instead, and let many repos be
+    requested in a single HTTP call via aliases, cutting round-trips at
+    control-pool scale.
   - GraphQL has no equivalent of REST's deduplicated /contributors count
-    or a plain commit-count field without paginating full history (both
-    expensive at scale for large repos); the REST per_page=1 + Link-header
-    trick stays for those two fields specifically.
+    or a plain commit-count field without paginating full history; the
+    REST per_page=1 + Link-header trick stays for those two fields.
 """
 
 from __future__ import annotations
@@ -65,10 +57,7 @@ _GH_HEADERS = {
 _GRAPHQL_URL = "https://api.github.com/graphql"
 
 # Repos per GraphQL batch (one HTTP call fetches this many via aliases).
-# 20 keeps individual query/response size modest while cutting round-trips
-# by 20x relative to one-call-per-repo; the fields requested (totalCount
-# summaries, no paginated node lists) are cheap enough that GitHub's
-# per-query point cost stays low even at this batch size.
+# 20 balances fewer round-trips against per-query point cost/response size.
 GRAPHQL_BATCH_SIZE = 20
 
 # If GraphQL's own rate-limit budget drops below this many points
@@ -78,6 +67,7 @@ _GRAPHQL_MIN_REMAINING = 100
 
 
 def _gh_headers(token: str) -> dict[str, str]:
+    """Build GitHub REST API headers, adding a bearer token when provided."""
     h = dict(_GH_HEADERS)
     if token:
         h["Authorization"] = f"Bearer {token}"
@@ -135,14 +125,9 @@ def _fetch_github_repo_data(owner: str, repo_name: str, token: str) -> dict | No
     return None
 
 
-# Languages whose byte count reflects saved document content rather than
-# implementation code, and so should never be picked as a repo's primary
-# language for matching purposes. Jupyter Notebook is the concrete case
-# found in this dataset (ApsimX, and borglab/gtsam in the control pool):
-# a notebook's saved outputs -- rendered plots, printed tensors -- are
-# counted as bytes, and a handful of embedded images can dwarf the actual
-# code. This is a well-documented GitHub Linguist quirk, not unique to
-# this dataset -- see github-linguist/linguist issues #3496, #3316, #3282.
+# Languages whose byte count reflects saved outputs (e.g. notebook plots/
+# tensors) rather than implementation code -- excluded from primary-language
+# detection. Known GitHub Linguist quirk; see linguist issue #3496.
 NON_IMPLEMENTATION_LANGUAGES = {"Jupyter Notebook"}
 
 
@@ -206,10 +191,12 @@ def _fetch_github_count(owner: str, repo_name: str, path: str, token: str,
 # ---------------------------------------------------------------------------
 
 def _graphql_escape(s: str) -> str:
+    """Escape backslashes and double quotes for embedding a string in a GraphQL query literal."""
     return s.replace("\\", "\\\\").replace('"', '\\"')
 
 
 def _build_batch_query(batch: list[RepoEntry]) -> str:
+    """Build one aliased GraphQL query requesting metrics for every repo in batch."""
     parts = ["query {"]
     for i, entry in enumerate(batch):
         owner = _graphql_escape(entry.owner)
@@ -305,15 +292,9 @@ def _parse_batch_result(data: dict, batch: list[RepoEntry]) -> dict[str, dict[st
 
 
 def fetch_github_metrics_batch(entries: list[RepoEntry], token: str) -> dict[str, dict[str, Any]]:
-    """Fetch stars/forks/license/language/issue/PR-merged counts for all *entries*.
-
-    Batches GRAPHQL_BATCH_SIZE repos per HTTP call via GraphQL aliases, and
-    watches the GraphQL rate-limit budget (returned inline in the same
-    response) to pause before it's exhausted rather than after. This is the
-    single call that replaces what used to be up to 3 Search-API requests
-    per repo (open issues, closed issues, merged PRs) -- see module
-    docstring for why that mattered.
-    """
+    """Fetch stars/forks/license/language/issue/PR-merged counts for all
+    *entries*, batched GRAPHQL_BATCH_SIZE repos per GraphQL call, pausing
+    proactively when the inline rate-limit budget runs low."""
     results: dict[str, dict[str, Any]] = {}
     batches = [entries[i:i + GRAPHQL_BATCH_SIZE] for i in range(0, len(entries), GRAPHQL_BATCH_SIZE)]
     logger.info("[github] Fetching stars/forks/license/language/issues/PRs for %d repos "
@@ -377,6 +358,7 @@ def collect_github_metrics_rest(entry: RepoEntry, token: str) -> dict[str, Any]:
 
 
 def _overall_status(sc: ScorecardResult, gh_metrics: dict[str, Any]) -> OverallStatus:
+    """Derive overall collection status from Scorecard and GitHub-metrics success."""
     sc_ok = sc.status in ("success", "partial_success")
     gh_ok = bool(gh_metrics)
     if sc_ok and gh_ok:

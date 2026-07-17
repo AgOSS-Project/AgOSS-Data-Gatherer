@@ -1,14 +1,22 @@
-"""AgOSS top-level entry point.
+"""AgOSS pipeline entry point and CLI launcher.
 
-Run the full pipeline and open the dashboard:
+Orchestrates the full AgOSS data-collection and analysis pipeline in one
+run: validates the environment, parses the repo input list, runs OpenSSF
+Scorecard collection, analyzes dependency vulnerabilities, collects GitHub
+repo metrics and merges everything into merged_repos.json, runs KEV (Known
+Exploited Vulnerabilities) analysis, computes statistical summaries, runs
+the matched-comparison analysis against a control sample (control_search/),
+and finally builds and opens the HTML dashboard. Any stage can be skipped
+independently via CLI flags, and --force clears per-repo raw caches so
+stale cached data can't leak into a fresh run.
 
+Usage:
     python main.py
-
-Skip stages selectively:
-
     python main.py --skip-scorecard                # only dependency analysis
     python main.py --skip-pipeline                  # just open the dashboard
     python main.py --no-browser                     # pipeline only, don't open a browser
+    python main.py --regenerate                     # re-run stats + dashboard from existing merged_repos.json
+    python main.py --force --input path\\to\\input.csv
 """
 
 from __future__ import annotations
@@ -32,6 +40,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 # ---------------------------------------------------------------------------
 
 def parse_args() -> argparse.Namespace:
+    """Parse CLI flags controlling which pipeline stages run, cache/force
+    behavior, the input file path, and whether the dashboard auto-opens."""
     p = argparse.ArgumentParser(
         description=(
             "Run the AgOSS pipeline and open the dashboard.\n"
@@ -90,21 +100,10 @@ def parse_args() -> argparse.Namespace:
 
 
 def _run_matched_comparison(logger, *, force: bool = False) -> None:
-    """Run control_search/run_matched_comparison.py's run().
-
-    control_search/'s own modules import each other by bare module name
-    (e.g. `import matching`, not `from control_search import matching`),
-    each file adding its own directory to sys.path at import time -- kept
-    consistent with that pattern here too, rather than mixing a package-style
-    import in main.py with bare-module imports inside control_search/ itself.
-
-    force must be passed through explicitly: run()'s own force parameter
-    defaults to False and unconditionally overwrites config.FORCE_REFRESH
-    (see run_matched_comparison.py), so calling run() with no arguments here
-    would silently reset FORCE_REFRESH to False for the covariates/dependency
-    fetches this stage does, even after main.py --force set it True earlier
-    in the same run.
-    """
+    """Invoke control_search/run_matched_comparison.py's run(), adding
+    control_search/ to sys.path so its bare-module imports resolve. `force`
+    must be passed explicitly -- run()'s own default (False) would otherwise
+    reset config.FORCE_REFRESH, discarding a --force set earlier in this run."""
     control_search_dir = PROJECT_ROOT / "control_search"
     if str(control_search_dir) not in sys.path:
         sys.path.insert(0, str(control_search_dir))
@@ -113,18 +112,10 @@ def _run_matched_comparison(logger, *, force: bool = False) -> None:
 
 
 def _clear_caches(logger) -> None:
-    """Delete every per-repo raw cache file so --force is a hard guarantee,
-    not just a hint that individual call sites are trusted to honor.
-
-    FORCE_REFRESH-gated cache checks are scattered across scorecard_runner,
-    dependency_runner, and control_search/covariates.py; a mistake in any one
-    of them can leave stale data readable indefinitely (this happened for
-    real: 13 covariate cache entries kept returning "Jupyter Notebook" as a
-    repo's language long after the reclassification fix landed, because nothing
-    ever invalidated the cache file itself). Deleting the files outright removes
-    that whole class of bug for a --force run, regardless of whether every
-    caller's FORCE_REFRESH check is correct.
-    """
+    """Delete every per-repo raw cache file (Scorecard, dependency,
+    covariates) so --force is a hard guarantee rather than relying on the
+    FORCE_REFRESH checks scattered across each runner module, which have
+    previously left stale per-repo data readable indefinitely."""
     cache_dirs = [
         config.RAW_SCORECARD_DIR,
         config.RAW_DEPENDENCY_DIR,
@@ -315,13 +306,17 @@ def run_pipeline(args: argparse.Namespace, logger) -> bool:
 # ---------------------------------------------------------------------------
 
 def _is_wsl() -> bool:
+    """Detect whether this process is running under Windows Subsystem for Linux."""
     try:
+        # WSL kernels report "microsoft" in this file; native Linux does not.
         return "microsoft" in Path("/proc/version").read_text().lower()
     except OSError:
-        return False
+        return False  # no /proc (e.g. native Windows), so definitely not WSL
 
 
 def open_dashboard(logger) -> None:
+    """Open the built dashboard's index.html in a browser, routing through
+    explorer.exe on WSL since it has no default HTML handler of its own."""
     dash_path = config.DASHBOARD_DIR / "index.html"
     if not dash_path.exists():
         logger.error("Dashboard not found at %s — skipping browser open.", dash_path)
@@ -353,6 +348,9 @@ def open_dashboard(logger) -> None:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
+    """CLI entry point: parse args, then either regenerate stats + dashboard
+    only, skip the pipeline, or run it fully -- finally opening (or just
+    reporting the path to) the dashboard."""
     args = parse_args()
     logger = setup_logging(verbose=args.verbose)
 

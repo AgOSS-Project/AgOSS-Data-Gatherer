@@ -35,15 +35,10 @@ OUTPUT_FILE = _THIS_DIR / "control_pool.json"
 
 
 def write_reviewed_sidecar() -> Path | None:
-    """Mirror control_pool_reviewed.json into a JS sidecar (const REVIEWED = ...)
-    so review.html -- a static file:// page, which can't fetch() local JSON --
-    can pre-select repos already accepted in a prior review pass. Returns None
-    (and writes nothing) if no reviewed pool has been exported yet; that's the
-    normal first-time state, not an error.
-
-    Call this before opening review.html for a new round (both prepare_pool.py
-    and prepare_expansion_pool.py do), so it reflects whatever was most
-    recently exported.
+    """Mirror control_pool_reviewed.json into a JS sidecar so review.html (a
+    static file:// page) can pre-select previously-accepted repos. Returns
+    None if no reviewed pool exists yet. Call before opening review.html for
+    a new round.
     """
     if not REVIEWED_FILE.exists():
         return None
@@ -58,6 +53,9 @@ def write_reviewed_sidecar() -> Path | None:
 
 
 def main(*, allow_unreviewed: bool = True) -> Path:
+    """Resolve control_pool.json from the human-reviewed pool, or (if
+    allow_unreviewed) fall back to auto-suggested-accept triage candidates.
+    """
     if REVIEWED_FILE.exists():
         payload = json.loads(REVIEWED_FILE.read_text(encoding="utf-8"))
         repos = payload.get("repos", [])

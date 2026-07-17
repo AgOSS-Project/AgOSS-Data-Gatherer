@@ -1,4 +1,18 @@
-"""Data models used across the pipeline."""
+"""Data models used across the pipeline.
+
+Defines the dataclasses that flow through each pipeline stage:
+`RepoEntry` (one row parsed from the input CSV by `input_parser.py`),
+`ScorecardResult` (normalized OpenSSF Scorecard output for one repo,
+produced by `scorecard_runner.py`), `MergedRepoRecord` (the unified
+per-repo record combining Scorecard results and directly-collected GitHub
+metrics, built by `merger.py` and serialized to the processed JSON/CSV
+outputs), and `RunSummary` (aggregate counts/metadata for a full pipeline
+run). Also defines the `ScorecardStatus` and `OverallStatus` literal types
+shared across modules for status fields. These are plain dataclasses with
+no behavior beyond `MergedRepoRecord.to_dict()`; they exist purely to give
+the rest of the pipeline a typed, consistent shape to pass around instead
+of loose dicts.
+"""
 
 from __future__ import annotations
 
@@ -79,6 +93,7 @@ class MergedRepoRecord:
     overall_status: OverallStatus = "failed"
 
     def to_dict(self) -> dict[str, Any]:
+        """Return this record as a plain dict, suitable for JSON serialization."""
         d = dataclasses.asdict(self)
         return d
 

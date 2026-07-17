@@ -1,4 +1,17 @@
-"""Parse input files into a list of RepoEntry objects."""
+"""Parse input files into a list of RepoEntry objects.
+
+Reads the pipeline's seed CSV (`config.INPUT_FILE`, e.g. the "Open Source
+Agricultural Software" input list) and converts each row into a validated
+`pipeline.models.RepoEntry`. Accepts two row shapes for backward
+compatibility: a legacy 2-column `url, category` format and a newer
+4-column `name, url, category, ag_specific` format. Header rows, blank
+rows, and `#`-prefixed comment rows are skipped; malformed rows are logged
+and dropped rather than raising, so one bad row doesn't abort the run.
+
+Called by `main.py` at the start of a pipeline run to build the list of
+`RepoEntry` objects fed into Scorecard scoring, dependency analysis, and
+merging.
+"""
 
 from __future__ import annotations
 
@@ -61,6 +74,7 @@ def parse_input(input_path: Path) -> list[RepoEntry]:
 
 
 def _parse_row(row: list[str], lineno: int) -> RepoEntry | None:
+    """Parse one CSV row (2- or 4-column form) into a RepoEntry, or None if invalid."""
     if len(row) >= 4:
         display_name = row[0]
         url_part = row[1].rstrip("/")
@@ -101,6 +115,7 @@ def _parse_row(row: list[str], lineno: int) -> RepoEntry | None:
 
 
 def _parse_ag_specific(raw_value: str, lineno: int) -> bool | None:
+    """Parse a yes/no-style cell into True/False, or None if blank/unrecognized."""
     value = (raw_value or "").strip().lower()
     if not value:
         return None
@@ -118,6 +133,7 @@ def _parse_ag_specific(raw_value: str, lineno: int) -> bool | None:
 
 
 def _is_header_row(row: list[str]) -> bool:
+    """Heuristically detect whether a CSV row is a column header rather than data."""
     lower = [c.strip().lower() for c in row]
     joined = " ".join(lower)
     has_name = any(c in {"name", "repo", "repository", "repo_name"} for c in lower)

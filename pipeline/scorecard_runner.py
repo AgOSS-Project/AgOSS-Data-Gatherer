@@ -1,10 +1,22 @@
 """Run OpenSSF Scorecard (tools/scorecard[.exe]) for each repo.
 
-Key robustness improvements:
-- Non-zero exit codes with valid JSON in stdout → partial_success
-- Captures exit_code, stderr, runtime_seconds per repo
-- Retries on hard failure up to SCORECARD_RETRY_COUNT
-- Fails early if GITHUB_AUTH_TOKEN is unset
+Invokes the Scorecard CLI binary as a subprocess for every `RepoEntry`,
+captures its JSON output, and normalizes it into a `ScorecardResult`
+(overall score, per-check scores/reasons, exit code, stderr, runtime).
+Raw stdout is cached per-repo under `config.RAW_SCORECARD_DIR`; a cache
+hit skips re-running Scorecard unless `config.FORCE_REFRESH` is set.
+Called by `main.py` via `run_scorecard_batch()` (fresh run) or
+`load_scorecard_batch_from_cache()` (reuse cached output without
+invoking the binary); results feed into `pipeline.merger.merge()`.
+
+Key robustness behaviors:
+- Non-zero exit codes with valid JSON in stdout are treated as
+  `partial_success` rather than a hard failure, since Scorecard can exit
+  non-zero on a partial/degraded run while still producing usable data.
+- Captures exit_code, stderr, and runtime_seconds per repo for diagnostics.
+- Retries on hard failure (non-zero exit, no valid JSON) up to
+  `config.SCORECARD_RETRY_COUNT` times.
+- Fails fast per-repo if the Scorecard executable is missing.
 """
 
 from __future__ import annotations
@@ -24,6 +36,7 @@ logger = logging.getLogger("pipeline.scorecard")
 
 
 def _output_path(entry: RepoEntry) -> Path:
+    """Build the per-repo cache file path for a raw Scorecard JSON result."""
     return config.RAW_SCORECARD_DIR / f"{entry.owner}__{entry.repo_name}.json"
 
 
@@ -91,7 +104,7 @@ def run_scorecard(entry: RepoEntry) -> ScorecardResult:
             )
             elapsed = time.monotonic() - t0
             result.exit_code = proc.returncode
-            result.stderr = (proc.stderr or "").strip()[:2000]
+            result.stderr = (proc.stderr or "").strip()[:2000]  # cap stored stderr to keep result JSON small
             result.runtime_seconds = round(elapsed, 2)
 
             # Try to parse JSON regardless of exit code
@@ -199,6 +212,8 @@ def _normalize(raw: dict[str, Any], out_file: Path) -> ScorecardResult:
         if chk.get("documentation", {}).get("url"):
             result.checks[name]["doc_url"] = chk["documentation"]["url"]
 
+    # Some Scorecard outputs omit an aggregate score; fall back to averaging
+    # individual check scores (excluding checks with a negative/N-A score).
     if not result.overall_score and checks:
         valid = [c.get("score", -1) for c in checks
                  if isinstance(c.get("score"), (int, float)) and c["score"] >= 0]

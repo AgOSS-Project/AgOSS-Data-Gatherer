@@ -1,4 +1,17 @@
-"""Render the static HTML dashboard from processed data."""
+"""Render the static HTML dashboard from processed data.
+
+Reads the pipeline's processed JSON artifacts (`merged_repos.json`,
+`summary.json`, the dependency/KEV/stats/matched-comparison reports under
+`config.PROCESSED_DIR`) and injects them as inline JSON into
+`pipeline/report/template.html` (styles from `styles.css`), producing a
+single self-contained `outputs/dashboard/index.html` that works from a
+local file:// URL with no server. Each optional artifact (dependency, KEV,
+stats, matched-comparison) that is missing or unreadable falls back to an
+empty placeholder payload of the right shape, so the dashboard always
+renders even for a partial pipeline run.
+
+Called by `main.py` as the final pipeline stage via `build_dashboard()`.
+"""
 
 from __future__ import annotations
 
@@ -14,6 +27,7 @@ _TEMPLATE_DIR = Path(__file__).resolve().parent
 
 
 def _empty_dependency_payload() -> dict:
+    """Empty dependency analysis payload (right shape, zeroed) when the artifact is not available."""
     return {
         "generated_at": "",
         "status": "missing",
@@ -42,6 +56,7 @@ def _empty_dependency_payload() -> dict:
 
 
 def _empty_stats_payload() -> dict:
+    """Empty statistical-analysis payload when the artifact is not available."""
     return {}
 
 
@@ -132,7 +147,9 @@ def build_dashboard() -> Path:
     template_html = (_TEMPLATE_DIR / "template.html").read_text(encoding="utf-8")
     styles_css = (_TEMPLATE_DIR / "styles.css").read_text(encoding="utf-8")
 
-    # Inject data and styles into template
+    # Inject data and styles into template. Placeholders are valid empty
+    # JS/CSS on their own (e.g. `/* @@REPO_DATA@@ */ []`), so the template
+    # still parses if rendered directly without this substitution.
     html = template_html.replace("/* @@STYLES@@ */", styles_css)
     html = html.replace("/* @@REPO_DATA@@ */ []", json.dumps(merged_data, default=str))
     html = html.replace("/* @@SUMMARY_DATA@@ */ {}", json.dumps(summary_data, default=str))

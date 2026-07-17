@@ -1,3 +1,18 @@
+"""Tests for pipeline/dependency_runner.py.
+
+Covers the pure parsing/classification helpers -- purl-to-OSV-query
+translation (parse_purl_to_osv, classify_package_for_osv), SBOM package
+extraction with self-package filtering and dedup (parse_sbom_packages) --
+plus report aggregation (build_dependency_report) and the higher-level
+analyze_repo_dependencies flow, including cache reuse/retry behavior.
+
+analyze_repo_dependencies tests use unittest.mock.patch to stub out
+_fetch_github_sbom (no real network calls) and patch.object to override
+config.RAW_DEPENDENCY_DIR / config.FORCE_REFRESH per-test, with
+tempfile.TemporaryDirectory providing an isolated cache directory so tests
+don't touch the real cache on disk.
+"""
+
 from __future__ import annotations
 
 import tempfile
@@ -17,6 +32,7 @@ from pipeline.models import RepoEntry
 
 
 def make_entry(owner: str = "octocat", repo: str = "demo") -> RepoEntry:
+    """Build a minimal RepoEntry fixture for tests that don't care about its other fields."""
     return RepoEntry(
         display_name=repo,
         repo_url=f"https://github.com/{owner}/{repo}",
@@ -30,21 +46,26 @@ def make_entry(owner: str = "octocat", repo: str = "demo") -> RepoEntry:
 
 class DependencyRunnerParsingTests(unittest.TestCase):
     def test_parse_purl_to_osv_handles_common_ecosystems(self) -> None:
+        """Verify purl strings for Maven and scoped npm packages translate to the (ecosystem, name, version) OSV expects."""
         eco, name, ver = parse_purl_to_osv("pkg:maven/org.apache.commons/commons-lang3@3.12.0")
         self.assertEqual("Maven", eco)
         self.assertEqual("org.apache.commons:commons-lang3", name)
         self.assertEqual("3.12.0", ver)
 
+        # %40 is the URL-encoded "@" that prefixes npm scoped package names.
         eco, name, ver = parse_purl_to_osv("pkg:npm/%40types/node@20.0.0")
         self.assertEqual("npm", eco)
         self.assertEqual("@types/node", name)
         self.assertEqual("20.0.0", ver)
 
     def test_parse_sbom_filters_self_package_and_dedupes(self) -> None:
+        """Verify parse_sbom_packages drops the SBOM's own root package, dedupes repeated packages, and flags unqueryable packages."""
         payload = {
             "sbom": {
                 "packages": [
                     {
+                        # This is the repo's own package (see DESCRIBES relationship below);
+                        # parse_sbom_packages should filter it out of the result.
                         "SPDXID": "SPDXRef-root",
                         "name": "demo",
                         "versionInfo": "1.0.0",
@@ -67,6 +88,7 @@ class DependencyRunnerParsingTests(unittest.TestCase):
                         ],
                     },
                     {
+                        # Duplicate SPDX entry for the same package+version, to exercise dedup.
                         "SPDXID": "SPDXRef-requests-dup",
                         "name": "requests",
                         "versionInfo": "2.31.0",
@@ -78,6 +100,7 @@ class DependencyRunnerParsingTests(unittest.TestCase):
                         ],
                     },
                     {
+                        # No externalRefs/purl -> ecosystem can't be determined -> unqueryable.
                         "SPDXID": "SPDXRef-custom",
                         "name": "custom-lib",
                         "versionInfo": "0.1.0",
@@ -107,6 +130,7 @@ class DependencyRunnerParsingTests(unittest.TestCase):
         self.assertIn("missing ecosystem", custom_pkg["query_reason"])
 
     def test_classify_package_for_osv_marks_unqueryable_without_ecosystem(self) -> None:
+        """Verify a package with an empty ecosystem string is marked unqueryable with an explanatory reason."""
         classified = classify_package_for_osv("flask", "", "2.2.0")
         self.assertFalse(classified["queryable"])
         self.assertIn("missing ecosystem", classified["query_reason"])
@@ -114,6 +138,7 @@ class DependencyRunnerParsingTests(unittest.TestCase):
 
 class DependencyRunnerReportTests(unittest.TestCase):
     def test_build_dependency_report_aggregates_totals_and_severity(self) -> None:
+        """Verify build_dependency_report aggregates per-repo results into totals, including a mix of success and failure statuses."""
         entries = [make_entry("a", "one"), make_entry("b", "two")]
 
         repo_results = [
@@ -209,8 +234,10 @@ class DependencyRunnerReportTests(unittest.TestCase):
         self.assertEqual(1, totals["severity"]["medium"])
 
     def test_analyze_repo_dependencies_handles_sbom_error_gracefully(self) -> None:
+        """Verify a failed SBOM fetch produces a "failed" status result with the error message and empty package/vuln lists, not an exception."""
         entry = make_entry("c", "three")
 
+        # Isolated cache dir + forced refresh so this run doesn't read/write real cache state.
         with tempfile.TemporaryDirectory() as tmpdir:
             with patch.object(config, "RAW_DEPENDENCY_DIR", Path(tmpdir)):
                 with patch.object(config, "FORCE_REFRESH", True):
@@ -223,11 +250,14 @@ class DependencyRunnerReportTests(unittest.TestCase):
         self.assertEqual([], result["vulnerability_ids"])
 
     def test_analyze_repo_dependencies_retries_failed_cache(self) -> None:
+        """Verify a previously-failed cached result triggers a quick retry: one fetch attempt, no extra retries, and a capped short timeout."""
         entry = make_entry("retry", "me")
 
         with tempfile.TemporaryDirectory() as tmpdir:
             cache_dir = Path(tmpdir)
             cache_file = cache_dir / "retry__me.json"
+            # Pre-seed a cache file with a "failed" prior result so FORCE_REFRESH=False
+            # still exercises the quick-retry path instead of returning the cache as-is.
             cache_file.write_text(
                 """{
   "repo_url": "https://github.com/retry/me",
@@ -249,6 +279,7 @@ class DependencyRunnerReportTests(unittest.TestCase):
 
         self.assertEqual(1, mock_fetch.call_count)
         self.assertEqual(0, mock_fetch.call_args.kwargs.get("retry_count"))
+        # Retry-after-failed-cache uses a short capped timeout to fail fast, not the full configured timeout.
         self.assertEqual(
             min(10, config.DEPENDENCY_HTTP_TIMEOUT_SECONDS),
             mock_fetch.call_args.kwargs.get("timeout_seconds"),

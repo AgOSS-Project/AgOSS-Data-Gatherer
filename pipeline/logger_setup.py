@@ -1,4 +1,14 @@
-"""Pipeline logging setup — file + console handlers."""
+"""Pipeline logging setup — file + console handlers.
+
+Provides `setup_logging()`, called once by `main.py` at startup to
+configure the shared "pipeline" logger used by every pipeline module
+(`pipeline.dependency`, `pipeline.input_parser`, etc. all log through
+child loggers of this root). Attaches two handlers: a file handler that
+always writes DEBUG-level records to `config.LOG_DIR / "pipeline.log"`
+for later troubleshooting, and a console handler whose level depends on
+the `verbose` flag (DEBUG when verbose, INFO otherwise) so normal runs
+stay quiet while `--verbose` surfaces detailed progress.
+"""
 
 import logging
 import sys

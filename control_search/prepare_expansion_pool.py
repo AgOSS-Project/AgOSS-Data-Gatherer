@@ -46,6 +46,7 @@ EXPANSION_TRIAGED_JS_FILE = _THIS_DIR / "control_candidates_triaged_expansion_da
 
 
 def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments for sort order and candidates-per-keyword."""
     p = argparse.ArgumentParser(
         description="Search GitHub for a second control-pool wave (business/community-"
                     "management SaaS domain) and auto-triage the results, without touching "
@@ -69,6 +70,8 @@ def parse_args() -> argparse.Namespace:
 
 
 def run(*, sort: str = "best-match", top_n: int = control_search.DEFAULT_N) -> None:
+    """Run the expansion-wave search then triage, excluding repos already in
+    the original wave, and refresh the reviewed-pool sidecar for review.html."""
     logger.info("[prepare_expansion_pool] Step 1/2 — searching GitHub for expansion candidates …")
     control_search.run(
         sort=sort,
@@ -104,6 +107,7 @@ def run(*, sort: str = "best-match", top_n: int = control_search.DEFAULT_N) -> N
 
 
 def main() -> None:
+    """CLI entry point: parse arguments, configure logging, and run the expansion-pool steps."""
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(message)s")
     args = parse_args()
     run(sort=args.sort, top_n=args.top_n)

@@ -68,6 +68,7 @@ def _redirect_dependency_cache():
 
 
 def _github_headers() -> dict[str, str]:
+    """Build GitHub API request headers, adding a bearer token when configured."""
     h = {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}
     if config.GITHUB_AUTH_TOKEN:
         h["Authorization"] = f"Bearer {config.GITHUB_AUTH_TOKEN}"
@@ -102,6 +103,7 @@ def _fetch_commit_activity_52w(owner: str, repo: str) -> int | None:
 
 
 def _entry_cache_path(owner: str, repo: str) -> Path:
+    """Return the on-disk cache path for one repo's covariates JSON."""
     return RAW_COVARIATES_DIR / f"{owner}__{repo}.json"
 
 
@@ -111,13 +113,9 @@ def fetch_covariates(owner: str, repo: str, *, force: bool = False) -> dict[str,
     if not force and cache_path.exists() and cache_path.stat().st_size > 0:
         try:
             cached = json.loads(cache_path.read_text(encoding="utf-8"))
-            # A cache entry written before NON_IMPLEMENTATION_LANGUAGES existed
-            # (or before a language was later added to it) can carry a
-            # since-excluded language forever, since nothing else ever
-            # invalidates it. Treat that case as a cache miss so it gets
-            # reclassified below instead of silently staying wrong. Same
-            # story for codebase_bytes: entries cached before that field
-            # existed would otherwise never get backfilled.
+            # Treat stale cache entries (written before NON_IMPLEMENTATION_LANGUAGES
+            # or codebase_bytes existed) as a miss so they get reclassified/backfilled
+            # below instead of silently staying wrong forever.
             if (
                 cached.get("owner") == owner
                 and cached.get("repo_name") == repo
@@ -134,17 +132,10 @@ def fetch_covariates(owner: str, repo: str, *, force: bool = False) -> dict[str,
     release_count = _fetch_github_count(owner, repo, "releases", token)
     commit_activity_52w = _fetch_commit_activity_52w(owner, repo)
 
-    # Always fetch the full per-language byte breakdown -- used both to
-    # reclassify away from NON_IMPLEMENTATION_LANGUAGES (e.g. Jupyter
-    # Notebook) the same way pipeline.merger does for dataset repos, and as
-    # the source for the codebase_bytes size covariate below. One call
-    # serves both purposes rather than fetching it twice. Unlike
-    # pipeline.merger's own GraphQL path (which caps at the top 6 languages
-    # per repo for the dashboard's language column), this REST endpoint
-    # returns every language GitHub tracked with no cap, so codebase_bytes
-    # is a true total, not a top-6-truncated undercount -- important since
-    # this same call also has to work for the dataset repos it's paired
-    # against, keeping the measurement source uniform across both groups.
+    # Fetch the full per-language byte breakdown once, used both to reclassify
+    # NON_IMPLEMENTATION_LANGUAGES and as the codebase_bytes source. Unlike
+    # pipeline.merger's GraphQL path (capped at the top 6 languages per repo),
+    # this REST endpoint returns every language uncapped, giving a true total.
     breakdown = _fetch_github_language_breakdown(owner, repo, token) or {}
     non_notebook_bytes = {k: v for k, v in breakdown.items() if k not in NON_IMPLEMENTATION_LANGUAGES}
     codebase_bytes = sum(non_notebook_bytes.values()) if non_notebook_bytes else None

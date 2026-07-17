@@ -1,4 +1,13 @@
-"""Tests for control_search/matching.py.
+"""Tests for control_search/matching.py -- covariate feature engineering
+(age_years, _to_feature_row log1p transforms), standardization
+(_standardize, including the zero-variance clamp), group filtering
+(group_keys_for), and the Mahalanobis-distance-based eligibility/caliper
+matching (compute_eligibility) that pairs each dataset repo with same-
+language control candidates. Includes a regression test for a NameError
+bug in the "closest rejected candidate" diagnostic branch, and a
+correctness lock-in test comparing the module's vectorized Mahalanobis
+distances against an independently computed
+scipy.spatial.distance.mahalanobis value.
 
 control_search/'s own modules import each other by bare module name (e.g.
 `import matching`, not `from control_search import matching`), each file
@@ -28,25 +37,29 @@ import matching  # noqa: E402  (import after sys.path manipulation, matches proj
 
 class AgeYearsTests(unittest.TestCase):
     def test_none_input(self) -> None:
+        """Verify None and empty-string inputs return None rather than raising."""
         self.assertIsNone(matching.age_years(None))
         self.assertIsNone(matching.age_years(""))
 
     def test_malformed_input(self) -> None:
+        """Verify an unparseable date string returns None instead of raising."""
         self.assertIsNone(matching.age_years("not-a-date"))
 
     def test_valid_iso_date_gives_positive_age(self) -> None:
+        """Verify a well-formed past ISO timestamp yields a positive float age in years."""
         age = matching.age_years("2015-01-01T00:00:00Z")
         self.assertIsInstance(age, float)
         self.assertGreater(age, 5.0)  # comfortably more than 5 years before any plausible "now"
 
     def test_never_negative(self) -> None:
-        # A "created_at" in the future should clamp to 0, not go negative.
+        """Verify a future "created_at" timestamp clamps age to 0.0 instead of going negative."""
         age = matching.age_years("2099-01-01T00:00:00Z")
         self.assertEqual(0.0, age)
 
 
 class ToFeatureRowTests(unittest.TestCase):
     def test_known_values_are_log1p_transformed(self) -> None:
+        """Verify _to_feature_row applies log1p to stars/forks/contributors/commits/codebase_bytes."""
         cov = {
             "stars": 99.0, "forks": 9.0, "created_at": "2015-01-01T00:00:00Z",
             "contributor_count": 6.0, "commit_activity_52w": 19.0, "codebase_bytes": 999.0,
@@ -59,6 +72,7 @@ class ToFeatureRowTests(unittest.TestCase):
         self.assertAlmostEqual(math.log1p(999.0), row["log_codebase_bytes"], places=10)
 
     def test_missing_fields_default_to_zero(self) -> None:
+        """Verify an empty covariate dict produces a feature row with all-zero values instead of raising KeyError."""
         row = matching._to_feature_row({})
         self.assertEqual(0.0, row["log_stars"])
         self.assertEqual(0.0, row["log_forks"])
@@ -68,6 +82,7 @@ class ToFeatureRowTests(unittest.TestCase):
 
 class StandardizeTests(unittest.TestCase):
     def test_mean_and_std_match_manual_computation(self) -> None:
+        """Verify _standardize's computed per-feature mean/std match values computed independently with numpy."""
         rows = [
             {f: v for f, v in zip(matching.ALL_FEATURES, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0])},
             {f: v for f, v in zip(matching.ALL_FEATURES, [3.0, 4.0, 5.0, 6.0, 7.0, 8.0])},
@@ -80,6 +95,7 @@ class StandardizeTests(unittest.TestCase):
         np.testing.assert_allclose(std, expected_std)
 
     def test_zero_variance_column_does_not_divide_by_zero(self) -> None:
+        """Verify a feature column with zero variance clamps std to 1.0 instead of causing a division by zero."""
         # Every row identical on one feature -> std would be 0 -> must clamp to 1.0.
         rows = [
             {f: 5.0 for f in matching.ALL_FEATURES},
@@ -91,6 +107,7 @@ class StandardizeTests(unittest.TestCase):
 
 class GroupKeysForTests(unittest.TestCase):
     def test_filters_by_group(self) -> None:
+        """Verify group_keys_for returns all/ag_specific-only/non_ag_specific-only keys correctly, treating None as excluded from both specific groups."""
         all_keys = ["a", "b", "c", "d"]
         ag = {"a": True, "b": False, "c": True, "d": None}
         self.assertEqual(["a", "b", "c", "d"], matching.group_keys_for(all_keys, ag, "all"))
@@ -107,6 +124,7 @@ class ComputeEligibilityTests(unittest.TestCase):
 
     def _cov(self, language: str, stars: float, forks: float, contributors: float,
               commits: float, codebase_bytes: float, created_at: str = "2015-01-01T00:00:00Z") -> dict:
+        """Build a covariate dict fixture shaped like the ones compute_eligibility expects."""
         return {
             "language": language, "created_at": created_at,
             "stars": stars, "forks": forks, "contributor_count": contributors,
@@ -114,6 +132,7 @@ class ComputeEligibilityTests(unittest.TestCase):
         }
 
     def test_empty_control_pool(self) -> None:
+        """Verify a dataset repo with no control candidates at all gets an "empty_control_pool" diagnostic and zero eligible matches."""
         dataset = {"org/repo": self._cov("Python", 100, 20, 10, 50, 500_000)}
         result = matching.compute_eligibility(dataset, {})
         self.assertEqual([], result.eligible["org/repo"])
@@ -121,6 +140,7 @@ class ComputeEligibilityTests(unittest.TestCase):
         self.assertEqual("empty_control_pool", diag["reason"])
 
     def test_no_language_match(self) -> None:
+        """Verify a dataset repo with only different-language controls gets a "no_language_match" diagnostic and no closest candidate."""
         dataset = {"org/repo": self._cov("Python", 100, 20, 10, 50, 500_000)}
         control = {"org/ctrl": self._cov("Go", 100, 20, 10, 50, 500_000)}
         result = matching.compute_eligibility(dataset, control)
@@ -130,6 +150,7 @@ class ComputeEligibilityTests(unittest.TestCase):
         self.assertIsNone(diag["closest_candidate"])
 
     def test_close_same_language_candidate_is_matched(self) -> None:
+        """Verify a same-language candidate with close covariates is eligible while a different-language candidate is excluded."""
         dataset = {"org/repo": self._cov("Python", 100, 20, 10, 50, 500_000)}
         control = {
             "org/close": self._cov("Python", 105, 22, 11, 52, 510_000),
@@ -171,6 +192,7 @@ class ComputeEligibilityTests(unittest.TestCase):
             self.assertIn("z_diff", item)
 
     def test_sensitivity_table_present_for_every_dataset_repo(self) -> None:
+        """Verify every dataset repo gets a sensitivity_table entry with tight/primary/loose caliper bands, regardless of match outcome."""
         dataset = {
             "org/a": self._cov("Python", 100, 20, 10, 50, 500_000),
             "org/b": self._cov("Rust", 200, 40, 20, 100, 1_000_000),
@@ -190,6 +212,7 @@ class MahalanobisDistanceCorrectnessTests(unittest.TestCase):
     change the numbers without a test failing."""
 
     def test_matches_independent_scipy_mahalanobis_computation(self) -> None:
+        """Verify compute_eligibility's internal pairwise distances match scipy's mahalanobis() computed independently on the same standardized data."""
         rng = np.random.default_rng(1)
         dataset = {
             f"org/ds{i}": {

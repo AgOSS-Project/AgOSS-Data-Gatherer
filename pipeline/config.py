@@ -1,4 +1,21 @@
-"""Centralized configuration for the pipeline."""
+"""Centralized configuration for the pipeline.
+
+Defines all filesystem paths (project root, tools, inputs, outputs, logs),
+environment-derived settings (timeouts, retry counts, worker counts, API
+bases), and small helpers to load `.env` files into `os.environ` before
+those settings are read. Every other pipeline module imports constants from
+here rather than recomputing paths or re-reading environment variables, so
+this is the single source of truth for where things live and how external
+calls (Scorecard, GitHub API, OSV API) are tuned.
+
+On import, `.env` files at the project root and under `pipeline/` are loaded
+(without overriding variables already set in the real environment), then
+module-level constants are computed once: `PROJECT_ROOT`, `SCORECARD_EXE`,
+`INPUT_FILE`, the `OUTPUTS_DIR` tree (raw/processed/dashboard/logs), and
+tuning knobs like `SCORECARD_TIMEOUT_SECONDS`, `DEPENDENCY_MAX_WORKERS`, and
+`OSV_QUERY_BATCH_SIZE`. `FORCE_REFRESH` is a mutable flag flipped by the
+CLI's `--force` argument at runtime rather than from the environment.
+"""
 
 import os
 from pathlib import Path
@@ -24,7 +41,7 @@ def _load_dotenv_file(path: Path, *, override: bool = False) -> None:
         if not line or line.startswith("#"):
             continue
         if line.startswith("export "):
-            line = line[len("export "):].strip()
+            line = line[len("export "):].strip()  # tolerate shell-style `export KEY=VALUE` lines
         if "=" not in line:
             continue
 
@@ -35,7 +52,7 @@ def _load_dotenv_file(path: Path, *, override: bool = False) -> None:
 
         value = value.strip()
         if len(value) >= 2 and value[0] == value[-1] and value[0] in {"\"", "'"}:
-            value = value[1:-1]
+            value = value[1:-1]  # strip matching surrounding quotes
 
         if override or key not in os.environ:
             os.environ[key] = value

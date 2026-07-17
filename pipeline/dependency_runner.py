@@ -1,7 +1,26 @@
 """Dependency vulnerability analysis using GitHub SBOM + OSV.
 
+For each repository, fetches its Software Bill of Materials (SBOM) from the
+GitHub dependency-graph API, normalizes each package into an OSV-queryable
+form (mapping package URLs / purls to OSV ecosystem+name+version), batch
+queries the OSV.dev API for known vulnerability IDs, and then fetches the
+full detail document for every distinct vulnerability found. Per-repo
+results are cached as JSON under `config.RAW_DEPENDENCY_DIR`; the combined
+report (per-repo rows, a global vulnerability rollup, and severity totals)
+is written to `config.DEPENDENCY_REPORT_FILE`.
+
+Entry points, called from `main.py`:
+  - `run_dependency_analysis_batch(entries)` — runs analysis for a list of
+    `RepoEntry` objects concurrently (thread pool sized by
+    `config.DEPENDENCY_MAX_WORKERS`) and persists the final report.
+  - `write_empty_dependency_report(entries, reason)` — writes a
+    placeholder "skipped" report when this stage is bypassed (e.g. via a
+    `--skip-dependencies` CLI flag), so downstream consumers always find a
+    report file in a known shape.
+
 This module is intentionally isolated from Scorecard scoring so the
-existing pipeline behavior remains unchanged.
+existing pipeline behavior remains unchanged: a failure here degrades to a
+"failed"/"skipped" report rather than affecting Scorecard output.
 """
 
 from __future__ import annotations
@@ -41,10 +60,12 @@ _RETRIABLE_HTTP_CODES = {429, 500, 502, 503, 504}
 
 
 def _now_iso() -> str:
+    """Return the current UTC time as an ISO-8601 string."""
     return datetime.now(timezone.utc).isoformat()
 
 
 def _repo_output_path(entry: RepoEntry) -> Path:
+    """Build the per-repo cache file path for a dependency analysis result."""
     return config.RAW_DEPENDENCY_DIR / f"{entry.owner}__{entry.repo_name}.json"
 
 
@@ -57,11 +78,13 @@ def _is_reusable_cached_result(cached: dict[str, Any]) -> bool:
 
 
 def _persist(path: Path, data: Any) -> None:
+    """Write JSON data to path, creating parent directories as needed."""
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, default=str), encoding="utf-8")
 
 
 def _github_headers() -> dict[str, str]:
+    """Build GitHub API request headers, adding a bearer token when configured."""
     headers = {
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
@@ -72,6 +95,7 @@ def _github_headers() -> dict[str, str]:
 
 
 def _retry_delay(response: requests.Response | None, attempt: int) -> float:
+    """Compute retry wait time: honor a Retry-After header, else exponential backoff capped at 30s."""
     if response is not None:
         retry_after = response.headers.get("Retry-After", "").strip()
         if retry_after.isdigit():
@@ -81,6 +105,7 @@ def _retry_delay(response: requests.Response | None, attempt: int) -> float:
 
 
 def _http_error_message(response: requests.Response) -> str:
+    """Build a compact, human-readable error string from a failed HTTP response."""
     body = ""
     try:
         payload = response.json()
@@ -179,6 +204,7 @@ def _fetch_github_sbom(
 
 
 def _extract_purl(pkg: dict[str, Any]) -> str:
+    """Find the package URL (purl) string among an SBOM package's external references."""
     refs = pkg.get("externalRefs")
     if not isinstance(refs, list):
         return ""
@@ -202,15 +228,15 @@ def parse_purl_to_osv(purl: str) -> tuple[str | None, str | None, str | None]:
         return None, None, None
 
     body = purl[4:]
-    body = body.split("#", 1)[0]
-    body = body.split("?", 1)[0]
+    body = body.split("#", 1)[0]  # drop purl subpath (fragment), not needed for OSV lookup
+    body = body.split("?", 1)[0]  # drop purl qualifiers (query string)
     if "/" not in body:
         return None, None, None
 
     purl_type, remainder = body.split("/", 1)
     purl_type = purl_type.strip().lower()
     path, _, version = remainder.partition("@")
-    decoded_path = unquote(path.strip("/"))
+    decoded_path = unquote(path.strip("/"))  # purl segments are percent-encoded per spec
     version = version.strip() or None
 
     if not decoded_path:
@@ -310,6 +336,9 @@ def parse_sbom_packages(sbom_payload: dict[str, Any]) -> tuple[list[dict[str, An
     if not isinstance(relationships, list):
         relationships = []
 
+    # The SPDX document's own DESCRIBES relationship points at the repo itself
+    # (listed as a "package" alongside real dependencies); collect those ids so
+    # the repo isn't miscounted as one of its own dependencies below.
     described_ids: set[str] = set()
     for rel in relationships:
         if not isinstance(rel, dict):
@@ -378,6 +407,7 @@ def parse_sbom_packages(sbom_payload: dict[str, Any]) -> tuple[list[dict[str, An
 
 
 def _chunked(items: list[dict[str, Any]], size: int) -> list[list[dict[str, Any]]]:
+    """Split a list into consecutive chunks of at most size items."""
     if size <= 0:
         size = 100
     return [items[i:i + size] for i in range(0, len(items), size)]
@@ -441,6 +471,7 @@ def _query_osv_for_packages(packages: list[dict[str, Any]]) -> list[str]:
 
 
 def _empty_severity_counts() -> dict[str, int]:
+    """Return a zeroed severity-bucket counter dict."""
     return {
         "critical": 0,
         "high": 0,
@@ -451,11 +482,13 @@ def _empty_severity_counts() -> dict[str, int]:
 
 
 def _severity_from_score(score: str) -> str:
+    """Map a numeric CVSS-style score string to a CRITICAL/HIGH/MEDIUM/LOW/UNKNOWN band."""
     try:
         value = float(score)
     except (TypeError, ValueError):
         return "UNKNOWN"
 
+    # Standard CVSS v3 severity thresholds.
     if value >= 9.0:
         return "CRITICAL"
     if value >= 7.0:
@@ -468,14 +501,16 @@ def _severity_from_score(score: str) -> str:
 
 
 def _normalize_severity(vuln_payload: dict[str, Any]) -> str:
+    """Derive a normalized severity level from an OSV vulnerability payload."""
     db_specific = vuln_payload.get("database_specific")
     if isinstance(db_specific, dict):
         db_sev = str(db_specific.get("severity") or "").strip().upper()
         if db_sev == "MODERATE":
-            return "MEDIUM"
+            return "MEDIUM"  # some OSV source databases (e.g. GHSA) use "MODERATE" instead of "MEDIUM"
         if db_sev in {"CRITICAL", "HIGH", "MEDIUM", "LOW"}:
             return db_sev
 
+    # Fall back to deriving severity from a numeric CVSS score if no explicit label is present.
     severity_items = vuln_payload.get("severity")
     if isinstance(severity_items, list):
         for item in severity_items:
@@ -489,6 +524,7 @@ def _normalize_severity(vuln_payload: dict[str, Any]) -> str:
 
 
 def _severity_rank(level: str) -> int:
+    """Map a severity label to a sortable integer rank (higher = more severe)."""
     order = {
         "CRITICAL": 4,
         "HIGH": 3,
@@ -500,6 +536,7 @@ def _severity_rank(level: str) -> int:
 
 
 def _bump_severity(counts: dict[str, int], severity: str) -> None:
+    """Increment the matching severity bucket in counts, defaulting to unknown."""
     key = str(severity or "UNKNOWN").strip().lower()
     if key not in counts:
         key = "unknown"
@@ -507,6 +544,7 @@ def _bump_severity(counts: dict[str, int], severity: str) -> None:
 
 
 def _normalize_vulnerability_detail(vuln_id: str, payload: dict[str, Any] | None, error: str = "") -> dict[str, Any]:
+    """Build a normalized vulnerability detail record from a raw OSV document."""
     data = payload if isinstance(payload, dict) else {}
     aliases = data.get("aliases") if isinstance(data.get("aliases"), list) else []
     summary = str(data.get("summary") or data.get("details") or "").strip()
@@ -529,9 +567,10 @@ def _fetch_vulnerability_details(vulnerability_ids: list[str]) -> dict[str, dict
         return {}
 
     url_base = f"{config.OSV_API_BASE.rstrip('/')}/v1/vulns"
-    max_workers = max(1, min(config.DEPENDENCY_MAX_WORKERS, 8))
+    max_workers = max(1, min(config.DEPENDENCY_MAX_WORKERS, 8))  # cap OSV detail fetch concurrency separately from SBOM/OSV batch queries
 
     def fetch_one(vuln_id: str) -> tuple[str, dict[str, Any]]:
+        """Fetch and normalize one OSV vulnerability document, paired with its id."""
         url = f"{url_base}/{quote(vuln_id, safe='')}"
         with requests.Session() as session:
             payload, err = _request_json(session, "GET", url)
@@ -582,6 +621,8 @@ def analyze_repo_dependencies(entry: RepoEntry) -> dict[str, Any]:
                 exc,
             )
 
+    # A previously failed cache entry gets one fast, low-retry re-check rather than
+    # the full retry budget, so a batch re-run doesn't stall on repeatedly-broken repos.
     sbom_retry_count = 0 if quick_retry_after_failed_cache else None
     sbom_timeout = min(10, config.DEPENDENCY_HTTP_TIMEOUT_SECONDS) if quick_retry_after_failed_cache else None
 

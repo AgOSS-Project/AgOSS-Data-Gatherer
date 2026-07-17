@@ -1,6 +1,25 @@
 """Statistical analysis — bootstrap CIs, Mann-Whitney tests, Kruskal-Wallis, and Spearman correlations.
 
-Writes outputs/processed/statistical_analysis.json.
+Runs the full statistical battery over the pipeline's collected data:
+per-category and per-ag_specific descriptive stats with bootstrap CIs,
+Mann-Whitney U tests (ag-specific vs. not) and Kruskal-Wallis + Dunn's
+post-hoc tests (across categories) with Benjamini-Hochberg FDR correction,
+Spearman correlations (a full matrix plus named scatter-pairs), and joint
+OLS regression models that control for category, ag_specific, and scale
+(stars/contributors) simultaneously to disentangle effects the univariate
+tests can't separate.
+
+Reads `merged_repos.json` (from `pipeline.merger`) and
+`dependency_analysis.json` (from `pipeline.dependency_runner`), plus
+`kev_summary.json` (from `pipeline.exploit`) if present. Writes the
+combined results to `outputs/processed/statistical_analysis.json`, which
+the dashboard renders directly. Called by `main.py` via `run_all()` as a
+late pipeline stage, after Scorecard, dependency, and KEV analysis.
+
+Most functions carry deliberately detailed docstrings/comments explaining
+the statistical methodology and its caveats (effect-size formulas, power
+analysis, FDR correction scope, model specification) — this is intentional
+given the research nature of this pipeline; that detail is preserved as-is.
 """
 
 from __future__ import annotations
@@ -32,6 +51,7 @@ _EFFECT_THRESHOLDS = [(0.1, "negligible"), (0.3, "small"), (0.5, "medium")]
 
 
 def _effect_label(r: float) -> str:
+    """Classify an effect size r into negligible/small/medium/large per common Cohen-style thresholds."""
     r = abs(r)
     for threshold, label in _EFFECT_THRESHOLDS:
         if r < threshold:
@@ -55,23 +75,15 @@ def _bh_fdr_correct(p_values: list[float]) -> list[float]:
 
 
 def _is_valid_p(p) -> bool:
-    """True if p is a real, finite probability in [0, 1].
-
-    `p is not None` alone lets NaN through (NaN is not None in Python), and
-    scipy.stats.false_discovery_control raises on any input outside [0, 1] --
-    concretely hit by check_Packaging/check_Signed-Releases, where every
-    single repo scores a perfect 10 and scipy's mannwhitneyu asymptotic
-    p-value is a 0/0 in that fully-tied case (run_mannwhitney() falls back to
-    the exact method when it detects this, so this filter is now more of a
-    defensive backstop than a live code path -- but every FDR-family
-    collection point below uses it rather than `is not None` alone, so a
-    NaN from a future edge case degrades to "excluded from this family"
-    instead of crashing the whole statistical_analysis.json run).
-    """
+    """True if p is a real, finite probability in [0, 1]. Guards against NaN
+    (which `is not None` alone lets through) since
+    scipy.stats.false_discovery_control raises on any out-of-range input;
+    used as a defensive backstop everywhere p-values are collected for FDR."""
     return p is not None and isinstance(p, (int, float)) and not math.isnan(p) and 0.0 <= p <= 1.0
 
 
 def _clean(values: list) -> list[float]:
+    """Coerce values to floats, dropping None, NaN, and non-numeric entries."""
     out = []
     for v in values:
         if v is None:
@@ -93,13 +105,9 @@ def bootstrap_ci(
     seed: int = 42,
 ) -> tuple[float, float]:
     """95% percentile bootstrap CI for an arbitrary statistic, via
-    scipy.stats.bootstrap(method="percentile") -- same resampling-with-
-    replacement + percentile-interval design as the from-scratch version
-    this replaced; exact resampled draws differ since scipy's internal RNG
-    sequence isn't bit-for-bit identical to a hand-rolled rng.choice loop
-    at the same seed, so CI bounds shift slightly (still a valid bootstrap
-    CI, just not byte-identical to the old numbers).
-    """
+    scipy.stats.bootstrap(method="percentile") with resampling-with-
+    replacement. Returns (val, val) unchanged when fewer than 2 data points,
+    since a CI is undefined there."""
     if len(data) < 2:
         val = float(func(np.array(data))) if data else float("nan")
         return val, val
@@ -127,6 +135,7 @@ def _bootstrap_r_ci(
     arr_b = np.array(b, dtype=float)
 
     def _r_stat(s_a: np.ndarray, s_b: np.ndarray) -> float:
+        """Compute the rank-biserial effect size r from a Mann-Whitney U statistic for one bootstrap resample."""
         u = float(scipy_stats.mannwhitneyu(s_a, s_b, alternative="two-sided").statistic)
         return (2 * u) / (len(s_a) * len(s_b)) - 1.0
 
@@ -154,56 +163,13 @@ def _wmw_tie_sum(pooled: list[float]) -> float:
 
 
 def _wmw_power_coefficient(n_a: int | None, n_b: int | None, tie_sum: float = 0.0) -> float | None:
-    """Coefficient linking the rank-biserial effect size r to the
-    standardized-test-statistic non-centrality for a two-sided
-    Wilcoxon-Mann-Whitney test:
-
-        z_beta = coefficient * |r| - z_{alpha/2}
-        power  = Phi(z_beta)
-
-    Derived (not a fitted/hardcoded constant) from the exact finite-sample
-    variance of the Mann-Whitney U statistic -- the same formula given in
-    Noether (1987), reproduced in Zhao et al. (2008) and in NCSS/PASS's
-    "Mann-Whitney U or Wilcoxon Rank-Sum Tests (Noether)" reference (which
-    this was cross-checked against, matching its two worked examples to
-    3-4 decimal places):
-
-        Var(U) = (n_a n_b / 12) * [(N+1) - tie_sum / (N(N-1))]      N = n_a+n_b
-        coefficient = n_a n_b / (2 * sqrt(Var(U)))
-                    = sqrt(3 n_a n_b / [(N+1) - tie_sum/(N(N-1))])
-
-    This is a closed-form function of n_a, n_b (and, when supplied, the
-    actual tie count), evaluated fresh every call -- it is NOT re-fit per
-    dataset, so it automatically tracks whatever n_a/n_b this particular
-    comparison has, rather than assuming a fixed large-N/no-ties
-    simplification. That simplification (tie_sum=0 AND N+1 rounded down to
-    N) is exactly what collapses this formula to sqrt(1.5 * n_h) with
-    n_h = 2/(1/n_a+1/n_b) the harmonic mean -- an earlier version of this
-    function hardcoded that simplified constant. This exact version
-    corrects two real, verified-by-simulation gaps in that earlier version:
-    dropping the "+1" term (matters when N is small, negligible once N is
-    in the hundreds) and ignoring ties (small, second-order effect; moves
-    predictions in the right direction but rarely by much).
-
-    IMPORTANT REMAINING CAVEAT, inherent to Noether's method itself (not
-    fixed by the "exact" variance above, and not something a different
-    formula can fix without abandoning the nonparametric/distribution-free
-    property that makes this test useful in the first place): Var(U) here is
-    the NULL-hypothesis variance. Noether's method substitutes it for the
-    true (and generally smaller, and analytically intractable without
-    assuming a specific parametric alternative) variance under the
-    alternative, which is only accurate for "local" alternatives -- i.e.
-    effect sizes not too far from 0. Monte Carlo simulation confirms this
-    directly: at small-to-moderate r (<~0.5) this formula tracks simulated
-    power closely, but at large r (>~0.7 -- which several of this dataset's
-    own naive ag-vs-non-ag comparisons reach, e.g. scorecard_overall
-    r=-0.87, stars_count r=-0.96) it increasingly UNDERSTATES true power
-    (e.g. at n_a=n_b=5, r=0.95: this formula predicts power=0.70 against a
-    simulated 0.92). Read power/MDE values as a lower bound / conservative
-    estimate once |r| exceeds roughly 0.5-0.6, not a precise figure --
-    true power for those large-effect comparisons is probably higher than
-    reported here.
-    """
+    """Coefficient linking rank-biserial effect size r to WMW test-statistic
+    non-centrality (z_beta = coefficient * |r| - z_alpha/2), derived from
+    Noether (1987)'s exact finite-sample Var(U), accounting for n_a/n_b and
+    ties rather than a fixed large-N/no-ties approximation. Caveat: uses
+    null-hypothesis variance, so it increasingly UNDERSTATES true power once
+    |r| exceeds ~0.5-0.6 (confirmed via simulation) -- treat results near
+    that range as a conservative lower bound, not a precise figure."""
     if n_a is None or n_b is None or n_a < 2 or n_b < 2:
         return None
     N = n_a + n_b
@@ -215,17 +181,11 @@ def _wmw_power_coefficient(n_a: int | None, n_b: int | None, tie_sum: float = 0.
 
 
 def _wmw_power(n_a: int | None, n_b: int | None, r: float | None, alpha: float = 0.05, tie_sum: float = 0.0) -> float | None:
-    """Achieved (retrospective/observed) power for a two-sided
-    Wilcoxon-Mann-Whitney test at the actual n_a, n_b and an observed (or
-    hypothesized) rank-biserial effect size r. See _wmw_power_coefficient()
-    for the derivation.
-
-    Prefer _wmw_mde() over this for interpretation: retrospective power
-    computed from an observed effect is a near-deterministic function of the
-    p-value and is widely regarded in the statistics literature as
-    uninformative-to-misleading on its own (Hoenig & Heisey 2001) -- this is
-    retained for completeness/intuition, not as the primary metric.
-    """
+    """Achieved (retrospective) power for a two-sided WMW test at n_a, n_b and
+    an observed rank-biserial r; see _wmw_power_coefficient() for the
+    derivation. Prefer _wmw_mde() for interpretation -- retrospective power
+    is a near-deterministic function of the p-value and is widely regarded
+    as uninformative on its own (Hoenig & Heisey 2001)."""
     if r is None or math.isnan(r):
         return None
     coef = _wmw_power_coefficient(n_a, n_b, tie_sum)
@@ -250,6 +210,7 @@ def _wmw_mde(n_a: int | None, n_b: int | None, power: float = 0.80, alpha: float
 
 
 def compute_descriptive_stats(values: list) -> dict:
+    """Compute n, mean/median/IQR and their bootstrap 95% CIs for a list of raw values."""
     clean = _clean(values)
     n = len(clean)
     if n == 0:
@@ -261,6 +222,7 @@ def compute_descriptive_stats(values: list) -> dict:
         }
 
     def _iqr(x: np.ndarray) -> float:
+        """Compute the interquartile range (75th minus 25th percentile)."""
         return float(np.percentile(x, 75) - np.percentile(x, 25))
 
     mean_val = float(np.mean(clean))
@@ -272,6 +234,7 @@ def compute_descriptive_stats(values: list) -> dict:
     iqr_lo, iqr_hi = bootstrap_ci(clean, _iqr)
 
     def _r4(x: float) -> float:
+        """Round to 4 decimal places."""
         return round(x, 4)
 
     return {
@@ -283,6 +246,8 @@ def compute_descriptive_stats(values: list) -> dict:
 
 
 def run_mannwhitney(group_a: list, group_b: list) -> dict:
+    """Run a two-sided Mann-Whitney U test between two groups, with rank-biserial
+    effect size (+ bootstrap CI), significance, and achieved power/MDE."""
     a = _clean(group_a)
     b = _clean(group_b)
     n_a, n_b = len(a), len(b)
@@ -298,19 +263,9 @@ def run_mannwhitney(group_a: list, group_b: list) -> dict:
     u = float(result.statistic)
     p = float(result.pvalue)
     if math.isnan(p):
-        # method="auto" picks the normal approximation once n is past a small
-        # threshold, and that approximation's variance term is a 0/0 when
-        # every value in the pooled sample is identical (e.g. a check where
-        # literally every repo scores a perfect 10) -- U is still
-        # well-defined there (it's just the midpoint, r=0), but scipy's
-        # asymptotic p-value comes back NaN. The exact permutation method
-        # handles this degenerate case correctly (verified: returns p=1.0,
-        # the mathematically correct "no evidence of a difference" answer
-        # when both groups are indistinguishable) and is cheap here
-        # specifically because a fully-tied input is the trivial case for
-        # exact computation, not the expensive one. Falling back only when
-        # NaN is actually hit keeps this from paying the exact method's
-        # general large-n cost on every call.
+        # Normal-approximation p-value is NaN (0/0 variance) when every pooled
+        # value is identical; the exact method handles this fully-tied case
+        # correctly and cheaply, so fall back only when NaN is actually hit.
         result = scipy_stats.mannwhitneyu(a, b, alternative="two-sided", method="exact")
         p = float(result.pvalue)
     # scipy returns U1 (U for the first/ag group); r = 2*U1/(n_a*n_b) - 1
@@ -341,21 +296,11 @@ def run_mannwhitney(group_a: list, group_b: list) -> dict:
 
 def dunn_posthoc(groups: dict[str, list[float]]) -> dict[str, dict]:
     """Dunn's post-hoc pairwise test with Bonferroni correction, via
-    scikit-posthocs.posthoc_dunn (Dunn 1964; tie-corrected per Glantz 2012)
-    -- the library's internal formula was checked against this project's
-    earlier from-scratch implementation and matches exactly, including tie
-    correction, on both real and synthetic data.
-
-    posthoc_dunn returns only a symmetric p-value matrix (no signed
-    Z-statistic, and no power/MDE), so this wrapper still does two things
-    of its own on top of the library call: recovers the sign of each pair's
-    difference from the pooled mean ranks (the library only exposes
-    |difference|), and attaches this project's own power/MDE calculation
-    (see _wmw_power_coefficient) -- neither is part of Dunn's test itself,
-    so no library provides them bundled with it either.
-
-    groups: { category_name: [float, ...] }  (pre-cleaned values)
-    """
+    scikit-posthocs.posthoc_dunn (tie-corrected). Since that library only
+    returns a symmetric |difference| p-value matrix, this wrapper also
+    recovers each pair's sign from the pooled mean ranks and attaches this
+    project's own power/MDE calculation (see _wmw_power_coefficient).
+    groups: {category_name: [float, ...]} of pre-cleaned values."""
     group_names = list(groups.keys())
     if len(group_names) < 2:
         return {}
@@ -406,17 +351,9 @@ def dunn_posthoc(groups: dict[str, list[float]]) -> dict[str, dict]:
             sign = 1.0 if mean_ranks[g1] >= mean_ranks[g2] else -1.0
             z = sign * float(scipy_stats.norm.isf(p_raw_clipped / 2.0))
             n1, n2 = n_per[g1], n_per[g2]
-            # Rosenthal's (1991) Z-to-r conversion (r = Z / sqrt(N)) gives an
-            # approximate rank-biserial-scale effect size for this pair, which
-            # feeds the same power/MDE formula used for the Mann-Whitney
-            # comparisons -- Dunn's test itself has no closed-form effect size
-            # the way a single two-sample test does. The power/MDE call below
-            # uses tie_sum=0 (not a pooled, all-K-groups tie count): a
-            # repo's rank position depends on every other category too, not
-            # just the pair being compared, so a pair-specific tie
-            # correction isn't well-defined here -- this still gets the
-            # finite-sample "+1" correction (the dominant error source at
-            # small n, per simulation) but not a pair-specific tie correction.
+            # Rosenthal's (1991) Z-to-r conversion feeds the same power/MDE
+            # formula as the Mann-Whitney comparisons. Uses tie_sum=0 since a
+            # pair-specific tie correction isn't well-defined across K groups.
             n_pair_total = n1 + n2
             r_approx = (z / math.sqrt(n_pair_total)) if n_pair_total > 0 else None
             results[f"{g1} vs {g2}"] = {
@@ -463,6 +400,7 @@ def run_kruskal_wallis_with_dunn(
 
 
 def compute_spearman(x: list, y: list) -> dict:
+    """Compute Spearman rank correlation between paired x/y values, dropping any pair with a missing value."""
     pairs = [
         (xi, yi) for xi, yi in zip(x, y)
         if xi is not None and yi is not None
@@ -521,17 +459,11 @@ def _vuln_densities_from_dep(dep_data: dict) -> dict[str, float]:
 
 
 def _kev_counts_from_dep(dep_data: dict, kev_summary_path: Path) -> dict[str, int]:
-    """Map repo_url → count of that repo's dependency vulnerabilities that are
-    in the CISA Known Exploited Vulnerabilities (KEV) catalog.
-
-    Reuses outputs/processed/kev_summary.json, already computed by
-    pipeline/exploit.py earlier in the same pipeline run, rather than
-    re-fetching and re-matching the KEV catalog here. Repos with a failed
-    dependency scan are excluded (same reasoning as _vuln_counts_from_dep --
-    their dependencies, and therefore their KEV exposure, were never actually
-    queried, so 0 would be indistinguishable from "scanned and clean"). Repos
-    with a successful scan but zero KEV matches are coded 0, not missing.
-    """
+    """Map repo_url to count of dependency vulnerabilities in the CISA Known
+    Exploited Vulnerabilities catalog, reusing kev_summary.json (already
+    computed by pipeline/exploit.py) rather than re-matching here. Repos
+    with a failed dependency scan are excluded (0 would be ambiguous with
+    "scanned and clean"); a successful scan with no matches is coded 0."""
     valid_urls = {
         repo.get("repo_url", "") for repo in dep_data.get("repos", [])
         if repo.get("repo_url") and repo.get("status") != "failed"
@@ -557,6 +489,7 @@ def _stars(repo: dict) -> float | None:
 
 
 def _github_metric(repo: dict, key: str) -> float | None:
+    """Extract and coerce a named field from a repo's github_metrics dict, or None if absent/invalid."""
     metrics = repo.get("github_metrics") or {}
     if not isinstance(metrics, dict):
         return None
@@ -570,6 +503,7 @@ def _github_metric(repo: dict, key: str) -> float | None:
 
 
 def _check_score(repo: dict, check: str) -> float | None:
+    """Return a repo's score for one named Scorecard check, or None if missing/not applicable (negative)."""
     checks = repo.get("scorecard_checks") or {}
     if not isinstance(checks, dict):
         return None
@@ -580,7 +514,7 @@ def _check_score(repo: dict, check: str) -> float | None:
     if score is None:
         return None
     s = int(score)
-    return float(s) if s >= 0 else None
+    return float(s) if s >= 0 else None  # Scorecard uses -1 for "not applicable"
 
 
 def _get_metric(
@@ -590,6 +524,8 @@ def _get_metric(
     vuln_densities: dict[str, float],
     kev_counts: dict[str, int] | None = None,
 ) -> float | None:
+    """Look up one named metric's value for a repo, dispatching to the right source
+    (Scorecard, dependency/KEV lookup tables, GitHub metrics, or a check_* score)."""
     if metric == "scorecard_overall":
         val = repo.get("scorecard_overall")
         if val is not None:
@@ -672,18 +608,11 @@ def _nan_to_none(obj):
 
 
 # ---------------------------------------------------------------------------
-# Joint regression model — disentangles category, ag_specific, and scale
+# Joint regression model — disentangles category, ag_specific, and scale.
+# The univariate tests above can't separate category from ag_specific since
+# they're entangled in this dataset; this OLS model (see _ols_fit) regresses
+# each outcome on category, ag_specific, and scale simultaneously instead.
 # ---------------------------------------------------------------------------
-#
-# The univariate Mann-Whitney/Kruskal-Wallis tests above can't separate
-# category from ag_specific, since the two are entangled in this dataset (two
-# categories -- Domain-specific agricultural platform, Data Processing
-# Libraries/Tools -- have zero non-ag members). This is an ordinary least
-# squares model, fit from scratch with numpy/scipy (no statsmodels dependency
-# -- see requirements.txt) that regresses each outcome on category (dummy
-# coded), ag_specific, and two scale covariates (log stars, log contributor
-# count) simultaneously, so each term's coefficient is the partial effect
-# holding the others fixed.
 
 JOINT_MODEL_COVARIATES = ["ag_specific", "log_stars", "log_contributor_count"]
 
@@ -710,39 +639,15 @@ def _compute_vifs(X: np.ndarray, names: list[str]) -> dict[str, float | None]:
 
 def _ols_fit(y: np.ndarray, X: np.ndarray, names: list[str]) -> dict | None:
     """Ordinary least squares via statsmodels.OLS, with HC3
-    heteroskedasticity-consistent (robust) standard errors rather than the
-    classical homoskedastic estimator, plus per-coefficient t-tests,
-    R^2/adjusted R^2, and VIFs. Returns None if there aren't enough residual
-    degrees of freedom (n - p <= 0) to fit at all.
-
-    Point estimates (coefficients, R^2, adjusted R^2, degrees of freedom)
-    are identical either way -- cov_type only changes how the standard
-    errors (and therefore t/p/CI) are computed, not the fit itself (verified
-    directly: same .params/.rsquared/.df_resid under cov_type="HC3" vs the
-    default). HC3 was chosen over the classical estimator because GitHub
-    activity/security metrics are essentially guaranteed to be
-    heteroskedastic (variance scales with project size) even after the
-    log1p transforms already applied to stars/contributors/vuln outcomes,
-    and over the milder HC0-HC2 corrections because HC3 down-weights
-    high-leverage points more aggressively via (1-h_ii)^2 in the
-    denominator, which is the standard recommendation for small-to-moderate
-    samples like this dataset's (n=55-66) -- see Long & Ervin (2000), "Using
-    Heteroscedasticity Consistent Standard Errors in the Linear Regression
-    Model," The American Statistician 54(3), 217-224, and MacKinnon & White
-    (1985) for the original HC0-HC3 family. This project's own earlier
-    from-scratch numpy implementation (classical SEs only) was cross-checked
-    against statsmodels' classical (non-robust) fit on this exact dataset
-    and matched to 4 decimal places before this swap to HC3, confirming the
-    swap changes the SE estimator deliberately, not by implementation error.
-
-    Note statsmodels sets use_t=False for HC-family covariance (confirmed
-    directly, not assumed): p-values and the 95% CI below are computed
-    against the standard normal (z) reference distribution, not Student's t,
-    which is the standard convention for asymptotic robust-SE inference --
-    the "t" field name is kept only because that's statsmodels' own
-    attribute name (it's coef/se either way); it is not literally a
-    t-statistic evaluated against a t-distribution here.
-    """
+    heteroskedasticity-consistent (robust) standard errors, plus
+    per-coefficient t-tests, R^2/adjusted R^2, and VIFs. Returns None if
+    residual degrees of freedom (n - p) <= 0. HC3 is used over the classical
+    estimator because GitHub activity/security metrics are heteroskedastic
+    by nature, and over milder HC0-HC2 corrections since it down-weights
+    high-leverage points more (recommended for small samples like this
+    dataset's, per Long & Ervin 2000). Note statsmodels uses use_t=False for
+    HC-family covariance, so p-values/CIs are z-based, not t-based, despite
+    the "t" field name."""
     n, p = X.shape
     dof = n - p
     if dof <= 0:
@@ -750,10 +655,8 @@ def _ols_fit(y: np.ndarray, X: np.ndarray, names: list[str]) -> dict | None:
 
     model = sm.OLS(y, X).fit(cov_type="HC3")
     vifs = _compute_vifs(X, names)
-    # conf_int() -- not a manual coef +/- t_crit*se reconstruction -- since
-    # it correctly follows use_t=False (z-based) for HC3, which a hand-rolled
-    # t-distribution-based CI would get wrong (verified: a manual t-based CI
-    # does not match statsmodels' own HC3 conf_int(), a z-based one does).
+    # Use conf_int() rather than a manual coef +/- t_crit*se reconstruction,
+    # since a hand-rolled CI would wrongly use the t- instead of z-distribution.
     ci = model.conf_int(alpha=0.05)
     coefficients = []
     for i, name in enumerate(names):
@@ -788,27 +691,13 @@ def _build_design_matrix(
     outcome_fn: Callable[[dict], float | None],
     category_reference: str,
 ) -> tuple[np.ndarray, np.ndarray, list[str]] | None:
-    """Build (y, X, term_names) for the joint model:
-
-        outcome ~ category (dummy-coded, category_reference held out)
-                 + ag_specific + log1p(stars) + log1p(contributor_count)
-
-    Rows missing the outcome, ag_specific, stars, or contributor_count are
-    dropped listwise (a repo with a valid outcome but unknown ag_specific
-    status, for instance, can't be placed in the design matrix at all).
-
-    Dummy columns are built from the categories actually present *after*
-    that listwise deletion, not from the full repo list -- if every member
-    of some category happened to drop out for this particular outcome (e.g.
-    a category whose repos all failed dependency collection, for a
-    vuln_count/vuln_density model), including a dummy for it anyway would be
-    an all-zero column: technically not rank-deficient on its own, but
-    np.linalg.pinv resolves that direction via its zero-singular-value
-    convention rather than reporting it as truly unidentifiable, which understates
-    that coefficient's standard error rather than surfacing the problem.
-    Dropping the column outright is the correct fix -- there's no data to
-    estimate that category's effect from in this particular model anyway.
-    """
+    """Build (y, X, term_names) for outcome ~ category (dummy-coded,
+    category_reference held out) + ag_specific + log1p(stars) +
+    log1p(contributor_count). Rows missing any needed field are dropped
+    listwise, and dummy columns are built only from categories still present
+    *after* that deletion, so an all-zero dummy column never silently
+    understates a coefficient's standard error via pinv's zero-singular-value
+    handling."""
     # First pass: collect retained rows (listwise deletion), deferring the
     # dummy-category columns until we know which categories actually survive.
     retained: list[tuple[str, bool, float, float, float]] = []  # (category, ag, stars, contributors, y)
@@ -878,6 +767,7 @@ def run_all(merged_repos_path: Path, dep_analysis_path: Path) -> Path:
     all_metrics = CORE_METRICS + [f"check_{c}" for c in check_name_list]
 
     def gm(repo: dict, metric: str) -> float | None:
+        """Shorthand for _get_metric bound to this run's vuln/KEV lookup tables."""
         return _get_metric(repo, metric, vuln_counts, vuln_densities, kev_counts)
 
     # ── Group by category and ag_specific ─────────────────────────────────
@@ -945,13 +835,9 @@ def run_all(merged_repos_path: Path, dep_analysis_path: Path) -> Path:
 
     # ── Per-check Kruskal-Wallis + Dunn's across categories ────────────────
     # Same test as kruskal_wallis above, but per individual Scorecard check
-    # (Branch-Protection, Signed-Releases, etc.) rather than only the
-    # aggregate scorecard_overall -- answers "which specific practice differs
-    # by stack layer" instead of just "does the aggregate score differ."
-    # Kept as its own dict/FDR family rather than folded into KW_METRICS,
-    # since it's conceptually a different family of tests (per-practice, not
-    # per-outcome) and mixing the two families into one FDR correction would
-    # make each test's power depend on how many checks happen to exist.
+    # rather than only scorecard_overall. Kept as its own FDR family since
+    # mixing it with KW_METRICS would make each test's power depend on how
+    # many checks happen to exist.
     kruskal_wallis_checks: dict[str, dict] = {}
     for check in check_name_list:
         kruskal_wallis_checks[f"check_{check}"] = run_kruskal_wallis_with_dunn(
@@ -966,17 +852,16 @@ def run_all(merged_repos_path: Path, dep_analysis_path: Path) -> Path:
         kruskal_wallis_checks[_m]["significant_fdr"] = _ap < 0.05
 
     # ── Joint regression models ─────────────────────────────────────────────
-    # Disentangles category and ag_specific (which overlap in this dataset --
-    # two categories have zero non-ag members) by controlling for both
-    # simultaneously, plus scale (log stars, log contributors), in one model
-    # per outcome. vuln_count/vuln_density are heavily right-skewed count-ish
-    # data, so they're modeled as log1p(outcome) ~ ... (a log-linear model);
-    # scorecard_overall is modeled on its native 0-10 scale.
+    # One model per outcome, controlling for category, ag_specific, and scale
+    # simultaneously. vuln_count/vuln_density (right-skewed counts) are
+    # modeled as log1p(outcome) ~ ...; scorecard_overall stays on its 0-10 scale.
     category_counts = Counter(r.get("category") or "Unknown" for r in merged_data)
     reference_category = category_counts.most_common(1)[0][0] if category_counts else "Unknown"
 
     def _log1p_metric(metric_name: str) -> Callable[[dict], float | None]:
+        """Build an outcome function that returns log1p(metric_name) for a repo, for right-skewed count metrics."""
         def f(r: dict) -> float | None:
+            """Look up metric_name for repo r and log1p-transform it."""
             v = gm(r, metric_name)
             return math.log1p(v) if v is not None and v >= 0 else None
         return f
@@ -1001,13 +886,8 @@ def run_all(merged_repos_path: Path, dep_analysis_path: Path) -> Path:
         joint_models[outcome_name] = fit
 
     # BH-FDR correction across the ag_specific coefficient's p-value across
-    # the 3 outcome models -- a defensible "family" here since it's the same
-    # underlying question ("does ag-specific status predict this outcome
-    # after controlling for category and scale") asked of 3 different
-    # outcomes, distinct from the category coefficients (which aren't a
-    # comparable family across models since the dummy set differs by
-    # reference category choice, held fixed here, but the hypothesis being
-    # tested per dummy is specific to that one category contrast).
+    # the 3 outcome models -- the same underlying question asked 3 times.
+    # Category coefficients aren't a comparable family, so they're excluded.
     _ag_coef_entries = []
     for _outcome_name, _fit in joint_models.items():
         if not _fit:
@@ -1021,18 +901,12 @@ def run_all(merged_repos_path: Path, dep_analysis_path: Path) -> Path:
         _c["significant_fdr"] = _ap < 0.05
 
     # ── Full correlation matrix across CORE_METRICS ───────────────────────
-    # Computed first (not after "correlations" below) because every
-    # SCATTER_PAIRS entry is a pair drawn from CORE_METRICS -- i.e. the same
-    # test already appears once in this matrix. BH-FDR is applied once,
-    # across the C(10,2)=45 unique off-diagonal pairs (the diagonal is
-    # self-correlation, r=1 by construction, not a real hypothesis test and
-    # excluded from the family), and "correlations" below reuses these
-    # already-corrected results by lookup instead of recomputing the same
-    # test a second time under a second, differently-sized (and therefore
-    # differently BH-corrected) family -- the same pair getting two
-    # different "corrected" p-values depending on which JSON key a reader
-    # looks at would be actively misleading.
+    # Computed first since every SCATTER_PAIRS entry is drawn from
+    # CORE_METRICS; BH-FDR is applied once across the 45 unique off-diagonal
+    # pairs, and "correlations" below reuses these results by lookup rather
+    # than recomputing under a second, differently-corrected family.
     def get_all(metric: str) -> list:
+        """Collect one metric's raw value across every repo in merged_data."""
         return [gm(r, metric) for r in merged_data]
 
     metric_vals = {m: get_all(m) for m in CORE_METRICS}

@@ -1,1 +1,1 @@
-# Report generation sub-package
+"""Report generation sub-package for pipeline results."""

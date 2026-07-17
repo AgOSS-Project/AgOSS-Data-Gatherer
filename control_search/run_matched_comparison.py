@@ -277,26 +277,12 @@ def compute_robustness(
     k: int,
     n_seeds: int,
 ) -> dict[str, Any]:
-    """Secondary robustness checks, all built on the repeated-*random*-matching
-    machinery (run_seeds/summarize) rather than the deterministic
-    nearest-neighbor primary estimate: does the conclusion survive varying k
-    (controls per repo), the caliper width, or -- since these controls are
-    drawn at random rather than picked as the single closest match -- looser,
-    non-optimal matching assignment generally? This is what tells a reader
-    the headline result isn't an artifact of one arbitrary specification
-    choice, nor dependent on always picking the single best-available control.
-
-    random_matching_effects_by_k is the full (all groups/metrics/k) random-
-    seed result, already computed once by the caller for the Seed Stability
-    section -- the "by_k" slice below just narrows it to headline
-    metrics/"all" group rather than re-running run_seeds.
-
-    Reuses already-collected outcome data. For the "loose" caliper, some
-    newly-eligible controls may not have been Scorecard-collected (they
-    weren't part of the primary caliper's eligible union) -- run_seeds
-    already skips repos with missing outcome data gracefully, and coverage
-    (how many of the loose caliper's eligible controls actually have outcome
-    data) is reported explicitly rather than silently glossed over.
+    """Secondary robustness checks built on the repeated-random-matching
+    machinery (run_seeds/summarize): does the conclusion survive varying k,
+    caliper width, or looser non-optimal matching? random_matching_effects_by_k
+    is reused from the caller's Seed Stability computation. Coverage (outcome
+    data availability) is reported per caliper width since the loose caliper's
+    newly-eligible controls may lack Scorecard data.
     """
     headline_list = sorted(HEADLINE_METRICS)
 
@@ -327,6 +313,8 @@ def compute_robustness(
 
 
 def _load_control_pool_entries(*, allow_unreviewed: bool) -> tuple[list[RepoEntry], str]:
+    """Rebuild control_pool.json from the reviewed export and convert its
+    repos to RepoEntry objects, returning (entries, review_status)."""
     logger.info("[run_matched_comparison] Building control_pool.json from the reviewed export …")
     build_control_pool.main(allow_unreviewed=allow_unreviewed)
 
@@ -360,6 +348,10 @@ def run(
     k_options: tuple[int, ...] | None = None,
     allow_unreviewed: bool = False,
 ) -> Path | None:
+    """Run the full matched-comparison pipeline end-to-end: gate on human
+    review, compute covariates/eligibility/balance, collect outcomes, run
+    primary + robustness matching effects, and write matched_comparison.json.
+    """
     logger.info("[run_matched_comparison] Starting matched-comparison analysis …")
 
     if not REVIEWED_FILE.exists() and not allow_unreviewed:
@@ -391,13 +383,10 @@ def run(
         )
     dataset_merged_repos = json.loads(merged_path.read_text(encoding="utf-8"))
 
-    # Dataset scope: ag_specific=True repos only. Earlier versions of this
-    # analysis also included the ag_specific=False "ag-critical but not
-    # purpose-built for agriculture" repos as a second dataset group; that
-    # comparison is dropped in favor of comparing only the purpose-built
-    # agricultural repos against the external control pool, so every
-    # remaining dataset repo is ag_specific=True and the "ag_specific" /
-    # "all" groups below are identical by construction.
+    # Dataset scope: ag_specific=True repos only (earlier versions also
+    # compared the ag_specific=False "ag-critical but not purpose-built"
+    # group; that's dropped, so the "ag_specific" and "all" groups below are
+    # identical by construction).
     dataset_entries = [e for e in parse_input(config.INPUT_FILE) if e.ag_specific is True]
     control_entries, review_status = _load_control_pool_entries(allow_unreviewed=allow_unreviewed)
 
@@ -440,19 +429,10 @@ def run(
     groups = matching_mod.build_standard_groups(eligibility, dataset_ag_specific, dataset_category)
     category_names = sorted({c for c in dataset_category.values() if c})
 
-    # Matching-quality is computed per group only (it already reports
-    # avg_controls_per_repo_by_k internally). Balance and covariate
-    # distributions are computed per k *and* per group -- "after" must
-    # reflect each repo's actual top-k nearest-eligible controls (the same
-    # sample primary_effects_by_k uses), not the full caliper-eligible union.
-    # The union is a superset of what's ever matched (up to max_eligible=20
-    # per repo vs. k<=5 actually used), so averaging over it as a stand-in
-    # for "after" silently mixes in controls no effect estimate ever touches
-    # -- inflating the apparent imbalance on some covariates (e.g. stars/
-    # forks) while masking it on others (e.g. contributor_count), independent
-    # of which k a reader has selected. Computing it per k instead makes the
-    # balance table/Love Plot/covariate-distribution charts agree with
-    # whichever k the dashboard's selector is currently showing.
+    # Balance/covariate distributions are computed per k *and* per group so
+    # "after" reflects each repo's actual top-k matched controls, not the
+    # full caliper-eligible union (a superset that would inflate/mask
+    # imbalance independent of which k is selected in the dashboard).
     matching_quality: dict[str, Any] = {}
     for group, group_keys in groups.items():
         matching_quality[group] = matching_mod.compute_matching_quality(
@@ -498,13 +478,9 @@ def run(
         primary_effects_by_k[str(kval)] = matching_mod.summarize_deterministic(det_results, metrics)
 
     # ── Step 5a-ii: repository-level matching diagnostics, unmatched-repo
-    # sensitivity bounds, and a regression-adjusted estimate on the matched
-    # sample -- all three built from the same "all"-group top-k assignment
-    # (each dataset repo's own k nearest eligible controls) primary_effects_by_k
-    # itself uses, at every k in k_options, so they stay consistent with the
-    # primary estimate above and none of the three ever hardcodes a fixed
-    # unmatched-repo count -- see matching.py's docstrings for what each
-    # computes.
+    # sensitivity bounds, and regression-adjusted estimate -- all built from
+    # the same "all"-group top-k assignment as primary_effects_by_k, at every
+    # k in k_options, so all three stay consistent with the primary estimate.
     matching_diagnostics_by_k: dict[str, Any] = {}
     unmatched_sensitivity_by_k: dict[str, Any] = {}
     regression_adjustment_by_k: dict[str, Any] = {}
@@ -561,6 +537,8 @@ def run(
 
     # ── Per-dataset-repo eligibility summary + matched-control detail ───────
     def _covariate_snapshot(cov_key: str, covariates: dict[str, dict]) -> dict[str, Any]:
+        """Build a compact covariate snapshot (language, age, stars, forks,
+        size, contributors, activity) for one repo key."""
         cov = covariates.get(cov_key, {})
         age = matching_mod.age_years(cov.get("created_at"))
         return {
@@ -670,6 +648,8 @@ def run(
 
 
 def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments for force-refresh, seed count, k, k-options,
+    and the unreviewed-pool bypass."""
     p = argparse.ArgumentParser(description="Run the AgOSS matched-comparison analysis.")
     p.add_argument("--force", action="store_true", help="Re-fetch covariates/outcomes even if cached.")
     p.add_argument("--n-seeds", type=int, default=1000, help="Number of random matching seeds (default: 1000).")
@@ -688,6 +668,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
+    """CLI entry point: parse arguments, configure logging, and run the matched-comparison analysis."""
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
     args = parse_args()
     k_options = tuple(int(v.strip()) for v in args.k_options.split(",") if v.strip())

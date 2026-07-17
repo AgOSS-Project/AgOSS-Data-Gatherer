@@ -3,67 +3,34 @@ diagnostics, and repeated random matched-pair effect estimation.
 
 Methodology (see the project plan for full rationale):
   - Hard gate: exact primary-language match (coarsened exact matching). A
-    dataset repo with zero same-language candidates in the control pool has
-    zero eligible controls, full stop -- there is no ecosystem-bucket
-    fallback. It is dropped from the matched comparison and reported in the
-    "unmatched" cohort instead, since averaging a repo against a
-    same-Mahalanobis-distance-but-different-language "control" would
-    reintroduce exactly the kind of confound matching is meant to remove.
-  - Soft ranking: Mahalanobis distance over standardized covariates (log
-    stars, log forks, age, contributor count, recent commit activity, log
-    codebase size). Mahalanobis distance is used instead of raw Euclidean
-    distance because it accounts for correlation between covariates (e.g.
-    stars and forks), and is the standard choice in the matching literature
-    (Rosenbaum & Rubin; King & Nielsen 2019) for a small covariate set with a
-    modest treated sample size — more transparent and stable here than
-    fitting a propensity-score model. Codebase size (total non-notebook
-    language bytes from GitHub's /languages breakdown, log1p'd for the same
-    right-skew reason as the other count covariates) was added because it
-    captures a project-scale dimension the popularity/activity covariates
-    don't: a small, single-purpose tool can be highly starred without being
-    large, and vice versa, so two repos with similar stars/forks/contributors
-    could still differ substantially in how big the actual codebase is. It's
-    treated as a covariate rather than a mediator for the same reason
-    stars/forks/contributor_count are: codebase scale is a structural
-    project characteristic, not a downstream consequence of ag-specific
-    status the way dependency_count/release_count were judged to be below.
-    release_count and dependency_count were
-    deliberately excluded: both are plausible mediators (downstream of
-    ag-specific status rather than a nuisance confound of it) and
-    dependency_count was already well-balanced pre-matching (SMD ~0.07) while
-    getting worse post-matching, so including them risked partialling out
-    part of the effect being measured without correcting a real imbalance in
-    return. See per-repo `vuln_density` for a dependency-count normalization
-    that happens at the outcome layer instead. owner_is_org (org-vs-individual
-    GitHub account type) was also dropped: it's the noisiest of the original
-    8 covariates (a proxy for institutional backing, not a verified measure
-    of it) and not the main driver of caliper failures -- log_stars/log_forks
-    account for more of those than owner_is_org does.
-  - Caliper threshold: set via the chi-squared distribution with degrees of
-    freedom = number of covariates, since squared Mahalanobis distances are
-    asymptotically chi-squared distributed under joint normality.
+    dataset repo with zero same-language candidates has zero eligible
+    controls -- there is no ecosystem-bucket fallback, since matching against
+    a different-language proxy would reintroduce the confound matching is
+    meant to remove. Unmatched repos are reported separately, not dropped
+    silently.
+  - Soft ranking: Mahalanobis distance over six standardized covariates (log
+    stars, log forks, age, log contributor count, log recent commit
+    activity, log codebase size), chosen over raw Euclidean distance because
+    it accounts for covariate correlation and is the standard choice in the
+    matching literature for a small covariate set and modest sample size.
+    release_count and dependency_count are excluded as plausible mediators
+    of ag-specific status rather than confounds (per-repo vuln_density
+    normalizes for dependency count at the outcome layer instead);
+    owner_is_org was dropped as the noisiest of the original covariates and
+    a weak driver of caliper failures.
+  - Caliper threshold: chi-squared distribution with degrees of freedom =
+    number of covariates (squared Mahalanobis distances are asymptotically
+    chi-squared distributed under joint normality).
   - Balance diagnostics: standardized mean difference (SMD) per covariate,
-    dataset group vs. control pool (before) and vs. matched-eligible controls
-    (after), following the Rosenbaum/Rubin/Austin convention (|SMD| < 0.1 well
-    balanced, 0.1-0.25 acceptable, > 0.25 imbalanced).
-  - Primary estimate: deterministic top-k nearest-neighbor matching. Each
-    dataset repo is paired with its k closest eligible controls (by
-    Mahalanobis distance -- eligibility.eligible is already sorted
-    nearest-first), with no random re-assignment. This is the standard,
-    defensible estimator in the matching literature (Rosenbaum & Rubin) and
-    is what's reported as the headline effect. Uncertainty on this point
-    estimate comes from a nonparametric bootstrap over the matched pairs
-    themselves (resampling which dataset repos ended up in the sample), not
-    from varying which control was picked -- nearest-neighbor selection
-    itself has nothing random to average over.
-  - Secondary robustness check: repeated random matching. For each of many
-    seeds, k controls are drawn *at random* from the full eligible pool per
-    dataset repo (without replacement within a seed where possible), and the
-    matched-pair difference is aggregated into a per-seed effect. This
-    answers a different question than the primary estimate -- "does the
-    conclusion survive even under looser, non-optimal matching assignment"
-    -- and is reported as a robustness check (median + [2.5, 97.5]
-    percentile interval across seeds), not as the headline number.
+    before (dataset vs. full pool) and after (vs. matched-eligible controls),
+    following the Rosenbaum/Rubin/Austin convention.
+  - Primary estimate: deterministic top-k nearest-neighbor matching (no
+    random re-assignment), with a nonparametric bootstrap CI over the
+    matched pairs themselves.
+  - Secondary robustness check: repeated random matching across many seeds,
+    drawing k controls at random from the eligible pool per repo, reported
+    as median + [2.5, 97.5] percentile interval -- tests whether the
+    conclusion survives looser, non-optimal matching assignment.
 """
 
 from __future__ import annotations
@@ -115,15 +82,10 @@ FEATURE_LABELS = {
 DIAGNOSTIC_Z_THRESHOLD = 1.0
 
 # Sample size above which the Wilcoxon signed-rank test uses the normal
-# approximation instead of the exact distribution. Below this threshold the
-# exact test is both standard nonparametric-statistics practice (widely cited
-# convention: exact below ~20-25, approximation adequate above it) and cheap
-# to compute; above it, scipy's own 'auto' method selection can still pick
-# the exact combinatorial calculation for unfavorable tie/zero patterns, which
-# has a documented performance cliff (a sub-second call can become a
-# multi-hour one) at exactly the sample sizes this dataset has grown into.
-# Pinning an explicit cutoff replaces 'auto' with a bounded, disclosable rule
-# rather than trading away rigor for speed.
+# approximation instead of the exact distribution (standard convention: exact
+# below ~20-25). Pins scipy's 'auto' selection, which can otherwise pick the
+# exact combinatorial calculation and blow up to multi-hour runtimes on
+# unfavorable tie/zero patterns at this dataset's size.
 WILCOXON_EXACT_MAX_N = 25
 
 # Covariates shown in the raw before/after distribution plots — same
@@ -139,6 +101,7 @@ RAW_COVARIATE_LABELS = {
 }
 
 def age_years(created_at: str | None) -> float | None:
+    """Return repository age in years from an ISO created_at timestamp, or None if unparseable/missing."""
     if not created_at:
         return None
     try:
@@ -150,18 +113,14 @@ def age_years(created_at: str | None) -> float | None:
 
 
 def _to_feature_row(cov: dict[str, Any]) -> dict[str, float]:
+    """Convert raw covariates into the standardized (log1p'd) feature dict
+    used for Mahalanobis distance and eligibility matching."""
     stars = float(cov.get("stars") or 0)
     forks = float(cov.get("forks") or 0)
     age = age_years(cov.get("created_at"))
-    # contributor_count and commit_activity_52w are log1p'd for the same
-    # reason stars/forks are: all four are right-skewed GitHub activity
-    # counts (commit_activity_52w here has mean 807 vs. median 10 across
-    # the dataset -- more skewed than stars), and Mahalanobis distance
-    # assumes roughly elliptical covariate distributions. Left on a raw
-    # scale, a handful of outlier repos dominate the covariance matrix and
-    # the algorithm has little sensitivity to differences among
-    # typical-sized repos on these two covariates -- see the post-match
-    # balance writeup for the SMD-worsening effect this caused pre-fix.
+    # log1p'd like stars/forks: right-skewed GitHub activity counts (e.g.
+    # commit_activity_52w has mean 807 vs. median 10) would otherwise let a
+    # few outlier repos dominate the Mahalanobis covariance matrix.
     contributor_count = float(cov.get("contributor_count") or 0)
     commit_activity_52w = float(cov.get("commit_activity_52w") or 0)
     # codebase_bytes (total non-notebook language bytes) is at least as
@@ -208,6 +167,8 @@ def raw_covariate_value(cov: dict[str, Any], feature: str) -> float | None:
 
 
 def _standardize(rows: list[dict[str, float]]) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Stack feature rows into a matrix and return (matrix, mean, std), pinning
+    zero-variance columns to std=1 to avoid a divide-by-zero downstream."""
     mat = np.array([[r[f] for f in ALL_FEATURES] for r in rows], dtype=float)
     mean = mat.mean(axis=0)
     std = mat.std(axis=0, ddof=0)
@@ -217,6 +178,8 @@ def _standardize(rows: list[dict[str, float]]) -> tuple[np.ndarray, np.ndarray, 
 
 @dataclass
 class EligibilityResult:
+    """Result of compute_eligibility(): per-dataset-repo eligible controls,
+    sensitivity counts, caliper thresholds, distances, and unmatched diagnostics."""
     eligible: dict[str, list[str]] = field(default_factory=dict)
     sensitivity_table: dict[str, dict[str, int]] = field(default_factory=dict)
     caliper_chi2: dict[str, float] = field(default_factory=dict)
@@ -253,16 +216,9 @@ def compute_eligibility(
     dataset_keys = list(dataset_covariates.keys())
     control_keys = list(control_covariates.keys())
 
-    # A repo whose GitHub metadata fetch failed entirely (covariates.py sets
-    # fetch_error) has no trustworthy covariates -- _to_feature_row's `or 0`
-    # fallbacks would otherwise silently read it as "zero stars, zero forks,
-    # brand new" and let it fully participate in standardization and the
-    # Mahalanobis distance as if that were a real, measured data point rather
-    # than a missing one. Control-side failures are just dropped from
-    # candidacy (like a language mismatch); dataset-side failures still get a
-    # dedicated diagnostic reason below rather than silently vanishing from
-    # every downstream count the way an outright removal from dataset_keys
-    # would.
+    # Repos with a failed GitHub metadata fetch (fetch_error set) have no
+    # trustworthy covariates -- exclude them rather than let _to_feature_row's
+    # `or 0` fallbacks fake "zero stars, brand new" as real data.
     bad_dataset_keys = {k for k in dataset_keys if dataset_covariates[k].get("fetch_error")}
     good_dataset_keys = [k for k in dataset_keys if k not in bad_dataset_keys]
     good_control_keys = [k for k in control_keys if not control_covariates[k].get("fetch_error")]
@@ -321,13 +277,9 @@ def compute_eligibility(
     distances: dict[str, dict[str, float]] = {}
     unmatched_diagnostics: dict[str, dict[str, Any] | None] = {}
 
-    # Full dataset x control squared-Mahalanobis-distance matrix in one call,
-    # via scipy.spatial.distance.cdist(metric="mahalanobis", VI=inv_cov) --
-    # replaces a from-scratch per-row np.einsum computation (verified to
-    # match it to floating-point precision: max abs diff ~1e-14 on synthetic
-    # data). VI is passed explicitly (this function's own ridge-stabilized
-    # inverse covariance) rather than left for cdist to recompute, so the
-    # numerical-stability epsilon above is still honored.
+    # Full dataset x control squared-Mahalanobis-distance matrix in one call.
+    # VI is passed explicitly (this function's ridge-stabilized inverse
+    # covariance) so the numerical-stability epsilon above is honored.
     d2_matrix = cdist(z_dataset, z_control, metric="mahalanobis", VI=inv_cov) ** 2
 
     for i, dkey in enumerate(dataset_keys):
@@ -416,25 +368,10 @@ def compute_balance(
     dataset_keys_filter: list[str] | None = None,
     k: int | None = None,
 ) -> dict[str, dict[str, float | None]]:
-    """Standardized mean difference (SMD) per covariate, before vs after matching.
-
-    'Before' = dataset group vs the full control candidate pool.
-    'After'  = dataset group vs the controls actually used at k -- each
-    dataset repo's top-k nearest-eligible controls (eligibility.eligible is
-    already sorted nearest-first), unioned across the group. Pass k=None to
-    fall back to the full caliper-eligible union instead (i.e. every
-    candidate that passed the caliper, not just the k actually used
-    downstream) -- kept only for callers that explicitly want that broader
-    view; the headline dashboard now always passes an explicit k so "after"
-    reflects the same matched sample the effect estimates use, not a
-    diagnostic-only superset that can look better *or* worse than what's
-    really being compared (see run_matched_comparison.py's per-k balance).
-
-    Pass dataset_keys_filter to restrict the dataset side to a subgroup (e.g.
-    ag_specific only) — the control pool side is never filtered, since the
-    pool itself doesn't change per group, only which dataset repos we're
-    comparing it against.
-    """
+    """Standardized mean difference (SMD) per covariate, before (dataset vs.
+    full control pool) vs after (dataset vs. the union of each repo's top-k
+    matched controls) matching. k=None instead uses the full caliper-eligible
+    union. dataset_keys_filter restricts the dataset side to a subgroup."""
     keys = dataset_keys_filter if dataset_keys_filter is not None else list(dataset_covariates.keys())
     dataset_rows = [_to_feature_row(dataset_covariates[k2]) for k2 in keys if k2 in dataset_covariates]
     pool_rows = [_to_feature_row(v) for v in control_covariates.values()]
@@ -444,15 +381,13 @@ def compute_balance(
         for dk, v in eligibility.eligible.items() if dk in keys
     }
     matched_keys = sorted({c for lst in eligible_subset.values() for c in lst})
-    # No `or pool_rows` fallback here: an empty matched_rows means this group
-    # has zero matched controls at this k, which must surface as smd_after
-    # being unavailable (None, via _smd's own len(b) < 2 guard below) rather
-    # than silently reusing the full pool and reporting "no change from
-    # before" -- those are two very different situations for a reader of the
-    # balance table to conflate.
+    # No `or pool_rows` fallback: zero matched controls must surface as
+    # smd_after=None, not silently fall back to the full pool.
     matched_rows = [_to_feature_row(control_covariates[mk]) for mk in matched_keys if mk in control_covariates]
 
     def _smd(a: list[dict], b: list[dict], feature: str) -> float | None:
+        """Standardized mean difference between two feature-value samples,
+        or None if either sample has fewer than 2 rows."""
         if len(a) < 2 or len(b) < 2:
             return None
         av = np.array([r[feature] for r in a], dtype=float)
@@ -478,16 +413,10 @@ def compute_matching_quality(
     k_options: tuple[int, ...] = (1, 3, 5),
     dataset_keys_filter: list[str] | None = None,
 ) -> dict[str, Any]:
-    """Summary statistics describing how *good* the matches are, distinct from
-    raw eligible-control counts — the nearest-match Mahalanobis distance is
-    the direct answer to "how similar is this repo's best control, really."
-
-    Pass dataset_keys_filter to restrict to a subgroup (e.g. ag_specific only);
-    n_dataset_repos should then be the size of that subgroup, not the total.
-    avg_controls_per_repo is reported per k_options value (not a single fixed
-    k) so the dashboard's k selector can show the right number for whichever
-    k is currently chosen, without recomputing anything.
-    """
+    """Summary stats on match *quality* (nearest-match Mahalanobis distance),
+    distinct from raw eligible-control counts. dataset_keys_filter restricts
+    to a subgroup; avg_controls_per_repo is reported per k_options value so
+    the dashboard's k selector doesn't need to recompute anything."""
     keys = dataset_keys_filter if dataset_keys_filter is not None else list(eligibility.eligible.keys())
     matched_keys = [dk for dk in keys if eligibility.eligible.get(dk)]
     n_matched = len(matched_keys)
@@ -499,6 +428,7 @@ def compute_matching_quality(
             nearest_distances.append(dists[0])
 
     def _r4(fn, vals: list[float]) -> float | None:
+        """Apply fn to vals and round to 4 decimals, or None if vals is empty."""
         return round(float(fn(vals)), 4) if vals else None
 
     avg_controls_per_repo_by_k: dict[str, float | None] = {
@@ -547,24 +477,16 @@ def characterize_unmatched(
     dataset_covariates: dict[str, dict[str, Any]],
     eligibility: EligibilityResult,
 ) -> dict[str, Any]:
-    """Compare covariate profiles of matched vs. unmatched dataset repos —
-    answers "are the repos that couldn't be matched systematically different
-    (e.g. larger, older) from the ones that were," which would mean the
-    matched-comparison sample isn't fully representative of the whole
-    dataset. Pure aggregation over already-fetched covariates; no new data
-    collection needed.
-
-    Both a mean-based and a median-based unmatched/matched ratio are
-    reported per covariate, not just the mean. The unmatched group is
-    typically small, so a mean ratio can be dominated by a single outlier
-    repo; the median ratio is a robustness check against exactly that --
-    if the two ratios disagree sharply, that gap is itself informative about
-    how skewed the unmatched group's distribution is, rather than something
-    to silently average away."""
+    """Compare covariate profiles of matched vs. unmatched dataset repos, to
+    check whether unmatched repos are systematically different (e.g. larger,
+    older) from matched ones. Reports both mean- and median-based
+    unmatched/matched ratios per covariate, since the unmatched group is
+    often small enough for a mean ratio to be skewed by one outlier."""
     matched_keys = [k for k, v in eligibility.eligible.items() if v]
     unmatched_keys = [k for k, v in eligibility.eligible.items() if not v]
 
     def _stats_for(keys: list[str], feature: str) -> dict[str, Any]:
+        """Mean/median/count of one raw covariate's values across keys, skipping missing values."""
         vals = [
             v for k in keys
             if k in dataset_covariates and (v := raw_covariate_value(dataset_covariates[k], feature)) is not None
@@ -574,6 +496,7 @@ def characterize_unmatched(
         return {"mean": round(float(np.mean(vals)), 2), "median": round(float(np.median(vals)), 2), "n": len(vals)}
 
     def _ratio(numerator: float | None, denominator: float | None) -> float | None:
+        """Return numerator/denominator rounded to 2 decimals, or None if either is missing/zero."""
         if numerator is None or denominator in (None, 0):
             return None
         return round(numerator / denominator, 2)
@@ -670,22 +593,11 @@ def run_seeds(
     k: int = 3,
     n_seeds: int = 1000,
 ) -> dict[str, Any]:
-    """Repeated random matched-pair sampling.
-
-    Each seed draws k controls per dataset repo from its OWN full eligible
-    pool, independently of every other dataset repo (without replacement
-    within the repo's own draw where possible, allowing replacement only when
-    that repo's own eligible pool is smaller than k). A control can therefore
-    legitimately be drawn by more than one dataset repo in the same seed --
-    that's expected, not a bug, since each repo's assignment is meant to be an
-    independent random draw from its own candidate set, not a global
-    allocation competing for a shared, non-reusable resource (that global,
-    no-reuse-across-repos design is what "optimal" matching would be, a
-    different and more restrictive question than this robustness check asks).
-    Returns, per group (as defined by the caller-supplied `groups` mapping —
-    see build_standard_groups()) and per metric, the list of seed-level
-    (median paired difference, Wilcoxon p, rank-biserial r) tuples.
-    """
+    """Repeated random matched-pair sampling: each seed independently draws k
+    controls per dataset repo from its own eligible pool (a control may be
+    drawn by more than one repo in the same seed -- expected, not a bug).
+    Returns per group/metric the list of seed-level (median diff, Wilcoxon p,
+    rank-biserial r) tuples."""
     seed_diffs: dict[str, dict[str, list[float]]] = {g: {m: [] for m in metrics} for g in groups}
     seed_wilcoxon: dict[str, dict[str, list[dict]]] = {g: {m: [] for m in metrics} for g in groups}
 
@@ -749,20 +661,10 @@ def summarize(
     *,
     headline_metrics: set[str] | None = None,
 ) -> dict[str, dict[str, dict]]:
-    """Aggregate per-seed diffs/Wilcoxon results into median + [2.5,97.5] percentile
-    interval per metric per group, then apply BH-FDR correction across metrics
-    within each group (reusing the same helper the existing ag_vs_nonag
-    comparison in pipeline/stats.py already uses, for consistent methodology).
-
-    Also reports seed-to-seed stability: the standard deviation of the
-    per-seed median-paired-difference, and the fraction of seeds whose
-    difference has the same sign as the overall median — the latter directly
-    answers "would a different random seed have flipped the conclusion,"
-    which matters more for reader trust than raw variance. Metrics in
-    headline_metrics also get their full per-seed value list attached (for
-    the seed-distribution chart) — this is capped to a curated subset since
-    including it for all ~30 metrics would bloat the output considerably.
-    """
+    """Aggregate per-seed diffs/Wilcoxon results into median + [2.5,97.5]
+    percentile interval per metric per group, with BH-FDR correction across
+    metrics. Also reports seed-to-seed stability (spread + sign-agreement
+    fraction) and attaches full per-seed values for headline_metrics only."""
     diffs = seed_results["diffs"]
     wilcoxon = seed_results["wilcoxon"]
     headline_metrics = headline_metrics or set()
@@ -873,21 +775,11 @@ def summarize_deterministic(
     n_bootstrap: int = 2000,
     bootstrap_seed: int = 0,
 ) -> dict[str, dict[str, dict]]:
-    """Aggregate deterministic top-k matched-pair differences into a point
-    estimate + uncertainty interval per metric per group -- the headline
-    result reported alongside (not derived from) the repeated-random-seed
-    robustness check in summarize().
-
-    Nearest-neighbor selection is deterministic -- there's exactly one set of
-    matched pairs, not one per seed -- so there's no seed-to-seed spread to
-    report here. Uncertainty on the point estimate instead comes from a
-    standard nonparametric bootstrap over the matched pairs themselves
-    (resampling which dataset repos ended up in the sample with replacement),
-    which is the customary way to attach a CI to a deterministic-match
-    estimate. Effect size and significance come from a single Wilcoxon
-    signed-rank test on the fixed set of paired differences, then BH-FDR
-    correction across metrics within each group, same as summarize().
-    """
+    """Aggregate deterministic top-k matched-pair differences into a headline
+    point estimate + interval per metric per group. Since nearest-neighbor
+    selection has no seed-to-seed spread, uncertainty instead comes from a
+    nonparametric bootstrap over the matched pairs; significance from a
+    Wilcoxon signed-rank test with BH-FDR correction, as in summarize()."""
     diffs = det_results["diffs"]
     headline_metrics = headline_metrics or set()
     rng = random.Random(bootstrap_seed)
@@ -956,15 +848,9 @@ def summarize_deterministic(
 
 # ---------------------------------------------------------------------------
 # Repository-level matching diagnostics, unmatched-repo sensitivity bounds,
-# and a regression-adjusted estimate on the matched sample -- all three
-# build on the SAME kind of {dataset_key: [selected control keys]} mapping
-# run_deterministic() computes internally (each dataset repo's own top-k
-# nearest eligible controls; run_matched_comparison.py builds this mapping
-# explicitly at each k as `eligibility.eligible.get(dk, [])[:kval]` and
-# passes it into all three), so the three sections stay consistent with the
-# primary matched-pair estimate itself -- a repo's balance/diagnostic/
-# regression contribution always comes from the exact same matched controls
-# its effect estimate does.
+# and regression-adjusted estimate -- all three take the same {dataset_key:
+# [selected control keys]} mapping run_deterministic() uses internally, so
+# each repo's contribution always comes from its actual matched controls.
 # ---------------------------------------------------------------------------
 
 def matching_diagnostics(
@@ -975,15 +861,9 @@ def matching_diagnostics(
     dataset_keys: list[str],
     display_by_key: dict[str, RepoEntry],
 ) -> list[dict[str, Any]]:
-    """Repository-level matching diagnostics, one row per treated (dataset)
-    repo: how many controls it's eligible for, how many were actually
-    selected under the given assignment, the Mahalanobis distance to its
-    single nearest ELIGIBLE control (independent of how many were actually
-    selected -- a property of eligibility alone) versus the mean distance
-    across its actually-SELECTED controls, and the raw star/fork gap to
-    those selected controls' mean -- a plain-English read on match quality
-    alongside the abstract Mahalanobis distance.
-    """
+    """Per-dataset-repo diagnostics row: eligible vs. selected control counts,
+    Mahalanobis distance to the nearest eligible control vs. mean distance to
+    selected controls, and the raw star/fork gap to selected controls' mean."""
     rows: list[dict[str, Any]] = []
     for dk in dataset_keys:
         entry = display_by_key[dk]
@@ -1043,6 +923,7 @@ HEADLINE_METRIC_WORSE_IF_HIGHER = {
 
 
 def _median(values: list[float]) -> float | None:
+    """Compute the median of a list of floats, or None if empty."""
     if not values:
         return None
     s = sorted(values)
@@ -1058,29 +939,14 @@ def unmatched_sensitivity_analysis(
     display_by_key: dict[str, RepoEntry],
     metrics: list[str],
 ) -> dict[str, Any]:
-    """Best-case / worst-case bound on the median matched-pair difference if
-    the currently-unmatched dataset repos (no assigned controls in `assigned`)
-    HAD been matched. Never hardcodes which repos are unmatched or how many
-    -- both are derived from `assigned` itself, so this automatically tracks
-    whichever repos actually have zero selected controls at the k this was
-    called with, not a fixed count from any one run.
-
-    For each unmatched repo, "best-matched-control outcome" / "worst-
-    matched-control outcome" is the most/least favorable value actually
-    observed among the SELECTED controls of OTHER (matched) repos in the same
-    category (falling back to the full dataset's selected-control pool if no
-    matched peer exists in that repo's own category, flagged per-row via
-    used_category_pool=False) -- not a synthetic or extrapolated value, an
-    empirically observed one. "Most favorable" accounts for metric direction
-    (HEADLINE_METRIC_WORSE_IF_HIGHER): e.g. for vuln_count (higher=worse),
-    the best-case control is the highest-vuln one actually matched in-
-    category (so the imputed repo looks as good as an already-real
-    comparison allows), the worst-case control is the lowest-vuln one.
-
-    "direction_robust" is True when the best-case and worst-case medians
-    both keep the SAME sign as the observed (real, non-imputed) median (0 =
-    inconclusive, never counted as robust).
-    """
+    """Best-case/worst-case bound on the median matched-pair difference if
+    currently-unmatched dataset repos (derived from `assigned`) had been
+    matched, imputed from the most/least favorable *observed* outcome among
+    other matched repos' selected controls in the same category (falling
+    back to the full pool, flagged via used_category_pool=False). Accounts
+    for metric direction via HEADLINE_METRIC_WORSE_IF_HIGHER.
+    "direction_robust" is True only when both bounds keep the observed
+    median's sign."""
     matched_keys = [dk for dk in dataset_keys if assigned.get(dk)]
     unmatched_keys = [dk for dk in dataset_keys if not assigned.get(dk)]
 
@@ -1133,6 +999,7 @@ def unmatched_sensitivity_analysis(
         per_repo.append(row)
 
     def _sign(x: float | None) -> int:
+        """Return the sign of x as -1/0/1, treating None as 0."""
         if x is None:
             return 0
         return 1 if x > 0 else (-1 if x < 0 else 0)
@@ -1177,42 +1044,14 @@ def regression_adjusted_estimate(
     control_covariates: dict[str, dict[str, Any]],
     metrics: list[str],
 ) -> dict[str, Any]:
-    """Regression-adjusted matching estimate: on the matched sample (every
-    treated repo with >=1 selected control, plus every distinct control
-    actually selected by any of them -- the same "after matching" set
-    compute_balance()'s "after" side uses), fit outcome ~ treatment +
-    log_stars + log_forks via OLS (pipeline.stats._ols_fit, HC3 robust SE)
-    for each headline metric, adjusting for the two covariates that remain
-    imbalanced even after matching (see REGRESSION_ADJUSTMENT_COVARIATES).
-
-    Compares two estimates of the same quantity:
-      - matching_only: the simple (unadjusted) mean of each treated repo's
-        matched-pair difference -- meaned rather than medianed so it's
-        directly comparable to the regression coefficient (also a
-        mean-scale estimate; the Outcome Effects table's own "Median Δ" is
-        deliberately not used for this comparison, since a median isn't the
-        quantity a linear regression coefficient estimates).
-      - matching_plus_regression: the OLS coefficient on the treatment
-        indicator, which nets out any remaining linear association between
-        treatment and log_stars/log_forks within the matched sample.
-
-    Two derived columns replace a single "are these consistent" judgment
-    call, because collapsing "same sign" and "both significant" into one
-    CI-overlap check conflates two different questions -- a sign flip
-    between two individually-insignificant estimates can still pass a
-    CI-overlap test (both CIs are wide and cross zero, so each contains the
-    other's point estimate) and would misleadingly read as "consistent" even
-    though the two methods disagree about which direction the effect points:
-      - "same_direction": True when matching_only_mean and the regression
-        treatment coefficient have the same sign (None if either is exactly
-        zero, where sign comparison is undefined).
-      - "significant_both": True when the matching-only estimate's bootstrap
-        CI excludes zero AND the regression coefficient's p-value is < 0.05
-        -- i.e. both methods independently reject the null, not just one.
-        This is a plain per-metric threshold, not FDR-corrected across
-        metrics: this table is a robustness diagnostic on the primary
-        FDR-corrected estimate above, not itself a primary inferential claim.
-    """
+    """Regression-adjusted matching estimate: on the matched sample, fit
+    outcome ~ treatment + log_stars + log_forks via OLS (HC3 robust SE) per
+    headline metric, adjusting for covariates that remain imbalanced after
+    matching. Compares matching_only (mean unadjusted pair difference) vs.
+    matching_plus_regression (the OLS treatment coefficient), reporting
+    "same_direction" (do the two signs agree) and "significant_both" (do
+    both independently reject the null) as separate checks, since a
+    CI-overlap test alone can mask a sign disagreement."""
     treated_keys = [dk for dk, ctrls in assigned.items() if ctrls]
     distinct_controls = sorted({c for ctrls in assigned.values() for c in ctrls})
 

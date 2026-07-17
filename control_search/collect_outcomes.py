@@ -40,6 +40,9 @@ RAW_SCORECARD_DIR = _THIS_DIR / "raw" / "scorecard"
 
 @contextmanager
 def _redirect_scorecard_cache():
+    """Temporarily point config.RAW_SCORECARD_DIR at this module's own raw/scorecard
+    dir so control-pool Scorecard runs don't mix with the main pipeline's cache.
+    """
     original = config.RAW_SCORECARD_DIR
     config.RAW_SCORECARD_DIR = RAW_SCORECARD_DIR
     try:
@@ -95,6 +98,8 @@ def build_kev_exploitable_counts(dep_report: dict[str, Any]) -> dict[str, int]:
 
 
 def _check_score(checks: dict, name: str) -> float | None:
+    """Extract the numeric score for one named Scorecard check, or None if
+    the check is missing or scored -1 (Scorecard's "not applicable")."""
     entry = checks.get(name) if isinstance(checks, dict) else None
     if not isinstance(entry, dict):
         return None
@@ -102,7 +107,7 @@ def _check_score(checks: dict, name: str) -> float | None:
     if score is None:
         return None
     s = int(score)
-    return float(s) if s >= 0 else None
+    return float(s) if s >= 0 else None  # Scorecard uses -1 for not-applicable checks
 
 
 def _dep_vuln_outcomes(dep_row: dict[str, Any]) -> tuple[float | None, float | None]:
